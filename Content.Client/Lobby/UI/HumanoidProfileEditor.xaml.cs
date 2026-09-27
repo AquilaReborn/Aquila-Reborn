@@ -1036,7 +1036,7 @@ namespace Content.Client.Lobby.UI
                         {
                             new Label
                             {
-                                Text = Loc.GetString(settingName),
+                                Text = settingName, // Aquila Fix
                                 Margin = new Thickness(0, 12, 0, 0),
                                 FontColorOverride = Color.Red,
                                 StyleClasses = { StyleClass.LabelHeading }
@@ -1090,7 +1090,7 @@ namespace Content.Client.Lobby.UI
                     });
 
                     _jobCategories[department.ID] = category;
-                    
+
                     _settingCategories[department.Setting].AddChild(category);
                 }
 

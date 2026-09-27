@@ -1,0 +1,11 @@
+- type: entity
+  parent: BaseAction
+  id: ActionToggleClothingVisibility
+  name: Скрыть/показать одежду
+  description: Скрывает эту вещь под внутренним слоем одежды, не снимая её.
+  components:
+  - type: Action
+    icon: Interface/VerbIcons/eject.svg.192dpi.png
+    checkCanInteract: false
+  - type: InstantAction
+    event: !type:ToggleClothingVisibilityEvent
