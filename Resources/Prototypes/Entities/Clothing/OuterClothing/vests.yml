@@ -166,6 +166,7 @@
     tags:
     - HiViz
     - WhitelistChameleon
+  - type: HideableClothing # Aquila
 
 #(Bartender) vest
 - type: entity
