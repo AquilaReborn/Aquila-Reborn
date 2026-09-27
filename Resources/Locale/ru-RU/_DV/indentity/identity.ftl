@@ -1,6 +1,6 @@
 identity-blocker-examine =
-    This item covers your {$coverage ->
-    [1] mouth.
-    [2] eyes.
-    *[other] whole face.
+    Этот предмет закрывает {$coverage ->
+    [1] рот.
+    [2] глаза.
+    *[other] всё лицо.
 }
