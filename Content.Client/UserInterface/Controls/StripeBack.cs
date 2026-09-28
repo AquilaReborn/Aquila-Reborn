@@ -17,6 +17,7 @@ namespace Content.Client.UserInterface.Controls
         private bool _hasMargins = true;
 
         public const string StylePropertyBackground = "background";
+        public const string StylePropertyBorderColor = "border_color";
 
         public bool HasTopEdge
         {
@@ -105,14 +106,14 @@ namespace Content.Client.UserInterface.Controls
             if (HasTopEdge)
             {
                 centerBox += (0, (padSize + EdgeSize) * UIScale, 0, 0);
-                handle.DrawRect(new UIBox2(0, padSize * UIScale, PixelWidth, centerBox.Top), EdgeColor);
+                handle.DrawRect(new UIBox2(0, padSize * UIScale, PixelWidth, centerBox.Top), GetActualBorderColor());
             }
 
             if (HasBottomEdge)
             {
                 centerBox += (0, 0, 0, -((padSize + EdgeSize) * UIScale));
                 handle.DrawRect(new UIBox2(0, centerBox.Bottom, PixelWidth, PixelHeight - padSize * UIScale),
-                    EdgeColor);
+                    GetActualBorderColor());
             }
 
             GetActualStyleBox()?.Draw(handle, centerBox, UIScale);
@@ -121,6 +122,16 @@ namespace Content.Client.UserInterface.Controls
         private StyleBox? GetActualStyleBox()
         {
             return TryGetStyleProperty(StylePropertyBackground, out StyleBox? box) ? box : null;
+        }
+
+        private Color GetActualBorderColor()
+        {
+                if (TryGetStyleProperty<Color>(StylePropertyBorderColor, out var color))
+                {
+                    return color;
+                }
+
+                return EdgeColor;
         }
     }
 }

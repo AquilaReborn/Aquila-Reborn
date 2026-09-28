@@ -5,12 +5,13 @@ SPDX-License-Identifier: AGPL-3.0-or-later
  <cartridges:LogProbeUiFragment xmlns="https://spacestation14.io"
                                 xmlns:cartridges="clr-namespace:Content.Client.CartridgeLoader.Cartridges"
                                 xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                                xmlns:sys="clr-namespace:System;assembly=System.Runtime"
                                 Orientation="Vertical"
                                 VerticalExpand="True">
     <PanelContainer>
         <PanelContainer.PanelOverride>
-            <gfx:StyleBoxFlat BackgroundColor="#000000FF"
-                              BorderColor="#5a5a5a"
+            <gfx:StyleBoxFlat BackgroundColor="#006800"
+                              BorderColor="#002600"
                               BorderThickness="0 0 0 1"/>
         </PanelContainer.PanelOverride>
         <BoxContainer Orientation="Vertical" Margin="4 8">
@@ -43,7 +44,12 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         <BoxContainer Orientation="Vertical" Name="ProbedDeviceContainer"/>
     </ScrollContainer>
     <BoxContainer Orientation="Horizontal" Margin="4 8">
-        <Button Name="PrintButton" HorizontalAlignment="Left" Text="{Loc 'log-probe-print-button'}" Disabled="True"/>
+        <Button Name="PrintButton" HorizontalAlignment="Left" Text="{Loc 'log-probe-print-button'}" Disabled="True">
+            <Button.StyleClasses>
+                <sys:String>ButtonBig</sys:String>
+                <sys:String>GreenPDAPalette</sys:String>
+            </Button.StyleClasses>
+        </Button>
         <BoxContainer HorizontalExpand="True"/>
         <Label Name="EntityName" Align="Right"/>
     </BoxContainer>

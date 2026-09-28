@@ -12,15 +12,15 @@ public sealed partial class PdaSettingsButton : ContainerButton
 {
     public const string StylePropertyFgColor = "foregroundColor";
     public const string StylePropertyBgColor = "backgroundColor";
-    public const string NormalBgColor = "#313138";
-    public const string HoverColor = "#3E6C45";
-    public const string PressedColor = "#3E6C45";
-    public const string DisabledFgColor = "#5a5a5a";
-    public const string EnabledFgColor = "#FFFFFF";
+    public const string NormalBgColor = "#003300";
+    public const string HoverColor = "#002600";
+    public const string PressedColor = "#002600";
+    public const string DisabledFgColor = "#000000";
+    public const string EnabledFgColor = "#006800";
 
     private readonly StyleBoxFlat _styleBox = new()
     {
-        BackgroundColor = Color.FromHex("#25252a")
+        BackgroundColor = Color.FromHex("#003300")
     };
 
     public string? Text

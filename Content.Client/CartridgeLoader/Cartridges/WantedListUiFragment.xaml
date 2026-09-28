@@ -9,7 +9,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         VerticalExpand="True"
         HorizontalExpand="True">
 
-    <LineEdit Name="SearchBar" PlaceHolder="{Loc 'wanted-list-search-placeholder'}"/>
+    <LineEdit Name="SearchBar" PlaceHolder="{Loc 'wanted-list-search-placeholder'}" StyleClasses = "GreenLineEdit"/>
 
     <BoxContainer Name="MainContainer" Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True">
         <Label Name="NoRecords" Text="{Loc 'wanted-list-label-no-records'}" Align="Center" VAlign="Center" HorizontalExpand="True" FontColorOverride="DarkGray"/>
