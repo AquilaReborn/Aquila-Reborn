@@ -1,0 +1,44 @@
+- type: entity
+  parent: ClothingMaskBase
+  id: ClothingMaskClownBarotrauma
+  name: Face of the Honkomother
+  description: "A crimson mask with fine black cracks, frozen in a sly, almost ordinary smile. Play your part, jester, but remember: behind this simple, clownish face lies the terrifying will of the Goddess, awaiting its moment."
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/Mask/clown-barotrauma.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Mask/clown-barotrauma.rsi
+  - type: BreathMask
+
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingShoesClownBarotrauma
+  name: The Honkomother's Step
+  description: "Crimson boots with golden straps. Tread softly, artist, but let every step leave a hidden sense of unease in the audience, as if the Goddess herself were stalking them."
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/Shoes/clown-barotrauma.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Shoes/clown-barotrauma.rsi
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandClownBarotrauma
+  name: Hand of the Honkomother
+  description: "Crimson gloves with golden patterns make the jester's hand movements frighteningly graceful. Entice the audience with your gestures, artist, but remember: behind this grace lies the Goddess's death grip, ready to close on the victim's throat."
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/Hands/clown-barotrauma.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Hands/clown-barotrauma.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitClownBarotrauma
+  name: Providence of the Honkomother
+  description: "A crimson jester's robe, embellished with gold. Dance and clown, artist, but remember: this costume is not just an outfit, but the embodiment of the will of your Goddess, who will direct your movements to where tragedy is destined to occur."
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/Uniforms/clown-barotrauma.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Uniforms/clown-barotrauma.rsi

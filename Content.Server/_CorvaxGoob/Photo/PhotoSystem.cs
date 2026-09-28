@@ -102,7 +102,8 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
 
     private bool TryTakeImage(EntityUid uid, PhotoCameraComponent component, EntityUid actor, byte[] imageData)
     {
-        if (_photoTimeRequiredEnabled)
+        // Aquila Start
+        /*if (_photoTimeRequiredEnabled)
         {
             if (!_player.TryGetSessionByEntity(actor, out var session))
                 return false;
@@ -113,7 +114,8 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
                 _popup.PopupEntity(Loc.GetString("photo-camera-not-enough-playtime"), actor, session);
                 return false;
             }
-        }
+        }*/
+        // Aquila End
 
         if (_delay.IsDelayed(uid))
             return false;
