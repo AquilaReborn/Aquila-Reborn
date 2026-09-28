@@ -20,6 +20,13 @@ public sealed class CCCVars
         CVarDef.Create("game.station_goal", true, CVar.SERVERONLY);
 
     /// <summary>
+    /// Whether the Corvax server list is shown in the lobby.
+    /// Disabled by default so downstream forks opt in explicitly.
+    /// </summary>
+    public static readonly CVarDef<bool> LobbyServerHubEnabled =
+        CVarDef.Create("lobby.server_hub_enabled", false, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
     /// Deny any VPN connections.
     /// </summary>
     public static readonly CVarDef<bool> PanicBunkerDenyVPN =
@@ -151,4 +158,22 @@ public sealed class CCCVars
 
     public static readonly CVarDef<float> PhotoPlayTimeHours =
         CVarDef.Create("photo.playtime_require_time", 20f, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     Установить режим возвраждения.
+    /// </summary>
+    public static readonly CVarDef<bool> GhostGoLobbyEnabled =
+        CVarDef.Create("ghost.go_lobby.enabled", false, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    ///     Лимит по общему количеству наигранного времени для возвраждения.
+    /// </summary>
+    public static readonly CVarDef<float> GhostGoLobbyTimeHours =
+        CVarDef.Create("ghost.go_lobby.require_time", 25f, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     Длительность до возможность возврадиться.
+    /// </summary>
+    public static readonly CVarDef<float> GhostGoLobbyDeathTimeMinutes =
+        CVarDef.Create("ghost.go_lobby.death_time", 15f, CVar.SERVERONLY);
 }

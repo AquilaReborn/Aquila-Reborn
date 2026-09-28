@@ -233,3 +233,5 @@ preload = false
 
 [netres]
 limit = 10.0
+[ghost.go_lobby]
+enabled = true
