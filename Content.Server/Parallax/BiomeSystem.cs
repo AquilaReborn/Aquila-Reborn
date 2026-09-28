@@ -55,6 +55,7 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
     private EntityQuery<FixturesComponent> _fixturesQuery;
     private EntityQuery<GhostComponent> _ghostQuery;
     private EntityQuery<TransformComponent> _xformQuery;
+    private EntityQuery<_Lavaland.Biome.BiomeOptimizeComponent> _optimizeQuery; // Aquila Change
 
     private readonly HashSet<EntityUid> _handledEntities = new();
     private const float DefaultLoadRange = 16f;
@@ -87,6 +88,7 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
         _fixturesQuery = GetEntityQuery<FixturesComponent>();
         _ghostQuery = GetEntityQuery<GhostComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();
+        _optimizeQuery = GetEntityQuery<_Lavaland.Biome.BiomeOptimizeComponent>(); // Aquila Change
         SubscribeLocalEvent<BiomeComponent, MapInitEvent>(OnBiomeMapInit);
         SubscribeLocalEvent<FTLStartedEvent>(OnFTLStarted);
         SubscribeLocalEvent<ShuttleFlattenEvent>(OnShuttleFlatten);
@@ -449,16 +451,12 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
         BuildMarkerChunks(component, gridUid, grid, seed);
 
         var active = _activeChunks[component];
+        _optimizeQuery.TryComp(gridUid, out var optimize); // Aquila Change
 
         foreach (var chunk in active)
         {
-            // Lavaland Change start: optimization real
-            var ev = new _Lavaland.Procedural.BeforeLoadChunkEvent(chunk);
-            RaiseLocalEvent(gridUid, ref ev);
-
-            if (ev.Cancelled)
+            if (optimize != null && !optimize.LoadArea.Contains(chunk)) // Aquila Change
                 continue;
-            // Lavaland Change end
 
             LoadChunkMarkers(component, gridUid, grid, chunk, seed);
 
@@ -893,19 +891,16 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
     /// </summary>
     private void UnloadChunks(BiomeComponent component, EntityUid gridUid, MapGridComponent grid, int seed)
     {
+        // Aquila Change start
+        if (_optimizeQuery.HasComp(gridUid))
+            return;
+        // Aquila Change end
+
         var active = _activeChunks[component];
         List<(Vector2i, Tile)>? tiles = null;
 
         foreach (var chunk in component.LoadedChunks)
         {
-            // Lavaland Change start: optimization real
-            var ev = new _Lavaland.Procedural.UnLoadChunkEvent(chunk);
-            RaiseLocalEvent(gridUid, ref ev);
-
-            if (ev.Cancelled)
-                continue;
-            // Lavaland Change end
-
             if (active.Contains(chunk) || !component.LoadedChunks.Remove(chunk))
                 continue;
 

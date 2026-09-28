@@ -7,6 +7,7 @@ using Content.Server.Destructible;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Tag;
@@ -26,6 +27,7 @@ public sealed class StorageArmorPlateSystem : EntitySystem
     [Dependency] private readonly DestructibleSystem _destructible = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
 
     private static VerbCategory? _defaultRemovePlateCategory;
 
@@ -223,6 +225,7 @@ public sealed class StorageArmorPlateSystem : EntitySystem
             return;
 
         _transform.SetCoordinates(plateUid, Transform(user).Coordinates);
+        _hands.PickupOrDrop(user, plateUid);
         _audio.PlayPvs(ent.Comp.PlateSound, ent);
     }
 
