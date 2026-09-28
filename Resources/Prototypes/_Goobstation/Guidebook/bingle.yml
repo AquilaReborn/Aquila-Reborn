@@ -2,5 +2,5 @@
 
 - type: guideEntry
   id: Bingle
-  name: "Бингл" # Corvax-Goob-Locale
+  name: guide-entry-bingle # Aquila Change
   text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/Bingle.xml"

@@ -103,3 +103,14 @@ guide-entry-sop-janitor = Janitor
 guide-entry-sop-librarian = Librarian
 guide-entry-sop-mime = Mime
 guide-entry-sop-reporter = Reporter
+
+guide-entry-bingle = Bingle
+guide-entry-changeling-abilities = Changeling Abilities
+guide-entry-corporate-agents = Corporate Agents
+guide-entry-devil = Devil
+guide-entry-devil-clauses = Devil Clauses
+guide-entry-antag-revealing-conditions = Antag Revealing Conditions
+guide-entry-xenobiology = Xenobiology
+guide-entry-slasher = Slasher
+guide-entry-slaughter-demon = Slaughter Demon
+# Aquila Change

@@ -1,4 +1,4 @@
 - type: guideEntry
   id: Xenobiology
-  name: "Xenobiology"
+  name: guide-entry-xenobiology # Aquila Change
   text: "/ServerInfo/_Goobstation/Guidebook/Science/Xenobiology.xml"

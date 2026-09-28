@@ -101,3 +101,14 @@ guide-entry-sop-janitor = Уборщик
 guide-entry-sop-librarian = Библиотекарь
 guide-entry-sop-mime = Мим
 guide-entry-sop-reporter = Репортёр
+
+guide-entry-bingle = Бингл
+guide-entry-changeling-abilities = Способности
+guide-entry-corporate-agents = Корпоративный агент
+guide-entry-devil = Дьявол
+guide-entry-devil-clauses = Пункты соглашений
+guide-entry-antag-revealing-conditions = Раскрытие антагонистов
+guide-entry-xenobiology = Ксенобиология
+guide-entry-slasher = Мясник
+guide-entry-slaughter-demon = Демон резни
+# Aquila Change

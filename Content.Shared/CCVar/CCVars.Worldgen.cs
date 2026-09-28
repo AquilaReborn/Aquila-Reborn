@@ -17,4 +17,9 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<string> WorldgenConfig =
         CVarDef.Create("worldgen.worldgen_config", "Default", CVar.SERVERONLY);
+
+    // Aquila Change start
+    public static readonly CVarDef<float> WorldgenChunkLoadBudget =
+        CVarDef.Create("worldgen.chunk_load_budget_ms", 4f, CVar.SERVERONLY);
+    // Aquila Change end
 }

@@ -3,5 +3,5 @@
 
 - type: guideEntry
   id: CorporateAgents
-  name: "Корпоративный агент" # Corvax-Goob-Locale
+  name: guide-entry-corporate-agents # Aquila Change
   text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/CorporateAgent.xml"

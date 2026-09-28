@@ -2,10 +2,12 @@
 
 using System.Linq;
 using Content.Server.Worldgen.Components;
+using Content.Shared.CCVar; // Aquila Change
 using Content.Shared.Ghost;
 using Content.Shared.Mind.Components;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
+using Robust.Shared.Configuration; // Aquila Change
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
 
@@ -20,15 +22,23 @@ public sealed class WorldControllerSystem : EntitySystem
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // Aquila Change
 
     private const int PlayerLoadRadius = 2;
 
     private ISawmill _sawmill = default!;
 
+    // Aquila Change start
+    private float _loadBudget;
+
+    private readonly List<(EntityUid Map, Vector2i Chunk, List<EntityUid> Loaders, int Priority)> _pendingChunks = new();
+    // Aquila Change end
+
     /// <inheritdoc />
     public override void Initialize()
     {
         _sawmill = _logManager.GetSawmill("world");
+        Subs.CVar(_cfg, CCVars.WorldgenChunkLoadBudget, value => _loadBudget = value, true); // Aquila Change
         SubscribeLocalEvent<LoadedChunkComponent, ComponentStartup>(OnChunkLoadedCore);
         SubscribeLocalEvent<LoadedChunkComponent, ComponentShutdown>(OnChunkUnloadedCore);
         SubscribeLocalEvent<WorldChunkComponent, ComponentShutdown>(OnChunkShutdown);
@@ -88,11 +98,13 @@ public sealed class WorldControllerSystem : EntitySystem
     {
         //there was a to-do here about every frame alloc but it turns out it's a nothing burger here.
         var chunksToLoad = new Dictionary<EntityUid, Dictionary<Vector2i, List<EntityUid>>>();
+        var chunkPriority = new Dictionary<EntityUid, Dictionary<Vector2i, int>>(); // Aquila Change
 
         var controllerEnum = EntityQueryEnumerator<WorldControllerComponent>();
         while (controllerEnum.MoveNext(out var uid, out _))
         {
             chunksToLoad[uid] = new Dictionary<Vector2i, List<EntityUid>>();
+            chunkPriority[uid] = new Dictionary<Vector2i, int>(); // Aquila Change
         }
 
         if (chunksToLoad.Count == 0)
@@ -111,16 +123,19 @@ public sealed class WorldControllerSystem : EntitySystem
 
             var wc = _xformSys.GetWorldPosition(xform);
             var coords = WorldGen.WorldToChunkCoords(wc);
-            var chunks = new GridPointsNearEnumerator(coords.Floored(),
+            var center = coords.Floored(); // Aquila Change
+            var chunks = new GridPointsNearEnumerator(center, // Aquila Change
                 (int) Math.Ceiling(worldLoader.Radius / (float) WorldGen.ChunkSize) + 1);
 
             var set = chunksToLoad[map];
+            var priorities = chunkPriority[map]; // Aquila Change
 
             while (chunks.MoveNext(out var chunk))
             {
-                if (!set.TryGetValue(chunk.Value, out _))
-                    set[chunk.Value] = new List<EntityUid>(4);
-                set[chunk.Value].Add(uid);
+                // Aquila Change start
+                var delta = chunk.Value - center;
+                AddLoader(set, priorities, chunk.Value, uid, delta.X * delta.X + delta.Y * delta.Y);
+                // Aquila Change end
             }
         }
 
@@ -146,12 +161,11 @@ public sealed class WorldControllerSystem : EntitySystem
             var chunks = new GridPointsNearEnumerator(coords.Floored(), PlayerLoadRadius);
 
             var set = chunksToLoad[map];
+            var priorities = chunkPriority[map]; // Aquila Change
 
             while (chunks.MoveNext(out var chunk))
             {
-                if (!set.TryGetValue(chunk.Value, out _))
-                    set[chunk.Value] = new List<EntityUid>(4);
-                set[chunk.Value].Add(uid);
+                AddLoader(set, priorities, chunk.Value, uid, -1); // Aquila Change
             }
         }
 
@@ -180,30 +194,84 @@ public sealed class WorldControllerSystem : EntitySystem
         var count = 0;
         var loadedQuery = GetEntityQuery<LoadedChunkComponent>();
         var controllerQuery = GetEntityQuery<WorldControllerComponent>();
+
+        // Aquila Change start
+        _pendingChunks.Clear();
         foreach (var (map, chunks) in chunksToLoad)
         {
             var controller = controllerQuery.GetComponent(map);
+            var priorities = chunkPriority[map];
             foreach (var (chunk, loaders) in chunks)
             {
-                var ent = GetOrCreateChunk(chunk, map, controller); // Ensure everything loads.
-                LoadedChunkComponent? c = null;
-                if (ent is not null && !loadedQuery.TryGetComponent(ent.Value, out c))
+                if (controller.Chunks.TryGetValue(chunk, out var existing)
+                    && loadedQuery.TryGetComponent(existing, out var loaded))
                 {
-                    c = AddComp<LoadedChunkComponent>(ent.Value);
-                    count += 1;
+                    loaded.Loaders = loaders;
+                    continue;
                 }
 
-                if (c is not null)
-                    c.Loaders = loaders;
+                _pendingChunks.Add((map, chunk, loaders, priorities[chunk]));
             }
+        }
+
+        if (_pendingChunks.Count == 0)
+            return;
+
+        _pendingChunks.Sort(static (a, b) => a.Priority.CompareTo(b.Priority));
+        var budget = _loadBudget > 0 ? TimeSpan.FromMilliseconds(_loadBudget) : TimeSpan.MaxValue;
+
+        foreach (var (map, chunk, loaders, priority) in _pendingChunks)
+        {
+            if (priority >= 0 && _gameTiming.RealTime - startTime > budget)
+                break;
+
+            var controller = controllerQuery.GetComponent(map);
+            var ent = GetOrCreateChunk(chunk, map, controller); // Ensure everything loads.
+            if (ent is null)
+                continue;
+
+            if (!loadedQuery.TryGetComponent(ent.Value, out var c))
+            {
+                c = AddComp<LoadedChunkComponent>(ent.Value);
+                count += 1;
+            }
+
+            c.Loaders = loaders;
         }
 
         if (count > 0)
         {
             var timeSpan = _gameTiming.RealTime - startTime;
-            _sawmill.Debug($"Loaded {count} chunks in {timeSpan.TotalMilliseconds:N2}ms.");
+            var remaining = _pendingChunks.Count - count;
+            _sawmill.Debug(remaining > 0
+                ? $"Loaded {count} chunks in {timeSpan.TotalMilliseconds:N2}ms, {remaining} left for the next ticks."
+                : $"Loaded {count} chunks in {timeSpan.TotalMilliseconds:N2}ms.");
         }
+        // Aquila Change end
     }
+
+    // Aquila Change start
+    private static void AddLoader(
+        Dictionary<Vector2i, List<EntityUid>> set,
+        Dictionary<Vector2i, int> priorities,
+        Vector2i chunk,
+        EntityUid loader,
+        int priority)
+    {
+        if (!set.TryGetValue(chunk, out var loaders))
+        {
+            loaders = new List<EntityUid>(4);
+            set[chunk] = loaders;
+            priorities[chunk] = priority;
+        }
+        else if (priority < priorities[chunk])
+        {
+            priorities[chunk] = priority;
+        }
+
+        loaders.Add(loader);
+    }
+    // Aquila Change end
 
     /// <summary>
     ///     Attempts to get a chunk, creating it if it doesn't exist.
