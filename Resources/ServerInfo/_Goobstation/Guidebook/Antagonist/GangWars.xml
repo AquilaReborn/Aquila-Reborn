@@ -1,154 +1,155 @@
+<!-- Aquila Change -->
 <Document>
-# Gang Wars
+# Войны банд
 
-HEAVILY IN DEV, EXPECT SIGNFICANT CHANGES
+РЕЖИМ АКТИВНО РАЗРАБАТЫВАЕТСЯ, ОЖИДАЙТЕ СЕРЬЁЗНЫХ ИЗМЕНЕНИЙ
 
-[color=#e8a020]Your bosses are not happy. Your recent failures have put you on thin ice, and patience is running out. This is your last chance to prove your worth. Fail again and there won't be another.[/color]
+[color=#e8a020]Ваше начальство недовольно. Из-за последних провалов вы ходите по тонкому льду, и терпение на исходе. Это ваш последний шанс доказать, чего вы стоите. Провалитесь снова — и другого уже не будет.[/color]
 
-Hit the station hard. Recruit whoever you can, claim every corner you're able to, and make it clear who runs this place. Don't get comfortable, though. Word is, rival gangs are already moving in with the same idea.
+Ударьте по станции как следует. Вербуйте кого только сможете, захватывайте каждый угол и дайте всем понять, кто здесь главный. Но не расслабляйтесь: говорят, банды-соперники уже движутся сюда с той же целью.
 
-Gang Wars is a competitive antag vs antag gamemode. Generally the crew won't be a target. Two to four [bold]Gang Leaders[/bold] spawn from among the existing crew, each builds a crew of their own, and they fight to top the leaderboard by claiming turf and racking up points before the round ends.
-
-<Box>
-  <GuideEntityEmbed Entity="GangLocker" Caption="Gang Locker"/>
-  <GuideEntityEmbed Entity="GangSprayCan" Caption="Spray Can"/>
-  <GuideEntityEmbed Entity="CrateGang" Caption="Gang Crate"/>
-</Box>
-
-## Who Becomes a Gang Leader
-Gang Leaders are picked roundstart and requires some Command-department playtime to unlock.
-
-Most senior command roles are blocked, but the [bold]Quartermaster[/bold], the Detective, and ordinary crew are all fair game.
-
-## Creating Your Gang
-Everything starts from your [bold]Summon Gang Locker[/bold] action.
-
-  1. Use the action. The first time, a window opens asking you to pick a [bold]color[/bold] and a [bold]name[/bold] for your gang.
-  
-  2. You cannot pick a color or name that is too close to a rival's.
-  
-  3. Confirm, and a drop pod delivers your [bold]Gang Locker[/bold] to your feet.
-
-You cannot drop the locker too close to an existing territory.
+Войны банд — соревновательный режим «антагонисты против антагонистов». Как правило, экипаж не является целью. Из числа экипажа появляются от двух до четырёх [bold]лидеров банд[/bold]. Каждый собирает свою команду, и все они борются за первое место в таблице, захватывая территорию и набирая очки до конца раунда.
 
 <Box>
-  <GuideEntityEmbed Entity="GangLocker" Caption="Gang Locker"/>
+  <GuideEntityEmbed Entity="GangLocker" Caption="Шкафчик банды"/>
+  <GuideEntityEmbed Entity="GangSprayCan" Caption="Баллончик"/>
+  <GuideEntityEmbed Entity="CrateGang" Caption="Ящик банды"/>
 </Box>
 
-The locker is the heart of your gang. It:
-  - Acts as your [bold]store[/bold] (see below).
-  - Grants [bold]boosted healing[/bold] to your members standing near it.
-  - Shows the [bold]leaderboard[/bold] when examined.
+## Кто становится лидером банды
+Лидеры банд выбираются в начале раунда. Для открытия роли нужно наиграть время в командном отделе.
 
-After a long enough time inactive it will become invisible, but interacting with the spot it's located will make it appear again.
+Большинство высших командных должностей недоступны, но [bold]квартирмейстер[/bold], детектив и обычный экипаж могут стать лидерами.
 
-## The Store
-Walk up to your locker and interact with it to open the [bold]Gang Store[/bold]. The store spends [bold]Gang Points[/bold].
+## Создание банды
+Всё начинается с действия [bold]«Призвать шкафчик банды»[/bold].
 
-[bold]Important:[/bold] the store balance is your [italic]personal[/italic] point wallet, and every member's points also feed the gang's leaderboard score. Spending points buys gear but lowers your gang's standing, so weigh every purchase against the scoreboard.
+  1. Используйте действие. В первый раз откроется окно, где нужно выбрать [bold]цвет[/bold] и [bold]название[/bold] банды.
 
-### Starter Equipment
-  - [bold]Beginner Bundle[/bold] - [color=#90ee90]Free[/color] (one per member). A duffel packed with everything an aspiring gangster needs: 5 spray cans, a gang headset (preloaded with a gang encryption key), a full set of gang clothing, and a random flashy top hat.
+  2. Нельзя выбрать цвет или название, слишком похожие на соперничающие.
+
+  3. Подтвердите выбор, и капсула доставит [bold]шкафчик банды[/bold] прямо к вашим ногам.
+
+Шкафчик нельзя поставить слишком близко к уже существующей территории.
 
 <Box>
-  <GuideEntityEmbed Entity="GangBeginnerBundle" Caption="Beginner Bundle"/>
+  <GuideEntityEmbed Entity="GangLocker" Caption="Шкафчик банды"/>
 </Box>
 
-### Consumables
-  - [bold]Quickhack[/bold] - 800. A covert device that fakes AI "open" signals to open unbolted doors. 5 uses.
-  - [bold]Medkit[/bold] - 800.
-  - [bold]Omnizine[/bold] - 1100. A medipen that quickly heals most damage types.
-  - [bold]Tip Off[/bold] - 8000 (one per member). Schedules an early duffel bag drop. A random civilian gets tipped off about the location via NanoChat and a short head start before it hits the gang radio.
+Шкафчик — сердце вашей банды. Он:
+  - Служит [bold]магазином[/bold] (см. ниже).
+  - Даёт [bold]усиленное лечение[/bold] участникам, стоящим рядом.
+  - Показывает [bold]таблицу банд[/bold] при осмотре.
 
-### Weapons
-  - [bold]Throwing Knife[/bold] - 700.
-  - [bold]Combat Knife[/bold] - 800.
-  - [bold]Baseball Bat[/bold] - 2000.
-  - [bold]Gang Machete[/bold] - 4000. Quite effective at cutting off limbs.
+Если долго им не пользоваться, шкафчик станет невидимым, но взаимодействие с местом, где он стоит, снова его проявит.
 
-### Equipment
-  - [bold]Spray Paint[/bold] - 300. Extra spray cans for claiming turf.
-  - [bold]Gang Clothes Bundle[/bold] - 300. A spare set of gang threads (shoes, jumpsuit, jacket, top hat) for repping your colors.
-  - [bold]Gang Encryption Key[/bold] - 1500. Puts a recruit on the gang radio channel.
-  - [bold]Light Armor Vest[/bold] - 2000.
+## Магазин
+Подойдите к шкафчику и взаимодействуйте с ним, чтобы открыть [bold]магазин банды[/bold]. Покупки оплачиваются [bold]очками банды[/bold].
+
+[bold]Важно:[/bold] баланс магазина — это ваш [italic]личный[/italic] кошелёк очков, а очки каждого участника также идут в счёт банды в таблице. Тратя очки, вы получаете снаряжение, но опускаете банду в таблице, поэтому взвешивайте каждую покупку.
+
+### Стартовое снаряжение
+  - [bold]Набор новичка[/bold] — [color=#90ee90]бесплатно[/color] (один на участника). Сумка со всем, что нужно начинающему бандиту: 5 баллончиков, гарнитура банды (с уже установленным ключом шифрования банды), полный комплект одежды банды и случайный яркий цилиндр.
 
 <Box>
-  <GuideEntityEmbed Entity="GangMachete" Caption="Gang Machete"/>
-  <GuideEntityEmbed Entity="Quickhack" Caption="Quickhack"/>
-  <GuideEntityEmbed Entity="EncryptionKeyGang" Caption="Gang Encryption Key"/>
+  <GuideEntityEmbed Entity="GangBeginnerBundle" Caption="Набор новичка"/>
 </Box>
 
-## The Gang Radio
-Gangs talk on a dedicated [bold]gang radio channel[/bold] (key [bold]:g[/bold]). The beginner bundle's headset comes tuned to it, and you can buy spare encryption keys incase you lose it.
+### Расходники
+  - [bold]Быстровзлом[/bold] — 800. Скрытное устройство, подделывающее сигнал ИИ «открыть», чтобы открывать незаболтированные двери. 5 использований.
+  - [bold]Аптечка[/bold] — 800.
+  - [bold]Омнизин[/bold] — 1100. Автоинъектор, быстро лечащий большинство типов урона.
+  - [bold]Наводка[/bold] — 8000 (одна на участника). Заказывает досрочный сброс сумки. Случайный гражданский получает наводку о месте через NanoChat и небольшую фору до того, как об этом объявят по каналу банд.
 
-[bold]The channel is shared by every gang on the station.[/bold] There is no private per-gang frequency, so anything you say can be read by your rivals. Watch your mouth, or use it to bluff them.
+### Оружие
+  - [bold]Метательный нож[/bold] — 700.
+  - [bold]Боевой нож[/bold] — 800.
+  - [bold]Бейсбольная бита[/bold] — 2000.
+  - [bold]Мачете банды[/bold] — 4000. Весьма эффективно отрубает конечности.
 
-The radio is also how the [bold]Boss[/bold] reaches everyone. When a crate or duffel bag drops, an announcement from "Boss" hits the gang channel naming the rough location, and every headset on the channel plays a hip-hop beat sting so nobody misses it. Every gang hears the same message at the same time, so a drop is a race.
-
-## Recruiting People
-Once you have established your gang you get a new action that allows you to recruit people.
-
-Use your [bold]Offer Membership[/bold] action on a crewmate to invite them. They get a popup to accept or deny. Accept, and they:
-  - Gain the [bold]Gang Member[/bold] role and your gang's color.
-  - Can use your spray cans, open your store and crates, and benefit from territory.
-  - Start with their own pool of Gang Points that adds to the gang's score.
-
-You can only recruit up to three members, and you cannot poach someone who is already in a gang, so choose your members carefully.
-
-## Claiming Territory
-Territory is how you take ground and earn passive score.
-
-  1. Use a [bold]spray can[/bold] on the floor. After a short do-after, a randomized gang tag in your color appears.
-  
-  2. Each tag projects a [bold]territory[/bold]. You can't spray too close to another tag, so spread them out to cover more ground.
-
-Every tag you place awards you [bold]+100 Gang Points[/bold] on the spot. More importantly, the floor tiles inside your territory count toward your gang's tile score. You can also spray your [bold]gang clothing[/bold] to recolor it into your gang's colors.
-
-Standing in your own territory while wearing the full outfit gives your members super strong perks: reduced stamina damage, extra defense, passive healing, and a chance to stop bleeding. Right next to your locker the healing is even stronger.
-
-## The Leaderboard and Scoring
-[bold]Examine your gang locker[/bold] to see the live leaderboard: every gang ranked by score, with a timer until the next update. Scores recalculate on a regular interval, so the standings lag slightly behind the action.
-
-A gang's total score is:
-
-  [bold]( claimed tiles x 10 ) + ( the Gang Points of every member combined )[/bold]
-
-So you climb the board two ways:
-  - [bold]Claim more turf[/bold] - every floor tile inside your territory is worth points. Overlapping same-color tags don't double-count a tile.
-  - [bold]Bank Gang Points[/bold] - spraying tags, opening crates, and your members' starting balances all add up.
-
-Because spending from the store drains the same points that score you, there is a constant tension between gearing up and staying on top. End the shift in [bold]first place[/bold] to win.
-
-## Fighting Other Gangs
-Rivals are after the exact same tiles, drops, and bragging rights you are.
-
-  - [bold]Smash their tags.[/bold] Gang signs can be destroyed, shrinking enemy territory and your competition's tile score.
-  - [bold]Contest drops.[/bold] Every gang gets the same drop announcement, so expect a brawl over each crate and duffel.
-  - [bold]Watch the radio.[/bold] The channel is shared, so rivals can hear your plans, and you can hear theirs.
-
-The crew and security will not love armed gangs spraying the halls either, so keep an eye over your shoulder.
-
-## Drops: Crates vs. Duffel Bags
-The Boss periodically airdrops loot somewhere on the station and calls it out on the gang radio. There are two kinds, and they behave very differently.
+### Снаряжение
+  - [bold]Баллончик с краской[/bold] — 300. Дополнительные баллончики для захвата территории.
+  - [bold]Набор одежды банды[/bold] — 300. Запасной комплект одежды банды (обувь, комбинезон, куртка, цилиндр), чтобы носить свои цвета.
+  - [bold]Ключ шифрования банды[/bold] — 1500. Подключает новичка к каналу банд.
+  - [bold]Лёгкий бронежилет[/bold] — 2000.
 
 <Box>
-  <GuideEntityEmbed Entity="CrateGang" Caption="Gang Crate"/>
-  <GuideEntityEmbed Entity="GangDuffelBag" Caption="Duffel Bag"/>
+  <GuideEntityEmbed Entity="GangMachete" Caption="Мачете банды"/>
+  <GuideEntityEmbed Entity="Quickhack" Caption="Быстровзлом"/>
+  <GuideEntityEmbed Entity="EncryptionKeyGang" Caption="Ключ шифрования банды"/>
 </Box>
 
-### Gang Crates
-  - [bold]Rarer[/bold] and far more valuable. This is the big prize.
-  - Lands [bold]anchored[/bold] and locked. A light on the crate counts down through stages (full, half, low, blinking) before it finally unlocks with a chime. You have to [bold]wait it out[/bold].
-  - Can only be opened while [bold]next to a gang locker[/bold]. The intended play is to drag the crate back to your base after the timer runs out, then crack it open in safety.
-  - Opening it awards a big chunk of [bold]Gang Points to every member[/bold] of the gang that opens it, on top of the loot inside.
-  - The loot pool is strong, with a real shot at high-end weapons, implants, and large cash.
+## Канал банд
+Банды общаются по отдельному [bold]радиоканалу банд[/bold] (префикс [bold]:g[/bold]). Гарнитура из набора новичка уже настроена на него, а на случай потери можно купить запасные ключи шифрования.
 
-### Duffel Bags
-  - [bold]Far more common[/bold] than crates, but the loot is weaker and high-end items are much rarer.
-  - It's [bold]rigged.[/bold] You must first [bold]disarm the trap[/bold] with a do-after, which leaves you [bold]slowed for a short time[/bold] as a debuff.
-  - Once disarmed it can be dragged and opened, and unlike the crate it can be [bold]opened anywhere[/bold]. You don't need to haul it home.
-  - Grabbing it gives no score bonus on its own. The value is purely whatever gear is inside.
-  - The bought [bold]Tip Off[/bold] purchase spawns an early duffel bag and quietly warns a civilian first, giving someone a head start before the radio call goes out.
+[bold]Канал общий для всех банд на станции.[/bold] Отдельной частоты для каждой банды нет, так что всё, что вы скажете, услышат соперники. Следите за языком — или используйте это, чтобы их обмануть.
 
-[color=#e8a020][bold]Recruit hard, claim every corner, and make it clear who runs this place. Don't get comfortable - the rivals won't.[/bold][/color]
+Через радио до всех доходит и [bold]Босс[/bold]. Когда сбрасывается ящик или сумка, Босс объявляет по каналу банд примерное место, а в каждой гарнитуре на канале играет хип-хоп заставка, чтобы никто не пропустил. Все банды слышат одно и то же сообщение одновременно, так что каждый сброс — это гонка.
+
+## Вербовка
+Когда банда основана, у вас появляется новое действие для вербовки.
+
+Используйте действие [bold]«Завербовать»[/bold] на члене экипажа, чтобы пригласить его. Ему придёт окно с выбором «принять» или «отказаться». Если он согласится, то:
+  - Получит роль [bold]члена банды[/bold] и цвет вашей банды.
+  - Сможет пользоваться вашими баллончиками, магазином и ящиками, а также бонусами территории.
+  - Начнёт с собственным запасом очков банды, который идёт в общий счёт банды.
+
+Завербовать можно не больше трёх участников, а переманить того, кто уже в банде, нельзя. Так что выбирайте тщательно.
+
+## Захват территории
+Территория — это способ занять пространство и пассивно набирать очки.
+
+  1. Используйте [bold]баллончик[/bold] на полу. После короткого действия появится случайный знак банды вашего цвета.
+
+  2. Каждый знак создаёт вокруг себя [bold]территорию[/bold]. Нельзя рисовать слишком близко к другому знаку, так что распределяйте их, чтобы охватить больше места.
+
+Каждый нарисованный знак сразу приносит вам [bold]+100 очков банды[/bold]. Но важнее то, что плитки пола внутри вашей территории идут в счёт плиток банды. Баллончиком также можно перекрасить [bold]одежду банды[/bold] в цвета вашей банды.
+
+Если стоять на своей территории в полном комплекте одежды банды, участники получают очень сильные бонусы: меньше урона выносливости, дополнительную защиту, пассивное лечение и шанс остановить кровотечение. Рядом со шкафчиком лечение ещё сильнее.
+
+## Таблица и подсчёт очков
+[bold]Осмотрите шкафчик банды[/bold], чтобы увидеть текущую таблицу: все банды по очкам и таймер до следующего обновления. Очки пересчитываются через равные промежутки времени, так что таблица немного отстаёт от происходящего.
+
+Итоговый счёт банды:
+
+  [bold]( захваченные плитки x 10 ) + ( сумма очков банды всех участников )[/bold]
+
+Подняться в таблице можно двумя способами:
+  - [bold]Захватывать больше территории[/bold] — каждая плитка пола внутри вашей территории приносит очки. Пересекающиеся знаки одного цвета не засчитывают плитку дважды.
+  - [bold]Копить очки банды[/bold] — знаки, открытые ящики и стартовые балансы участников складываются.
+
+Траты в магазине расходуют те же очки, что приносят счёт, поэтому всегда приходится выбирать между снаряжением и местом в таблице. Чтобы победить, закончите смену на [bold]первом месте[/bold].
+
+## Борьба с другими бандами
+Соперники охотятся за теми же плитками, сбросами и славой, что и вы.
+
+  - [bold]Уничтожайте их знаки.[/bold] Знаки банд можно разрушить, уменьшая вражескую территорию и счёт плиток соперников.
+  - [bold]Боритесь за сбросы.[/bold] Все банды получают одно и то же объявление, так что за каждый ящик и сумку будет драка.
+  - [bold]Слушайте радио.[/bold] Канал общий, так что соперники слышат ваши планы, а вы — их.
+
+Экипажу и службе безопасности тоже вряд ли понравятся вооружённые банды, разрисовывающие коридоры, так что оглядывайтесь.
+
+## Сбросы: ящики и сумки
+Босс периодически сбрасывает добычу где-то на станции и объявляет об этом по каналу банд. Сбросы бывают двух видов, и ведут они себя совсем по-разному.
+
+<Box>
+  <GuideEntityEmbed Entity="CrateGang" Caption="Ящик банды"/>
+  <GuideEntityEmbed Entity="GangDuffelBag" Caption="Сумка"/>
+</Box>
+
+### Ящики банды
+  - [bold]Реже[/bold] и гораздо ценнее. Это главный приз.
+  - Приземляется [bold]закреплённым[/bold] и запертым. Индикатор на ящике проходит стадии обратного отсчёта (полный, половина, мало, мигает), после чего ящик со звуком открывается. Придётся [bold]подождать[/bold].
+  - Открыть можно только [bold]рядом со шкафчиком банды[/bold]. Задумано так: дождаться конца отсчёта, утащить ящик на базу и спокойно вскрыть его там.
+  - Открытие приносит крупную сумму [bold]очков банды каждому участнику[/bold] банды, открывшей ящик, в дополнение к добыче внутри.
+  - Добыча хорошая, есть реальный шанс получить мощное оружие, импланты и крупную сумму денег.
+
+### Сумки
+  - [bold]Гораздо чаще[/bold], чем ящики, но добыча слабее, а ценные предметы встречаются намного реже.
+  - В ней [bold]ловушка.[/bold] Сначала нужно [bold]обезвредить ловушку[/bold], и после этого вы будете [bold]ненадолго замедлены[/bold].
+  - После обезвреживания сумку можно тащить и открыть, причём, в отличие от ящика, [bold]где угодно[/bold]. Тащить её на базу не нужно.
+  - Сама по себе сумка очков не даёт. Её ценность — только снаряжение внутри.
+  - Покупка [bold]«Наводка»[/bold] создаёт досрочную сумку и сначала тихо предупреждает гражданского, давая кому-то фору до объявления по радио.
+
+[color=#e8a020][bold]Вербуйте всех подряд, захватывайте каждый угол и дайте всем понять, кто здесь главный. Не расслабляйтесь — соперники не станут.[/bold][/color]
 </Document>
