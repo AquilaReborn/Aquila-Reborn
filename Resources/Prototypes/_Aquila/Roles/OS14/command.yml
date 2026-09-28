@@ -16,9 +16,6 @@
   joinNotifyCrew: false
   supervisors: job-supervisors-nobody
   canBeAntag: false
-  skills: # CorvaxGoob-Skills
-  - ShuttleControl
-  - Shooting
   accessGroups:
   - AllAccess
   special:
@@ -31,12 +28,15 @@
 - type: startingGear
   id: OS14SecurityMarshallGear
   equipment:
-    shoes: ClothingShoesBootsLaceup
-    eyes: ClothingEyesGlassesCommand
-    gloves: ClothingHandsGlovesCaptain
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorDarkBlue
+    head: ClothingHeadHatBeretCommand
+    shoes: ClothingShoesSwat
+    eyes: ClothingEyesGlassesSunglasses
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterArmorBasic
     id: CaptainPDA
-    ears: ClothingHeadsetAltCommand
+    back: ClothingBackpackSatchelLeather
+    belt: Stunbaton
   storage:
     back:
-    - Flash
-    - TelescopicBaton
+    - WeaponTaser
