@@ -22,7 +22,7 @@ namespace Content.Shared.Construction.Steps
 
         public override ConstructionGuideEntry GenerateGuideEntry()
         {
-            var stepName = Loc.GetString(Name);
+            var stepName = string.IsNullOrEmpty(Name) ? string.Empty : Loc.GetString(Name); // Aquila Change
             return new ConstructionGuideEntry
             {
                 Localization = "construction-presenter-arbitrary-step",

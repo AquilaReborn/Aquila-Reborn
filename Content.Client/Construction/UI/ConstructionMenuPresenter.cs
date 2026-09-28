@@ -408,7 +408,8 @@ namespace Content.Client.Construction.UI
 
             foreach (var entry in guide.Entries)
             {
-                var text = entry.Arguments != null
+                var text = string.IsNullOrEmpty(entry.Localization) ? string.Empty // Aquila Change
+                    : entry.Arguments != null
                     ? Loc.GetString(entry.Localization, entry.Arguments)
                     : Loc.GetString(entry.Localization);
 
