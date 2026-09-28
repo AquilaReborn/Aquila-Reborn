@@ -357,6 +357,9 @@
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
       state: "pda-outcom"
+    - state: "screen"
+      color: "#313338"
+      shader: "unshaded"
     - state: "light_overlay"
       map: [ "enum.PdaVisualLayers.Flashlight" ]
       shader: "unshaded"

@@ -18,6 +18,7 @@
     - map: [ "enum.PdaVisualLayers.Base" ]
       state: "pda"
     - state: "screen"
+      color: "#313338"
       shader: "unshaded"
     - state: "light_overlay"
       map: [ "enum.PdaVisualLayers.Flashlight" ]
@@ -1125,6 +1126,7 @@
       - map: [ "enum.PdaVisualLayers.Base" ]
         state: pda-syndi
       - state: screen_syndicate
+        color: "#620303"
         shader: unshaded
       - state: "light_overlay"
         map: [ "enum.PdaVisualLayers.Flashlight" ]
@@ -1164,6 +1166,7 @@
       - map: [ "enum.PdaVisualLayers.Base" ]
         state: pda-syndi-operative
       - state: screen_syndicate
+        color: "#620303"
         shader: unshaded
       - state: "light_overlay"
         map: [ "enum.PdaVisualLayers.Flashlight" ]
@@ -1197,6 +1200,7 @@
       - map: [ "enum.PdaVisualLayers.Base" ]
         state: pda-syndi-corpsman
       - state: screen_syndicate
+        color: "#620303"
         shader: unshaded
       - state: "light_overlay"
         map: [ "enum.PdaVisualLayers.Flashlight" ]
@@ -1236,6 +1240,7 @@
       - map: [ "enum.PdaVisualLayers.Base" ]
         state: pda-syndi-commander
       - state: screen_syndicate
+        color: "#620303"
         shader: unshaded
       - state: "light_overlay"
         map: [ "enum.PdaVisualLayers.Flashlight" ]
@@ -1610,6 +1615,24 @@
   name: syndicate corpsman PDA
   description: For those days when healing normal syndicates aren't enough, try healing nuclear operatives instead!
   components:
+  - type: Sprite
+    sprite: Objects/Devices/pda.rsi
+    layers:
+      - map: [ "enum.PdaVisualLayers.Base" ]
+        state: pda-syndi-corpsman
+      - state: screen_syndicate
+        color: "#620303"
+        shader: unshaded
+      - state: "light_overlay"
+        map: [ "enum.PdaVisualLayers.Flashlight" ]
+        shader: "unshaded"
+        visible: false
+      - state: "id_overlay"
+        map: [ "enum.PdaVisualLayers.IdLight" ]
+        shader: "unshaded"
+        visible: false
+      - state: "insert_overlay" # Goob
+        map: [ "enum.PdaVisualLayers.Pen" ]
   - type: Pda
     id: NukieAgentIDCard # Goobstation
   - type: Appearance
@@ -1661,7 +1684,7 @@
         type: ChameleonBoundUserInterface
 
 - type: entity
-  parent: BaseWidePDA
+  parent: BasePDA
   id: WizardPDA
   name: wizard PDA
   description: You hear faint whispers coming from it.
