@@ -114,3 +114,5 @@ guide-entry-xenobiology = Xenobiology
 guide-entry-slasher = Slasher
 guide-entry-slaughter-demon = Slaughter Demon
 # Aquila Change
+guide-entry-gang-wars = Gang Wars
+# Aquila Change

@@ -7,8 +7,8 @@ SPDX-License-Identifier: MIT
                 MouseFilter="Stop">
     <PanelContainer Name="Background" Access="Public" StyleClasses="PdaBackgroundRect" />
     <!-- The negative markin fixes a gap between the window edges and the decorative panel -->
-    <PanelContainer Name="AccentH" Margin="-1 170 -2 170" Access="Public" StyleClasses="PdaBackground" />
-    <PanelContainer Name="AccentV" Margin="220 -1 220 -1" Access="Public" StyleClasses="PdaBackground" />
+    <PanelContainer Name="AccentH" Margin="-1 440 -2 440" SetHeight="120" Access="Public" StyleClasses="PdaBackground" />
+    <PanelContainer Name="AccentV" Margin="220 -1 220 -1" MinWidth="300" Access="Public" StyleClasses="PdaBackground" />
     <PanelContainer Name="Border" StyleClasses="PdaBorderRect" />
     <BoxContainer Orientation="Vertical" HorizontalExpand="True">
         <!--Heading-->

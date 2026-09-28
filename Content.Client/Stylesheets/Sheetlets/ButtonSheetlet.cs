@@ -74,6 +74,21 @@ public sealed class ButtonSheetlet<T> : Sheetlet<T> where T : PalettedStylesheet
         MakeButtonRules(rules, buttonCfg.PositiveButtonPalette, StyleClass.Positive);
         MakeButtonRules(rules, buttonCfg.NegativeButtonPalette, StyleClass.Negative);
 
+        MakeButtonRules(rules, new ColorPalette(
+            Base: Color.FromHex("#597e59"),
+            LightnessShift: 0f,
+            ChromaShift: 0f,
+            Background: Color.FromHex("#597e59"),
+            BackgroundLight: Color.FromHex("#597e59"),
+            BackgroundDark: Color.FromHex("#597e59"),
+            Text: Color.White,
+            TextDark: Color.FromHex("#CCCCCC"),
+            Element: Color.FromHex("#597e59"),
+            HoveredElement: Color.FromHex("#46cc67"),
+            PressedElement: Color.FromHex("#012b01"),
+            DisabledElement: Color.FromHex("#000300")
+            ), "GreenPDAPalette");
+
         return rules.ToArray();
     }
 

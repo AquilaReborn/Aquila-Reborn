@@ -21,15 +21,15 @@ public sealed partial class PdaNavigationButton : ContainerButton
 
     private readonly StyleBoxFlat _styleBox = new()
     {
-        BackgroundColor = Color.FromHex("#202023"),
-        BorderColor = Color.FromHex("#5a5a5a"),
+        BackgroundColor = Color.FromHex("#003300"),
+        BorderColor = Color.FromHex("#006800"),
         BorderThickness = new Thickness(0, 0, 0, 2)
     };
 
-    public string InactiveBgColor { get; set; } = "#202023";
-    public string ActiveBgColor { get; set; } = "#25252a";
-    public string InactiveFgColor { get; set; } = "#5a5a5a";
-    public string ActiveFgColor { get; set; } = "#FFFFFF";
+    public string InactiveBgColor { get; set; } = "#003300";
+    public string ActiveBgColor { get; set; } = "#006800";
+    public string InactiveFgColor { get; set; } = "#003300";
+    public string ActiveFgColor { get; set; } = "#006800";
 
     public SpriteSpecifier? IconTexture
     {

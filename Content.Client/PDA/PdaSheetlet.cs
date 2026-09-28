@@ -6,6 +6,7 @@ using Content.Client.Stylesheets.Stylesheets;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
+
 using static Content.Client.Stylesheets.StylesheetHelpers;
 
 namespace Content.Client.PDA;
@@ -28,7 +29,7 @@ public sealed class PdaSheetlet : Sheetlet<NanotrasenStylesheet>
             E<PanelContainer>()
                 .Class("PdaContentBackground")
                 .Prop(PanelContainer.StylePropertyPanel, StyleBoxHelpers.SquareStyleBox(sheet))
-                .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#25252a")),
+                .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#024e15")),
 
             E<PanelContainer>()
                 .Class("PdaBackground")
@@ -38,7 +39,7 @@ public sealed class PdaSheetlet : Sheetlet<NanotrasenStylesheet>
             E<PanelContainer>()
                 .Class("PdaBackgroundRect")
                 .Prop(PanelContainer.StylePropertyPanel, StyleBoxHelpers.BaseStyleBox((sheet)))
-                .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#717059")),
+                .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#024e15")),
 
             E<PanelContainer>()
                 .Class("PdaBorderRect")
@@ -81,12 +82,12 @@ public sealed class PdaSheetlet : Sheetlet<NanotrasenStylesheet>
             E<Label>()
                 .Class("PdaContentFooterText")
                 .Prop(Label.StylePropertyFont, sheet.BaseFont.GetFont(10))
-                .Prop(Label.StylePropertyFontColor, Color.FromHex("#757575")),
+                .Prop(Label.StylePropertyFontColor, Color.FromHex("#006800")),
 
             E<Label>()
                 .Class("PdaWindowFooterText")
                 .Prop(Label.StylePropertyFont, sheet.BaseFont.GetFont(10))
-                .Prop(Label.StylePropertyFontColor, Color.FromHex("#333d3b")),
+                .Prop(Label.StylePropertyFontColor, Color.FromHex("#006800")),
         ];
     }
 }

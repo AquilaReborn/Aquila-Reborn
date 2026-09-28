@@ -12,11 +12,11 @@ namespace Content.Client._DV.CartridgeLoader.Cartridges;
 [GenerateTypedNameReferences]
 public sealed partial class NanoChatMessageBubble : BoxContainer
 {
-    public static readonly Color OwnMessageColor = Color.FromHex("#173717d9"); // Dark green
-    public static readonly Color OtherMessageColor = Color.FromHex("#252525d9"); // Dark gray
-    public static readonly Color BorderColor = Color.FromHex("#40404066"); // Subtle border
+    public static readonly Color OwnMessageColor = Color.FromHex("#2a9b6cd9"); // Dark green
+    public static readonly Color OtherMessageColor = Color.FromHex("#355e42d9"); // Dark gray
+    public static readonly Color BorderColor = Color.FromHex("#3061515e"); // Subtle border
     public static readonly Color TextColor = Color.FromHex("#dcdcdc"); // Slightly softened white
-    public static readonly Color ErrorColor = Color.FromHex("#cc3333"); // Red
+    public static readonly Color ErrorColor = Color.FromHex("#000000"); // Red
 
     public NanoChatMessageBubble()
     {

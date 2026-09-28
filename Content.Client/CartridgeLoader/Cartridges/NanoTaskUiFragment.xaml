@@ -1,5 +1,6 @@
 <cartridges:NanoTaskUiFragment xmlns:cartridges="clr-namespace:Content.Client.CartridgeLoader.Cartridges"
                                xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                               xmlns:sys="clr-namespace:System;assembly=System.Runtime"
                                xmlns="https://spacestation14.io" Margin="1 0 2 0">
 
     <PanelContainer StyleClasses="BackgroundDark"></PanelContainer>
@@ -10,7 +11,7 @@
                 <BoxContainer Orientation="Horizontal">
                     <PanelContainer SetWidth="7" Margin="0 0 8 0">
                         <PanelContainer.PanelOverride>
-                            <gfx:StyleBoxFlat BackgroundColor="#e93d58"/>
+                            <gfx:StyleBoxFlat BackgroundColor="#023805"/>
                         </PanelContainer.PanelOverride>
                     </PanelContainer>
                     <Label Name="HighPriority" StyleClasses="LabelHeading"/>
@@ -25,7 +26,7 @@
                 <BoxContainer Orientation="Horizontal">
                     <PanelContainer SetWidth="7" Margin="0 0 8 0">
                         <PanelContainer.PanelOverride>
-                            <gfx:StyleBoxFlat BackgroundColor="#ef973c"/>
+                            <gfx:StyleBoxFlat BackgroundColor="#0c6d24"/>
                         </PanelContainer.PanelOverride>
                     </PanelContainer>
                     <Label Name="MediumPriority" StyleClasses="LabelHeading"/>
@@ -40,7 +41,7 @@
                 <BoxContainer Orientation="Horizontal">
                     <PanelContainer SetWidth="7" Margin="0 0 8 0">
                         <PanelContainer.PanelOverride>
-                            <gfx:StyleBoxFlat BackgroundColor="#3dd425"/>
+                            <gfx:StyleBoxFlat BackgroundColor="#1dbe80"/>
                         </PanelContainer.PanelOverride>
                     </PanelContainer>
                     <Label Name="LowPriority" StyleClasses="LabelHeading"/>
@@ -51,7 +52,12 @@
                                Access="Public"
                                Columns="2" />
 
-                <Button Name="NewTaskButton" Text="{Loc 'nano-task-ui-new-task'}" HorizontalAlignment="Right"/>
+                <Button Name="NewTaskButton" Text="{Loc 'nano-task-ui-new-task'}" HorizontalAlignment="Right">
+                    <Button.StyleClasses>
+                        <sys:String>ButtonBig</sys:String>
+                        <sys:String>GreenPDAPalette</sys:String>
+                    </Button.StyleClasses>
+                </Button>
             </BoxContainer>
         </ScrollContainer>
     </BoxContainer>
