@@ -1,0 +1,200 @@
+## Одежда
+
+ent-ClothingBeltMilitaryWebbingERT = разгрузка ОБР
+    .desc = Тактическая разгрузка, которую носят оперативники Отряда быстрого реагирования.
+ent-ClothingBeltMilitaryWebbingBSO = разгрузка офицера синего щита
+    .desc = Тактическая разгрузка подразделений поддержки Центрального командования.
+    .suffix = Пустая
+ent-ClothingNeckMantleWhiteCE = белая мантия старшего инженера
+    .desc = Высокая заметность — есть. RIG-система — есть. Ёмкая батарея — есть. Всё, что нужно старшему инженеру, в стильной мантии.
+ent-ClothingNeckMantleOrangeCE = оранжевая мантия старшего инженера
+    .desc = { ent-ClothingNeckMantleWhiteCE.desc }
+ent-ClothingNeckEnsembleChiefEngineerWhite = белый ансамбль старшего инженера
+    .desc = При расслоении это не защитит вас от радиации. Но с вашим-то опытом такого не случится. Правда?
+    .suffix = НЕ МАППИТЬ
+ent-ClothingNeckEnsembleChiefEngineerGreen = зелёный ансамбль старшего инженера
+    .desc = { ent-ClothingNeckEnsembleChiefEngineerWhite.desc }
+    .suffix = НЕ МАППИТЬ
+ent-ClothingNeckMantleEpaulettes = золотые эполеты
+    .desc = Изысканные золотые эполеты, символ адмиральского звания в Центральном командовании.
+ent-ClothingNeckMimemedal = медаль за пантомиму
+    .desc = Вручается членам экипажа, проявившим выдающееся мастерство пантомимы.
+ent-ClothingOuterArmorRU6B2Vest = бронежилет 6Б2
+    .desc = Очень старый бронежилет, когда-то выпускавшийся массово. Называть его «баллистическим» — преувеличение: он держит разве что осколки.
+ent-ClothingUniformJumpsuitMilitaryShaftMiner = комбинезон шахтёра
+    .desc = { ent-ClothingUniformJumpsuitSalvageSpecialist.desc }
+    .suffix = Военный
+ent-ClothingNeckBombCollar = бомба-ошейник
+    .desc = Ошейник с бомбой. Он взрывается.
+ent-ClothingOuterChameleonArmor = жилет
+    .desc = Толстый жилет с прорезиненным водоотталкивающим покрытием.
+    .suffix = Хамелеон, Броня
+
+## Еда, напитки, курение
+
+ent-DrinkShakerBluespace = блюспейс-шейкер
+    .desc = Массовое смешивание — это просто!
+ent-CrazyLube = безумная смазка
+    .desc = Бутылка сверхскользкой безумной смазки от Honk! Co.
+ent-ECigarette = электронная сигарета
+    .desc = Многоразовая электронная сигарета. На вкус как волшебный дым.
+ent-CryostasisCigarette = криостазисная сигарета
+    .desc = Криостазисная электронная сигарета. Химикаты в картридже не вступают в реакцию.
+ent-FoodBurgerCold = бургер «Минус пять»
+    .desc = ХОЛОДНО! ХОЛОДНО! ХОЛОДНО!
+ent-FoodBurgerHotCold = адский бургер
+    .desc = Единство противоположностей... в виде бургера!
+ent-FoodPizzaCottonHot = огненная хлопковая пицца
+    .desc = Плоское хлопковое тесто с очень острой хлопковой начинкой. Огонь!
+ent-FoodPizzaCottonHotSlice = кусок огненной хлопковой пиццы
+    .desc = Кусок острой хлопковой пиццы. Очень острый!
+ent-FoodSoupChiliHotCold = адский чили
+    .desc = Когда-нибудь задумывались, каков на вкус адский огонь?
+ent-MimanaPeelStealthy = кожура мимана
+    .desc = { ent-TrashMimanaPeel.desc }
+    .suffix = Незаметная
+ent-ShadowCube = куб тени
+    .desc = Куб тени от Drymate. Просто добавьте воды!
+ent-DehydratedMagicCarp = обезвоженный магический карп
+    .desc = Похож на плюшевого магического карпа, но добавьте воды — и он станет настоящим!
+
+## Устройства, платы, инструменты
+
+ent-SurveillanceCameraWirelessRouterXenoborgCircuitboard = беспроводной маршрутизатор камер ксеноборгов (машинная плата)
+    .desc = Печатная плата беспроводного маршрутизатора камер ксеноборгов.
+ent-ComputerXenoborgsControlCircuitboard = консоль управления ксеноборгами (компьютерная плата)
+    .desc = Печатная плата консоли управления ксеноборгами.
+ent-ChameleonProjectorNoBattery = проектор-хамелеон
+    .desc = Технология голопаразитов, создающая твёрдосветовую копию любого предмета рядом с вами. Маскировка исчезает, если вас поднять или отключить проектор.
+ent-ResearchAndDevelopmentServerMachineFlatpack = упаковка сервера РнД
+    .desc = Упаковка для сборки сервера РнД.
+ent-ResearchComputerFlatpack = упаковка компьютера РнД
+    .desc = Упаковка для сборки компьютера РнД.
+ent-HandheldStationMapRecordsTablet = карта станции
+    .desc = Показывает текущую схему станции.
+    .suffix = Планшет записей
+ent-NuclearDebrisChunk = ядерные обломки
+    .desc = Вы не видите графит на полу. Вы в шоке. Обратитесь в медотсек.
+ent-TurbineBladeShrapnel = лопатка турбины
+ent-DiodeDiscElectroDisruptive = электроподавляющий диодный диск
+    .desc = Диодный диск для излучателя. Вызывает в суперматерии событие исправления причинности, из-за которого она восстанавливается.
+ent-DiodeDiscElectroBehavioural = электроповеденческий диодный диск
+    .desc = Диодный диск для излучателя. Вызывает в суперматерии каскад причинности: наносит урон, но значительно повышает выработку энергии. Также благотворно влияет на здоровье пациентов!
+ent-EmitterBoltElectroDisruptive = заряд излучателя
+    .desc = { ent-EmitterBolt.desc }
+ent-EmitterBoltElectroBehavioural = заряд излучателя
+    .desc = { ent-EmitterBolt.desc }
+ent-DefaultStationBeaconNoWarpPoints = станционный маяк
+    .desc = Небольшое устройство, передающее данные на карты станции. Можно настроить.
+    .suffix = Общий
+ent-BorgModuleStickyGrenadeLauncher = модуль киборга «гранатомёт липких гранат»
+    .desc = { ent-BaseBorgModuleSyndicate.desc }
+
+## Прочие предметы
+
+ent-PostBoard = доска объявлений
+    .desc = Прикрепляйте бумагу прямо к доске.
+ent-BarSignEmped = барахлящая вывеска бара
+    .desc = Кажется, хороший удар может её починить.
+ent-PlushieLizardJobVirologist = плюшевый унатх-вирусолог
+    .desc = Милая мягкая игрушка в виде унатха-вирусолога. Выглядит как новенькая.
+ent-PlushieRouge = плюшевая Руж
+    .desc = Милая мягкая игрушка в виде скромного и вечно пьяного главного кадрового офицера среди главных кадровых офицеров. Её брови будто навсегда приклеены в хмурое положение.
+ent-BasePlushieCharacter = BasePlushieCharacter
+    .desc = { ent-BasePlushie.desc }
+    .suffix = СООБЩЕСТВО, ИГРУШКА
+ent-BibleVeda = Славяно-арийские Веды
+    .desc = Книга нового религиозного движения инглиизма, одного из направлений славянского неоязычества.
+ent-BibleVelesBook = Велесова книга
+    .desc = Играет важную роль во многих направлениях славянского неоязычества, где служит основой и доказательством неоязыческой религиозности.
+ent-RomerolMedipen = автоинъектор ромерола
+    .desc = Одноразовый автоинъектор с несколькими дозами «Мозгииии».
+ent-OrganHeartStatvekaSandevistan = сандевистан «Статвека» MI13
+    .desc = Кибернетический имплант сердца, резко повышающий скорость и реакцию владельца на короткое время ценой выносливости. Когда-то им пользовался один наёмник.
+ent-FloorTileItemAstroIronsandBorderless = астро-железный песок без каймы
+    .desc = Поддельный красный песок. Импортирован с поддельного Марса.
+ent-FloorTileItemXenoSteel = стальная ксено-плитка
+    .desc = { ent-FloorTileItemBase.desc }
+ent-FloorTileItemXenoSteelCorner = угловая стальная ксено-плитка
+    .desc = { ent-FloorTileItemBase.desc }
+ent-FloorTileItemXenoMaint = техническая ксено-плитка
+    .desc = { ent-FloorTileItemBase.desc }
+ent-FloorTileItemXenoborg = плитка ксеноборгов
+    .desc = { ent-FloorTileItemBase.desc }
+ent-SolutionCryo = раствор
+
+## Материалы Лаваленда
+
+ent-MaterialAshwoodStick = палка из пепельного дерева
+    .desc = { ent-MaterialBase.desc }
+    .suffix = Полный
+ent-MaterialWoodStick = деревянная палка
+    .desc = { ent-MaterialBase.desc }
+    .suffix = Полный
+ent-MaterialFlowersAsh = пепельные цветы
+    .desc = { ent-MaterialBase.desc }
+    .suffix = Полный
+ent-MaterialFlowersPale = бледные цветы
+    .desc = { ent-MaterialBase.desc }
+    .suffix = Полный
+
+## Постройки
+
+ent-StatueIronsandSmall2 = маленькая статуя из железного песка
+    .desc = { ent-BaseIronsandStatue.desc }
+ent-StatueIronsandTall2 = высокая статуя из железного песка
+    .desc = { ent-BaseIronsandStatue.desc }
+ent-AirlockExternalGlassShuttleCargo = шлюз карго
+    .desc = { ent-AirlockGlassShuttle.desc }
+    .suffix = Внешний, Карго, Стеклянный, Стыковочный
+ent-AirlockXenoborg = шлюз из мехадермиса
+    .desc = { ent-Airlock.desc }
+ent-BlastDoorXenoFrame = каркас гермозатвора из экзодермиса
+    .desc = Защищает и от взрывов, И от огня!
+ent-BlastDoorXenoborg = гермозатвор из мехадермиса
+    .desc = Смотрите, не останьтесь без головы!
+ent-MalignWindow = злокачественное окно
+    .desc = Странное на вид окно. Что-то в нём вас тревожит...
+ent-RegalWindow = царственное окно
+    .desc = Нарядное окно с позолоченной филигранью. Дорогое!
+ent-FloorSwimmingPoolEntity = бассейн
+    .desc = Освежает и расслабляет!
+ent-CosmicChantryWisp = огонёк
+    .desc = { ent-BaseStructure.desc }
+
+## Ящики и капсулы снабжения
+
+ent-CrateScienceResearchServerFilled = ящик сервера РнД
+    .desc = Содержит упаковку сервера РнД и несколько компьютеров РнД. Для открытия требуется научный доступ.
+ent-CrateCargoWalkieTalkie = ящик раций
+    .desc = Содержит 5 портативных раций.
+ent-SpawnSchemaMonk = монашеское облачение
+    .desc = { ent-SpawnSupplyEmpty.desc }
+ent-SpawnDropPodSyndicateRedspaceRaider = SpawnDropPodSyndicateRedspaceRaider
+    .desc = { ent-SpawnSupplyEmpty.desc }
+ent-BombCollarKit = набор бомбы-ошейника
+    .desc = { ent-BoxCardboard.desc }
+    .suffix = Заполненный
+
+## Мобы
+
+ent-MobHorseTest = Лошадь
+    .desc = Тысяча лет космической эволюции, и это лучшее, до чего мы додумались.
+ent-MobShadowRandom = Урист МакТень
+    .desc = { ent-MobShadow.desc }
+    .suffix = Случайная внешность
+ent-MobHydrakinRandom = Урист МакГидра
+    .desc = { ent-MobHydrakin.desc }
+    .suffix = Случайная внешность
+ent-MobNukieMouse = мышь-ядерный оперативник
+    .desc = Ядерный оперативник... МЫШЬ?!
+    .suffix = Синдикат
+ent-MobNukieSpider = тарантул-ядерный оперативник
+    .desc = Паук? ПАУК-ЯДЕРНЫЙ ОПЕРАТИВНИК?!
+    .suffix = Синдикат
+ent-MobNukieCarp = карп-ядерный оперативник
+    .desc = Кроваво-красный карп, обученный карповому рукопашному бою.
+    .suffix = Синдикат
+ent-MobNukieBehonker = бехонкер-ядерный оперативник
+    .desc = Горлекс решил, что будет смешно завести бехонкера. Так и вышло.
+    .suffix = Синдикат

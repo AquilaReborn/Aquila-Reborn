@@ -2,6 +2,6 @@
 
 - type: guideEntry
   id: Conditions
-  name: "Раскрытие антагонистов" # Corvax-Goob-Locale
+  name: guide-entry-antag-revealing-conditions # Aquila Change
   priority: 60
   text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/MetaReveal.xml"

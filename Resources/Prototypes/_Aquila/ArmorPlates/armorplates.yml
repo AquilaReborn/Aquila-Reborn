@@ -1,0 +1,78 @@
+- type: Tag
+  id: ArmorPlate
+
+- type: localizedDataset
+  id: ArmorPlateMessages
+  values:
+    prefix: armor-plate-damaged-
+    count: 5
+
+- type: entity
+  parent: BaseItem
+  id: ArmorPlateBallistic
+  name: пуленепробиваемая бронепластина
+  description: Тяжёлая керамическая пластина, поглощающая кинетическую энергию пуль. Крайне удобно можно повесить на ваш комбинезон.
+  components:
+  - type: ExaminableDamage
+    messages: ArmorPlateMessages
+  - type: Tag
+    tags:
+    - ArmorPlate
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    modifiers:
+      coefficients:
+        Piercing: 0.8
+        Blunt: 0.9
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: Objects/Materials/Sheets/metal.rsi
+    state: plasteel
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: BaseItem
+  id: ArmorPlateBlunt
+  name: противоударная бронепластина
+  description: Тяжёлая керамическая пластина, поглощающая кинетическую энергию тупых ударов. Крайне удобно можно повесить на ваш комбинезон.
+  components:
+  - type: ExaminableDamage
+    messages: ArmorPlateMessages
+  - type: Tag
+    tags:
+    - ArmorPlate
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    modifiers:
+      coefficients:
+        Piercing: 0.9
+        Blunt: 0.8
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: Objects/Materials/Sheets/metal.rsi
+    state: plasteel
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

@@ -8,6 +8,7 @@ roles-antag-syndicate-agent-sleeper-name = Спящий агент Синдик�
 roles-antag-syndicate-agent-sleeper-objective = Разновидность агента Синдиката, который может активироваться и начать действие в любой момент смены.
 roles-antag-initial-infected-name = Нулевой заражённый
 roles-antag-initial-infected-objective = После превращения заразите как можно больше других членов экипажа.
+roles-antag-pirate-name = Космический пират
 roles-antag-zombie-name = Зомби
 roles-antag-zombie-objective = Превратите как можно больше членов экипажа в зомби.
 roles-antag-suspicion-innocent-name = Невиновный

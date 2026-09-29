@@ -657,6 +657,23 @@
   - JesterHat
   - JesterAltHat
 
+# Aquila Start
+- type: loadoutGroup
+  id: ClownMask
+  name: loadout-group-clown-mask
+  minLimit: 1
+  loadouts:
+  - ClownMask
+  - ClownBarotraumaMask
+
+- type: loadoutGroup
+  id: ClownHand
+  name: loadout-group-clown-hand
+  minLimit: 0
+  loadouts:
+  - ClownBarotraumaHand
+# Aquila End
+
 - type: loadoutGroup
   id: ClownJumpsuit
   name: loadout-group-clown-jumpsuit
@@ -665,6 +682,7 @@
   - ClownSkirt
   - JesterSuit
   - JesterAltSuit
+  - ClownBarotraumaSuit # Aquila
 
 - type: loadoutGroup
   id: ClownBackpack
@@ -689,6 +707,7 @@
   loadouts:
   - ClownShoes
   - JesterShoes
+  - ClownBarotraumaShoes # Aquila
 
 - type: loadoutGroup
   id: SurvivalClown

@@ -5,12 +5,16 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 <BoxContainer
     xmlns="https://spacestation14.io"
     xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    xmlns:sys="clr-namespace:System;assembly=System.Runtime"
     HorizontalExpand="True">
     <Button Name="ChatButton"
-            StyleClasses="ButtonSquare"
             HorizontalExpand="True"
             MaxSize="137 64"
             Margin="0 1">
+        <Button.StyleClasses>
+            <sys:String>ButtonSquare</sys:String>
+            <sys:String>GreenPDAPalette</sys:String>
+        </Button.StyleClasses>
         <BoxContainer Orientation="Horizontal"
                       HorizontalExpand="True"
                       VerticalExpand="True"
@@ -25,8 +29,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                             Margin="0 0 6 0">
                 <PanelContainer.PanelOverride>
                     <graphics:StyleBoxFlat
-                        BackgroundColor="#17c622"
-                        BorderColor="#0f7a15" />
+                        BackgroundColor="#319b79"
+                        BorderColor="#216b53" />
                 </PanelContainer.PanelOverride>
             </PanelContainer>
 

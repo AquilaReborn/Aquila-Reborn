@@ -8,7 +8,7 @@ SPDX-License-Identifier: MIT
                                    xmlns="https://spacestation14.io" Margin="1 0 2 0">
     <PanelContainer StyleClasses="BackgroundDark"></PanelContainer>
     <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
-        <controls:StripeBack Name="StationNameContainer">
+        <controls:StripeBack Name="StationNameContainer" StyleClasses = "GreenStripeStyle">
             <PanelContainer>
                 <Label Name="StationName" Align="Center" Text="{Loc 'crew-manifest-cartridge-loading'}"/>
             </PanelContainer>
@@ -17,7 +17,8 @@ SPDX-License-Identifier: MIT
         <LineEdit Name="SearchBar"
                   PlaceHolder="{Loc 'crew-manifest-search-placeholder'}"
                   HorizontalExpand="True"
-                  Margin="3 3 3 2" />
+                  Margin="3 3 3 2" 
+                  StyleClasses = "GreenLineEdit" /> 
         <!-- CorvaxGoob End -->
         <ScrollContainer HorizontalExpand="True" VerticalExpand="True">
             <ui:CrewManifestListing

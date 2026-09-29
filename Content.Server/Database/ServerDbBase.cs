@@ -333,17 +333,25 @@ namespace Content.Server.Database
                     .Select(j => new Job { JobName = j.Key, Priority = (DbJobPriority) j.Value })
             );
 
-            profile.Antags.Clear();
+            // Aquila Change start
+            var newAntags = humanoid.AntagPreferences.Select(a => a.Id).ToHashSet();
+            profile.Antags.RemoveAll(a => !newAntags.Contains(a.AntagName));
+            var oldAntags = profile.Antags.Select(a => a.AntagName).ToHashSet();
             profile.Antags.AddRange(
-                humanoid.AntagPreferences
+                newAntags
+                    .Where(a => !oldAntags.Contains(a))
                     .Select(a => new Antag { AntagName = a })
             );
 
-            profile.Traits.Clear();
+            var newTraits = humanoid.TraitPreferences.Select(t => t.Id).ToHashSet();
+            profile.Traits.RemoveAll(t => !newTraits.Contains(t.TraitName));
+            var oldTraits = profile.Traits.Select(t => t.TraitName).ToHashSet();
             profile.Traits.AddRange(
-                humanoid.TraitPreferences
-                        .Select(t => new Trait { TraitName = t })
+                newTraits
+                    .Where(t => !oldTraits.Contains(t))
+                    .Select(t => new Trait { TraitName = t })
             );
+            // Aquila Change end
 
             // CorvaxGoob-Revert : DB conflicts
             // profile.BarkVoice = humanoid.BarkVoice; // Goob Station - Barks

@@ -21,7 +21,7 @@
   - type: ApcPowerReceiver
   - type: ExtensionCableReceiver
   - type: PointLight
-    offset: "0, 0" # Aquila fix
+    #offset: "0, 0" # Aquila fix
     radius: 1.5
   - type: PoweredLight
     hasLampOnSpawn: LedLightTube

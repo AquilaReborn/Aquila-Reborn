@@ -87,11 +87,11 @@ enabled = true
 role_loadout_timers = false
 hostname = "Акила Стейшен | Играем Метакомпашкой"
 desc = "яндекс верните 450 рублей!!1!"
-max_players = 35
+soft_max_players = 35 # Aquila Change
 maxcharacterslots = 25
 round_end_pvs_overrides = true
 round_restart_time = 40
-defaultmap = "AquilaLoop"
+# map = "AquilaLoop" # Aquila Change
 role_timers = false
 role_whitelist = false
 fallbackpreset = "Extended"
@@ -100,9 +100,6 @@ map_rotation = true
 contraband_examine = false
 map_pool = "SS14MapPool"
 map_memory_depth = 1
-timermap = 60.0
-timerrestart = 60.0
-timerpreset = 40.0
 
 [console]
 # If this is true, people connecting from this machine (loopback)
@@ -186,6 +183,9 @@ bypass_max_players = 1
 
 [vote]
 restart_required_ratio = 0.7
+timermap = 60 # Aquila Change
+timerrestart = 60 # Aquila Change
+timerpreset = 40 # Aquila Change
 restart_enabled = false
 restart_ghost_percentage = 0
 map_enabled = true
@@ -233,3 +233,5 @@ preload = false
 
 [netres]
 limit = 10.0
+[ghost.go_lobby]
+enabled = true

@@ -141,6 +141,8 @@ guide-entry-rules-lrp = Стандартные правила
 guide-entry-rules-mrp = МРП правила
 guide-entry-rules-role-types = Виды ролей
 guide-entry-rules-core = Основные правила
+guide-entry-rules-c0 = О0
+# Aquila Change
 guide-entry-rules-c1 = О1
 guide-entry-rules-c2 = О2
 guide-entry-rules-c3 = О3

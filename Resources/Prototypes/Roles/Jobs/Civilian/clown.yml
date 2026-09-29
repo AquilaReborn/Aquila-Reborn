@@ -33,7 +33,7 @@
 - type: startingGear
   id: ClownGear
   equipment:
-    mask: ClothingMaskClown
+    #mask: ClothingMaskClown # Aquila
     pocket1: BikeHorn
     pocket2: ClownRecorder
     id: ClownPDA

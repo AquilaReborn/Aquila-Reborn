@@ -20,6 +20,8 @@ public sealed class AggressorsSystem : EntitySystem
 
     private EntityQuery<TransformComponent> _xformQuery;
 
+    private readonly List<EntityUid> _toRemove = new(); // Aquila Change
+
     public override void Initialize()
     {
         base.Initialize();
@@ -46,28 +48,27 @@ public sealed class AggressorsSystem : EntitySystem
         var query = EntityQueryEnumerator<AggressiveComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var aggressive, out var xform))
         {
-            if (aggressive.ForgiveRange == null
-                || aggressive.NextUpdate < curTime)
+            if (aggressive.ForgiveRange is not { } forgiveRange // Aquila Change
+                || aggressive.NextUpdate > curTime // Aquila Change
+                || aggressive.Aggressors.Count == 0) // Aquila Change
                 continue;
 
             aggressive.NextUpdate = curTime + aggressive.UpdateDelay;
 
-            var toRemove = new List<EntityUid>();
+            _toRemove.Clear(); // Aquila Change
+            var aggressivePos = _xform.GetWorldPosition(xform); // Aquila Change
+            var rangeSquared = forgiveRange * forgiveRange; // Aquila Change
 
             foreach (var aggressor in aggressive.Aggressors)
             {
                 if (!_xformQuery.TryComp(aggressor, out var aggroXform))
                     continue;
 
-                var aggroPos = _xform.GetWorldPosition(aggroXform);
-                var aggressivePos = _xform.GetWorldPosition(xform);
-                var distance = (aggressivePos - aggroPos).Length();
-
-                if (distance > aggressive.ForgiveRange
-                    || xform.MapID != aggroXform.MapID)
-                    toRemove.Add(aggressor);
+                if (xform.MapID != aggroXform.MapID // Aquila Change
+                    || (aggressivePos - _xform.GetWorldPosition(aggroXform)).LengthSquared() > rangeSquared) // Aquila Change
+                    _toRemove.Add(aggressor); // Aquila Change
             }
-            foreach (var remove in toRemove)
+            foreach (var remove in _toRemove) // Aquila Change
             {
                 RemoveAggressor((uid, aggressive), remove);
             }

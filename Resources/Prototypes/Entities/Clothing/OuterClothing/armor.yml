@@ -54,6 +54,7 @@
     tags:
     - CorgiWearable
     - WhitelistChameleon
+  - type: HideableClothing # Aquila
 
 #Alternate / slim basic armor vest
 - type: entity

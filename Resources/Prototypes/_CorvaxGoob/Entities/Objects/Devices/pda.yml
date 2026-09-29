@@ -100,6 +100,9 @@
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
       state: "pda"
+    - state: "screen"
+      color: "#313338"
+      shader: "unshaded"
     - state: "light_overlay"
       map: [ "enum.PdaVisualLayers.Flashlight" ]
       shader: "unshaded"
@@ -156,3 +159,10 @@
     interfaces:
       enum.PdaUiKey.Key:
         type: PdaBoundUserInterface
+
+- type: entity
+  id: SyndiOperativePDAUnremoveable
+  parent: SyndiOperativePDA
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable

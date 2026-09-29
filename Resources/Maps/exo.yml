@@ -14320,14 +14320,6 @@ entities:
     - type: Transform
       pos: -18.5,-23.5
       parent: 2
-- proto: ButtonFrameExit
-  entities:
-  - uid: 7322
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 11.5,-28.5
-      parent: 2
 - proto: ButtonFrameGrey
   entities:
   - uid: 2695

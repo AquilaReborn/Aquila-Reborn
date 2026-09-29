@@ -822,20 +822,6 @@ entities:
     - type: Transform
       pos: -7.311311,7.5718102
       parent: 1
-- proto: ButtonFrameExit
-  entities:
-  - uid: 326
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -7.5,2.5
-      parent: 1
-  - uid: 331
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 8.5,2.5
-      parent: 1
 - proto: C4
   entities:
   - uid: 507

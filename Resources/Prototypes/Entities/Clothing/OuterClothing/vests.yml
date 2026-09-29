@@ -36,6 +36,7 @@
     knockdownTimeDelta: -2.5
   - type: StaminaResistance # Goobstation
     damageCoefficient: 0.6
+  - type: HideableClothing # Aquila
 
 #Elite web vest
 - type: entity
@@ -78,6 +79,7 @@
     knockdownTimeDelta: -3
   - type: StaminaResistance # Goobstation
     damageCoefficient: 0.4
+  - type: HideableClothing # Aquila
 
 #Mercenary web vest
 - type: entity
@@ -112,6 +114,7 @@
     knockdownTimeDelta: -2.25
   - type: StaminaResistance # Goobstation
     damageCoefficient: 0.65
+  - type: HideableClothing # Aquila
 
 #Detective's vest
 - type: entity
@@ -124,6 +127,7 @@
     sprite: Clothing/OuterClothing/Vests/detvest.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Vests/detvest.rsi
+  - type: HideableClothing # Aquila
 
 #Hazard vest
 - type: entity
@@ -162,6 +166,7 @@
     tags:
     - HiViz
     - WhitelistChameleon
+  - type: HideableClothing # Aquila
 
 #(Bartender) vest
 - type: entity
@@ -174,6 +179,7 @@
     sprite: Clothing/OuterClothing/Vests/vest.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Vests/vest.rsi
+  - type: HideableClothing # Aquila
 
 #Tank Harness
 - type: entity

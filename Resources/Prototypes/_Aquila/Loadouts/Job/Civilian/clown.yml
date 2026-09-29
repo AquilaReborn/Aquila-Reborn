@@ -1,0 +1,28 @@
+# Jumpsuit
+- type: loadout
+  id: ClownBarotraumaSuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClownBarotrauma
+
+# Shoes
+- type: loadout
+  id: ClownBarotraumaShoes
+  equipment:
+    shoes: ClothingShoesClownBarotrauma
+
+# Mask
+- type: loadout
+  id: ClownBarotraumaMask
+  equipment:
+    mask: ClothingMaskClownBarotrauma
+
+- type: loadout
+  id: ClownMask
+  equipment:
+    mask: ClothingMaskClown
+
+# Hand
+- type: loadout
+  id: ClownBarotraumaHand
+  equipment:
+    gloves: ClothingHandClownBarotrauma

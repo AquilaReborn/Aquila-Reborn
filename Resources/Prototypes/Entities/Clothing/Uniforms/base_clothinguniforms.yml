@@ -67,6 +67,7 @@
   parent: UnsensoredClothingUniformBase
   id: ClothingUniformBase
   components:
+  - type: StorageArmorPlate
   - type: SuitSensor
   - type: DeviceNetwork
     deviceNetId: Wireless

@@ -19,3 +19,6 @@ guide-entry-corvax-rule8 = Правило 8
 guide-entry-corvax-rule9 = Правило 9
 guide-entry-corvax-rule10 = Правило 10
 guide-entry-corvax-punishment-types = Игровые наказания
+
+guide-entry-corvax-lrp-ruleset = Правила сервера Мейн
+# Aquila Change

@@ -43268,18 +43268,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -11.5,-66.5
       parent: 2
-- proto: ButtonFrameExit
-  entities:
-  - uid: 5275
-    components:
-    - type: Transform
-      pos: -48.5,-12.5
-      parent: 2
-  - uid: 5276
-    components:
-    - type: Transform
-      pos: -49.5,-7.5
-      parent: 2
 - proto: CableApcExtension
   entities:
   - uid: 1209

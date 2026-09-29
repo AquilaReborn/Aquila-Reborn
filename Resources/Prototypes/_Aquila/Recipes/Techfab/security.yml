@@ -1,0 +1,19 @@
+- type: latheRecipePack
+  id: SecurityArmorPlateStatic
+  recipes:
+  - ArmorPlateBallistic
+  - ArmorPlateBlunt
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: ArmorPlateBallistic
+  result: ArmorPlateBallistic
+  materials:
+    Steel: 500
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: ArmorPlateBlunt
+  result: ArmorPlateBlunt
+  materials:
+    Steel: 500
