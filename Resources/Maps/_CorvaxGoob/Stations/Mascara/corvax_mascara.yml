@@ -19797,13 +19797,6 @@ entities:
     - type: Transform
       pos: 93.5,-2.5
       parent: 1
-- proto: ButtonFrameExit
-  entities:
-  - uid: 18370
-    components:
-    - type: Transform
-      pos: 54.5,68.5
-      parent: 1
 - proto: ButtonFrameJanitor
   entities:
   - uid: 16123

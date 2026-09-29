@@ -22692,20 +22692,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 56.464813,16.849148
       parent: 2
-- proto: ButtonFrameExit
-  entities:
-  - uid: 21868
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 50.5,-2.5
-      parent: 2
-  - uid: 22949
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 48.5,10.5
-      parent: 2
 - proto: ButtonFrameGrey
   entities:
   - uid: 4982
