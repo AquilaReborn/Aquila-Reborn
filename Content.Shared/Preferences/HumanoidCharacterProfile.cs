@@ -123,6 +123,9 @@ namespace Content.Shared.Preferences
         [DataField]
         public string FlavorText { get; set; } = string.Empty;
 
+        [DataField] // Aquila Change
+        public string OocNotes { get; set; } = string.Empty; // Aquila Change
+
         /// <summary>
         /// Associated <see cref="SpeciesPrototype"/> for this profile.
         /// </summary>
@@ -251,6 +254,7 @@ namespace Content.Shared.Preferences
                 new Dictionary<string, RoleLoadout>(other.Loadouts))
                 // other.BarkVoice) // Goob Station - Barks // CorvaxGoob-Revert : DB conflicts
         {
+            OocNotes = other.OocNotes; // Aquila Change
         }
 
         /// <summary>
@@ -364,6 +368,13 @@ namespace Content.Shared.Preferences
         {
             return new(this) { FlavorText = flavorText };
         }
+
+        // Aquila Change start
+        public HumanoidCharacterProfile WithOocNotes(string oocNotes)
+        {
+            return new(this) { OocNotes = oocNotes };
+        }
+        // Aquila Change end
 
         public HumanoidCharacterProfile WithAge(int age)
         {
@@ -580,6 +591,7 @@ namespace Content.Shared.Preferences
             if (!_traitPreferences.SequenceEqual(other._traitPreferences)) return false;
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
             if (FlavorText != other.FlavorText) return false;
+            if (OocNotes != other.OocNotes) return false; // Aquila Change
             return Appearance.MemberwiseEquals(other.Appearance);
         }
 
@@ -671,6 +683,13 @@ namespace Content.Shared.Preferences
                 flavortext = FormattedMessage.RemoveMarkupOrThrow(FlavorText);
             }
 
+            // Aquila Change start
+            var maxOocNotesLength = configManager.GetCVar(CCVars.MaxFlavorTextLength);
+            var oocNotes = FormattedMessage.RemoveMarkupOrThrow(OocNotes);
+            if (oocNotes.Length > maxOocNotesLength)
+                oocNotes = oocNotes[..maxOocNotesLength];
+            // Aquila Change end
+
             var appearance = HumanoidCharacterAppearance.EnsureValid(Appearance, Species, Sex, sponsorPrototypes); // CorvaxGoob-Sponsors
 
             var prefsUnavailableMode = PreferenceUnavailable switch
@@ -719,6 +738,7 @@ namespace Content.Shared.Preferences
 
             Name = name;
             FlavorText = flavortext;
+            OocNotes = oocNotes; // Aquila Change
             Age = age;
             // Height = height; // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
             // Width = width; // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
@@ -853,6 +873,7 @@ namespace Content.Shared.Preferences
             hashCode.Add(_loadouts);
             hashCode.Add(Name);
             hashCode.Add(FlavorText);
+            hashCode.Add(OocNotes); // Aquila Change
             hashCode.Add(Species);
             // hashCode.Add(Height); // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
             // hashCode.Add(Width); // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing

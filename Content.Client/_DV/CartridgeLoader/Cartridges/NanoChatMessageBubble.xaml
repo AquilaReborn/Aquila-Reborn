@@ -5,7 +5,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 <cartridges:NanoChatMessageBubble
     xmlns="https://spacestation14.io"
     xmlns:cartridges="clr-namespace:Content.Client._DV.CartridgeLoader.Cartridges"
-    xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     HorizontalExpand="True">
 
     <BoxContainer Name="MessageContainer"
@@ -13,30 +12,26 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                   HorizontalExpand="True">
         <!-- Left spacer for other's messages -->
         <Control Name="LeftSpacer"
-                 MinSize="12 0" />
+                 MinSize="8 0" />
 
         <!-- Message panel -->
         <BoxContainer Name="MessageBox"
                       Orientation="Vertical"
                       MaxWidth="320"
                       HorizontalExpand="True">
+            <!-- Aquila Change start -->
             <PanelContainer Name="MessagePanel"
                             MaxWidth="320"
                             HorizontalExpand="True">
-                <PanelContainer.PanelOverride>
-                    <graphics:StyleBoxFlat
-                        ContentMarginLeftOverride="10"
-                        ContentMarginRightOverride="10"
-                        ContentMarginTopOverride="6"
-                        ContentMarginBottomOverride="6"
-                        BorderThickness="1">
-                        <!-- Colors set in code based on message sender -->
-                    </graphics:StyleBoxFlat>
-                </PanelContainer.PanelOverride>
-
                 <RichTextLabel Name="MessageText"
                                HorizontalExpand="True" />
             </PanelContainer>
+
+            <Label Name="TimeLabel"
+                   StyleClasses="LabelSmall"
+                   Margin="6 2 6 0"
+                   Visible="False" />
+            <!-- Aquila Change end -->
 
             <!-- Delivery failed text -->
             <Label Name="DeliveryFailedLabel"
@@ -50,7 +45,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
         <!-- Right spacer for own messages -->
         <Control Name="RightSpacer"
-                 MinSize="12 0" />
+                 MinSize="8 0" />
 
         <!-- Flexible space for alignment -->
         <Control Name="FlexSpace"

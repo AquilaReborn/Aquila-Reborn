@@ -1,0 +1,39 @@
+light_mode unshaded;
+
+uniform highp float noiseStrength;
+uniform highp float bandStrength;
+
+const highp float BAND_PERIOD = 6.0;
+
+highp float hash(highp vec2 p) {
+    highp vec3 p3 = fract(vec3(p.xyx) * 0.1031);
+    p3 += dot(p3, p3.yzx + 33.33);
+    return fract((p3.x + p3.y) * p3.z);
+}
+
+void fragment() {
+    highp float frame = mod(floor(TIME * 24.0), 512.0);
+    highp vec2 cell = floor(FRAGCOORD.xy / 2.0);
+    highp float grain = hash(cell + vec2(frame * 37.0, frame * 91.0));
+
+    highp vec3 color = vec3(grain);
+    highp float alpha = noiseStrength;
+
+    highp float cycle = mod(floor(TIME / BAND_PERIOD), 1024.0);
+    highp float local = mod(TIME, BAND_PERIOD);
+    highp float roll = hash(vec2(cycle, 7.0));
+    highp float rollWidth = hash(vec2(cycle, 13.0));
+    highp float duration = 2.0 + rollWidth * 1.5;
+
+    if (roll > 0.35 && local < duration) {
+        highp float position = -0.15 + 1.3 * (local / duration);
+        highp float width = 0.02 + rollWidth * 0.04;
+        highp float band = 1.0 - smoothstep(0.0, width, abs(UV.y - position));
+        band *= 0.75 + 0.25 * grain;
+
+        color = mix(color, vec3(1.0), band);
+        alpha += band * bandStrength;
+    }
+
+    COLOR = vec4(color, alpha);
+}

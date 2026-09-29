@@ -50,6 +50,8 @@ public sealed partial class LogProbeUiFragment : BoxContainer
     {
         TitleLabel.Text = Loc.GetString("log-probe-header-nanochat");
         ContentLabel.Text = Loc.GetString("log-probe-label-message");
+        ContentLabel.Margin = new Thickness(0); // Aquila Change
+        ContentLabel.SetWidth = 390; // Aquila Change
 
         // Show card info if available
         var cardInfo = new List<string>();
@@ -67,6 +69,8 @@ public sealed partial class LogProbeUiFragment : BoxContainer
     {
         TitleLabel.Text = Loc.GetString("log-probe-header-access");
         ContentLabel.Text = Loc.GetString("log-probe-label-accessor");
+        ContentLabel.Margin = new Thickness(12, 0, 0, 0); // Aquila Change
+        ContentLabel.SetWidth = 378; // Aquila Change
         CardNumberLabel.Visible = false;
     }
 

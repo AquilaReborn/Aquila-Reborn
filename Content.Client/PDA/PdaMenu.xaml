@@ -5,66 +5,95 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 <pda:PdaWindow  xmlns="https://spacestation14.io"
                 xmlns:pda="clr-namespace:Content.Client.PDA"
                 xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:aquila="clr-namespace:Content.Client._Aquila.PDA"
                 MinSize="510 635"
                 SetSize="510 635">
     <!-- This: (Margin="1 1 3 0") is necessary so the navigation bar doesn't sticks into the black content border. -->
     <BoxContainer Name="NavigationBar" HorizontalExpand="True" MinHeight="32" Margin="1 1 3 0">
-        <pda:PdaNavigationButton Name="HomeButton" SetWidth="32" CurrentTabBorderThickness="0 0 2 0" IsCurrent="True"/>
+        <!-- Aquila Change start -->
+        <pda:PdaNavigationButton Name="HomeButton" SetWidth="32" IsCurrent="True"/>
         <pda:PdaNavigationButton Name="ProgramListButton" Access="Public" MinWidth="100" LabelText="{Loc 'comp-pda-io-program-list-button'}"/>
         <pda:PdaNavigationButton Name="SettingsButton" MinWidth="100" LabelText="{Loc 'comp-pda-io-settings-button'}"/>
 
-        <pda:PdaNavigationButton Name="ProgramTitle" Access="Public" BorderThickness="0 0 0 2" CurrentTabBorderThickness="2 0 0 2"
-                                 ActiveBgColor="#002600" ActiveFgColor="#46cc67" Visible="False"/>
+        <pda:PdaNavigationButton Name="ProgramTitle" Access="Public" Visible="False"/>
 
-        <pda:PdaNavigationButton HorizontalExpand="True"/>
+        <pda:PdaNavigationButton HorizontalExpand="True" Disabled="True"/>
 
-        <pda:PdaNavigationButton Name="ProgramCloseButton" Access="Public" IconScale="0.5 0.5" BorderThickness="0 0 2 2"
-                                 Visible="False" IsActive="False" SetWidth="32" ActiveFgColor="#46cc67"/>
+        <pda:PdaNavigationButton Name="ProgramCloseButton" Access="Public" IconScale="0.5 0.5"
+                                 Visible="False" IsActive="False" SetWidth="32" InactiveFgColor="{x:Static aquila:PdaStyle.TextInteractiveHex}"/>
 
-        <pda:PdaNavigationButton Name="FlashLightToggleButton" Access="Public" ToggleMode="True" ActiveFgColor="#46cc67" InactiveFgColor="#001100" SetWidth="32"/>
-        <pda:PdaNavigationButton Name="EjectPenButton" Access="Public" SetWidth="32" ActiveFgColor="#46cc67" InactiveFgColor="#001100"/>
-        <pda:PdaNavigationButton Name="EjectIdButton" Access="Public" SetWidth="32" ActiveFgColor="#46cc67" InactiveFgColor="#001100"/>
-        <pda:PdaNavigationButton Name="EjectPaiButton" Access="Public" SetWidth="32" ActiveFgColor="#46cc67" InactiveFgColor="#001100"/>
+        <pda:PdaNavigationButton Name="FlashLightToggleButton" Access="Public" ToggleMode="True" ActiveFgColor="{x:Static aquila:PdaStyle.YellowHex}" SetWidth="32"/>
+        <pda:PdaNavigationButton Name="EjectPenButton" Access="Public" SetWidth="32" ActiveFgColor="{x:Static aquila:PdaStyle.TextNormalHex}"/>
+        <pda:PdaNavigationButton Name="EjectIdButton" Access="Public" SetWidth="32" ActiveFgColor="{x:Static aquila:PdaStyle.TextNormalHex}"/>
+        <pda:PdaNavigationButton Name="EjectPaiButton" Access="Public" SetWidth="32" ActiveFgColor="{x:Static aquila:PdaStyle.TextNormalHex}"/>
+        <!-- Aquila Change end -->
     </BoxContainer>
     <BoxContainer Name="ViewContainer" HorizontalExpand="True" VerticalExpand="True" Access="Public">
-        <BoxContainer Orientation="Vertical"
-                      VerticalExpand="True"
-                      HorizontalExpand="True"
-                      MinSize="50 50"
-                      Margin="8">
-            <ContainerButton Name="PdaOwnerButton">
-                <RichTextLabel Name="PdaOwnerLabel" Access="Public"/>
-            </ContainerButton>
-            <ContainerButton Name="IdInfoButton">
-                <RichTextLabel Name="IdInfoLabel" Access="Public"/>
-            </ContainerButton>
-            <ContainerButton Name="StationNameButton">
-                <RichTextLabel Name="StationNameLabel" Access="Public"/>
-            </ContainerButton>
-            <ContainerButton Name="StationAlertLevelButton">
-                <RichTextLabel Name="StationAlertLevelLabel" Access="Public"/>
-            </ContainerButton>
-            <ContainerButton Name="StationTimeButton">
-                <RichTextLabel Name="StationTimeLabel" Access="Public"/>
-            </ContainerButton>
-            <ContainerButton Name="StationAlertLevelInstructionsButton">
-                <RichTextLabel Name="StationAlertLevelInstructions" Access="Public"/>
-            </ContainerButton>
-        </BoxContainer>
-        <ScrollContainer HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="True">
+        <!-- Aquila Change start -->
+        <ScrollContainer HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="False" StyleClasses="PdaScroll">
+            <BoxContainer Orientation="Vertical"
+                          VerticalExpand="True"
+                          HorizontalExpand="True"
+                          MinSize="50 50"
+                          Margin="10 6 10 10">
+                <Label Text="{Loc 'pda-aquila-home-section-owner'}" StyleClasses="PdaSectionHeader" Margin="4 6 0 4"/>
+                <PanelContainer StyleClasses="PdaCard">
+                    <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                        <ContainerButton Name="PdaOwnerButton" StyleClasses="PdaCardRow">
+                            <RichTextLabel Name="PdaOwnerLabel" Access="Public"/>
+                        </ContainerButton>
+                        <ContainerButton Name="IdInfoButton" StyleClasses="PdaCardRow">
+                            <RichTextLabel Name="IdInfoLabel" Access="Public"/>
+                        </ContainerButton>
+                    </BoxContainer>
+                </PanelContainer>
+
+                <Label Text="{Loc 'pda-aquila-home-section-station'}" StyleClasses="PdaSectionHeader" Margin="4 12 0 4"/>
+                <PanelContainer StyleClasses="PdaCard">
+                    <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                        <ContainerButton Name="StationNameButton" StyleClasses="PdaCardRow">
+                            <RichTextLabel Name="StationNameLabel" Access="Public"/>
+                        </ContainerButton>
+                        <ContainerButton Name="StationTimeButton" StyleClasses="PdaCardRow">
+                            <RichTextLabel Name="StationTimeLabel" Access="Public"/>
+                        </ContainerButton>
+                    </BoxContainer>
+                </PanelContainer>
+
+                <Label Text="{Loc 'pda-aquila-home-section-alert'}" StyleClasses="PdaSectionHeader" Margin="4 12 0 4"/>
+                <PanelContainer StyleClasses="PdaCard">
+                    <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                        <PanelContainer Name="AlertLevelAccent" SetWidth="4" Margin="2 6 4 6"/>
+                        <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                            <ContainerButton Name="StationAlertLevelButton" StyleClasses="PdaCardRow">
+                                <RichTextLabel Name="StationAlertLevelLabel" Access="Public"/>
+                            </ContainerButton>
+                            <ContainerButton Name="StationAlertLevelInstructionsButton" StyleClasses="PdaCardRow">
+                                <RichTextLabel Name="StationAlertLevelInstructions" Access="Public"/>
+                            </ContainerButton>
+                        </BoxContainer>
+                    </BoxContainer>
+                </PanelContainer>
+            </BoxContainer>
+        </ScrollContainer>
+        <ScrollContainer HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="False" StyleClasses="PdaScroll">
             <BoxContainer Orientation="Vertical"
                           VerticalExpand="True"
                           HorizontalExpand="True"
                           MinSize="50 50"
                           Name="ProgramList"
-                          Margin="4"/>
+                          Margin="6"/>
         </ScrollContainer>
-        <ScrollContainer HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="True">
+        <ScrollContainer HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="False" StyleClasses="PdaScroll">
             <BoxContainer Orientation="Vertical"
                           VerticalExpand="True"
                           HorizontalExpand="True"
                           MinSize="50 50"
+                          Margin="10 6 10 10"
                           Name="Settings">
+                <Label Text="{Loc 'pda-aquila-settings-section'}" StyleClasses="PdaSectionHeader" Margin="4 6 0 4"/>
+        <!-- Aquila Change end -->
                 <pda:PdaSettingsButton Name="AccessRingtoneButton"
                                        Access="Public"
                                        Text="{Loc 'comp-pda-ui-ringtone-button'}"

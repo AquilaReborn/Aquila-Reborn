@@ -3,6 +3,7 @@
 using Content.Shared.Aquila.Settings; // AQUILA
 using Content.Client._CorvaxGoob.CharacterEditor.UI; // CorvaxGoob-TTS
 using Content.Client._CorvaxGoob.Chat;
+using Content.Client._Aquila.OocNotes; // Aquila Change
 using Content.Client._CorvaxGoob.TTS;
 using Content.Client.Humanoid;
 using Content.Client.Lobby.UI.Loadouts;
@@ -70,6 +71,7 @@ namespace Content.Client.Lobby.UI
 
         private FlavorText.FlavorText? _flavorText;
         private TextEdit? _flavorTextEdit;
+        private OocNotesEditor? _oocNotes; // Aquila Change
 
         // One at a time.
         private LoadoutWindow? _loadoutWindow;
@@ -488,6 +490,7 @@ namespace Content.Client.Lobby.UI
             #endregion Markings
 
             RefreshFlavorText();
+            RefreshOocNotes(); // Aquila Change
 
             RefreshVoiceTab(); // CorvaxGoob-TTS
 
@@ -915,6 +918,7 @@ namespace Content.Client.Lobby.UI
 
             UpdateNameEdit();
             UpdateFlavorTextEdit();
+            UpdateOocNotesEdit(); // Aquila Change
             UpdateSexControls();
             UpdateGenderControls();
             UpdateSkinColor();
@@ -1293,6 +1297,33 @@ namespace Content.Client.Lobby.UI
 
             UpdateJobPriorities();
         }
+
+        // Aquila Change start
+        private void RefreshOocNotes()
+        {
+            if (_oocNotes != null)
+                return;
+
+            _oocNotes = new OocNotesEditor();
+            TabContainer.AddChild(_oocNotes);
+            TabContainer.SetTabTitle(TabContainer.ChildCount - 1, Loc.GetString("ooc-notes-editor-tab"));
+            _oocNotes.OnNotesChanged += OnOocNotesChange;
+        }
+
+        private void OnOocNotesChange(string content)
+        {
+            if (Profile is null)
+                return;
+
+            Profile = Profile.WithOocNotes(content);
+            SetDirty();
+        }
+
+        private void UpdateOocNotesEdit()
+        {
+            _oocNotes?.SetNotes(Profile?.OocNotes ?? "");
+        }
+        // Aquila Change end
 
         private void OnFlavorTextChange(string content)
         {

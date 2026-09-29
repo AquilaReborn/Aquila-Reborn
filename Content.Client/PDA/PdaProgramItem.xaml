@@ -4,18 +4,25 @@ SPDX-License-Identifier: MIT
 
 <pda:PdaProgramItem HorizontalExpand="True" MinHeight="60" Margin="4"
                     xmlns:pda="clr-namespace:Content.Client.PDA"
+                    xmlns:sys="clr-namespace:System;assembly=System.Runtime"
                     xmlns="https://spacestation14.io">
     <PanelContainer Name="Panel"/>
-    <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True">
-        <BoxContainer Orientation="Vertical" VerticalExpand="True" MinWidth="60">
-            <AnimatedTextureRect HorizontalAlignment="Center" VerticalAlignment="Center" VerticalExpand="True" Name="Icon" Access="Public"/>
-        </BoxContainer>
+    <!-- Aquila Change start -->
+    <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True" Margin="8">
+        <PanelContainer Name="IconBackground" SetSize="44 44" VerticalAlignment="Center" Margin="0 0 10 0">
+            <AnimatedTextureRect HorizontalAlignment="Center" VerticalAlignment="Center" Name="Icon" Access="Public"/>
+        </PanelContainer>
         <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
-            <Label Name="ProgramName" Access="Public" VerticalExpand="True"/>
-            <BoxContainer HorizontalExpand="True" SetHeight="28" Margin="0 0 4 4">
+            <Label Name="ProgramName" Access="Public" VerticalExpand="True" ClipText="True"/>
+            <BoxContainer HorizontalExpand="True" SetHeight="24">
                 <BoxContainer HorizontalExpand="True"/>
-                <Button Name="InstallButton" Access="Public" Visible="False" SetWidth="90" HorizontalAlignment="Right" VerticalExpand="True"></Button>
+                <Button Name="InstallButton" Access="Public" Visible="False" SetWidth="90" HorizontalAlignment="Right" VerticalExpand="True">
+                    <Button.StyleClasses>
+                        <sys:String>GreenPDAPalette</sys:String>
+                    </Button.StyleClasses>
+                </Button>
             </BoxContainer>
         </BoxContainer>
     </BoxContainer>
+    <!-- Aquila Change end -->
 </pda:PdaProgramItem>

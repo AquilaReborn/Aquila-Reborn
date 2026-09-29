@@ -11,6 +11,7 @@ using Robust.Client.Graphics;
 using Robust.Client.UserInterface.XAML;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Timing;
+using Content.Client._Aquila.PDA; // Aquila Change
 
 namespace Content.Client.PDA
 {
@@ -22,6 +23,8 @@ namespace Content.Client.PDA
         [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
         [Dependency] private readonly ILocalizationManager _locMan = default!; // CorvaxGoob-custom-alert-instructions-in-pda // I made this for no warning by me
         private readonly ClientGameTicker _gameTicker;
+        [Dependency] private readonly IEntityManager _entityManager = default!; // Aquila Change
+        public EntityUid? PdaEntity; // Aquila Change
 
         public const int HomeView = 0;
         public const int ProgramListView = 1;
@@ -192,6 +195,7 @@ namespace Content.Client.PDA
                 ("color", alertColor),
                 ("level", _alertLevel)
             ));
+            AlertLevelAccent.PanelOverride = PdaStyle.Box(alertColor); // Aquila Change
 
             if (alertInstructions != null)
                 if (alertInstructions == String.Empty)
@@ -358,6 +362,25 @@ namespace Content.Client.PDA
                 view.Visible = false;
             }
         }
+
+        // Aquila Change start
+        protected override void FrameUpdate(FrameEventArgs args)
+        {
+            base.FrameUpdate(args);
+
+            if (!_entityManager.TryGetComponent<PdaComponent>(PdaEntity, out var pda))
+                return;
+
+            if (EjectIdButton.IsActive != pda.IdSlot.HasItem)
+                EjectIdButton.IsActive = pda.IdSlot.HasItem;
+
+            if (EjectPenButton.IsActive != pda.PenSlot.HasItem)
+                EjectPenButton.IsActive = pda.PenSlot.HasItem;
+
+            if (EjectPaiButton.IsActive != pda.PaiSlot.HasItem)
+                EjectPaiButton.IsActive = pda.PaiSlot.HasItem;
+        }
+        // Aquila Change end
 
         protected override void Draw(DrawingHandleScreen handle)
         {

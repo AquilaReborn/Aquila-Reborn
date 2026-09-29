@@ -1027,6 +1027,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("jsonb")
                         .HasColumnName("markings");
 
+                    b.Property<string>("OocNotes")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("ooc_notes");
+
                     b.Property<byte[]>("OrganMarkings")
                         .HasColumnType("jsonb")
                         .HasColumnName("organ_markings");

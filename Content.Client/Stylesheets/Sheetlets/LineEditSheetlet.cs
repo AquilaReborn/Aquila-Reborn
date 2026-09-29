@@ -1,4 +1,5 @@
-﻿using Content.Client.Stylesheets.SheetletConfigs;
+﻿using Content.Client._Aquila.PDA; // Aquila Change
+using Content.Client.Stylesheets.SheetletConfigs;
 using Content.Client.Stylesheets.Stylesheets;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
@@ -18,12 +19,8 @@ public sealed class LineEditSheetlet<T> : Sheetlet<T> where T : PalettedStyleshe
             .IntoPatch(StyleBox.Margin.All, 3);
         lineEditStylebox.SetContentMarginOverride(StyleBox.Margin.Horizontal, 5);
 
-    var greenStyleBox = new StyleBoxFlat
-    {
-        BackgroundColor = Color.FromHex("#003300"),
-        BorderColor = Color.FromHex("#006800"),
-        BorderThickness = new Thickness(1),
-    };
+        var greenStyleBox = PdaStyle.Box(PdaStyle.BackgroundTertiary); // Aquila Change
+        greenStyleBox.SetContentMarginOverride(StyleBox.Margin.Horizontal, 8); // Aquila Change
 
         return
         [
@@ -42,7 +39,7 @@ public sealed class LineEditSheetlet<T> : Sheetlet<T> where T : PalettedStyleshe
             E<LineEdit>()
                 .Class("GreenLineEdit")
                 .Prop(LineEdit.StylePropertyStyleBox, greenStyleBox)
-                .Prop("font-color", new Color(0, 104, 0)),
+                .Prop("font-color", PdaStyle.TextNormal), // Aquila Change
         ];
     }
 }

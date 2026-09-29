@@ -1,4 +1,5 @@
-﻿using Content.Client.Stylesheets.SheetletConfigs;
+﻿using Content.Client._Aquila.PDA; // Aquila Change
+using Content.Client.Stylesheets.SheetletConfigs;
 using Content.Client.Stylesheets.Stylesheets;
 using Content.Client.UserInterface.Controls;
 using Robust.Client.Graphics;
@@ -25,7 +26,7 @@ public sealed class StripebackSheetlet<T> : Sheetlet<T> where T : PalettedStyles
         {
             Texture = sheet.GetTextureOr(stripebackCfg.StripebackPath, NanotrasenStylesheet.TextureRoot),
             Mode = StyleBoxTexture.StretchMode.Tile,
-            Modulate = Color.FromHex("#18752f"),
+            Modulate = PdaStyle.BackgroundFloating, // Aquila Change
         };
 
         return
@@ -36,7 +37,7 @@ public sealed class StripebackSheetlet<T> : Sheetlet<T> where T : PalettedStyles
             E<StripeBack>()
                 .Class("GreenStripeStyle")
                 .Prop(StripeBack.StylePropertyBackground, greenStripeBack)
-                .Prop("border_color", new Color(24, 117, 47)),
+                .Prop("border_color", PdaStyle.BackgroundTertiary), // Aquila Change
         ];
     }
 }

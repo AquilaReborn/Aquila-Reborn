@@ -294,7 +294,10 @@ namespace Content.Server.Database
                 traits.ToHashSet(),
                 loadouts
                 // barkVoice // Goob Station - Barks // CorvaxGoob-Revert : DB conflicts
-            );
+            )
+            {
+                OocNotes = profile.OocNotes ?? string.Empty, // Aquila Change
+            };
         }
 
         private static Profile ConvertProfiles(HumanoidCharacterProfile humanoid, int slot, Profile? profile = null)
@@ -310,6 +313,7 @@ namespace Content.Server.Database
 
             profile.CharacterName = humanoid.Name;
             profile.FlavorText = humanoid.FlavorText;
+            profile.OocNotes = humanoid.OocNotes; // Aquila Change
             profile.Species = humanoid.Species;
             profile.TTSVoice = humanoid.TTSVoice; // CorvaxGoob-TTS
             profile.Age = humanoid.Age;
