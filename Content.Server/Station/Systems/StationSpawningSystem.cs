@@ -10,6 +10,7 @@ using Content.Shared.Access.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
 using Content.Shared.DetailExaminable;
+using Content.Shared._Aquila.OocNotes; // Aquila Change
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.IdentityManagement;
@@ -36,6 +37,7 @@ namespace Content.Server.Station.Systems;
 public sealed partial class StationSpawningSystem : SharedStationSpawningSystem // CorvaxGoob - made partial
 {
     [Dependency] private readonly SharedAccessSystem _accessSystem = default!;
+    [Dependency] private readonly OocNotesSystem _oocNotes = default!; // Aquila Change
     [Dependency] private readonly ActorSystem _actors = default!;
     [Dependency] private readonly IdCardSystem _cardSystem = default!;
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
@@ -144,6 +146,8 @@ public sealed partial class StationSpawningSystem : SharedStationSpawningSystem 
             {
                 AddComp<DetailExaminableComponent>(entity.Value).Content = profile.FlavorText;
             }
+
+            _oocNotes.SetNotes(entity.Value, profile.OocNotes); // Aquila Change
         }
 
         if (loadout != null)

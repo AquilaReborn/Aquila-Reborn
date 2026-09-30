@@ -4,53 +4,51 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
 <BoxContainer
     xmlns="https://spacestation14.io"
-    xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     xmlns:sys="clr-namespace:System;assembly=System.Runtime"
     HorizontalExpand="True">
+    <!-- Aquila Change start -->
     <Button Name="ChatButton"
             HorizontalExpand="True"
             MaxSize="137 64"
             Margin="0 1">
         <Button.StyleClasses>
             <sys:String>ButtonSquare</sys:String>
-            <sys:String>GreenPDAPalette</sys:String>
+            <sys:String>PdaListEntry</sys:String>
         </Button.StyleClasses>
         <BoxContainer Orientation="Horizontal"
                       HorizontalExpand="True"
                       VerticalExpand="True"
-                      MinWidth="132"
-                      Margin="6 4"
+                      Margin="2 4"
                       VerticalAlignment="Center">
-            <!-- Unread indicator dot -->
-            <PanelContainer Name="UnreadIndicator"
-                            MinSize="8 8"
-                            MaxSize="8 8"
-                            VerticalAlignment="Center"
-                            Margin="0 0 6 0">
-                <PanelContainer.PanelOverride>
-                    <graphics:StyleBoxFlat
-                        BackgroundColor="#319b79"
-                        BorderColor="#216b53" />
-                </PanelContainer.PanelOverride>
-            </PanelContainer>
+            <!-- Avatar with unread indicator -->
+            <Control SetSize="30 30"
+                     VerticalAlignment="Center"
+                     Margin="0 0 6 0">
+                <PanelContainer Name="Avatar" SetSize="28 28" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                    <Label Name="AvatarLabel"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center" />
+                </PanelContainer>
+                <PanelContainer Name="UnreadIndicator"
+                                SetSize="10 10"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top" />
+            </Control>
 
             <!-- Text container -->
             <BoxContainer Orientation="Vertical"
                           HorizontalExpand="True"
                           VerticalExpand="True"
                           VerticalAlignment="Center">
-                <RichTextLabel Name="NameLabel"
-                               StyleClasses="LabelHeading"
-                               HorizontalExpand="True"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               Margin="0 -2 0 0" />
+                <Label Name="NameLabel"
+                       HorizontalExpand="True"
+                       ClipText="True" />
                 <Label Name="JobLabel"
                        StyleClasses="LabelSubText"
                        HorizontalExpand="True"
-                       ClipText="False"
-                       HorizontalAlignment="Center" />
+                       ClipText="True" />
             </BoxContainer>
         </BoxContainer>
     </Button>
+    <!-- Aquila Change end -->
 </BoxContainer>

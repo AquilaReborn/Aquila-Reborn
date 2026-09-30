@@ -125,10 +125,12 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                       HorizontalExpand="True"
                       Margin="0 5 0 0">
             <!-- Left panel: Chat list -->
-            <PanelContainer StyleClasses="AngleRect"
+            <!-- Aquila Change -->
+            <PanelContainer StyleClasses="PdaCard"
                             VerticalExpand="True"
                             MaxWidth="150">
-                <ScrollContainer VerticalExpand="True"
+                <!-- Aquila Change -->
+                <ScrollContainer StyleClasses="PdaScroll" VerticalExpand="True"
                                  MinWidth="145"
                                  HorizontalExpand="True"
                                  HScrollEnabled="False">
@@ -147,10 +149,12 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 </ScrollContainer>
             </PanelContainer>
 
-            <customControls:VSeparator Margin="3 0" />
+            <PanelContainer StyleClasses="PdaSeparator" MinWidth="2" Margin="3 0" />
+            <!-- Aquila Change -->
 
             <!-- Right panel: Current chat -->
-            <PanelContainer StyleClasses="AngleRect"
+            <!-- Aquila Change -->
+            <PanelContainer StyleClasses="PdaCard"
                             VerticalExpand="True"
                             HorizontalExpand="True">
                 <BoxContainer Orientation="Vertical"
@@ -167,7 +171,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                VerticalExpand="True" />
-                        <ScrollContainer Name="MessagesScroll"
+                        <!-- Aquila Change -->
+                        <ScrollContainer Name="MessagesScroll" StyleClasses="PdaScroll"
                                          VerticalExpand="True"
                                          HorizontalExpand="True"
                                          Visible="False">
@@ -177,6 +182,18 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                                           HorizontalExpand="True" />
                         </ScrollContainer>
                     </BoxContainer>
+
+                    <!-- Aquila Change start -->
+                    <PanelContainer Name="EmojiPanel"
+                                    StyleClasses="PdaCard"
+                                    HorizontalExpand="True"
+                                    Margin="0 4 0 0"
+                                    Visible="False">
+                        <GridContainer Name="EmojiGrid"
+                                       Columns="6"
+                                       HorizontalAlignment="Center" />
+                    </PanelContainer>
+                    <!-- Aquila Change end -->
 
                     <!-- Message input -->
                     <BoxContainer Name="MessageInputContainer"
@@ -194,7 +211,23 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                         <LineEdit Name="MessageInput"
                                   PlaceHolder="{Loc nano-chat-message-placeholder}"
                                   HorizontalExpand="True"
-                                  StyleClasses="OpenRight" />
+                                  StyleClasses="GreenLineEdit" />
+                        <!-- Aquila Change -->
+                        <!-- Aquila Change start -->
+                        <Button Name="EmojiButton"
+                                MinSize="32 32"
+                                Margin="4 0 0 0"
+                                ToolTip="{Loc nano-chat-aquila-emoji}"
+                                ToggleMode="True">
+                            <TextureRect TexturePath="/Textures/_Aquila/Interface/Emoji/smile.png"
+                                         Stretch="KeepAspectCentered"
+                                         SetSize="18 18" />
+                            <Button.StyleClasses>
+                                <sys:String>OpenBoth</sys:String>
+                                <sys:String>GreenPDAPalette</sys:String>
+                            </Button.StyleClasses>
+                        </Button>
+                        <!-- Aquila Change end -->
                         <Button Name="SendButton"
                                 MinSize="32 32"
                                 Disabled="True"

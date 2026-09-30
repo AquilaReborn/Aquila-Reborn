@@ -1,0 +1,6 @@
+<Control xmlns="https://spacestation14.io">
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+        <Label Name="HintLabel" Margin="10 10 10 0" StyleClasses="LabelSubText" />
+        <TextEdit Name="NotesInput" Access="Public" MinSize="220 100" Margin="10" HorizontalExpand="True" VerticalExpand="True" />
+    </BoxContainer>
+</Control>

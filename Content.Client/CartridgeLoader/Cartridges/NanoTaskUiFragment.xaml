@@ -1,6 +1,8 @@
 <cartridges:NanoTaskUiFragment xmlns:cartridges="clr-namespace:Content.Client.CartridgeLoader.Cartridges"
                                xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
                                xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+                               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                               xmlns:aquila="clr-namespace:Content.Client._Aquila.PDA"
                                xmlns="https://spacestation14.io" Margin="1 0 2 0">
 
     <PanelContainer StyleClasses="BackgroundDark"></PanelContainer>
@@ -11,7 +13,8 @@
                 <BoxContainer Orientation="Horizontal">
                     <PanelContainer SetWidth="7" Margin="0 0 8 0">
                         <PanelContainer.PanelOverride>
-                            <gfx:StyleBoxFlat BackgroundColor="#023805"/>
+                            <gfx:StyleBoxFlat BackgroundColor="{x:Static aquila:PdaStyle.Red}"/>
+                            <!-- Aquila Change -->
                         </PanelContainer.PanelOverride>
                     </PanelContainer>
                     <Label Name="HighPriority" StyleClasses="LabelHeading"/>
@@ -26,7 +29,8 @@
                 <BoxContainer Orientation="Horizontal">
                     <PanelContainer SetWidth="7" Margin="0 0 8 0">
                         <PanelContainer.PanelOverride>
-                            <gfx:StyleBoxFlat BackgroundColor="#0c6d24"/>
+                            <gfx:StyleBoxFlat BackgroundColor="{x:Static aquila:PdaStyle.Yellow}"/>
+                            <!-- Aquila Change -->
                         </PanelContainer.PanelOverride>
                     </PanelContainer>
                     <Label Name="MediumPriority" StyleClasses="LabelHeading"/>
@@ -41,7 +45,8 @@
                 <BoxContainer Orientation="Horizontal">
                     <PanelContainer SetWidth="7" Margin="0 0 8 0">
                         <PanelContainer.PanelOverride>
-                            <gfx:StyleBoxFlat BackgroundColor="#1dbe80"/>
+                            <gfx:StyleBoxFlat BackgroundColor="{x:Static aquila:PdaStyle.Green}"/>
+                            <!-- Aquila Change -->
                         </PanelContainer.PanelOverride>
                     </PanelContainer>
                     <Label Name="LowPriority" StyleClasses="LabelHeading"/>

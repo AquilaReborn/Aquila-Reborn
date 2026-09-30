@@ -33,6 +33,7 @@ namespace Content.Client.PDA
         private void CreateMenu()
         {
             _menu = this.CreateWindowCenteredLeft<PdaMenu>();
+            _menu.PdaEntity = Owner; // Aquila Change
 
             _menu.FlashLightToggleButton.OnToggled += _ =>
             {

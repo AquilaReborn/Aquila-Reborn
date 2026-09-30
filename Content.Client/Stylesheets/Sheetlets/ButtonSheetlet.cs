@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Client._Aquila.PDA; // Aquila Change
 using Content.Client.Stylesheets.Palette;
 using Content.Client.Stylesheets.SheetletConfigs;
 using Content.Client.Stylesheets.Stylesheets;
@@ -74,20 +75,22 @@ public sealed class ButtonSheetlet<T> : Sheetlet<T> where T : PalettedStylesheet
         MakeButtonRules(rules, buttonCfg.PositiveButtonPalette, StyleClass.Positive);
         MakeButtonRules(rules, buttonCfg.NegativeButtonPalette, StyleClass.Negative);
 
+        // Aquila Change start
         MakeButtonRules(rules, new ColorPalette(
-            Base: Color.FromHex("#597e59"),
+            Base: PdaStyle.Selected,
             LightnessShift: 0f,
             ChromaShift: 0f,
-            Background: Color.FromHex("#597e59"),
-            BackgroundLight: Color.FromHex("#597e59"),
-            BackgroundDark: Color.FromHex("#597e59"),
-            Text: Color.White,
-            TextDark: Color.FromHex("#CCCCCC"),
-            Element: Color.FromHex("#597e59"),
-            HoveredElement: Color.FromHex("#46cc67"),
-            PressedElement: Color.FromHex("#012b01"),
-            DisabledElement: Color.FromHex("#000300")
+            Background: PdaStyle.Selected,
+            BackgroundLight: PdaStyle.Hover,
+            BackgroundDark: PdaStyle.BackgroundSecondary,
+            Text: PdaStyle.TextHeader,
+            TextDark: PdaStyle.TextMuted,
+            Element: PdaStyle.Selected,
+            HoveredElement: PdaStyle.AccentDark,
+            PressedElement: PdaStyle.AccentDarker,
+            DisabledElement: PdaStyle.BackgroundSecondary
             ), "GreenPDAPalette");
+        // Aquila Change end
 
         return rules.ToArray();
     }
