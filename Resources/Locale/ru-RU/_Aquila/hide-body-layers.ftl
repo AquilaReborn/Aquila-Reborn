@@ -1,7 +1,9 @@
-toggle-hide-layers-hide-popup = Вы прячете части тела под снаряжение.
-toggle-hide-layers-show-popup = Вы выпускаете части тела наружу.
+toggle-hide-layers-hide-popup = Вы скрыли часть внешности.
+toggle-hide-layers-show-popup = Вы показали часть внешности.
 
-ent-ActionToggleHideLayersSuit = Спрятать хвост и крылья
-    .desc = Спрятать хвост и крылья под скафандр или выпустить их наружу.
-ent-ActionToggleHideLayersHelmet = Спрятать уши и рога
-    .desc = Спрятать уши и рога под шлем или выпустить их наружу.
+ent-ActionToggleHideLayersSuit = Скрыть/показать хвост и крылья
+    .desc = Переключает видимость хвоста и крыльев.
+ent-ActionToggleHideLayersHelmet = Скрыть/показать уши и рога
+    .desc = Переключает видимость ушей и рогов.
+ent-ActionToggleHideLayersHair = Скрыть/показать волосы
+    .desc = Переключает видимость волос.

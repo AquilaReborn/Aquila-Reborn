@@ -9,7 +9,7 @@
 
 - type: bark
   id: MothSqueak
-  name: Moth Squeak
+  name: bark-voice-mothsqueak # Aquila Change
   soundCollection:
     collection: MothSqueakBark
   speciesWhitelist:

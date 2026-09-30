@@ -26,6 +26,9 @@ public sealed partial class ToggleHideLayersClothingComponent : Component
     public bool Hidden;
 
     [DataField]
+    public bool HiddenByDefault;
+
+    [DataField]
     public LocId HidePopup = "toggle-hide-layers-hide-popup";
 
     [DataField]

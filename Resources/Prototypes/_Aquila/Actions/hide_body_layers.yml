@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseAction
   id: ActionToggleHideLayersSuit
-  name: Hide tail and wings
-  description: Tuck your tail and wings under the suit, or let them out.
+  name: Hide or show tail and wings
+  description: Toggle whether your tail and wings are visible.
   components:
   - type: Action
     icon: { sprite: Mobs/Customization/reptilian_parts.rsi, state: tail_smooth }
@@ -14,10 +14,21 @@
 - type: entity
   parent: ActionToggleHideLayersSuit
   id: ActionToggleHideLayersHelmet
-  name: Hide ears and horns
-  description: Tuck your ears and horns under the helmet, or let them out.
+  name: Hide or show ears and horns
+  description: Toggle whether your ears and horns are visible.
   components:
   - type: Action
     icon: { sprite: Mobs/Customization/cat_parts.rsi, state: ears_cat_outer }
+    itemIconStyle: BigItem
+    useDelay: 1
+
+- type: entity
+  parent: ActionToggleHideLayersSuit
+  id: ActionToggleHideLayersHair
+  name: Hide or show hair
+  description: Toggle whether your hair is visible.
+  components:
+  - type: Action
+    icon: { sprite: Mobs/Customization/human_hair.rsi, state: afro }
     itemIconStyle: BigItem
     useDelay: 1

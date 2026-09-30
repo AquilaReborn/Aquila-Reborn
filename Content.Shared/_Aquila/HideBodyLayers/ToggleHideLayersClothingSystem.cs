@@ -25,6 +25,7 @@ public sealed class ToggleHideLayersClothingSystem : EntitySystem
 
         SubscribeLocalEvent<ToggleHideLayersClothingComponent, GetItemActionsEvent>(OnGetActions);
         SubscribeLocalEvent<ToggleHideLayersClothingComponent, ToggleHideLayersEvent>(OnToggle);
+        SubscribeLocalEvent<ToggleHideLayersClothingComponent, ClothingGotEquippedEvent>(OnGotEquipped);
         SubscribeLocalEvent<ToggleHideLayersClothingComponent, ClothingGotUnequippedEvent>(OnGotUnequipped);
     }
 
@@ -56,6 +57,19 @@ public sealed class ToggleHideLayersClothingSystem : EntitySystem
 
         var popup = ent.Comp.Hidden ? ent.Comp.HidePopup : ent.Comp.ShowPopup;
         _popup.PopupClient(Loc.GetString(popup, ("item", ent.Owner)), args.Performer, args.Performer);
+    }
+
+    private void OnGotEquipped(Entity<ToggleHideLayersClothingComponent> ent, ref ClothingGotEquippedEvent args)
+    {
+        if (_timing.ApplyingState || !ent.Comp.HiddenByDefault)
+            return;
+
+        if (!TryComp<ClothingComponent>(ent, out var clothing)
+            || clothing.InSlotFlag is not { } slot
+            || (slot & ent.Comp.Slots) == 0)
+            return;
+
+        SetHidden(ent, args.Wearer, true);
     }
 
     private void OnGotUnequipped(Entity<ToggleHideLayersClothingComponent> ent, ref ClothingGotUnequippedEvent args)

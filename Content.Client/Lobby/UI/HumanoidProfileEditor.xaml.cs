@@ -5,6 +5,8 @@ using Content.Client._CorvaxGoob.CharacterEditor.UI; // CorvaxGoob-TTS
 using Content.Client._CorvaxGoob.Chat;
 using Content.Client._Aquila.OocNotes; // Aquila Change
 using Content.Client._CorvaxGoob.TTS;
+using Content.Goobstation.Common.Barks; // Aquila Change
+using Content.Goobstation.Common.CCVar; // Aquila Change
 using Content.Client.Humanoid;
 using Content.Client.Lobby.UI.Loadouts;
 using Content.Client.Lobby.UI.Roles;
@@ -243,12 +245,13 @@ namespace Content.Client.Lobby.UI
             // Goob Station
             #region Barks
 
-            // CorvaxGoob-Revert : DB conflicts
-/*            if (configurationManager.GetCVar(GoobCVars.BarksEnabled))
+            // Aquila Change start
+            if (configurationManager.GetCVar(GoobCVars.BarksEnabled))
             {
                 BarksContainer.Visible = true;
                 InitializeBarkVoice();
-            }*/
+            }
+            // Aquila Change end
 
             #endregion
 
@@ -928,8 +931,7 @@ namespace Content.Client.Lobby.UI
             UpdateSaveButton();
             UpdateMarkings();
             UpdateTTSVoicesControls(); // CorvaxGoob-TTS
-            // CorvaxGoob-Revert : DB conflicts
-            // UpdateBarkVoice(); // Goob Station - Barks
+            UpdateBarkVoice(); // Goob Station - Barks // Aquila Change
             UpdateHairPickers();
             UpdateCMarkingsHair();
             UpdateCMarkingsFacialHair();
@@ -1507,11 +1509,13 @@ namespace Content.Client.Lobby.UI
             IsDirty = true;
         }
         // end Goobstation: port EE height/width sliders*/
-        // private void SetBarkVoice(BarkPrototype newVoice)
-        // {
-        //     Profile = Profile?.WithBarkVoice(newVoice);
-        //     IsDirty = true;
-        // }
+        // Aquila Change start
+        private void SetBarkVoice(BarkPrototype newVoice)
+        {
+            Profile = Profile?.WithBarkVoice(newVoice);
+            IsDirty = true;
+        }
+        // Aquila Change end
         // Goob Station - End
 
         public bool IsDirty

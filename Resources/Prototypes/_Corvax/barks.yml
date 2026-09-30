@@ -8,7 +8,7 @@
 
 - type: bark
   id: Alto
-  name: Alto
+  name: bark-voice-alto # Aquila Change
   volume: 1.7 # goob edit - normalising bark volume
   soundCollection:
     collection: AltoBark
@@ -23,7 +23,7 @@
 
 - type: bark
   id: Baritone
-  name: Baritone
+  name: bark-voice-baritone # Aquila Change
   volume: 2 # goob edit - normalising bark volume
   soundCollection:
     collection: BaritoneBark
@@ -38,7 +38,7 @@
 
 - type: bark
   id: Bass
-  name: Bass
+  name: bark-voice-bass # Aquila Change
   volume: 3 # goob edit - normalising bark volume (this one is quiet still but i don't want to distort the audio)
   soundCollection:
     collection: BassBark
@@ -53,7 +53,7 @@
 
 - type: bark
   id: Tenor
-  name: Tenor
+  name: bark-voice-tenor # Aquila Change
   volume: 2 # goob edit - normalising bark volume
   soundCollection:
     collection: TenorBark
@@ -68,7 +68,7 @@
 
 - type: bark
   id: Arachnid
-  name: Arachnid
+  name: bark-voice-arachnid # Aquila Change
   volume: 1.3 # goob edit - normalising bark volume
   soundCollection:
     collection: ArachnidBark
@@ -85,7 +85,7 @@
 
 - type: bark
   id: Lizard
-  name: Lizard
+  name: bark-voice-lizard # Aquila Change
   volume: 0.4
   soundCollection:
     collection: LizardBark
@@ -103,7 +103,7 @@
 
 - type: bark
   id: Slime
-  name: Slime
+  name: bark-voice-slime # Aquila Change
   volume: 0.5
   soundCollection:
     collection: SlimeBark
@@ -120,7 +120,7 @@
 
 - type: bark
   id: Vox
-  name: Vox
+  name: bark-voice-vox # Aquila Change
   volume: 0.5
   frequency: 0.3 # goob edit - less overlap
   soundCollection:
@@ -136,7 +136,7 @@
 
 - type: bark
   id: Harpy
-  name: Harpy
+  name: bark-voice-harpy # Aquila Change
   volume: 1
   soundCollection:
     collection: HarpyBark
@@ -153,7 +153,7 @@
 
 - type: bark
   id: Vulpkanin
-  name: Vulpkanin
+  name: bark-voice-vulpkanin # Aquila Change
   volume: 1.4 # goob edit - normalising bark volume
   frequency: 0.5 # goob edit - less overlap
   soundCollection:
@@ -169,7 +169,7 @@
 
 - type: bark
   id: Squeak
-  name: Squeak
+  name: bark-voice-squeak # Aquila Change
   volume: 0.7 # goob edit - normalising bark volume
   frequency: 0.3
   minPitch: 0.8
@@ -189,7 +189,7 @@
 
 - type: bark
   id: MaleAvali
-  name: MaleAvali
+  name: bark-voice-maleavali # Aquila Change
   frequency: 0.5
   volume: 0.7
   soundCollection:
@@ -207,7 +207,7 @@
 
 - type: bark
   id: FemaleAvali
-  name: FemaleAvali
+  name: bark-voice-femaleavali # Aquila Change
   volume: 0.7
   frequency: 0.5
   soundCollection:
@@ -225,7 +225,7 @@
 
 - type: bark
   id: Pai
-  name: Pai
+  name: bark-voice-pai # Aquila Change
   volume: 1
   frequency: 0.4
   soundCollection:
@@ -243,7 +243,7 @@
 
 - type: bark
   id: Borg
-  name: Borg
+  name: bark-voice-borg # Aquila Change
   volume: 0.7
   frequency: 0.35
   soundCollection:
@@ -261,7 +261,7 @@
 
 - type: bark
   id: BorgSyndie
-  name: BorgSyndie
+  name: bark-voice-borgsyndie # Aquila Change
   roundStart: false
   volume: 0.5
   frequency: 0.35
@@ -281,7 +281,7 @@
 
 - type: bark
   id: Durk
-  name: Durk
+  name: bark-voice-durk # Aquila Change
   volume: 1
   frequency: 0.9
   minPitch: 0.9
@@ -302,7 +302,7 @@
 
 - type: bark
   id: Aviu1
-  name: Impudent
+  name: bark-voice-aviu1 # Aquila Change
   volume: 0.35 # goob edit - normalising bark volume
   frequency: 0.7
   soundCollection:
@@ -320,7 +320,7 @@
 
 - type: bark
   id: Aviu2
-  name: Strong
+  name: bark-voice-aviu2 # Aquila Change
   volume: 0.6 # goob edit - normalising bark volume
   frequency: 0.7
   soundCollection:
@@ -338,7 +338,7 @@
 
 - type: bark
   id: Aviu3
-  name: Alien
+  name: bark-voice-aviu3 # Aquila Change
   volume: 0.5 # goob edit - normalising bark volume
   frequency: 0.7
   soundCollection:
@@ -356,7 +356,7 @@
 
 - type: bark
   id: Aviu4
-  name: Ethereal
+  name: bark-voice-aviu4 # Aquila Change
   volume: 0.45 # goob edit - normalising bark volume
   frequency: 0.7
   soundCollection:

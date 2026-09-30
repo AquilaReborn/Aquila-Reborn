@@ -552,8 +552,7 @@ public abstract partial class SharedHumanoidAppearanceSystem : EntitySystem //go
 
         EnsureDefaultMarkings(uid, humanoid);
         SetTTSVoice(uid, profile.TTSVoice, humanoid); // CorvaxGoob-TTS
-        // CorvaxGoob-Revert : DB conflicts
-        // SetBarkVoice(uid, profile.BarkVoice, humanoid); // Goob Station - Barks
+        SetBarkVoice(uid, profile.BarkVoice, humanoid); // Goob Station - Barks // Aquila Change
 
         humanoid.Gender = profile.Gender;
         if (TryComp<GrammarComponent>(uid, out var grammar))
@@ -678,7 +677,7 @@ public abstract partial class SharedHumanoidAppearanceSystem : EntitySystem //go
 
         EnsureComp<SpeechSynthesisComponent>(uid, out var comp);
         comp.VoicePrototypeId = voicePrototypeId;
-        // humanoid.BarkVoice = voicePrototypeId; // CorvaxGoob-Revert : DB conflicts
+        humanoid.BarkVoice = voicePrototypeId; // Aquila Change
         Dirty(uid, comp);
     }
     #endregion
