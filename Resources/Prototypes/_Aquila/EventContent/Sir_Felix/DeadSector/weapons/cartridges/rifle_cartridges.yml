@@ -87,7 +87,7 @@
 
 - type: entity
   id: BaseCartridgeCarabineAK
-  name: cartridge (.35 mp-9)
+  name: cartridge AK-102 (7x62x51)
   parent: BaseCartridge
   abstract: true
   components:
@@ -109,7 +109,7 @@
   id: CartridgeCarabineAK
   suffix: Sir_Felix
   parent: BaseCartridgeCarabineAK
-  name: cartridge (.35 MP-9)
+  name: cartridge AK-102 (7x62x51)
   components:
   - type: CartridgeAmmo
     proto: BulletCarabineAK
@@ -118,14 +118,14 @@
   id: CartridgeArmorPiercingCarabineAK
   suffix: Sir_Felix
   parent: BaseCartridgeCarabineAK
-  name: cartridge (.35 MP-9)
+  name: cartridge AK-102 (7x62x51 AP)
   components:
   - type: CartridgeAmmo
     proto: BulletArmorPiercingCarabineAK
 
 - type: entity
   id: BaseCartridgeAR102Piercing
-  name: cartridge AR102
+  name: cartridge AK-102 (7x62x51 AP)
   parent: BaseCartridge
   abstract: true
   components:
@@ -146,7 +146,7 @@
 - type: entity
   id: CartridgeAR102Piercing
   suffix: Sir_Felix
-  name: cartridge AR102
+  name: cartridge AK-102 (7x62x51 AP)
   parent: BaseCartridgeAR102Piercing
   components:
   - type: CartridgeAmmo
@@ -154,7 +154,7 @@
 
 - type: entity
   id: BaseCartridgeAR102LongRange
-  name: cartridge AR102
+  name: cartridge AK-102 (7x62x51 T)
   parent: BaseCartridge
   abstract: true
   components:
@@ -175,7 +175,7 @@
 - type: entity
   id: CartridgeAR102LongRange
   suffix: Sir_Felix
-  name: cartridge AR102
+  name: cartridge AK-102 (7x62x51 T)
   parent: BaseCartridgeAR102LongRange
   components:
   - type: CartridgeAmmo
@@ -183,7 +183,7 @@
 
 - type: entity
   id: BaseCartridgeCarabineAKS74y
-  name: cartridge (.35 mp-9)
+  name: cartridge AKS-74y (5x45)
   parent: BaseCartridge
   abstract: true
   components:
@@ -204,7 +204,7 @@
 - type: entity
   id: CartridgeCarabineAKS74y
   suffix: Sir_Felix
-  name: cartridge (.35 MP-9)
+  name: cartridge AKS-74y (5x45)
   parent: BaseCartridgeCarabineAKS74y
   components:
   - type: CartridgeAmmo
@@ -213,7 +213,7 @@
 - type: entity
   id: CartridgeArmorPiercingCarabineAKS74y
   suffix: Sir_Felix
-  name: cartridge (.35 MP-9)
+  name: cartridge AKS-74y (5x45 AP)
   parent: BaseCartridgeCarabineAKS74y
   components:
   - type: CartridgeAmmo
@@ -221,7 +221,7 @@
 
 - type: entity
   id: BaseCartridgeAKS74yLongRange
-  name: cartridge AKS74y
+  name: cartridge AKS-74y (5x45 T)
   parent: BaseCartridge
   abstract: true
   components:
@@ -242,7 +242,7 @@
 - type: entity
   id: CartridgeAKS74yLongRange
   suffix: Sir_Felix
-  name: cartridge AKS74y
+  name: cartridge AKS-74y (5x45 T)
   parent: BaseCartridgeAKS74yLongRange
   components:
   - type: CartridgeAmmo
@@ -250,7 +250,7 @@
 
 - type: entity
   id: BaseCartridgeCarabineAR
-  name: cartridge (.35 mp-9)
+  name: cartridge AR-15 (5x56)
   parent: BaseCartridge
   abstract: true
   components:
@@ -271,7 +271,7 @@
 - type: entity
   id: CartridgeCarabineAR
   suffix: Sir_Felix
-  name: cartridge (.35 MP-9)
+  name: cartridge AR-15 (5x56)
   parent: BaseCartridgeCarabineAR
   components:
   - type: CartridgeAmmo
@@ -279,7 +279,7 @@
 
 - type: entity
   id: BaseCartridgeAR15Piercing
-  name: cartridge AR15
+  name: cartridge AR-15 (5x56 AP)
   parent: BaseCartridge
   abstract: true
   components:
@@ -300,7 +300,7 @@
 - type: entity
   id: CartridgeAR15Piercing
   suffix: Sir_Felix
-  name: cartridge AR-15
+  name: cartridge AR-15 (5x56 AP)
   parent: BaseCartridgeAR15Piercing
   components:
   - type: CartridgeAmmo
@@ -308,7 +308,7 @@
 
 - type: entity
   id: BaseCartridgeAR15LongRange
-  name: cartridge AR-15
+  name: cartridge AR-15 (5x56 T)
   parent: BaseCartridge
   abstract: true
   components:
@@ -329,7 +329,7 @@
 - type: entity
   id: CartridgeAR15LongRange
   suffix: Sir_Felix
-  name: cartridge AR15
+  name: cartridge AR-15 (5x56 T)
   parent: BaseCartridgeAR15LongRange
   components:
   - type: CartridgeAmmo
@@ -337,7 +337,7 @@
 
 - type: entity
   id: BaseCartridgeCarabineHK416
-  name: cartridge (.35 mp-9)
+  name: cartridge HK416 (5x56)
   parent: BaseCartridge
   abstract: true
   components:
@@ -358,7 +358,7 @@
 - type: entity
   id: CartridgeCarabineHK416
   suffix: Sir_Felix
-  name: cartridge (.35 MP-9)
+  name: cartridge HK416 (5x56)
   parent: BaseCartridgeCarabineHK416
   components:
   - type: CartridgeAmmo
@@ -367,7 +367,7 @@
 - type: entity
   id: CartridgeArmorPiercingCarabineHK416
   suffix: Sir_Felix
-  name: cartridge (.35 MP-9)
+  name: cartridge HK416 (5x56 AP)
   parent: BaseCartridgeCarabineHK416
   components:
   - type: CartridgeAmmo
@@ -375,7 +375,7 @@
 
 - type: entity
   id: BaseCartridgeHK416LongRange
-  name: cartridge HK416
+  name: cartridge HK416 (5x56 T)
   parent: BaseCartridge
   abstract: true
   components:
@@ -396,7 +396,7 @@
 - type: entity
   id: CartridgeHK416LongRange
   suffix: Sir_Felix
-  name: cartridge HK416
+  name: cartridge HK416 (5x56 T)
   parent: BaseCartridgeHK416LongRange
   components:
   - type: CartridgeAmmo

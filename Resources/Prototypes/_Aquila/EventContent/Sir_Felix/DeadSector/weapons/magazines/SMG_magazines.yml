@@ -35,7 +35,7 @@
 - type: entity
   id: BaseMagazineMP5
   parent: [BaseItem, BaseMinorContraband]
-  name: pistol magazine (.35 MP5)
+  name: SMG magazine MP-5 (9x21)
   abstract: true
   components:
   - type: BallisticAmmoProvider
@@ -56,7 +56,7 @@
 - type: entity
   id: MagazineMP5
   parent: BaseMagazineMP5
-  name: pistol magazine (.35 MP5)
+  name: SMG magazine MP-5 (9x21)
   suffix: Felix, Sir_Felix
   components:
   - type: BallisticAmmoProvider
@@ -70,7 +70,7 @@
 - type: entity
   id: MagazineArmorPiercingMP5
   parent: BaseMagazineMP5
-  name: pistol magazine (.35 MP5)
+  name: SMG magazine MP-5 (9x21 AP)
   suffix: Felix, Sir_Felix
   components:
   - type: BallisticAmmoProvider
@@ -83,7 +83,7 @@
 
 - type: entity
   id: BaseMagazineMP9
-  name: pistol magazine (.35 MP5)
+  name: SMG magazine MP-9 (9x22)
   parent: BaseMagazinePistolSubMachineGun
   abstract: true
   components:
@@ -105,7 +105,7 @@
 - type: entity
   id: MagazineMP9
   parent: BaseMagazineMP9
-  name: pistol magazine (.35 MP9)
+  name: SMG magazine MP-9 (9x22)
   suffix: Felix, Sir_Felix
   components:
   - type: BallisticAmmoProvider
@@ -121,7 +121,7 @@
 - type: entity
   id: MagazineArmorPiercingMP9
   parent: BaseMagazineMP9
-  name: pistol magazine (.35 MP9)
+  name: SMG magazine MP-9 (9x22 AP)
   suffix: Felix, Sir_Felix
   components:
   - type: BallisticAmmoProvider

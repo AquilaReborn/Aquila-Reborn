@@ -29,7 +29,7 @@
 
 - type: entity
   id: BaseCartridgeSubmachine
-  name: cartridge (.35 mp-9)
+  name: cartridge MP-5 (9x21)
   parent: BaseCartridge
   abstract: true
   components:
@@ -50,7 +50,7 @@
 - type: entity
   id: CartridgeSubmachine
   suffix: Sir_Felix
-  name: cartridge (.35 MP-9)
+  name: cartridge MP-5 (9x21)
   parent: BaseCartridgeSubmachine
   components:
   - type: CartridgeAmmo
@@ -59,7 +59,7 @@
 - type: entity
   id: CartridgeArmorPiercingSubmachine
   suffix: Sir_Felix
-  name: cartridge (.35 MP-9)
+  name: cartridge MP-5 (9x21 AP)
   parent: BaseCartridgeSubmachine
   components:
   - type: CartridgeAmmo
@@ -68,7 +68,7 @@
 - type: entity
   id: CartridgeSubmachineMP9
   suffix: Sir_Felix
-  name: cartridge (.35 MP-9)
+  name: cartridge MP-9 (9x22)
   parent: BaseCartridgeSubmachine
   components:
   - type: CartridgeAmmo
@@ -77,7 +77,7 @@
 - type: entity
   id: CartridgeArmorPiercingSubmachineMP9
   suffix: Sir_Felix
-  name: cartridge (.35 MP-9)
+  name: cartridge MP-9 (9x22 AP)
   parent: BaseCartridgeSubmachine
   components:
   - type: CartridgeAmmo

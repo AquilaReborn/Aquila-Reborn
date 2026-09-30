@@ -107,7 +107,7 @@
 - type: entity
   id: BulletSniperVSSMkI
   suffix: Sir_Felix
-  name: bullet (.35 MP-9)
+  name: bullet VSS Mk I (7x62x39)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -119,7 +119,7 @@
 - type: entity
   id: BulletArmorPiercingSniperVSSMkI
   suffix: Sir_Felix
-  name: bullet (.35 MP-9)
+  name: bullet VSS Mk I (7x62x39 AP)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -132,7 +132,7 @@
 - type: entity
   id: BulletLongRangeSniperVSSMkI
   suffix: Sir_Felix
-  name: bullet SVD (7x62x39 T)
+  name: bullet VSS Mk I (7x62x39 T)
   parent: BaseBullet
   components:
   - type: TimedDespawn
@@ -145,7 +145,7 @@
 - type: entity
   id: BulletExplosiveSniperVSSMkI
   suffix: Sir_Felix
-  name: bullet SVD (7x62x39 ST)
+  name: bullet VSS Mk I (7x62x39 ST)
   parent: BaseBulletTrigger
   components:
   - type: Projectile
@@ -162,7 +162,7 @@
 - type: entity
   id: BulletSniperVSSMkII
   suffix: Sir_Felix
-  name: bullet (.35 MP-9)
+  name: bullet VSS Mk II (7x62x39)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -174,7 +174,7 @@
 - type: entity
   id: BulletArmorPiercingSniperVSSMkII
   suffix: Sir_Felix
-  name: bullet (.35 MP-9)
+  name: bullet VSS Mk II (7x62x39 AP)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -187,7 +187,7 @@
 - type: entity
   id: BulletLongRangeSniperVSSMkII
   suffix: Sir_Felix
-  name: bullet SVD (7x62x39 T)
+  name: bullet VSS Mk II (7x62x39 T)
   parent: BaseBullet
   components:
   - type: TimedDespawn
@@ -200,7 +200,7 @@
 - type: entity
   id: BulletExplosiveSniperVSSMkII
   suffix: Sir_Felix
-  name: bullet SVD (7x62x39 ST)
+  name: bullet VSS Mk II (7x62x39 ST)
   parent: BaseBulletTrigger
   components:
   - type: Projectile
@@ -217,7 +217,7 @@
 - type: entity
   id: BulletSniperSVUMkI
   suffix: Sir_Felix
-  name: bullet (.35 MP-9)
+  name: bullet SVU Mk I (7x62x39)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -229,7 +229,7 @@
 - type: entity
   id: BulletArmorPiercingSniperSVUMkI
   suffix: Sir_Felix
-  name: bullet (.35 MP-9)
+  name: bullet SVU Mk I (7x62x39 AP)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -242,7 +242,7 @@
 - type: entity
   id: BulletLongRangeSniperSVUMkI
   suffix: Sir_Felix
-  name: bullet SVD (7x62x39 T)
+  name: bullet SVU Mk I (7x62x39 T)
   parent: BaseBullet
   components:
   - type: TimedDespawn
@@ -255,7 +255,7 @@
 - type: entity
   id: BulletExplosiveSniperSVUMkI
   suffix: Sir_Felix
-  name: bullet SVD (7x62x39 ST)
+  name: bullet SVU Mk I (7x62x39 ST)
   parent: BaseBulletTrigger
   components:
   - type: Projectile

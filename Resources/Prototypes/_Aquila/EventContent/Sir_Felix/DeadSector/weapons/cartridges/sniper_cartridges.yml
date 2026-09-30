@@ -232,7 +232,7 @@
 
 - type: entity
   id: BaseCartridgeSniperVSSMkI
-  name: cartridge (.35 mp-9)
+  name: cartridge VSS Mk I (7x62x39)
   parent: BaseCartridge
   abstract: true
   components:
@@ -254,7 +254,7 @@
 - type: entity
   id: CartridgeSniperVSSMkI
   suffix: Sir_Felix
-  name: cartridge (.35 MP-9)
+  name: cartridge VSS Mk I (7x62x39)
   parent: BaseCartridgeSniperVSSMkI
   components:
   - type: CartridgeAmmo
@@ -263,7 +263,7 @@
 - type: entity
   id: CartridgeArmorPiercingSniperVSSMkI
   suffix: Sir_Felix
-  name: cartridge (.35 MP-9)
+  name: cartridge VSS Mk I (7x62x39 AP)
   parent: BaseCartridgeSniperVSSMkI
   components:
   - type: CartridgeAmmo
@@ -272,7 +272,7 @@
 - type: entity
   id: CartridgeLongRangeSniperVSSMkI
   suffix: Sir_Felix
-  name: cartridge (.35 MP-9)
+  name: cartridge VSS Mk I (7x62x39 T)
   parent: BaseCartridgeSniperVSSMkI
   components:
   - type: CartridgeAmmo
@@ -281,7 +281,7 @@
 - type: entity
   id: CartridgeExplosiveSniperVSSMkI
   suffix: Sir_Felix
-  name: cartridge (.35 MP-9)
+  name: cartridge VSS Mk I (7x62x39 ST)
   parent: BaseCartridgeSniperVSSMkI
   components:
   - type: CartridgeAmmo
@@ -289,7 +289,7 @@
 
 - type: entity
   id: BaseCartridgeSniperVSSMkII
-  name: cartridge (.35 mp-9)
+  name: cartridge VSS Mk II (7x62x39)
   parent: BaseCartridge
   abstract: true
   components:
@@ -311,7 +311,7 @@
 - type: entity
   id: CartridgeSniperVSSMkII
   suffix: Sir_Felix
-  name: cartridge (.35 MP-9)
+  name: cartridge VSS Mk II (7x62x39)
   parent: BaseCartridgeSniperVSSMkII
   components:
   - type: CartridgeAmmo
@@ -320,7 +320,7 @@
 - type: entity
   id: CartridgeArmorPiercingSniperVSSMkII
   suffix: Sir_Felix
-  name: cartridge (.35 MP-9)
+  name: cartridge VSS Mk II (7x62x39 AP)
   parent: BaseCartridgeSniperVSSMkII
   components:
   - type: CartridgeAmmo
@@ -329,7 +329,7 @@
 - type: entity
   id: CartridgeLongRangeSniperVSSMkII
   suffix: Sir_Felix
-  name: cartridge (.35 MP-9)
+  name: cartridge VSS Mk II (7x62x39 T)
   parent: BaseCartridgeSniperVSSMkII
   components:
   - type: CartridgeAmmo
@@ -338,7 +338,7 @@
 - type: entity
   id: CartridgeExplosiveSniperVSSMkII
   suffix: Sir_Felix
-  name: cartridge (.35 MP-9)
+  name: cartridge VSS Mk II (7x62x39 ST)
   parent: BaseCartridgeSniperVSSMkII
   components:
   - type: CartridgeAmmo
@@ -346,7 +346,7 @@
 
 - type: entity
   id: BaseCartridgeSniperSVUMkI
-  name: cartridge (.35 mp-9)
+  name: cartridge SVU Mk I (7x62x39)
   parent: BaseCartridge
   abstract: true
   components:
@@ -367,7 +367,7 @@
 - type: entity
   id: CartridgeSniperSVUMkI
   suffix: Sir_Felix
-  name: cartridge (.35 MP-9)
+  name: cartridge SVU Mk I (7x62x39)
   parent: BaseCartridgeSniperSVUMkI
   components:
   - type: CartridgeAmmo
@@ -376,7 +376,7 @@
 - type: entity
   id: CartridgeArmorPiercingSniperSVUMkI
   suffix: Sir_Felix
-  name: cartridge (.35 MP-9)
+  name: cartridge SVU Mk I (7x62x39 AP)
   parent: BaseCartridgeSniperSVUMkI
   components:
   - type: CartridgeAmmo
@@ -385,7 +385,7 @@
 - type: entity
   id: CartridgeLongRangeSniperSVUMkI
   suffix: Sir_Felix
-  name: cartridge (.35 MP-9)
+  name: cartridge SVU Mk I (7x62x39 T)
   parent: BaseCartridgeSniperSVUMkI
   components:
   - type: CartridgeAmmo
@@ -394,7 +394,7 @@
 - type: entity
   id: CartridgeExplosiveSniperSVUMkI
   suffix: Sir_Felix
-  name: cartridge (.35 MP-9)
+  name: cartridge SVU Mk I (7x62x39 ST)
   parent: BaseCartridgeSniperSVUMkI
   components:
   - type: CartridgeAmmo

@@ -12,7 +12,7 @@
 - type: entity
   id: BulletSubmachine
   suffix: Sir_Felix
-  name: bullet (.35 MP-9)
+  name: bullet MP-5 (9x21)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -24,7 +24,7 @@
 - type: entity
   id: BulletArmorPiercingSubmachine
   suffix: Sir_Felix
-  name: bullet (.35 MP-9)
+  name: bullet MP-5 (9x21 AP)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -37,7 +37,7 @@
 - type: entity
   id: BulletSubmachineMP9
   suffix: Sir_Felix
-  name: bullet (.35 MP-9)
+  name: bullet MP-9 (9x22)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -49,7 +49,7 @@
 - type: entity
   id: BulletArmorPiercingSubmachineMP9
   suffix: Sir_Felix
-  name: bullet (.35 MP-9)
+  name: bullet MP-9 (9x22 AP)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:

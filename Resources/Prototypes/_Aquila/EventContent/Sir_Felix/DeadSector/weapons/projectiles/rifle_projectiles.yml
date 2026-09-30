@@ -37,7 +37,7 @@
 - type: entity
   id: BulletCarabineAK
   suffix: Sir_Felix
-  name: bullet (.35 MP-9)
+  name: bullet AK-102 (7x62x51)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -49,7 +49,7 @@
 - type: entity
   id: BulletArmorPiercingCarabineAK
   suffix: Sir_Felix
-  name: bullet (.35 MP-9)
+  name: bullet AK-102 (7x62x51 AP)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -61,7 +61,7 @@
 - type: entity
   id: BulletAR102Piercing
   suffix: Sir_Felix
-  name: bullet (7x62x51 AP)
+  name: bullet AK-102 (7x62x51 AP)
   parent: BaseBullet
   components:
   - type: Projectile
@@ -73,7 +73,7 @@
 - type: entity
   id: BulletAR102LongRange
   suffix: Sir_Felix
-  name: bullet (7x62x51 T)
+  name: bullet AK-102 (7x62x51 T)
   parent: BaseBullet
   components:
   - type: TimedDespawn
@@ -86,7 +86,7 @@
 - type: entity
   id: BulletCarabineAKS74y
   suffix: Sir_Felix
-  name: bullet (.35 MP-9)
+  name: bullet AKS-74y (5x45)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -98,7 +98,7 @@
 - type: entity
   id: BulletArmorPiercingCarabineAKS74y
   suffix: Sir_Felix
-  name: bullet (.35 MP-9)
+  name: bullet AKS-74y (5x45 AP)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -111,7 +111,7 @@
 - type: entity
   id: BulletAKS74yLongRange
   suffix: Sir_Felix
-  name: bullet (7x62x51 T)
+  name: bullet AKS-74y (5x45 T)
   parent: BaseBullet
   components:
   - type: TimedDespawn
@@ -124,7 +124,7 @@
 - type: entity
   id: BulletCarabineAR
   suffix: Sir_Felix
-  name: bullet (.35 MP-9)
+  name: bullet AR-15 (5x56)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -136,7 +136,7 @@
 - type: entity
   id: BulletArmorPiercingCarabineAR
   suffix: Sir_Felix
-  name: bullet (.35 MP-9)
+  name: bullet AR-15 (5x56 AP)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -148,7 +148,7 @@
 - type: entity
   id: BulletAR15Piercing
   suffix: Sir_Felix
-  name: bullet (7x62x51 AP)
+  name: bullet AR-15 (5x56 AP)
   parent: BaseBullet
   components:
   - type: Projectile
@@ -160,7 +160,7 @@
 - type: entity
   id: BulletAR15LongRange
   suffix: Sir_Felix
-  name: bullet (7x62x51 T)
+  name: bullet AR-15 (5x56 T)
   parent: BaseBullet
   components:
   - type: TimedDespawn
@@ -173,7 +173,7 @@
 - type: entity
   id: BulletCarabineHK416
   suffix: Sir_Felix
-  name: bullet (.35 MP-9)
+  name: bullet HK416 (5x56)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -185,7 +185,7 @@
 - type: entity
   id: BulletArmorPiercingCarabineHK416
   suffix: Sir_Felix
-  name: bullet (.35 MP-9)
+  name: bullet HK416 (5x56 AP)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -198,7 +198,7 @@
 - type: entity
   id: BulletHK416LongRange
   suffix: Sir_Felix
-  name: bullet (7x62x51 T)
+  name: bullet HK416 (5x56 T)
   parent: BaseBullet
   components:
   - type: TimedDespawn

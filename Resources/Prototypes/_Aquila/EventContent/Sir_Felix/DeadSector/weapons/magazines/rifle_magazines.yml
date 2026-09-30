@@ -98,7 +98,7 @@
 - type: entity
   id: BaseMagazineAR15
   parent: BaseFelixMagazineRifle
-  name: pistol magazine (.35 MP9)
+  name: magazine AR-15 (5x56)
   abstract: true
   components:
   - type: BallisticAmmoProvider
@@ -114,7 +114,7 @@
 - type: entity
   id: MagazineAR15
   parent: BaseMagazineAR15
-  name: pistol magazine (.35 MP5)
+  name: magazine AR-15 (5x56)
   suffix: Felix, Sir_Felix
   components:
   - type: BallisticAmmoProvider
@@ -176,7 +176,7 @@
 - type: entity
   id: BaseMagazineHK416
   parent: BaseFelixMagazineRifle
-  name: pistol magazine (.35 MP9)
+  name: magazine HK416 (5x56)
   abstract: true
   components:
   - type: BallisticAmmoProvider
@@ -192,7 +192,7 @@
 - type: entity
   id: MagazineHK416
   parent: BaseMagazineHK416
-  name: pistol magazine (.35 MP5)
+  name: magazine HK416 (5x56)
   suffix: Felix, Sir_Felix
   components:
   - type: BallisticAmmoProvider
@@ -206,11 +206,11 @@
 - type: entity
   id: MagazineArmorPiercingHK416
   parent: BaseMagazineHK416
-  name: pistol magazine (.35 MP5)
+  name: magazine HK416 (5x56 AP)
   suffix: Felix, Sir_Felix
   components:
   - type: BallisticAmmoProvider
-    proto: BulletArmorPiercingCarabineHK416
+    proto: CartridgeArmorPiercingCarabineHK416
   - type: Sprite
     sprite: _Aquila/EventContent/Sir_Felix/DeadSector/weapons/magazines/rifle/HK416_mag.rsi
     layers:
@@ -243,7 +243,7 @@
 
 - type: entity
   id: BaseMagazineAK102
-  name: pistol magazine (.35 MP9)
+  name: magazine AK-102 (7x62x51)
   parent: BaseFelixMagazineRifle
   abstract: true
   components:
@@ -259,7 +259,7 @@
 
 - type: entity
   id: BaseMagazineAKS74y
-  name: pistol magazine (.35 MP9)
+  name: magazine AKS-74y (5x45)
   parent: BaseFelixMagazineRifle
   abstract: true
   components:
@@ -276,7 +276,7 @@
 - type: entity
   id: MagazineAKS74y
   parent: BaseMagazineAKS74y
-  name: pistol magazine (.35 MP5)
+  name: magazine AKS-74y (5x45)
   suffix: Felix, Sir_Felix
   components:
   - type: BallisticAmmoProvider
@@ -290,7 +290,7 @@
 - type: entity
   id: MagazineArmorPiercingAKS74y
   parent: BaseMagazineAKS74y
-  name: pistol magazine (.35 MP5)
+  name: magazine AKS-74y (5x45 AP)
   suffix: Felix, Sir_Felix
   components:
   - type: BallisticAmmoProvider
