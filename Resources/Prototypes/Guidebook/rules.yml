@@ -377,7 +377,7 @@
   id: SpaceLaw
   name: guide-entry-rules-space-law
   priority: 1
-  text: "/ServerInfo/Guidebook/ServerRules/SpaceLaw/SpaceLaw.xml"
+  text: "/ServerInfo/_Aquila/Guidebook/SpaceLaw/SpaceLaw.xml" # Aquila Change
   children:
   - SpaceLawCrimeList
 
@@ -385,7 +385,7 @@
   id: SpaceLawCrimeList
   name: guide-entry-rules-sl-crime-list
   priority: 5
-  text: "/ServerInfo/Guidebook/ServerRules/SpaceLaw/SLCrimeList.xml"
+  text: "/ServerInfo/_Aquila/Guidebook/SpaceLaw/SLCrimeList.xml" # Aquila Change
 
 - type: guideEntry
   id: BanTypes
