@@ -17,9 +17,6 @@ public sealed class ToggleHideLayersClothingSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    /// <summary>
-    ///     Source used for layers hidden by the action, so they don't mix with layers hidden by clothing slots.
-    /// </summary>
     private const SlotFlags HideSource = SlotFlags.PREVENTEQUIP;
 
     public override void Initialize()

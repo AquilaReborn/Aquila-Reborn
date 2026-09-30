@@ -422,7 +422,7 @@
       color: "#f7d61a"
   - type: GuideHelp
     guides:
-    - CorporateLaw # CorvaxGoob
+    - SpaceLaw # Aquila Change
 
 - type: entity
   parent: BookBase
