@@ -1,0 +1,8 @@
+# Набор фраз для осмотра повреждённых песочных часов (ExaminableDamage).
+# Ключи: sot-hourglass-damage-1 ... sot-hourglass-damage-5 (см. hourglass.ftl).
+# Первая фраза - целые часы, последняя - почти разрушенные.
+- type: localizedDataset
+  id: SotHourglassDamageMessages
+  values:
+    prefix: sot-hourglass-damage-
+    count: 5

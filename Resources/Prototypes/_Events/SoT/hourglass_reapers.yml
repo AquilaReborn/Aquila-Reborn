@@ -1,0 +1,47 @@
+# ==========================================================
+# Песочные часы Жнецов (SoT)
+# Три варианта с разными ID привязки к шаттлу (ShuttleLink).
+# Общая база HourglassSoTBase лежит в hourglass_athena.yml.
+# ==========================================================
+
+# --- База Жнецов (в спавн-меню не видна) ---
+- type: entity
+  abstract: true
+  parent: HourglassSoTBase
+  id: HourglassReapersBase
+  name: песочные часы Жнецов
+  description: Странные часы, позволяющие сражаться против Стражей сокровищ. При уничтожении часов вы проиграете.
+  components:
+  - type: Sprite
+    state: reapers
+  - type: AnnounceOnDestruction
+    sender: "Песочные часы судьбы"
+    message: "Песочные часы Жнецов уничтожены!"
+    playSound: true
+    color: "#ff0000"
+
+# --- Варианты с ID привязки ---
+# HourglassReapers оставлен первым вариантом, чтобы не сломать уже расставленные на картах часы.
+- type: entity
+  parent: HourglassReapersBase
+  id: HourglassReapers
+  suffix: SoT, reapers1
+  components:
+  - type: ShuttleLink
+    id: reapers1
+
+- type: entity
+  parent: HourglassReapersBase
+  id: HourglassReapers2
+  suffix: SoT, reapers2
+  components:
+  - type: ShuttleLink
+    id: reapers2
+
+- type: entity
+  parent: HourglassReapersBase
+  id: HourglassReapers3
+  suffix: SoT, reapers3
+  components:
+  - type: ShuttleLink
+    id: reapers3

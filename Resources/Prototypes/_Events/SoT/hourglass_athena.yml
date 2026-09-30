@@ -1,0 +1,111 @@
+# ==========================================================
+# Песочные часы Афины (SoT)
+# Три варианта с разными ID привязки к шаттлу (ShuttleLink).
+# Внешне и по функционалу одинаковы, различаются только ID и суффиксом в спавн-меню.
+# ==========================================================
+
+# --- Общая база всех песочных часов SoT (в спавн-меню не видна) ---
+- type: entity
+  abstract: true
+  parent: BaseStructure
+  id: HourglassSoTBase
+  suffix: SoT
+  components:
+  # --- Спрайт ---
+  - type: Sprite
+    sprite: _Events/SoT/hourglass.rsi
+    drawdepth: Overdoors
+
+  # --- Прикрепление к полу ---
+  - type: Anchorable
+    flags: Anchorable
+  - type: Transform
+    anchored: true
+
+  # --- Коллизия ---
+  - type: Physics
+    bodyType: Static
+    canCollide: true
+
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.35,0.35,0.35"
+        density: 200
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+  # --- Получение урона ---
+  - type: Damageable
+    damageContainer: StructuralInorganic
+
+  # --- Состояние часов при осмотре (по мере повреждения) ---
+  - type: ExaminableDamage
+    messages: SotHourglassDamageMessages
+
+  # --- Параметры взрыва при уничтожении ---
+  - type: Explosive
+    explosionType: HardBomb
+    totalIntensity: 20000
+    intensitySlope: 3
+    maxIntensity: 15
+
+  # --- Разрушение + взрыв ---
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:ExplodeBehavior
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+  # --- Обводка при наведении ---
+  - type: InteractionOutline
+
+# --- База Афины (в спавн-меню не видна) ---
+- type: entity
+  abstract: true
+  parent: HourglassSoTBase
+  id: HourglassAthenaBase
+  name: песочные часы Афины
+  description: Странные часы, позволяющие сражаться против Служителей пламени. При уничтожении часов вы проиграете.
+  components:
+  - type: Sprite
+    state: athena
+  - type: AnnounceOnDestruction
+    sender: "Песочные часы судьбы"
+    message: "Песочные часы Афины уничтожены!"
+    playSound: true
+    color: "#0000ff"
+
+# --- Варианты с ID привязки ---
+# HourglassAthena оставлен первым вариантом, чтобы не сломать уже расставленные на картах часы.
+- type: entity
+  parent: HourglassAthenaBase
+  id: HourglassAthena
+  suffix: SoT, athena1
+  components:
+  - type: ShuttleLink
+    id: athena1
+
+- type: entity
+  parent: HourglassAthenaBase
+  id: HourglassAthena2
+  suffix: SoT, athena2
+  components:
+  - type: ShuttleLink
+    id: athena2
+
+- type: entity
+  parent: HourglassAthenaBase
+  id: HourglassAthena3
+  suffix: SoT, athena3
+  components:
+  - type: ShuttleLink
+    id: athena3
