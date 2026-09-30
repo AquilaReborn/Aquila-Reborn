@@ -1,0 +1,60 @@
+- type: entity
+  id: AgramBullet
+  suffix: Sir_Felix
+  name: bullet Agram (9x21)
+  parent: BaseBullet
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 10.4
+
+- type: entity
+  id: BulletSubmachine
+  suffix: Sir_Felix
+  name: bullet (.35 MP-9)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 18
+
+- type: entity
+  id: BulletArmorPiercingSubmachine
+  suffix: Sir_Felix
+  name: bullet (.35 MP-9)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 15
+    ignoreResistances: true
+
+- type: entity
+  id: BulletSubmachineMP9
+  suffix: Sir_Felix
+  name: bullet (.35 MP-9)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 9.3
+
+- type: entity
+  id: BulletArmorPiercingSubmachineMP9
+  suffix: Sir_Felix
+  name: bullet (.35 MP-9)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 5.3
+    ignoreResistances: true

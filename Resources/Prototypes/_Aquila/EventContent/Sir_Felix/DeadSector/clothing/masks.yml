@@ -1,0 +1,197 @@
+- type: entity
+  id: BaseFelixGasMask
+  parent: ClothingMaskGas
+  name: gas mask
+  description: A face-covering mask that can be connected to an air supply.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/masks/G100Y.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/masks/G100Y.rsi
+  - type: RadiationReceiver
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.95
+        Radiation: 0.65
+
+- type: entity
+  id: g100x
+  suffix: Sir_Felix
+  parent: BaseFelixGasMask
+  name: gas mask
+  description: A face-covering mask that can be connected to an air supply.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/masks/G100X.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/masks/G100X.rsi
+
+- type: entity
+  id: g100g
+  suffix: Sir_Felix
+  parent: BaseFelixGasMask
+  name: gas mask
+  description: A face-covering mask that can be connected to an air supply.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/masks/G100G.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/masks/G100G.rsi
+
+- type: entity
+  id: g100y
+  suffix: Sir_Felix
+  parent: BaseFelixGasMask
+  name: gas mask
+  description: A face-covering mask that can be connected to an air supply.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/masks/G100Y.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/masks/G100Y.rsi
+
+- type: entity
+  id: gp7
+  suffix: Sir_Felix
+  parent: BaseFelixGasMask
+  name: gas mask
+  description: A face-covering mask that can be connected to an air supply.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/masks/GP7.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/masks/GP7.rsi
+
+- type: entity
+  id: gp5
+  suffix: Sir_Felix
+  parent: BaseFelixGasMask
+  name: gas mask
+  description: A face-covering mask that can be connected to an air supply.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/masks/GP5.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/masks/GP5.rsi
+
+- type: entity
+  id: m50
+  suffix: Sir_Felix
+  parent: BaseFelixGasMask
+  name: gas mask
+  description: A face-covering mask that can be connected to an air supply.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/masks/M50.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/masks/M50.rsi
+
+- type: entity
+  id: m4
+  suffix: Sir_Felix
+  parent: BaseFelixGasMask
+  name: gas mask
+  description: A face-covering mask that can be connected to an air supply.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/masks/M4.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/masks/M4.rsi
+
+- type: entity
+  id: m2
+  suffix: Sir_Felix
+  parent: BaseFelixGasMask
+  name: gas mask
+  description: A face-covering mask that can be connected to an air supply.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/masks/M2.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/masks/M2.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+
+- type: entity
+  id: m17a1g
+  suffix: Sir_Felix
+  parent: BaseFelixGasMask
+  name: gas mask
+  description: A face-covering mask that can be connected to an air supply.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/masks/M17A1G.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/masks/M17A1G.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+
+- type: entity
+  id: m17a1b
+  suffix: Sir_Felix
+  parent: BaseFelixGasMask
+  name: gas mask
+  description: A face-covering mask that can be connected to an air supply.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/masks/M17A1B.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/masks/M17A1B.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+
+- type: entity
+  id: FiltrationRespirator
+  suffix: Sir_Felix
+  parent: BaseFelixGasMask
+  name: gas mask
+  description: A face-covering mask that can be connected to an air supply.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/masks/FiltrationRespirator.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/masks/FiltrationRespirator.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+
+- type: entity
+  id: lmms
+  suffix: Sir_Felix
+  parent: BaseFelixGasMask
+  name: gas mask
+  description: A face-covering mask that can be connected to an air supply.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/masks/LMMS.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/masks/LMMS.rsi
+
+- type: entity
+  id: lmmy
+  suffix: Sir_Felix
+  parent: BaseFelixGasMask
+  name: gas mask
+  description: A face-covering mask that can be connected to an air supply.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/masks/LMMY.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/masks/LMMY.rsi
+
+- type: entity
+  id: CamouflageMask
+  parent: ClothingMaskBase
+  name: camouflage mask
+  suffix: DeadSector, Sir_Felix
+  description: A simple mask that hides your face will not protect you from foreign gases.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/masks/camouflage.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/masks/camouflage.rsi

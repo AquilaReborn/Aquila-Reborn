@@ -1,0 +1,181 @@
+- type: entity
+  name: stamp
+  parent: RubberStampBase
+  id: ResearchStamp
+  suffix: ElysiumPrime, Other, Sir_Felix
+  components:
+    - type: Stamp
+      stampedName: stamp-component-stamped-name-research
+      stampedColor: "#4682B4"
+      stampState: "paper_stamp-research"
+    - type: Sprite
+      sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/paper.rsi
+      state: stamp-research
+
+- type: entity
+  name: stamp
+  parent: RubberStampBase
+  id: FederationStamp
+  suffix: ElysiumPrime, Other, Sir_Felix
+  components:
+    - type: Stamp
+      stampedName: stamp-component-stamped-name-federation
+      stampedColor: "#2E8B57"
+      stampState: "paper_stamp-fedadmin"
+    - type: Sprite
+      sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/paper.rsi
+      state: stamp-fedadmin
+
+- type: entity
+  name: stamp
+  parent: RubberStampBase
+  id: FBCStamp
+  suffix: ElysiumPrime, Other, Sir_Felix
+  components:
+    - type: Stamp
+      stampedName: stamp-component-stamped-name-fbc
+      stampedColor: "#696969"
+      stampState: "paper_stamp-fbc"
+    - type: Sprite
+      sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/paper.rsi
+      state: stamp-fbc
+
+- type: entity
+  name: stamp
+  parent: RubberStampBase
+  id: FinanceStamp
+  suffix: ElysiumPrime, Other, Sir_Felix
+  components:
+    - type: Stamp
+      stampedName: stamp-component-stamped-name-finance
+      stampedColor: "#006400"
+      stampState: "paper_stamp-finance"
+    - type: Sprite
+      sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/paper.rsi
+      state: stamp-finance
+
+- type: entity
+  name: stamp
+  parent: RubberStampBase
+  id: JudgeStamp
+  suffix: ElysiumPrime, Other, Sir_Felix
+  components:
+    - type: Stamp
+      stampedName: stamp-component-stamped-name-judge
+      stampedColor: "#008B8B"
+      stampState: "paper_stamp-judge"
+    - type: Sprite
+      sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/paper.rsi
+      state: stamp-judge
+
+- type: entity
+  name: stamp
+  parent: RubberStampBase
+  id: ElysiumLawyerStamp
+  suffix: ElysiumPrime, Other, Sir_Felix
+  components:
+    - type: Stamp
+      stampedName: stamp-component-stamped-name-elysiumlawyer
+      stampedColor: "#008B8B"
+      stampState: "paper_stamp-elysiumlawyer"
+    - type: Sprite
+      sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/paper.rsi
+      state: stamp-elysiumlawyer
+
+- type: entity
+  name: stamp
+  parent: RubberStampBase
+  id: SpaceMilitaryStamp
+  suffix: ElysiumPrime, Other, Sir_Felix
+  components:
+    - type: Stamp
+      stampedName: stamp-component-stamped-name-spacemilitary
+      stampedColor: "#556B2F"
+      stampState: "paper_stamp-spacemilitary"
+    - type: Sprite
+      sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/paper.rsi
+      state: stamp-spacemilitary
+
+- type: entity
+  name: stamp
+  parent: RubberStampBase
+  id: PoliceCaptainStamp
+  suffix: ElysiumPrime, Other, Sir_Felix
+  components:
+    - type: Stamp
+      stampedName: stamp-component-stamped-name-policecpt
+      stampedColor: "#191970"
+      stampState: "paper_stamp-policecpt"
+    - type: Sprite
+      sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/paper.rsi
+      state: stamp-policecpt
+
+- type: entity
+  name: stamp
+  parent: RubberStampBase
+  id: PoliceCriminalistStamp
+  suffix: ElysiumPrime, Other, Sir_Felix
+  components:
+    - type: Stamp
+      stampedName: stamp-component-stamped-name-policecrim
+      stampedColor: "#191970"
+      stampState: "paper_stamp-policecrim"
+    - type: Sprite
+      sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/paper.rsi
+      state: stamp-policecrim
+
+- type: entity
+  name: stamp
+  parent: RubberStampBase
+  id: PoliceDetectiveStamp
+  suffix: ElysiumPrime, Other, Sir_Felix
+  components:
+    - type: Stamp
+      stampedName: stamp-component-stamped-name-policedet
+      stampedColor: "#191970"
+      stampState: "paper_stamp-policedet"
+    - type: Sprite
+      sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/paper.rsi
+      state: stamp-policedet
+
+- type: entity
+  name: stamp
+  parent: RubberStampBase
+  id: PoliceInspectorStamp
+  suffix: ElysiumPrime, Other, Sir_Felix
+  components:
+    - type: Stamp
+      stampedName: stamp-component-stamped-name-policeinsp
+      stampedColor: "#191970"
+      stampState: "paper_stamp-policeinsp"
+    - type: Sprite
+      sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/paper.rsi
+      state: stamp-policeinsp
+
+- type: entity
+  name: stamp
+  parent: RubberStampBase
+  id: PoliceProsecutorStamp
+  suffix: ElysiumPrime, Other, Sir_Felix
+  components:
+    - type: Stamp
+      stampedName: stamp-component-stamped-name-prosecutor
+      stampedColor: "#191970"
+      stampState: "paper_stamp-prosecutor"
+    - type: Sprite
+      sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/paper.rsi
+      state: stamp-prosecutor
+
+- type: entity
+  name: stamp
+  parent: RubberStampBase
+  id: SecurityStamp
+  suffix: ElysiumPrime, Other, Sir_Felix
+  components:
+    - type: Stamp
+      stampedName: stamp-component-stamped-name-security
+      stampedColor: "#006400"
+      stampState: "paper_stamp-security"
+    - type: Sprite
+      sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/paper.rsi
+      state: stamp-security

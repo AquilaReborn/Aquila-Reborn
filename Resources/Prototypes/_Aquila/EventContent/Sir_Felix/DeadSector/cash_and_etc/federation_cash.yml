@@ -1,0 +1,238 @@
+- type: entity
+  parent: BaseItem
+  id: FederationCash1
+  name: federation cash
+  description: You gotta have money.
+  suffix: Elysium Prime, Admin, Sir_Felix
+  components:
+  - type: Cash
+  - type: Item
+    shape:
+    - 0,0,1,0
+    storedOffset: 0,-2
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      Credit: 5
+  - type: StaticPrice
+    price: 0
+  - type: Stack
+    stackType: FederationCredit
+    count: 1
+    baseLayer: base
+    layerStates:
+    - cash
+    - cash_10
+    - cash_100
+    - cash_1000
+    - cash_2500
+    - cash_5000
+    - cash_10000
+    - cash_20000
+    - cash_30000
+    - cash_100000
+    - cash_1000000
+    layerFunction: Threshold
+  - type: StackLayerThreshold
+    thresholds: [10, 100, 100, 1000, 2500, 5000, 10000, 20000, 30000, 100000, 1000000]
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Objects/Fcash.rsi
+    state: cash
+    layers:
+    - state: cash
+      map: ["base"]
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        density: 30
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.2,0.25,0.1"
+        mask:
+        - ItemMask
+  - type: Appearance
+  - type: Currency
+    price:
+      FederationCash: 1
+
+- type: stack
+  id: FederationCredit
+  name: stack-federation-credit
+  icon: { sprite: /Textures/_Aquila/EventContent/Sir_Felix/ElysiumPrime/Objects/Fcash.rsi, state: cash }
+  spawn: FederationCash1
+
+- type: entity
+  parent: FederationCash1
+  id: FederationCash10
+  suffix: Elysium Prime, Admin, 10, Sir_Felix
+  components:
+  - type: Icon
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Objects/Fcash.rsi
+    state: cash_10
+  - type: Stack
+    count: 10
+
+- type: entity
+  parent: FederationCash1
+  id: FederationCash100
+  suffix: Elysium Prime, Admin, 100, Sir_Felix
+  components:
+  - type: Icon
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Objects/Fcash.rsi
+    state: cash_100
+  - type: Stack
+    count: 100
+
+- type: entity
+  parent: FederationCash1
+  id: FederationCash500
+  suffix: Elysium Prime, Admin, 500, Sir_Felix
+  components:
+  - type: Icon
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Objects/Fcash.rsi
+    state: cash_100
+  - type: Stack
+    count: 500
+
+- type: entity
+  parent: FederationCash1
+  id: FederationCash1000
+  suffix: Elysium Prime, Admin, 1000, Sir_Felix
+  components:
+  - type: Icon
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Objects/Fcash.rsi
+    state: cash_1000
+  - type: Stack
+    count: 1000
+
+- type: entity
+  parent: FederationCash1
+  id: FederationCash2500
+  suffix: Elysium Prime, Admin, 2500, Sir_Felix
+  components:
+  - type: Icon
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Objects/Fcash.rsi
+    state: cash_2500
+  - type: Stack
+    count: 2500
+
+- type: entity
+  parent: FederationCash1
+  id: FederationCash5000
+  suffix: Elysium Prime, Admin, 5000, Sir_Felix
+  components:
+  - type: Icon
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Objects/Fcash.rsi
+    state: cash_5000
+  - type: Stack
+    count: 5000
+
+- type: entity
+  parent: FederationCash1
+  id: FederationCash10000
+  suffix: Elysium Prime, Admin, 10000, Sir_Felix
+  components:
+  - type: Icon
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Objects/Fcash.rsi
+    state: cash_10000
+  - type: Stack
+    count: 10000
+
+- type: entity
+  parent: FederationCash1
+  id: FederationCash20000
+  suffix: Elysium Prime, Admin, 20000, Sir_Felix
+  components:
+  - type: Icon
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Objects/Fcash.rsi
+    state: cash_20000
+  - type: Stack
+    count: 20000
+
+- type: entity
+  parent: FederationCash1
+  id: FederationCash30000
+  suffix: Elysium Prime, Admin, 30000, Sir_Felix
+  components:
+  - type: Icon
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Objects/Fcash.rsi
+    state: cash_30000
+  - type: Stack
+    count: 30000
+
+- type: entity
+  parent: FederationCash1
+  id: FederationCash100000
+  suffix: Elysium Prime, Admin, 100000, Sir_Felix
+  components:
+  - type: Icon
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Objects/Fcash.rsi
+    state: cash_100000
+  - type: Stack
+    count: 100000
+
+- type: entity
+  parent: FederationCash1
+  id: FederationCash1000000
+  suffix: Elysium Prime, Admin, 1000000, Sir_Felix
+  components:
+  - type: Icon
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Objects/Fcash.rsi
+    state: cash_1000000
+  - type: Stack
+    count: 1000000
+
+# Currency
+
+- type: currency
+  id: FederationCash
+  displayName: federation-cash
+  cash:
+    1: FederationCash1
+  canWithdraw: true
+
+#Space credit currency
+
+- type: currency
+  id: SpaceCredit
+  displayName: Space cash
+  cash:
+    1: SpaceCash
+  canWithdraw: true
+
+# credit exchange
+
+- type: entity
+  parent: BaseMachine
+  id: ElysiumPrimeATM
+  suffix: ElysiumPrime, Sir_Felix
+  name: ATM
+  description: ATM, where can you exchange currency. 1 FCR = 5 CCR
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Objects/ATM.rsi
+    noRot: true
+    layers:
+    - state: ATM
+    - state: ATM_light
+      shader: unshaded
+      visible: true
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    singleUser: true
+    key: enum.StoreUiKey.Key
+  - type: Store
+    categories:
+    - FCR
+    - CCR
+    currencyWhitelist:
+    - FederationCash
+    - SpaceCredit
+    balance:
+      FederationCash: 0
+      SpaceCredit: 0

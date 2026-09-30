@@ -1,0 +1,707 @@
+#jumpsuits
+- type: entity
+  id: ClothingUniformJumpsuitElysiumCitizen
+  parent: ClothingUniformBase
+  name: citizen jumpsuit
+  description: Comfortable jumpsut of a citizen.
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Jumpsuits/Citizen/cit_suit.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Jumpsuits/Citizen/cit_suit.rsi
+
+- type: entity
+  id: ClothingUniformJumpsuitElysiumCitizenHonorable
+  parent: ClothingUniformBase
+  name: honorable citizen jumpsuit
+  description: Has a honorable ribbon!
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Jumpsuits/Citizen/cit_suitD.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Jumpsuits/Citizen/cit_suitD.rsi
+
+- type: entity
+  id: ClothingUniformJumpsuitElysiumSecurity
+  parent: ClothingUniformBase
+  name: patrol jumpsuit
+  description: Officer's jumpsuit with a beatifull cut.
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Jumpsuits/Security/patrol_suit.rsi
+
+- type: entity
+  id: ClothingUniformJumpsuitElysiumSecurityAlt
+  parent: ClothingUniformBase
+  name: officer turtleneck
+  description: Officer's turtleneck. Comfortable and pleasant to the touch.
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Jumpsuits/Security/sec_suit.rsi
+
+- type: entity
+  id: ClothingUniformJumpsuitElysiumCitizenAlt
+  parent: ClothingUniformBase
+  name: citizen jumpsuit
+  description: Federation citizen's jumpsuit.
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Jumpsuits/Citizen/Default.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Jumpsuits/Citizen/Default.rsi
+
+- type: entity
+  id: ClothingUniformJumpsuitElysiumCitizenLoyal
+  parent: ClothingUniformBase
+  name: formal suit
+  description: A comfortable suit designed for a loyal group of Federation citizens. Wearing it, you feel your heart being filled with the warmth of patriotism.
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Jumpsuits/Citizen/Loyal.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Jumpsuits/Citizen/Loyal.rsi
+
+- type: entity
+  id: ClothingUniformJumpsuitElysiumCitizenWork
+  parent: ClothingUniformBase
+  name: work jumpsuit
+  description: A comfortable suit designed for heavy and labour-intensive work. It has a Federation patch.
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Jumpsuits/Citizen/Worker.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Jumpsuits/Citizen/Worker.rsi
+
+- type: entity
+  id: ClothingUniformJumpsuitElysiumDepartamentAdmin
+  parent: ClothingUniformBase
+  name: formal suit
+  description: A comfortable suit designed for managers. Poverty will envy you.
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Jumpsuits/Departaments/administrator.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Jumpsuits/Departaments/administrator.rsi
+
+- type: entity
+  id: ClothingUniformJumpsuitElysiumDepartamentMigration
+  parent: ClothingUniformBase
+  name: formal suit
+  description: A comfortable suit designed for migration officers. Poverty will envy you.
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Jumpsuits/Departaments/migration.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Jumpsuits/Departaments/migration.rsi
+
+- type: entity
+  id: ClothingUniformJumpsuitElysiumDepartamentWorker
+  parent: ClothingUniformBase
+  name: formal suit
+  description: A comfortable suit designed for employees. Poverty will envy you.
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Jumpsuits/Departaments/worker.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Jumpsuits/Departaments/worker.rsi
+
+- type: entity
+  id: ClothingUniformJumpsuitElysiumDepartamentWorkerAlt
+  parent: ClothingUniformBase
+  name: formal suit
+  description: A comfortable suit designed for employees. Poverty will envy you.
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Jumpsuits/Departaments/workeralt.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Jumpsuits/Departaments/workeralt.rsi
+
+- type: entity
+  id: ClothingUniformJumpsuitElysiumDepartamentWorkerAlter
+  parent: ClothingUniformBase
+  name: formal suit
+  description: A comfortable suit designed for employees. Poverty will envy you.
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Jumpsuits/Departaments/workeralter.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Jumpsuits/Departaments/workeralter.rsi
+
+- type: entity
+  id: ClothingUniformJumpsuitElysiumSecurityPatrol
+  parent: ClothingUniformBase
+  name: tactical suit
+  description: A comfortable suit designed for Federation patrolmen. Beat the intruders!
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Jumpsuits/Security/patrol.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Jumpsuits/Security/patrol.rsi
+#jumpsuits END
+
+#vest
+- type: entity
+  id: ClothingOuterStorageElysium
+  parent: ClothingOuterStorageBase
+  name: sientiest tactical vest
+  description: sientiest tactical vest
+  suffix: Singularity, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/vest.rsi
+
+#Hardsuits Singularity
+#Base
+- type: entity
+  abstract: true
+  parent: [ClothingOuterBase, GeigerCounterClothing]
+  id: ClothingOuterHardsuitSingularityBase
+  name: base hardsuit singularity
+  components:
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 0.80
+  - type: Item
+    size: Ginormous
+  - type: ToggleableClothing
+    slot: head
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.95
+        Heat: 0.90
+        Radiation: 0.25
+  - type: GroupExamine
+  - type: Tag
+    tags:
+    - Hardsuit
+
+#Black
+- type: entity
+  id: ClothingOuterHardsuitSingularitySienceBlack
+  parent: ClothingOuterHardsuitSingularityBase
+  name: scientiest
+  suffix: Singularity, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Radsuits/Black/suit.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHardsuitSingularitySienceBlack
+  - type: ClothingSpeedModifier
+    sprintModifier: 1.0
+  - type: TemperatureProtection
+    heatingCoefficient: 0.09
+    coolingCoefficient: 0.09
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.90
+        Piercing: 0.8
+        Heat: 0.90
+        Radiation: 0.8
+        Caustic: 0.90
+
+- type: entity
+  id: ClothingOuterHardsuitSingularitySienceBlackArmored
+  parent: ClothingOuterHardsuitSingularityBase
+  name: scientiest armored
+  suffix: Singularity, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Radsuits/Black/armored.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHardsuitSingularitySienceBlack
+  - type: ClothingSpeedModifier
+    sprintModifier: 1.0
+  - type: TemperatureProtection
+    heatingCoefficient: 0.02
+    coolingCoefficient: 0.02
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.7
+        Radiation: 0.7
+        Caustic: 0.8
+
+- type: entity
+  id: ClothingHeadHardsuitSingularitySienceBlack
+  parent: ClothingHeadHardsuitBase
+  name: scientiest helmet
+  suffix: Singularity, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Radsuits/Black/head.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Radsuits/Black/head.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.95
+        Radiation: 0.85
+        Caustic: 0.95
+
+#Orange
+- type: entity
+  id: ClothingOuterHardsuitSingularitySienceOrange
+  parent: ClothingOuterHardsuitSingularityBase
+  name: scientiest
+  suffix: Singularity, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Radsuits/Orange/suit.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHardsuitSingularitySienceOrange
+  - type: TemperatureProtection
+    heatingCoefficient: 0.065
+    coolingCoefficient: 0.065
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.85
+        Radiation: 0.4
+        Caustic: 0.4
+        Piercing: 0.5
+
+- type: entity
+  id: ClothingOuterHardsuitSingularitySienceOrangeArmored
+  parent: ClothingOuterHardsuitSingularityBase
+  name: scientiest armored
+  suffix: Singularity, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Radsuits/Orange/armored.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHardsuitSingularitySienceOrange
+  - type: ClothingSpeedModifier
+    sprintModifier: 0.85
+  - type: TemperatureProtection
+    heatingCoefficient: 0.065
+    coolingCoefficient: 0.065
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.8
+        Heat: 0.25
+        Radiation: 0.25
+        Caustic: 0.25
+
+- type: entity
+  id: ClothingHeadHardsuitSingularitySienceOrange
+  parent: ClothingHeadHardsuitBase
+  name: scientiest helmet
+  suffix: Singularity, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Radsuits/Orange/head.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Radsuits/Orange/head.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.80
+        Radiation: 0.60
+        Caustic: 0.95
+
+#Green
+- type: entity
+  id: ClothingOuterHardsuitSingularitySienceGreen
+  parent: ClothingOuterHardsuitSingularityBase
+  name: scientiest
+  suffix: Singularity, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Radsuits/Green/suit.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHardsuitSingularitySienceGreen
+  - type: TemperatureProtection
+    heatingCoefficient: 0.081
+    coolingCoefficient: 0.081
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.8
+
+- type: entity
+  id: ClothingOuterHardsuitSingularitySienceGreenArmored
+  parent: ClothingOuterHardsuitSingularityBase
+  name: scientiest armored
+  suffix: Singularity, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Radsuits/Green/armored.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHardsuitSingularitySienceGreen
+  - type: ClothingSpeedModifier
+    sprintModifier: 0.85
+  - type: TemperatureProtection
+    heatingCoefficient: 0.02
+    coolingCoefficient: 0.02
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.65
+        Heat: 0.85
+        Radiation: 0.85
+        Caustic: 0.85
+
+- type: entity
+  id: ClothingHeadHardsuitSingularitySienceGreen
+  parent: ClothingHeadHardsuitBase
+  name: scientiest helmet
+  suffix: Singularity, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Radsuits/Green/head.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Radsuits/Green/head.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.75
+        Radiation: 0.60
+        Caustic: 0.97
+
+#White
+- type: entity
+  id: ClothingOuterHardsuitSingularitySienceWhite
+  parent: ClothingOuterHardsuitSingularityBase
+  name: scientiest
+  suffix: Singularity, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Radsuits/White/suit.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHardsuitSingularitySienceWhite
+  - type: ClothingSpeedModifier
+    sprintModifier: 1.0
+  - type: TemperatureProtection
+    heatingCoefficient: 0.055
+    coolingCoefficient: 0.055
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Piercing: 0.85
+        Radiation: 0.05
+        Caustic: 0.55
+
+- type: entity
+  id: ClothingOuterHardsuitSingularitySienceWhiteArmored
+  parent: ClothingOuterHardsuitSingularityBase
+  name: scientiest armored
+  suffix: Singularity, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Radsuits/White/armored.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHardsuitSingularitySienceWhite
+  - type: ClothingSpeedModifier
+    sprintModifier: 1.0
+  - type: TemperatureProtection
+    heatingCoefficient: 0.045
+    coolingCoefficient: 0.045
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.35
+        Slash: 0.35
+        Piercing: 0.45
+        Heat: 0.45
+        Radiation: 0.4
+        Caustic: 0.65
+
+- type: entity
+  id: ClothingHeadHardsuitSingularitySienceWhite
+  parent: ClothingHeadHardsuitBase
+  name: scientiest helmet
+  suffix: Singularity, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Radsuits/White/head.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Radsuits/White/head.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.70
+        Radiation: 0.55
+        Caustic: 0.85
+
+- type: entity
+  parent: ClothingHandsButcherable
+  id: ClothingHandsGlovesAdministration
+  name: gloves
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/hands/admin.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/hands/admin.rsi
+  - type: Fiber
+    fiberMaterial: fibers-leather
+    fiberColor: fibers-green
+  - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHeadBase
+  id: AdministrationBeret
+  name: beret
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/head/beretv.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/head/beretv.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: SpecialForcePoliceBeret
+  name: beret
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/head/beret.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/head/beret.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: SpecialForcePoliceCap
+  name: cap
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/head/Cap.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/head/Cap.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingAdministrationNeck
+  name: cloak
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Item
+    size: Normal
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/neck/admin.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitAdminSmokingV1
+  name: uniform
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/SmokingV1.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/SmokingV1.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitAdminSmokingV2
+  name: uniform
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/SmokingV2.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/SmokingV2.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCitizen
+  name: uniform
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/CitizenJumpsuit.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/CitizenJumpsuit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCitizenPrisoner
+  name: uniform
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/Prisoner.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/Prisoner.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCitizenSmoking
+  name: uniform
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/Smoking.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/Smoking.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSpecialForceOffice
+  name: uniform
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/Office.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/Office.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSpecialForcePoliceV1
+  name: uniform
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/PoliceV1.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/PoliceV1.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSpecialForcePoliceV2
+  name: uniform
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/PoliceV2.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/PoliceV2.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterSpecialForceCoatBlue
+  name: blue coat
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/outer_clothing/CoatBlue.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/outer_clothing/CoatBlue.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterSpecialForceCoatDark
+  name: dark coat
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/outer_clothing/CoatDark.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/outer_clothing/CoatDark.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterSpecialForceJacketNoRem
+  name: jacket
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/outer_clothing/JacketNoRem.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/outer_clothing/JacketNoRem.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterSpecialForceJacketRem
+  name: jacket
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/outer_clothing/JacketRem.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/outer_clothing/JacketRem.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterSpecialForceSpecialCoat
+  name: special coat
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/outer_clothing/SpecialCoat.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/outer_clothing/SpecialCoat.rsi
+
+- type: entity
+  parent: ClothingOuterArmorBase
+  id: ClothingOuterArmorElysium
+  name: vest
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/outer_clothing/BasicArmor.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/outer_clothing/BasicArmor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.6
+        Heat: 0.85
+        Cold: 0.85
+        Shock: 0.75
+        Caustic: 0.85
+  # Imperial Space Stamina Resistance Start
+  - type: StaminaResistance
+    damageCoefficient: 0.8
+  # Imperial Space Stamina Resistance End
+  - type: ExplosionResistance
+    damageCoefficient: 0.80

@@ -1,0 +1,270 @@
+- type: entity
+  id: BulletSVUMkII
+  suffix: Sir_Felix
+  name: bullet SVU Mk II (7x62x39)
+  parent: BaseBullet
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 68.5
+
+- type: entity
+  id: BulletSVUMkIIPiercing
+  suffix: Sir_Felix
+  name: bullet SVU Mk II (7x62x39 AP)
+  parent: BaseBullet
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 40
+    ignoreResistances: true
+
+- type: entity
+  id: BulletSVUMkIILongRange
+  suffix: Sir_Felix
+  name: bullet VU Mk II (7x62x39 T)
+  parent: BaseBullet
+  components:
+  - type: TimedDespawn
+    lifetime: 30
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 68.5
+
+- type: entity
+  id: BulletSVUMkIIExplosive
+  suffix: Sir_Felix
+  name: bullet SVU Mk II (7x62x39 ST)
+  parent: BaseBulletTrigger
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 60
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 1
+    intensitySlope: 1
+    maxIntensity: 1
+
+- type: entity
+  id: BulletSVD
+  suffix: Sir_Felix
+  name: bullet SVD (7x62x39)
+  parent: BaseBullet
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 80.5
+
+- type: entity
+  id: BulletSVDPiercing
+  suffix: Sir_Felix
+  name: bullet SVD (7x62x39 AP)
+  parent: BaseBullet
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 48.3
+    ignoreResistances: true
+
+- type: entity
+  id: BulletSVDLongRange
+  suffix: Sir_Felix
+  name: bullet SVD (7x62x39 T)
+  parent: BaseBullet
+  components:
+  - type: TimedDespawn
+    lifetime: 30
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 80.5
+
+- type: entity
+  id: BulletSVDExplosive
+  suffix: Sir_Felix
+  name: bullet SVD (7x62x39 ST)
+  parent: BaseBulletTrigger
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 65.5
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 1
+    intensitySlope: 1
+    maxIntensity: 1
+
+- type: entity
+  id: BulletSniperVSSMkI
+  suffix: Sir_Felix
+  name: bullet (.35 MP-9)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 18
+
+- type: entity
+  id: BulletArmorPiercingSniperVSSMkI
+  suffix: Sir_Felix
+  name: bullet (.35 MP-9)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 18
+    ignoreResistances: true
+
+- type: entity
+  id: BulletLongRangeSniperVSSMkI
+  suffix: Sir_Felix
+  name: bullet SVD (7x62x39 T)
+  parent: BaseBullet
+  components:
+  - type: TimedDespawn
+    lifetime: 30
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 18
+
+- type: entity
+  id: BulletExplosiveSniperVSSMkI
+  suffix: Sir_Felix
+  name: bullet SVD (7x62x39 ST)
+  parent: BaseBulletTrigger
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 16
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 1
+    intensitySlope: 1
+    maxIntensity: 1
+
+- type: entity
+  id: BulletSniperVSSMkII
+  suffix: Sir_Felix
+  name: bullet (.35 MP-9)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 30
+
+- type: entity
+  id: BulletArmorPiercingSniperVSSMkII
+  suffix: Sir_Felix
+  name: bullet (.35 MP-9)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 22
+    ignoreResistances: true
+
+- type: entity
+  id: BulletLongRangeSniperVSSMkII
+  suffix: Sir_Felix
+  name: bullet SVD (7x62x39 T)
+  parent: BaseBullet
+  components:
+  - type: TimedDespawn
+    lifetime: 30
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 30
+
+- type: entity
+  id: BulletExplosiveSniperVSSMkII
+  suffix: Sir_Felix
+  name: bullet SVD (7x62x39 ST)
+  parent: BaseBulletTrigger
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 25
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 1
+    intensitySlope: 1
+    maxIntensity: 1
+
+- type: entity
+  id: BulletSniperSVUMkI
+  suffix: Sir_Felix
+  name: bullet (.35 MP-9)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 55.5
+
+- type: entity
+  id: BulletArmorPiercingSniperSVUMkI
+  suffix: Sir_Felix
+  name: bullet (.35 MP-9)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 30.3
+    ignoreResistances: true
+
+- type: entity
+  id: BulletLongRangeSniperSVUMkI
+  suffix: Sir_Felix
+  name: bullet SVD (7x62x39 T)
+  parent: BaseBullet
+  components:
+  - type: TimedDespawn
+    lifetime: 30
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 55.5
+
+- type: entity
+  id: BulletExplosiveSniperSVUMkI
+  suffix: Sir_Felix
+  name: bullet SVD (7x62x39 ST)
+  parent: BaseBulletTrigger
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 50.5
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 1
+    intensitySlope: 1
+    maxIntensity: 1

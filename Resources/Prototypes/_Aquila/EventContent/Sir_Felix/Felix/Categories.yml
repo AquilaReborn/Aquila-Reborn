@@ -1,0 +1,44 @@
+- type: storeCategory
+  id: FEmergencyequipment
+  name: store-category-uplink-FEmergencyequipment
+  priority: 0
+
+- type: storeCategory
+  id: FEngineering
+  name: store-category-uplink-FEngineering
+  priority: 1
+
+- type: storeCategory
+  id: FMaterials
+  name: store-category-uplink-FMaterials
+  priority: 2
+
+- type: storeCategory
+  id: FMedicine
+  name: store-category-uplink-FMedicine
+  priority: 3
+
+- type: storeCategory
+  id: FRnD
+  name: store-category-uplink-FRnD
+  priority: 4
+
+- type: storeCategory
+  id: FSecure
+  name: store-category-uplink-FSecure
+  priority: 5
+
+- type: storeCategory
+  id: FProvisions
+  name: store-category-uplink-FProvisions
+  priority: 6
+
+- type: storeCategory
+  id: FEntertainments
+  name: store-category-uplink-FEntertainments
+  priority: 7
+
+- type: storeCategory
+  id: FService
+  name: store-category-uplink-FService
+  priority: 8

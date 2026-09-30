@@ -1,0 +1,18 @@
+- type: entity
+  parent: [DrinkVisualsAllFilled, DrinkBottleGlassBaseFull, BaseMinorContraband]
+  id: MolotovCocktail
+  suffix: Sir_Felix
+  name: Molotov cocktail
+  description: An incendiary mixture, the principle of action of which is known to everyone. Don't even think about tasting it.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: ChlorineTrifluoride
+          Quantity: 1
+        - ReagentId: Napalm
+          Quantity: 39
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/vodkabottle.rsi
+  - type: Sealable

@@ -1,0 +1,10 @@
+# Монитор экипажа
+- type: entity
+  name: MedCore terminal
+  suffix: Felix, Sir_Felix
+  parent: HandheldCrewMonitor
+  id: MedCoreTerminal
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/items/MedCoreTerminal.rsi
+    state: scanner

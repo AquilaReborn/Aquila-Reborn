@@ -26,7 +26,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 <Label Name="DiscountSubText"
                        HorizontalAlignment="Center"/>
             </BoxContainer>
-            <RichTextLabel Name="StoreItemDescription" VerticalAlignment="Top"/>
+            <RichTextLabel Name="StoreItemDescription" VerticalAlignment="Top" HorizontalExpand="True" MinWidth="100"/>
+            <!-- Aquila Change -->
         </BoxContainer>
     </BoxContainer>
 </Control>

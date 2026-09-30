@@ -1,0 +1,129 @@
+### StarCorps
+### StarCorps
+### StarCorps
+
+- type: startingGear
+  id: StarCorpsSoldier
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitRegularForce
+    back: ClothingBackpackRegularForce
+    shoes: ClothingShoesBootsJack
+    mask: ClothingNanoMask
+    head: ClothingHeadHelmetBasic
+    eyes: ClothingEyesHudRegularForce
+    gloves: ClothingHandsGlovesFingerless
+    outerClothing: BodyArmorMultikamRaptor
+    ears: ClothingHeadsetLinkDiodeRegularForce
+    id: StarCorpsPDA
+  inhand:
+    - WeaponFelixAKS74y
+    - MagazineAKS74y
+#  storage:
+#    back:
+#    - 
+
+- type: startingGear
+  id: StarCorpsPilot
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitRegularForcePilot
+    back: ClothingBackpackRegularForce
+    shoes: ClothingShoesBootsJack
+    mask: ClothingNanoMask
+    head: AirCVC
+    eyes: ClothingEyesHudRegularForce
+    gloves: ClothingHandsGlovesFingerless
+    outerClothing: BodyArmorMultikamRaptor
+    ears: ClothingHeadsetLinkDiodeRegularForce
+    pocket1: BaseMagazineASP
+    pocket2: BaseMagazineASP
+    id: StarCorpsPDA
+  inhand:
+    - WeaponPistolASP
+#  storage:
+#    back:
+#    - 
+
+### StarCorps
+### StarCorps
+### StarCorps
+
+### Mercenaries
+### Mercenaries
+### Mercenaries
+
+- type: startingGear
+  id: MercenaryAKS
+  equipment:
+    jumpsuit: ClothingUniformHiredStalker
+    back: ClothingBackpackMerc
+    shoes: ClothingShoesBootsJack
+    mask: ClothingMaskNeckGaiter
+    eyes: ClothingEyesHudRegularForce
+    gloves: ClothingHandsGlovesFingerless
+    outerClothing: BodyArmorTacticalRaptor
+    ears: ClothingHeadsetFADAK9M
+    belt: ClothingBeltMercWebbing
+    id: PassengerPDA
+  inhand:
+    - WeaponFelixAKS74y
+#  storage:
+#    back:
+#    - 
+
+- type: startingGear
+  id: MercenaryGlock
+  equipment:
+    jumpsuit: ClothingUniformHiredStalker
+    back: ClothingBackpackMerc
+    shoes: ClothingShoesBootsJack
+    mask: ClothingMaskNeckGaiter
+    eyes: ClothingEyesHudRegularForce
+    gloves: ClothingHandsGlovesFingerless
+    outerClothing: BodyArmorTacticalRaptor
+    ears: ClothingHeadsetFADAK9M
+    pocket1: ClothingHeadHatBeretMerc
+    belt: ClothingBeltMercWebbing
+    id: PassengerPDA
+  inhand:
+    - WeaponPistolASP
+#  storage:
+#    back:
+#    - 
+
+- type: startingGear
+  id: MercenarySniper
+  equipment:
+    jumpsuit: ClothingUniformMercenary
+    shoes: ClothingShoesBootsJack
+    mask: ClothingMaskNeckGaiter
+    head: AssaultACH
+    eyes: ClothingEyesGlassesMercenary
+    gloves: ClothingHandsGlovesFingerless
+    outerClothing: ArmoredUnloading6B43Raptor
+    ears: ClothingHeadsetFADAK9M
+    id: PassengerPDA
+  inhand:
+    - WeaponFelixVSSMkI
+    - WeaponPistolASP
+#  storage:
+#    back:
+#    - 
+
+### Mercenaries
+### Mercenaries
+### Mercenaries
+
+- type: startingGear
+  id: AgentSyndi
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitOperative
+    shoes: ClothingShoesBootsJack
+    mask: ClothingMaskNeckGaiter
+    gloves: ClothingHandsGlovesFingerless
+    outerClothing: BodyArmorMultikamRaptor
+    ears: ClothingHeadsetFADAK9M
+  inhand:
+    - WeaponFelixAKS74y
+#  storage:
+#    back:
+#    - 

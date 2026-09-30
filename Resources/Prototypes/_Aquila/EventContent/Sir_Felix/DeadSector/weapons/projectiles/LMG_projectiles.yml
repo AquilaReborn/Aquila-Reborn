@@ -1,0 +1,22 @@
+- type: entity
+  id: AssaultPKMBullet
+  suffix: Sir_Felix
+  name: bullet Assault PKM (7x62x51)
+  parent: BaseBullet
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 19
+
+- type: entity
+  id: AssaultPKMBulletPiercing
+  suffix: Sir_Felix
+  name: bullet Assault PKM (7x62x51 AP)
+  parent: BaseBullet
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 15
+    ignoreResistances: true

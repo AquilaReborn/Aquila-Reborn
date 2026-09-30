@@ -1,0 +1,2559 @@
+# Ключи шифрования, кастомные каналы
+
+- type: radioChannel
+  id: RegularForce
+  name: chat-regularforce-g
+  keycode: 'р'
+  frequency: 1090
+  color: "#48d1cc"
+- type: radioChannel
+  id: Guard
+  name: chat-guard-n
+  keycode: 'n'
+  frequency: 1091
+  color: "#ffd700"
+- type: radioChannel
+  id: MedCorps
+  name: chat-medcorps-j
+  keycode: 'j'
+  frequency: 1092
+  color: "#f08080"
+- type: radioChannel
+  id: SpecOperation
+  name: chat-specoperation-k
+  keycode: 'k'
+  frequency: 1093
+  color: "#006400"
+  longRange: true
+- type: radioChannel
+  id: AirGroup
+  name: chat-airgroup-l
+  keycode: 'л'
+  frequency: 1094
+  color: "#ffffff"
+  longRange: true
+- type: radioChannel
+  id: Radio10
+  name: chat-radio-felix-radio10
+  keycode: 'ж'
+  frequency: 1340
+  color: "#967101"
+  longRange: true
+
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyRegularForce
+  name: encryption key
+  suffix: Регулярка, Felix, Sir_Felix
+  description: An encryption key
+  components:
+  - type: EncryptionKey
+    channels:
+    - RegularForce
+    defaultChannel: RegularForce
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/encryption_keys.rsi
+    layers:
+    - state: crypt
+    - state: regularforce_label
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyGuard
+  name: encryption key
+  suffix: Гвардия, Felix, Sir_Felix
+  description: An encryption key
+  components:
+  - type: EncryptionKey
+    channels:
+    - Guard
+    defaultChannel: Guard
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/encryption_keys.rsi
+    layers:
+    - state: crypt
+    - state: guard_label
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyMedCorps
+  name: encryption key
+  suffix: Мед.Корпус, Felix, Sir_Felix
+  description: An encryption key
+  components:
+  - type: EncryptionKey
+    channels:
+    - MedCorps
+    defaultChannel: MedCorps
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/encryption_keys.rsi
+    layers:
+    - state: crypt
+    - state: medcorps_label
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeySpecOperation
+  name: encryption key
+  suffix: Спец.Операция, Felix, Sir_Felix
+  description: An encryption key
+  components:
+  - type: EncryptionKey
+    channels:
+    - SpecOperation
+    defaultChannel: SpecOperation
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/encryption_keys.rsi
+    layers:
+    - state: crypt
+    - state: specoperation_label
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyAirGroup
+  name: encryption key
+  suffix: Воздушная Группа, Felix, Sir_Felix
+  description: An encryption key
+  components:
+  - type: EncryptionKey
+    channels:
+    - AirGroup
+    defaultChannel: AirGroup
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/encryption_keys.rsi
+    layers:
+    - state: crypt
+    - state: airgroup_label
+
+# КПК, ID карта, доступы.
+
+- type: accessLevel
+  id: StarCorps
+  name: id-card-access-level-starcorps
+
+- type: jobIcon
+  parent: JobIcon
+  id: StarCorpsJobIcon
+  icon:
+    sprite: /Textures/_Aquila/EventContent/Sir_Felix/Felix/Objects/jobicons.rsi
+    state: StarCorps
+  jobName: job-name-starcorps
+
+- type: jobIcon
+  parent: JobIcon
+  id: FederationJobIcon
+  icon:
+    sprite: /Textures/_Aquila/EventContent/Sir_Felix/Felix/Objects/jobicons.rsi
+    state: Federation
+  jobName: job-name-federation
+
+- type: entity
+  id: StarCorpsIDCard
+  parent: IDCardStandard
+  name: StarCorps ID card
+  suffix: Felix, Sir_Felix
+  description: Identification Card.
+  components:
+    - type: Item
+      size: Tiny
+    - type: IdCard
+      jobIcon: StarCorpsJobIcon
+      jobTitle: job-name-starcorps
+    - type: Access
+      tags:
+      - StarCorps
+    - type: Sprite
+      sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/card.rsi
+      layers:
+        - state: starcorps
+    - type: Clothing
+      slots:
+        - idcard
+      sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/card.rsi
+    - type: PresetIdCard
+      job: null
+
+- type: entity
+  id: StarCorpsPDA
+  parent: BaseCustomPDA
+  name: StarCorps PDA
+  suffix: Felix, Sir_Felix
+  description: Identity card initialisation and viewing device. Has built-in programmes that are found in other conventional PDAs.
+  components:
+  - type: Item
+    size: Normal
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/pda.rsi
+    layers:
+      - map: [ "enum.PdaVisualLayers.Base" ]
+      - state: "light_overlay"
+        map: [ "enum.PdaVisualLayers.Flashlight" ]
+        shader: "unshaded"
+        visible: false
+      - state: "id_overlay"
+        map: [ "enum.PdaVisualLayers.IdLight" ]
+        shader: "unshaded"
+        visible: false
+      - sprite: Objects/Devices/pda.rsi
+        state: "insert_overlay"
+        map: [ "enum.PdaVisualLayers.Pen" ]
+        visible: false
+  - type: Pda
+    id: StarCorpsIDCard
+  - type: PdaBorderColor
+    borderColor: "#242424"
+    accentHColor: "#447987"
+  - type: Icon
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/pda.rsi
+    state: pda
+
+- type: entity
+  id: ElysiumFederationadminIDCard
+  parent: IDCardStandard
+  name: Federation ID card
+  description: Identification Card.
+  suffix: ElysiumPrime, admin, Sir_Felix
+  components:
+    - type: IdCard
+      jobIcon: FederationJobIcon
+      jobTitle: job-name-federation
+    - type: Access
+      tags:
+      - Federationadmin
+      - Federation
+    - type: Sprite
+      sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Misc/card.rsi
+      layers:
+        - state: federation
+    - type: Clothing
+      slots:
+        - idcard
+      sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Misc/card.rsi
+    - type: PresetIdCard
+      job: null
+
+- type: accessLevel
+  id: FelixGorlexBaseID
+  name: id-card-access-level-gorlex-base
+
+- type: accessLevel
+  id: FelixGorlexModernID
+  name: id-card-access-level-gorlex-modern
+
+- type: entity
+  parent: IDCardStandard
+  id: FelixGorlexBaseIDCard
+  name: ID card
+  description: Identification Card.
+  suffix: Felix, Sir_Felix
+  components:
+  - type: Sprite
+    layers:
+    - state: black
+    - state: syndi
+    - sprite: &icon-rsi Interface/Misc/job_icons.rsi
+      offset: &icon-offset -0.09375, 0.0625
+      state: Syndicate
+  - type: IdCard
+    #jobTitle: job-name-felix-gorlex-base
+    jobIcon: JobIconSyndicate
+  - type: Access
+    tags:
+    - FelixGorlexBaseID
+
+- type: entity
+  parent: IDCardStandard
+  id: FelixGorlexModernIDCard
+  name: ID card
+  description: Identification Card.
+  suffix: Felix, Sir_Felix
+  components:
+  - type: Sprite
+    layers:
+    - state: black
+    - state: syndi
+    - sprite: *icon-rsi
+      offset: *icon-offset
+      state: Syndicate
+  - type: IdCard
+    #jobTitle: job-name-felix-gorlex-modern
+    jobIcon: JobIconSyndicate
+  - type: Access
+    tags:
+    - FelixGorlexModernID
+
+# Шлюзы
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsStarCorps
+  suffix: ЗАКРЫТ, Felix, Sir_Felix
+  components:
+  - type: AccessReader
+    access: [["StarCorps"]]
+
+- type: entity
+  id: AirlockStarCorpsLocked
+  parent: Airlock
+  suffix: ЗАКРЫТ, Felix, Sir_Felix
+  name: airlock of the starcorps
+  description: Superiority emanates from him.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/airlock.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsStarCorps ]
+
+- type: entity
+  id: AirlockStarCorps
+  parent: Airlock
+  suffix: Felix, Sir_Felix
+  name: airlock of the starcorps
+  description: Superiority emanates from him.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/airlock.rsi
+
+- type: entity
+  id: DarkAirlockStarCorpsLocked
+  parent: Airlock
+  suffix: ЗАКРЫТ, Felix, Sir_Felix
+  name: airlock of the starcorps
+  description: Superiority emanates from him.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/airlock_dark.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsStarCorps ]
+
+- type: entity
+  id: DarkAirlockStarCorps
+  parent: Airlock
+  suffix: Felix, Sir_Felix
+  name: airlock of the starcorps
+  description: Superiority emanates from him.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/airlock_dark.rsi
+
+# Гермозатворы и прочее
+
+- type: entity
+  id: LaserBlastDoor
+  parent: BaseShutter
+  name: laser blast door
+  suffix: Felix, Sir_Felix
+  description: This one says 'LASER DANGER'.
+  components:
+  - type: PointLight
+    radius: 1.4
+    energy: 3
+    color: "#a53030"
+  - type: AccessReader
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/laserblastdoor/default.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+  - type: Door
+    occludes: false
+    closeTimeOne: 0.4
+    closeTimeTwo: 0.4
+    openTimeOne: 0.4
+    openTimeTwo: 0.4
+    openingAnimationTime: 1.0
+    closingAnimationTime: 1.0
+    canPry: false
+    crushDamage:
+      types:
+        Blunt: 25 # yowch
+    openSound:
+      path: /Audio/Weapons/ebladeoff.ogg
+    closeSound:
+      path: /Audio/Weapons/ebladeon.ogg
+  - type: Occluder
+    enabled: false
+  - type: Appearance
+  - type: RadiationBlocker
+    resistance: 8
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StrongMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 750
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronics ]
+  - type: Construction
+    graph: BlastDoor
+    node: blastdoor
+    containers:
+    - board
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  id: LaserBlastDoorOpen
+  parent: LaserBlastDoor
+  suffix: Открыто, Felix, Sir_Felix
+  components:
+  - type: Door
+    state: Open
+  - type: Occluder
+    enabled: false
+  - type: Physics
+    canCollide: false
+  - type: Airtight
+    airBlocked: false
+  - type: RadiationBlocker
+    enabled: false
+
+- type: entity
+  id: LaserStarCorpsBlastDoor
+  parent: LaserBlastDoor
+  name: laser blast door
+  suffix: Felix, Sir_Felix
+  description: This one says 'LASER DANGER'.
+  components:
+  - type: PointLight
+    radius: 1.4
+    energy: 2
+    color: "#0fffff"
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/laserblastdoor/starcorps.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+
+- type: entity
+  id: LaserStarCorpsBlastDoorOpen
+  parent: LaserStarCorpsBlastDoor
+  suffix: Открыто, Felix, Sir_Felix
+  components:
+  - type: Door
+    state: Open
+  - type: Occluder
+    enabled: false
+  - type: Physics
+    canCollide: false
+  - type: Airtight
+    airBlocked: false
+  - type: RadiationBlocker
+    enabled: false
+
+- type: entity
+  id: LaserFederationBlastDoor
+  parent: LaserBlastDoor
+  name: laser blast door
+  suffix: Felix, ElysiumPrime, Sir_Felix
+  description: This one says 'LASER DANGER'.
+  components:
+  - type: PointLight
+    radius: 1.4
+    energy: 2
+    color: "#a8ca58"
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/laserblastdoor/federation.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+
+- type: entity
+  id: LaserFederationBlastDoorOpen
+  parent: LaserFederationBlastDoor
+  suffix: Открыто, Felix, ElysiumPrime, Sir_Felix
+  components:
+  - type: Door
+    state: Open
+  - type: Occluder
+    enabled: false
+  - type: Physics
+    canCollide: false
+  - type: Airtight
+    airBlocked: false
+  - type: RadiationBlocker
+    enabled: false
+# Стены
+
+- type: entity
+  parent: WallShuttle
+  id: WallShuttleStarCorps
+  name: starcorps wall
+  suffix: Felix, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/walls/shuttle.rsi
+  - type: Icon
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/walls/shuttle.rsi
+
+- type: entity
+  parent: WallShuttle
+  id: DarkWallShuttleStarCorps
+  name: starcorps wall
+  suffix: Felix, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/walls/dark_shuttle.rsi
+  - type: Icon
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/walls/dark_shuttle.rsi
+
+- type: entity
+  parent: WallShuttleDiagonal
+  id: DiagonalWallShuttleStarCorps
+  name: starcorps wall
+  suffix: Diagonal, Felix, Sir_Felix
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Sprite
+    drawdepth: Walls
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/walls/diagonal.rsi
+    state: state0
+  - type: Icon
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/walls/diagonal.rsi
+    state: state0
+
+- type: entity
+  parent: WallShuttleDiagonal
+  id: DiagonalDarkWallShuttleStarCorps
+  name: starcorps wall
+  suffix: Diagonal, Felix, Sir_Felix
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Sprite
+    drawdepth: Walls
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/walls/dark_diagonal.rsi
+    state: state0
+  - type: Icon
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/walls/dark_diagonal.rsi
+    state: state0
+
+# Шкафы, ящики
+
+- type: entity
+  id: CivilianFederationLocker
+  parent: LockerBaseSecure
+  name: civilian locker
+  suffix: Felix, Sir_Felix
+  description: null
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/closets/civilian.rsi
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: base
+    stateDoorOpen: base_open
+    stateDoorClosed: base_door
+- type: entity
+  id: PatrolLocker
+  parent: LockerBaseSecure
+  name: patrol locker
+  suffix: Felix, ElysiumPrime, Sir_Felix
+  description: null
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/closets/patrol.rsi
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: base
+    stateDoorOpen: base_open
+    stateDoorClosed: base_door
+  - type: AccessReader
+    access: [["Federation"]]
+- type: entity
+  id: StarCorpsLocker
+  parent: LockerBaseSecure
+  name: starcorps locker
+  suffix: Felix, Sir_Felix
+  description: null
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/closets/starcorps.rsi
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: base
+    stateDoorOpen: base_open
+    stateDoorClosed: base_door
+  - type: AccessReader
+    access: [["StarCorps"]]
+
+# Баннеры, знамёна, плакаты
+
+- type: entity
+  id: BannerElysiumCivilian
+  parent: BannerBase
+  name: holographic display
+  suffix: Felix, ElysiumPrime, Sir_Felix
+  description: Hail the Federation!
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/banner.rsi
+    layers:
+      - state: civilian
+      - state: civilian-unshaded
+        visible: true
+        shader: unshaded
+        map: [ "light" ]
+  - type: PointLight
+    radius: 1.2
+    energy: 1
+    color: "#75a743"
+- type: entity
+  id: BannerElysiumSecurity
+  parent: BannerBase
+  name: holographic display
+  suffix: Felix, ElysiumPrime, Sir_Felix
+  description: Hail the Federation!
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/banner.rsi
+    layers:
+      - state: security
+      - state: security-unshaded
+        visible: true
+        shader: unshaded
+        map: [ "light" ]
+  - type: PointLight
+    radius: 1.2
+    energy: 1
+    color: "#a53030"
+- type: entity
+  parent: PosterBase
+  id: ElysiumPosterHolo
+  name: holographic display
+  suffix: Felix, ElysiumPrime, Sir_Felix
+  description: Hail the Federation!
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/poster.rsi
+    layers:
+      - state: elysium
+      - state: elysium-unshaded
+        visible: true
+        shader: unshaded
+        map: [ "light" ]
+  - type: PointLight
+    radius: 1.2
+    energy: 1
+    color: "#75a743"
+
+# Торговая точка
+- type: entity
+  id: StarCorpsTradingTerminal
+  parent: BaseStructure
+  name: trading terminal
+  suffix: Felix, ElysiumPrime, Sir_Felix
+  description: Multiple holographic displays that you can interact with.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/terminal.rsi
+    layers:
+      - state: terminal
+      - state: terminal-unshaded
+        visible: true
+        shader: unshaded
+        map: [ "light" ]
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 125
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 2
+            max: 2
+          CableApcStack10:
+            min: 1
+            max: 1
+          ShardGlassReinforced:
+            min: 2
+            max: 3
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Climbable
+  - type: Appearance
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    singleUser: true
+    key: enum.StoreUiKey.Key
+  - type: Store
+    categories:
+    - FEmergencyequipment
+    - FEngineering
+    - FMaterials
+    - FMedicine
+    - FRnD
+    - FSecure
+    - FProvisions
+    - FEntertainments
+    - FService
+    currencyWhitelist:
+    - FederationCash
+    balance:
+      FederationCash: 0
+
+
+- type: entity
+  id: ElysiumBannerFlag
+  parent: PosterBase
+  name: знамя Элизиум Прайма
+  suffix: 5ОКО, Sir_Felix
+  description: Знамя великой федерации.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Secret/Objects/flags.rsi
+    state: elysium
+
+- type: entity
+  id: FifthEyeBannerFlag
+  parent: PosterBase
+  name: знамя 5-ого ОКА
+  suffix: 5ОКО, Sir_Felix
+  description: Знамя неизвестной вам организации.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Secret/Objects/flags.rsi
+    state: eyev
+
+- type: entity
+  name: document
+  parent: Paper
+  id: ElysiumPrimeFelixPassportPaper
+  description: document
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/paper.rsi
+    layers:
+    - state: passport
+    - state: passport_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+
+- type: entity
+  name: document
+  parent: Paper
+  id: ElysiumPrimeFelixKsivaPaper
+  description: document
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/paper.rsi
+    layers:
+    - state: ksiva
+    - state: ksiva_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+
+- type: entity
+  name: document
+  parent: Paper
+  id: ElysiumPrimeFelixBlueKsivaPaper
+  description: document
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/paper.rsi
+    layers:
+    - state: blue
+    - state: blue_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+
+- type: entity
+  name: document
+  parent: Paper
+  id: ElysiumPrimeFelixGreyKsivaPaper
+  description: document
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/paper.rsi
+    layers:
+    - state: grey
+    - state: grey_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+
+- type: entity
+  name: paper
+  parent: Paper
+  id: ElysiumPrimeFelixPaper
+  description: paper
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/paper.rsi
+    layers:
+    - state: paper
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+
+- type: entity
+  id: FelixFlagBlue
+  parent: DeadSectorDecorRoadSignNoEntry
+  name: flag
+  suffix: DeadSector, Decoration, Sir_Felix
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Flags.rsi
+    state: blue
+    drawdepth: Overdoors
+    offset: 0,0.8
+
+- type: entity
+  id: FelixFlagGreen
+  parent: DeadSectorDecorRoadSignNoEntry
+  name: flag
+  suffix: DeadSector, Decoration, Sir_Felix
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Flags.rsi
+    state: green
+    drawdepth: Overdoors
+    offset: 0,0.8
+
+- type: entity
+  id: DarkMateryCrystalBase
+  parent: BaseStructure
+  name: dark matery
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Misc/BlackMateryCristal.rsi
+    state: icon_1
+  - type: Damageable
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        density: 1000
+        layer:
+        - WallLayer
+  - type: InteractionOutline
+
+- type: entity
+  id: DarkMateryCrystal1
+  parent: DarkMateryCrystalBase
+  name: dark matery
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Misc/BlackMateryCristal.rsi
+    state: icon_2
+
+- type: entity
+  id: DarkMateryCrystal2
+  parent: DarkMateryCrystalBase
+  name: dark matery
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Misc/BlackMateryCristal.rsi
+    state: icon_3
+
+- type: entity
+  id: DarkMateryCrystal3
+  parent: DarkMateryCrystalBase
+  name: dark matery
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Misc/BlackMateryCristal.rsi
+    state: icon_4
+
+- type: entity
+  id: DarkMateryCrystal4
+  parent: DarkMateryCrystalBase
+  name: dark matery
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Misc/BlackMateryCristal.rsi
+    state: icon_5
+
+- type: entity
+  id: DarkMateryCrystal5
+  parent: DarkMateryCrystalBase
+  name: dark matery
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Misc/BlackMateryCristal.rsi
+    state: icon_6
+
+- type: entity
+  id: DarkMateryCrystal6
+  parent: DarkMateryCrystalBase
+  name: dark matery
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Misc/BlackMateryCristal.rsi
+    state: icon_7
+
+- type: entity
+  id: DarkMateryCrystal7
+  parent: DarkMateryCrystalBase
+  name: dark matery
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Misc/BlackMateryCristal.rsi
+    state: icon_8
+
+- type: entity
+  id: FelixBigLightsBroken
+  parent: DeadSectorDecorTrafficlight
+  name: light
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Misc/Lights/BigLights.rsi
+    snapCardinals: true
+    drawdepth: Overdoors
+    noRot: true
+    layers:
+    - state: broken
+  - type: PointLight
+    radius: 0
+    energy: 0
+    color: "#c0baba"
+
+- type: entity
+  id: FelixBigLights
+  parent: DeadSectorDecorTrafficlight
+  name: light
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Misc/Lights/BigLights.rsi
+    snapCardinals: true
+    drawdepth: Overdoors
+    noRot: true
+    layers:
+    - map: ["enum.PoweredLightLayers.Base"]
+      state: bigflood
+    - map: ["enum.PoweredLightLayers.Glow"]
+      state: bigfloodon
+  - type: PoweredLight
+    bulb: Tube
+  - type: PointLight
+    enabled: true
+    radius: 5
+    energy: 1
+    color: "#c0baba"
+  - type: AmbientOnPowered
+  - type: AmbientSound
+    volume: -15
+    range: 3
+    sound:
+      path: /Audio/Ambience/Objects/light_hum.ogg
+
+- type: entity
+  id: FelixMiniLights
+  parent: DeadSectorDecorTrafficlight
+  name: light
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Misc/Lights/MiniLights.rsi
+    snapCardinals: true
+    drawdepth: Overdoors
+    offset: 0,0.4
+    noRot: true
+    layers:
+    - state: longred
+  - type: PointLight
+    enabled: true
+    radius: 5
+    energy: 1
+    color: "#962323"
+  - type: AmbientSound
+    volume: -15
+    range: 3
+    sound:
+      path: /Audio/Ambience/Objects/light_hum.ogg
+
+- type: entity
+  id: FelixMiniLightsLightRed
+  parent: FelixMiniLights
+  name: light
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Misc/Lights/MiniLights.rsi
+    snapCardinals: true
+    drawdepth: Overdoors
+    offset: 0,0.2
+    noRot: true
+    layers:
+    - state: lightred
+
+- type: entity
+  id: FelixMiniLightsBlue
+  parent: FelixMiniLights
+  name: light
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Misc/Lights/MiniLights.rsi
+    snapCardinals: true
+    drawdepth: Overdoors
+    offset: 0,0.2
+    noRot: true
+    layers:
+    - state: lightblue
+  - type: PointLight
+    enabled: true
+    radius: 5
+    energy: 1
+    color: "#2f69b6"
+
+- type: entity
+  name: sec case
+  id: FelixSecurityCase
+  parent: ClosetBase
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+    - type: Sprite
+      sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Misc/SecurityCase.rsi
+      layers:
+      - state: generic
+        map: ["enum.StorageVisualLayers.Base"]
+      - state: generic_door
+        map: ["enum.StorageVisualLayers.Door"]
+      - state: welded
+        visible: false
+        map: ["enum.WeldableLayers.BaseWelded"]
+
+- type: entity
+  name: handheld radio
+  description: A handy handheld radio.
+  parent: RadioHandheld
+  id: FelixRadioHandheldRadio10
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: RadioMicrophone
+    broadcastChannel: Radio10
+    listenRange: 1
+  - type: RadioSpeaker
+    channels:
+    - Radio10
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Radio.rsi
+    layers:
+    - state: icon
+
+- type: entity
+  parent: BaseBarrelChem
+  id: FelixBarrelChemFilledWater
+  suffix: Вода, ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Structures/Barrel.rsi
+    state: barrel_blue
+    noRot: true
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 1000
+        reagents:
+        - ReagentId: Water
+          Quantity: 1000
+
+- type: entity
+  parent: BaseBarrelChemRadioactive
+  id: FelixBarrelChemFilledMutagen
+  suffix: Мутаген, ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Structures/Barrel.rsi
+    state: barrel_green
+    noRot: true
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 1000
+        reagents:
+        - ReagentId: UnstableMutagen
+          Quantity: 1000
+
+- type: entity
+  parent: BaseBarrelChem
+  id: FelixBarrelChemFilledBlood
+  suffix: Кровь, ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Structures/Barrel.rsi
+    state: barrel_red
+    noRot: true
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 1000
+        reagents:
+        - ReagentId: Blood
+          Quantity: 1000
+
+- type: entity
+  parent: BaseBarrelChem
+  id: FelixBarrelChemFilledOmnizine
+  suffix: Омнизин, ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Structures/Barrel.rsi
+    state: barrel_white
+    noRot: true
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 160
+        reagents:
+        - ReagentId: Omnizine
+          Quantity: 160
+
+- type: entity
+  parent: BaseBarrelChem
+  id: FelixBarrelChemFilledFuel
+  suffix: Топливо, ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Structures/Barrel.rsi
+    state: barrel_yellow
+    noRot: true
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 1000
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 1000
+
+- type: entity
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  id: FelixTelecomServerMachine
+  name: telecommunication server
+  suffix: ElysiumPrime, Sir_Felix
+  description: When powered and filled with encryption keys it allows radio headset communication.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Structures/CommunicationsMachine.rsi
+    snapCardinals: true
+    layers:
+    - state: off
+    - state: on
+      shader: unshaded
+      visible: false
+      map: ["telecom-on"]
+  - type: PointLight
+    enabled: false
+    castShadows: false
+    radius: 1.5
+    energy: 1.6
+    color: "#39b8ee"
+  - type: LitOnPowered
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        telecom-on:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Appearance
+  - type: AmbientOnPowered
+  - type: AmbientSound
+    volume: -9
+    range: 5
+    enabled: false
+    sound:
+      path: /Audio/Ambience/Objects/server_fans.ogg
+  - type: WiresVisuals
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Machine
+    board: TelecomServerCircuitboard
+  - type: WiresPanel
+  - type: Transform
+    anchored: true
+  - type: Pullable
+  - type: EncryptionKeyHolder
+    keysExtractionMethod: Prying
+    keySlots: 30
+  - type: TelecomServer
+  - type: ContainerContainer
+    containers:
+      key_slots: !type:Container
+      machine_board: !type:Container
+      machine_parts: !type:Container
+
+- type: entity
+  parent: BaseStructure
+  id: FelixBrokenTelecomServer
+  name: telecommunication server
+  suffix: ElysiumPrime, Sir_Felix
+  description: When powered and filled with encryption keys it allows radio headset communication.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Structures/CommunicationsMachine.rsi
+    snapCardinals: true
+    layers:
+    - state: broken
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+- type: entity
+  parent: BaseStructure
+  id: FelixDrillMachine
+  name: drill
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Structures/drill.rsi
+    layers:
+    - state: icon
+    drawdepth: Overdoors
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 350
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  id: MonumentFelixRMK
+  parent: MonumentFelix
+  name: monument
+  suffix: ElysiumPrime, Sir_Felix
+  description: This monument was erected to honor those who died in some important event.
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.8,-0.5,0.8,0.1"
+        density: 1000
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Sprite
+    noRot: true
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Structures/Monuments/RMK.rsi
+    state: icon
+    drawdepth: Overdoors
+    offset: 0,0.3
+
+- type: entity
+  parent: BaseStructure
+  id: FelixBrokenMachineCarBase
+  name: car
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Structures/vehicles.rsi
+    layers:
+    - state: a1
+    drawdepth: Overdoors
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.8,-1,1.5,-0.3"
+        density: 50
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 350
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  parent: FelixBrokenMachineCarBase
+  id: FelixBrokenMachineCar1
+  name: car
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-1,0.8,-0.3"
+        density: 50
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Structures/vehicles.rsi
+    layers:
+    - state: a2
+    drawdepth: Overdoors
+
+- type: entity
+  parent: FelixBrokenMachineCarBase
+  id: FelixBrokenMachineCar2
+  name: car
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Structures/vehicles.rsi
+    layers:
+    - state: a3
+    drawdepth: Overdoors
+
+- type: entity
+  parent: FelixBrokenMachineCar1
+  id: FelixBrokenMachineCar3
+  name: car
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Structures/vehicles.rsi
+    layers:
+    - state: a4
+    drawdepth: Overdoors
+
+- type: entity
+  parent: FelixBrokenMachineCarBase
+  id: FelixBrokenMachineCar4
+  name: car
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Structures/vehicles.rsi
+    layers:
+    - state: a5
+    drawdepth: Overdoors
+
+- type: entity
+  parent: FelixBrokenMachineCar1
+  id: FelixBrokenMachineCar5
+  name: car
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Structures/vehicles.rsi
+    layers:
+    - state: a6
+    drawdepth: Overdoors
+
+- type: entity
+  parent: FelixBrokenMachineCarBase
+  id: FelixBrokenMachineCar6
+  name: car
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Structures/vehicles.rsi
+    layers:
+    - state: a7
+    drawdepth: Overdoors
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.4,-1,1.1,-0.3"
+        density: 50
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+- type: entity
+  parent: FelixBrokenMachineCar1
+  id: FelixBrokenMachineCar7
+  name: car
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Structures/vehicles.rsi
+    layers:
+    - state: a8
+
+- type: entity
+  parent: FelixBrokenMachineCar1
+  id: carpileup
+  name: Car Decoration
+  suffix: ElysiumPrime, Decoration, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Vehicle2.rsi
+    layers:
+    - state: car_pileup
+    drawdepth: Overdoors
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.85, -1.4, 1.8, 1.2"
+        density: 50
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+- type: entity
+  parent: FelixBrokenMachineCar1
+  id: carpileup2
+  name: Car Decoration
+  suffix: ElysiumPrime, Decoration, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Vehicle2.rsi
+    layers:
+    - state: car_pileup2
+    drawdepth: Overdoors
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "1.9, -1.4, -1.8, 1.2"
+        density: 50
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+- type: entity
+  parent: FelixBrokenMachineCarBase
+  id: cranecargo
+  name: Car Decoration
+  suffix: ElysiumPrime, Decoration, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Vehicle.rsi
+    layers:
+    - state: crane_cargo
+    drawdepth: Overdoors
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.95, -0.95, -0.9, 0.5"
+        density: 50
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+- type: entity
+  parent: FelixBrokenMachineCarBase
+  id: cranecargo2
+  name: Car Decoration
+  suffix: ElysiumPrime, Decoration, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Vehicle.rsi
+    layers:
+    - state: crane_cargo2
+    drawdepth: Overdoors
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.95, -0.95, -0.9, 0.5"
+        density: 50
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+- type: entity
+  parent: FelixBrokenMachineCarBase
+  id: crawler
+  name: Car Decoration
+  suffix: ElysiumPrime, Decoration, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Vehicle.rsi
+    layers:
+    - state: crawler
+    drawdepth: Overdoors
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.9, -1, -0.75, 0.1"
+        density: 50
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+- type: entity
+  parent: FelixBrokenMachineCarBase
+  id: crawler2
+  name: Car Decoration
+  suffix: ElysiumPrime, Decoration, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Vehicle.rsi
+    layers:
+    - state: crawler2
+    drawdepth: Overdoors
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.8, -1, -0.9, 0.1"
+        density: 50
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+- type: entity
+  parent: FelixBrokenMachineCarBase
+  id: crawlercratealt
+  name: Car Decoration
+  suffix: ElysiumPrime, Decoration, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Vehicle.rsi
+    layers:
+    - state: crawler_crate_alt
+    drawdepth: Overdoors
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.9, -1, -0.75, 0.1"
+        density: 50
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+- type: entity
+  parent: FelixBrokenMachineCarBase
+  id: crawlercratealt2
+  name: Car Decoration
+  suffix: ElysiumPrime, Decoration, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Vehicle.rsi
+    layers:
+    - state: crawler_crate_alt2
+    drawdepth: Overdoors
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.8, -1, -0.9, 0.1"
+        density: 50
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+- type: entity
+  parent: FelixBrokenMachineCarBase
+  id: crawlerfuel
+  name: Car Decoration
+  suffix: ElysiumPrime, Decoration, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Vehicle.rsi
+    layers:
+    - state: crawler_fuel
+    drawdepth: Overdoors
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.9, -1, -0.75, 0.1"
+        density: 50
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+- type: entity
+  parent: FelixBrokenMachineCarBase
+  id: crawlerfuel2
+  name: Car Decoration
+  suffix: ElysiumPrime, Decoration, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Vehicle.rsi
+    layers:
+    - state: crawler_fuel2
+    drawdepth: Overdoors
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.8, -1, -0.9, 0.1"
+        density: 50
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+- type: entity
+  parent: FelixBrokenMachineCarBase
+  id: tractordamaged
+  name: Car Decoration
+  suffix: ElysiumPrime, Decoration, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Vehicle.rsi
+    layers:
+    - state: tractor_damaged
+    drawdepth: Overdoors
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.95, -1, -0.9, 0.5"
+        density: 50
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+- type: entity
+  parent: FelixBrokenMachineCarBase
+  id: tractordamaged2
+  name: Car Decoration
+  suffix: ElysiumPrime, Decoration, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Vehicle.rsi
+    layers:
+    - state: tractor_damaged2
+    drawdepth: Overdoors
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.95, -1, -0.95, 0.5"
+        density: 50
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+- type: entity
+  parent: FelixBrokenMachineCarBase
+  id: truckdamaged
+  name: Car Decoration
+  suffix: ElysiumPrime, Decoration, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Vehicle.rsi
+    layers:
+    - state: truck_damaged
+    drawdepth: Overdoors
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.95, -0.98, -0.95, 0.1"
+        density: 50
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+- type: entity
+  parent: FelixBrokenMachineCarBase
+  id: truckdamaged2
+  name: Car Decoration
+  suffix: ElysiumPrime, Decoration, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Vehicle.rsi
+    layers:
+    - state: truck_damaged2
+    drawdepth: Overdoors
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.92, -0.98, -0.95, 0.1"
+        density: 50
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+- type: entity
+  parent: FelixBrokenMachineCarBase
+  id: truckmining
+  name: Car Decoration
+  suffix: ElysiumPrime, Decoration, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Vehicle.rsi
+    layers:
+    - state: truck_mining
+    drawdepth: Overdoors
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.95, -0.98, -0.92, 0.1"
+        density: 50
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+- type: entity
+  parent: FelixBrokenMachineCarBase
+  id: truckmining2
+  name: Car Decoration
+  suffix: ElysiumPrime, Decoration, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Vehicle.rsi
+    layers:
+    - state: truck_mining2
+    drawdepth: Overdoors
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.95, -0.98, -0.95, 0.1"
+        density: 50
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+- type: entity
+  parent: FelixBrokenMachineCarBase
+  id: FelixBrokenMachineCar8
+  name: car
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Structures/vehicles2.rsi
+    layers:
+    - state: a1
+    drawdepth: Overdoors
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.9,-1,1,-0.3"
+        density: 50
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+- type: entity
+  parent: FelixBrokenMachineCar8
+  id: FelixBrokenMachineCar9
+  name: car
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Structures/vehicles2.rsi
+    layers:
+    - state: a2
+    drawdepth: Overdoors
+
+- type: entity
+  parent: FelixBrokenMachineCarBase
+  id: FelixBrokenMachineCar10
+  name: car
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.9,-1,1.9,-0.3"
+        density: 50
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Structures/vehicles3.rsi
+    layers:
+    - state: a1
+    drawdepth: Overdoors
+
+- type: entity
+  parent: FelixBrokenMachineCar10
+  id: FelixBrokenMachineCar11
+  name: car
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Structures/vehicles3.rsi
+    layers:
+    - state: a2
+    drawdepth: Overdoors
+
+- type: entity
+  name: quro machine gun
+  id: FelixWeaponQuroMachineGun
+  suffix: Sir_Felix
+  parent: [BaseWeaponAssaultPKM, BaseMinorContraband]
+  description: An ultra-large machine gun with 125 rounds of ammunition. It has a black color mixed with a set of wooden body parts. Uses 7x62x51 ammo.
+  components:
+  - type: Item
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Weapons/QuroMachineGun/qyj_72_inhands.rsi
+    size: Huge
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Weapons/QuroMachineGun/qyj_72_inhands.rsi
+    quickEquip: false
+    slots:
+    - Back
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Weapons/QuroMachineGun/qyj_72_icon.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+
+- type: entity
+  id: PoweredStrobeLightRedHigh
+  suffix: "ElysiumPrime, Structure, Red, High, Sir_Felix"
+  parent: PoweredStrobeLightEmpty
+  components:
+  - type: Sprite
+    state: base
+  - type: PoweredLight
+    hasLampOnSpawn: LightBulbCrystalRed
+  - type: AmbientSound
+    volume: 0
+    range: 10
+    sound:
+      path: "/Audio/_Aquila/EventContent/Sir_Felix/ElysiumPrime/Misc/Strobe/CycleSiren-v1.ogg"
+
+- type: entity
+  id: PoweredStrobeLightRedLow
+  suffix: "ElysiumPrime, Structure, Red, Low, Sir_Felix"
+  parent: PoweredStrobeLightRedHigh
+  components:
+  - type: AmbientSound
+    volume: -5
+    sound:
+      path: "/Audio/_Aquila/EventContent/Sir_Felix/ElysiumPrime/Misc/Strobe/CycleSiren-v2.ogg"
+
+- type: entity
+  parent: BaseStructure
+  id: BaseFenceMetalFelix
+  name: chain link fence
+  description: A metal piece of fencing cordoning off something likely very important.\
+  suffix: "DeadSector, Structure"
+  abstract: true
+  components:
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path:
+          "/Audio/Weapons/grille_hit.ogg"
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Structures/fence_with_wire.rsi
+    drawdepth: WallTops
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    anchored: true
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: FlimsyMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 3
+            max: 5
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: PowerConsumer
+    showInMonitor: false
+  - type: Electrified
+    requirePower: true
+    noWindowInTile: true
+    highVoltageNode: high
+    mediumVoltageNode: medium
+    lowVoltageNode: low
+  - type: NodeContainer
+    nodes:
+      high:
+        !type:CableDeviceNode
+        nodeGroupID: HVPower
+      medium:
+        !type:CableDeviceNode
+        nodeGroupID: MVPower
+      low:
+        !type:CableDeviceNode
+        nodeGroupID: Apc
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ElectrifiedVisuals.ShowSparks:
+        enum.ElectrifiedLayers.Sparks:
+          True: { visible: True }
+          False: { visible: False }
+  - type: AnimationPlayer
+  - type: RCDDeconstructable
+    cost: 2
+    delay: 2
+    fx: EffectRCDDeconstruct2
+
+- type: entity
+  parent: BaseFenceMetalFelix
+  id: FenceMetalBrokenFelix
+  name: broken chain link fence
+  description: Someone got real mad at an inanimate object.
+  suffix: "DeadSector, Structure, Sir_Felix"
+  components:
+  - type: Sprite
+    layers:
+    - state: straight_broken
+    - state: electrified
+      sprite: Effects/electricity.rsi
+      map: ["enum.ElectrifiedLayers.Sparks"]
+      shader: unshaded
+      visible: false
+  - type: Physics
+    canCollide: false
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.10,-0.5,0.10,0.5"
+        density: 1000
+        mask:
+        - FullTileMask
+        layer:
+        - TableLayer
+  - type: InteractionPopup
+    interactSuccessString: fence-rattle-success
+    messagePerceivedByOthers: fence-rattle-success
+    interactSuccessSound:
+      collection: FenceRattle
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Construction
+    graph: FenceMetal
+    node: broken
+
+- type: entity
+  parent: BaseFenceMetalFelix
+  id: FenceMetalStraightFelix
+  suffix: "Straight, DeadSector, Structure, Sir_Felix"
+  components:
+  - type: Icon
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Structures/fence_with_wire.rsi
+    state: icon_straight
+  - type: Sprite
+    layers:
+    - state: straight
+    - state: electrified
+      sprite: Effects/electricity.rsi
+      map: ["enum.ElectrifiedLayers.Sparks"]
+      shader: unshaded
+      visible: false
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.10,-0.5,0.10,0.5"
+        density: 1000
+        mask:
+        - FullTileMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Items/wirecutter.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 2
+            max: 4
+      - !type:ChangeConstructionNodeBehavior
+        node: broken
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Construction
+    graph: FenceMetal
+    node: straight
+
+- type: entity
+  parent: BaseFenceMetalFelix
+  id: FenceMetalCornerFelix
+  suffix: "Corner, DeadSector, Structure, Sir_Felix"
+  components:
+  - type: Sprite
+    layers:
+    - state: corner
+    - state: electrified
+      sprite: Effects/electricity.rsi
+      map: ["enum.ElectrifiedLayers.Sparks"]
+      shader: unshaded
+      visible: false
+  - type: Fixtures
+    fixtures:
+      # needs two shapes to properly handle a triangle corner without weirdness
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.5"
+        density: 1000
+        mask:
+        - TableMask
+        layer:
+        - TableLayer
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.1,-0.1,0.1"
+        density: 1000
+        mask:
+        - TableMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+  - type: Construction
+    graph: FenceMetal
+    node: corner
+
+- type: entity
+  parent: BaseFenceMetalFelix
+  id: FenceMetalEndFelix
+  suffix: "End, DeadSector, Structure, Sir_Felix"
+  components:
+  - type: Icon
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Structures/fence_with_wire.rsi
+    state: icon_end
+  - type: Sprite
+    layers:
+    - state: end
+    - state: electrified
+      sprite: Effects/electricity.rsi
+      map: ["enum.ElectrifiedLayers.Sparks"]
+      shader: unshaded
+      visible: false
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.5,0.1,0.0"
+        density: 1000
+        mask:
+        - TableMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+  - type: Construction
+    graph: FenceMetal
+    node: end
+
+- type: entity
+  parent: BaseFenceMetalFelix
+  id: FenceMetalGateFelix
+  name: chain link fence gate
+  description: You could use the door instead of vaulting over--if you're a COWARD, that is.
+  suffix: "DeadSector, Structure, Sir_Felix"
+  components:
+  - type: Sprite
+    layers:
+    - state: end
+      map: ["enum.DoorVisualLayers.Base"]
+    - state: electrified
+      sprite: Effects/electricity.rsi
+      map: [ "enum.ElectrifiedLayers.Sparks" ]
+      shader: unshaded
+      visible: false
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.1,0.5,0.1"
+        density: 1000
+        mask:
+        - TableMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+  - type: InteractionOutline
+  - type: Door
+    openSpriteState: door_opened
+    closedSpriteState: door_closed
+    canPry: false
+    occludes: false
+    changeAirtight: false
+    bumpOpen: false
+    clickOpen: true
+    canCrush: false
+    closeTimeOne: 0
+    closeTimeTwo: 0
+    openTimeOne: 0
+    openTimeTwo: 0
+    openingAnimationTime: 0
+    closingAnimationTime: 0
+    openSound:
+      path: /Audio/Effects/door_open.ogg
+    closeSound:
+      path: /Audio/Effects/door_close.ogg
+  - type: Construction
+    graph: FenceMetal
+    node: gate
+
+- type: entity
+  id: GateDoor
+  parent: BaseShutter
+  name: Gate
+  suffix: "DeadSector, Structure, Sir_Felix"
+  description: Open it! Hmm... They never open it.
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-1.5,2.5,0.5"
+        density: 100
+        mask:
+        - TableMask
+        layer:
+        - AirlockLayer
+  - type: AccessReader
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Gatebiohazard.rsi
+    offset: 0.5,-0.5
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+  - type: Door
+    occludes: false
+    closeTimeOne: 4
+    closeTimeTwo: 1
+    openTimeOne: 4
+    openTimeTwo: 1
+    openingAnimationTime: 5
+    closingAnimationTime: 5
+    canPry: false
+    crushDamage:
+      types:
+        Blunt: 25 # yowch
+    openSound:
+      path: /Audio/_Aquila/EventContent/Sir_Felix/Felix/Misc/GateSound/Gate.ogg
+    closeSound:
+      path: /Audio/_Aquila/EventContent/Sir_Felix/Felix/Misc/GateSound/Gate.ogg
+  - type: Occluder
+    enabled: false
+  - type: Appearance
+  - type: RadiationBlocker
+    resistance: 16
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCentralCommand ]
+  - type: Construction
+    graph: BlastDoor
+    node: blastdoor
+    containers:
+    - board
+
+- type: entity
+  id: GateDoorOpen
+  parent: GateDoor
+  suffix: "Открыто, DeadSector, Structure, Sir_Felix"
+  components:
+  - type: Door
+    state: open
+  - type: Occluder
+    enabled: false
+  - type: Physics
+    canCollide: false
+  - type: Airtight
+    airBlocked: false
+  - type: RadiationBlocker
+    enabled: false
+
+- type: entity
+  parent: BaseStructure
+  id: BaseReinforcedFence
+  abstract: true
+  components:
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path:
+          "/Audio/Weapons/grille_hit.ogg"
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Structures/reinforced_concrete_fence.rsi
+    drawdepth: WallTops
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    anchored: true
+  - type: Appearance
+  - type: AnimationPlayer
+
+- type: entity
+  parent: BaseReinforcedFence
+  id: ReinforcedConcreteStraight
+  name: reinforced concrete fence
+  description: Are advanced space developments in front of you, or are you being deceived somewhere?..
+  suffix: DeadSector, Structure, Sir_Felix
+  components:
+  - type: Icon
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Structures/reinforced_concrete_fence.rsi
+    state: icon_straight
+  - type: Sprite
+    layers:
+    - state: straight
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.9,0.5,0.9"
+        density: 1000
+        mask:
+        - FullTileMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+
+- type: entity
+  parent: BaseReinforcedFence
+  id: ReinforcedConcreteCorner
+  name: reinforced concrete fence
+  description: Are advanced space developments in front of you, or are you being deceived somewhere?..
+  suffix: DeadSector, Structure, Sir_Felix
+  components:
+  - type: Icon
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Structures/reinforced_concrete_fence.rsi
+    state: corner
+  - type: Sprite
+    layers:
+    - state: corner
+  - type: Fixtures
+    fixtures:
+      # needs two shapes to properly handle a triangle corner without weirdness
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.6,0.5,0.9"
+        density: 1000
+        mask:
+        - TableMask
+        layer:
+        - TableLayer
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.9,-0.6,-0.1,0.01"
+        density: 1000
+        mask:
+        - TableMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+
+- type: entity
+  parent: BaseReinforcedFence
+  id: ReinforcedConcreteEnd
+  name: reinforced concrete fence
+  description: Are advanced space developments in front of you, or are you being deceived somewhere?..
+  suffix: DeadSector, Structure, Sir_Felix
+  components:
+  - type: Icon
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Structures/reinforced_concrete_fence.rsi
+    state: icon_end
+  - type: Sprite
+    layers:
+    - state: end
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.9,0.5,0.01"
+        density: 1000
+        mask:
+        - TableMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+
+- type: entity
+  abstract: true
+  parent: BaseStructureDynamic
+  id: AquilaSimpleRadio
+  name: simple radio
+  description: A simple radio. It might play music.
+  components:
+  - type: Sprite
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.3,0.3,0.3"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: AquilaSimpleRadio
+  id: AquilaSimpleRadio1Felix
+  suffix: Sir_Felix
+  name: Simple Radio
+  description: A simple radio. It might play music.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/oldradio.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: radio1
+
+- type: entity
+  parent: AquilaSimpleRadio
+  id: AquilaSimpleRadio2Felix
+  suffix: Sir_Felix
+  name: Simple Radio
+  description: A simple radio. It might play music.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/oldradio.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: radio2

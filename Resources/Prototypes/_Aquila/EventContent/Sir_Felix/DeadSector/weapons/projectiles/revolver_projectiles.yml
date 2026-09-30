@@ -1,0 +1,22 @@
+- type: entity
+  id: Astra903Bullet
+  suffix: Sir_Felix
+  name: bullet Astra-903 (5x14)
+  parent: BaseBullet
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 26
+
+- type: entity
+  id: Astra903BulletPiercing
+  suffix: Sir_Felix
+  name: bullet Astra-903 (5x14 AP)
+  parent: BaseBullet
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 21.7
+    ignoreResistances: true

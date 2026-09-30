@@ -1,0 +1,15 @@
+- type: entity
+  parent: ClothingHandsButcherable
+  id: ClothingHandsGlovesCamouflage
+  name: camouflage gloves
+  suffix: DeadSector, Sir_Felix
+  description: null
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/hands/camouflage.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/hands/camouflage.rsi
+  - type: Fiber
+    fiberMaterial: fibers-leather
+    fiberColor: fibers-green
+  - type: FingerprintMask
