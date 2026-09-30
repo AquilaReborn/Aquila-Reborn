@@ -1,0 +1,131 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformMonolith
+  suffix: Sir_Felix
+  description: null
+  name: monolith uniform
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/ClothingUniformMonolith.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/ClothingUniformMonolith.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformMercenary
+  suffix: Sir_Felix
+  description: null
+  name: mercenary uniform
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/ClothingUniformMercenary.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/ClothingUniformMercenary.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformTactical
+  suffix: Sir_Felix
+  description: null
+  name: tactical uniform
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/ClothingUniformTactical.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/ClothingUniformTactical.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformPeresvet
+  suffix: Sir_Felix
+  description: null
+  name: peresvet uniform
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/ClothingUniformPeresvet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/ClothingUniformPeresvet.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformSparta
+  suffix: Sir_Felix
+  description: null
+  name: sparta uniform
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/ClothingUniformSparta.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/ClothingUniformSparta.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformHiredStalker
+  suffix: Sir_Felix
+  description: null
+  name: hired stalker uniform
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/ClothingUniformHiredStalker.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/ClothingUniformHiredStalker.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformStalkerVer1
+  suffix: Sir_Felix
+  description: null
+  name: stalker uniform
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/ClothingUniformStalkerVer1.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/ClothingUniformStalkerVer1.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformStalkerVer2
+  suffix: Sir_Felix
+  description: null
+  name: stalker uniform
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/ClothingUniformStalkerVer2.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/ClothingUniformStalkerVer2.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformStalkerVer3
+  suffix: Sir_Felix
+  description: null
+  name: stalker uniform
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/ClothingUniformStalkerVer3.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/ClothingUniformStalkerVer3.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformScientificGreen
+  suffix: Sir_Felix
+  description: null
+  name: scientific uniform
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/ClothingUniformScientificGreen.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/ClothingUniformScientificGreen.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformScientificOrange
+  suffix: Sir_Felix
+  description: null
+  name: scientific uniform
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/ClothingUniformScientificOrange.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/uniforms/ClothingUniformScientificOrange.rsi

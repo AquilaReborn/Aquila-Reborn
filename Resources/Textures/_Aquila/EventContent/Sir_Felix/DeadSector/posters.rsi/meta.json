@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "by onionsenpai",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "poster-1"
+    },
+    {
+      "name": "poster-2"
+    },
+    {
+      "name": "poster-3"
+    },
+    {
+      "name": "poster-4"
+    },
+    {
+      "name": "poster-5"
+    },
+    {
+      "name": "poster-6"
+    },
+    {
+      "name": "poster-7"
+    },
+    {
+      "name": "poster-8"
+    },
+    {
+      "name": "poster-9"
+    },
+    {
+      "name": "poster-10"
+    },
+    {
+      "name": "poster-11"
+    },
+    {
+      "name": "poster-12"
+    }
+  ]
+}

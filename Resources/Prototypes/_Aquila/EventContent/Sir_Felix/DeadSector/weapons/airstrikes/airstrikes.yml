@@ -1,0 +1,171 @@
+- type: entity
+  abstract: true
+  parent: [BaseItem, BaseMinorContraband]
+  id: BaseAirStrike
+  components:
+  - type: TriggerOnUse
+  - type: TimerTrigger
+    delay: 0
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Appearance
+  - type: AnimationPlayer
+
+- type: entity
+  parent: BaseAirStrike
+  id: AirStrike
+  name: Air strike
+  description: Hey, look, the plane is flying! The plane... The plane is flying... Damn...
+  suffix: DeadSector, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/OrbitalCall/imperial.rsi
+    layers:
+    - state: icon
+      map: ["enum.TriggerVisualLayers.Base"]
+  - type: ScatteringGrenade
+    capacity: 4
+    delayBeforeTriggerContents: 0
+    distance: 0
+    velocity: 0
+  - type: ContainerFill
+    containers:
+      cluster-payload:
+        - ClusterDis8
+        - ClusterDis16
+        - ClusterDis24
+        - ClusterDis32
+  - type: GenericVisualizer
+    visuals:
+      enum.Trigger.TriggerVisuals.VisualState:
+        enum.ConstructionVisuals.Layer:
+          Primed: { state: primed }
+          Unprimed: { state: icon }
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+
+- type: entity
+  parent: BaseAirStrike
+  id: ClusterDis8
+  suffix: Sir_Felix
+  name: ClusterDis8
+  description: null
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ScatteringGrenade
+    capacity: 7
+    delayBeforeTriggerContents: 0
+    distance: 8
+    velocity: 8
+  - type: ContainerFill
+    containers:
+      cluster-payload:
+        - StartAirStrikeGrenadeSec6
+        - StartAirStrikeGrenadeSec12
+        - StartAirStrikeGrenadeSec48
+        - StartAirStrikeGrenadeSec54
+        - StartAirStrikeGrenadeSec90
+        - StartAirStrikeGrenadeSec108
+        - StartAirStrikeGrenadeSec120
+  - type: TimerTrigger
+    delay: 0
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+
+- type: entity
+  parent: BaseAirStrike
+  id: ClusterDis16
+  suffix: Sir_Felix
+  name: ClusterDis16
+  description: null
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ScatteringGrenade
+    capacity: 9
+    delayBeforeTriggerContents: 0
+    distance: 16
+    velocity: 16
+  - type: ContainerFill
+    containers:
+      cluster-payload:
+        - StartAirStrikeGrenadeSec10
+        - StartAirStrikeGrenadeSec20
+        - StartAirStrikeGrenadeSec24
+        - StartAirStrikeGrenadeSec50
+        - StartAirStrikeGrenadeSec66
+        - StartAirStrikeGrenadeSec70
+        - StartAirStrikeGrenadeSec96
+        - StartAirStrikeGrenadeSec108
+        - StartAirStrikeGrenadeSec120
+  - type: TimerTrigger
+    delay: 0
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+
+- type: entity
+  parent: BaseAirStrike
+  id: ClusterDis24
+  suffix: Sir_Felix
+  name: ClusterDis24
+  description: null
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ScatteringGrenade
+    capacity: 10
+    delayBeforeTriggerContents: 0
+    distance: 24
+    velocity: 24
+  - type: ContainerFill
+    containers:
+      cluster-payload:
+        - StartAirStrikeGrenadeSec12
+        - StartAirStrikeGrenadeSec24
+        - StartAirStrikeGrenadeSec36
+        - StartAirStrikeGrenadeSec40
+        - StartAirStrikeGrenadeSec54
+        - StartAirStrikeGrenadeSec70
+        - StartAirStrikeGrenadeSec78
+        - StartAirStrikeGrenadeSec80
+        - StartAirStrikeGrenadeSec100
+        - StartAirStrikeGrenadeSec110
+  - type: TimerTrigger
+    delay: 0
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+
+- type: entity
+  parent: BaseAirStrike
+  id: ClusterDis32
+  suffix: Sir_Felix
+  name: ClusterDis32
+  description: null
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ScatteringGrenade
+    capacity: 11
+    delayBeforeTriggerContents: 0
+    distance: 32
+    velocity: 32
+  - type: ContainerFill
+    containers:
+      cluster-payload:
+        - StartAirStrikeGrenadeSec18
+        - StartAirStrikeGrenadeSec30
+        - StartAirStrikeGrenadeSec40
+        - StartAirStrikeGrenadeSec42
+        - StartAirStrikeGrenadeSec50
+        - StartAirStrikeGrenadeSec60
+        - StartAirStrikeGrenadeSec72
+        - StartAirStrikeGrenadeSec84
+        - StartAirStrikeGrenadeSec96
+        - StartAirStrikeGrenadeSec102
+        - StartAirStrikeGrenadeSec114
+  - type: TimerTrigger
+    delay: 0
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container

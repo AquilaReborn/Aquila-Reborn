@@ -1,0 +1,17 @@
+- type: entity
+  parent: WindoorSecureServiceLocked
+  id: WindoorElysiumPrimeLocked
+  suffix: ElysiumPrime, Sir_Felix
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsFederation, DoorElectronicsFederationadmin ]
+
+- type: entity
+  parent: WindoorSecureServiceLocked
+  id: WindoorElysiumPrimeAdminLocked
+  suffix: ElysiumPrime, ElysiumPrime-Admin, Sir_Felix
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsFederationadmin ]

@@ -1,5 +1,12 @@
 - type: construction
-  parent: BaseShelf
   id: DefibrillatorCabinet
   graph: DefibrillatorCabinet
+  startNode: start # Aquila Change
   targetNode: done
+  category: construction-category-storage # Aquila Change
+  objectType: Structure # Aquila Change
+  placementMode: SnapgridCenter # Aquila Change
+  canRotate: true # Aquila Change
+  canBuildInImpassable: true # Aquila Change
+  conditions: # Aquila Change
+  - !type:WallmountCondition # Aquila Change

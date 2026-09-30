@@ -1,0 +1,1239 @@
+- type: entity
+  abstract: true
+  parent: [BaseItem, BaseMinorContraband]
+  id: BaseMagazineBoxSVUMkII
+  name: ammunition box SVU Mk II (7x62x39)
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeSVUMkII
+    proto: CartridgeSVUMkII
+    capacity: 10
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/weapons/boxes/SVUMkII_boxes.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxSVUMkII
+  id: MagazineBoxSVUMkIIBig
+  suffix: Sir_Felix
+  name: ammunition box SVU Mk II (7x62x39)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 30
+    proto: CartridgeSVUMkII
+  - type: Sprite
+    layers:
+    - state: base-b
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: magb
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxSVUMkII
+  id: MagazineBoxSVUMkII
+  suffix: Sir_Felix
+  name: ammunition box SVU Mk II (7x62x39)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSVUMkII
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  abstract: true
+  parent: [BaseItem, BaseMinorContraband]
+  id: BaseMagazineBoxSVUMkIIPiercing
+  name: ammunition box SVU Mk II (7x62x39 AP)
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeSVUMkII
+    proto: CartridgeSVUMkIIPiercing
+    capacity: 10
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/weapons/boxes/SVUMkII_boxes.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxSVUMkII
+  id: MagazineBoxSVUMkIIPiercingBig
+  suffix: Sir_Felix
+  name: ammunition box SVU Mk II (7x62x39 AP)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 30
+    proto: CartridgeSVUMkIIPiercing
+  - type: Sprite
+    layers:
+    - state: base-b-piercing
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: magb
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxSVUMkII
+  id: MagazineBoxSVUMkIIPiercing
+  suffix: Sir_Felix
+  name: ammunition box SVU Mk II (7x62x39 AP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSVUMkIIPiercing
+  - type: Sprite
+    layers:
+    - state: base-piercing
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  abstract: true
+  parent: [BaseItem, BaseMinorContraband]
+  id: BaseMagazineBoxSVUMkIILongRange
+  name: ammunition box SVU Mk II (7x62x39 T)
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeSVUMkII
+    proto: CartridgeSVUMkIILongRange
+    capacity: 10
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/weapons/boxes/SVUMkII_boxes.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxSVUMkII
+  id: MagazineBoxSVUMkIILongRangeBig
+  suffix: Sir_Felix
+  name: ammunition box SVU Mk II (7x62x39 T)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 30
+    proto: CartridgeSVUMkIILongRange
+  - type: Sprite
+    layers:
+    - state: base-b-long-range
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: magb
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxSVUMkII
+  id: MagazineBoxSVUMkIILongRange
+  suffix: Sir_Felix
+  name: ammunition box SVU Mk II (7x62x39 T)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSVUMkIILongRange
+  - type: Sprite
+    layers:
+    - state: base-long-range
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  abstract: true
+  parent: [BaseItem, BaseMinorContraband]
+  id: BaseMagazineBoxSVUMkIIExplosive
+  name: ammunition box SVU Mk II (7x62x39 ST)
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeSVUMkII
+    proto: CartridgeSVUMkIIExplosive
+    capacity: 10
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/weapons/boxes/SVUMkII_boxes.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxSVUMkII
+  id: MagazineBoxSVUMkIIExplosiveBig
+  suffix: Sir_Felix
+  name: ammunition box SVU Mk II (7x62x39 ST)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 30
+    proto: CartridgeSVUMkIIExplosive
+  - type: Sprite
+    layers:
+    - state: base-b-piercing
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: magb
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxSVUMkII
+  id: MagazineBoxSVUMkIIExplosive
+  suffix: Sir_Felix
+  name: ammunition box SVU Mk II (7x62x39 ST)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSVUMkIIExplosive
+  - type: Sprite
+    layers:
+    - state: base-piercing
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  abstract: true
+  parent: [BaseItem, BaseMinorContraband]
+  id: BaseMagazineBoxSVD
+  name: ammunition box SVD (7x62x39)
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeSVD
+    proto: CartridgeSVD
+    capacity: 10
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/weapons/boxes/SVD_boxes.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxSVD
+  id: MagazineBoxSVDBig
+  suffix: Sir_Felix
+  name: ammunition box SVD (7x62x39)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 30
+    proto: CartridgeSVD
+  - type: Sprite
+    layers:
+    - state: base-b
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: magb
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxSVD
+  id: MagazineBoxSVD
+  suffix: Sir_Felix
+  name: ammunition box SVD (7x62x39)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSVD
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  abstract: true
+  parent: [BaseItem, BaseMinorContraband]
+  id: BaseMagazineBoxSVDPiercing
+  name: ammunition box SVD (7x62x39 AP)
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeSVD
+    proto: CartridgeSVDPiercing
+    capacity: 10
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/weapons/boxes/SVD_boxes.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxSVD
+  id: MagazineBoxSVDPiercingBig
+  suffix: Sir_Felix
+  name: ammunition box SVD (7x62x39 AP)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 30
+    proto: CartridgeSVDPiercing
+  - type: Sprite
+    layers:
+    - state: base-b-piercing
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: magb
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxSVD
+  id: MagazineBoxSVDPiercing
+  suffix: Sir_Felix
+  name: ammunition box SVD (7x62x39 AP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSVDPiercing
+  - type: Sprite
+    layers:
+    - state: base-piercing
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  abstract: true
+  parent: [BaseItem, BaseMinorContraband]
+  id: BaseMagazineBoxSVDLongRange
+  name: ammunition box SVD (7x62x39 T)
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeSVD
+    proto: CartridgeSVDLongRange
+    capacity: 10
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/weapons/boxes/SVD_boxes.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxSVD
+  id: MagazineBoxSVDLongRangeBig
+  suffix: Sir_Felix
+  name: ammunition box SVD (7x62x39 T)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 30
+    proto: CartridgeSVDLongRange
+  - type: Sprite
+    layers:
+    - state: base-b-long-range
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: magb
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxSVD
+  id: MagazineBoxSVDLongRange
+  suffix: Sir_Felix
+  name: ammunition box SVD (7x62x39 T)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSVDLongRange
+  - type: Sprite
+    layers:
+    - state: base-long-range
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  abstract: true
+  parent: [BaseItem, BaseMinorContraband]
+  id: BaseMagazineBoxSVDExplosive
+  name: ammunition box SVD (7x62x39 ST)
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeSVD
+    proto: CartridgeSVDExplosive
+    capacity: 10
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/weapons/boxes/SVD_boxes.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxSVD
+  id: MagazineBoxSVDExplosiveBig
+  suffix: Sir_Felix
+  name: ammunition box SVD (7x62x39 ST)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 30
+    proto: CartridgeSVDExplosive
+  - type: Sprite
+    layers:
+    - state: base-b-piercing
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: magb
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxSVD
+  id: MagazineBoxSVDExplosive
+  suffix: Sir_Felix
+  name: ammunition box SVD (7x62x39 ST)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSVDExplosive
+  - type: Sprite
+    layers:
+    - state: base-piercing
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  abstract: true
+  parent: [BaseItem, BaseMinorContraband]
+  id: BaseMagazineBoxSVUMkI
+  name: ammunition box SVU Mk-I (7x62x39)
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeFelixSniperSVUMkI
+    proto: CartridgeSniperSVUMkI
+    capacity: 10
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/weapons/boxes/SVUMkI_boxes.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxSVUMkI
+  id: MagazineBoxSVUMkIBig
+  suffix: Sir_Felix
+  name: ammunition box SVU Mk I (7x62x39)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 30
+    proto: CartridgeSniperSVUMkI
+  - type: Sprite
+    layers:
+    - state: base-b
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: magb
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxSVUMkI
+  id: MagazineBoxSVUMkI
+  suffix: Sir_Felix
+  name: ammunition box SVU Mk I (7x62x39)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSniperSVUMkI
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  abstract: true
+  parent: [BaseItem, BaseMinorContraband]
+  id: BaseMagazineBoxSVUMkIPiercing
+  name: ammunition box SVU Mk I (7x62x39 AP)
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeArmorPiercingSniperSVUMkI
+    proto: CartridgeSniperSVUMkIPiercing
+    capacity: 10
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/weapons/boxes/SVUMkI_boxes.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxSVUMkI
+  id: MagazineBoxSVUMkIPiercingBig
+  suffix: Sir_Felix
+  name: ammunition box SVU Mk I (7x62x39 AP)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 30
+    proto: CartridgeArmorPiercingSniperSVUMkI
+  - type: Sprite
+    layers:
+    - state: base-b-piercing
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: magb
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxSVUMkI
+  id: MagazineBoxSVUMkIPiercing
+  suffix: Sir_Felix
+  name: ammunition box SVU Mk I (7x62x39 AP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeArmorPiercingSniperSVUMkI
+  - type: Sprite
+    layers:
+    - state: base-piercing
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  abstract: true
+  parent: [BaseItem, BaseMinorContraband]
+  id: BaseMagazineBoxSVUMkILongRange
+  name: ammunition box SVU Mk I (7x62x39 T)
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeSniperSVUMkI
+    proto: CartridgeLongRangeSniperSVUMkI
+    capacity: 10
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/weapons/boxes/SVUMkI_boxes.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxSVUMkI
+  id: MagazineBoxSVUMkILongRangeBig
+  suffix: Sir_Felix
+  name: ammunition box SVU Mk I (7x62x39 T)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 30
+    proto: CartridgeLongRangeSniperSVUMkI
+  - type: Sprite
+    layers:
+    - state: base-b-long-range
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: magb
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxSVUMkI
+  id: MagazineBoxSVUMkILongRange
+  suffix: Sir_Felix
+  name: ammunition box SVU Mk I (7x62x39 T)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeLongRangeSniperSVUMkI
+  - type: Sprite
+    layers:
+    - state: base-long-range
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  abstract: true
+  parent: [BaseItem, BaseMinorContraband]
+  id: BaseMagazineBoxSVUMkIExplosive
+  name: ammunition box SVU Mk I (7x62x39 ST)
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeSniperSVUMkI
+    proto: CartridgeExplosiveSniperSVUMkI
+    capacity: 10
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/weapons/boxes/SVUMkI_boxes.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxSVUMkI
+  id: MagazineBoxSVUMkIExplosiveBig
+  suffix: Sir_Felix
+  name: ammunition box SVU Mk I (7x62x39 ST)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 30
+    proto: CartridgeExplosiveSniperSVUMkI
+  - type: Sprite
+    layers:
+    - state: base-b-explosive
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: magb
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxSVUMkI
+  id: MagazineBoxSVUMkIExplosive
+  suffix: Sir_Felix
+  name: ammunition box SVU Mk I (7x62x39 ST)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeExplosiveSniperSVUMkI
+  - type: Sprite
+    layers:
+    - state: base-explosive
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  abstract: true
+  parent: [BaseItem, BaseMinorContraband]
+  id: BaseMagazineBoxVSSMkI
+  name: ammunition box VSSMkI (7x62x39)
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeFelixSniperVSSMkI
+    proto: CartridgeSniperVSSMkI
+    capacity: 10
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/weapons/boxes/VSSMkI_boxes.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxVSSMkI
+  id: MagazineBoxVSSMkIBig
+  suffix: Sir_Felix
+  name: ammunition box VSSMkI (7x62x39)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 30
+    proto: CartridgeSniperVSSMkI
+  - type: Sprite
+    layers:
+    - state: base-b
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: magb
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxVSSMkI
+  id: MagazineBoxVSSMkI
+  suffix: Sir_Felix
+  name: ammunition box VSSMkI (7x62x39)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSniperVSSMkI
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  abstract: true
+  parent: [BaseItem, BaseMinorContraband]
+  id: BaseMagazineBoxVSSMkIPiercing
+  name: ammunition box VSSMkI (7x62x39 AP)
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeSniperVSSMkI
+    proto: CartridgeArmorPiercingSniperVSSMkI
+    capacity: 10
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/weapons/boxes/VSSMkI_boxes.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxVSSMkI
+  id: MagazineBoxVSSMkIPiercingBig
+  suffix: Sir_Felix
+  name: ammunition box VSSMkI (7x62x39 AP)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 30
+    proto: CartridgeArmorPiercingSniperVSSMkI
+  - type: Sprite
+    layers:
+    - state: base-b-piercing
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: magb
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxVSSMkI
+  id: MagazineBoxVSSMkIPiercing
+  suffix: Sir_Felix
+  name: ammunition box VSSMkI (7x62x39 AP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeArmorPiercingSniperVSSMkI
+  - type: Sprite
+    layers:
+    - state: base-piercing
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  abstract: true
+  parent: [BaseItem, BaseMinorContraband]
+  id: BaseMagazineBoxVSSMkILongRange
+  name: ammunition box VSSMkI (7x62x39 T)
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeSniperVSSMkI
+    proto: CartridgeLongRangeSniperVSSMkI
+    capacity: 10
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/weapons/boxes/VSSMkI_boxes.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxVSSMkI
+  id: MagazineBoxVSSMkILongRangeBig
+  suffix: Sir_Felix
+  name: ammunition box VSSMkI (7x62x39 T)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 30
+    proto: CartridgeLongRangeSniperVSSMkI
+  - type: Sprite
+    layers:
+    - state: base-b-long-range
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: magb
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxVSSMkI
+  id: MagazineBoxVSSMkILongRange
+  suffix: Sir_Felix
+  name: ammunition box VSSMkI (7x62x39 T)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeLongRangeSniperVSSMkI
+  - type: Sprite
+    layers:
+    - state: base-long-range
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  abstract: true
+  parent: [BaseItem, BaseMinorContraband]
+  id: BaseMagazineBoxVSSMkIExplosive
+  name: ammunition box VSSMkI (7x62x39 ST)
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeSniperVSSMkI
+    proto: CartridgeExplosiveSniperVSSMkI
+    capacity: 10
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/weapons/boxes/VSSMkI_boxes.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxVSSMkI
+  id: MagazineBoxVSSMkIExplosiveBig
+  suffix: Sir_Felix
+  name: ammunition box VSSMkI (7x62x39 ST)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 30
+    proto: CartridgeExplosiveSniperVSSMkI
+  - type: Sprite
+    layers:
+    - state: base-b-explosive
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: magb
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxVSSMkI
+  id: MagazineBoxVSSMkIExplosive
+  suffix: Sir_Felix
+  name: ammunition box VSSMkI (7x62x39 ST)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeExplosiveSniperVSSMkI
+  - type: Sprite
+    layers:
+    - state: base-explosive
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  abstract: true
+  parent: [BaseItem, BaseMinorContraband]
+  id: BaseMagazineBoxVSSMkII
+  name: ammunition box VSSMkII (7x62x39)
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeFelixSniperVSSMkII
+    proto: CartridgeSniperVSSMkII
+    capacity: 10
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/weapons/boxes/VSSMkII_boxes.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxVSSMkII
+  id: MagazineBoxVSSMkIIBig
+  suffix: Sir_Felix
+  name: ammunition box VSSMkII (7x62x39)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 30
+    proto: CartridgeSniperVSSMkII
+  - type: Sprite
+    layers:
+    - state: base-b
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: magb
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxVSSMkII
+  id: MagazineBoxVSSMkII
+  suffix: Sir_Felix
+  name: ammunition box VSSMkII (7x62x39)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSniperVSSMkII
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  abstract: true
+  parent: [BaseItem, BaseMinorContraband]
+  id: BaseMagazineBoxVSSMkIIPiercing
+  name: ammunition box VSSMkII (7x62x39 AP)
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeSniperVSSMkII
+    proto: CartridgeArmorPiercingSniperVSSMkII
+    capacity: 10
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/weapons/boxes/VSSMkII_boxes.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxVSSMkII
+  id: MagazineBoxVSSMkIIPiercingBig
+  suffix: Sir_Felix
+  name: ammunition box VSSMkII (7x62x39 AP)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 30
+    proto: CartridgeArmorPiercingSniperVSSMkII
+  - type: Sprite
+    layers:
+    - state: base-b-piercing
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: magb
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxVSSMkII
+  id: MagazineBoxVSSMkIIPiercing
+  suffix: Sir_Felix
+  name: ammunition box VSSMkII (7x62x39 AP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeArmorPiercingSniperVSSMkII
+  - type: Sprite
+    layers:
+    - state: base-piercing
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  abstract: true
+  parent: [BaseItem, BaseMinorContraband]
+  id: BaseMagazineBoxVSSMkIILongRange
+  name: ammunition box VSSMkII (7x62x39 T)
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeSniperVSSMkII
+    proto: CartridgeLongRangeSniperVSSMkII
+    capacity: 10
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/weapons/boxes/VSSMkII_boxes.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxVSSMkII
+  id: MagazineBoxVSSMkIILongRangeBig
+  suffix: Sir_Felix
+  name: ammunition box VSSMkII (7x62x39 T)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 30
+    proto: CartridgeLongRangeSniperVSSMkII
+  - type: Sprite
+    layers:
+    - state: base-b-long-range
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: magb
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxVSSMkII
+  id: MagazineBoxVSSMkIILongRange
+  suffix: Sir_Felix
+  name: ammunition box VSSMkII (7x62x39 T)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeLongRangeSniperVSSMkII
+  - type: Sprite
+    layers:
+    - state: base-long-range
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  abstract: true
+  parent: [BaseItem, BaseMinorContraband]
+  id: BaseMagazineBoxVSSMkIIExplosive
+  name: ammunition box VSSMkII (7x62x39 ST)
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeSniperVSSMkII
+    proto: CartridgeExplosiveSniperVSSMkII
+    capacity: 10
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/weapons/boxes/VSSMkII_boxes.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxVSSMkII
+  id: MagazineBoxVSSMkIIExplosiveBig
+  suffix: Sir_Felix
+  name: ammunition box VSSMkII (7x62x39 ST)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 30
+    proto: CartridgeExplosiveSniperVSSMkII
+  - type: Sprite
+    layers:
+    - state: base-b-explosive
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: magb
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxVSSMkII
+  id: MagazineBoxVSSMkIIExplosive
+  suffix: Sir_Felix
+  name: ammunition box VSSMkII (7x62x39 ST)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeExplosiveSniperVSSMkII
+  - type: Sprite
+    layers:
+    - state: base-explosive
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]

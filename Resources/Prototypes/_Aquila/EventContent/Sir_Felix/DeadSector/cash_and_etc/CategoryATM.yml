@@ -1,0 +1,9 @@
+- type: storeCategory
+  id: FCR
+  name: store-category-sir-felix-fcr
+  priority: 0
+
+- type: storeCategory
+  id: CCR
+  name: store-category-sir-felix-ccr
+  priority: 1

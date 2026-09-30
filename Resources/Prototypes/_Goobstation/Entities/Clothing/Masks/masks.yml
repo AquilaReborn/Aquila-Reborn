@@ -134,6 +134,11 @@
   name: Blueshield SWAT gas mask
   description: A standard issue gas mask for BlueShield Officers
   components:
+  - type: ToggleHideLayersClothing # Aquila Change
+    layers: [ Hair ] # Aquila Change
+    slots: MASK # Aquila Change
+    action: ActionToggleHideLayersHair # Aquila Change
+    hiddenByDefault: true # Aquila Change
   - type: Sprite
     sprite: _Goobstation/Clothing/Mask/bsoswat.rsi
   - type: Clothing
@@ -145,7 +150,7 @@
     - GasMask
   - type: HideLayerClothing
     slots:
-    - Hair
+    # - Hair # Aquila Change
     - Snout
     - HeadTop
     - HeadSide

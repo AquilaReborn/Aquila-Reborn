@@ -1,0 +1,30 @@
+- type: entity
+  id: AirlockFederationPoliceLocked
+  parent: Airlock
+  suffix: ЗАКРЫТ, ElysiumPrime, Sir_Felix
+  name: airlock
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/airlocks/police.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsFederation ]
+
+- type: entity
+  id: AirlockFederationPolice
+  parent: Airlock
+  suffix: ElysiumPrime, Sir_Felix
+  name: airlock
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/airlocks/police.rsi
+
+- type: entity
+  id: AirlockFederationPoliceLockedAdmin
+  parent: AirlockFederationPoliceLocked
+  name: airlock
+  suffix: ЗАКРЫТ, admin, ElysiumPrime, Sir_Felix
+  components:
+    - type: ContainerFill
+      containers: 
+        board: [ DoorElectronicsFederationadmin ]

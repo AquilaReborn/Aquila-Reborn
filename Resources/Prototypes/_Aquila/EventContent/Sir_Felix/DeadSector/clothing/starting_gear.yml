@@ -1,0 +1,65 @@
+- type: startingGear
+  id: EPPolevoySoldierGear
+  equipment:
+    jumpsuit: ClothingUniformPeresvet
+    shoes: ClothingShoesBootsJack
+    gloves: ClothingHandsGlovesFingerless
+    head: DressCapArmyB
+    id: ElysiumFederationPDA
+    ears: ClothingHeadsetFADAK9M
+
+- type: startingGear
+  id: EPColonialSoldierGear
+  equipment:
+    jumpsuit: ClothingUniformScientificGreen
+    shoes: ClothingShoesBootsJack
+    gloves: ClothingHandsGlovesFingerless
+    head: DressCapArmyB
+    id: ElysiumFederationPDA
+    ears: ClothingHeadsetFADAK9M
+
+- type: startingGear
+  id: EPSecuritySoldierGear
+  equipment:
+    jumpsuit: ClothingUniformSparta
+    shoes: ClothingShoesBootsJack
+    gloves: ClothingHandsGlovesFingerless
+    head: DressCapArmyB
+    id: ElysiumFederationPDA
+    ears: ClothingHeadsetFADAK9M
+
+- type: startingGear
+  id: EPPolevoyOFCGear
+  equipment:
+    jumpsuit: ClothingUniformPeresvet
+    shoes: ClothingShoesBootsJack
+    gloves: ClothingHandsGlovesFingerless
+    head: ClothingHeadHatBeretMerc
+    id: ElysiumFederationPDA
+    ears: ClothingHeadsetFADAK9M
+    neck: ClothingNeckGoldmedal
+    belt: ClothingBeltBandolier
+
+- type: startingGear
+  id: EPColonialOFCGear
+  equipment:
+    jumpsuit: ClothingUniformScientificGreen
+    shoes: ClothingShoesBootsJack
+    gloves: ClothingHandsGlovesFingerless
+    head: ArmyBeretArmyG
+    id: ElysiumFederationPDA
+    ears: ClothingHeadsetFADAK9M
+    neck: ClothingNeckGoldmedal
+    belt: ClothingBeltBandolier
+
+- type: startingGear
+  id: EPSecurityOFCGear
+  equipment:
+    jumpsuit: ClothingUniformSparta
+    shoes: ClothingShoesBootsJack
+    gloves: ClothingHandsGlovesFingerless
+    head: ClothingHeadHatBeretSecurity
+    id: ElysiumFederationPDA
+    ears: ClothingHeadsetFADAK9M
+    neck: ClothingNeckGoldmedal
+    belt: ClothingBeltBandolier

@@ -1,0 +1,1079 @@
+<Document>
+  # Космический закон: список преступлений
+  Коды преступлений окрашены по группам связанных преступлений — наборам преступлений, которые не складываются между собой. Для определения связанных преступлений в кратком справочнике также указаны суффиксы.
+
+  ## Краткий справочник
+  <Table Columns="6">
+    <ColorBox>
+      <Box>
+        I степень
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        II степень
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        III степень
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        IV степень
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        V степень
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Код
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#593a4e">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Нарушение общественного порядка
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#593a4e">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Жестокое обращение с животными
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#593a4e">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Нападение/побои
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#593a4e">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Покушение на убийство
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#593a4e">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Массовое убийство
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        I
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#2f3832">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Мелкая кража
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#2f3832">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Порча/уничтожение имущества
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#2f3832">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Сопротивление аресту
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#2f3832">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Незаконное удержание/похищение/захват заложников
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#2f3832">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Препятствование воскрешению
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        II
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#2e422e">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Хранение/употребление запрещённых веществ
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#2e422e">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Создание угрозы
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#2e422e">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Крупная кража
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#2e422e">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Убийство
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#2e422e">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Отказ от защиты разума
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        III
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#453a59">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Незаконное проникновение
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#453a59">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Неподчинение
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#453a59">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Непредумышленное убийство
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#453a59">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Терроризм
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        IV
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#59563a">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Вандализм
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#59563a">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Хранение запрещённого снаряжения
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#59563a">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Массовые разрушения
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        V
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#4d2e2e">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Участие в беспорядках
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#4d2e2e">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Хранение запрещённого оружия
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        VI
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#4d2e2e">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Проникновение в охраняемую зону
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        VII
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#3b4354">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Побег из-под стражи
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        VIII
+      </Box>
+    </ColorBox>
+  </Table>
+
+  # Вынесение приговора
+
+  - Приговоры выносит смотритель. Если смотрителя нет, эта обязанность переходит к главе службы безопасности, а при его отсутствии — к старшему по званию члену командования.
+
+  - При назначении наказания руководствуйтесь здравым смыслом и человечностью. Не нужно всегда стремиться к самому строгому наказанию: максимальный срок — это наибольший срок, на который можно заключить за соответствующее преступление. Если смотритель считает, что заключённому достаточно меньшего срока, он может его назначить. Понижать в должности тоже нужно не всегда. Всегда учитывайте тяжесть проступка и наказывайте ровно настолько, чтобы человек усвоил урок.
+
+  - Соучастие, покушение и умысел: если кто-то умышленно, осознанно и существенно помогает другому совершить преступление, ему могут быть предъявлены обвинения в соответствующих преступлениях. Например, инженер, отдавший инструменты тому, кто заявил, что собирается вломиться в отсек. То же относится к явному и серьёзному покушению на преступление и к явному умыслу его совершить: например, ядерного оперативника Синдиката, взведшего бомбу, но арестованного до взрыва, всё равно можно обвинить в терроризме. Не относится к преступлениям, у которых уже есть отдельная статья о покушении, например покушение на убийство.
+
+  - Сложение преступлений: преступления «складываются»: если человеку предъявлены обвинения в двух и более разных преступлениях, сроки за каждое из них суммируются.
+
+  [bold]Если суммарный срок в бриге превышает 10 минут, он сокращается до этого предела.[/bold]
+
+  [bold]Пожизненное заключение может быть назначено особо проблемным членам экипажа в разумных пределах, даже если самое тяжкое из их преступлений его не предусматривает.[/bold]
+
+  ## I степень
+  - За мелкие преступления устраните последствия и предупредите нарушителя не повторять их. Если он всё же повторит, лучше назначить срок в бриге.
+  <Table Columns="5">
+    <ColorBox>
+      <Box>
+        Преступление
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Макс. срок
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Описание
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Примечания
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Код
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#593a4e">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Нарушение общественного порядка
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        2:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Нарушить общественный порядок.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Иначе — хулиганство. Общая статья для неприятных членов экипажа. Включает появление в обнажённом виде на публике, беспричинные оскорбления, помехи представителям власти, угрозы, подстрекательство к преступлению или насилию.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        I-I
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#2f3832">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Мелкая кража
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        3:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Без согласия забрать незначительное или недорогое имущество другого лица, организации или общее имущество.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Мелкая кража определяется заменимостью и важностью украденного предмета.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        I-II
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#2e422e">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Хранение/употребление запрещённых веществ
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        3:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Изготавливать, хранить или употреблять запрещённые препараты или химикаты.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Применяется в соответствии со стандартными рабочими процедурами. Если сомнительное вещество не упомянуто в СРП, капитан или старший по званию член командования может публично его запретить.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        I-III
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#453a59">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Незаконное проникновение
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        2:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Войти без разрешения в неохраняемую зону.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Лучше просто вывести нарушителя из зоны, если это не повторное нарушение.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        I-IV
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#59563a">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Вандализм
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        2:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Умышленно испортить или поверхностно повредить общественное или частное имущество.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Граффити, разбитые бокалы в баре и трещины на внутренних окнах — вандализм. Разбитое окно в космос или в охраняемую зону — уже нет.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+       I-V
+      </Box>
+    </ColorBox>
+  </Table>
+
+  ## II степень
+  - В зависимости от ситуации вместо задержания можно ограничиться предупреждением.
+  <Table Columns="5">
+    <ColorBox>
+      <Box>
+        Преступление
+      </Box>
+    </ColorBox><ColorBox>
+      <Box>
+        Макс. срок
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Описание
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Примечания
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Код
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#593a4e">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Жестокое обращение с животными
+      </Box>
+    </ColorBox><ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        3:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Со злым умыслом причинять излишние страдания или вред неразумному существу.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Не включает законные и разрешённые опыты на животных и обычно не распространяется на вредителей и существ, опасных для станции.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        II-I
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#2f3832">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Порча/уничтожение имущества
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        4:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Злонамеренно повредить или испортить общественное или частное имущество или оборудование.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Тяжелее вандализма, но легче массовых разрушений.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        II-II
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#2e422e">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Создание угрозы
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        4:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Безрассудно или злонамеренно подвергнуть опасности себя или других — действием или бездействием.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Включает производственные аварии, халатность, саботаж, опыты над собой и даже врачебные ошибки.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        II-III
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#453a59">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Неподчинение
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        2:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Не подчиняться разумным приказам представителя власти. Распространяется на ордеры и санкционированные обыски.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Приказ должен быть разумным, а человек должен получить достаточно предупреждений до ареста.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        II-IV
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#59563a">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Хранение запрещённого снаряжения
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        4:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Хранить или использовать запрещённые или незаконные несмертельные предметы.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        В основном касается контрабанды Синдиката: емагов, противогазов Синдиката, кроваво-красных скафандров, взломанных КПК или имплантов. Иногда распространяется и на то, чего у человека быть не должно, например кевларовые бронежилеты и снаряжение СБ.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        II-V
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#4d2e2e">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Участие в беспорядках
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        4:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Участвовать в большой группе, незаконно нарушающей общественный порядок.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        К этому обвинению обычно добавляются порча имущества или побои. Зачинщикам беспорядков можно вменить все преступления, совершённые под их руководством.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        II-VI
+      </Box>
+    </ColorBox>
+  </Table>
+
+  ## III степень
+  - Нападение и непредумышленное убийство — связанные преступления, их сроки не складываются.
+  - Тем, кто сотрудничает, не рекомендуется назначать максимальный срок.
+  <Table Columns="5">
+    <ColorBox>
+      <Box>
+        Преступление
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Макс. срок
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Описание
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Примечания
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Код
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#593a4e">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Нападение/побои
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        6:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Угрожать применением физической силы или применить её против кого-либо без намерения убить.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Покушение на убийство и побои — разные преступления.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        III-I
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#2f3832">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Сопротивление аресту
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        4:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Умышленно сопротивляться аресту или задержанию уполномоченным сотрудником или бежать от него.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Применяется, только если человека физически арестовывают в данный момент. Включает снятие наручников с других или помощь им в уходе от ареста. Побег из-под стражи — отдельное преступление.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        III-II
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#2e422e">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Крупная кража
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        6:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Без согласия забрать важное или незаменимое имущество другого лица или организации.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Кража незаменимого предмета. Например, планшета квартирмейстера или продвинутых магнитных ботинок старшего инженера; сюда же может относиться ID-карта капитана.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        III-III
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#453a59">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Непредумышленное убийство
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        10:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Случайно убить разумное существо без умысла.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Включает убийство при самообороне и убийство по неосторожности.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        III-IV
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#59563a">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Массовые разрушения
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        6:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Нанести серьёзный ущерб зоне или важной системе станции.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Смертоносные взрывы или серьёзный ущерб отделам и системам станции могут считаться массовыми разрушениями.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        III-V
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#4d2e2e">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Хранение запрещённого оружия
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        6:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Хранить или использовать незаконное или контрабандное оружие.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Всё — от огнестрельного оружия без разрешения, смертоносных клинков и взрывчатки до огнестрельного оружия Синдиката и взрывных имплантов.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        III-VI
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#4d2e2e">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Проникновение в охраняемую зону
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        8:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Войти без разрешения в охраняемую зону.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Обычно касается всех зон командования, но может включать инженерный отдел, атмосферный отдел, телекоммуникации, хранилище, ИИ, службу безопасности и оружейную.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        III-VII
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#3b4354">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Побег из-под стражи
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        4:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Выбраться из камеры или из-под стражи с целью побега.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Беглецу может быть добавлен срок. В редких случаях при повторных попытках побега наказание может быть увеличено до пожизненного заключения. Включает помощь другим в побеге.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        III-VIII
+      </Box>
+    </ColorBox>
+  </Table>
+
+  ## IV степень
+  - Особо жестоких преступников можно отправить на пожизненное заключение (например, за нападение на офицеров при попытке побега).
+  - Покушение на убийство и убийство — связанные преступления, их сроки не складываются.
+  - За покушение на убийство следует назначать более мягкое наказание, чем за убийство.
+  <Table Columns="5">
+    <ColorBox>
+      <Box>
+        Преступление
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Макс. срок
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Описание
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Примечания
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Код
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#593a4e">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Покушение на убийство
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        5:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Попытаться применить физическую силу против кого-либо с явным намерением убить.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Требуются неопровержимые доказательства покушения на чужую жизнь. Намеренное доведение члена экипажа до критического состояния — покушение на убийство.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        IV-I
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#2f3832">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Незаконное удержание/похищение/захват заложников
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        10:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Незаконно удерживать, перемещать, контролировать или лишать свободы разумное существо против его воли.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Обычно это принудительное надевание наручников или удержание члена экипажа. Запирание человека в комнате или шкафу может считаться похищением.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        IV-II
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#2e422e">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Убийство
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        10:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Убить разумное существо со злым умыслом.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Намеренно стать причиной смерти другого члена экипажа.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        IV-III
+      </Box>
+    </ColorBox>
+  </Table>
+
+  ## V степень
+  - [bold]Все казни должны быть одобрены капитаном и проводиться под его надзором. Заключённый может попросить о конкретном способе казни, если он разумен. В остальных случаях предпочтителен самый гуманный способ. Подробнее о правилах казни — в стандартных рабочих процедурах.[/bold]
+  <Table Columns="5">
+    <ColorBox>
+      <Box>
+        Преступление
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Макс. срок
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Описание
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Примечания
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Код
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#593a4e">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Массовое убийство
+      </Box>
+    </ColorBox>
+  <ColorBox>
+    <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      Смертная казнь
+    </Box>
+  </ColorBox>
+    <ColorBox >
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Убить трёх и более разумных существ со злым умыслом.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Применяется, если подозреваемый крайне отказывается сотрудничать или имплант не работает из-за того, что психика заключённого уже слишком повреждена. Если имплант не сработал, настоятельно рекомендуется казнь.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        V-I
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#2f3832">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Препятствование воскрешению
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Смертная казнь
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Сделать тело непригодным для воскрешения.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Разрывание тела, его сокрытие или недопуск медиков к воскрешению члена экипажа могут считаться препятствованием воскрешению.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        V-II
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#2e422e">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Отказ от защиты разума
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Смертная казнь
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Отказаться от разумной процедуры установки защиты разума.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Применяется, если подозреваемый крайне отказывается сотрудничать или имплант не работает из-за того, что психика заключённого уже слишком повреждена. Если имплант не сработал, наказание повышается до ускоренной казни. Одобрение капитана не требуется.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        V-III
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#453a59">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Терроризм
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Смертная казнь
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Совершать злонамеренные разрушительные действия, которые грозят уничтожить или уничтожают судно или поселение.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Многократный тяжёлый саботаж систем станции или запуск самоуничтожения. Сюда может относиться заполнение станции плазмой или выпуск сингулярности/теслы.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        V-IV
+      </Box>
+    </ColorBox>
+  </Table>
+</Document>

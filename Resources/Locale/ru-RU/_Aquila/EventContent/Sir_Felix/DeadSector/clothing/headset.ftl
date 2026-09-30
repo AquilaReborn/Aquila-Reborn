@@ -1,0 +1,15 @@
+ent-ClothingHeadsetFADAK9M = гарнитура FADAK-9M
+    .desc = Гарнитура, используемая высшими эшелонами Nanotrasen.
+    .suffix = { "DeadSector, Sir_Felix" }
+ent-DeadSectorEncryptionKeyEngineering = инженерный ключ шифрования
+    .desc = { ent-BaseItem.desc }
+    .suffix = { "DeadSector, Sir_Felix" }
+ent-DeadSectorEncryptionKeyMedical = медицинский ключ шифрования
+    .desc = { ent-BaseItem.desc }
+    .suffix = { "DeadSector, Sir_Felix" }
+ent-DeadSectorEncryptionKeySecurity = охранный ключ шифрования
+    .desc = { ent-BaseItem.desc }
+    .suffix = { "DeadSector, Sir_Felix" }
+ent-DeadSectorEncryptionKeyPilot = пилотский ключ шифрования
+    .desc = { ent-BaseItem.desc }
+    .suffix = { "DeadSector, Sir_Felix" }

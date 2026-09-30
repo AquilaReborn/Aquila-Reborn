@@ -1,0 +1,66 @@
+- type: entity
+  id: BulletRPG8
+  suffix: Sir_Felix
+  name: grenade RPG-8
+  parent: BaseBulletTrigger
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: grenade
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 25
+    intensitySlope: 4
+    totalIntensity: 130
+    maxTileBreak: 1
+  - type: PointLight
+    radius: 3.5
+    color: orange
+    energy: 0.5
+
+- type: entity
+  id: BulletRPG8LargeRadius
+  suffix: Sir_Felix
+  name: grenade RPG-8 (large-radius)
+  parent: BaseBulletTrigger
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: grenade
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 175
+    intensitySlope: 1
+    maxIntensity: 10
+
+- type: entity
+  id: BulletRPG8Flash
+  suffix: Sir_Felix
+  name: flash grenade
+  parent: BaseBulletTrigger
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: grenade
+  - type: SmokeOnTrigger
+    duration: 30
+    spreadAmount: 50
+  - type: FlashOnTrigger
+    range: 7
+  - type: SpawnOnTrigger
+    proto: GrenadeFlashEffect
+  - type: TriggerOnSpawn
+    keyOut: spawn
+  - type: TimerTrigger
+    keysIn:
+    - spawn
+    delay: 0.3
+    keyOut: trigger
+  - type: DeleteOnTrigger
+  - type: StaminaDamageOnCollide
+    damage: 80

@@ -1,0 +1,32 @@
+- type: entity
+  name: radiation medipen
+  parent: ChemicalMedipen
+  id: RadiationMedipenDeadSector
+  suffix: DeadSector, Sir_Felix
+  description: Contains a mix of chemicals that protect you from the deadly effects of space.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/items/Medical/medipens.rsi
+    layers:
+    - state: antirad
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: antirad_empty
+  - type: Injector
+    solutionName: pen
+    currentTransferAmount: 6
+    activeModeProtoId: HyposprayInjectMode
+    allowedModes:
+    - HyposprayInjectMode
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 6
+        reagents:
+          - ReagentId: Hyronalin
+            Quantity: 6
+  - type: Tag
+    tags: []

@@ -1,0 +1,207 @@
+# Гарнитура и ключи шифрования
+- type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetFADAK9M
+  suffix: DeadSector, Sir_Felix
+  name: FADAK-9M headset
+  description: A headset used by the upper echelons of Nanotrasen.
+  components:
+  - type: EncryptionKeyHolder
+    keySlots: 30
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/headset/headset.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/headset/headset.rsi # Гарнитура на 20 слотов
+
+- type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetFADAK9MAdministration
+  suffix: Felix, Sir_Felix
+  name: FelixFADAK9MheadsetAdministration
+  description: A headset used by the upper echelons of Nanotrasen.
+  components:
+  - type: EncryptionKeyHolder
+    keySlots: 30
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyAirGroup
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/headset/headset.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/headset/headset.rsi
+
+- type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetFADAK9MPolice
+  suffix: Felix, Sir_Felix
+  name: FelixFADAK9Mheadset
+  description: A headset used by the upper echelons of Nanotrasen.
+  components:
+  - type: EncryptionKeyHolder
+    keySlots: 30
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyAirGroup
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/headset/headset.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/headset/headset.rsi
+
+- type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetFADAK9MShipyard
+  suffix: Felix, Sir_Felix
+  name: FelixFADAK9Mheadset
+  description: A headset used by the upper echelons of Nanotrasen.
+  components:
+  - type: EncryptionKeyHolder
+    keySlots: 30
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyAirGroup
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/headset/headset.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/headset/headset.rsi
+
+- type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetFADAK9MBank
+  suffix: Felix, Sir_Felix
+  name: FelixFADAK9Mheadset
+  description: A headset used by the upper echelons of Nanotrasen.
+  components:
+  - type: EncryptionKeyHolder
+    keySlots: 30
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyAirGroup
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/headset/headset.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/headset/headset.rsi
+
+- type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetFADAK9MSpecialist
+  suffix: Felix, Sir_Felix
+  name: FelixFADAK9Mheadset
+  description: A headset used by the upper echelons of Nanotrasen.
+  components:
+  - type: EncryptionKeyHolder
+    keySlots: 30
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyAirGroup
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/headset/headset.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/headset/headset.rsi
+
+- type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetFADAK9MWastes
+  suffix: Felix, Sir_Felix
+  name: FelixFADAK9Mheadset
+  description: A headset used by the upper echelons of Nanotrasen.
+  components:
+  - type: EncryptionKeyHolder
+    keySlots: 30
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyAirGroup
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/headset/headset.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/headset/headset.rsi
+
+- type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetFADAK9MMiner
+  suffix: Felix, Sir_Felix
+  name: FelixFADAK9Mheadset
+  description: A headset used by the upper echelons of Nanotrasen.
+  components:
+  - type: EncryptionKeyHolder
+    keySlots: 30
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyAirGroup
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/headset/headset.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/headset/headset.rsi
+
+- type: entity
+  parent: EncryptionKey
+  id: DeadSectorEncryptionKeyEngineering
+  suffix: DeadSector, Sir_Felix
+  name: engineering encryption key
+  description: An encryption key used by the engineers.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Engineering
+    defaultChannel: Engineering # Дефолтный инж. канал. Если понадобится - замените на кастомный.
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/headset/encryption_keys.rsi
+    state: engineering
+
+- type: entity
+  parent: EncryptionKey
+  id: DeadSectorEncryptionKeyMedical
+  suffix: DeadSector, Sir_Felix
+  name: medical encryption key
+  description: An encryption key used by those who save lives.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Medical
+    defaultChannel: # Дефолтный мед. канал
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/headset/encryption_keys.rsi
+    state: medical
+
+- type: entity
+  parent: EncryptionKey
+  id: DeadSectorEncryptionKeySecurity
+  suffix: DeadSector, Sir_Felix
+  name: security encryption key
+  description: An encryption key used by security.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Security
+    defaultChannel: Security # Дефолтный канал щиткьюрити.
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/headset/encryption_keys.rsi
+    state: security
+
+- type: entity
+  parent: EncryptionKey
+  id: DeadSectorEncryptionKeyPilot # пилотский ключ шифрования
+  suffix: DeadSector, Sir_Felix
+  name: security encryption key
+  description: An encryption key used by security.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Security
+    defaultChannel: Security # Замените на "пилотскую" частоту, если понадобится. По дефолту поставил частоту охраны.
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/headset/encryption_keys.rsi
+    state: pilot

@@ -1,0 +1,23 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Sprite made by @crookielv for @lune_felix #DeadSector",
+    "size": {
+        "x": 64,
+        "y": 64
+    },
+    "states": [
+	    {
+	    	"name": "base"
+	    },
+        {
+	    	"name": "bolt-open"
+	    },
+        {
+	    	"name": "icon"
+	    },
+        {
+	    	"name": "mag-0"
+	    }
+    ]
+}

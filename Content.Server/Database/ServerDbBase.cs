@@ -266,8 +266,7 @@ namespace Content.Server.Database
                 loadouts[role.RoleName] = loadout;
             }
 
-            // CorvaxGoob-Revert : DB conflicts
-            // var barkVoice = profile.BarkVoice ?? SharedHumanoidAppearanceSystem.DefaultBarkVoice; // Goob Station - Barks
+            var barkVoice = profile.BarkVoice ?? SharedHumanoidAppearanceSystem.DefaultBarkVoice; // Goob Station - Barks // Aquila Change
 
             return new HumanoidCharacterProfile(
                 profile.CharacterName,
@@ -297,6 +296,7 @@ namespace Content.Server.Database
             )
             {
                 OocNotes = profile.OocNotes ?? string.Empty, // Aquila Change
+                BarkVoice = barkVoice, // Aquila Change
             };
         }
 
@@ -357,8 +357,7 @@ namespace Content.Server.Database
             );
             // Aquila Change end
 
-            // CorvaxGoob-Revert : DB conflicts
-            // profile.BarkVoice = humanoid.BarkVoice; // Goob Station - Barks
+            profile.BarkVoice = humanoid.BarkVoice; // Goob Station - Barks // Aquila Change
 
             profile.Loadouts.Clear();
 

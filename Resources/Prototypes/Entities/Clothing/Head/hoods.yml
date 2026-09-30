@@ -265,6 +265,10 @@
   id: ClothingHeadHelmetHardsuitCarp
   categories: [ HideSpawnMenu ]
   components:
+  - type: ToggleHideLayersClothing # Aquila Change
+    layers: [ HeadTop, HeadSide, Special ] # Aquila Change
+    slots: HEAD # Aquila Change
+    action: ActionToggleHideLayersHelmet # Aquila Change
   - type: PressureProtection
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000

@@ -1,0 +1,24 @@
+- type: entity
+  name: medical kit
+  description: "For the big weapons among us."
+  parent: Medkit
+  id: MedkitDeadSector
+  suffix: DeadSector, Sir_Felix
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/items/Medical/MedKit.rsi
+    state: icon
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        base:
+          True: { state: icon-open }
+          False: { state: icon }
+  - type: Item
+    size: Normal
+  - type: Storage
+    maxItemSize: Small
+    whitelist:
+      components:
+        - Injector
+  - type: Appearance

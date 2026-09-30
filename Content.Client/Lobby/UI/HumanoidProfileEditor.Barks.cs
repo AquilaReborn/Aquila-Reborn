@@ -6,8 +6,8 @@ namespace Content.Client.Lobby.UI;
 
 public sealed partial class HumanoidProfileEditor
 {
-    // CorvaxGoob-Revert : DB conflicts
-/*    private List<BarkPrototype> _barkPrototypes = new();
+    // Aquila Change start
+    private List<BarkPrototype> _barkPrototypes = new();
 
     private void InitializeBarkVoice()
     {
@@ -32,7 +32,7 @@ public sealed partial class HumanoidProfileEditor
             .Where(o => o.RoundStart &&
                         (o.SpeciesWhitelist is null ||
                          o.SpeciesWhitelist.Contains(Profile.Species)))
-            .OrderBy(o => Loc.GetString(o.ID))
+            .OrderBy(o => Loc.GetString(o.Name))
             .ToList();
 
         BarkVoiceButton.Clear();
@@ -61,5 +61,6 @@ public sealed partial class HumanoidProfileEditor
 
         var ev = new PreviewBarkEvent(Profile.BarkVoice);
         _entManager.EventBus.RaiseEvent(EventSource.Local, ref ev);
-    }*/
+    }
+    // Aquila Change end
 }

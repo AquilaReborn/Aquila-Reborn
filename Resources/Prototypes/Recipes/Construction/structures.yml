@@ -1312,10 +1312,17 @@
     - !type:TileNotBlocked
 
 - type: construction
-  parent: BaseStructureFullTileDirectional
   id: EnergyGate
   graph: EnergyGate
+  startNode: start # Aquila Change
   targetNode: energyGate
+  category: construction-category-structures # Aquila Change
+  objectType: Structure # Aquila Change
+  placementMode: SnapgridCenter # Aquila Change
+  canRotate: true # Aquila Change
+  canBuildInImpassable: false # Aquila Change
+  conditions: # Aquila Change
+  - !type:TileNotBlocked # Aquila Change
 
 - type: construction
   name: recipes-secret-door-reinforced-name

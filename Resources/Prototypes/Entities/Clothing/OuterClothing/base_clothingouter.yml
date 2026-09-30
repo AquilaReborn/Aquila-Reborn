@@ -135,6 +135,9 @@
   id: ClothingOuterHardsuitBase
   name: base hardsuit
   components:
+  - type: ToggleHideLayersClothing # Aquila Change
+    layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ] # Aquila Change
+    slots: OUTERCLOTHING # Aquila Change
 # SlotBlocker blocked until UI change
 #  - type: SlotBlock
 #    slots: [innerclothing, feet]
@@ -236,6 +239,9 @@
   id: ClothingOuterEVASuitBase
   name: base EVA Suit
   components:
+  - type: ToggleHideLayersClothing # Aquila Change
+    layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ] # Aquila Change
+    slots: OUTERCLOTHING # Aquila Change
 # SlotBlocker blocked until UI change
 #  - type: SlotBlock
 #    slots: [innerclothing, feet]

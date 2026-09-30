@@ -691,9 +691,12 @@
     - !type:TileNotBlocked
 
 - type: construction
-  parent: BaseFurniture
   id: NoticeBoard
   graph: WallBoard
+  startNode: start # Aquila Change
+  category: construction-category-furniture # Aquila Change
+  objectType: Structure # Aquila Change
+  placementMode: SnapgridCenter # Aquila Change
   targetNode: noticeBoard
   canRotate: true
   canBuildInImpassable: true
