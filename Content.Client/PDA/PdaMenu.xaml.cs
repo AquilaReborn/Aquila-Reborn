@@ -12,6 +12,7 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Timing;
 using Content.Client._Aquila.PDA; // Aquila Change
+using System.Text.RegularExpressions; // Aquila Change
 
 namespace Content.Client.PDA
 {
@@ -106,12 +107,12 @@ namespace Content.Client.PDA
 
             IdInfoButton.OnPressed += _ =>
             {
-                _clipboard.SetText(_owner + ", " + _jobTitle);
+                _clipboard.SetText(_jobTitle); // Aquila Change
             };
 
             StationNameButton.OnPressed += _ =>
             {
-                _clipboard.SetText(_stationName);
+                _clipboard.SetText(GetStationIdentifier(_stationName)); // Aquila Change
             };
 
             StationAlertLevelButton.OnPressed += _ =>
@@ -380,6 +381,14 @@ namespace Content.Client.PDA
             if (EjectPaiButton.IsActive != pda.PaiSlot.HasItem)
                 EjectPaiButton.IsActive = pda.PaiSlot.HasItem;
         }
+
+        private static string GetStationIdentifier(string stationName)
+        {
+            var match = StationIdentifierRegex.Match(stationName);
+            return match.Success ? match.Value : stationName;
+        }
+
+        private static readonly Regex StationIdentifierRegex = new(@"\b[A-Z]{2,}-\d+\b", RegexOptions.RightToLeft);
         // Aquila Change end
 
         protected override void Draw(DrawingHandleScreen handle)
