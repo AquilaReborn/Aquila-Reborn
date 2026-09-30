@@ -4,6 +4,10 @@
   name: helmet pilot security services
   description: Helmet for the security service pilot's suit. It has a more powerful flashlight for better patrolling.
   components:
+  - type: ToggleHideLayersClothing # Aquila Change
+    layers: [ HeadTop, HeadSide, Special ] # Aquila Change
+    slots: HEAD # Aquila Change
+    action: ActionToggleHideLayersHelmet # Aquila Change
   - type: Sprite
     sprite: _CorvaxGoob/Clothing/Head/hardsuits/pilot.rsi
     layers:

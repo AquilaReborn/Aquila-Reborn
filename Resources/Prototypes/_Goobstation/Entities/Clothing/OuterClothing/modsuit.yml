@@ -6,6 +6,9 @@
   id: ClothingOuterModsuitBase
   categories: [ HideSpawnMenu ]
   components:
+  - type: ToggleHideLayersClothing # Aquila Change
+    layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ] # Aquila Change
+    slots: OUTERCLOTHING # Aquila Change
   - type: Appearance
   - type: AllowSuitStorage
   - type: Sprite
@@ -31,6 +34,9 @@
   description: A special modular suit spaceproof cover designed for compact folding inside modular suit control.
   categories: [ HideSpawnMenu ]
   components:
+  - type: ToggleHideLayersClothing # Aquila Change
+    layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ] # Aquila Change
+    slots: OUTERCLOTHING # Aquila Change
   - type: Appearance
   - type: AllowSuitStorage
   - type: Sprite
@@ -100,6 +106,9 @@
   description: A robust modular suit cover with ceramic inserts for extra protection.
   categories: [ HideSpawnMenu ]
   components:
+  - type: ToggleHideLayersClothing # Aquila Change
+    layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ] # Aquila Change
+    slots: OUTERCLOTHING # Aquila Change
   - type: Appearance
   - type: AllowSuitStorage
   - type: Sprite
@@ -179,6 +188,9 @@
   description: A robust modular suit cover with EXTRA ceramic inserts for slightly more protection.
   categories: [ HideSpawnMenu ]
   components:
+  - type: ToggleHideLayersClothing # Aquila Change
+    layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ] # Aquila Change
+    slots: OUTERCLOTHING # Aquila Change
   - type: Appearance
   - type: AllowSuitStorage
   - type: Sprite
@@ -264,6 +276,9 @@
   description: A white and blue-ish-grey steel plate for keeping out the harsh void of space and the occasional bullet.
   categories: [ HideSpawnMenu ]
   components:
+  - type: ToggleHideLayersClothing # Aquila Change
+    layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ] # Aquila Change
+    slots: OUTERCLOTHING # Aquila Change
   - type: Appearance
   - type: AllowSuitStorage
   - type: Sprite
@@ -343,6 +358,9 @@
   description: A tough armor plate to defend against harsh atmospheric conditions and shockwaves.
   categories: [ HideSpawnMenu ]
   components:
+  - type: ToggleHideLayersClothing # Aquila Change
+    layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ] # Aquila Change
+    slots: OUTERCLOTHING # Aquila Change
   - type: Appearance
   - type: AllowSuitStorage
   - type: Sprite
@@ -423,6 +441,9 @@
   description: A fire-proof armor plate to defend against harsh atmospheric conditions.
   categories: [ HideSpawnMenu ]
   components:
+  - type: ToggleHideLayersClothing # Aquila Change
+    layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ] # Aquila Change
+    slots: OUTERCLOTHING # Aquila Change
   - type: Appearance
   - type: AllowSuitStorage
   - type: Sprite
@@ -501,6 +522,9 @@
   description: A bulky bomb and bat proof chunk of steel.
   categories: [ HideSpawnMenu ]
   components:
+  - type: ToggleHideLayersClothing # Aquila Change
+    layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ] # Aquila Change
+    slots: OUTERCLOTHING # Aquila Change
   - type: Appearance
   - type: AllowSuitStorage
   - type: Sprite
@@ -582,6 +606,9 @@
   description: This shit is made out of DIAMONDS, man, this armor was forged with GEMS.
   categories: [ HideSpawnMenu ]
   components:
+  - type: ToggleHideLayersClothing # Aquila Change
+    layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ] # Aquila Change
+    slots: OUTERCLOTHING # Aquila Change
   - type: Appearance
   - type: AllowSuitStorage
   - type: GroupExamine

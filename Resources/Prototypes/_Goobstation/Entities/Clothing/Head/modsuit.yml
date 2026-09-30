@@ -7,6 +7,10 @@
   name: base modsuit helmet
   categories: [ HideSpawnMenu ]
   components:
+  - type: ToggleHideLayersClothing # Aquila Change
+    layers: [ HeadTop, HeadSide, Special ] # Aquila Change
+    slots: HEAD # Aquila Change
+    action: ActionToggleHideLayersHelmet # Aquila Change
   - type: Sprite
     state: icon
   - type: Clickable
