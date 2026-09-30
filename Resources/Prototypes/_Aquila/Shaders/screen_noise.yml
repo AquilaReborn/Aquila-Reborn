@@ -1,0 +1,4 @@
+- type: shader
+  id: ScreenNoise
+  kind: source
+  path: "/Textures/_Aquila/Shaders/screen_noise.swsl"

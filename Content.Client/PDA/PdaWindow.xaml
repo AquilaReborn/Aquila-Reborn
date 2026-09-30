@@ -4,7 +4,7 @@ SPDX-License-Identifier: MIT
 
 <pda:PdaWindow  xmlns="https://spacestation14.io"
                 xmlns:pda="clr-namespace:Content.Client.PDA"
-                xmlns:aquila="clr-namespace:Content.Client._Aquila.PDA"
+                xmlns:noise="clr-namespace:Content.Client._Aquila.ScreenNoise"
                 MouseFilter="Stop">
     <PanelContainer Name="Background" Access="Public" StyleClasses="PdaBackgroundRect" />
     <!-- The negative markin fixes a gap between the window edges and the decorative panel -->
@@ -25,7 +25,7 @@ SPDX-License-Identifier: MIT
             <Control Margin="3 3">
                 <PanelContainer Name="ContentBackground" StyleClasses="PdaContentBackground"/>
                 <BoxContainer Access="Public" Name="ContentsContainer" Orientation="Vertical" StyleClasses="PdaContent"/>
-                <aquila:PdaScreenNoise />
+                <noise:ScreenNoise />
                 <!-- Aquila Change -->
 
             </Control>
