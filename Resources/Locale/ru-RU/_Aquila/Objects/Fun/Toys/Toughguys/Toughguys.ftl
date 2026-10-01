@@ -81,3 +81,6 @@ ent-PlushieMiLeim = Ми Лейм
 
 ent-PlushieAndreyKushnarev = Андрей Кушнарёв
     .desc = Кто был смотрителем, тот в бриге не смеётся
+
+ent-PlushieYanZuev = Ян Зуев
+    .desc = Мягкая игрушка в виде работника станции. Обнимать приятно.

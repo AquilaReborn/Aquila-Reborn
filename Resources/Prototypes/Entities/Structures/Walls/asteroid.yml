@@ -5,22 +5,23 @@
 # See WallRock variants for the remappings.
 
 - type: entity
-  abstract: true
+  abstract: true # Aquila Change
   parent: BaseWall
-  id: BaseAsteroidRock
+  id: BaseAsteroidRock # Aquila Change
   components:
   - type: Transform
     noRot: true
   - type: IconSmooth
+    # Aquila Change start
     key: stone
     additionalKeys:
     - doors
-    index: 0
     base: stone
+    # Aquila Change end
   - type: Icon
-    state: full
+    state: full # Aquila Change
   - type: Sprite
-    drawdepth: Walls
+    drawdepth: Walls # Aquila Change
   - type: MiningScannerViewable
   - type: Fixtures
     fixtures:
@@ -36,6 +37,7 @@
 
 - type: entity
   abstract: true
+  # Aquila Change start
   parent: StructureHealthBarrierWeak
   id: BaseAsteroidDestructible
   components:
@@ -54,21 +56,26 @@
           path: /Audio/Effects/break_stone.ogg
           params:
             volume: -6
+  # Aquila Change end
 
 #region BaseVein
 
+# Aquila Change start
 - type: entity
   abstract: true
   parent: BaseStructureHealth
+# Aquila Change end
   id: BaseRockGibtonite
   suffix: Gibtonite
   components:
+  # Aquila Change start
   - type: Sprite
     layers:
     - state: gibtonite_inactive
       sprite: Structures/Walls/stone-ore.rsi
       visible: false
       map: [ "enum.MiningScannerVisualLayers.Overlay", "gib" ]
+  # Aquila Change end
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -98,8 +105,10 @@
     intensitySlope: 2.5
     maxIntensity: 10
     canCreateVacuum: false
+  # Aquila Change start
   - type: Damageable
     damageModifierSet: RockMod
+  # Aquila Change end
   - type: Destructible
     thresholds:
     - trigger:
@@ -120,11 +129,14 @@
         keyOut: timer # explode immediately
 
 - type: entity
+  # Aquila Change start
   abstract: true
   id: BaseVeinCoal
+  # Aquila Change end
   suffix: Coal
-  description: An ore vein rich with coal.
+  description: An ore vein rich with coal. # Aquila Change
   components:
+  # Aquila Change start
   - type: OreVein
     oreChance: 1.0
     currentOre: OreCoal
@@ -303,11 +315,13 @@
   - type: OreVein
     oreChance: 0.33
     oreRarityPrototypeId: RandomOreDistributionStandard
+  # Aquila Change end
 
 #endregion
 #region Asteroid Rock
 
 # Visuals separated from the base rock to fix destruction conflicts with gibtonite
+# Aquila Change start
 - type: entity
   abstract: true
   id: BaseAsteroidRockVisuals
@@ -327,54 +341,57 @@
 - type: entity
   parent: [ BaseVeinCoal, AsteroidRock ]
   id: AsteroidRockCoal
+# Aquila Change end
 
 - type: entity
   parent: AsteroidRockCoal
-  id: AsteroidRockCoalCrab
+  id: AsteroidRockCoalCrab # Aquila Change
   suffix: Coal Crab
   components:
   - type: OreVein
     currentOre: OreCoalCrab
 
 - type: entity
-  parent: [ BaseVeinGold, AsteroidRock ]
+  parent: [ BaseVeinGold, AsteroidRock ] # Aquila Change
   id: AsteroidRockGold
 
 - type: entity
   parent: AsteroidRockGold
-  id: AsteroidRockGoldCrab
+  id: AsteroidRockGoldCrab # Aquila Change
   suffix: Gold Crab
   components:
   - type: OreVein
     currentOre: OreGoldCrab
 
 - type: entity
-  parent: [ BaseVeinDiamond, AsteroidRock ]
+  parent: [ BaseVeinDiamond, AsteroidRock ] # Aquila Change
   id: AsteroidRockDiamond
 
 - type: entity
-  parent: [ BaseVeinPlasma, AsteroidRock ]
+  parent: [ BaseVeinPlasma, AsteroidRock ] # Aquila Change
   id: AsteroidRockPlasma
 
 - type: entity
-  parent: [ BaseVeinQuartz, AsteroidRock ]
+  parent: [ BaseVeinQuartz, AsteroidRock ] # Aquila Change
   id: AsteroidRockQuartz
 
 - type: entity
   parent: AsteroidRockQuartz
-  id: AsteroidRockQuartzCrab
+  id: AsteroidRockQuartzCrab # Aquila Change
   suffix: Quartz Crab
   components:
+  # Aquila Change start
   - type: OreVein
     currentOre: OreQuartzCrab
+  # Aquila Change end
 
 - type: entity
-  parent: [ BaseVeinSilver, AsteroidRock ]
+  parent: [ BaseVeinSilver, AsteroidRock ] # Aquila Change
   id: AsteroidRockSilver
 
 - type: entity
   parent: AsteroidRockSilver
-  id: AsteroidRockSilverCrab
+  id: AsteroidRockSilverCrab # Aquila Change
   suffix: Silver Crab
   components:
   - type: OreVein
@@ -382,37 +399,38 @@
 
 # Yes I know it drops steel but we may get smelting at some point
 - type: entity
-  parent: [ BaseVeinSteel, AsteroidRock ]
+  parent: [ BaseVeinSteel, AsteroidRock ] # Aquila Change
   id: AsteroidRockTin
 
 - type: entity
   parent: AsteroidRockTin
-  id: AsteroidRockTinCrab
+  id: AsteroidRockTinCrab # Aquila Change
   suffix: Iron Crab
   components:
   - type: OreVein
     currentOre: OreIronCrab
 
 - type: entity
-  parent: [ BaseVeinUranium, AsteroidRock ]
+  parent: [ BaseVeinUranium, AsteroidRock ] # Aquila Change
   id: AsteroidRockUranium
 
 - type: entity
   parent: AsteroidRockUranium
-  id: AsteroidRockUraniumCrab
+  id: AsteroidRockUraniumCrab # Aquila Change
   suffix: Uranium Crab
   components:
   - type: OreVein
     currentOre: OreUraniumCrab
 
 - type: entity
-  parent: [ BaseVeinSalt, AsteroidRock ]
+  parent: [ BaseVeinSalt, AsteroidRock ] # Aquila Change
   id: AsteroidRockSalt
 
 - type: entity
-  parent: [ BaseVeinArtifactFragment, AsteroidRock ]
+  parent: [ BaseVeinArtifactFragment, AsteroidRock ] # Aquila Change
   id: AsteroidRockArtifactFragment
 
+# Aquila Change start
 - type: entity
   parent: [ BaseVeinBananium, AsteroidRock ]
   id: AsteroidRockBananium
@@ -427,93 +445,107 @@
 
 - type: entity
   parent: [ BaseRockGibtonite, BaseAsteroidRockVisuals, BaseAsteroidRock ]
+# Aquila Change end
   id: AsteroidRockGibtonite
 
 - type: entity
-  parent: [ BaseVeinRandom, AsteroidRock ]
+  parent: [ BaseVeinRandom, AsteroidRock ] # Aquila Change
   id: AsteroidRockMining
 
 #endregion
 #region Iron Rock
 
 - type: entity
+  # Aquila Change start
   abstract: true
   id: BaseIronRockVisuals
+  # Aquila Change end
   name: ironrock
   description: A rocky asteroid.
   components:
   - type: Icon
+    # Aquila Change start
     sprite: Structures/Walls/stone-ironrock.rsi
     state: full
+    # Aquila Change end
   - type: Sprite
-    sprite: Structures/Walls/stone-ironrock.rsi
+    sprite: Structures/Walls/stone-ironrock.rsi # Aquila Change
 
 - type: entity
+  # Aquila Change start
   parent: [ BaseIronRockVisuals, BaseAsteroidRock, BaseAsteroidDestructible ]
   id: IronRock
+  # Aquila Change end
 
 - type: entity
+  # Aquila Change start
   parent: [ BaseVeinRandom, IronRock ]
   id: IronRockMining
+  # Aquila Change end
 
 - type: entity
-  parent: [ BaseVeinCoal, IronRock ]
+  parent: [ BaseVeinCoal, IronRock ] # Aquila Change
   id: IronRockCoal
 
 - type: entity
-  parent: [ BaseVeinGold, IronRock ]
+  parent: [ BaseVeinGold, IronRock ] # Aquila Change
   id: IronRockGold
 
 - type: entity
+  # Aquila Change start
   parent: [ BaseVeinPlasma, IronRock ]
   id: IronRockPlasma
+  # Aquila Change end
 
 - type: entity
-  parent: [ BaseVeinQuartz, IronRock ]
+  parent: [ BaseVeinQuartz, IronRock ] # Aquila Change
   id: IronRockQuartz
 
 - type: entity
-  parent: [ BaseVeinSilver, IronRock ]
+  parent: [ BaseVeinSilver, IronRock ] # Aquila Change
   id: IronRockSilver
 
 - type: entity
-  parent: [ BaseVeinSteel, IronRock ]
+  parent: [ BaseVeinSteel, IronRock ] # Aquila Change
   id: IronRockIron
 
 - type: entity
-  parent: [ BaseVeinUranium, IronRock ]
+  parent: [ BaseVeinUranium, IronRock ] # Aquila Change
   id: IronRockUranium
 
 - type: entity
-  parent: [ BaseVeinSalt, IronRock ]
+  parent: [ BaseVeinSalt, IronRock ] # Aquila Change
   id: IronRockSalt
 
 - type: entity
-  parent: [ BaseVeinArtifactFragment, IronRock ]
+  parent: [ BaseVeinArtifactFragment, IronRock ] # Aquila Change
   id: IronRockArtifactFragment
 
 - type: entity
-  parent: [ BaseRockGibtonite, BaseIronRockVisuals, IronRock ]
+  parent: [ BaseRockGibtonite, BaseIronRockVisuals, IronRock ] # Aquila Change
   id: IronRockGibtonite
 
 - type: entity
-  parent: [ BaseVeinDiamond, IronRock ]
+  parent: [ BaseVeinDiamond, IronRock ] # Aquila Change
   id: IronRockDiamond
 
+# Aquila Change start
 - type: entity
   parent: [ BaseVeinBananium, IronRock ]
   id: IronRockBananium
+# Aquila Change end
 
 #endregion
 #region Wall Rock
 
 # Rocks and ore veins
 - type: entity
-  parent: [ BaseWall, StructureHealthWallWeak ]
+  parent: [ BaseWall, StructureHealthWallWeak ] # Aquila Change
   id: WallRock
   name: rock
   suffix: planetmap
   components:
+  # Aquila Change start
   - type: Transform
     noRot: true
   - type: SoundOnGather
@@ -536,7 +568,6 @@
           path: /Audio/Effects/break_stone.ogg
   - type: IconSmooth
     key: stone
-    index: 0
     base: stone
   - type: Icon
     sprite: Structures/Walls/stone-dirt.rsi
@@ -544,10 +575,11 @@
   - type: MiningScannerViewable
   - type: Sprite
     sprite: Structures/Walls/stone-dirt.rsi
+  # Aquila Change end
 
 # Ore veins
 - type: entity
-  parent: [ BaseVeinCoal, WallRock ]
+  parent: [ BaseVeinCoal, WallRock ] # Aquila Change
   id: WallRockCoal
   components:
   - type: EntityRemap
@@ -558,7 +590,7 @@
       WallRockSnow: WallRockSnowCoal
 
 - type: entity
-  parent: [ BaseVeinGold, WallRock ]
+  parent: [ BaseVeinGold, WallRock ] # Aquila Change
   id: WallRockGold
   components:
   - type: EntityRemap
@@ -569,18 +601,20 @@
       WallRockSnow: WallRockSnowGold
 
 - type: entity
-  parent: [ BaseVeinDiamond, WallRock ]
+  parent: [ BaseVeinDiamond, WallRock ] # Aquila Change
   id: WallRockDiamond
   components:
+  # Aquila Change start
   - type: EntityRemap
     mask:
       AsteroidRock: AsteroidRockDiamond
       WallRockChromite: WallRockChromiteDiamond
       WallRockSand: WallRockSandDiamond
       WallRockSnow: WallRockSnowDiamond
+  # Aquila Change end
 
 - type: entity
-  parent: [ BaseVeinPlasma, WallRock ]
+  parent: [ BaseVeinPlasma, WallRock ] # Aquila Change
   id: WallRockPlasma
   components:
   - type: EntityRemap
@@ -591,7 +625,7 @@
       WallRockSnow: WallRockSnowPlasma
 
 - type: entity
-  parent: [ BaseVeinQuartz, WallRock ]
+  parent: [ BaseVeinQuartz, WallRock ] # Aquila Change
   id: WallRockQuartz
   components:
   - type: EntityRemap
@@ -602,7 +636,7 @@
       WallRockSnow: WallRockSnowQuartz
 
 - type: entity
-  parent: [ BaseVeinSilver, WallRock ]
+  parent: [ BaseVeinSilver, WallRock ] # Aquila Change
   id: WallRockSilver
   components:
   - type: EntityRemap
@@ -613,18 +647,20 @@
       WallRockSnow: WallRockSnowSilver
 
 - type: entity
-  parent: [ BaseVeinSteel, WallRock ]
+  parent: [ BaseVeinSteel, WallRock ] # Aquila Change
   id: WallRockTin
   components:
+  # Aquila Change start
   - type: EntityRemap
     mask:
       AsteroidRock: AsteroidRockTin
       WallRockChromite: WallRockChromiteTin
       WallRockSand: WallRockSandTin
       WallRockSnow: WallRockSnowTin
+  # Aquila Change end
 
 - type: entity
-  parent: [ BaseVeinUranium, WallRock ]
+  parent: [ BaseVeinUranium, WallRock ] # Aquila Change
   id: WallRockUranium
   components:
   - type: EntityRemap
@@ -635,7 +671,7 @@
       WallRockSnow: WallRockSnowUranium
 
 - type: entity
-  parent: [ BaseVeinArtifactFragment, WallRock ]
+  parent: [ BaseVeinArtifactFragment, WallRock ] # Aquila Change
   id: WallRockArtifactFragment
   components:
   - type: EntityRemap
@@ -646,7 +682,7 @@
       WallRockSnow: WallRockSnowArtifactFragment
 
 - type: entity
-  parent: [ BaseVeinSalt, WallRock ]
+  parent: [ BaseVeinSalt, WallRock ] # Aquila Change
   id: WallRockSalt
   components:
   - type: EntityRemap
@@ -656,6 +692,7 @@
       WallRockSand: WallRockSandSalt
       WallRockSnow: WallRockSnowSalt
 
+# Aquila Change start
 - type: entity
   parent: [ BaseVeinBananium, WallRock ]
   id: WallRockBananium
@@ -666,122 +703,131 @@
       WallRockChromite: WallRockChromiteBananium
       WallRockSand: WallRockSandBananium
       WallRockSnow: WallRockSnowBananium
+# Aquila Change end
 
 #endregion
 #region Wall Rock (Snow)
 
 - type: entity
-  parent: WallRock
+  parent: WallRock # Aquila Change
   id: WallRockSnow
   name: snowdrift
   components:
   - type: Icon
+    # Aquila Change start
     sprite: Structures/Walls/stone-snow.rsi
     state: full
+    # Aquila Change end
   - type: Sprite
-    sprite: Structures/Walls/stone-snow.rsi
+    sprite: Structures/Walls/stone-snow.rsi # Aquila Change
 
 - type: entity
-  parent: [ BaseVeinCoal, WallRockSnow ]
+  parent: [ BaseVeinCoal, WallRockSnow ] # Aquila Change
   id: WallRockSnowCoal
 
 - type: entity
-  parent: [ BaseVeinGold, WallRockSnow ]
+  parent: [ BaseVeinGold, WallRockSnow ] # Aquila Change
   id: WallRockSnowGold
 
 - type: entity
-  parent: [ BaseVeinDiamond, WallRockSnow ]
+  parent: [ BaseVeinDiamond, WallRockSnow ] # Aquila Change
   id: WallRockSnowDiamond
 
 - type: entity
-  parent: [ BaseVeinPlasma, WallRockSnow ]
+  parent: [ BaseVeinPlasma, WallRockSnow ] # Aquila Change
   id: WallRockSnowPlasma
 
 - type: entity
-  parent: [ BaseVeinQuartz, WallRockSnow ]
+  parent: [ BaseVeinQuartz, WallRockSnow ] # Aquila Change
   id: WallRockSnowQuartz
 
 - type: entity
-  parent: [ BaseVeinSilver, WallRockSnow ]
+  parent: [ BaseVeinSilver, WallRockSnow ] # Aquila Change
   id: WallRockSnowSilver
 
 - type: entity
-  parent: [ BaseVeinSteel, WallRockSnow ]
+  parent: [ BaseVeinSteel, WallRockSnow ] # Aquila Change
   id: WallRockSnowTin
 
 - type: entity
-  parent: [ BaseVeinUranium, WallRockSnow ]
+  parent: [ BaseVeinUranium, WallRockSnow ] # Aquila Change
   id: WallRockSnowUranium
 
 - type: entity
-  parent: [ BaseVeinArtifactFragment, WallRockSnow ]
+  parent: [ BaseVeinArtifactFragment, WallRockSnow ] # Aquila Change
   id: WallRockSnowArtifactFragment
 
 - type: entity
-  parent: [ BaseVeinSalt, WallRockSnow ]
+  parent: [ BaseVeinSalt, WallRockSnow ] # Aquila Change
   id: WallRockSnowSalt
 
+# Aquila Change start
 - type: entity
   parent: [ BaseVeinBananium, WallRockSnow ]
   id: WallRockSnowBananium
+# Aquila Change end
 
 #endregion
 #region Wall Rock (Sand)
 
 - type: entity
-  parent: WallRock
+  parent: WallRock # Aquila Change
   id: WallRockSand
   name: sandstone
   components:
   - type: Icon
+    # Aquila Change start
     sprite: Structures/Walls/stone-sand.rsi
     state: full
+    # Aquila Change end
   - type: Sprite
-    sprite: Structures/Walls/stone-sand.rsi
+    sprite: Structures/Walls/stone-sand.rsi # Aquila Change
 
 - type: entity
-  parent: [ BaseVeinCoal, WallRockSand ]
+  parent: [ BaseVeinCoal, WallRockSand ] # Aquila Change
   id: WallRockSandCoal
 
 - type: entity
-  parent: [ BaseVeinGold, WallRockSand ]
+  parent: [ BaseVeinGold, WallRockSand ] # Aquila Change
   id: WallRockSandGold
 
 - type: entity
-  parent: [ BaseVeinDiamond, WallRockSand ]
+  parent: [ BaseVeinDiamond, WallRockSand ] # Aquila Change
   id: WallRockSandDiamond
 
 - type: entity
-  parent: [ BaseVeinPlasma, WallRockSand ]
+  parent: [ BaseVeinPlasma, WallRockSand ] # Aquila Change
   id: WallRockSandPlasma
 
 - type: entity
-  parent: [ BaseVeinQuartz, WallRockSand ]
+  parent: [ BaseVeinQuartz, WallRockSand ] # Aquila Change
   id: WallRockSandQuartz
 
 - type: entity
-  parent: [ BaseVeinSilver, WallRockSand ]
+  parent: [ BaseVeinSilver, WallRockSand ] # Aquila Change
   id: WallRockSandSilver
 
 - type: entity
-  parent: [ BaseVeinSteel, WallRockSand ]
+  parent: [ BaseVeinSteel, WallRockSand ] # Aquila Change
   id: WallRockSandTin
 
 - type: entity
-  parent: [ BaseVeinUranium, WallRockSand ]
+  parent: [ BaseVeinUranium, WallRockSand ] # Aquila Change
   id: WallRockSandUranium
 
 - type: entity
-  parent: [ BaseVeinArtifactFragment, WallRockSand ]
+  parent: [ BaseVeinArtifactFragment, WallRockSand ] # Aquila Change
   id: WallRockSandArtifactFragment
 
 - type: entity
-  parent: [ BaseVeinSalt, WallRockSand ]
+  parent: [ BaseVeinSalt, WallRockSand ] # Aquila Change
   id: WallRockSandSalt
 
+# Aquila Change start
 - type: entity
   parent: [ BaseVeinBananium, WallRockSand ]
   id: WallRockSandBananium
+# Aquila Change end
 
 #endregion
 #region Wall Rock (Chromite)
@@ -792,53 +838,57 @@
   parent: WallRock
   components:
   - type: Icon
+    # Aquila Change start
     sprite: Structures/Walls/stone-chromite.rsi
     state: full
+    # Aquila Change end
   - type: Sprite
-    sprite: Structures/Walls/stone-chromite.rsi
+    sprite: Structures/Walls/stone-chromite.rsi # Aquila Change
 
 - type: entity
-  parent: [ BaseVeinCoal, WallRockChromite ]
+  parent: [ BaseVeinCoal, WallRockChromite ] # Aquila Change
   id: WallRockChromiteCoal
 
 - type: entity
-  parent: [ BaseVeinGold, WallRockChromite ]
+  parent: [ BaseVeinGold, WallRockChromite ] # Aquila Change
   id: WallRockChromiteGold
 
 - type: entity
-  parent: [ BaseVeinDiamond, WallRockChromite ]
+  parent: [ BaseVeinDiamond, WallRockChromite ] # Aquila Change
   id: WallRockChromiteDiamond
 
 - type: entity
-  parent: [ BaseVeinPlasma, WallRockChromite ]
+  parent: [ BaseVeinPlasma, WallRockChromite ] # Aquila Change
   id: WallRockChromitePlasma
 
 - type: entity
-  parent: [ BaseVeinQuartz, WallRockChromite ]
+  parent: [ BaseVeinQuartz, WallRockChromite ] # Aquila Change
   id: WallRockChromiteQuartz
 
 - type: entity
-  parent: [ BaseVeinSilver, WallRockChromite ]
+  parent: [ BaseVeinSilver, WallRockChromite ] # Aquila Change
   id: WallRockChromiteSilver
 
 - type: entity
-  parent: [ BaseVeinSteel, WallRockChromite ]
+  parent: [ BaseVeinSteel, WallRockChromite ] # Aquila Change
   id: WallRockChromiteTin
 
 - type: entity
-  parent: [ BaseVeinUranium, WallRockChromite ]
+  parent: [ BaseVeinUranium, WallRockChromite ] # Aquila Change
   id: WallRockChromiteUranium
 
 - type: entity
-  parent: [ BaseVeinArtifactFragment, WallRockChromite ]
+  parent: [ BaseVeinArtifactFragment, WallRockChromite ] # Aquila Change
   id: WallRockChromiteArtifactFragment
 
 - type: entity
-  parent: [ BaseVeinSalt, WallRockChromite ]
+  parent: [ BaseVeinSalt, WallRockChromite ] # Aquila Change
   id: WallRockChromiteSalt
 
+# Aquila Change start
 - type: entity
   parent: [ BaseVeinBananium, WallRockChromite ]
   id: WallRockChromiteBananium
+# Aquila Change end
 
 #endregion

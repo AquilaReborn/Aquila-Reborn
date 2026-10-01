@@ -8,10 +8,10 @@
   requirements:
   - !type:DepartmentTimeRequirement
     department: Medical
-    time: 3600  #1 hour
+    time: 3600  #1 hour # Aquila Change
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 3600  #1 hour
+    time: 3600  #1 hour # Aquila Change
   - !type:SpeciesRequirement # CorvaxGoob-Species
     inverted: true
     species:

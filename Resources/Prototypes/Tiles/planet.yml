@@ -118,12 +118,14 @@
   id: FloorIce
   name: tiles-ice
   sprite: /Textures/Tiles/Planet/Snow/ice.png
+  # Aquila Change start
   variants: 4
   placementVariants:
   - 0.8
   - 0.0166
   - 0.0166
   - 0.0166
+  # Aquila Change end
   isSubfloor: true
   friction: 0.05
   heatCapacity: 10000

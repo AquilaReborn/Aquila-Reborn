@@ -199,3 +199,13 @@
     sprite: Structures/Wallmounts/barsign.rsi
     state: whiskeyechoes
   description: barsign-prototype-description-whiskeyechoes
+
+# Aquila Change start
+- type: barSign
+  id: EmpBarSign
+  icon:
+    sprite: Structures/Wallmounts/barsign.rsi
+    state: empbarsign
+  description: barsign-prototype-description-empbarsign
+  hidden: true
+# Aquila Change end

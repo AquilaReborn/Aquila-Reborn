@@ -1,9 +1,9 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity # Making a base item with allow for creating more variants easier. Probably.
-  parent: [BaseItem, BaseChaplainContraband]
+  parent: [BaseItem, BaseChaplainContraband] # Aquila Change
   id: BaseNullrod
-  suffix: Chaplain
+  suffix: Chaplain # Aquila Change
   abstract: true
   components:
   - type: DivineIntervention

@@ -23,46 +23,46 @@
 # Ore veins
 - type: entity
   id: MeteorRockCoal
-  parent: [ BaseVeinCoal, MeteorRock ]
+  parent: [ BaseVeinCoal, MeteorRock ] # Aquila Change
   suffix: Coal
 
 - type: entity
   id: MeteorRockGold
-  parent: [ BaseVeinGold, MeteorRock ]
+  parent: [ BaseVeinGold, MeteorRock ] # Aquila Change
   suffix: Gold
 
 - type: entity
   id: MeteorRockDiamond
-  parent: [ BaseVeinDiamond, MeteorRock ]
+  parent: [ BaseVeinDiamond, MeteorRock ] # Aquila Change
   suffix: Diamond
 
 - type: entity
   id: MeteorRockPlasma
-  parent: [ BaseVeinPlasma, MeteorRock ]
+  parent: [ BaseVeinPlasma, MeteorRock ] # Aquila Change
   suffix: Plasma
 
 - type: entity
   id: MeteorRockQuartz
-  parent: [ BaseVeinQuartz, MeteorRock ]
+  parent: [ BaseVeinQuartz, MeteorRock ] # Aquila Change
   suffix: Quartz
 
 - type: entity
   id: MeteorRockSilver
-  parent: [ BaseVeinSilver, MeteorRock ]
+  parent: [ BaseVeinSilver, MeteorRock ] # Aquila Change
   suffix: Silver
 
 # Tin name is a holdover from the asteroid.yml prototype.
 - type: entity
   id: MeteorRockTin
-  parent: [ BaseVeinSteel, MeteorRock ]
+  parent: [ BaseVeinSteel, MeteorRock ] # Aquila Change
   suffix: Iron
 
 - type: entity
   id: MeteorRockUranium
-  parent: [ BaseVeinUranium, MeteorRock ]
+  parent: [ BaseVeinUranium, MeteorRock ] # Aquila Change
   suffix: Uranium
 
 - type: entity
   id: MeteorRockBananium
-  parent: [ BaseVeinBananium, MeteorRock ]
+  parent: [ BaseVeinBananium, MeteorRock ] # Aquila Change
   suffix: Bananium

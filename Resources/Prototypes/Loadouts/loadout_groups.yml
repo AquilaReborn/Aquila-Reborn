@@ -682,7 +682,7 @@
   - ClownSkirt
   - JesterSuit
   - JesterAltSuit
-  - ClownBarotraumaSuit # Aquila
+  - ClownBarotraumaSuit # Aquila # Aquila Change
 
 - type: loadoutGroup
   id: ClownBackpack
@@ -707,7 +707,7 @@
   loadouts:
   - ClownShoes
   - JesterShoes
-  - ClownBarotraumaShoes # Aquila
+  - ClownBarotraumaShoes # Aquila # Aquila Change
 
 - type: loadoutGroup
   id: SurvivalClown

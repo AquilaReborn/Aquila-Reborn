@@ -21,7 +21,7 @@
         settings: default
       requirements: # Goobstation - ghost roles requirements
       - !type:OverallPlaytimeRequirement
-        time: 1h
+        time: 1h # Aquila Change
     - type: GhostTakeoverAvailable
     - type: Input
       context: "human"

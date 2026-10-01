@@ -8,16 +8,16 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobWarden
-      time: 1h
+      time: 1h # Aquila Change
     - !type:RoleTimeRequirement
       role: JobDetective
-      time: 1h
+      time: 1h # Aquila Change
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
-      time: 1h
+      time: 1h # Aquila Change
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 1h
+      time: 1h # Aquila Change
     - !type:SpeciesRequirement # Goob - None Felinid
       inverted: true
       species:

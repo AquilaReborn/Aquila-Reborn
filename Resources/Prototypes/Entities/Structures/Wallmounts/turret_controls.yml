@@ -1,13 +1,15 @@
 - type: entity
-  parent: StructureHealthMachine
+  parent: StructureHealthMachine # Aquila Change
   id: WeaponEnergyTurretControlPanelFrame
   name: sentry turret control panel assembly
   description: An incomplete wall-mounted assembly for a sentry turret control panel.
   categories: [ HideSpawnMenu ]
+  # Aquila Change start
   placement:
     mode: SnapgridCenter
     snap:
     - Wallmount
+  # Aquila Change end
   components:
   - type: Sprite
     noRot: false
@@ -16,12 +18,12 @@
     layers:
     - state: base
   - type: Damageable
-    damageModifierSet: SteelMod
+    damageModifierSet: SteelMod # Aquila Change
   - type: Destructible
     thresholds:
-    - trigger: &DamageMachineNormal
+    - trigger: &DamageMachineNormal # Aquila Change
         !type:DamageTrigger
-        damage: 175
+        damage: 175 # Aquila Change
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -77,6 +79,7 @@
           -1: { state: safe }
           0: { state: stun }
           1: { state: lethal }
+  # Aquila Change start
   - type: Damageable
     damageModifierSet: GlassReinforcedMod
   - type: Destructible
@@ -93,6 +96,7 @@
         - board
       - !type:ChangeConstructionNodeBehavior
         node: frame
+  # Aquila Change end
   - type: StationAiWhitelist
   - type: DeployableTurretController
     accessGroups:

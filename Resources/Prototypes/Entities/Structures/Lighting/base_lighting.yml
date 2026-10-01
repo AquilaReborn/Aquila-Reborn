@@ -5,6 +5,7 @@
 #Blue/Sodium/etc. - the color of the light
 
 #Basic lights
+# Aquila Change start
 - type: entity
   abstract: true
   id: BaseWallLight
@@ -35,7 +36,9 @@
     energy: 0.8
     radius: 10
     softness: 1
+# Aquila Change end
 #    offset: "0, 0.25"
+  # Aquila Change start
   - type: RCDDeconstructable
     cost: 4
     delay: 2
@@ -75,16 +78,19 @@
       - !type:PlaySoundBehavior
         sound:
           collection: GlassBreak
+  # Aquila Change end
 
 - type: entity
   id: AlwaysPoweredWallLight
   name: light
   description: "An always powered light."
   suffix: Always powered
+  # Aquila Change start
   placement:
     mode: SnapgridCenter
     snap:
     - Wallmount
+  # Aquila Change end
   components:
   - type: MeleeSound
     soundGroups:
@@ -98,7 +104,7 @@
     graph: LightFixture
     node: tubeLight
   - type: Sprite
-    sprite: Structures/Wallmounts/Lighting/light-tube.rsi
+    sprite: Structures/Wallmounts/Lighting/light-tube.rsi # Aquila Change
     drawdepth: WallMountedItems
     offset: 0, 1 # Aquila Change
     layers:
@@ -176,8 +182,10 @@
   parent: AlwaysPoweredWallLight
   components:
   - type: Sprite
+    # Aquila Change start
     sprite: Structures/Wallmounts/Lighting/light-tube.rsi
     offset: 0, 1
+    # Aquila Change end
     state: empty
   - type: PointLight
     enabled: false
@@ -332,7 +340,7 @@
   description: "An always powered light."
   id: SmallLight
   suffix: Always Powered
-  parent: [ BaseWallLight, BaseLightHousingDestructible ]
+  parent: [ BaseWallLight, BaseLightHousingDestructible ] # Aquila Change
   components:
     - type: AmbientSound
       volume: -15
@@ -340,7 +348,7 @@
       sound:
         path: /Audio/Ambience/Objects/light_hum.ogg
     - type: Sprite
-      sprite: Structures/Wallmounts/Lighting/light-small.rsi
+      sprite: Structures/Wallmounts/Lighting/light-small.rsi # Aquila Change
       state: base
     - type: PointLight
       energy: 1.0
@@ -394,7 +402,7 @@
   parent: SmallLight
   components:
   - type: Sprite
-    sprite: Structures/Wallmounts/Lighting/light-small.rsi
+    sprite: Structures/Wallmounts/Lighting/light-small.rsi # Aquila Change
     state: empty
   - type: AmbientSound
     enabled: false
@@ -429,7 +437,7 @@
   - type: DamageOnInteract
     damage:
       types:
-        Heat: 1
+        Heat: 1 # Aquila Change
     popupText: powered-light-component-burn-hand
 
 - type: entity
@@ -499,16 +507,18 @@
   description: A small light with an internal battery that turns on as soon as it stops receiving any power. Nanotrasen technology allows it to adapt its color to alert crew to the conditions of the station.
   parent: AlwaysPoweredWallLight
   suffix: ""
+  # Aquila Change start
   placement:
     mode: SnapgridCenter
     snap:
     - Wallmount
+  # Aquila Change end
   components:
   - type: PointLight
     enabled: false
     radius: 5
     energy: 0.6
-    offset: "0, 0.25"
+    offset: "0, 0.25" # Aquila Change
     color: "#7CFC00"
     mask: /Textures/Effects/LightMasks/double_cone.png
   - type: ApcPowerReceiver
@@ -525,8 +535,10 @@
   - type: RotatingLight
     speed: 40
   - type: Sprite
+    # Aquila Change start
     sprite: Structures/Wallmounts/Lighting/emergency-light.rsi
     offset: 0, 1
+    # Aquila Change end
     layers:
     - state: base
       map: [ "enum.EmergencyLightVisualLayers.Base" ]
@@ -574,9 +586,9 @@
 #Coloured lights
 
 - type: entity
-  abstract: true
+  abstract: true # Aquila Change
   parent: Poweredlight
-  id: PoweredlightColor
+  id: PoweredlightColor # Aquila Change
   components:
   - type: PointLight
     radius: 8
@@ -589,15 +601,16 @@
     popupText: powered-light-component-burn-hand
 
 - type: entity
-  abstract: true
+  abstract: true # Aquila Change
   parent: AlwaysPoweredWallLight
-  id: AlwaysPoweredlightColor
+  id: AlwaysPoweredlightColor # Aquila Change
   components:
   - type: PointLight
     radius: 8
     energy: 3
     softness: 0.5
 
+# Aquila Change start
 - type: entity
   id: PoweredlightCyan
   suffix: Cyan
@@ -614,12 +627,13 @@
   parent: AlwaysPoweredlightColor
   components:
   - type: PointLight
+# Aquila Change end
     color: "#47f8ff"
 
 - type: entity
   id: PoweredlightBlue
   suffix: Blue
-  parent: PoweredlightColor
+  parent: PoweredlightColor # Aquila Change
   components:
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalBlue
@@ -629,7 +643,7 @@
 - type: entity
   id: AlwaysPoweredlightBlue
   suffix: Always Powered, Blue
-  parent: AlwaysPoweredlightColor
+  parent: AlwaysPoweredlightColor # Aquila Change
   components:
   - type: PointLight
     color: "#39a1ff"
@@ -637,7 +651,7 @@
 - type: entity
   id: PoweredlightYellow
   suffix: Yellow
-  parent: PoweredlightColor
+  parent: PoweredlightColor # Aquila Change
   components:
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalYellow
@@ -647,7 +661,7 @@
 - type: entity
   id: AlwaysPoweredlightYellow
   suffix: Always Powered, Yellow
-  parent: AlwaysPoweredlightColor
+  parent: AlwaysPoweredlightColor # Aquila Change
   components:
   - type: PointLight
     color: "#ffde46"
@@ -655,7 +669,7 @@
 - type: entity
   id: PoweredlightPink
   suffix: Pink
-  parent: PoweredlightColor
+  parent: PoweredlightColor # Aquila Change
   components:
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalPink
@@ -665,7 +679,7 @@
 - type: entity
   id: AlwaysPoweredlightPink
   suffix: Always Powered, Pink
-  parent: AlwaysPoweredlightColor
+  parent: AlwaysPoweredlightColor # Aquila Change
   components:
   - type: PointLight
     color: "#ff66cc"
@@ -673,7 +687,7 @@
 - type: entity
   id: PoweredlightOrange
   suffix: Orange
-  parent: PoweredlightColor
+  parent: PoweredlightColor # Aquila Change
   components:
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalOrange
@@ -683,7 +697,7 @@
 - type: entity
   id: AlwaysPoweredlightOrange
   suffix: Always Powered, Orange
-  parent: AlwaysPoweredlightColor
+  parent: AlwaysPoweredlightColor # Aquila Change
   components:
   - type: PointLight
     color: "#ff8227"
@@ -691,7 +705,7 @@
 - type: entity
   id: PoweredlightBlack
   suffix: Black
-  parent: PoweredlightColor
+  parent: PoweredlightColor # Aquila Change
   description:
   components:
   - type: PoweredLight
@@ -702,7 +716,7 @@
 - type: entity
   id: AlwaysPoweredlightBlack
   suffix: Always Powered, Black
-  parent: AlwaysPoweredlightColor
+  parent: AlwaysPoweredlightColor # Aquila Change
   components:
   - type: PointLight
     color: "#363636"
@@ -710,7 +724,7 @@
 - type: entity
   id: PoweredlightRed
   suffix: Red
-  parent: PoweredlightColor
+  parent: PoweredlightColor # Aquila Change
   components:
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalRed
@@ -720,7 +734,7 @@
 - type: entity
   id: AlwaysPoweredlightRed
   suffix: Always Powered, Red
-  parent: AlwaysPoweredlightColor
+  parent: AlwaysPoweredlightColor # Aquila Change
   components:
   - type: PointLight
     color: "#fb4747"
@@ -728,7 +742,7 @@
 - type: entity
   id: PoweredlightGreen
   suffix: Green
-  parent: PoweredlightColor
+  parent: PoweredlightColor # Aquila Change
   components:
   - type: PoweredLight
     hasLampOnSpawn: LightTubeCrystalGreen
@@ -738,7 +752,7 @@
 - type: entity
   id: AlwaysPoweredlightGreen
   suffix: Always Powered, Green
-  parent: AlwaysPoweredlightColor
+  parent: AlwaysPoweredlightColor # Aquila Change
   components:
   - type: PointLight
     color: "#52ff39"

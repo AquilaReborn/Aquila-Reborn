@@ -73,4 +73,4 @@
   components:
     - type: ContainerSpawnPoint
       containerId: storage
-      spawnType: LateJoin
+      spawnType: LateJoin # Aquila Change

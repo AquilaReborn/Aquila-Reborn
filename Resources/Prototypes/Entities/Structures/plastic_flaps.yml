@@ -1,7 +1,9 @@
 - type: entity
   abstract: true
+  # Aquila Change start
   parent: [ BaseStructureDynamic, StructureHealthBarrier ]
   id: PlasticFlapsBase
+  # Aquila Change end
   placement:
     mode: SnapgridCenter
   components:
@@ -10,7 +12,7 @@
     - Anchorable
   - type: Rotatable
   - type: Sprite
-    sprite: Structures/Specific/plastic-flaps.rsi
+    sprite: Structures/Specific/plastic-flaps.rsi # Aquila Change
     state: plasticflaps
     drawdepth: Mobs
   - type: Physics
@@ -29,25 +31,29 @@
         layer:
         - MidImpassable
   - type: Damageable
-    damageModifierSet: PlasticMod
+    damageModifierSet: PlasticMod # Aquila Change
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 80
+        damage: 80 # Aquila Change
       behaviors:
+      # Aquila Change start
       - !type:SpawnEntitiesBehavior
         spawn:
           SheetPlastic1:
             min: 1
             max: 3
+      # Aquila Change end
   - type: StaticPrice
     price: 100
+  # Aquila Change start
   - type: IconSmooth
     key: walls
     mode: NoSprite
   - type: PlacementReplacement
     key: walls
+  # Aquila Change end
 
 - type: entity
   id: PlasticFlapsClear
@@ -104,4 +110,4 @@
   components:
   - type: Airtight
   - type: StaticPrice
-    price: 100
+    price: 100 # Aquila Change

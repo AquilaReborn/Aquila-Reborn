@@ -45,8 +45,10 @@
         layer:
         - WallLayer
         density: 4000
+  # Aquila Change start
   - type: PlacementReplacement
     key: walls
+  # Aquila Change end
 
 - type: entity
   id: PlastitaniumWindowSquareBase
@@ -56,12 +58,12 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/window-plastitanium.rsi
+    sprite: Structures/Windows/window-plastitanium.rsi # Aquila Change
   - type: Icon
-    sprite: Structures/Windows/window-plastitanium.rsi
+    sprite: Structures/Windows/window-plastitanium.rsi # Aquila Change
     state: full
   - type: IconSmooth
-    key: walls
+    key: walls # Aquila Change
     base: ptwindow
   - type: Airtight
   - type: Fixtures
@@ -84,7 +86,7 @@
     messages: null
 
 - type: entity
-  parent: [ PlastitaniumWindowSquareBase, StructureHealthBarrierStrong ]
+  parent: [ PlastitaniumWindowSquareBase, StructureHealthBarrierStrong ] # Aquila Change
   id: PlastitaniumWindow
   name: plastitanium window
   components:
@@ -92,7 +94,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 120
+        damage: 120 # Aquila Change
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -105,8 +107,10 @@
           PartRodMetal:
             min: 1
             max: 2
+      # Aquila Change start
       - !type:DoActsBehavior # AQUILA FIXES
         acts: [ "Destruction" ]
+      # Aquila Change end
   - type: DamageVisuals
     thresholds: [5, 10, 20]
     damageDivisor: 20
@@ -117,7 +121,7 @@
     fuelCost: 15
     doAfterDelay: 3
   - type: Damageable
-    damageModifierSet: PlastitaniumMod
+    damageModifierSet: PlastitaniumMod # Aquila Change
 
 - type: entity
   id: PlastitaniumWindowDiagonalBase
@@ -128,18 +132,18 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/window-diagonal-plastitanium.rsi
+    sprite: Structures/Windows/window-diagonal-plastitanium.rsi # Aquila Change
     state: state0
   - type: Tag
     tags:
     - Diagonal
     - Window
   - type: Icon
-    sprite: Structures/Windows/window-diagonal-plastitanium.rsi
+    sprite: Structures/Windows/window-diagonal-plastitanium.rsi # Aquila Change
     state: state0
   - type: IconSmooth
     mode: Diagonal
-    key: walls
+    key: walls # Aquila Change
     base: state
   - type: Fixtures
     fixtures:
@@ -173,14 +177,14 @@
 - type: entity
   id: PlastitaniumWindowDiagonal
   name: plastitanium window
-  parent: [ PlastitaniumWindowDiagonalBase, StructureHealthBarrierStrong ]
+  parent: [ PlastitaniumWindowDiagonalBase, StructureHealthBarrierStrong ] # Aquila Change
   suffix: diagonal
   components:
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 120
+        damage: 120 # Aquila Change
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -193,16 +197,18 @@
           PartRodMetal:
             min: 1
             max: 2
+      # Aquila Change start
       - !type:DoActsBehavior # AQUILA FIXES
         acts: [ "Destruction" ]
+      # Aquila Change end
   - type: DamageVisuals
     thresholds: [5, 10, 20]
     damageDivisor: 20
     trackAllDamage: true
     damageOverlay:
-      sprite: Structures/Windows/cracks-diagonal.rsi
+      sprite: Structures/Windows/cracks-diagonal.rsi # Aquila Change
   - type: Repairable
     fuelCost: 15
     doAfterDelay: 3
   - type: Damageable
-    damageModifierSet: PlastitaniumMod
+    damageModifierSet: PlastitaniumMod # Aquila Change

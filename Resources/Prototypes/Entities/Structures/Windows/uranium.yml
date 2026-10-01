@@ -1,20 +1,20 @@
 - type: entity
-  parent: [BaseDeltaPressurePlasma, BaseWindowStructure, BaseRCDResistant, StructureHealthBarrier]
+  parent: [BaseDeltaPressurePlasma, BaseWindowStructure, BaseRCDResistant, StructureHealthBarrier] # Aquila Change
   id: UraniumWindow
   name: uranium window
   components:
   - type: Sprite
-    sprite: Structures/Windows/window-uranium.rsi
+    sprite: Structures/Windows/window-uranium.rsi # Aquila Change
   - type: Icon
-    sprite: Structures/Windows/window-uranium.rsi
+    sprite: Structures/Windows/window-uranium.rsi # Aquila Change
     state: full
   - type: Damageable
-    damageModifierSet: GlassMod
+    damageModifierSet: GlassMod # Aquila Change
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 80
+        damage: 80 # Aquila Change
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -24,8 +24,10 @@
           ShardGlassUranium:
             min: 1
             max: 2
+      # Aquila Change start
       - !type:DoActsBehavior # AQUILA FIXES
         acts: [ "Destruction" ]
+      # Aquila Change end
   - type: IconSmooth
     base: uwindow
   - type: Construction
@@ -41,10 +43,10 @@
   - type: StaticPrice
     price: 200
   - type: RadiationBlocker
-    resistance: 3
+    resistance: 3 # Aquila Change
 
 - type: entity
-  parent: [BaseDeltaPressurePlasmaQuarter, BaseWindowStructureDirectional, BaseRCDResistant, StructureHealthBarrierWeak]
+  parent: [BaseDeltaPressurePlasmaQuarter, BaseWindowStructureDirectional, BaseRCDResistant, StructureHealthBarrierWeak] # Aquila Change
   id: UraniumWindowDirectional
   name: directional uranium window
   components:
@@ -64,13 +66,15 @@
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks_directional.rsi
+  # Aquila Change start
   - type: Damageable
     damageModifierSet: GlassMod
+  # Aquila Change end
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 30
+        damage: 30 # Aquila Change
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -83,6 +87,7 @@
   - type: StaticPrice
     price: 100
   - type: RadiationBlocker
+    # Aquila Change start
     resistance: 1.5
 
 - type: entity
@@ -115,6 +120,7 @@
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks_directional_corner.rsi
+    # Aquila Change end
 
 - type: entity
   parent: UraniumWindow
@@ -127,7 +133,7 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/window-diagonal-uranium.rsi
+    sprite: Structures/Windows/window-diagonal-uranium.rsi # Aquila Change
     state: state0
   - type: Tag
     tags:
@@ -135,10 +141,10 @@
     - Window
   - type: IconSmooth
     mode: Diagonal
-    key: walls
+    key: walls # Aquila Change
     base: state
   - type: Icon
-    sprite: Structures/Windows/window-diagonal-uranium.rsi
+    sprite: Structures/Windows/window-diagonal-uranium.rsi # Aquila Change
     state: state0
   - type: Fixtures
     fixtures:
@@ -160,7 +166,7 @@
     - East
   - type: DamageVisuals
     damageOverlay:
-      sprite: Structures/Windows/cracks-diagonal.rsi
+      sprite: Structures/Windows/cracks-diagonal.rsi # Aquila Change
   - type: Construction
     graph: WindowDiagonal
     node: uraniumWindowDiagonal

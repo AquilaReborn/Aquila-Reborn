@@ -1,9 +1,10 @@
 - type: entity
-  parent: [ BaseWallmountCabinet, StructureHealthContainerWeak ]
+  parent: [ BaseWallmountCabinet, StructureHealthContainerWeak ] # Aquila Change
   id: ExtinguisherCabinet
   name: extinguisher cabinet
   description: A small wall mounted cabinet designed to hold a fire extinguisher.
   components:
+  # Aquila Change start
   - type: Sprite
     sprite: Structures/Wallmounts/extinguisher-cabinet.rsi
     offset: 0, -0.25
@@ -33,6 +34,7 @@
           collection: MetalGlassBreak
           params:
             volume: -4
+  # Aquila Change end
 
 - type: entity
   parent: ExtinguisherCabinet

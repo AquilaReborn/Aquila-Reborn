@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseWallmountCabinetGlass, StructureHealthContainerStrong ]
+  parent: [ BaseWallmountCabinetGlass, StructureHealthContainerStrong ] # Aquila Change
   id: FireAxeCabinet
   name: fire axe cabinet
   description: There is a small label that reads "For Emergency use only" along with details for safe use of the axe. As if.
@@ -10,7 +10,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 140
+        damage: 140 # Aquila Change
       behaviors:
       - !type:EmptyAllContainersBehaviour
       - !type:PlaySoundBehavior
@@ -25,9 +25,11 @@
       visible: true
     - state: glass
       map: ["enum.OpenableVisuals.Layer"]
+    # Aquila Change start
     - state: locked
       shader: unshaded
       map: ["enum.LockVisualLayers.Lock"]
+    # Aquila Change end
   - type: ItemSlots
     slots:
       ItemCabinet:

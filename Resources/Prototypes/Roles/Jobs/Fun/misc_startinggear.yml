@@ -12,7 +12,7 @@
     ears: ClothingHeadsetGrey
   storage:
     back:
-    - BoxSurvival
+    - BoxSurvival # Aquila Change
 
 # Syndicate Operative Outfit - Civilian
 - type: startingGear
@@ -41,7 +41,7 @@
   - WeaponPistolViper # Goobstation - no fistfighting
   storage:
     back:
-    - BoxSurvival
+    - BoxSurvival # Aquila Change
 
 # Syndicate Footsoldier Gear
 - type: startingGear
@@ -85,7 +85,7 @@
     gloves: ClothingHandsGlovesCombat
   storage:
     back:
-    - BoxSurvivalSecurity
+    - BoxSurvivalSecurity # Aquila Change
     - Flash
     - MagazinePistol
 

@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Aquila.Settings; // Aquila Change
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Roles;
@@ -10,11 +11,13 @@ public sealed partial class DepartmentPrototype : IPrototype
     [IdDataField]
     public string ID { get; private set; } = string.Empty;
 
+    // Aquila Change start
     /// <summary>
     /// Имя сеттинга к которому принадлежит департамент
     /// </summary>
     [DataField]
-    public LocId Setting = "SS14";
+    public ProtoId<AqSettingPrototype> Setting = "SS14";
+    // Aquila Change end
 
     /// <summary>
     /// The name LocId of the department that will be displayed in the various menus.

@@ -137,4 +137,4 @@
   id: AirlockMaintJournalismLocked
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi # Aquila Change

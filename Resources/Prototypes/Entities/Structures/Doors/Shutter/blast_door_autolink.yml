@@ -5,8 +5,10 @@
   parent: BlastDoor
   suffix: Autolink, Ext1
   components:
+  # Aquila Change start
   - type: AutoLinkReceiver
     channel: Ext1
+  # Aquila Change end
 
 
 - type: entity
@@ -14,16 +16,20 @@
   parent: BlastDoorOpen
   suffix: Open, Autolink, Ext1
   components:
+  # Aquila Change start
   - type: AutoLinkReceiver
     channel: Ext1
+  # Aquila Change end
 
 - type: entity
   id: BlastDoorExterior2
   parent: BlastDoor
   suffix: Autolink, Ext2
   components:
+  # Aquila Change start
   - type: AutoLinkReceiver
     channel: Ext2
+  # Aquila Change end
 
 
 - type: entity
@@ -31,16 +37,20 @@
   parent: BlastDoorOpen
   suffix: Open, Autolink, Ext2
   components:
+  # Aquila Change start
   - type: AutoLinkReceiver
     channel: Ext2
+  # Aquila Change end
 
 - type: entity
   id: BlastDoorExterior3
   parent: BlastDoor
   suffix: Autolink, Ext3
   components:
+  # Aquila Change start
   - type: AutoLinkReceiver
     channel: Ext3
+  # Aquila Change end
 
 
 - type: entity
@@ -48,28 +58,34 @@
   parent: BlastDoorOpen
   suffix: Open, Autolink, Ext3
   components:
+  # Aquila Change start
   - type: AutoLinkReceiver
     channel: Ext3
+  # Aquila Change end
 
 - type: entity
   id: BlastDoorBridge
   parent: BlastDoor
   suffix: Autolink, Bridge
   components:
+  # Aquila Change start
   - type: AccessReader
     access: [["Command"]]
   - type: AutoLinkReceiver
     channel: Bridge
+  # Aquila Change end
 
 - type: entity
   id: BlastDoorBridgeOpen
   parent: BlastDoorOpen
   suffix: Open, Autolink, Bridge
   components:
+  # Aquila Change start
   - type: AccessReader
     access: [["Command"]]
   - type: AutoLinkReceiver
     channel: Bridge
+  # Aquila Change end
 
 - type: entity
   id: BlastDoorEngineering
@@ -116,14 +132,18 @@
   parent: BlastDoor
   suffix: Autolink, Windows
   components:
+  # Aquila Change start
   - type: AutoLinkReceiver
     channel: Windows
+  # Aquila Change end
 
 - type: entity
   id: BlastDoorWindowsOpen
   parent: BlastDoorOpen
   suffix: Open, Autolink, Windows
   components:
+  # Aquila Change start
   - type: AutoLinkReceiver
     channel: Windows
+  # Aquila Change end
 

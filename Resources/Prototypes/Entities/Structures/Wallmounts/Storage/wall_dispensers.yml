@@ -1,7 +1,9 @@
 - type: entity
   abstract: true
+  # Aquila Change start
   parent: [SolutionTank, SolutionGinormous, BaseWallmountMetallic, StructureHealthContainerFlimsy]
   id: BaseDispenser
+  # Aquila Change end
   components:
   - type: Sprite
     sprite: Structures/Wallmounts/walldispenser.rsi
@@ -24,7 +26,7 @@
         solution: tank
     - trigger:
         !type:DamageTrigger
-        damage: 20
+        damage: 20 # Aquila Change
       behaviors:
       - !type:SpillBehavior
         solution: tank
@@ -47,16 +49,18 @@
     layers:
     - state: cleanerdispenser
     - state: fill-1
-      map: ["enum.SolutionContainerLayers.Fill"]
+      map: ["enum.SolutionContainerLayers.Fill"] # Aquila Change
       visible: false
   - type: SolutionContainerVisuals
     maxFillLevels: 5
     fillBaseName: fill-
+  # Aquila Change start
   - type: Solution
     solution:
       reagents:
       - ReagentId: SpaceCleaner
         Quantity: 960
+  # Aquila Change end
 
 - type: entity
   parent: BaseDispenser
@@ -73,11 +77,13 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 5
     fillBaseName: fill-
+  # Aquila Change start
   - type: Solution
     solution:
       reagents:
       - ReagentId: WeldingFuel
         Quantity: 960
+  # Aquila Change end
   - type: ReagentTank
     tankType: Fuel
   - type: DamageOnToolInteract

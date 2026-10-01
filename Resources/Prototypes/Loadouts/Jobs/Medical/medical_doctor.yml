@@ -7,17 +7,17 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobChemist
-      time: 1h
+      time: 1h # Aquila Change
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
       role: JobMedicalDoctor
-      time: 1h
+      time: 1h # Aquila Change
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
       department: Medical
-      time: 1h
+      time: 1h # Aquila Change
 
 # Other Timers
 
@@ -28,7 +28,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobMedicalDoctor
-      time: 1h
+      time: 1h # Aquila Change
 
 # Head
 

@@ -20,4 +20,4 @@
     containers:
       board: [ DoorElectronicsCentralCommand ]
   - type: AccessReader
-    containerAccessProvider: board
+    containerAccessProvider: board # Aquila Change

@@ -1,7 +1,7 @@
 - type: entity
-  abstract: true
+  abstract: true # Aquila Change
   parent: BaseStructure
-  id: BaseShutter
+  id: BaseShutter # Aquila Change
   name: shutter
   description: One shudders to think about what might be behind this shutter.
   placement:
@@ -17,8 +17,10 @@
     layers:
     - state: closed
       map: ["enum.DoorVisualLayers.Base"]
+    # Aquila Change start
     - state: welded
       map: ["enum.WeldableLayers.BaseWelded"]
+    # Aquila Change end
   - type: AnimationPlayer
   - type: Physics
   - type: Fixtures
@@ -48,11 +50,13 @@
     bumpOpen: false
     clickOpen: false
     closeTimeOne: 0.2
+    # Aquila Change start
     closeTimeTwo: 0.8
     openTimeOne: 0.2
     openTimeTwo: 0.8
     openingAnimationTime: 1
     closingAnimationTime: 1
+    # Aquila Change end
     crushDamage:
       types:
         Blunt: 5 # getting shutters closed on you probably doesn't hurt that much
@@ -68,7 +72,7 @@
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
   - type: Airtight
-  - type: RadiationBlocker
+  - type: RadiationBlocker # Aquila Change
     resistance: 2
   - type: DoorSignalControl
   - type: DeviceNetwork
@@ -92,15 +96,17 @@
     interactSuccessSound:
       collection: FenceRattle
   - type: BlockWeather
+  # Aquila Change start
   - type: PlacementReplacement
     key: shutters
   - type: IconSmooth
     key: walls
     mode: NoSprite
+  # Aquila Change end
 
 - type: entity
   id: ShuttersNormal
-  parent: [BaseDeltaPressureGlass, BaseShutter, StructureHealthDoorWeak]
+  parent: [BaseDeltaPressureGlass, BaseShutter, StructureHealthDoorWeak] # Aquila Change
   components:
   - type: Occluder
   - type: Construction
@@ -108,6 +114,7 @@
     node: Shutters
     containers:
     - board
+  # Aquila Change start
   - type: Damageable
     damageModifierSet: SteelMod
   - type: Destructible
@@ -121,6 +128,7 @@
           collection: MetalBreak
           params:
             volume: -4
+  # Aquila Change end
 
 - type: entity
   id: ShuttersNormalOpen
@@ -139,18 +147,20 @@
     enabled: false
 
 - type: entity
-  parent: ShuttersNormal
+  parent: ShuttersNormal # Aquila Change
   id: ShuttersRadiation
   name: radiation shutters
-  description: These come with extra-radiation-resistant paint.
+  description: These come with extra-radiation-resistant paint. # Aquila Change
   components:
   - type: Sprite
-    sprite: Structures/Doors/Shutters/shutters-radiation.rsi
+    sprite: Structures/Doors/Shutters/shutters-radiation.rsi # Aquila Change
     layers:
     - state: closed
       map: ["enum.DoorVisualLayers.Base"]
+    # Aquila Change start
     - state: welded
       map: ["enum.WeldableLayers.BaseWelded"]
+    # Aquila Change end
   - type: Occluder
   - type: Construction
     graph: Shutters
@@ -178,17 +188,19 @@
 
 - type: entity
   id: ShuttersWindow
-  parent: [BaseDeltaPressureGlass, BaseShutter, StructureHealthDoorWeak]
+  parent: [BaseDeltaPressureGlass, BaseShutter, StructureHealthDoorWeak] # Aquila Change
   name: window shutters
   description: The Best (TM) place to see your friends explode!
   components:
   - type: Sprite
-    sprite: Structures/Doors/Shutters/shutters-window.rsi
+    sprite: Structures/Doors/Shutters/shutters-window.rsi # Aquila Change
     layers:
     - state: closed
       map: ["enum.DoorVisualLayers.Base"]
+    # Aquila Change start
     - state: welded
       map: ["enum.WeldableLayers.BaseWelded"]
+    # Aquila Change end
   - type: Construction
     graph: Shutters
     node: ShuttersWindow
@@ -196,6 +208,7 @@
     - board
   - type: RadiationBlocker
     resistance: 1
+  # Aquila Change start
   - type: Damageable
     damageModifierSet: SteelMod
   - type: Destructible
@@ -209,6 +222,7 @@
           collection: MetalBreak
           params:
             volume: -4
+  # Aquila Change end
 
 - type: entity
   id: ShuttersWindowOpen
@@ -226,14 +240,14 @@
 
 # Frame for construction
 - type: entity
-  parent: [ BaseStructureDynamic, StructureHealthDoorWeak ]
+  parent: [ BaseStructureDynamic, StructureHealthDoorWeak ] # Aquila Change
   id: ShuttersFrame
   name: shutter frame
   description: A frame for constructing a shutter.
   components:
   - type: Sprite
     sprite: Structures/Doors/Shutters/shutters.rsi
-    state: assembly
+    state: assembly # Aquila Change
   - type: Construction
     graph: Shutters
     node: frame1
@@ -241,18 +255,20 @@
     - board
   - type: InteractionOutline
   - type: Damageable
-    damageModifierSet: SteelMod
+    damageModifierSet: SteelMod # Aquila Change
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 100 # Aquila Change
       behaviors:
       - !type:PlaySoundBehavior
         sound:
+          # Aquila Change start
           collection: MetalBreak
           params:
             volume: -4
+          # Aquila Change end
   - type: Physics
     bodyType: Dynamic
   - type: Fixtures

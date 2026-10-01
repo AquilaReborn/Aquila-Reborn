@@ -8,8 +8,10 @@
     WallRockSand: WallRockSandTin
     WallRockSnow: WallRockSnowTin
   maxCount: 30
+  # Aquila Change start
   minGroupSize: 10
   maxGroupSize: 15
+  # Aquila Change end
   radius: 4
 
 - type: biomeMarkerLayer
@@ -20,8 +22,10 @@
     WallRockChromite: WallRockChromiteQuartz
     WallRockSnow: WallRockSnowQuartz
   maxCount: 30
+  # Aquila Change start
   minGroupSize: 10
   maxGroupSize: 15
+  # Aquila Change end
   radius: 4
 
 - type: biomeMarkerLayer
@@ -34,7 +38,7 @@
     WallRockSnow: WallRockSnowCoal
   maxCount: 30
   minGroupSize: 8
-  maxGroupSize: 12
+  maxGroupSize: 12 # Aquila Change
   radius: 4
 
 - type: biomeMarkerLayer
@@ -60,7 +64,7 @@
     WallRockChromite: WallRockChromiteGold
     WallRockSand: WallRockSandGold
     WallRockSnow: WallRockSnowGold
-  maxCount: 20
+  maxCount: 20 # Aquila Change
   minGroupSize: 5
   maxGroupSize: 10
   radius: 4
@@ -74,7 +78,7 @@
     WallRockChromite: WallRockChromiteSilver
     WallRockSand: WallRockSandSilver
     WallRockSnow: WallRockSnowSilver
-  maxCount: 20
+  maxCount: 20 # Aquila Change
   minGroupSize: 5
   maxGroupSize: 10
   radius: 4
@@ -90,8 +94,10 @@
     WallRockSand: WallRockSandPlasma
     WallRockSnow: WallRockSnowPlasma
   maxCount: 12
+  # Aquila Change start
   minGroupSize: 4
   maxGroupSize: 8
+  # Aquila Change end
   radius: 4
 
 # Uranium
@@ -103,9 +109,11 @@
     WallRockChromite: WallRockChromiteUranium
     WallRockSand: WallRockSandUranium
     WallRockSnow: WallRockSnowUranium
+  # Aquila Change start
   maxCount: 15
   minGroupSize: 4
   maxGroupSize: 8
+  # Aquila Change end
   radius: 4
 
 - type: biomeMarkerLayer
@@ -133,4 +141,4 @@
   maxCount: 6
   minGroupSize: 1
   maxGroupSize: 2
-  radius: 4
+  radius: 4 # Aquila Change

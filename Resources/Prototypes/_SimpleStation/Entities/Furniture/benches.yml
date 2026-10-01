@@ -334,6 +334,7 @@
           collection: MetalBreak
   - type: Construction # Frontier
     graph: SofasGraph # Frontier
+    # Aquila Change start
     node: BenchSofaCorpCornerNode # Frontier
 
 - type: entity
@@ -350,3 +351,4 @@
   - type: Construction # Frontier
     graph: SofasGraph # Frontier
     node: BenchSofaCorpCornerAltNode # Frontier
+    # Aquila Change end

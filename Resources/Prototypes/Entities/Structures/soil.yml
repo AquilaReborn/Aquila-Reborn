@@ -1,6 +1,8 @@
 - type: entity
+  # Aquila Change start
   abstract: true
   id: BaseHydroponicsSoil
+  # Aquila Change end
   placement:
     mode: SnapgridCenter
   components:
@@ -24,8 +26,12 @@
     noRot: true
   - type: PlantHolder
     drawWarnings: false
-  - type: Solution
-    id: soil
+  # Aquila Change start
+  - type: SolutionContainerManager
+    solutions:
+      soil:
+        maxVol: 200
+  # Aquila Change end
   - type: RefillableSolution
     solution: soil
     maxRefill: 50
@@ -42,6 +48,7 @@
   - type: Appearance
   - type: PlantHolderVisuals
 
+# Aquila Change start
 - type: entity
   parent: [ BaseHydroponicsSoil, StructureHealthContainer ]
   id: hydroponicsSoil
@@ -62,6 +69,7 @@
   - type: Sprite
     sprite: Structures/Hydroponics/misc.rsi
     state: soil
+# Aquila Change end
 
 - type: entity
   parent: hydroponicsSoil

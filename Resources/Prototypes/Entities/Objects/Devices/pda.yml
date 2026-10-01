@@ -17,9 +17,9 @@
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
       state: "pda"
-    - state: "screen"
+    - state: "screen" # Aquila Change
       color: "#324e2b"
-      shader: "unshaded"
+      shader: "unshaded" # Aquila Change
     - state: "light_overlay"
       map: [ "enum.PdaVisualLayers.Flashlight" ]
       shader: "unshaded"
@@ -572,7 +572,7 @@
     state: pda-bartender
 
 - type: entity
-  parent: BasePDA
+  parent: BasePDA # Aquila Change
   id: LibrarianPDA
   name: librarian PDA
   description: Smells like books.
@@ -1120,13 +1120,16 @@
     borderColor: "#891417"
   - type: Icon
     state: pda-syndi
+  # Aquila Change start
   - type: Sprite
     sprite: Objects/Devices/pda.rsi
     layers:
       - map: [ "enum.PdaVisualLayers.Base" ]
         state: pda-syndi
       - state: screen_syndicate
+  # Aquila Change end
         color: "#620303"
+        # Aquila Change start
         shader: unshaded
       - state: "light_overlay"
         map: [ "enum.PdaVisualLayers.Flashlight" ]
@@ -1138,6 +1141,7 @@
         visible: false
       - state: "insert_overlay" # Goob
         map: [ "enum.PdaVisualLayers.Pen" ]
+        # Aquila Change end
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     preinstalled:
@@ -1160,13 +1164,16 @@
        pda-syndi-operative
   - type: Icon
     state: pda-syndi-operative
+  # Aquila Change start
   - type: Sprite
     sprite: Objects/Devices/pda.rsi
     layers:
       - map: [ "enum.PdaVisualLayers.Base" ]
         state: pda-syndi-operative
       - state: screen_syndicate
+  # Aquila Change end
         color: "#620303"
+        # Aquila Change start
         shader: unshaded
       - state: "light_overlay"
         map: [ "enum.PdaVisualLayers.Flashlight" ]
@@ -1178,6 +1185,7 @@
         visible: false
       - state: "insert_overlay" # Goob
         map: [ "enum.PdaVisualLayers.Pen" ]
+        # Aquila Change end
 
 - type: entity
   parent: [ SyndiOperativePDA, BaseSyndicateContraband ]
@@ -1194,13 +1202,16 @@
        pda-syndi-corpsman
   - type: Icon
     state: pda-syndi-corpsman
+  # Aquila Change start
   - type: Sprite
     sprite: Objects/Devices/pda.rsi
     layers:
       - map: [ "enum.PdaVisualLayers.Base" ]
         state: pda-syndi-corpsman
       - state: screen_syndicate
+  # Aquila Change end
         color: "#620303"
+        # Aquila Change start
         shader: unshaded
       - state: "light_overlay"
         map: [ "enum.PdaVisualLayers.Flashlight" ]
@@ -1212,6 +1223,7 @@
         visible: false
       - state: "insert_overlay" # Goob
         map: [ "enum.PdaVisualLayers.Pen" ]
+        # Aquila Change end
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     preinstalled:
@@ -1234,13 +1246,16 @@
        pda-syndi-commander
   - type: Icon
     state: pda-syndi-commander
+  # Aquila Change start
   - type: Sprite
     sprite: Objects/Devices/pda.rsi
     layers:
       - map: [ "enum.PdaVisualLayers.Base" ]
         state: pda-syndi-commander
       - state: screen_syndicate
+  # Aquila Change end
         color: "#620303"
+        # Aquila Change start
         shader: unshaded
       - state: "light_overlay"
         map: [ "enum.PdaVisualLayers.Flashlight" ]
@@ -1252,6 +1267,7 @@
         visible: false
       - state: "insert_overlay" # Goob
         map: [ "enum.PdaVisualLayers.Pen" ]
+        # Aquila Change end
 
 - type: entity
   parent: BaseSecurityPDA

@@ -7,7 +7,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobCaptain
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobCaptain
@@ -19,7 +19,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobHeadOfPersonnel
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
       - PlushieLizardJobHeadofpersonnel
@@ -31,7 +31,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobPassenger
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
       - PlushieLizardJobPassenger
@@ -43,7 +43,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobBartender
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobBartender
@@ -55,7 +55,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobServiceWorker
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobServiceworker
@@ -67,7 +67,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobChef
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobChef
@@ -79,7 +79,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobLibrarian
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobLibrarian
@@ -91,7 +91,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobLawyer
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobLawyer
@@ -103,7 +103,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobChaplain
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobChaplain
@@ -115,7 +115,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobJanitor
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobJanitor
@@ -136,7 +136,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobBotanist
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobBotanist
@@ -148,7 +148,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobClown
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobClown
@@ -160,7 +160,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobClown
-      time: 1h
+      time: 1h # Aquila Change
   storage:
     back:
     - SprayFlowerPin
@@ -172,7 +172,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobMime
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobMime
@@ -184,7 +184,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobMusician
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobMusician
@@ -196,7 +196,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobQuartermaster
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobQuartermaster
@@ -208,7 +208,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobCargoTechnician
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobCargotechnician
@@ -220,7 +220,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobSalvageSpecialist
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobSalvagespecialist
@@ -232,7 +232,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobChiefEngineer
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobChiefengineer
@@ -244,7 +244,7 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Engineering
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobTechnicalassistant
@@ -256,7 +256,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobStationEngineer
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobStationengineer
@@ -268,7 +268,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobAtmosphericTechnician
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobAtmospherictechnician
@@ -280,7 +280,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobResearchDirector
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobResearchdirector
@@ -292,7 +292,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobScientist
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobScientist
@@ -304,7 +304,7 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Science
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobResearchassistant
@@ -316,7 +316,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobHeadOfSecurity
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobHeadofsecurity
@@ -328,7 +328,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobWarden
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobWarden
@@ -340,7 +340,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobDetective
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobDetective
@@ -352,7 +352,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobSecurityOfficer
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobSecurityofficer
@@ -364,7 +364,7 @@
       requirement:
         !type:DepartmentTimeRequirement
         department: Security
-        time: 1h
+        time: 1h # Aquila Change
   storage:
     back:
     - Dinkystar
@@ -376,7 +376,7 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Security
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobSecuritycadet
@@ -388,7 +388,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobChiefMedicalOfficer
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobChiefmedicalofficer
@@ -400,7 +400,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobMedicalDoctor
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobMedicaldoctor
@@ -412,7 +412,7 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Medical
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobMedicalintern
@@ -424,7 +424,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobChemist
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobChemist
@@ -436,7 +436,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobParamedic
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobParamedic
@@ -448,7 +448,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobReporter
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobReporter
@@ -460,7 +460,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobPsychologist
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - PlushieLizardJobPsychologist

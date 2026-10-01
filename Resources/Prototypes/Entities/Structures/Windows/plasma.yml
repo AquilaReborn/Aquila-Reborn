@@ -1,20 +1,22 @@
 - type: entity
   id: PlasmaWindow
   name: plasma window
-  parent: [BaseDeltaPressurePlasma, BaseWindowStructure, BaseRCDResistant, StructureHealthBarrier]
+  parent: [BaseDeltaPressurePlasma, BaseWindowStructure, BaseRCDResistant, StructureHealthBarrier] # Aquila Change
   components:
   - type: Sprite
-    sprite: Structures/Windows/window-plasma.rsi
+    sprite: Structures/Windows/window-plasma.rsi # Aquila Change
   - type: Icon
+    # Aquila Change start
     sprite: Structures/Windows/window-plasma.rsi
     state: full
+    # Aquila Change end
   - type: Damageable
-    damageModifierSet: GlassPlasmaMod
+    damageModifierSet: GlassPlasmaMod # Aquila Change
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 80
+        damage: 80 # Aquila Change
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -39,11 +41,11 @@
   - type: StaticPrice
     price: 100
   - type: RadiationBlocker
-    resistance: 2
+    resistance: 2 # Aquila Change
 
 - type: entity
   id: PlasmaWindowDirectional
-  parent: [BaseDeltaPressurePlasmaQuarter, BaseWindowStructureDirectional, BaseRCDResistant, StructureHealthBarrierWeak]
+  parent: [BaseDeltaPressurePlasmaQuarter, BaseWindowStructureDirectional, BaseRCDResistant, StructureHealthBarrierWeak] # Aquila Change
   name: directional plasma window
   description: Don't smudge up the glass down there.
   components:
@@ -63,13 +65,15 @@
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks_directional.rsi
+  # Aquila Change start
   - type: Damageable
     damageModifierSet: GlassPlasmaMod
+  # Aquila Change end
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 30
+        damage: 30 # Aquila Change
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -79,11 +83,14 @@
           ShardGlassPlasma:
             min: 1
             max: 1
+      # Aquila Change start
       - !type:DoActsBehavior # AQUILA FIXES
         acts: [ "Destruction" ]
+      # Aquila Change end
   - type: StaticPrice
     price: 50
   - type: RadiationBlocker
+    # Aquila Change start
     resistance: 1
 
 - type: entity
@@ -116,6 +123,7 @@
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks_directional_corner.rsi
+    # Aquila Change end
 
 - type: entity
   parent: PlasmaWindow
@@ -128,7 +136,7 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/window-diagonal-plasma.rsi
+    sprite: Structures/Windows/window-diagonal-plasma.rsi # Aquila Change
     state: state0
   - type: Tag
     tags:
@@ -136,10 +144,10 @@
     - Window
   - type: IconSmooth
     mode: Diagonal
-    key: walls
+    key: walls # Aquila Change
     base: state
   - type: Icon
-    sprite: Structures/Windows/window-diagonal-plasma.rsi
+    sprite: Structures/Windows/window-diagonal-plasma.rsi # Aquila Change
     state: state0
   - type: Fixtures
     fixtures:
@@ -161,7 +169,7 @@
     - East
   - type: DamageVisuals
     damageOverlay:
-      sprite: Structures/Windows/cracks-diagonal.rsi
+      sprite: Structures/Windows/cracks-diagonal.rsi # Aquila Change
   - type: Construction
     graph: WindowDiagonal
     node: plasmaWindowDiagonal

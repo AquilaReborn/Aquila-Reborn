@@ -6,4 +6,4 @@
   components:
   - type: Sprite
     state: metamap64x
-    sprite: Structures/Wallmounts/metamap.rsi
+    sprite: Structures/Wallmounts/metamap.rsi # Aquila Change

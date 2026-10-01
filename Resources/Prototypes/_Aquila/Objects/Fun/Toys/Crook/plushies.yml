@@ -134,9 +134,6 @@
   - type: Sprite
     sprite: _Aquila/Objects/Fun/Toys/Crook/Plushie/anastasiyakarner.rsi
     state: icon
-  - type: StorageFill
-    contents:
-      - id: ClothingHeadFlowerCentComGold
   - type: EmitSoundOnUse
     sound:
       collection: CatMeows

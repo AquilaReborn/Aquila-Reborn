@@ -47,7 +47,7 @@
     - state: bench_solo_base
       color: "#767e82"
     - state: bench_solo_cover
-      color: "#ab2f2b"
+      color: "#ab2f2b" # Aquila Change
   - type: Construction
     graph: Seat
     node: redComfBench
@@ -62,7 +62,7 @@
     - state: bench_solo_base
       color: "#767e82"
     - state: bench_solo_cover
-      color: "#556888"
+      color: "#556888" # Aquila Change
   - type: Construction
     graph: Seat
-    node: blueComfBench
+    node: blueComfBench # Aquila Change

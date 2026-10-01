@@ -7,10 +7,10 @@
   playTimeTracker: JobTechnicalAssistant
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 1h
+      time: 1h # Aquila Change
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 1h
+      time: 1h # Aquila Change
       inverted: true # stop playing intern if you're good at engineering!
   startingGear: TechnicalAssistantGear
   icon: "JobIconTechnicalAssistant"

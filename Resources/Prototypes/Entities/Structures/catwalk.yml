@@ -1,6 +1,6 @@
 # TODO move this to tiles once tile smoothing is supported
 - type: entity
-  parent: StructureHealthFurniture
+  parent: StructureHealthFurniture # Aquila Change
   id: Catwalk
   name: catwalk
   description: A catwalk for easier EVA maneuvering and cable placement.
@@ -34,12 +34,12 @@
     graph: Catwalk
     node: Catwalk
   - type: Damageable
-    damageModifierSet: SteelMod
+    damageModifierSet: SteelMod # Aquila Change
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 40
+        damage: 40 # Aquila Change
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
@@ -50,4 +50,4 @@
   - type: RCDDeconstructable
     cost: 2
     delay: 2
-    fx: EffectRCDDeconstruct2
+    fx: EffectRCDDeconstruct2 # Aquila Change

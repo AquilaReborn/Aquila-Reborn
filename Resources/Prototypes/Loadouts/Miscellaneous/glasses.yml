@@ -7,7 +7,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobLibrarian
-      time: 1h
+      time: 1h # Aquila Change
 
 - type: loadoutEffectGroup
   id: JensenTimer
@@ -16,7 +16,7 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Cargo
-      time: 1h
+      time: 1h # Aquila Change
 
 # Basic options
 # Glasses

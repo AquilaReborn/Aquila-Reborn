@@ -692,7 +692,7 @@
 
 - type: construction
   id: NoticeBoard
-  graph: WallBoard
+  graph: WallBoard # Aquila Change
   startNode: start # Aquila Change
   category: construction-category-furniture # Aquila Change
   objectType: Structure # Aquila Change
@@ -701,7 +701,7 @@
   canRotate: true
   canBuildInImpassable: true
   conditions:
-  - !type:WallmountCondition
+  - !type:WallmountCondition # Aquila Change
 
 - type: construction
   id: Mannequin

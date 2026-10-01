@@ -518,7 +518,7 @@
     - GrenadeTriggersStatic
     - SecurityWeaponsStaticGoob
     - SecurityAmmoStaticCorvaxGoob # Corvax-Goob-UncleStyopa
-    - SecurityArmorPlateStatic # Aquila
+    - SecurityArmorPlateStatic # Aquila # Aquila Change
     dynamicPacks:
     - SalvageSecurityBoards
     - SalvageSecurityWeapons
@@ -645,7 +645,7 @@
     # Einstein Engines Packs
     - SyringeCase
     dynamicPacks:
-    - CompactDefib # Aquila Compact Defibrillator
+    - CompactDefib # Aquila Compact Defibrillator # Aquila Change
     - Chemistry
     # Goobstation Packs
     - Surgery

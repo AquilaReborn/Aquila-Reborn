@@ -9,18 +9,18 @@
       path: /Audio/_Aquila/Karaoke/tfs_main.ogg
     maleVoice:
       path: /Audio/_Aquila/Karaoke/tfs_male.ogg
-      pitch: 0.1
+      params:
+        pitch: 0.1
     femaleVoice:
       path: /Audio/_Aquila/Karaoke/tfs_male.ogg
-      pitch: 0.1
+      params:
+        pitch: 0.1
   - type: Sprite
     sprite: _Aquila/Objects/karaokestuff.rsi
     layers:
     - state: coil
   - type: Item
     sprite: _Aquila/Objects/karaokestuff.rsi
-    layers:
-    - state: coil
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 200

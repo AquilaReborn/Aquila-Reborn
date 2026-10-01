@@ -7,12 +7,12 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobWarden
-      time: 1h
+      time: 1h # Aquila Change
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
       department: Security
-      time: 1h
+      time: 1h # Aquila Change
 
 - type: loadoutEffectGroup # Goobstation?
   id: VeteranOfficer
@@ -21,7 +21,7 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Security
-      time: 1h
+      time: 1h # Aquila Change
 
 # Head
 - type: loadout

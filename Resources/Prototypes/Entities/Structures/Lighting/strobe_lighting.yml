@@ -5,10 +5,12 @@
   name: strobe
   description: "UH?! Sorry, all I can hear is WEE-OOO-WEE-OOO!"
   suffix: Always powered
+  # Aquila Change start
   placement:
     mode: SnapgridCenter
     snap:
     - Wallmount
+  # Aquila Change end
   components:
   - type: AmbientSound
     volume: -15
@@ -27,7 +29,7 @@
     graph: LightFixture
     node: bulbLight
   - type: Sprite
-    offset: 0, 1
+    offset: 0, 1 # Aquila Change
     sprite: Structures/Wallmounts/Lighting/strobe_light.rsi
     drawdepth: WallMountedItems
     layers:
@@ -43,7 +45,7 @@
     energy: 5
     radius: 10
     softness: 1
-    offset: "0, 0.25"
+    offset: "0, 0.25" # Aquila Change
   - type: RotatingLight
   - type: Physics
     bodyType: Static
@@ -96,7 +98,7 @@
     enabled: false
   - type: PointLight
     enabled: false
-    offset: "0, 0.25"
+    offset: "0, 0.25" # Aquila Change
   - type: ContainerContainer
     containers:
       light_bulb: !type:ContainerSlot
@@ -163,4 +165,4 @@
     volume: 0
     range: 10
     sound:
-      path: "/Audio/Effects/Lightning/strobeepsilon.ogg"
+      path: "/Audio/Effects/Lightning/strobeepsilon.ogg" # Aquila Change

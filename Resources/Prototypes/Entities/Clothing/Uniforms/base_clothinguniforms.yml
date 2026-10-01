@@ -67,7 +67,7 @@
   parent: UnsensoredClothingUniformBase
   id: ClothingUniformBase
   components:
-  - type: StorageArmorPlate
+  - type: StorageArmorPlate # Aquila Change
   - type: SuitSensor
   - type: DeviceNetwork
     deviceNetId: Wireless

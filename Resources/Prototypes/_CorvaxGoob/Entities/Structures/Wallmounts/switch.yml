@@ -18,7 +18,7 @@
     drawdepth: SmallObjects
     sprite: Structures/Wallmounts/switch.rsi
     layers:
-    - state: base
+    - state: base # Aquila Change
     - state: on
       map: ["on"]
       shader: unshaded

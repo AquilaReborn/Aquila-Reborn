@@ -1,10 +1,13 @@
 - type: entity
   abstract: true
+  # Aquila Change start
   parent: [ BaseStructure, StructureHealthDoor ]
   id: BaseFirelock
+  # Aquila Change end
   name: firelock
   description: Apply crowbar.
   components:
+  # Aquila Change start
   - type: Anchorable
     flags:
     - Anchorable
@@ -35,7 +38,9 @@
         !type:DamageTrigger
         damage: 200
       behaviors:
+  # Aquila Change end
       # TODO this should go to the broken node first
+      # Aquila Change start
       - !type:PlaySoundBehavior
         sound:
           collection: MetalSlam
@@ -156,6 +161,7 @@
   - type: SyncSprite
   - type: PlacementReplacement
     key: firelocks
+      # Aquila Change end
 
 - type: entity
   id: Firelock
@@ -181,7 +187,7 @@
   components:
     - type: StationAiWhitelist
     - type: Sprite
-      sprite: Structures/Doors/Airlocks/Glass/firelock-base.rsi
+      sprite: Structures/Doors/Airlocks/Glass/firelock-base.rsi # Aquila Change
     - type: Occluder
       enabled: false
     - type: Fixtures
@@ -207,8 +213,9 @@
   components:
     - type: StationAiWhitelist
     - type: Sprite
-      sprite: Structures/Doors/Misc/edge_door_hazard.rsi
+      sprite: Structures/Doors/Misc/edge_door_hazard.rsi # Aquila Change
       snapCardinals: false
+      # Aquila Change start
       layers:
       - state: closed
         map: [ "enum.DoorVisualLayers.Base" ]
@@ -238,6 +245,7 @@
         shader: unshaded
         sprite: Structures/Doors/Misc/edge_door_hazard.rsi
         map: [ "enum.FirelockVisualLayersTemperature.Base" ]
+      # Aquila Change end
     - type: Airtight
       airBlocked: false
       noAirWhenFullyAirBlocked: false

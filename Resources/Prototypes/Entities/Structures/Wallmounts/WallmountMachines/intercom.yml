@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseWallmountMachine, StructureHealthMachineWeak ]
+  parent: [ BaseWallmountMachine, StructureHealthMachineWeak ] # Aquila Change
   id: BaseIntercom
   name: intercom
   description: An intercom. For when the station just needs to know something.
@@ -40,7 +40,7 @@
     noRot: false
     drawdepth: SmallObjects
     sprite: Structures/Wallmounts/intercom.rsi
-    offset: 0, -0.25
+    offset: 0, -0.25 # Aquila Change
     layers:
     - state: base
     - state: unshaded
@@ -79,6 +79,7 @@
     - key_slots
   - type: Destructible
     thresholds:
+    # Aquila Change start
     - trigger:
         !type:DamageTrigger
         damage: 100
@@ -91,6 +92,7 @@
       - !type:EmptyContainersBehaviour
         containers:
         - key_slots
+    # Aquila Change end
   - type: GenericVisualizer
     visuals:
       enum.WiresVisualLayers.MaintenancePanel:
@@ -111,7 +113,7 @@
           False: { visible: false }
 
 - type: entity
-  parent: [ BaseWallmountMetallic, StructureHealthMachineFlimsy ]
+  parent: [ BaseWallmountMetallic, StructureHealthMachineFlimsy ] # Aquila Change
   id: IntercomAssembly
   name: intercom assembly
   description: An intercom. It doesn't seem very helpful right now.
@@ -119,12 +121,13 @@
   - type: Sprite
     drawdepth: SmallObjects
     sprite: Structures/Wallmounts/intercom.rsi
-    offset: 0, -0.25
+    offset: 0, -0.25 # Aquila Change
     layers:
     - state: build
     - state: panel
       visible: false
       map: [ "wires" ]
+  # Aquila Change start
   - type: Destructible
     thresholds:
     - trigger:
@@ -136,6 +139,7 @@
           collection: MetalGlassBreak
           params:
             volume: -4
+  # Aquila Change end
   - type: Appearance
   - type: GenericVisualizer
     visuals:

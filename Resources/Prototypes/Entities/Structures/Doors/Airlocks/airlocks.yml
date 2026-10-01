@@ -4,6 +4,7 @@
   suffix: Freezer
   components:
   - type: Sprite
+    # Aquila Change start
     sprite: Structures/Doors/Airlocks/Standard/service-freezer.rsi
     layers:
     - state: closed
@@ -42,6 +43,7 @@
       map: ["enum.DoorVisualLayers.BaseEmagging"]
       shader: unshaded
       visible: false
+    # Aquila Change end
   - type: Wires
     layoutId: AirlockService
 
@@ -51,7 +53,7 @@
   suffix: Engineering
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/engineering-base.rsi
+    sprite: Structures/Doors/Airlocks/Standard/engineering-base.rsi # Aquila Change
   - type: Wires
     layoutId: AirlockEngineering
 
@@ -61,7 +63,7 @@
   suffix: Atmospherics
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/engineering-atmos.rsi
+    sprite: Structures/Doors/Airlocks/Standard/engineering-atmos.rsi # Aquila Change
 
 - type: entity
   parent: Airlock
@@ -69,7 +71,7 @@
   suffix: Cargo
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/cargo-base.rsi
+    sprite: Structures/Doors/Airlocks/Standard/cargo-base.rsi # Aquila Change
   - type: Wires
     layoutId: AirlockCargo
 
@@ -79,7 +81,7 @@
   suffix: Salvage
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/cargo-salvage.rsi
+    sprite: Structures/Doors/Airlocks/Standard/cargo-salvage.rsi # Aquila Change
   - type: Wires
     layoutId: AirlockCargo
 
@@ -89,7 +91,7 @@
   suffix: Hydroponics
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/service-botany.rsi
+    sprite: Structures/Doors/Airlocks/Standard/service-botany.rsi # Aquila Change
   - type: Wires
     layoutId: AirlockService
 
@@ -99,7 +101,7 @@
   suffix: Medical
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/medical-base.rsi
+    sprite: Structures/Doors/Airlocks/Standard/medical-base.rsi # Aquila Change
   - type: Wires
     layoutId: AirlockMedical
 
@@ -109,7 +111,7 @@
   suffix: Virology
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/medical-viro.rsi
+    sprite: Structures/Doors/Airlocks/Standard/medical-viro.rsi # Aquila Change
 
 - type: entity
   parent: AirlockMedical
@@ -117,7 +119,7 @@
   suffix: Chemistry
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/medical-chem.rsi
+    sprite: Structures/Doors/Airlocks/Standard/medical-chem.rsi # Aquila Change
 
 - type: entity
   parent: Airlock
@@ -125,7 +127,7 @@
   suffix: Science
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/science-base.rsi
+    sprite: Structures/Doors/Airlocks/Standard/science-base.rsi # Aquila Change
   - type: Wires
     layoutId: AirlockScience
 
@@ -135,7 +137,7 @@
   suffix: Command
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/command-base.rsi
+    sprite: Structures/Doors/Airlocks/Standard/command-base.rsi # Aquila Change
   - type: WiresPanelSecurity
     securityLevel: medSecurity
   - type: Wires
@@ -147,7 +149,7 @@
   suffix: Security
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/security-base.rsi
+    sprite: Structures/Doors/Airlocks/Standard/security-base.rsi # Aquila Change
   - type: Wires
     layoutId: AirlockSecurity
 
@@ -157,7 +159,7 @@
   name: maintenance access
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi # Aquila Change
 
 - type: entity
   parent: AirlockSecurity # if you get syndie door somehow it counts as sec
@@ -165,7 +167,7 @@
   suffix: Syndicate
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/syndicate-base.rsi
+    sprite: Structures/Doors/Airlocks/Standard/syndicate-base.rsi # Aquila Change
 
 - type: entity
   parent: AirlockCargo
@@ -173,7 +175,7 @@
   suffix: Mining(Salvage)
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/cargo-mining.rsi
+    sprite: Structures/Doors/Airlocks/Standard/cargo-mining.rsi # Aquila Change
   - type: Wires
     layoutId: AirlockCargo
   - type: Paintable
@@ -185,7 +187,7 @@
   suffix: Central Command
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/centcomm-base.rsi
+    sprite: Structures/Doors/Airlocks/Standard/centcomm-base.rsi # Aquila Change
 
 - type: entity
   parent: Airlock
@@ -193,13 +195,14 @@
   name: airtight hatch
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-hatch.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-hatch.rsi # Aquila Change
   - type: Paintable
     group: null
 
 - type: entity
   parent: Airlock
   id: AirlockXenoborg
+  # Aquila Change start
   name: mechadermis airlock
   components:
   - type: Sprite
@@ -241,6 +244,7 @@
       map: ["enum.DoorVisualLayers.BaseEmagging"]
       shader: unshaded
       visible: false
+  # Aquila Change end
   - type: Paintable
     group: null
 
@@ -250,7 +254,7 @@
   name: maintenance hatch
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-hatch-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-hatch-maints.rsi # Aquila Change
   - type: Paintable
     group: null
 
@@ -261,7 +265,7 @@
   suffix: Syndicate
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-hatch-syndicate.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-hatch-syndicate.rsi # Aquila Change
 
 # Glass
 - type: entity
@@ -270,7 +274,7 @@
   suffix: Engineering
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/engineering-base.rsi
+    sprite: Structures/Doors/Airlocks/Glass/engineering-base.rsi # Aquila Change
   - type: Wires
     layoutId: AirlockEngineering
 
@@ -280,7 +284,7 @@
   suffix: Maintenance
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Glass/airlock-maints.rsi # Aquila Change
 
 - type: entity
   parent: AirlockEngineeringGlass
@@ -288,7 +292,7 @@
   suffix: Atmospherics
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/engineering-atmos.rsi
+    sprite: Structures/Doors/Airlocks/Glass/engineering-atmos.rsi # Aquila Change
 
 - type: entity
   parent: AirlockGlass
@@ -296,7 +300,7 @@
   suffix: Cargo
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/cargo-base.rsi
+    sprite: Structures/Doors/Airlocks/Glass/cargo-base.rsi # Aquila Change
   - type: Wires
     layoutId: AirlockCargo
 
@@ -306,7 +310,7 @@
   suffix: Salvage
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/cargo-salvage.rsi
+    sprite: Structures/Doors/Airlocks/Glass/cargo-salvage.rsi # Aquila Change
   - type: Wires
     layoutId: AirlockCargo
 
@@ -316,7 +320,7 @@
   suffix: Hydroponics
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/service-botany.rsi
+    sprite: Structures/Doors/Airlocks/Glass/service-botany.rsi # Aquila Change
   - type: Wires
     layoutId: AirlockService
 
@@ -326,7 +330,7 @@
   suffix: Medical
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/medical-base.rsi
+    sprite: Structures/Doors/Airlocks/Glass/medical-base.rsi # Aquila Change
   - type: Wires
     layoutId: AirlockMedical
 
@@ -336,7 +340,7 @@
   suffix: Chemistry
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/medical-chem.rsi
+    sprite: Structures/Doors/Airlocks/Glass/medical-chem.rsi # Aquila Change
 
 - type: entity
   parent: AirlockMedicalGlass
@@ -344,7 +348,7 @@
   suffix: Virology
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/medical-viro.rsi
+    sprite: Structures/Doors/Airlocks/Glass/medical-viro.rsi # Aquila Change
 
 - type: entity
   parent: AirlockGlass
@@ -352,7 +356,7 @@
   suffix: Science
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/science-base.rsi
+    sprite: Structures/Doors/Airlocks/Glass/science-base.rsi # Aquila Change
   - type: Wires
     layoutId: AirlockScience
 
@@ -362,7 +366,7 @@
   suffix: Command
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/command-base.rsi
+    sprite: Structures/Doors/Airlocks/Glass/command-base.rsi # Aquila Change
   - type: WiresPanelSecurity
     securityLevel: medSecurity
   - type: Wires
@@ -374,7 +378,7 @@
   suffix: Security
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/security-base.rsi
+    sprite: Structures/Doors/Airlocks/Glass/security-base.rsi # Aquila Change
   - type: Wires
     layoutId: AirlockSecurity
 
@@ -384,7 +388,7 @@
   suffix: Syndicate
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/syndicate-base.rsi
+    sprite: Structures/Doors/Airlocks/Glass/syndicate-base.rsi # Aquila Change
 
 - type: entity
   parent: AirlockCargoGlass
@@ -392,7 +396,7 @@
   suffix: Mining(Salvage)
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/cargo-mining.rsi
+    sprite: Structures/Doors/Airlocks/Glass/cargo-mining.rsi # Aquila Change
   - type: Paintable
     group: null
 
@@ -402,7 +406,7 @@
   suffix: Central Command
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/centcomm-base.rsi
+    sprite: Structures/Doors/Airlocks/Glass/centcomm-base.rsi # Aquila Change
 
 - type: entity
   parent: AirlockGlass
@@ -410,11 +414,12 @@
   suffix: Service
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/airlock-base.rsi
+    sprite: Structures/Doors/Airlocks/Glass/airlock-base.rsi # Aquila Change
 
 - type: entity
   parent: Airlock
   id: AirlockXeno
+  # Aquila Change start
   suffix: Exo
   name: exodermis airlock
   components:
@@ -459,10 +464,12 @@
       visible: false
   - type: Paintable
     group: null
+  # Aquila Change end
 
 - type: entity
   parent: AirlockGlass
   id: AirlockGlassXeno
+  # Aquila Change start
   suffix: Exo
   name: resin exodermis airlock
   components:
@@ -507,3 +514,4 @@
       visible: false
   - type: Paintable
     group: null
+  # Aquila Change end

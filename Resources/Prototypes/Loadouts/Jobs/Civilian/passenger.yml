@@ -7,7 +7,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobPassenger
-      time: 1h
+      time: 1h # Aquila Change
 
 # Head of Greytide (for grey mantle)
 - type: loadoutEffectGroup
@@ -17,7 +17,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobPassenger
-      time: 1h
+      time: 1h # Aquila Change
 
 # Face
 - type: loadout

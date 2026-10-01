@@ -11,7 +11,7 @@
     ears: ClothingHeadsetService
   storage:
     back:
-    - BoxSurvival
+    - BoxSurvival # Aquila Change
 
 - type: startingGear
   id: CultistGear
@@ -25,4 +25,4 @@
     ears: ClothingHeadsetService
   storage:
     back:
-    - BoxSurvival
+    - BoxSurvival # Aquila Change

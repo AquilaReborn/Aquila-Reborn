@@ -7,11 +7,9 @@
     solid: WallSolid
     basaltcobblebrick: WallBasaltCobblebrick
     clown: WallClown
-    basaltrock: WallRockBasalt
     basic: WallPlastic
     asteroidcobblebrick: WallAsteroidCobblebrick
     andesitecobblebrick: WallAndesiteCobblebrick
-    andesiterock: WallRockAndesite
     diamond: WallDiamond
     cobblebrick: WallCobblebrick
     wood: WallWood

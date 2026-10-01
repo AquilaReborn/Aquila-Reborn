@@ -1,3 +1,4 @@
+# Aquila Change start
 - type: constructionGraph
   id: PosterGraph
   start: start
@@ -24,3 +25,4 @@
   - node: removed
     actions:
     - !type:DestroyEntity {}
+# Aquila Change end

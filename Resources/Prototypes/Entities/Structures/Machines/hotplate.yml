@@ -34,7 +34,7 @@
   components:
   - type: Sprite
     sprite: Structures/Machines/hotplate.rsi
-    offset: 0, 0.1
+    offset: 0, 0.1 # Aquila Change
     drawdepth: SmallObjects
     snapCardinals: true
     layers:
@@ -59,4 +59,4 @@
       enum.SolutionHeaterVisuals.IsOn:
         enum.SolutionHeaterVisuals.IsOn:
           True: { visible: true }
-          False: { visible: false }
+          False: { visible: false } # Aquila Change

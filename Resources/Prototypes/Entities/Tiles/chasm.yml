@@ -18,16 +18,16 @@
     anchored: true
   - type: Clickable
   - type: Sprite
-    sprite: Tiles/TileEntities/chasm.rsi
+    sprite: Tiles/TileEntities/chasm.rsi # Aquila Change
     drawdepth: BelowFloor
   - type: Icon
-    sprite: Tiles/TileEntities/liquid-phoron.rsi
+    sprite: Tiles/TileEntities/liquid-phoron.rsi # Aquila Change
     state: full
   - type: IconSmooth
     key: chasm
     additionalKeys:
     - walls
-    base: chasm_
+    base: chasm_ # Aquila Change
   - type: Physics
     bodyType: Static
   - type: Fixtures

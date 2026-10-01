@@ -1,3 +1,4 @@
+# Aquila Change start
 - type: entity
   id: RegalWindow
   name: regal window
@@ -35,3 +36,4 @@
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks.rsi
+# Aquila Change end

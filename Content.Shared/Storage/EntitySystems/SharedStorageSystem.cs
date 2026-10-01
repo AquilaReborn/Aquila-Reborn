@@ -110,7 +110,7 @@ public abstract class SharedStorageSystem : EntitySystem
     /// <summary>
     /// How many storage windows are allowed to be open at once.
     /// </summary>
-    private int _openStorageLimit = 3;
+    private int _openStorageLimit = 3; // Aquila Change
 
     protected readonly List<string> CantFillReasons = [];
 

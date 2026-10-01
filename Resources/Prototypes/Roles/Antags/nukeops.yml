@@ -8,10 +8,10 @@
   objective: roles-antag-nuclear-operative-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 1h
+    time: 1h # Aquila Change
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 1h
+    time: 1h # Aquila Change
   - !type:SpeciesRequirement
     inverted: true
     species:
@@ -27,13 +27,13 @@
   objective: roles-antag-nuclear-operative-agent-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 1h
+    time: 1h # Aquila Change
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 1h
+    time: 1h # Aquila Change
   - !type:RoleTimeRequirement
     role: JobChemist
-    time: 1h
+    time: 1h # Aquila Change
   - !type:SpeciesRequirement
     inverted: true
     species:
@@ -49,13 +49,13 @@
   objective: roles-antag-nuclear-operative-commander-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 1h
+    time: 1h # Aquila Change
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 1h
+    time: 1h # Aquila Change
   - !type:DepartmentTimeRequirement
     department: Command
-    time: 1h
+    time: 1h # Aquila Change
 # should be changed to nukie playtime when thats tracked (wyci)
   - !type:SpeciesRequirement
     inverted: true

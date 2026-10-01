@@ -5,7 +5,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobSurgeon
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
 
 - type: loadout
   id: SurgeonScalpelLaser

@@ -1,12 +1,16 @@
 - type: entity
   abstract: true
+  # Aquila Change start
   parent: BaseSignWeak
   id: BaseFlag
+  # Aquila Change end
   components:
   - type: Sprite
     sprite: Structures/Wallmounts/flags.rsi
+  # Aquila Change start
   - type: Damageable
     damageModifierSet: ThreadMod
+  # Aquila Change end
 
 - type: entity
   parent: BaseFlag

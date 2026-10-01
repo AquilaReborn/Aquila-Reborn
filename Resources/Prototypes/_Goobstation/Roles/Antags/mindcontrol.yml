@@ -2,7 +2,7 @@
 
 - type: antag
   id: Mindcontrolled
-  name: roles-antag-mindcontrolled-name
+  name: roles-antag-mindcontrolled-name # Aquila Change
   antagonist: true
   setPreference: false
-  objective: roles-antag-mindcontrolled-objective
+  objective: roles-antag-mindcontrolled-objective # Aquila Change

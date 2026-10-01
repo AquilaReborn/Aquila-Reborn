@@ -116,7 +116,7 @@ namespace Content.Client.Lobby.UI
 
         private readonly Dictionary<string, BoxContainer> _jobCategories;
 
-        private readonly Dictionary<string, BoxContainer> _settingCategories;
+        private readonly Dictionary<string, BoxContainer> _settingCategories; // Aquila Change
 
         private Direction _previewRotation = Direction.North;
 
@@ -468,7 +468,7 @@ namespace Content.Client.Lobby.UI
 
             _jobCategories = new Dictionary<string, BoxContainer>();
 
-            _settingCategories = new Dictionary<string, BoxContainer>(); // Aquila
+            _settingCategories = new Dictionary<string, BoxContainer>(); // Aquila Change
 
             RefreshAntags();
             RefreshJobs();
@@ -996,7 +996,7 @@ namespace Content.Client.Lobby.UI
             JobList.RemoveAllChildren();
             _jobCategories.Clear();
             _jobPriorities.Clear();
-            _settingCategories.Clear(); //AQUILA
+            _settingCategories.Clear(); // Aquila Change
             var firstCategory = true;
 
             // Get all displayed departments
@@ -1011,6 +1011,7 @@ namespace Content.Client.Lobby.UI
 
             departments.Sort(DepartmentUIComparer.Instance);
 
+            // Aquila Change start
             var settings = new List<AqSettingPrototype>();
             foreach (var setting in _prototypeManager.EnumeratePrototypes<AqSettingPrototype>())
             {
@@ -1018,6 +1019,7 @@ namespace Content.Client.Lobby.UI
             }
 
             settings.Sort(SettingUIComparer.Instance);
+            // Aquila Change end
 
 
             var items = new[]
@@ -1028,6 +1030,7 @@ namespace Content.Client.Lobby.UI
                 ("humanoid-profile-editor-job-priority-high-button", (int) JobPriority.High),
             };
 
+            // Aquila Change start
             foreach (var setting in settings)
             {
                 var settingName = Loc.GetString(setting.Name);
@@ -1060,6 +1063,7 @@ namespace Content.Client.Lobby.UI
                 }
             }
 
+            // Aquila Change end
             foreach (var department in departments)
             {
                 var departmentName = Loc.GetString(department.Name);
@@ -1102,7 +1106,7 @@ namespace Content.Client.Lobby.UI
 
                     _jobCategories[department.ID] = category;
 
-                    _settingCategories[department.Setting].AddChild(category);
+                    _settingCategories[department.Setting].AddChild(category); // Aquila Change
                 }
 
                 var jobs = department.Roles.Select(jobId => _prototypeManager.Index(jobId))

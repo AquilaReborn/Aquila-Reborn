@@ -249,8 +249,10 @@
   name: rust walker
   description: A grinding, clanking construct which leaches life from its surroundings with every armoured step.
   components:
+  # Aquila Change start
   - type: WeakToHoly
     alwaysTakeHoly: true
+  # Aquila Change end
   - type: Ghoul
     totalHealth: 100
     ghostRoleName: ghostrole-rustwalker-name

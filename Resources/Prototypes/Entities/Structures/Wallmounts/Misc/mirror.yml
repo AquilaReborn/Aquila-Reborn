@@ -1,5 +1,7 @@
-﻿- type: entity
+﻿# Aquila Change start
+- type: entity
   parent: [ BaseWallmountGlass, StructureHealthFurnitureWeak ]
+# Aquila Change end
   id: Mirror
   name: mirror
   description: 'Mirror mirror on the wall , who''s the most robust of them all?'
@@ -9,14 +11,14 @@
   - type: Sprite
     sprite: Structures/Wallmounts/mirror.rsi
     state: mirror
+  # Aquila Change start
   - type: MagicMirror
-    organs:
-    - Head
-    layers:
-    - Hair
-    - FacialHair
     changeHairSound: null
-    modifyTime: 0
+    addSlotTime: 0
+    removeSlotTime: 0
+    selectSlotTime: 0
+    changeSlotTime: 0
+  # Aquila Change end
   - type: ActivatableUI
     key: enum.MagicMirrorUiKey.Key
     singleUser: true
@@ -24,13 +26,15 @@
     interfaces:
       enum.MagicMirrorUiKey.Key:
         type: MagicMirrorBoundUserInterface
+  # Aquila Change start
   - type: Damageable
     damageModifierSet: GlassMod
+  # Aquila Change end
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 5
+        damage: 5 # Aquila Change
       behaviors:
       - !type:PlaySoundBehavior
         sound:

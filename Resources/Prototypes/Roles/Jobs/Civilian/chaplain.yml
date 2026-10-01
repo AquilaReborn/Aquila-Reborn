@@ -7,7 +7,7 @@
   playTimeTracker: JobChaplain
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 1h
+      time: 1h # Aquila Change
   startingGear: ChaplainGear
   icon: "JobIconChaplain"
   supervisors: job-supervisors-hop

@@ -169,10 +169,10 @@
 
 # Shitchap
 - type: entity
-  parent: [ ClothingHeadBase, BaseChaplainContraband ]
+  parent: [ ClothingHeadBase, BaseChaplainContraband ] # Aquila Change
   id: ClothingHeadHatHelmetTemplar
   name: crusader helmet
-  suffix: Chaplain
+  suffix: Chaplain # Aquila Change
   description: Deus Vult.
   components:
   - type: Sprite

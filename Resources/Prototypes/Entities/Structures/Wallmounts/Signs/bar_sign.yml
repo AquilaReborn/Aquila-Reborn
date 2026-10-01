@@ -1,6 +1,6 @@
-﻿- type: entity
+﻿- type: entity # Aquila Change
   id: BaseBarSign
-  parent: [ BaseWallmountGlass, BaseWallmountMachine, StructureHealthMachineWeak ]
+  parent: [ BaseWallmountGlass, BaseWallmountMachine, StructureHealthMachineWeak ] # Aquila Change
   name: bar sign
   abstract: true
   components:
@@ -10,7 +10,6 @@
     sprite: Structures/Wallmounts/barsign.rsi
     state: empty
   - type: BarSign
-    emped: EmpBarSign
   - type: AccessReader
     access: [["Bar"]]
   - type: ActivatableUIRequiresPower
@@ -28,7 +27,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 100 # Aquila Change
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -286,6 +285,7 @@
   - type: BarSign
     current: WhiskeyEchoes
 
+# Aquila Change start
 - type: entity
   parent: BaseBarSign
   id: BarSignEmped
@@ -294,3 +294,4 @@
   components:
   - type: BarSign
     current: EmpBarSign
+# Aquila Change end

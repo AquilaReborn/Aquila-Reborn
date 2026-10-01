@@ -14,13 +14,13 @@ namespace Content.Shared.Doors.Systems;
 /// </summary>
 public abstract partial class SharedTurnstileSystem : EntitySystem
 {
-    [Dependency] private IGameTiming _timing = default!;
-    [Dependency] private AccessReaderSystem _accessReader = default!;
-    [Dependency] private SharedAudioSystem _audio = default!;
-    [Dependency] private EntityWhitelistSystem _entityWhitelist = default!;
-    [Dependency] private PullingSystem _pulling = default!;
-    [Dependency] private SharedTransformSystem _transform = default!;
-    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private IGameTiming _timing = default!; // Aquila Change
+    [Dependency] private AccessReaderSystem _accessReader = default!; // Aquila Change
+    [Dependency] private SharedAudioSystem _audio = default!; // Aquila Change
+    [Dependency] private EntityWhitelistSystem _entityWhitelist = default!; // Aquila Change
+    [Dependency] private PullingSystem _pulling = default!; // Aquila Change
+    [Dependency] private SharedTransformSystem _transform = default!; // Aquila Change
+    [Dependency] private SharedPopupSystem _popup = default!; // Aquila Change
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -73,7 +73,7 @@ public abstract partial class SharedTurnstileSystem : EntitySystem
         {
             if (_timing.CurTime >= ent.Comp.NextResistTime)
             {
-                _popup.PopupEntity(Loc.GetString("turnstile-component-popup-resist", ("turnstile", ent.Owner)), ent, args.OtherEntity);
+                _popup.PopupEntity(Loc.GetString("turnstile-component-popup-resist", ("turnstile", ent.Owner)), ent, args.OtherEntity); // Aquila Change
                 ent.Comp.NextResistTime = _timing.CurTime + TimeSpan.FromSeconds(0.1);
                 Dirty(ent);
             }
@@ -89,14 +89,14 @@ public abstract partial class SharedTurnstileSystem : EntitySystem
                 if (!_accessReader.IsAllowed(args.OtherEntity, ent))
                 {
                     _audio.PlayPredicted(ent.Comp.DenySound, ent, args.OtherEntity);
-                    PlayAnimation(ent, TurnstileStates.Deny);
+                    PlayAnimation(ent, TurnstileStates.Deny); // Aquila Change
                 }
             }
 
             return;
         }
         // if they passed through:
-        PlayAnimation(ent, TurnstileStates.Spin);
+        PlayAnimation(ent, TurnstileStates.Spin); // Aquila Change
         _audio.PlayPredicted(ent.Comp.TurnSound, ent, args.OtherEntity);
     }
 
@@ -128,7 +128,7 @@ public abstract partial class SharedTurnstileSystem : EntitySystem
         return diff < Math.PI / 4;
     }
 
-    protected virtual void PlayAnimation(EntityUid uid, TurnstileStates state)
+    protected virtual void PlayAnimation(EntityUid uid, TurnstileStates state) // Aquila Change
     {
 
     }

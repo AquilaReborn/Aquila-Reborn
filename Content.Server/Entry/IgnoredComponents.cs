@@ -28,7 +28,7 @@ namespace Content.Server.Entry
             "ToggleableLightWieldable", // Goobstation
             "HideClothingLayerClothing", // Goobstation
             "ItemSlotRenderer", // WWDP EDIT
-            "DirectionalArrowIndicator"
+            "DirectionalArrowIndicator" // Aquila Change
         };
     }
 }

@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseWallmountMachine, StructureHealthMachineWeak ]
+  parent: [ BaseWallmountMachine, StructureHealthMachineWeak ] # Aquila Change
   id: AirAlarm
   name: air alarm
   description: An air alarm. Alarms... air?
@@ -51,21 +51,23 @@
     group: AirAlarm
   - type: Clickable
   - type: InteractionOutline
+  # Aquila Change start
   - type: ActivatableUI
     key: enum.SharedAirAlarmInterfaceKey.Key
+  # Aquila Change end
   - type: UserInterface
     interfaces:
       enum.SharedAirAlarmInterfaceKey.Key:
         type: AirAlarmBoundUserInterface
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
-  - type: ActivatableUIRequiresPower
+  - type: ActivatableUIRequiresPower # Aquila Change
   - type: WiresPanel
   - type: Wires
     boardName: wires-board-name-airalarm
     layoutId: AirAlarm
   - type: AccessReader
-    access: [["Atmospherics"]]
+    access: [["Atmospherics"]] # Aquila Change
   - type: ContainerFill
     containers:
       board: [ AirAlarmElectronics ]
@@ -75,20 +77,23 @@
   - type: Appearance
   - type: WiresVisuals
   - type: Sprite
+    # Aquila Change start
     sprite: Structures/Wallmounts/air-alarm.rsi
     offset: 0, -0.25
+    # Aquila Change end
     layers:
-    - state: base
+    - state: base # Aquila Change
     - state: alarm0
-      shader: unshaded
+      shader: unshaded # Aquila Change
       map: ["airAlarmState"] # TODO: fire alarm enum
-    - state: panel
+    - state: panel # Aquila Change
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Construction
     graph: AirAlarm
     node: air_alarm
   - type: Destructible
     thresholds:
+    # Aquila Change start
     - trigger:
         !type:DamageTrigger
         damage: 100
@@ -98,29 +103,32 @@
           collection: MetalGlassBreak
           params:
             volume: -4
+    # Aquila Change end
   - type: GuideHelp
     guides:
     - AirAlarms
     - DeviceMonitoringAndControl
 
 - type: entity
-  parent: [ BaseWallmountMetallic, StructureHealthMachineFlimsy ]
+  parent: [ BaseWallmountMetallic, StructureHealthMachineFlimsy ] # Aquila Change
   id: AirAlarmAssembly
   name: air alarm assembly
   description: An air alarm. Doesn't look like it'll be alarming air any time soon.
   components:
   - type: Sprite
-    sprite: Structures/Wallmounts/air-alarm.rsi
+    sprite: Structures/Wallmounts/air-alarm.rsi # Aquila Change
     layers:
-    - state: panel
+    - state: panel # Aquila Change
       map: [ "enum.ConstructionVisuals.Layer" ]
   - type: Appearance
   - type: GenericVisualizer
     visuals:
       enum.ConstructionVisuals.Key:
         enum.ConstructionVisuals.Layer:
+          # Aquila Change start
           assembly: { state: panel }
           electronics: { state: panel }
+          # Aquila Change end
   - type: Construction
     graph: AirAlarm
     node: assembly
@@ -128,6 +136,7 @@
     anchored: true
   - type: Destructible
     thresholds:
+    # Aquila Change start
     - trigger:
         !type:DamageTrigger
         damage: 50
@@ -137,6 +146,7 @@
           collection: MetalGlassBreak
           params:
             volume: -4
+    # Aquila Change end
 
 - type: entity
   id: AirAlarmXeno
@@ -167,6 +177,7 @@
     - state: alarm_b1
       map: [ "enum.ConstructionVisuals.Layer" ]
   - type: Construction
+    # Aquila Change start
     thresholds:
     - trigger:
         !type:DamageTrigger
@@ -177,3 +188,4 @@
           collection: MetalGlassBreak
           params:
             volume: -4
+    # Aquila Change end

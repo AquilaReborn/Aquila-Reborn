@@ -50,7 +50,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobStationAi
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   storage:
     back:
     - GoldenPersonalAI
@@ -99,7 +99,7 @@
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:OverallPlaytimeRequirement
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
       inverted: true
 
 #NTR Fancy suit
@@ -110,4 +110,4 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobNanotrasenRepresentative
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change

@@ -1,65 +1,86 @@
 # Gibtonite ore variants
 
 - type: entity
+  # Aquila Change start
   abstract: true
   id: BaseRockVisuals
   name: rock
   description: A rocky rock.
+  # Aquila Change end
   components:
+  # Aquila Change start
   - type: Icon
     sprite: Structures/Walls/stone-dirt.rsi
     state: full
+  # Aquila Change end
   - type: Sprite
-    sprite: Structures/Walls/stone-dirt.rsi
+    sprite: Structures/Walls/stone-dirt.rsi # Aquila Change
 
 - type: entity
+  # Aquila Change start
   abstract: true
   id: BaseRockSnowVisuals
   name: rock
   description: A snowy rock.
+  # Aquila Change end
   components:
+  # Aquila Change start
   - type: Icon
     sprite: Structures/Walls/stone-snow.rsi
     state: full
+  # Aquila Change end
   - type: Sprite
-    sprite: Structures/Walls/stone-snow.rsi
+    sprite: Structures/Walls/stone-snow.rsi # Aquila Change
 
 - type: entity
+  # Aquila Change start
   abstract: true
   id: BaseRockSandVisuals
   name: rock
   description: A sandy rock.
+  # Aquila Change end
   components:
+  # Aquila Change start
   - type: Icon
     sprite: Structures/Walls/stone-sand.rsi
     state: full
+  # Aquila Change end
   - type: Sprite
-    sprite: Structures/Walls/stone-sand.rsi
+    sprite: Structures/Walls/stone-sand.rsi # Aquila Change
 
 - type: entity
+  # Aquila Change start
   abstract: true
   id: BaseRockChromitVisuals
   name: rock
   description: A chromity rock.
+  # Aquila Change end
   components:
+  # Aquila Change start
   - type: Icon
     sprite: Structures/Walls/stone-chromite.rsi
     state: full
+  # Aquila Change end
   - type: Sprite
-    sprite: Structures/Walls/stone-chromite.rsi
+    sprite: Structures/Walls/stone-chromite.rsi # Aquila Change
 
 - type: entity
+  # Aquila Change start
   parent: [ BaseRockGibtonite, BaseRockVisuals, BaseAsteroidRock]
   id: WallRockGibtonite
+  # Aquila Change end
   components:
+  # Aquila Change start
   - type: EntityRemap
     mask:
       AsteroidRock: AsteroidRockGibtonite
       WallRockChromite: WallRockChromiteGibtonite
       WallRockSand: WallRockSandGibtonite
       WallRockSnow: WallRockSnowGibtonite
+  # Aquila Change end
 
 - type: entity
+  # Aquila Change start
   id: WallRockSnowGibtonite
   parent: [ BaseRockGibtonite, BaseRockSnowVisuals, BaseAsteroidRock ]
 
@@ -70,3 +91,4 @@
 - type: entity
   id: WallRockChromiteGibtonite
   parent: [ BaseRockGibtonite, BaseRockChromitVisuals, BaseAsteroidRock ]
+  # Aquila Change end

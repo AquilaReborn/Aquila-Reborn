@@ -7,7 +7,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobCaptain
-      time: 1h
+      time: 1h # Aquila Change
 
 # Goobstation - For Ensembles
 - type: loadoutEffectGroup
@@ -17,7 +17,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobCaptain
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
 
 # Jumpsuit
 - type: loadout
@@ -114,7 +114,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobCaptain
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
 
 - type: loadout # Goobstation - Ensembles
   id: CaptainEnsemble

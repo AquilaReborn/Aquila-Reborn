@@ -1,5 +1,5 @@
 - type: entity
-  parent: StructureHealthMachineWeak
+  parent: StructureHealthMachineWeak # Aquila Change
   id: TwoWayLever
   name: two way lever
   description: A two way lever.
@@ -27,13 +27,14 @@
             Middle: { state: switch-off }
             Left: { state: switch-rev }
     - type: Damageable
-      damageModifierSet: SteelMod
+      damageModifierSet: SteelMod # Aquila Change
     - type: Destructible
       thresholds:
       - trigger:
           !type:DamageTrigger
           damage: 100
         behaviors:
+        # Aquila Change start
         - !type:PlaySoundBehavior
           sound:
             collection: MetalBreak
@@ -47,6 +48,7 @@
             PartRodMetal1:
               min: 0
               max: 1
+        # Aquila Change end
     - type: Construction
       graph: LeverGraph
       node: LeverNode

@@ -4,11 +4,11 @@
 #Base barricade
 #A lot of components here are intentionally ommitted in case someone wants to make barricades that are made out of things other than wood.
 - type: entity
-  abstract: true
+  abstract: true # Aquila Change
   parent: BaseStructure
-  id: BaseBarricade
+  id: BaseBarricade # Aquila Change
   name: wooden barricade
-  description: A barricade made out of wood planks. It looks like it can take a few solid hits.
+  description: A barricade made out of wood planks. It looks like it can take a few solid hits. # Aquila Change
   components:
   - type: InteractionOutline
   - type: Sprite
@@ -30,7 +30,7 @@
 
 #Regular Barricade
 - type: entity
-  parent: [ BaseBarricade, StructureHealthBarrier ]
+  parent: [ BaseBarricade, StructureHealthBarrier ] # Aquila Change
   id: Barricade
   components:
   - type: Construction
@@ -48,6 +48,7 @@
   - type: FireVisuals
     sprite: Effects/fire.rsi
     normalState: 1
+  # Aquila Change start
   - type: Damageable
     damageModifierSet: WoodMod
   - type: Destructible
@@ -63,6 +64,7 @@
             max: 2
       - !type:DoActsBehavior # AQUILA FIXES
         acts: [ "Destruction" ]
+  # Aquila Change end
 
 #Structure-Mounted Barricade
 - type: entity
@@ -78,7 +80,7 @@
 
 #Directional Barricade
 - type: entity
-  parent: [ BaseBarricade, StructureHealthBarrierWeak ]
+  parent: [ BaseBarricade, StructureHealthBarrierWeak ] # Aquila Change
   id: BarricadeDirectional
   placement:
     mode: SnapgridCenter
@@ -113,6 +115,7 @@
   - type: Appearance
   - type: FireVisuals
     sprite: Effects/fire.rsi
+    # Aquila Change start
     normalState: 1
   - type: Damageable
     damageModifierSet: WoodMod
@@ -129,3 +132,4 @@
             max: 1
       - !type:DoActsBehavior # AQUILA FIXES
         acts: [ "Destruction" ]
+    # Aquila Change end

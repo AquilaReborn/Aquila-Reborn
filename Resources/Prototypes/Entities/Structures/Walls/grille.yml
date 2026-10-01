@@ -119,10 +119,10 @@
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/grille.rsi
-    state: broken
+    state: broken # Aquila Change
   - type: Icon
     sprite: Structures/Walls/grille.rsi
-    state: broken
+    state: broken # Aquila Change
   - type: RCDDeconstructable
     cost: 6
     delay: 4

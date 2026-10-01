@@ -6,7 +6,7 @@
   id: VulpEar
   bodyPart: HeadTop
   markingCategory: HeadTop
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: _DV/Mobs/Customization/Vulpkanin/ear_markings.rsi
@@ -274,7 +274,7 @@
   id: VulpTail
   bodyPart: Tail
   markingCategory: Tail
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi

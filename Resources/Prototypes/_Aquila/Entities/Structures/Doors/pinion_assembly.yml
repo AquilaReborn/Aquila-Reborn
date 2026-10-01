@@ -1,0 +1,23 @@
+- type: entity
+  parent: AirlockAssembly
+  id: PinionAirlockAssembly
+  suffix: Pinion, Clockwork
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/clockwork_pinion.rsi
+    state: "assembly"
+  - type: Construction
+    graph: PinionAirlock
+    node: assembly
+
+- type: entity
+  parent: AirlockAssembly
+  id: PinionAirlockAssemblyGlass
+  suffix: Pinion, Clockwork, Glass
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Glass/clockwork_pinion.rsi
+    state: "assembly"
+  - type: Construction
+    graph: PinionAirlock
+    node: glassElectronics

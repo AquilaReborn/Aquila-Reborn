@@ -1,28 +1,33 @@
 #todo these need a common parent
 
 - type: entity
-  parent: [ BaseWallmountMetallic, StructureHealthMachineFlimsy ]
+  parent: [ BaseWallmountMetallic, StructureHealthMachineFlimsy ] # Aquila Change
   id: SignalSwitch
   name: signal switch
   description: It's a switch for toggling power to things.
   components:
   - type: WallMount
-    arc: 175
+    arc: 175 # Aquila Change
   - type: StationAiWhitelist
   - type: Sprite
+    # Aquila Change start
     offset: 0, -0.25
     drawdepth: WallMountedItems
+    # Aquila Change end
     sprite: Structures/Wallmounts/switch.rsi
     layers:
+    # Aquila Change start
     - state: base
     - map: [ "shaded" ]
       state: off
     - map: [ "unshaded" ]
       state: off-unshaded
+    # Aquila Change end
       shader: unshaded
   - type: Appearance
   - type: GenericVisualizer
     visuals:
+      # Aquila Change start
       enum.SwitchVisuals.Visuals:
         shaded:
           True: { state: on }
@@ -30,6 +35,7 @@
         unshaded:
           True: { state: on-unshaded }
           False: { state: off-unshaded }
+      # Aquila Change end
   - type: SignalSwitch
   - type: UseDelay
     delay: 0.5 # prevent light-toggling auto-clickers.
@@ -52,34 +58,38 @@
     anchored: false
   - type: Destructible
     thresholds:
-    - trigger: &DamageMachineFlimsy
+    - trigger: &DamageMachineFlimsy # Aquila Change
         !type:DamageTrigger
-        damage: 50
+        damage: 50 # Aquila Change
       behaviors:
-      - &SoundMetalBreak !type:PlaySoundBehavior
+      - &SoundMetalBreak !type:PlaySoundBehavior # Aquila Change
         sound:
           collection: MetalBreak
           params:
             volume: -8
 
 - type: entity
-  parent: [ BaseWallmountMetallic, StructureHealthMachineFlimsy ]
+  parent: [ BaseWallmountMetallic, StructureHealthMachineFlimsy ] # Aquila Change
   id: SignalButton
   name: signal button
   description: It's a button for activating something.
   components:
   - type: WallMount
-    arc: 175
+    arc: 175 # Aquila Change
   - type: StationAiWhitelist
   - type: Sprite
+    # Aquila Change start
     offset: 0, -0.25
     drawdepth: WallMountedItems
+    # Aquila Change end
     sprite: Structures/Wallmounts/switch.rsi
+    # Aquila Change start
     layers:
     - state: base
     - state: button
     - state: button-unshaded
       shader: unshaded
+    # Aquila Change end
   - type: UseDelay
     delay: 0.5 # prevent light-toggling auto-clickers.
   - type: SignalSwitch
@@ -101,16 +111,17 @@
     anchored: false
   - type: Destructible
     thresholds:
-    - trigger: *DamageMachineFlimsy
+    - trigger: *DamageMachineFlimsy # Aquila Change
       behaviors:
-      - *SoundMetalBreak
+      - *SoundMetalBreak # Aquila Change
 
 - type: entity
-  parent: [ BaseWallmountMetallic, StructureHealthMachineFlimsy ]
+  parent: [ BaseWallmountMetallic, StructureHealthMachineFlimsy ] # Aquila Change
   id: ApcNetSwitch
   name: apc net switch
   description: It's a switch for toggling lights that are connected to the same apc.
   components:
+  # Aquila Change start
   - type: Sprite
     offset: 0, -0.25
     drawdepth: WallMountedItems
@@ -151,6 +162,7 @@
     - trigger: *DamageMachineFlimsy
       behaviors:
       - *SoundMetalBreak
+  # Aquila Change end
 
 #directional
 - type: entity
@@ -199,11 +211,12 @@
   - type: Lock
   - type: AccessReader
   - type: Sprite
-    offset: 0, -0.25
+    offset: 0, -0.25 # Aquila Change
     drawdepth: WallMountedItems
-    sprite: Structures/Wallmounts/switch-lockable.rsi
+    sprite: Structures/Wallmounts/switch-lockable.rsi # Aquila Change
     layers:
     - state: base
+    # Aquila Change start
     - state: button
     - state: button-unshaded
       shader: unshaded
@@ -211,7 +224,9 @@
       state: lock-locked
     - map: [ "lock-unshaded" ]
       state: lock-locked-unshaded
+    # Aquila Change end
       shader: unshaded
+  # Aquila Change start
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -222,6 +237,7 @@
         lock-unshaded:
           True: { state: lock-locked-unshaded }
           False: { state: lock-unlocked-unshaded }
+  # Aquila Change end
 
 - type: entity
   parent: LockableButton
@@ -474,7 +490,7 @@
 # button frames
 
 - type: entity
-  parent: StructureHealthFurnitureWeak
+  parent: StructureHealthFurnitureWeak # Aquila Change
   id: ButtonFrame
   name: button frame
   categories: [ HideSpawnMenu ]
@@ -484,13 +500,13 @@
   components:
   - type: Clickable
   - type: WallMount
-    arc: 175
+    arc: 175 # Aquila Change
   - type: Physics
     canCollide: false
   - type: Sprite
-    offset: 0, -0.25
+    offset: 0, -0.25 # Aquila Change
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/switch-frame.rsi
+    sprite: Structures/Wallmounts/switch-frame.rsi # Aquila Change
     state: grey
   - type: Rotatable
   - type: Fixtures
@@ -517,15 +533,15 @@
   suffix: caution
   components:
   - type: Sprite
-    state: caution-security
+    state: caution-security # Aquila Change
 
 - type: entity
-  id: ButtonFrameWhite
+  id: ButtonFrameWhite # Aquila Change
   parent: ButtonFrame
-  suffix: white
+  suffix: white # Aquila Change
   components:
   - type: Sprite
-    state: white
+    state: white # Aquila Change
 
 - type: entity
   id: ButtonFrameJanitor

@@ -647,7 +647,7 @@
   parent: BaseChemistryBottleFilled
   components:
   - type: Label
-    currentLabel: reagent-name-oculine
+    currentLabel: reagent-name-oculine # Aquila Change
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -677,7 +677,7 @@
   parent: BaseChemistryBottleFilled
   components:
   - type: Label
-    currentLabel: reagent-name-opporozidone
+    currentLabel: reagent-name-opporozidone # Aquila Change
   - type: SolutionContainerManager
     solutions:
       drink:

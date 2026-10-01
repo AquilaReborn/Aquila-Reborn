@@ -1,22 +1,24 @@
 - type: entity
-  parent: [BaseDeltaPressureReinforcedPlasma, BaseWindowStructure, BaseRCDResistant, StructureHealthBarrierStrong]
+  parent: [BaseDeltaPressureReinforcedPlasma, BaseWindowStructure, BaseRCDResistant, StructureHealthBarrierStrong] # Aquila Change
   id: ReinforcedPlasmaWindow
   name: reinforced plasma window
   components:
   - type: Sprite
-    sprite: Structures/Windows/window-plasma-reinf.rsi
+    sprite: Structures/Windows/window-plasma-reinf.rsi # Aquila Change
   - type: Icon
+    # Aquila Change start
     sprite: Structures/Windows/window-plasma-reinf.rsi
     state: full
+    # Aquila Change end
   - type: Damageable
-    damageModifierSet: GlassReinforcedPlasmaMod
+    damageModifierSet: GlassReinforcedPlasmaMod # Aquila Change
   - type: RadiationBlocker
-    resistance: 4
+    resistance: 4 # Aquila Change
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 120
+        damage: 120 # Aquila Change
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -29,8 +31,10 @@
           PartRodMetal:
             min: 1
             max: 2
+      # Aquila Change start
       - !type:DoActsBehavior # AQUILA FIXES
         acts: [ "Destruction" ]
+      # Aquila Change end
   - type: IconSmooth
     base: rpwindow
   - type: Construction
@@ -47,7 +51,7 @@
     price: 132
 
 - type: entity
-  parent: [BaseDeltaPressureReinforcedPlasmaQuarter, BaseWindowStructureDirectional, BaseRCDResistant, StructureHealthBarrier]
+  parent: [BaseDeltaPressureReinforcedPlasmaQuarter, BaseWindowStructureDirectional, BaseRCDResistant, StructureHealthBarrier] # Aquila Change
   id: PlasmaReinforcedWindowDirectional
   name: directional reinforced plasma window
   components:
@@ -68,14 +72,14 @@
     damageOverlay:
       sprite: Structures/Windows/cracks_directional.rsi
   - type: Damageable
-    damageModifierSet: GlassReinforcedPlasmaMod
+    damageModifierSet: GlassReinforcedPlasmaMod # Aquila Change
   - type: RadiationBlocker
-    resistance: 2
+    resistance: 2 # Aquila Change
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 80
+        damage: 80 # Aquila Change
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -88,11 +92,14 @@
           PartRodMetal:
             min: 1
             max: 1
+      # Aquila Change start
       - !type:DoActsBehavior # AQUILA FIXES
         acts: [ "Destruction" ]
+      # Aquila Change end
   - type: StaticPrice
     price: 66
 
+# Aquila Change start
 - type: entity
   parent: PlasmaReinforcedWindowDirectional
   id: PlasmaReinforcedWindowDirectionalCorner
@@ -123,6 +130,7 @@
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks_directional_corner.rsi
+# Aquila Change end
 
 - type: entity
   parent: ReinforcedPlasmaWindow
@@ -135,7 +143,7 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/window-diagonal-plasma-reinf.rsi
+    sprite: Structures/Windows/window-diagonal-plasma-reinf.rsi # Aquila Change
     state: state0
   - type: Tag
     tags:
@@ -143,10 +151,10 @@
     - Window
   - type: IconSmooth
     mode: Diagonal
-    key: walls
+    key: walls # Aquila Change
     base: state
   - type: Icon
-    sprite: Structures/Windows/window-diagonal-plasma-reinf.rsi
+    sprite: Structures/Windows/window-diagonal-plasma-reinf.rsi # Aquila Change
     state: state0
   - type: Fixtures
     fixtures:
@@ -169,7 +177,7 @@
     - East
   - type: DamageVisuals
     damageOverlay:
-      sprite: Structures/Windows/cracks-diagonal.rsi
+      sprite: Structures/Windows/cracks-diagonal.rsi # Aquila Change
   - type: Construction
     graph: WindowDiagonal
     node: reinforcedPlasmaWindowDiagonal

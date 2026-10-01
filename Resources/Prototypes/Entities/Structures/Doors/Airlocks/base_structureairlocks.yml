@@ -1,5 +1,7 @@
-﻿- type: entity
+﻿# Aquila Change start
+- type: entity
   parent: [ BaseStructure, StructureHealthDoor ]
+# Aquila Change end
   id: Airlock
   name: airlock
   description: It opens, it closes, and maybe crushes you.
@@ -16,28 +18,28 @@
           "/Audio/Weapons/smash.ogg"
   - type: InteractionOutline
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-base.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-base.rsi # Aquila Change
     layers:
     - state: closed
       map: ["enum.DoorVisualLayers.Base"]
     - state: closed_unlit
       shader: unshaded
-      sprite: Structures/Doors/Airlocks/Effects/airlock-effects.rsi
+      sprite: Structures/Doors/Airlocks/Effects/airlock-effects.rsi # Aquila Change
       map: ["enum.DoorVisualLayers.BaseUnlit"]
-      visible: true
+      visible: true # Aquila Change
     - state: welded
-      sprite: Structures/Doors/Airlocks/Effects/airlock-effects.rsi
+      sprite: Structures/Doors/Airlocks/Effects/airlock-effects.rsi # Aquila Change
       map: ["enum.WeldableLayers.BaseWelded"]
     - state: bolted_unlit
       shader: unshaded
-      sprite: Structures/Doors/Airlocks/Effects/airlock-effects.rsi
+      sprite: Structures/Doors/Airlocks/Effects/airlock-effects.rsi # Aquila Change
       map: ["enum.DoorVisualLayers.BaseBolted"]
     - state: emergency_unlit
-      sprite: Structures/Doors/Airlocks/Effects/airlock-effects.rsi
+      sprite: Structures/Doors/Airlocks/Effects/airlock-effects.rsi # Aquila Change
       map: ["enum.DoorVisualLayers.BaseEmergencyAccess"]
       shader: unshaded
     - state: panel_open
-      sprite: Structures/Doors/Airlocks/Effects/airlock-effects.rsi
+      sprite: Structures/Doors/Airlocks/Effects/airlock-effects.rsi # Aquila Change
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
     - state: electrified_ai
       sprite: Interface/Misc/ai_hud.rsi
@@ -50,15 +52,17 @@
       visible: false
       map: ["enum.ElectrifiedLayers.Sparks"]
     - state: sparks
-      sprite: Structures/Doors/Airlocks/Effects/airlock-effects.rsi
+      sprite: Structures/Doors/Airlocks/Effects/airlock-effects.rsi # Aquila Change
       map: ["enum.DoorVisualLayers.BaseEmagging"]
       shader: unshaded
       visible: false
+  # Aquila Change start
   - type: IconSmooth
     key: walls
     additionalKeys:
     - woods
     mode: NoSprite
+  # Aquila Change end
   - type: AnimationPlayer
   - type: Physics
   - type: Fixtures
@@ -97,16 +101,18 @@
     fuel: 5
     time: 3
   - type: Airlock
-    openUnlitVisible: true
+    openUnlitVisible: true # Aquila Change
   - type: NavMapDoor
   - type: DoorBolt
   - type: Appearance
+  # Aquila Change start
   - type: GenericVisualizer
     visuals:
       enum.ElectrifiedVisuals.ShowSparks:
         enum.ElectrifiedLayers.Sparks:
           True: { visible: True }
           False: { visible: False }
+  # Aquila Change end
   - type: WiresVisuals
   - type: ElectrocutionHUDVisuals
   - type: ApcPowerReceiver
@@ -115,7 +121,6 @@
   - type: Electrified
     enabled: false
     usesApcPower: true
-    onActivateInWorld: true
   - type: WiresPanel
   - type: WiresPanelSecurity
   - type: Wires
@@ -152,13 +157,8 @@
   - type: RadiationBlocker
     resistance: 3
   - type: Occluder
-    polygon:
-    - "-0.5, 0.5"
-    - "0.5, 0.5"
-    - "0.5, -0.5"
-    - "-0.5, -0.5"
   - type: Damageable
-    damageModifierSet: SteelMod
+    damageModifierSet: SteelMod # Aquila Change
   - type: RCDDeconstructable
     cost: 6
     delay: 8
@@ -167,14 +167,16 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 200
+        damage: 200 # Aquila Change
       behaviors:
       # TODO this should go to the broken node first
       - !type:PlaySoundBehavior
         sound:
           collection: MetalSlam
+      # Aquila Change start
       - !type:DoActsBehavior # AQUILA FIXES
         acts: [ "Destruction" ]
+      # Aquila Change end
   - type: Construction
     graph: Airlock
     node: airlock
@@ -192,7 +194,7 @@
     tags:
       - Airlock
       # This tag is used to nagivate the Airlock construction graph. It's needed because the construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
-      - DoorRemoteWhitelist
+      - DoorRemoteWhitelist # Aquila Change
       # This tag is used by door remotes to allow or not a door remote to normally be able to interact with a door
   - type: PryUnpowered
   - type: BlockWeather
@@ -204,11 +206,13 @@
     - KnockOn
   - type: WeldingSparksAnimation # Goobstation
     startingOffset: 0, 0.5
+  # Aquila Change start
   - type: GuideHelp
     guides:
     - Airlocks
     - WirePanels
     - Networking
+  # Aquila Change end
   placement:
     mode: SnapgridCenter
 
@@ -234,7 +238,7 @@
   - type: Occluder
     enabled: false
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/airlock-base.rsi
+    sprite: Structures/Doors/Airlocks/Glass/airlock-base.rsi # Aquila Change
   - type: AnimationPlayer
   - type: Fixtures
     fixtures:
@@ -257,13 +261,14 @@
     resistance: 2
   - type: Paintable
     group: AirlockGlass
-    resistance: 2
   - type: Tag
     tags:
       - GlassAirlock
       # This tag is used to nagivate the Airlock construction graph. It's needed because the construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
-      - DoorRemoteWhitelist
+      - DoorRemoteWhitelist # Aquila Change
       # This tag is used by door remotes to allow or not a door remote to normally be able to interact with a door
 
+# Aquila Change start
 - type: Tag
   id: DoorRemoteWhitelist
+# Aquila Change end

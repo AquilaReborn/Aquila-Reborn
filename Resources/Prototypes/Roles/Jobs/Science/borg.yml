@@ -9,7 +9,7 @@
   requirements:
   - !type:RoleTimeRequirement
     role: JobBorg
-    time: 1h
+    time: 1h # Aquila Change
   weight: 10
   canBeAntag: false
   #goobcoins: 40 #Goob content Corvax-Goob-coins
@@ -28,7 +28,7 @@
   playTimeTracker: JobBorg
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 1h
+      time: 1h # Aquila Change
   canBeAntag: false
   #goobcoins: 20 #Goob content Corvax-Goob-coins
   skills: # CorvaxGoob-Skills
