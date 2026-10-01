@@ -1,6 +1,6 @@
+# Работа выполнена Claude (Anthropic).
 # ==========================================================
-# Песочные часы Жнецов (SoT)
-# Три варианта с разными ID привязки к шаттлу (ShuttleLink).
+# Песочные часы Жнецов (SoT).
 # Общая база HourglassSoTBase лежит в hourglass_athena.yml.
 # ==========================================================
 
@@ -14,34 +14,74 @@
   components:
   - type: Sprite
     state: reapers
+  - type: SotHourglass
+    side: Reapers
   - type: AnnounceOnDestruction
     sender: "Песочные часы судьбы"
     message: "Песочные часы Жнецов уничтожены!"
     playSound: true
     color: "#ff0000"
 
-# --- Варианты с ID привязки ---
-# HourglassReapers оставлен первым вариантом, чтобы не сломать уже расставленные на картах часы.
+# ---------- Для шаттлов на 1-2 человека (хватает 1 голоса) ----------
+
 - type: entity
   parent: HourglassReapersBase
   id: HourglassReapers
-  suffix: SoT, reapers1
+  suffix: SoT, reapers1, 1-2 чел.
   components:
   - type: ShuttleLink
     id: reapers1
+  - type: SotHourglass
+    requiredVotes: 1
 
 - type: entity
   parent: HourglassReapersBase
   id: HourglassReapers2
-  suffix: SoT, reapers2
+  suffix: SoT, reapers2, 1-2 чел.
   components:
   - type: ShuttleLink
     id: reapers2
+  - type: SotHourglass
+    requiredVotes: 1
 
 - type: entity
   parent: HourglassReapersBase
   id: HourglassReapers3
-  suffix: SoT, reapers3
+  suffix: SoT, reapers3, 1-2 чел.
   components:
   - type: ShuttleLink
     id: reapers3
+  - type: SotHourglass
+    requiredVotes: 1
+
+# ---------- Для шаттлов на 4 человека (нужно 3 голоса) ----------
+
+- type: entity
+  parent: HourglassReapersBase
+  id: HourglassReapersLarge
+  suffix: SoT, reapers1, 4 чел.
+  components:
+  - type: ShuttleLink
+    id: reapers1
+  - type: SotHourglass
+    requiredVotes: 3
+
+- type: entity
+  parent: HourglassReapersBase
+  id: HourglassReapersLarge2
+  suffix: SoT, reapers2, 4 чел.
+  components:
+  - type: ShuttleLink
+    id: reapers2
+  - type: SotHourglass
+    requiredVotes: 3
+
+- type: entity
+  parent: HourglassReapersBase
+  id: HourglassReapersLarge3
+  suffix: SoT, reapers3, 4 чел.
+  components:
+  - type: ShuttleLink
+    id: reapers3
+  - type: SotHourglass
+    requiredVotes: 3

@@ -1,0 +1,26 @@
+# Работа выполнена Claude (Anthropic).
+# ==========================================================
+# Пресет SoT
+# Кладите в Resources/Prototypes/_Events/SoT/
+# ==========================================================
+
+# --- Пресет (команда: setgamepreset SoT) ---
+- type: gamePreset
+  id: SoT
+  alias:
+  - sot
+  name: sot-title
+  description: sot-description
+  showInVote: false # только админский запуск
+  rules:
+  - SotRule
+  # Станционные события, метеориты и антагонисты намеренно не подключены.
+
+# --- Правило пресета: ведёт журнал битв ---
+- type: entity
+  parent: BaseGameRule
+  id: SotRule
+  components:
+  - type: SotRule
+    restartDelay: 30            # секунд до рестарта после sotroundend
+    requireDifferentSides: true # битвы только Афина против Жнецов

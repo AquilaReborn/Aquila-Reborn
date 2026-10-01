@@ -1,3 +1,4 @@
+# Работа выполнена Claude (Anthropic).
 # Набор фраз для осмотра повреждённых песочных часов (ExaminableDamage).
 # Ключи: sot-hourglass-damage-1 ... sot-hourglass-damage-5 (см. hourglass.ftl).
 # Первая фраза - целые часы, последняя - почти разрушенные.

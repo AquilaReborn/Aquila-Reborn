@@ -1,3 +1,4 @@
+// Работа выполнена Claude (Anthropic).
 // SPDX-FileCopyrightText: 2026 GromPlay739
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -9,6 +10,7 @@ using Content.Server.Shuttles.Components; // один из двух using (Serve
 using Content.Server.Shuttles.Events;
 using Content.Server.Shuttles.Systems;
 using Content.Shared._Kakila.CCVars;
+using Content.Shared.GameTicking; // RoundRestartCleanupEvent
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems; // FTLState
 using Content.Shared.Timing;
@@ -53,6 +55,9 @@ public sealed class SotRoundSystem : EntitySystem
         // Широковещательная подписка (без компонента): ShuttleSystem уже подписан на ShuttleComponent + FTLStartedEvent,
         // а движок запрещает дублировать такие подписки. FTLStartedEvent рассылается и как broadcast.
         SubscribeLocalEvent<FTLStartedEvent>(OnFtlStarted);
+
+        // Список удерживаемых шаттлов не должен переживать рестарт раунда.
+        SubscribeLocalEvent<RoundRestartCleanupEvent>(_ => _held.Clear());
     }
 
     /// <summary>

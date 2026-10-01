@@ -1,7 +1,9 @@
+# Работа выполнена Claude (Anthropic).
 # ==========================================================
-# Песочные часы Афины (SoT)
-# Три варианта с разными ID привязки к шаттлу (ShuttleLink).
-# Внешне и по функционалу одинаковы, различаются только ID и суффиксом в спавн-меню.
+# Песочные часы SoT: общая база и часы Афины.
+# Варианты: ID привязки (athena1-3) x размер экипажа (1-2 или 4 человека).
+# Внешне и по функционалу одинаковы, различаются ID, суффиксом в спавн-меню
+# и числом голосов, нужных для готовности к битве (и для её отмены).
 # ==========================================================
 
 # --- Общая база всех песочных часов SoT (в спавн-меню не видна) ---
@@ -68,6 +70,14 @@
   # --- Обводка при наведении ---
   - type: InteractionOutline
 
+  # --- UI: голосование экипажа за готовность к битве ---
+  - type: ActivatableUI
+    key: enum.SotHourglassUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.SotHourglassUiKey.Key:
+        type: SotHourglassBoundUserInterface
+
 # --- База Афины (в спавн-меню не видна) ---
 - type: entity
   abstract: true
@@ -78,34 +88,74 @@
   components:
   - type: Sprite
     state: athena
+  - type: SotHourglass
+    side: Athena
   - type: AnnounceOnDestruction
     sender: "Песочные часы судьбы"
     message: "Песочные часы Афины уничтожены!"
     playSound: true
     color: "#0000ff"
 
-# --- Варианты с ID привязки ---
-# HourglassAthena оставлен первым вариантом, чтобы не сломать уже расставленные на картах часы.
+# ---------- Для шаттлов на 1-2 человека (хватает 1 голоса) ----------
+
 - type: entity
   parent: HourglassAthenaBase
   id: HourglassAthena
-  suffix: SoT, athena1
+  suffix: SoT, athena1, 1-2 чел.
   components:
   - type: ShuttleLink
     id: athena1
+  - type: SotHourglass
+    requiredVotes: 1
 
 - type: entity
   parent: HourglassAthenaBase
   id: HourglassAthena2
-  suffix: SoT, athena2
+  suffix: SoT, athena2, 1-2 чел.
   components:
   - type: ShuttleLink
     id: athena2
+  - type: SotHourglass
+    requiredVotes: 1
 
 - type: entity
   parent: HourglassAthenaBase
   id: HourglassAthena3
-  suffix: SoT, athena3
+  suffix: SoT, athena3, 1-2 чел.
   components:
   - type: ShuttleLink
     id: athena3
+  - type: SotHourglass
+    requiredVotes: 1
+
+# ---------- Для шаттлов на 4 человека (нужно 3 голоса) ----------
+
+- type: entity
+  parent: HourglassAthenaBase
+  id: HourglassAthenaLarge
+  suffix: SoT, athena1, 4 чел.
+  components:
+  - type: ShuttleLink
+    id: athena1
+  - type: SotHourglass
+    requiredVotes: 3
+
+- type: entity
+  parent: HourglassAthenaBase
+  id: HourglassAthenaLarge2
+  suffix: SoT, athena2, 4 чел.
+  components:
+  - type: ShuttleLink
+    id: athena2
+  - type: SotHourglass
+    requiredVotes: 3
+
+- type: entity
+  parent: HourglassAthenaBase
+  id: HourglassAthenaLarge3
+  suffix: SoT, athena3, 4 чел.
+  components:
+  - type: ShuttleLink
+    id: athena3
+  - type: SotHourglass
+    requiredVotes: 3
