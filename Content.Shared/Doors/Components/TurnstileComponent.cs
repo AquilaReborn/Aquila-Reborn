@@ -26,11 +26,13 @@ public sealed partial class TurnstileComponent : Component
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
     public TimeSpan NextResistTime;
+    // Aquila Change start
 
     /// <summary>
     /// How much time has to pass before the Turnstile can initiate a new animation.
     /// </summary>
     [DataField]
+    // Aquila Change end
     public TimeSpan AnimationCooldown = TimeSpan.FromSeconds(0.75);
 
     /// <summary>
@@ -64,6 +66,7 @@ public enum TurnstileVisualLayers : byte
     Base
 }
 
+// Aquila Change start
 [Serializable, NetSerializable]
 public enum TurnstileStates : byte
 {
@@ -71,3 +74,4 @@ public enum TurnstileStates : byte
     Deny,
     Spin,
 }
+// Aquila Change end

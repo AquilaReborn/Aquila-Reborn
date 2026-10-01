@@ -5,7 +5,7 @@
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [IPC]
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/wardtakahashi/wardtakahashi_monitor.rsi
     state: head
@@ -15,7 +15,7 @@
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [IPC]
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/wardtakahashi/wardtakahashi_main.rsi
     state: head
@@ -25,7 +25,7 @@
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [IPC]
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/wardtakahashi/wardtakahashi_alt1.rsi
     state: head
@@ -35,7 +35,7 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [IPC]
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/wardtakahashi/wardtakahashi_main.rsi
     state: torso
@@ -45,7 +45,7 @@
   bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [IPC]
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/wardtakahashi/wardtakahashi_main.rsi
     state: l_arm
@@ -55,7 +55,7 @@
   bodyPart: LHand
   markingCategory: LeftHand
   speciesRestriction: [IPC]
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/wardtakahashi/wardtakahashi_main.rsi
     state: l_hand
@@ -65,7 +65,7 @@
   bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [IPC]
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/wardtakahashi/wardtakahashi_main.rsi
     state: l_leg
@@ -76,7 +76,7 @@
   bodyPart: LFoot
   markingCategory: LeftFoot
   speciesRestriction: [IPC]
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/wardtakahashi/wardtakahashi_main.rsi
     state: l_foot
@@ -88,7 +88,7 @@
   bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [IPC]
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/wardtakahashi/wardtakahashi_main.rsi
     state: r_arm
@@ -99,7 +99,7 @@
   bodyPart: RHand
   markingCategory: RightHand
   speciesRestriction: [IPC]
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/wardtakahashi/wardtakahashi_main.rsi
     state: r_hand
@@ -109,7 +109,7 @@
   bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [IPC]
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/wardtakahashi/wardtakahashi_main.rsi
     state: r_leg
@@ -120,7 +120,7 @@
   bodyPart: RFoot
   markingCategory: RightFoot
   speciesRestriction: [IPC]
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/wardtakahashi/wardtakahashi_main.rsi
     state: r_foot

@@ -9,11 +9,13 @@
       board: [ DoorElectronicsService ]
   - type: Wires
     layoutId: AirlockService
+  # Aquila Change start
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/service-base.rsi
+  # Aquila Change end
 
 - type: entity
-  parent: AirlockServiceLocked
+  parent: AirlockServiceLocked # Aquila Change
   id: AirlockLawyerLocked
   suffix: Lawyer, Locked
   components:
@@ -49,7 +51,7 @@
       board: [ DoorElectronicsChapel ]
 
 - type: entity
-  parent: AirlockServiceLocked
+  parent: AirlockServiceLocked # Aquila Change
   id: AirlockJanitorLocked
   suffix: Janitor, Locked
   components:
@@ -324,7 +326,7 @@
       board: [ DoorElectronicsCommand ]
 
 - type: entity
-  parent: AirlockCommand
+  parent: AirlockCommand # Aquila Change
   id: AirlockCaptainLocked
   suffix: Captain, Locked
   components:
@@ -333,7 +335,7 @@
       board: [ DoorElectronicsCaptain ]
 
 - type: entity
-  parent: AirlockCommand
+  parent: AirlockCommand # Aquila Change
   id: AirlockChiefMedicalOfficerLocked
   suffix: ChiefMedicalOfficer, Locked
   components:
@@ -342,7 +344,7 @@
       board: [ DoorElectronicsChiefMedicalOfficer ]
 
 - type: entity
-  parent: AirlockCommand
+  parent: AirlockCommand # Aquila Change
   id: AirlockChiefEngineerLocked
   suffix: ChiefEngineer, Locked
   components:
@@ -351,7 +353,7 @@
       board: [ DoorElectronicsChiefEngineer ]
 
 - type: entity
-  parent: AirlockCommand
+  parent: AirlockCommand # Aquila Change
   id: AirlockHeadOfSecurityLocked
   suffix: HeadOfSecurity, Locked
   components:
@@ -360,7 +362,7 @@
       board: [ DoorElectronicsHeadOfSecurity ]
 
 - type: entity
-  parent: AirlockCommand
+  parent: AirlockCommand # Aquila Change
   id: AirlockResearchDirectorLocked
   suffix: ResearchDirector, Locked
   components:
@@ -369,7 +371,7 @@
       board: [ DoorElectronicsResearchDirector ]
 
 - type: entity
-  parent: AirlockCommand
+  parent: AirlockCommand # Aquila Change
   id: AirlockHeadOfPersonnelLocked
   suffix: HeadOfPersonnel, Locked
   components:
@@ -378,7 +380,7 @@
       board: [ DoorElectronicsHeadOfPersonnel ]
 
 - type: entity
-  parent: AirlockCommand
+  parent: AirlockCommand # Aquila Change
   id: AirlockQuartermasterLocked
   suffix: Quartermaster, Locked
   components:
@@ -464,7 +466,7 @@
     layoutId: AirlockService
 
 - type: entity
-  parent: AirlockServiceGlassLocked
+  parent: AirlockServiceGlassLocked # Aquila Change
   id: AirlockLawyerGlassLocked
   suffix: Lawyer, Locked
   components:
@@ -583,7 +585,7 @@
       board: [ DoorElectronicsKitchen ]
 
 - type: entity
-  parent: AirlockServiceGlassLocked
+  parent: AirlockServiceGlassLocked # Aquila Change
   id: AirlockJanitorGlassLocked
   suffix: Janitor, Locked
   components:
@@ -738,7 +740,7 @@
       board: [ DoorElectronicsCommand ]
 
 - type: entity
-  parent: AirlockCommandGlass
+  parent: AirlockCommandGlass # Aquila Change
   id: AirlockCaptainGlassLocked
   suffix: Captain, Locked
   components:
@@ -747,7 +749,7 @@
       board: [ DoorElectronicsCaptain ]
 
 - type: entity
-  parent: AirlockCommandGlass
+  parent: AirlockCommandGlass # Aquila Change
   id: AirlockChiefMedicalOfficerGlassLocked
   suffix: ChiefMedicalOfficer, Locked
   components:
@@ -756,7 +758,7 @@
       board: [ DoorElectronicsChiefMedicalOfficer ]
 
 - type: entity
-  parent: AirlockCommandGlass
+  parent: AirlockCommandGlass # Aquila Change
   id: AirlockChiefEngineerGlassLocked
   suffix: ChiefEngineer, Locked
   components:
@@ -765,7 +767,7 @@
       board: [ DoorElectronicsChiefEngineer ]
 
 - type: entity
-  parent: AirlockCommandGlass
+  parent: AirlockCommandGlass # Aquila Change
   id: AirlockHeadOfSecurityGlassLocked
   suffix: HeadOfSecurity, Locked
   components:
@@ -774,7 +776,7 @@
       board: [ DoorElectronicsHeadOfSecurity ]
 
 - type: entity
-  parent: AirlockCommandGlass
+  parent: AirlockCommandGlass # Aquila Change
   id: AirlockResearchDirectorGlassLocked
   suffix: ResearchDirector, Locked
   components:
@@ -783,7 +785,7 @@
       board: [ DoorElectronicsResearchDirector ]
 
 - type: entity
-  parent: AirlockCommandGlass
+  parent: AirlockCommandGlass # Aquila Change
   id: AirlockHeadOfPersonnelGlassLocked
   suffix: HeadOfPersonnel, Locked
   components:
@@ -792,7 +794,7 @@
       board: [ DoorElectronicsHeadOfPersonnel ]
 
 - type: entity
-  parent: AirlockCommandGlass
+  parent: AirlockCommandGlass # Aquila Change
   id: AirlockQuartermasterGlassLocked
   suffix: Quartermaster, Locked
   components:
@@ -905,217 +907,217 @@
   id: AirlockMaintSalvageLocked
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi # Aquila Change
 
 - type: entity
   parent: AirlockCargoLocked
   id: AirlockMaintCargoLocked
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi # Aquila Change
 
 - type: entity
   parent: AirlockCommandLocked
   id: AirlockMaintCommandLocked
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi # Aquila Change
 
 - type: entity
   parent: AirlockEngineeringLocked
   id: AirlockMaintEngiLocked
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi # Aquila Change
 
 - type: entity
   parent: AirlockAtmosphericsLocked
   id: AirlockMaintAtmoLocked
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi # Aquila Change
 
 - type: entity
   parent: AirlockBarLocked
   id: AirlockMaintBarLocked
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi # Aquila Change
 
 - type: entity
   parent: AirlockBarKitchenLocked
   id: AirlockMaintBarKitchenLocked
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi # Aquila Change
 
 - type: entity
   parent: AirlockChapelLocked
   id: AirlockMaintChapelLocked
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi # Aquila Change
 
 - type: entity
   parent: AirlockHydroponicsLocked
   id: AirlockMaintHydroLocked
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi # Aquila Change
 
 - type: entity
   parent: AirlockJanitorLocked
   id: AirlockMaintJanitorLocked
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi # Aquila Change
 
 - type: entity
   parent: AirlockLawyerLocked
   id: AirlockMaintLawyerLocked
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi # Aquila Change
 
 - type: entity
   parent: AirlockServiceLocked
   id: AirlockMaintServiceLocked
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi # Aquila Change
 
 - type: entity
   parent: AirlockTheatreLocked
   id: AirlockMaintTheatreLocked
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi # Aquila Change
 
 - type: entity
   parent: AirlockServiceTheatreLocked
   id: AirlockMaintServiceTheatreLocked
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi # Aquila Change
 
 - type: entity
   parent: AirlockKitchenLocked
   id: AirlockMaintKitchenLocked
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi # Aquila Change
 
 - type: entity
   parent: AirlockFreezerKitchenHydroLocked
   id: AirlockMaintKitchenHydroLocked
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi # Aquila Change
 
 - type: entity
   parent: AirlockMedicalLocked
   id: AirlockMaintMedLocked
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi # Aquila Change
 
 - type: entity
   parent: AirlockMedicalMorgueLocked
   id: AirlockMedicalMorgueMaintLocked
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi # Aquila Change
 
 - type: entity
   parent: AirlockChemistryLocked
   id: AirlockMaintChemLocked
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi # Aquila Change
 
 - type: entity
   parent: AirlockScienceLocked
   id: AirlockMaintRnDLocked
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi # Aquila Change
 
 - type: entity
   parent: AirlockMedicalScienceLocked
   id: AirlockMaintRnDMedLocked
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi # Aquila Change
 
 - type: entity
   parent: AirlockSecurityLocked
   id: AirlockMaintSecLocked
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi # Aquila Change
 
 - type: entity
   parent: AirlockDetectiveLocked
   id: AirlockMaintDetectiveLocked
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi # Aquila Change
 
 - type: entity
   parent: AirlockHeadOfPersonnelLocked
   id: AirlockMaintHOPLocked
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi # Aquila Change
 
 - type: entity
   parent: AirlockCaptainLocked
   id: AirlockMaintCaptainLocked
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi # Aquila Change
 
 - type: entity
   parent: AirlockChiefEngineerLocked
   id: AirlockMaintChiefEngineerLocked
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi # Aquila Change
 
 - type: entity
   parent: AirlockChiefMedicalOfficerLocked
   id: AirlockMaintChiefMedicalOfficerLocked
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi # Aquila Change
 
 - type: entity
   parent: AirlockHeadOfSecurityLocked
   id: AirlockMaintHeadOfSecurityLocked
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi # Aquila Change
 
 - type: entity
   parent: AirlockResearchDirectorLocked
   id: AirlockMaintResearchDirectorLocked
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi # Aquila Change
 
 - type: entity
   parent: AirlockQuartermasterLocked
   id: AirlockMaintQuartermasterLocked
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi # Aquila Change
 
 - type: entity
   parent: AirlockArmoryLocked
   id: AirlockMaintArmoryLocked
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi # Aquila Change
 
 - type: entity
   parent: AirlockSyndicate
@@ -1224,7 +1226,7 @@
       board: [ DoorElectronicsExternal ]
 
 - type: entity
-  name: arrivals airlock
+  name: arrivals airlock # Aquila Change
   parent: AirlockGlassShuttle
   id: AirlockExternalGlassShuttleArrivals
   suffix: External, Arrivals, Glass, Docking
@@ -1234,10 +1236,10 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsExternal ]
+  # Aquila Change start
   - type: Docking
     radarColor: "#B22222"
     highlightedRadarColor: Red
-    dockLegendCategory: Arrivals
 
 - type: entity
   name: cargo airlock
@@ -1251,7 +1253,7 @@
   - type: Docking
     radarColor: "#FFFF9F"
     highlightedRadarColor: LightYellow
-    dockLegendCategory: Cargo
+  # Aquila Change end
 
 - type: entity
   parent: AirlockGlassShuttle

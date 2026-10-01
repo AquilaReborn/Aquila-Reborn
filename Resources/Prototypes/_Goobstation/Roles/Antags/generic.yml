@@ -35,10 +35,10 @@
   objective: never-shown
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 1h
+    time: 1h # Aquila Change
   - !type:DepartmentTimeRequirement
     department: Engineering
-    time: 1h
+    time: 1h # Aquila Change
 
 - type: antag
   id: MimeGhostAntagonistGoob
@@ -47,10 +47,10 @@
   objective: never-shown
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 1h
+    time: 1h # Aquila Change
   - !type:RoleTimeRequirement
     role: JobMime
-    time: 1h
+    time: 1h # Aquila Change
 
 - type: antag
   id: PassengerGhostAntagonistGoob
@@ -59,10 +59,10 @@
   objective: never-shown
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 1h
+    time: 1h # Aquila Change
   - !type:RoleTimeRequirement
     role: JobPassenger
-    time: 1h
+    time: 1h # Aquila Change
 
 - type: antag
   id: BorgGhostAntagonistGoob
@@ -71,10 +71,10 @@
   objective: never-shown
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 1h
+    time: 1h # Aquila Change
   - !type:RoleTimeRequirement
     role: JobBorg
-    time: 1h
+    time: 1h # Aquila Change
 
 - type: antag
   id: ClownGhostAntagonistGoob
@@ -83,7 +83,7 @@
   objective: never-shown
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 1h
+    time: 1h # Aquila Change
   - !type:RoleTimeRequirement
     role: JobClown
-    time: 1h
+    time: 1h # Aquila Change

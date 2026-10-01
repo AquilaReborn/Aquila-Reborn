@@ -1,3 +1,4 @@
+# Aquila Change start
 - type: entity
   parent: [ BaseStructure, StructureHealthDoor ]
   id: EnergyGate
@@ -80,8 +81,10 @@
     radius: 2.2
   - type: PlacementReplacement
     key: walls
+# Aquila Change end
 
 # Genpop
+# Aquila Change start
 - type: entity
   id: EnergyGateGenpopEnter
   parent: EnergyGate
@@ -97,8 +100,10 @@
   components:
   - type: AccessReader
     access: [["GenpopLeave"], ["Security"]]
+# Aquila Change end
 
 # Airtight
+# Aquila Change start
 - type: entity
   parent: EnergyGate
   id: EnergyGateAirtight
@@ -128,3 +133,4 @@
     energy: 2.2
     color: "#50abff"
     radius: 2.2
+# Aquila Change end

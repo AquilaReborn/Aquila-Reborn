@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+# Aquila Change start
 - type: entity
   abstract: true
   id: BaseVeinBSCrystal
@@ -15,33 +16,34 @@
       sprite: Structures/Walls/stone-ore.rsi
       map: [ "enum.MiningScannerVisualLayers.Overlay" ]
       visible: false # Lavaland Change
+# Aquila Change end
 
 - type: entity
   id: MeteorRockBSCrystal
-  parent: [ BaseVeinBSCrystal, AsteroidRock ]
+  parent: [ BaseVeinBSCrystal, AsteroidRock ] # Aquila Change
   suffix: bluespace crystal
 
 - type: entity
   id: IronRockBSCrystal
-  parent: [ BaseVeinBSCrystal, IronRock ]
+  parent: [ BaseVeinBSCrystal, IronRock ] # Aquila Change
   suffix: bluespace crystal
 
 - type: entity
   id: WallRockBSCrystal
-  parent: [ BaseVeinBSCrystal, WallRock ]
+  parent: [ BaseVeinBSCrystal, WallRock ] # Aquila Change
   suffix: bluespace crystal
 
 - type: entity
   id: WallRockSnowBSCrystal
-  parent: [ BaseVeinBSCrystal, WallRockSnow ]
+  parent: [ BaseVeinBSCrystal, WallRockSnow ] # Aquila Change
   suffix: bluespace crystal
 
 - type: entity
   id: WallRockSandBSCrystal
-  parent: [ BaseVeinBSCrystal, WallRockSand ]
+  parent: [ BaseVeinBSCrystal, WallRockSand ] # Aquila Change
   suffix: bluespace crystal
 
 - type: entity
   id: WallRockChromiteBSCrystal
-  parent: [ BaseVeinBSCrystal, WallRockChromite ]
+  parent: [ BaseVeinBSCrystal, WallRockChromite ] # Aquila Change
   suffix: bluespace crystal

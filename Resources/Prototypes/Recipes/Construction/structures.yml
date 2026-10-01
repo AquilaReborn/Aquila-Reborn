@@ -1311,11 +1311,13 @@
   conditions:
     - !type:TileNotBlocked
 
+# Aquila Change start
 - type: construction
   id: EnergyGate
   graph: EnergyGate
+# Aquila Change end
   startNode: start # Aquila Change
-  targetNode: energyGate
+  targetNode: energyGate # Aquila Change
   category: construction-category-structures # Aquila Change
   objectType: Structure # Aquila Change
   placementMode: SnapgridCenter # Aquila Change

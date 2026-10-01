@@ -5,7 +5,7 @@
   bodyPart: Special
   markingCategory: Special
   speciesRestriction: [Human] # CorvaxGoob-Sponsors
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   coloring:
     default:
       type:
@@ -29,7 +29,7 @@
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Human]
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   coloring:
     default:
       type:
@@ -41,4 +41,4 @@
         - !type:SkinColoring
   sprites:
   - sprite: Mobs/Customization/cat_parts.rsi
-    state: tail_cat
+    state: tail_cat # Aquila Change

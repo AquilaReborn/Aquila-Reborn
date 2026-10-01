@@ -1,4 +1,4 @@
-﻿- type: entity
+﻿- type: entity # Aquila Change
   abstract: true
   parent: BaseStructure
   id: BaseMaterialDoor
@@ -11,7 +11,7 @@
   - type: Rotatable
   - type: InteractionOutline
   - type: Sprite
-    sprite: Structures/Doors/MaterialDoors/silver-door.rsi
+    sprite: Structures/Doors/MaterialDoors/silver-door.rsi # Aquila Change
     layers:
     - state: closed
       map: ["enum.DoorVisualLayers.Base"]
@@ -50,11 +50,13 @@
     fx: EffectRCDDeconstruct6
   - type: Occluder
   - type: BlockWeather
+  # Aquila Change start
   - type: IconSmooth
     key: walls
     mode: NoSprite
   - type: PlacementReplacement
     key: walls
+  # Aquila Change end
 
 - type: entity
   abstract: true
@@ -65,24 +67,30 @@
 
 ### Metal doors ###
 - type: entity
+  # Aquila Change start
   parent:
   - BaseMaterialDoorNavMap
   - StructureHealthDoorWeak
+  # Aquila Change end
   id: PlasmaDoor
   name: plasma door
   components:
   - type: Sprite
-    sprite: Structures/Doors/MaterialDoors/plasma-door.rsi
+    sprite: Structures/Doors/MaterialDoors/plasma-door.rsi # Aquila Change
   - type: Construction
     graph: DoorGraph
     node: plasmaDoor
+  # Aquila Change start
   - type: Damageable
     damageModifierSet: PlasmaMod
+  # Aquila Change end
   - type: Destructible
     thresholds:
+    # Aquila Change start
     - trigger:
         !type:DamageTrigger
         damage: 100
+    # Aquila Change end
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -94,24 +102,30 @@
             max: 5
 
 - type: entity
+  # Aquila Change start
   parent:
   - BaseMaterialDoorNavMap
   - StructureHealthDoorWeak
+  # Aquila Change end
   id: GoldDoor
   name: gold door
   components:
   - type: Sprite
-    sprite: Structures/Doors/MaterialDoors/gold-door.rsi
+    sprite: Structures/Doors/MaterialDoors/gold-door.rsi # Aquila Change
   - type: Construction
     graph: DoorGraph
     node: goldDoor
+  # Aquila Change start
   - type: Damageable
     damageModifierSet: PreciousMetalMod
+  # Aquila Change end
   - type: Destructible
     thresholds:
+    # Aquila Change start
     - trigger:
         !type:DamageTrigger
         damage: 100
+    # Aquila Change end
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -123,24 +137,30 @@
             max: 5
 
 - type: entity
+  # Aquila Change start
   parent:
   - BaseMaterialDoorNavMap
   - StructureHealthDoorWeak
+  # Aquila Change end
   id: SilverDoor
   name: silver door
   components:
   - type: Sprite
-    sprite: Structures/Doors/MaterialDoors/silver-door.rsi
+    sprite: Structures/Doors/MaterialDoors/silver-door.rsi # Aquila Change
   - type: Construction
     graph: DoorGraph
     node: silverDoor
+  # Aquila Change start
   - type: Damageable
     damageModifierSet: PreciousMetalMod
+  # Aquila Change end
   - type: Destructible
     thresholds:
+    # Aquila Change start
     - trigger:
         !type:DamageTrigger
         damage: 100
+    # Aquila Change end
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -154,14 +174,16 @@
 ### Other doors ###
 
 - type: entity
+  # Aquila Change start
   parent:
   - BaseMaterialDoorNavMap
   - StructureHealthBarrierStrong
+  # Aquila Change end
   id: WoodDoor
   name: wooden door
   components:
   - type: Sprite
-    sprite: Structures/Doors/MaterialDoors/wood-door.rsi
+    sprite: Structures/Doors/MaterialDoors/wood-door.rsi # Aquila Change
   - type: Door
     openSound:
       path: /Audio/Effects/door_open.ogg
@@ -171,12 +193,12 @@
     graph: DoorGraph
     node: woodDoor
   - type: Damageable
-    damageModifierSet: WoodMod
+    damageModifierSet: WoodMod # Aquila Change
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 120
+        damage: 120 # Aquila Change
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -188,14 +210,16 @@
             max: 5
 
 - type: entity
+  # Aquila Change start
   parent:
   - BaseMaterialDoorNavMap
   - StructureHealthBarrierWeak
+  # Aquila Change end
   id: PaperDoor
   name: paper door
   components:
   - type: Sprite
-    sprite: Structures/Doors/MaterialDoors/paper-door.rsi
+    sprite: Structures/Doors/MaterialDoors/paper-door.rsi # Aquila Change
   - type: Door
     openSound:
       path: /Audio/Effects/paperdoor_openclose.ogg
@@ -205,12 +229,12 @@
     graph: DoorGraph
     node: paperDoor
   - type: Damageable
-    damageModifierSet: CardboardMod
+    damageModifierSet: CardboardMod # Aquila Change
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 30
+        damage: 30 # Aquila Change
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -222,15 +246,17 @@
             max: 5
 
 - type: entity
+  # Aquila Change start
   parent:
   - BaseMaterialDoorNavMap
   - StructureHealthBarrierWeak
+  # Aquila Change end
   id: WebDoor
   name: web door
   description: A door, leading to the lands of the spiders... or a spaced room.
   components:
   - type: Sprite
-    sprite: Structures/Doors/MaterialDoors/web-door.rsi
+    sprite: Structures/Doors/MaterialDoors/web-door.rsi # Aquila Change
   - type: Door
     closeSound:
       path: /Audio/Effects/rustle1.ogg
@@ -240,12 +266,12 @@
     graph: WebStructures
     node: door
   - type: Damageable
-    damageModifierSet: ThreadMod
+    damageModifierSet: ThreadMod # Aquila Change
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 30
+        damage: 30 # Aquila Change
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -257,14 +283,16 @@
             max: 2
 
 - type: entity
+  # Aquila Change start
   parent:
   - BaseMaterialDoorNavMap
   - StructureHealthBarrierWeak
+  # Aquila Change end
   id: CardDoor
   name: cardboard door
   components:
   - type: Sprite
-    sprite: Structures/Doors/MaterialDoors/card-door.rsi
+    sprite: Structures/Doors/MaterialDoors/card-door.rsi # Aquila Change
   - type: Door
     openSound:
       path: /Audio/Effects/card_drag.ogg
@@ -279,7 +307,7 @@
         path:
           "/Audio/Weapons/pierce.ogg"
   - type: Damageable
-    damageModifierSet: CardboardMod
+    damageModifierSet: CardboardMod # Aquila Change
   - type: Destructible
     thresholds:
     - trigger:
@@ -294,28 +322,37 @@
           MaterialCardboard:
             min: 3
             max: 5
+  # Aquila Change start
   - type: IconSmooth
     key: cards
     mode: NoSprite
+  # Aquila Change end
 
 - type: entity
+  # Aquila Change start
   parent: BaseMaterialDoorNavMap
   id: MetalDoor
   name: metal door
+  # Aquila Change end
   components:
+  # Aquila Change start
   - type: Construction
     graph: DoorGraph
     node: metalDoor
+  # Aquila Change end
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
+        # Aquila Change start
         damage: 200
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+        # Aquila Change end
     - trigger:
         !type:DamageTrigger
+        # Aquila Change start
         damage: 150
       behaviors:
       - !type:DoActsBehavior
@@ -328,3 +365,4 @@
           SheetSteel1:
             min: 3
             max: 5
+        # Aquila Change end

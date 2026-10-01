@@ -3,6 +3,7 @@
 # and by keeping consistent values durability can be better intuited and expected in relation to other entities.
 # As a general guide: Furniture < Windows < Machines < Doors < Walls
 
+# Aquila Change start
 - type: entity
   abstract: true
   id: BaseStructureHealth
@@ -10,10 +11,12 @@
   - type: Destructible
   - type: Damageable
     damageContainer: StructuralInorganic
+# Aquila Change end
 
 #region Furniture
 
 # Poster / faberge egg
+# Aquila Change start
 - type: entity
   abstract: true
   parent: BaseStructureHealth
@@ -26,8 +29,10 @@
       behaviors: &DoDestruction
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+# Aquila Change end
 
 # General furniture like tables and chairs
+# Aquila Change start
 - type: entity
   abstract: true
   parent: BaseStructureHealth
@@ -38,8 +43,10 @@
     - trigger: !type:DamageTrigger
         damage: 40
       behaviors: *DoDestruction
+# Aquila Change end
 
 # Landmark furniture like statues and trees
+# Aquila Change start
 - type: entity
   abstract: true
   parent: BaseStructureHealth
@@ -52,12 +59,14 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+# Aquila Change end
 
 #endregion
 #region Barriers / Windows
 # Barriers are full tile entities that block movement. Basically a lower tier of wall.
 
 # Directional window / small fence / grille
+# Aquila Change start
 - type: entity
   abstract: true
   parent: BaseStructureHealth
@@ -70,8 +79,10 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+# Aquila Change end
 
 # full window / reinforced direction window
+# Aquila Change start
 - type: entity
   abstract: true
   parent: BaseStructureHealth
@@ -84,8 +95,10 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+# Aquila Change end
 
 # reinforced full window / deployable security barrier / girder
+# Aquila Change start
 - type: entity
   abstract: true
   parent: BaseStructureHealth
@@ -98,11 +111,13 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+# Aquila Change end
 
 #endregion
 #region Containers
 
 # Liquid tank / animal crate
+# Aquila Change start
 - type: entity
   abstract: true
   parent: BaseStructureHealth
@@ -115,8 +130,10 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+# Aquila Change end
 
 # Crate / wall closet
+# Aquila Change start
 - type: entity
   abstract: true
   parent: BaseStructureHealth
@@ -129,8 +146,10 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+# Aquila Change end
 
 # Locker / closet
+# Aquila Change start
 - type: entity
   abstract: true
   parent: BaseStructureHealth
@@ -143,8 +162,10 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+# Aquila Change end
 
 # Suit storage / gas canister
+# Aquila Change start
 - type: entity
   abstract: true
   parent: BaseStructureHealth
@@ -157,11 +178,13 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+# Aquila Change end
 
 #endregion
 #region Machines
 
 # Not build from a proper frame. Light fixtures and other small electronics.
+# Aquila Change start
 - type: entity
   abstract: true
   parent: BaseStructureHealth
@@ -179,8 +202,10 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Breakage" ]
+# Aquila Change end
 
 # Computer / tabletop machine
+# Aquila Change start
 - type: entity
   abstract: true
   parent: BaseStructureHealth
@@ -198,8 +223,10 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Breakage" ]
+# Aquila Change end
 
 # Regular full tile machine
+# Aquila Change start
 - type: entity
   abstract: true
   parent: BaseStructureHealth
@@ -217,8 +244,10 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Breakage" ]
+# Aquila Change end
 
 # Important game piece like a recycler or server
+# Aquila Change start
 - type: entity
   abstract: true
   parent: BaseStructureHealth
@@ -236,8 +265,10 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Breakage" ]
+# Aquila Change end
 
 # Multi-tile machine
+# Aquila Change start
 - type: entity
   abstract: true
   parent: BaseStructureHealth
@@ -255,11 +286,13 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Breakage" ]
+# Aquila Change end
 
 #endregion
 #region Doors
 
 # Windoors / material doors
+# Aquila Change start
 - type: entity
   abstract: true
   parent: BaseStructureHealth
@@ -277,8 +310,10 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Breakage" ]
+# Aquila Change end
 
 # Airlocks / firelocks
+# Aquila Change start
 - type: entity
   abstract: true
   parent: BaseStructureHealth
@@ -296,8 +331,10 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Breakage" ]
+# Aquila Change end
 
 # High-security airlocks / blast doors
+# Aquila Change start
 - type: entity
   abstract: true
   parent: BaseStructureHealth
@@ -315,11 +352,13 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Breakage" ]
+# Aquila Change end
 
 #endregion
 #region Walls
 
 # Walls made of unusual materials
+# Aquila Change start
 - type: entity
   abstract: true
   parent: BaseStructureHealth
@@ -332,8 +371,10 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+# Aquila Change end
 
 # Basic steel wall
+# Aquila Change start
 - type: entity
   abstract: true
   parent: BaseStructureHealth
@@ -346,8 +387,10 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+# Aquila Change end
 
 # Heavy walls like plasteel
+# Aquila Change start
 - type: entity
   abstract: true
   parent: BaseStructureHealth
@@ -360,5 +403,6 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+# Aquila Change end
 
 #endregion

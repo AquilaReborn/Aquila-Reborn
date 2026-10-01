@@ -10,7 +10,7 @@
   objective: never-shown
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 1h
+    time: 1h # Aquila Change
   - !type:RoleTimeRequirement
     role: JobScientist
-    time: 1h
+    time: 1h # Aquila Change

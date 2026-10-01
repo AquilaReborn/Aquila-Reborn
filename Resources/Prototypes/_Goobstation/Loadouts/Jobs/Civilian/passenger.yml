@@ -6,7 +6,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobPassenger
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
 
 # Quarterzip
 - type: loadout

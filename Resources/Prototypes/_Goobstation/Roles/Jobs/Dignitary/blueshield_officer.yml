@@ -8,21 +8,25 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
     - !type:AgeRequirement
       requiredAge: 21
     - !type:RoleTimeRequirement  # CorvaxGoob
+      # Aquila Change start
       role: JobSurgeon
       time: 3600 #1 hour
+      # Aquila Change end
     - !type:RoleTimeRequirement  # CorvaxGoob
+      # Aquila Change start
       role: JobCaptain
       time: 3600 #1 hour
+      # Aquila Change end
     - !type:SpeciesRequirement # Goob - None Felinid
       inverted: true
       species:
@@ -64,7 +68,7 @@
   - Cargo
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, BluespaceLifelineImplant ]
+    implants: [ MindShieldImplant, BluespaceLifelineImplant ] # Aquila Change
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff

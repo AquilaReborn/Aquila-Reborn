@@ -1,0 +1,197 @@
+- type: decal
+  id: DesertCactus5
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _Aquila/Decals/desert_flora.rsi
+    state: cactus5
+
+- type: decal
+  id: DesertCactus6
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _Aquila/Decals/desert_flora.rsi
+    state: cactus6
+
+- type: decal
+  id: DesertCactus7
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _Aquila/Decals/desert_flora.rsi
+    state: cactus7
+
+- type: decal
+  id: DesertCactus8
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _Aquila/Decals/desert_flora.rsi
+    state: cactus8
+
+- type: decal
+  id: DesertCactus9
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _Aquila/Decals/desert_flora.rsi
+    state: cactus9
+
+- type: decal
+  id: DesertCactus10
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _Aquila/Decals/desert_flora.rsi
+    state: cactus10
+
+- type: decal
+  id: DesertCactus11
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _Aquila/Decals/desert_flora.rsi
+    state: cactus11
+
+- type: decal
+  id: DesertCactus12
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _Aquila/Decals/desert_flora.rsi
+    state: cactus12
+
+- type: decal
+  id: DesertCactus13
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _Aquila/Decals/desert_flora.rsi
+    state: cactus13
+
+- type: decal
+  id: DesertCactus14
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _Aquila/Decals/desert_flora.rsi
+    state: cactus14
+
+- type: decal
+  id: DesertGrass1
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _Aquila/Decals/desert_flora.rsi
+    state: desertgrass1
+
+- type: decal
+  id: DesertGrass2
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _Aquila/Decals/desert_flora.rsi
+    state: desertgrass2
+
+- type: decal
+  id: DesertGrass3
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _Aquila/Decals/desert_flora.rsi
+    state: desertgrass3
+
+- type: decal
+  id: DesertGrass4
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _Aquila/Decals/desert_flora.rsi
+    state: desertgrass4
+
+- type: decal
+  id: DesertGrass5
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _Aquila/Decals/desert_flora.rsi
+    state: desertgrass5
+
+- type: decal
+  id: DesertGrass6
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _Aquila/Decals/desert_flora.rsi
+    state: desertgrass6
+
+- type: decal
+  id: DesertStones1
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _Aquila/Decals/desert_flora.rsi
+    state: desertstones1
+
+- type: decal
+  id: DesertStones2
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _Aquila/Decals/desert_flora.rsi
+    state: desertstones2
+
+- type: decal
+  id: DesertStones3
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _Aquila/Decals/desert_flora.rsi
+    state: desertstones3
+
+- type: decal
+  id: DesertStones4
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _Aquila/Decals/desert_flora.rsi
+    state: desertstones4
+
+- type: decal
+  id: DesertStones5
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _Aquila/Decals/desert_flora.rsi
+    state: desertstones5
+
+- type: decal
+  id: DesertStones6
+  tags: ["flora"]
+  snapCardinals: true
+  defaultSnap: false
+  sprite:
+    sprite: _Aquila/Decals/desert_flora.rsi
+    state: desertstones6

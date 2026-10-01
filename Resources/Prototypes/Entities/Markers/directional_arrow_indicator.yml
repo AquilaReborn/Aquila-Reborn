@@ -1,3 +1,4 @@
+# Aquila Change start
 - type: entity
   id: RedDirectionalArrowIndicator
   categories: [ HideSpawnMenu ]
@@ -32,3 +33,4 @@
     layers:
     - state: red_arrow
   - type: Clickable
+# Aquila Change end

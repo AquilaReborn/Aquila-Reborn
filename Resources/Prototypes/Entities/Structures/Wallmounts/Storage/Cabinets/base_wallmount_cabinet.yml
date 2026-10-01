@@ -1,12 +1,13 @@
 - type: entity
-  abstract: true
+  abstract: true # Aquila Change
   parent: [BaseWallmountMetallic, BaseItemCabinet]
   id: BaseWallmountCabinet
 
 - type: entity
-  abstract: true
+  abstract: true # Aquila Change
   parent: [BaseWallmountGlass, BaseItemCabinetGlass]
   id: BaseWallmountCabinetGlass
+  # Aquila Change start
   components:
   - type: GenericVisualizer # Distinct visualizer - lock layer disappears when open
     visuals:
@@ -25,3 +26,4 @@
         enum.LockVisualLayers.Lock:
           True: { state: locked }
           False: { state: unlocked }
+  # Aquila Change end

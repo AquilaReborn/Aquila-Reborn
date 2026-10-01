@@ -1,4 +1,4 @@
-﻿- type: entity
+﻿- type: entity # Aquila Change
   parent: FireAxeCabinet
   id: ShotGunCabinet
   name: shotgun cabinet
@@ -13,9 +13,11 @@
       visible: true
     - state: glass
       map: ["enum.OpenableVisuals.Layer"]
+    # Aquila Change start
     - state: locked
       shader: unshaded
       map: ["enum.LockVisualLayers.Lock"]
+    # Aquila Change end
   - type: ItemSlots
     slots:
       ItemCabinet:
@@ -49,4 +51,4 @@
 - type: entity
   parent: [ShotGunCabinetFilled, ShotGunCabinetOpen]
   id: ShotGunCabinetFilledOpen
-  suffix: Filled, Open
+  suffix: Filled, Open # Aquila Change

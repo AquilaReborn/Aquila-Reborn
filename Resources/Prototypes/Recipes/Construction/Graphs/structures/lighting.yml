@@ -36,19 +36,19 @@
             - tag: LightTubeCrystalRed
               name: construction-graph-tag-light-tube-crystal-red
               icon:
-                sprite: Objects/Power/light-tube.rsi
+                sprite: Objects/Power/light_tube.rsi # Aquila Change
                 state: normal
               doAfter: 1
             - tag: LightTubeCrystalGreen
               name: construction-graph-tag-light-tube-crystal-green
               icon:
-                sprite: Objects/Power/light-tube.rsi
+                sprite: Objects/Power/light_tube.rsi # Aquila Change
                 state: normal
               doAfter: 1
             - tag: LightTubeCrystalBlue
               name: construction-graph-tag-light-tube-crystal-blue
               icon:
-                sprite: Objects/Power/light-tube.rsi
+                sprite: Objects/Power/light_tube.rsi # Aquila Change
                 state: normal
               doAfter: 1
             - material: Steel

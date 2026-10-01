@@ -1,14 +1,17 @@
 - type: entity
   abstract: true
-  parent: StructureHealthMachineFlimsy
+  parent: StructureHealthMachineFlimsy # Aquila Change
   id: SurveillanceCameraBase
   name: camera
   description: A surveillance camera. It's watching you. Kinda.
+  # Aquila Change start
   placement:
     mode: SnapgridCenter
     snap:
     - Wallmount
+  # Aquila Change end
   components:
+  # Aquila Change start
   - type: Transform
     anchored: true
   - type: Sprite
@@ -19,16 +22,19 @@
     - map: [ "enum.SurveillanceCameraVisualsKey.Layer" ]
       state: camera
   - type: Appearance
+  # Aquila Change end
   - type: Physics
     bodyType: Static
+  # Aquila Change start
   - type: Clickable
   - type: InteractionOutline
+  # Aquila Change end
   - type: Fixtures
     fixtures:
       light:
         shape:
           !type:PhysShapeCircle
-          radius: 0.5
+          radius: 0.5 # Aquila Change
         hard: false
         mask:
         - GhostImpassable
@@ -41,10 +47,11 @@
         - None
         layer:
         - TabletopMachineLayer
-  - type: Eye
+  - type: Eye # Aquila Change
   - type: PointLight
     enabled: false
     radius: 5
+  # Aquila Change start
   - type: Damageable
     damageModifierSet: SteelMod
     damageContainer: StructuralInorganic
@@ -64,6 +71,7 @@
           SheetSteel1:
             min: 0
             max: 1
+  # Aquila Change end
   - type: SlimPoweredLight
     enabled: false
   - type: Electrified
@@ -76,6 +84,7 @@
   - type: Wires
     alwaysRandomize: true
     layoutId: SurveillanceCamera
+  # Aquila Change start
   - type: DeviceNetwork
     deviceNetId: Wired
     transmitFrequencyId: SurveillanceCamera
@@ -88,6 +97,7 @@
     node: camera
   - type: StaticPrice
     price: 200
+  # Aquila Change end
   - type: SurveillanceCameraVisuals
     sprites:
       Active: camera
@@ -106,6 +116,7 @@
   name: camera
   suffix: Constructed
   components:
+  # Aquila Change start
   - type: SurveillanceCamera
     setupAvailableNetworks:
     - SurveillanceCameraEngineering
@@ -116,6 +127,7 @@
     - SurveillanceCameraGeneral
     - SurveillanceCameraMedical
     - SurveillanceCameraCommand
+  # Aquila Change end
 
 - type: entity
   parent: SurveillanceCameraBase
@@ -125,7 +137,7 @@
   components:
   - type: DeviceNetwork
     receiveFrequencyId: SurveillanceCameraEngineering
-    prefix: device-address-prefix-camera
+    prefix: device-address-prefix-camera # Aquila Change
   - type: SurveillanceCamera
     networkSet: true
 
@@ -207,13 +219,14 @@
     networkSet: true
 
 - type: entity
-  parent: StructureHealthMachineFlimsy
+  parent: StructureHealthMachineFlimsy # Aquila Change
   id: SurveillanceCameraAssembly
   name: camera
   description: A surveillance camera. Doesn't seem to be watching anybody any time soon. Probably.
   placement:
     mode: SnapgridCenter
     snap:
+    # Aquila Change start
     - Wallmount
   components:
   - type: Transform
@@ -233,3 +246,4 @@
     graph: SurveillanceCamera
     node: assembly
   - type: WallMount
+    # Aquila Change end

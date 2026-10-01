@@ -54,7 +54,6 @@
         Airloss: -5.0
         Burn: -0.5
   - type: DamageStateVisuals
-    rotate: true
     states:
       Alive:
         Base: wolfie

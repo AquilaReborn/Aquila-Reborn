@@ -1,8 +1,10 @@
+# Aquila Change start
 - type: construction
   id: DefibrillatorCabinet
   graph: DefibrillatorCabinet
+# Aquila Change end
   startNode: start # Aquila Change
-  targetNode: done
+  targetNode: done # Aquila Change
   category: construction-category-storage # Aquila Change
   objectType: Structure # Aquila Change
   placementMode: SnapgridCenter # Aquila Change

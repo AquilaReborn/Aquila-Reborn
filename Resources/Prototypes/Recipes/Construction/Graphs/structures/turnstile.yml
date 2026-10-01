@@ -1,12 +1,12 @@
 - type: constructionGraph
-  id: EnergyGate
+  id: EnergyGate # Aquila Change
   start: start
   graph:
   - node: start
     actions:
     - !type:DeleteEntity { }
     edges:
-    - to: energyGate
+    - to: energyGate # Aquila Change
       completed:
       - !type:SnapToGrid
       steps:
@@ -14,10 +14,12 @@
         amount: 4
       - material: Steel
         amount: 1
+        # Aquila Change start
         doAfter: 6
 
   - node: energyGate
     entity: EnergyGate
+        # Aquila Change end
     edges:
     - to: start
       completed:

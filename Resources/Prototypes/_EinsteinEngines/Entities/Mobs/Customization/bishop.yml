@@ -5,7 +5,7 @@
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [IPC]
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_monitor.rsi
     state: head
@@ -17,7 +17,7 @@
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [IPC]
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: head
@@ -27,7 +27,7 @@
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [IPC]
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_alt1.rsi
     state: head
@@ -37,7 +37,7 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [IPC]
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: torso-primary
@@ -49,7 +49,7 @@
   bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian, Tajaran] # Goobstation - Tajaran
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: l_arm-primary
@@ -63,7 +63,7 @@
   bodyPart: LHand
   markingCategory: LeftHand
   speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian, Tajaran] # Goobstation - Tajaran
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: l_hand
@@ -73,7 +73,7 @@
   bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian, Tajaran] # Goobstation - Tajaran
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: l_leg-primary
@@ -86,7 +86,7 @@
   bodyPart: LFoot
   markingCategory: LeftFoot
   speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian, Tajaran] # Goobstation - Tajaran
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: l_foot
@@ -98,7 +98,7 @@
   bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian, Tajaran] # Goobstation - Tajaran
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: r_arm-primary
@@ -113,7 +113,7 @@
   bodyPart: RHand
   markingCategory: RightHand
   speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian, Tajaran] # Goobstation - Tajaran
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: r_hand
@@ -123,7 +123,7 @@
   bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian, Tajaran] # Goobstation - Tajaran
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: r_leg-primary
@@ -136,7 +136,7 @@
   bodyPart: RFoot
   markingCategory: RightFoot
   speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian, Tajaran] # Goobstation - Tajaran
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: r_foot

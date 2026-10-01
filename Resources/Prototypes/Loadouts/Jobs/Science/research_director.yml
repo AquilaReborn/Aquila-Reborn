@@ -7,7 +7,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobResearchDirector
-      time: 1h
+      time: 1h # Aquila Change
 
 # Goobstation - For Ensembles
 - type: loadoutEffectGroup
@@ -17,7 +17,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobResearchDirector
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
 
 # Head
 - type: loadout

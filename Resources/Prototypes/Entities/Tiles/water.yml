@@ -1,5 +1,5 @@
 - type: entity
-  parent: SolutionTile
+  parent: SolutionTile # Aquila Change
   id: FloorWaterEntity
   name: water
   description: A real thirst quencher.
@@ -13,17 +13,17 @@
   - type: SyncSprite
   - type: Clickable
   - type: Sprite
-    sprite: Tiles/TileEntities/liquid-water.rsi
+    sprite: Tiles/TileEntities/liquid-water.rsi # Aquila Change
     drawdepth: BelowFloor
   - type: SolutionContainerManager
     solutions:
       pool:
-        maxVol: 7680
+        maxVol: 7680 # Aquila Change
         reagents:
         - ReagentId: Water
-          Quantity: 7680
+          Quantity: 7680 # Aquila Change
   - type: SolutionRegeneration
-    solution: pool
+    solution: pool # Aquila Change
     generated:
       reagents:
       - ReagentId: Water
@@ -48,6 +48,7 @@
         density: 1000
         hard: false
       # Goobstation - fishing
+      # Aquila Change start
       fishing:
         shape:
           !type:PhysShapeCircle
@@ -58,6 +59,7 @@
         - HighImpassable
         density: 1000
         hard: false
+      # Aquila Change end
       # Goobstation - fishing
   - type: FootstepModifier
     footstepSoundCollection:
@@ -74,12 +76,15 @@
     effects:
     - !type:Extinguish
   # Goobstation - fishing
+  # Aquila Change start
   - type: FishingSpot
     fishList: !type:NestedSelector
       tableId: WaterFishingLootTable
     fishDefaultTimer: 25.0
     fishTimerVariety: 15.0
+  # Aquila Change end
   # Goobstation - fishing
+  # Aquila Change start
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: FloorCosmicDecay
   - type: IconSmooth
@@ -113,3 +118,4 @@
         - ItemMask
         density: 1000
         hard: false
+  # Aquila Change end

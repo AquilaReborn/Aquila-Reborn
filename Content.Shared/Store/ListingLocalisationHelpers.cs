@@ -44,8 +44,8 @@ public static class ListingLocalisationHelpers
         var _protoMan = IoCManager.Resolve<IPrototypeManager>();
         var _rand = IoCManager.Resolve<IRobustRandom>();
 
-        var discountFluff = _rand.Pick(_protoMan.Index<LocalizedDatasetPrototype>("UplinkDiscountFluff").Values);
-        var discountString = $"{Loc.GetString("store-sales-amount", ("amount", listingData.DiscountValue))} {Loc.GetString(discountFluff)}";
+        var discountFluff = _rand.Pick(_protoMan.Index<LocalizedDatasetPrototype>("UplinkDiscountFluff").Values); // Aquila Change
+        var discountString = $"{Loc.GetString("store-sales-amount", ("amount", listingData.DiscountValue))} {Loc.GetString(discountFluff)}"; // Aquila Change
 
         if (listingData.DiscountValue > 0)
             desc += "\n" + discountString;

@@ -1,3 +1,4 @@
+# Aquila Change start
 - type: constructionGraph
   id: CobwebsGraph
   start: start
@@ -12,6 +13,7 @@
   - node: removed
     actions:
     - !type:DestroyEntity {}
+# Aquila Change end
 
 - type: constructionGraph
   id: WebStructures
@@ -143,4 +145,4 @@
         amount: 6
       steps:
       - tool: Cutting
-        doAfter: 3
+        doAfter: 3 # Aquila Change

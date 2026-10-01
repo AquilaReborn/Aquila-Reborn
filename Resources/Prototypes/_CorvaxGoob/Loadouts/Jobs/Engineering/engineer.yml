@@ -24,7 +24,7 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Engineering
-      time: 3600  #1 hour
+      time: 3600  #1 hour # Aquila Change
 
 - type: loadoutEffectGroup
   id: ExpertEngineer
@@ -33,4 +33,4 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Engineering
-      time: 3600  #1 hour
+      time: 3600  #1 hour # Aquila Change

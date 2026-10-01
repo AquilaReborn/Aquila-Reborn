@@ -1,6 +1,6 @@
 #Base
 - type: entity
-  parent: StructureHealthDoorWeak
+  parent: StructureHealthDoorWeak # Aquila Change
   id: AirlockAssembly
   name: airlock assembly
   description: It opens, it closes, and maybe crushes you.
@@ -8,7 +8,7 @@
   - type: Clickable
   - type: InteractionOutline
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/airlock-base.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-base.rsi # Aquila Change
     state: "assembly"
   - type: Physics
   - type: Fixtures
@@ -29,7 +29,7 @@
     anchored: true
     noRot: true
   - type: Damageable
-    damageModifierSet: SteelMod
+    damageModifierSet: SteelMod # Aquila Change
   - type: RCDDeconstructable
     cost: 6
     delay: 8
@@ -38,13 +38,15 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 100 # Aquila Change
       behaviors:
       - !type:PlaySoundBehavior
         sound:
+          # Aquila Change start
           collection: MetalBreak
           params:
             volume: -4
+          # Aquila Change end
   - type: Construction
     graph: Airlock
     node: assembly

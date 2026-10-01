@@ -2,13 +2,13 @@
 
 - type: antag
   id: Pirate
-  name: roles-antag-pirate-name
+  name: roles-antag-pirate-name # Aquila Change
   antagonist: true
   setPreference: false
   objective: roles-antag-syndicate-agent-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-      time: 1h
+      time: 1h # Aquila Change
   - !type:SpeciesRequirement
     inverted: true
     species:

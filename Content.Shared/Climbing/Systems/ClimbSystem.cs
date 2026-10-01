@@ -233,7 +233,7 @@ public sealed partial class ClimbSystem : VirtualController
             used: entityToMove)
         {
             BreakOnMove = true,
-            BreakOnDamage = user != entityToMove,
+            BreakOnDamage = user != entityToMove, // Aquila Change
             DuplicateCondition = DuplicateConditions.SameTool | DuplicateConditions.SameTarget
         };
 

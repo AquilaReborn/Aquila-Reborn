@@ -96,6 +96,7 @@
   conditions:
     - !type:TileNotBlocked
 
+# Aquila Change start
 - type: construction
   id: BenchSofaCorpCornerAlt
   graph: SofasGraph
@@ -107,6 +108,7 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+# Aquila Change end
 
 - type: construction
   id: BenchSteelMiddle

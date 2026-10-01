@@ -38,7 +38,7 @@
   - type: Sprite
     drawdepth: Mobs
     noRot: true
-    sprite: _Aquila/Objects/Consumables/Food/burger_sequence.rsi # Aquila sprite change
+    sprite: _Aquila/Objects/Consumables/Food/burger_sequence.rsi # Aquila sprite change # Aquila Change
     layers:
     - state: bun_bottom
     - map: ["foodSequenceLayers"]
@@ -69,7 +69,7 @@
   description: The perfect finish for your burger tower.
   components:
   - type: Sprite
-    sprite: _Aquila/Objects/Consumables/Food/burger_sequence.rsi # Aquila sprite change
+    sprite: _Aquila/Objects/Consumables/Food/burger_sequence.rsi # Aquila sprite change # Aquila Change
     layers:
     - state: bun_top
   - type: SolutionContainerManager

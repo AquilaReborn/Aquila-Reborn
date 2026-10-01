@@ -4,7 +4,7 @@
 - type: entity
   id: ChaplainUndeterminedBible
   name: bluespace scripture beacon
-  suffix: Chaplain
+  suffix: Chaplain # Aquila Change
   description: Though I walk through the valley of the shadow of death I will fear no evil, for you are with me.
   parent: [ BaseItem, BaseSetSelector ]
   components:

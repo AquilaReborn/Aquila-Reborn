@@ -1,32 +1,34 @@
 - type: entity
-  parent: [ BaseWallmountMachine, StructureHealthMachineWeak ]
+  parent: [ BaseWallmountMachine, StructureHealthMachineWeak ] # Aquila Change
   id: Screen
   name: screen
   description: Displays text or time.
   components:
   - type: Rotatable
   - type: TextScreenVisuals
+    # Aquila Change start
     textOffset: 0,-2
     timerOffset: 0,-8
+    # Aquila Change end
     rows: 2
+    # Aquila Change start
     rowLength: 6
-    scrollEnabled: true
-    frameState:
-      sprite: Structures/Wallmounts/screen.rsi
-      state: outer_frame
+    # Aquila Change end
   - type: Sprite
-    noRot: true
+    noRot: true # Aquila Change
     drawdepth: WallMountedItems
     sprite: Structures/Wallmounts/screen.rsi
-    state: screen # Note: outer_frame will be added on top of text layers.
+    state: screen # Note: outer_frame will be added on top of text layers. # Aquila Change
   - type: Appearance
+  # Aquila Change start
   - type: Damageable
     damageModifierSet: GlassMod
+  # Aquila Change end
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 100 # Aquila Change
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -47,4 +49,4 @@
   components:
   - type: DeviceNetwork
     deviceNetId: Private
-    receiveFrequencyId: ArrivalsShuttleTimer
+    receiveFrequencyId: ArrivalsShuttleTimer # Aquila Change

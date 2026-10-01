@@ -1,7 +1,9 @@
 - type: entity
   abstract: true
+  # Aquila Change start
   parent: BaseSignWeak
   id: PosterBase
+  # Aquila Change end
   components:
   - type: Sprite
     sprite: Structures/Wallmounts/posters.rsi
@@ -9,7 +11,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 5
+        damage: 5 # Aquila Change
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
@@ -17,12 +19,14 @@
             min: 1
             max: 1
         offset: 0
+  # Aquila Change start
   - type: Construction
     graph: PosterGraph
     node: start
+  # Aquila Change end
 
 - type: entity
-  parent: BaseSignWeak
+  parent: BaseSignWeak # Aquila Change
   id: PosterBroken
   name: broken poster
   description: "You can't make out anything from the poster's original print. It's ruined."
@@ -31,9 +35,11 @@
     drawdepth: WallTops
     sprite: Structures/Wallmounts/posters.rsi
     state: poster_broken
+  # Aquila Change start
   - type: Construction
     graph: PosterGraph
     node: tornPoster
+  # Aquila Change end
 
 # Contraband
 - type: entity
@@ -870,7 +876,7 @@
   parent: PosterBase
   id: PosterLegitEnlist
   name: "Enlist"
-  description: "Enlist in the Nanotrasen Deathsquadron reserves today!"
+  description: "Enlist in the Nanotrasen Deathsquadron reserves today!" # Aquila Change
   components:
   - type: Sprite
     state: poster29_legit
@@ -1217,4 +1223,4 @@
   description: "A map of Origin Station."
   components:
   - type: Sprite
-    state: originmap
+    state: originmap # Aquila Change

@@ -8,13 +8,13 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobCargoTechnician
-      time: 1h
+      time: 1h # Aquila Change
     - !type:RoleTimeRequirement
       role: JobSalvageSpecialist
-      time: 1h
+      time: 1h # Aquila Change
     - !type:DepartmentTimeRequirement
       department: Cargo
-      time: 1h
+      time: 1h # Aquila Change
     - !type:SpeciesRequirement # Goob - None Felinid
       inverted: true
       species:

@@ -1,4 +1,5 @@
-﻿- type: entity
+﻿# Aquila Change start
+- type: entity
   id: Solution # Not abstract because it's a fallback for missing solution protos!
   categories: [ HideSpawnMenu ]
   name: solution
@@ -13,16 +14,17 @@
   - type: Solution
     solution:
       canReact: false
+# Aquila Change end
 
 # Solution Types
 
+# Aquila Change start
 - type: entity
   abstract: true
   parent: Solution
   id: SolutionBeaker
   components:
   - type: Solution
-    id: beaker
 
 - type: entity
   abstract: true
@@ -30,7 +32,6 @@
   id: SolutionInjector
   components:
   - type: Solution
-    id: injector
 
 - type: entity
   abstract: true
@@ -38,7 +39,6 @@
   id: SolutionHypospray
   components:
   - type: Solution
-    id: hypospray
 
 - type: entity
   abstract: true
@@ -46,7 +46,6 @@
   id: SolutionFood # Generally these should only ever be half full. That way they can be poisoned!
   components:
   - type: Solution
-    id: food
 
 - type: entity
   abstract: true
@@ -54,7 +53,6 @@
   id: SolutionDrink
   components:
   - type: Solution
-    id: drink
 
 - type: entity
   abstract: true
@@ -62,7 +60,6 @@
   id: SolutionSmokable
   components:
   - type: Solution
-    id: smokable
 
 - type: entity
   abstract: true
@@ -70,7 +67,6 @@
   id: SolutionWeapon
   components:
   - type: Solution
-    id: melee
 
 - type: entity
   abstract: true
@@ -78,7 +74,6 @@
   id: SolutionGun
   components:
   - type: Solution
-    id: chamber
 
 - type: entity
   abstract: true
@@ -86,7 +81,6 @@
   id: SolutionAmmo
   components:
   - type: Solution
-    id: ammo
 
 - type: entity
   abstract: true
@@ -94,7 +88,6 @@
   id: SolutionVapor # TODO Check if this compsystem is identical to spray...
   components:
   - type: Solution
-    id: vapor
 
 - type: entity
   abstract: true
@@ -102,7 +95,6 @@
   id: SolutionSpray
   components:
   - type: Solution
-    id: spray
 
 - type: entity
   abstract: true
@@ -110,7 +102,6 @@
   id: SolutionTank
   components:
   - type: Solution
-    id: tank
 
 - type: entity
   abstract: true
@@ -118,7 +109,6 @@
   id: SolutionMop
   components:
   - type: Solution
-    id: absorbed
 
 - type: entity
   abstract: true
@@ -126,7 +116,6 @@
   id: SolutionDrain
   components:
   - type: Solution
-    id: drainBuffer
 
 - type: entity
   abstract: true
@@ -134,7 +123,6 @@
   id: SolutionWelder # TODO Refactor fuel usage to comply with welders becoming 30u-60u
   components:
   - type: Solution
-    id: welder
 
 - type: entity
   abstract: true
@@ -142,7 +130,6 @@
   id: SolutionComposite
   components:
   - type: Solution
-    id: composite
 
 - type: entity
   abstract: true
@@ -150,7 +137,7 @@
   id: SolutionLube
   components:
   - type: Solution
-    id: lube # For autolathes to run faster or slower
+# Aquila Change end
 
 # Solution Sizes
 
@@ -163,6 +150,7 @@
 
 ## Very Tiny
 
+# Aquila Change start
 - type: entity
   parent: Solution
   id: SolutionVeryTiny # For things smaller than tiny
@@ -180,9 +168,11 @@
   - type: Solution
     solution:
       maxVol: 7.5
+# Aquila Change end
 
 ## Tiny
 
+# Aquila Change start
 - type: entity
   parent: Solution
   id: SolutionTiny
@@ -212,9 +202,11 @@
   - type: Solution
     solution:
       maxVol: 15
+# Aquila Change end
 
 ## Small
 
+# Aquila Change start
 - type: entity
   parent: Solution
   id: SolutionSmall
@@ -244,9 +236,11 @@
   - type: Solution
     solution:
       maxVol: 30
+# Aquila Change end
 
 ## Normal
 
+# Aquila Change start
 - type: entity
   parent: Solution
   id: SolutionNormal
@@ -276,9 +270,11 @@
   - type: Solution
     solution:
       maxVol: 60
+# Aquila Change end
 
 ## Large
 
+# Aquila Change start
 - type: entity
   parent: Solution
   id: SolutionLarge
@@ -296,9 +292,11 @@
   - type: Solution
     solution:
       maxVol: 120
+# Aquila Change end
 
 ## Huge
 
+# Aquila Change start
 - type: entity
   parent: Solution
   id: SolutionHuge
@@ -312,9 +310,11 @@
   parent: [SolutionDrink, SolutionHuge]
   id: SolutionDrinkHuge
   categories: [ HideSpawnMenu ]
+# Aquila Change end
 
 ## Ginormous
 
+# Aquila Change start
 - type: entity
   parent: Solution
   id: SolutionGinormous
@@ -332,6 +332,7 @@
   - type: Solution
     solution:
       maxVol: 480
+# Aquila Change end
 
 ## Below sizes are for solutions attached to entities bigger than Ginormous, aka not items or maybe two handed?
 
@@ -343,6 +344,7 @@
 ## IDK
 # 3000 - Nuclear Tap
 
+# Aquila Change start
 - type: entity
   parent: Solution
   id: Solution3840 # I can't think of a better name, fight me
@@ -361,3 +363,4 @@
   - type: Solution
     solution:
       maxVol: 7680
+# Aquila Change end

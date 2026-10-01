@@ -1,13 +1,15 @@
-﻿- type: entity
+﻿# Aquila Change start
+- type: entity
   parent: [ BaseStructureDynamic, StructureHealthDoorWeak ]
+# Aquila Change end
   id: FirelockFrame
   name: firelock frame
   description: That is a firelock frame.
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/firelock-base.rsi
+    sprite: Structures/Doors/Airlocks/Standard/firelock-base.rsi # Aquila Change
     layers:
-    - state: assembly
+    - state: assembly # Aquila Change
   - type: Appearance
   - type: Construction
     graph: Firelock
@@ -17,19 +19,23 @@
     cost: 4
     delay: 6
     fx: EffectRCDDeconstruct6
+  # Aquila Change start
   - type: Damageable
     damageModifierSet: PlasteelMod
+  # Aquila Change end
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 100 # Aquila Change
       behaviors:
+      # Aquila Change start
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
           params:
             volume: -4
+      # Aquila Change end
   - type: Physics
     bodyType: Dynamic
   - type: Fixtures
@@ -44,4 +50,4 @@
         - HighImpassable
         layer:
         - HighImpassable
-        - MidImpassable
+        - MidImpassable # Aquila Change

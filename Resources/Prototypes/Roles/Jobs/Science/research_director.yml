@@ -8,10 +8,10 @@
   requirements:
   - !type:RoleTimeRequirement
     role: JobScientist
-    time: 1h
+    time: 1h # Aquila Change
   - !type:DepartmentTimeRequirement
     department: Science
-    time: 1h
+    time: 1h # Aquila Change
   - !type:SpeciesRequirement # Goob - None Felinid
     inverted: true
     species:

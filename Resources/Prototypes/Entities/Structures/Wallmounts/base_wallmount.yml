@@ -12,7 +12,7 @@
   - type: Rotatable
   - type: Physics
     canCollide: false
-  - type: Fixtures
+  - type: Fixtures # Aquila Change
   - type: Clickable
   - type: WallMount
   - type: InteractionOutline
@@ -25,7 +25,7 @@
     drawdepth: WallMountedItems
 
 - type: entity
-  abstract: true
+  abstract: true # Aquila Change
   parent: BaseWallmount
   id: BaseWallmountGlass
   components:
@@ -34,19 +34,21 @@
       Brute:
         collection: GlassSmash
   - type: Damageable
-    damageModifierSet: GlassMod
+    damageModifierSet: GlassMod # Aquila Change
 
 - type: entity
-  abstract: true
+  abstract: true # Aquila Change
   parent: BaseWallmount
   id: BaseWallmountMetallic
   components:
+  # Aquila Change start
   - type: MeleeSound
     soundGroups:
       Brute:
         collection: MetalThud
+  # Aquila Change end
   - type: Damageable
-    damageModifierSet: SteelMod
+    damageModifierSet: SteelMod # Aquila Change
 
 - type: entity
   parent: BaseWallmountMetallic

@@ -3,7 +3,7 @@
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Human]
-  sponsorOnly: false # СУКА ВЛАСТЬ НАРОДУ
+  sponsorOnly: false # СУКА ВЛАСТЬ НАРОДУ # Aquila Change
   sprites:
   - sprite: _CorvaxGoob/Mobs/Customization/fox_parts.rsi
     state: ears_fox_outer

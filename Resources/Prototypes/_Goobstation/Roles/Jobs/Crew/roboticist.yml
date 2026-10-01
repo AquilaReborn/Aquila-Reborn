@@ -6,7 +6,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Science
-      time: 3600  #1 hour
+      time: 3600  #1 hour # Aquila Change
   startingGear: RoboticistGear
   skills: # CorvaxGoob-Skills
   - AdvancedBuilding

@@ -17,7 +17,6 @@
         - PlushieSOGift
         - PlushieIAAGift
         - PlushieYeseniaGift
-        - PlushieBMGift
       rareChance: 0.15
       prototypes:
         - PlushiePassenger
@@ -35,19 +34,14 @@
         - PlushieBarmem
         - PlushieCoroner
         - PlushieIAA
-        - PlushieAdri
         - PlushieTaylor
         - PlushieMichael
         - PlushieSylvester
         - PlushieBorg
-        - PlushieErika
         - PlushieAiden
         - PlushieCrookie
         - PlushieKarner
         - PlushieVenya
-        - PlushieAid
-        - PlushieZevs
-        - PlushieCadet
         - PlushieJohnson
         - PlushieSanabi
         - PlushieSeaguard
@@ -56,7 +50,5 @@
         - PlushieUrell
 # CentCom plushies...
         - PlushieYesenia
-        - PlushieBM
-        - PlushieCSCC
       chance: 0.75
       offset: 0.10

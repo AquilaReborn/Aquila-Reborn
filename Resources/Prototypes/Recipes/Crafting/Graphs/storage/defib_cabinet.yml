@@ -1,3 +1,4 @@
+# Aquila Change start
 - type: constructionGraph
   id: DefibrillatorCabinet
   start: start
@@ -25,3 +26,4 @@
         amount: 2
       - !type:EmptyAllContainers
       - !type:DeleteEntity
+# Aquila Change end

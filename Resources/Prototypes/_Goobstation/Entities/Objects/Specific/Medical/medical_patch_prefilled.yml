@@ -32,7 +32,7 @@
   suffix: Bicaridine
   components:
   - type: Label
-    currentLabel: reagent-name-bicaridine-30u
+    currentLabel: reagent-name-bicaridine-30u # Aquila Change
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -48,7 +48,7 @@
   suffix: Dermaline
   components:
   - type: Label
-    currentLabel: reagent-name-dermaline-30u
+    currentLabel: reagent-name-dermaline-30u # Aquila Change
   - type: SolutionContainerManager
     solutions:
       drink:

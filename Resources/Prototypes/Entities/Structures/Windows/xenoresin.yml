@@ -2,11 +2,11 @@
   parent: ReinforcedWindow
   id: XenoResinWindow
   name: resin window
-  description: Transparent and hardened, yet slightly sticky to the touch.
+  description: Transparent and hardened, yet slightly sticky to the touch. # Aquila Change
   components:
   - type: Sprite
-    sprite: Structures/Windows/exo-resin.rsi
+    sprite: Structures/Windows/exo-resin.rsi # Aquila Change
   - type: Icon
-    sprite: Structures/Windows/exo-resin.rsi
+    sprite: Structures/Windows/exo-resin.rsi # Aquila Change
   - type: IconSmooth
     base: xwindow

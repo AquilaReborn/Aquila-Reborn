@@ -1,6 +1,6 @@
 # Parents
 - type: entity
-  abstract: true
+  abstract: true # Aquila Change
   parent: BaseWallmount
   id: ShelfBase
   name: shelf
@@ -25,6 +25,7 @@
 
 - type: entity
   abstract: true
+  # Aquila Change start
   parent: [ ShelfBase, StructureHealthContainerWeak ]
   id: ShelfBaseWeak
   components:
@@ -41,6 +42,7 @@
 - type: entity
   abstract: true
   parent: [ ShelfBase, StructureHealthContainer ]
+  # Aquila Change end
   id: ShelfBaseReinforced
   name: reinforced shelf
   description: It looks as strong as reality itself.
@@ -67,6 +69,7 @@
     stateDoorOpen: open
     stateDoorClosed: closed
   - type: AccessReader
+  # Aquila Change start
   - type: Destructible
     thresholds:
     - trigger: &DamageContainerNormal
@@ -76,19 +79,22 @@
       - !type:EmptyContainersBehaviour
         containers:
         - storagebase
+  # Aquila Change end
 
 # Normal
 - type: entity
-  parent: ShelfBaseWeak
+  parent: ShelfBaseWeak # Aquila Change
   id: ShelfWood
   name: wooden shelf
   description: A convenient place to place, well, anything really.
   components:
+  # Aquila Change start
   - type: Damageable
     damageModifierSet: WoodMod
+  # Aquila Change end
   - type: Destructible
     thresholds:
-    - trigger: *DamageContainerWeak
+    - trigger: *DamageContainerWeak # Aquila Change
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -103,7 +109,7 @@
     node: ShelfWood
 
 - type: entity
-  parent: ShelfBaseWeak
+  parent: ShelfBaseWeak # Aquila Change
   id: ShelfMetal
   name: metal shelf
   description: A sturdy place to place, well, anything really.
@@ -112,10 +118,10 @@
     sprite: Structures/Storage/Shelfs/metal.rsi
     state: base
   - type: Damageable
-    damageModifierSet: SteelMod
+    damageModifierSet: SteelMod # Aquila Change
   - type: Destructible
     thresholds:
-    - trigger: *DamageContainerWeak
+    - trigger: *DamageContainerWeak # Aquila Change
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -130,7 +136,7 @@
     node: ShelfMetal
 
 - type: entity
-  parent: ShelfBaseWeak
+  parent: ShelfBaseWeak # Aquila Change
   id: ShelfGlass
   name: glass shelf
   description: A fragile place to place, well, anything really.
@@ -139,10 +145,10 @@
     sprite: Structures/Storage/Shelfs/glass.rsi
     state: base
   - type: Damageable
-    damageModifierSet: GlassMod
+    damageModifierSet: GlassMod # Aquila Change
   - type: Destructible
     thresholds:
-    - trigger: *DamageContainerWeak
+    - trigger: *DamageContainerWeak # Aquila Change
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -159,7 +165,7 @@
 # Reinforced
 - type: entity
   parent: ShelfBaseReinforced
-  id: ShelfRWood
+  id: ShelfRWood # Aquila Change
   name: sturdy wood shelf
   description: A safe place to put your favorite bottle of whiskey.
   components:
@@ -174,11 +180,13 @@
     - state: locked
       map: ["enum.LockVisualLayers.Lock"]
       shader: unshaded
+  # Aquila Change start
   - type: Damageable
     damageModifierSet: WoodMod
+  # Aquila Change end
   - type: Destructible
     thresholds:
-    - trigger: *DamageContainerNormal
+    - trigger: *DamageContainerNormal # Aquila Change
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -194,17 +202,19 @@
 
 - type: entity
   parent: ShelfBaseReinforced
-  id: ShelfRMetal
+  id: ShelfRMetal # Aquila Change
   name: sturdy metal shelf
   description: A strong & shiny place to keep all your vials safe.
   components:
   - type: Sprite
     sprite: Structures/Storage/Shelfs/metal.rsi
+  # Aquila Change start
   - type: Damageable
     damageModifierSet: PlasteelMod
+  # Aquila Change end
   - type: Destructible
     thresholds:
-    - trigger: *DamageContainerNormal
+    - trigger: *DamageContainerNormal # Aquila Change
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -226,17 +236,19 @@
 
 - type: entity
   parent: ShelfBaseReinforced
-  id: ShelfRGlass
+  id: ShelfRGlass # Aquila Change
   name: sturdy glass shelf
   description: Crystal clear reinforced glass doors to show off all your fancy bottles you definitely didn't sell a co-worker's favorite mothroach for.
   components:
   - type: Sprite
     sprite: Structures/Storage/Shelfs/glass.rsi
+  # Aquila Change start
   - type: Damageable
     damageModifierSet: GlassReinforcedMod
+  # Aquila Change end
   - type: Destructible
     thresholds:
-    - trigger: *DamageContainerNormal
+    - trigger: *DamageContainerNormal # Aquila Change
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -258,7 +270,7 @@
 
 # Departmental
 - type: entity
-  parent: ShelfBaseWeak
+  parent: ShelfBaseWeak # Aquila Change
   id: ShelfBar
   name: bar shelf
   description: Made out of the finest synthetic wood for all alcohol holding needs.
@@ -274,11 +286,13 @@
   - type: StorageFillVisualizer
     maxFillLevels: 13
     fillBaseName: bar
+  # Aquila Change start
   - type: Damageable
     damageModifierSet: WoodMod
+  # Aquila Change end
   - type: Destructible
     thresholds:
-    - trigger: *DamageContainerWeak
+    - trigger: *DamageContainerWeak # Aquila Change
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -297,7 +311,7 @@
     node: ShelfBar
 
 - type: entity
-  parent: ShelfBaseWeak
+  parent: ShelfBaseWeak # Aquila Change
   id: ShelfKitchen
   name: kitchen shelf
   description: Holds knifes, spice, and everything nice!
@@ -313,11 +327,13 @@
   - type: StorageFillVisualizer
     maxFillLevels: 13
     fillBaseName: kitchen
+  # Aquila Change start
   - type: Damageable
     damageModifierSet: SteelMod
+  # Aquila Change end
   - type: Destructible
     thresholds:
-    - trigger: *DamageContainerWeak
+    - trigger: *DamageContainerWeak # Aquila Change
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -343,7 +359,7 @@
 
 - type: entity
   parent: ShelfBaseReinforced
-  id: ShelfChemistry
+  id: ShelfChemistry # Aquila Change
   name: chemical shelf
   description: Keeps all your chemicals safe and out of the clow- er, public hands!
   components:
@@ -364,11 +380,13 @@
   - type: StorageFillVisualizer
     maxFillLevels: 7
     fillBaseName: chem
+  # Aquila Change start
   - type: Damageable
     damageModifierSet: PlasteelMod
+  # Aquila Change end
   - type: Destructible
     thresholds:
-    - trigger: *DamageContainerNormal
+    - trigger: *DamageContainerNormal # Aquila Change
       behaviors:
       - !type:PlaySoundBehavior
         sound:

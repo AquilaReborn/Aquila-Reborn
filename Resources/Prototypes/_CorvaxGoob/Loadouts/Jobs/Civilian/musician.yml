@@ -14,7 +14,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobMusician
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
 
 - type: loadout
   id: MusicianHelmetSilver
@@ -25,4 +25,4 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobMusician
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change

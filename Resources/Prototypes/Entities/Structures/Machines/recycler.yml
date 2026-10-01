@@ -60,10 +60,12 @@
       map: ["enum.RecyclerVisualLayers.Main"]
   - type: Appearance
   - type: RecyclerVisuals
+  # Aquila Change start
   - type: DirectionalArrowIndicator
     arrows:
     - offset: 0, -1.35
     - offset: 0, 0
+  # Aquila Change end
 
   - type: CollideMaterialReclaimer
   - type: MaterialReclaimer
@@ -120,4 +122,4 @@
     messageSet: SpookySpeakerMessagesRecycler
   - type: Speech
     speechVerb: Robotic
-    speechSounds: SyndieBorg
+    speechSounds: SyndieBorg # Aquila Change

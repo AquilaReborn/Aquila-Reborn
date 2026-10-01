@@ -249,8 +249,10 @@
   - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - ClownHead
+  # Aquila Change start
   - ClownMask # Aquila
   - ClownHand # Aquila
+  # Aquila Change end
   - ClownJumpsuit
   - ClownBackpack
   - ClownOuterClothing

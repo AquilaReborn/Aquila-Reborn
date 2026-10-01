@@ -7,13 +7,13 @@
   objective: roles-antag-abductor-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 1h
+    time: 1h # Aquila Change
   - !type:DepartmentTimeRequirement
     department: Medical
-    time: 1h
+    time: 1h # Aquila Change
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 1h
+    time: 1h # Aquila Change
 
 - type: antag
   id: AbductorScientistAntag
@@ -22,10 +22,10 @@
   objective: roles-antag-abductor-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 1h
+    time: 1h # Aquila Change
   - !type:DepartmentTimeRequirement
     department: Medical
-    time: 1h
+    time: 1h # Aquila Change
 
 - type: antag
   id: AbductorAgentAntag
@@ -34,10 +34,10 @@
   objective: roles-antag-abductor-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 1h
+    time: 1h # Aquila Change
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 1h
+    time: 1h # Aquila Change
 
 - type: antag
   id: AbductorVictimAntag

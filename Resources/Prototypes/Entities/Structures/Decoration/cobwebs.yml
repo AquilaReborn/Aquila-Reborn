@@ -29,9 +29,11 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  # Aquila Change start
   - type: Construction
     graph: CobwebsGraph
     node: start
+  # Aquila Change end
 
 - type: entity
   id: Cobweb2
@@ -42,4 +44,4 @@
     state: cobweb2
   - type: Icon
     sprite: Structures/Decoration/cobweb.rsi
-    state: cobweb2
+    state: cobweb2 # Aquila Change

@@ -1,18 +1,20 @@
 - type: entity
-  parent: [BaseDeltaPressureReinforcedGlass, BaseWindowStructure, StructureHealthBarrierStrong]
+  parent: [BaseDeltaPressureReinforcedGlass, BaseWindowStructure, StructureHealthBarrierStrong] # Aquila Change
   id: ReinforcedWindow
   name: reinforced window
   components:
   - type: Sprite
-    sprite: Structures/Windows/window-base-reinf.rsi
+    sprite: Structures/Windows/window-base-reinf.rsi # Aquila Change
   - type: Icon
+    # Aquila Change start
     sprite: Structures/Windows/window-base-reinf.rsi
     state: full
+    # Aquila Change end
   - type: Repairable
     fuelCost: 10
     doAfterDelay: 2
   - type: Damageable
-    damageModifierSet: GlassReinforcedMod
+    damageModifierSet: GlassReinforcedMod # Aquila Change
   - type: RCDDeconstructable
     cost: 6
     delay: 6
@@ -21,7 +23,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 120
+        damage: 120 # Aquila Change
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -31,8 +33,10 @@
           ShardGlassReinforced:
             min: 1
             max: 2
+      # Aquila Change start
       - !type:DoActsBehavior # AQUILA FIXES
         acts: [ "Destruction" ]
+      # Aquila Change end
   - type: IconSmooth
     base: rwindow
   - type: Construction
@@ -47,7 +51,7 @@
       sprite: Structures/Windows/cracks.rsi
 
 - type: entity
-  parent: [BaseDeltaPressureReinforcedGlassQuarter, BaseWindowStructureDirectional, StructureHealthBarrier]
+  parent: [BaseDeltaPressureReinforcedGlassQuarter, BaseWindowStructureDirectional, StructureHealthBarrier] # Aquila Change
   id: WindowReinforcedDirectional
   name: directional reinforced window
   components:
@@ -68,7 +72,7 @@
     damageOverlay:
       sprite: Structures/Windows/cracks_directional.rsi
   - type: Damageable
-    damageModifierSet: GlassReinforcedMod
+    damageModifierSet: GlassReinforcedMod # Aquila Change
   - type: RCDDeconstructable
     cost: 4
     delay: 4
@@ -77,7 +81,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 80
+        damage: 80 # Aquila Change
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -87,11 +91,14 @@
           ShardGlassReinforced:
             min: 1
             max: 1
+      # Aquila Change start
       - !type:DoActsBehavior # AQUILA FIXES
         acts: [ "Destruction" ]
+      # Aquila Change end
   - type: StaticPrice
     price: 22.5
 
+# Aquila Change start
 - type: entity
   parent: WindowReinforcedDirectional
   id: WindowReinforcedDirectionalCorner
@@ -122,6 +129,7 @@
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks_directional_corner.rsi
+# Aquila Change end
 
 - type: entity
   parent: ReinforcedWindow
@@ -133,7 +141,7 @@
     - Window
   components:
   - type: Sprite
-    sprite: Structures/Windows/window-base-diagonal-reinf.rsi
+    sprite: Structures/Windows/window-base-diagonal-reinf.rsi # Aquila Change
     state: state0
   - type: Tag
     tags:
@@ -141,10 +149,10 @@
     - Window
   - type: IconSmooth
     mode: Diagonal
-    key: walls
+    key: walls # Aquila Change
     base: state
   - type: Icon
-    sprite: Structures/Windows/window-base-diagonal-reinf.rsi
+    sprite: Structures/Windows/window-base-diagonal-reinf.rsi # Aquila Change
     state: state0
   - type: Fixtures
     fixtures:
@@ -166,7 +174,7 @@
     - East
   - type: DamageVisuals
     damageOverlay:
-      sprite: Structures/Windows/cracks-diagonal.rsi
+      sprite: Structures/Windows/cracks-diagonal.rsi # Aquila Change
   - type: Construction
     graph: WindowDiagonal
     node: reinforcedWindowDiagonal

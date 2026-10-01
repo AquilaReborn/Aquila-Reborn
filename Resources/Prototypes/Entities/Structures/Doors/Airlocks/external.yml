@@ -15,6 +15,7 @@
     denySound:
       path: /Audio/Machines/airlock_deny.ogg
   - type: Sprite
+    # Aquila Change start
     sprite: Structures/Doors/Airlocks/Standard/airlock-external.rsi
     layers:
     - state: closed
@@ -53,6 +54,7 @@
       map: ["enum.DoorVisualLayers.BaseEmagging"]
       shader: unshaded
       visible: false
+    # Aquila Change end
   - type: Wires
     layoutId: AirlockExternal
   - type: Paintable
@@ -68,7 +70,7 @@
   - type: Occluder
     enabled: false
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/airlock-external.rsi
+    sprite: Structures/Doors/Airlocks/Glass/airlock-external.rsi # Aquila Change
   - type: Fixtures
     fixtures:
       fix1:

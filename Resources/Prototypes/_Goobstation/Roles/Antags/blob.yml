@@ -9,7 +9,7 @@
   guides: [ Blob ]
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 1h
+    time: 1h # Aquila Change
   - !type:SpeciesRequirement # CorvaxGoob-Species
     inverted: true
     species:

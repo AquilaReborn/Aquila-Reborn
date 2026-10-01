@@ -7,7 +7,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobCaptain
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
 
 # Playtime requirement for Druid Bible, Druidic Tablet
 - type: loadoutEffectGroup
@@ -17,7 +17,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobBotanist
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
 
 # Playtime requirement for Clown Bible, Mirth of the Honkmother
 - type: loadoutEffectGroup
@@ -27,7 +27,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobClown
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
 
 # Head
 - type: loadout

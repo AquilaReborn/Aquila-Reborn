@@ -1,4 +1,4 @@
-using Content.Shared.DeviceLinking.Components;
+using Content.Shared.DeviceLinking.Components; // Aquila Change
 using Content.Shared.Interaction;
 using Content.Shared.Lock;
 using Robust.Shared.Audio;
@@ -6,12 +6,12 @@ using Robust.Shared.Audio.Systems;
 
 namespace Content.Server.DeviceLinking.Systems;
 
-public sealed partial class SignalSwitchSystem : EntitySystem
+public sealed partial class SignalSwitchSystem : EntitySystem // Aquila Change
 {
-    [Dependency] private DeviceLinkSystem _deviceLink = default!;
-    [Dependency] private SharedAppearanceSystem _appearance = default!;
-    [Dependency] private SharedAudioSystem _audio = default!;
-    [Dependency] private LockSystem _lock = default!;
+    [Dependency] private DeviceLinkSystem _deviceLink = default!; // Aquila Change
+    [Dependency] private SharedAppearanceSystem _appearance = default!; // Aquila Change
+    [Dependency] private SharedAudioSystem _audio = default!; // Aquila Change
+    [Dependency] private LockSystem _lock = default!; // Aquila Change
 
     public override void Initialize()
     {
@@ -41,12 +41,14 @@ public sealed partial class SignalSwitchSystem : EntitySystem
         if (comp.OnPort != comp.OffPort)
         {
             _deviceLink.SendSignal(uid, comp.StatusPort, comp.State);
-            _appearance.SetData(uid, SwitchVisuals.Visuals, comp.State);
+            _appearance.SetData(uid, SwitchVisuals.Visuals, comp.State); // Aquila Change
         }
 
+        // Aquila Change start
         var audioParams = comp.ClickSound?.Params ?? AudioParams.Default;
         audioParams = audioParams.WithVariation(0.125f).AddVolume(8f);
         _audio.PlayPvs(comp.ClickSound, uid, audioParams);
+        // Aquila Change end
 
         args.Handled = true;
     }

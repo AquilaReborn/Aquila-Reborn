@@ -13,7 +13,7 @@
       food:
         maxVol: 25
         reagents:
-          - ReagentId: Thrivenin
+          - ReagentId: ArmenianStuffReagent
             Quantity: 25
   - type: StaticPrice
     price: 100
@@ -24,12 +24,12 @@
   desc: reagent-desc-armenianStuff
   group: Narcotic
   physicalDesc: reagent-physical-desc-armenianStuff
-  flavor: ambrosia
+  flavor: leafy
   color: "#C93A3A"
   boilingPoint: 331.0
   meltingPoint: 162.0
   metabolisms:
-    Bloodstream:
+    Narcotic:
       effects:
       - !type:HealthChange
         damage:
@@ -64,13 +64,11 @@
         component: SeeingRainbows
         type: Add
         time: 5
-        refresh: false
       - !type:GenericStatusEffect
         key: Muted
         component: Muted
         type: Add
         time: 5
-        refresh: false
       - !type:ResetNarcolepsy
         conditions:
         - !type:ReagentCondition

@@ -7,7 +7,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobHeadOfPersonnel
-      time: 1h
+      time: 1h # Aquila Change
 
 # Goobstation - For Ensembles
 - type: loadoutEffectGroup
@@ -17,7 +17,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobHeadOfPersonnel
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
 
 # Professional HoP Time
 - type: loadoutEffectGroup
@@ -27,7 +27,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobHeadOfPersonnel
-      time: 1h # special reward for HoP mains
+      time: 1h # special reward for HoP mains # Aquila Change
 
 # Jumpsuit
 - type: loadout

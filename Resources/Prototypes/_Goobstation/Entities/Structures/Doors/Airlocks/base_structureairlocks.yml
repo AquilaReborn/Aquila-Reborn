@@ -27,9 +27,8 @@
   - type: Construction
     graph: Airlock
     node: sealedAirlock
-  - type: PaintableAirlock
-    group: Standard
-    department: null
+  - type: Paintable # Aquila Change
+    group: AirlockStandard # Aquila Change
   - type: Tag
     tags:
       - SealedAirlock
@@ -60,9 +59,8 @@
   - type: Construction
     graph: Airlock
     node: sealedGlassAirlock
-  - type: PaintableAirlock
-    group: Glass
-    department: null
+  - type: Paintable # Aquila Change
+    group: AirlockGlass # Aquila Change
   - type: Tag
     tags:
       - SealedGlassAirlock

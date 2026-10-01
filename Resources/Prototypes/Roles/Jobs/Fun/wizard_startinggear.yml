@@ -12,7 +12,7 @@
     pocket2: WizardsGrimoire
   storage:
     back:
-    - BoxSurvival
+    - BoxSurvival # Aquila Change
 
 - type: startingGear
   id: WizardRedGear

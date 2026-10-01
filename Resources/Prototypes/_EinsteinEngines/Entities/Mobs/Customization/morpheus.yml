@@ -5,7 +5,7 @@
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [IPC]
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   coloring:
     default:
       type:
@@ -20,7 +20,7 @@
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [IPC]
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   coloring:
     default:
       type:
@@ -35,7 +35,7 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [IPC]
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   coloring:
     default:
       type:
@@ -50,7 +50,7 @@
   bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [IPC]
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   coloring:
     default:
       type:
@@ -65,7 +65,7 @@
   bodyPart: LHand
   markingCategory: LeftHand
   speciesRestriction: [IPC]
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   coloring:
     default:
       type:
@@ -80,7 +80,7 @@
   bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [IPC]
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   coloring:
     default:
       type:
@@ -96,7 +96,7 @@
   bodyPart: LFoot
   markingCategory: LeftFoot
   speciesRestriction: [IPC]
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   coloring:
     default:
       type:
@@ -113,7 +113,7 @@
   bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [IPC]
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   coloring:
     default:
       type:
@@ -129,7 +129,7 @@
   bodyPart: RHand
   markingCategory: RightHand
   speciesRestriction: [IPC]
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   coloring:
     default:
       type:
@@ -144,7 +144,7 @@
   bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [IPC]
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   coloring:
     default:
       type:
@@ -160,7 +160,7 @@
   bodyPart: RFoot
   markingCategory: RightFoot
   speciesRestriction: [IPC]
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   coloring:
     default:
       type:

@@ -8,17 +8,17 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobCargoTechnician
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
       role: JobSalvageSpecialist
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
       department: Cargo
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
 
 # Head
 - type: loadout

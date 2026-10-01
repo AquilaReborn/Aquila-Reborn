@@ -5,7 +5,7 @@
   id: RobotAntennaTv
   bodyPart: HeadTop
   markingCategory: HeadTop
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   sprites:
     - sprite: _EinsteinEngines/Mobs/Customization/ipc_antenna.rsi
       state: ipc_antenna_tv
@@ -15,7 +15,7 @@
   id: RobotAntennaTesla
   bodyPart: HeadTop
   markingCategory: HeadTop
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   sprites:
     - sprite: _EinsteinEngines/Mobs/Customization/ipc_antenna.rsi
       state: ipc_antenna_tesla
@@ -43,7 +43,7 @@
   id: RobotAntennaCyberhead
   bodyPart: HeadTop
   markingCategory: HeadTop
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   sprites:
     - sprite: _EinsteinEngines/Mobs/Customization/ipc_antenna.rsi
       state: ipc_antenna_cyberhead
@@ -62,7 +62,7 @@
   id: RobotAntennaAntlers
   bodyPart: HeadTop
   markingCategory: HeadTop
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   sprites:
     - sprite: _EinsteinEngines/Mobs/Customization/ipc_antenna.rsi
       state: ipc_antenna_antlers
@@ -72,7 +72,7 @@
   id: RobotAntennaDroneeyes
   bodyPart: HeadTop
   markingCategory: HeadTop
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   sprites:
     - sprite: _EinsteinEngines/Mobs/Customization/ipc_antenna.rsi
       state: ipc_antenna_droneeyes
@@ -82,7 +82,7 @@
   id: RobotAntennaCrowned
   bodyPart: HeadTop
   markingCategory: HeadTop
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   sprites:
     - sprite: _EinsteinEngines/Mobs/Customization/ipc_antenna.rsi
       state: ipc_antenna_crowned
@@ -92,7 +92,7 @@
   id: RobotAntennaTowers
   bodyPart: HeadTop
   markingCategory: HeadTop
-  sponsorOnly: false # фуу капитализм
+  sponsorOnly: false # фуу капитализм # Aquila Change
   sprites:
     - sprite: _EinsteinEngines/Mobs/Customization/ipc_antenna.rsi
-      state: ipc_antenna_towers
+      state: ipc_antenna_towers # Aquila Change

@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseWallmountMachine, StructureHealthMachineFlimsy ]
+  parent: [ BaseWallmountMachine, StructureHealthMachineFlimsy ] # Aquila Change
   id: FireAlarm
   name: fire alarm
   description: A fire alarm. Spicy!
@@ -32,9 +32,11 @@
   - type: AtmosAlarmableVisuals
     layerMap: "fireAlarmState"
     alarmStates:
+      # Aquila Change start
       Normal: fire_0
       Warning: fire_0 # shouldn't be alarming at a warning
       Danger: fire_2
+      # Aquila Change end
       Emagged: fire_emagged
     hideOnDepowered: [ "fireAlarmState" ]
   - type: Tag
@@ -53,12 +55,14 @@
   - type: WiresVisuals
   - type: AlertLevelDisplay
     alertVisuals:
+      # Aquila Change start
       Green: fire_0
       Blue: fire_1
       Red: fire_2
       Violet: fire_1
       Yellow: fire_1
       DeltaNuke: fire_3
+      # Aquila Change end
       # TODO: add missing alarm states
   - type: UserInterface
     interfaces:
@@ -69,14 +73,16 @@
     boardName: wires-board-name-firealarm
     layoutId: FireAlarm
   - type: Sprite
+    # Aquila Change start
     sprite: Structures/Wallmounts/fire-alarm.rsi
     offset: 0, -0.25
+    # Aquila Change end
     layers:
-    - state: base
+    - state: base # Aquila Change
       map: ["fireAlarmBase"]
-    - state: fire_0
+    - state: fire_0 # Aquila Change
       map: ["fireAlarmState"]
-    - state: panel
+    - state: panel # Aquila Change
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Transform
     anchored: true
@@ -84,12 +90,13 @@
     graph: FireAlarm
     node: fire_alarm
   - type: Damageable
-    damageModifierSet: PlasticMod
+    damageModifierSet: PlasticMod # Aquila Change
   - type: GuideHelp
     guides:
     - Networking
   - type: Destructible
     thresholds:
+    # Aquila Change start
     - trigger: &DamageMachineFlimsy
         !type:DamageTrigger
         damage: 50
@@ -99,36 +106,43 @@
           collection: MetalGlassBreak
           params:
             volume: -4
+    # Aquila Change end
   - type: StationAiWhitelist
 
 - type: entity
-  parent: [ BaseWallmountMetallic, StructureHealthMachineFlimsy ]
+  parent: [ BaseWallmountMetallic, StructureHealthMachineFlimsy ] # Aquila Change
   id: FireAlarmAssembly
   name: fire alarm assembly
   description: A fire alarm assembly. Very mild.
   components:
   - type: Sprite
-    sprite: Structures/Wallmounts/fire-alarm.rsi
+    sprite: Structures/Wallmounts/fire-alarm.rsi # Aquila Change
     layers:
-    - state: frame1
+    - state: frame1 # Aquila Change
       map: [ "enum.ConstructionVisuals.Layer" ]
   - type: Appearance
   - type: GenericVisualizer
     visuals:
       enum.ConstructionVisuals.Key:
         enum.ConstructionVisuals.Layer:
+          # Aquila Change start
           assembly: { state: frame1 }
           electronics: { state: frame2 }
+          # Aquila Change end
   - type: Construction
     graph: FireAlarm
     node: assembly
+  # Aquila Change start
   - type: Damageable
     damageModifierSet: PlasticMod
+  # Aquila Change end
   - type: Destructible
     thresholds:
+    # Aquila Change start
     - trigger: *DamageMachineFlimsy
       behaviors:
       - *SoundMetalGlassBreak
+    # Aquila Change end
 
 - type: entity
   id: FireAlarmXeno

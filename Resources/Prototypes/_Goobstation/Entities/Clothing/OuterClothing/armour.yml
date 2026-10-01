@@ -380,8 +380,10 @@
 
 #  Shitchap
 - type: entity
+  # Aquila Change start
   parent: [ ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseChaplainContraband ]
   suffix: Chaplain
+  # Aquila Change end
   id: ClothingOuterArmorTemplar
   name: crusader armour
   description: God wills it!

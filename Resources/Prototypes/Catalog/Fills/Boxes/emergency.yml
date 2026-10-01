@@ -240,9 +240,11 @@
         - id: FoodBreadNutriBatard
         - id: DrinkWaterBottleFull
   # Aquila
+  # Aquila Change start
   - type: Sprite
     layers:
     - state: box_mime
+  # Aquila Change end
 
 - type: entity
   parent: BoxSurvivalNitrogen
@@ -262,7 +264,7 @@
   # Aquila
   - type: Sprite
     layers:
-    - state: box_mime
+    - state: box_mime # Aquila Change
   - type: Label
     currentLabel: reagent-name-nitrogen
 

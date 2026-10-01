@@ -1,17 +1,22 @@
 - type: entity
   abstract: true
+  # Aquila Change start
   parent: BaseWallmount
   id: BaseSignIndestructible
+  # Aquila Change end
   components:
   - type: WallMount
     arc: 360
   - type: Rotatable
+  # Aquila Change start
   - type: Sprite
     sprite: Structures/Wallmounts/signs.rsi
     snapCardinals: true
   - type: StaticPrice
     price: 20
+  # Aquila Change end
   # Hacky wacky - It inherit anchorable from "BaseWallmount", none of the BaseSign children are designed to be anchorable
+  # Aquila Change start
   - type: Anchorable
     flags:
     - None
@@ -39,12 +44,15 @@
   components:
   - type: Damageable
     damageModifierSet: CardboardMod
+  # Aquila Change end
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
         damage: 5
       behaviors:
+      # Aquila Change start
       - !type:PlaySoundBehavior
         sound:
           path: /Audio/Effects/poster_broken.ogg
+      # Aquila Change end

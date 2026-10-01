@@ -83,7 +83,7 @@
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: druid
   - type: AltarSource
-    rodProto: DruidBow
+    rodProto: DruidBow # Aquila Change
     effectProto: EffectSpark
     soundPath: /Audio/Effects/hallelujah.ogg
   - type: Construction

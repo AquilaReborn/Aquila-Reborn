@@ -88,6 +88,7 @@
             - material: Cloth
               amount: 2
               doAfter: 1
+        # Aquila Change start
         - to: BenchSofaCorpCornerAltNode
           completed:
             - !type:SnapToGrid { }
@@ -98,6 +99,7 @@
             - material: Cloth
               amount: 2
               doAfter: 1
+        # Aquila Change end
     - node: BenchSofaMiddleNode
       entity: BenchSofaMiddle
       edges:
@@ -209,6 +211,7 @@
               amount: 2
           steps:
             - tool: Screwing
+              # Aquila Change start
               doAfter: 1
     - node: BenchSofaCorpCornerAltNode
       entity: BenchSofaCorpCornerAlt
@@ -224,3 +227,4 @@
           steps:
             - tool: Screwing
               doAfter: 1
+              # Aquila Change end

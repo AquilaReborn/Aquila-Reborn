@@ -21,7 +21,7 @@
       types:
         Asphyxiation: -75
   - type: PowerCellDraw
-    useRate: 300
+    useCharge: 300
   - type: ItemSlots
     slots:
       cell_slot:
@@ -47,6 +47,5 @@
       maxCharge: 900
       startingCharge: 1000
     - type: BatterySelfRecharger
-      autoRecharge: true
       autoRechargeRate: 5
 

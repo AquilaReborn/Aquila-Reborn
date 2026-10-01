@@ -32,20 +32,20 @@
 - type: latheRecipe
   parent: [ BaseCheapElectronicsRecipe, BaseCircuitryRecipeCategory ]
   id: FirelockElectronics
-  icon: { sprite: Structures/Doors/Airlocks/Standard/firelock-base.rsi, state: closed } # Goobstation
+  icon: { sprite: Structures/Doors/Airlocks/Standard/firelock-base.rsi, state: closed } # Goobstation # Aquila Change
   result: FirelockElectronics
 
 - type: latheRecipe
   parent: [ BaseCheapElectronicsRecipe, BaseCircuitryRecipeCategory ]
   id: DoorElectronics
-  icon: { sprite: Structures/Doors/Airlocks/Glass/airlock-base.rsi, state: closed } # Goobstation
+  icon: { sprite: Structures/Doors/Airlocks/Glass/airlock-base.rsi, state: closed } # Goobstation # Aquila Change
   result: DoorElectronics
 
 # Power
 - type: latheRecipe
   parent: [ BaseCheapCircuitboardRecipe, BaseCircuitryRecipeCategory ]
   id: APCElectronics
-  icon: { sprite: Structures/Wallmounts/apc.rsi, state: static } # Goobstation
+  icon: { sprite: Structures/Wallmounts/apc.rsi, state: static } # Goobstation # Aquila Change
   result: APCElectronics
 
 - type: latheRecipe
@@ -77,7 +77,7 @@
 - type: latheRecipe
   parent: [ BaseElectronicsRecipe, BaseCircuitryRecipeCategory ]
   id: AirAlarmElectronics
-  icon: { sprite: Structures/Wallmounts/air-alarm.rsi, state: base } # Goobstation
+  icon: { sprite: Structures/Wallmounts/air-alarm.rsi, state: base } # Goobstation # Aquila Change
   result: AirAlarmElectronics
 
 - type: latheRecipe
@@ -89,7 +89,7 @@
 - type: latheRecipe
   parent: [ BaseElectronicsRecipe, BaseCircuitryRecipeCategory ]
   id: FireAlarmElectronics
-  icon: { sprite: Structures/Wallmounts/fire-alarm.rsi, state: base } # Goobstation
+  icon: { sprite: Structures/Wallmounts/fire-alarm.rsi, state: base } # Goobstation # Aquila Change
   result: FireAlarmElectronics
 
 # Mechs

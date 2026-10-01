@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseWallmountMachine, StructureHealthMachineWeak ]
+  parent: [ BaseWallmountMachine, StructureHealthMachineWeak ] # Aquila Change
   id: WallmountTelevision
   suffix: entertainment
   name: television
@@ -11,10 +11,12 @@
   - type: Sprite
     sprite: Structures/Wallmounts/flatscreentv.rsi
     layers:
+    # Aquila Change start
     - map: ["computerLayerBody"]
       state: television_wall
     - map: ["computerLayerScreen"]
       state: television_wallscreen
+    # Aquila Change end
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: SurveillanceCamera
@@ -37,10 +39,13 @@
     radius: 1.5
     energy: 3.0
     color: "#b89f25"
+  # Aquila Change start
   - type: Damageable
     damageModifierSet: GlassMod
+  # Aquila Change end
   - type: Destructible
     thresholds:
+    # Aquila Change start
     - trigger:
         !type:DamageTrigger
         damage: 100
@@ -60,10 +65,11 @@
           ComputerTelevisionCircuitboard:
             min: 0
             max: 1
+    # Aquila Change end
   - type: StationAiWhitelist
 
 - type: entity
-  parent: [ BaseWallmountMetallic, StructureHealthMachineFlimsy ]
+  parent: [ BaseWallmountMetallic, StructureHealthMachineFlimsy ] # Aquila Change
   id: WallmountTelevisionFrame
   name: television frame
   description: Finally, some decent reception around here...
@@ -75,12 +81,15 @@
     drawdepth: WallMountedItems
     sprite: Structures/Wallmounts/flatscreentv.rsi
     layers:
+    # Aquila Change start
     - map: ["computerLayerBody"]
       state: television_wall
     - map: ["computerLayerScreen"]
       state: television_wallscreen
+    # Aquila Change end
   - type: Destructible
     thresholds:
+    # Aquila Change start
     - trigger:
         !type:DamageTrigger
         damage: 50
@@ -95,3 +104,4 @@
           SheetSteel1:
             min: 0
             max: 2
+    # Aquila Change end

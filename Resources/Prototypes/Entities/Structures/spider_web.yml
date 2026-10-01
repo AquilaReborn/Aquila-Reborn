@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  id: SpiderWebBase
+  id: SpiderWebBase # Aquila Change
   placement:
     mode: SnapgridCenter
     snap:
@@ -38,9 +38,11 @@
     additionalKeys:
     - walls
     base: web_
+  # Aquila Change start
   - type: Construction
     graph: CobwebsGraph
     node: start
+  # Aquila Change end
 
 - type: entity
   id: SpiderWeb
@@ -94,13 +96,17 @@
   - type: Fixtures
     fixtures:
       fix1:
+        # Aquila Change start
         hard: false
         density: 7
+        # Aquila Change end
         shape:
           !type:PhysShapeAabb
           bounds: "-0.4,-0.4,0.4,0.4"
+        # Aquila Change start
         layer:
         - MidImpassable
+        # Aquila Change end
   - type: Destructible
     thresholds:
     - trigger:
@@ -114,6 +120,7 @@
       - sweet
   - type: Edible
     delay: 2
+  # Aquila Change start
   - type: Solution
     solution:
       reagents:
@@ -123,3 +130,4 @@
         Quantity: 2.5
       - ReagentId: SpaceLube
         Quantity: 2.5
+  # Aquila Change end

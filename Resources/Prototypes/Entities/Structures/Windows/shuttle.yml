@@ -1,23 +1,25 @@
 - type: entity
-  parent: [BaseDeltaPressureReinforcedGlass, BaseWindowStructure, BaseRCDResistant, StructureHealthBarrierStrong]
+  parent: [BaseDeltaPressureReinforcedGlass, BaseWindowStructure, BaseRCDResistant, StructureHealthBarrierStrong] # Aquila Change
   id: ShuttleWindow
   name: shuttle window
   components:
   - type: Sprite
-    sprite: Structures/Windows/window-shuttle.rsi
+    sprite: Structures/Windows/window-shuttle.rsi # Aquila Change
   - type: Icon
+    # Aquila Change start
     sprite: Structures/Windows/window-shuttle.rsi
     state: full
+    # Aquila Change end
   - type: Repairable
     fuelCost: 15
     doAfterDelay: 3
   - type: Damageable
-    damageModifierSet: PlasteelMod
+    damageModifierSet: PlasteelMod # Aquila Change
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 120
+        damage: 120 # Aquila Change
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -30,8 +32,10 @@
           PartRodMetal:
             min: 1
             max: 2
+      # Aquila Change start
       - !type:DoActsBehavior # AQUILA FIXES
         acts: [ "Destruction" ]
+      # Aquila Change end
   - type: IconSmooth
     base: swindow
   - type: Construction
@@ -58,7 +62,7 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/window-diagonal-shuttle.rsi
+    sprite: Structures/Windows/window-diagonal-shuttle.rsi # Aquila Change
     state: state0
   - type: Tag
     tags:
@@ -66,10 +70,10 @@
     - Window
   - type: IconSmooth
     mode: Diagonal
-    key: walls
+    key: walls # Aquila Change
     base: state
   - type: Icon
-    sprite: Structures/Windows/window-diagonal-shuttle.rsi
+    sprite: Structures/Windows/window-diagonal-shuttle.rsi # Aquila Change
     state: state0
   - type: Fixtures
     fixtures:
@@ -91,4 +95,4 @@
     - East
   - type: DamageVisuals
     damageOverlay:
-      sprite: Structures/Windows/cracks-diagonal.rsi
+      sprite: Structures/Windows/cracks-diagonal.rsi # Aquila Change

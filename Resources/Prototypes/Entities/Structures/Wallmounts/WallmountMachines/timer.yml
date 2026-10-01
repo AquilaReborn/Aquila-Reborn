@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseWallmountMachine, StructureHealthMachineFlimsy ]
+  parent: [ BaseWallmountMachine, StructureHealthMachineFlimsy ] # Aquila Change
   id: SignalTimer
   name: signal timer
   description: It's a timer for sending timed signals to things.
@@ -10,13 +10,13 @@
   - type: Sprite
     drawdepth: SmallObjects
     sprite: Structures/Wallmounts/switch.rsi
-    state: on
+    state: on # Aquila Change
   - type: Appearance
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 50
+        damage: 50 # Aquila Change
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -71,7 +71,7 @@
     drawdepth: WallMountedItems
     sprite: Structures/Wallmounts/signalscreen.rsi
     noRot: true
-    state: signalscreen
+    state: signalscreen # Aquila Change
   - type: Construction
     graph: Timer
     node: screen

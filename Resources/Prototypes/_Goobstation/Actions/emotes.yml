@@ -15,6 +15,7 @@
   - does a flip!
   event: !type:AnimationFlipEmoteEvent
 
+# Aquila Change start
 - type: emote
   id: Tweak
   name: chat-emote-name-tweak
@@ -28,6 +29,7 @@
    - tweaks.
    - tweaks!
   event: !type:AnimationTweakEmoteEvent
+# Aquila Change end
 
 - type: emote
   id: Flex

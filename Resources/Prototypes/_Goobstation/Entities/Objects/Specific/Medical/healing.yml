@@ -39,7 +39,7 @@
   id: SyringePoisonFentUsed
   components:
   - type: Label
-    currentLabel: reagent-name-fentanyl
+    currentLabel: reagent-name-fentanyl # Aquila Change
   - type: SolutionContainerManager
     solutions:
       injector:
@@ -56,7 +56,7 @@
   id: SyringePoisonFent
   components:
   - type: Label
-    currentLabel: reagent-name-fentanyl
+    currentLabel: reagent-name-fentanyl # Aquila Change
   - type: SolutionContainerManager
     solutions:
       injector:
@@ -73,7 +73,7 @@
   suffix: lethal injection
   components:
   - type: Label
-    currentLabel: reagent-name-lethal-injection
+    currentLabel: reagent-name-lethal-injection # Aquila Change
   - type: SolutionContainerManager
     solutions:
       injector:
@@ -95,7 +95,7 @@
   - type: Sprite
     state: pill18
   - type: Label
-    currentLabel: reagent-name-tramadol-7-5u
+    currentLabel: reagent-name-tramadol-7-5u # Aquila Change
   - type: SolutionContainerManager
     solutions:
       food:
@@ -111,7 +111,7 @@
   suffix: Tramadol 7.5u, 15
   components:
   - type: Label
-    currentLabel: reagent-name-tramadol-7-5u
+    currentLabel: reagent-name-tramadol-7-5u # Aquila Change
   - type: StorageFill
     contents:
     - id: PillTramadol
@@ -128,7 +128,7 @@
   - type: Sprite
     state: pill19
   - type: Label
-    currentLabel: reagent-name-oxycodone-5u
+    currentLabel: reagent-name-oxycodone-5u # Aquila Change
   - type: SolutionContainerManager
     solutions:
       food:
@@ -144,7 +144,7 @@
   suffix: Oxycodone 5u, 15
   components:
   - type: Label
-    currentLabel: reagent-name-oxycodone-5u
+    currentLabel: reagent-name-oxycodone-5u # Aquila Change
   - type: StorageFill
     contents:
     - id: PillOxycodone
@@ -161,7 +161,7 @@
   - type: Sprite
     state: pill1
   - type: Label
-    currentLabel: reagent-name-ibuprofen-10u
+    currentLabel: reagent-name-ibuprofen-10u # Aquila Change
   - type: SolutionContainerManager
     solutions:
       food:
@@ -177,7 +177,7 @@
   suffix: Ibuprofen 10u, 15
   components:
   - type: Label
-    currentLabel: reagent-name-ibuprofen-10u
+    currentLabel: reagent-name-ibuprofen-10u # Aquila Change
   - type: StorageFill
     contents:
     - id: PillIbuprofen
@@ -191,7 +191,7 @@
   suffix: Tramadol 15u
   components:
   - type: Label
-    currentLabel: reagent-name-tramadol-15u
+    currentLabel: reagent-name-tramadol-15u # Aquila Change
   - type: SolutionContainerManager
     solutions:
       injector:
@@ -208,7 +208,7 @@
   suffix: Oxycodone 15u
   components:
   - type: Label
-    currentLabel: reagent-name-oxycodone-15u
+    currentLabel: reagent-name-oxycodone-15u # Aquila Change
   - type: SolutionContainerManager
     solutions:
       injector:
@@ -225,7 +225,7 @@
   suffix: Ibuprofen 15u
   components:
   - type: Label
-    currentLabel: reagent-name-ibuprofen-15u
+    currentLabel: reagent-name-ibuprofen-15u # Aquila Change
   - type: SolutionContainerManager
     solutions:
       injector:
@@ -242,7 +242,7 @@
   suffix: heroin 15u
   components:
   - type: Label
-    currentLabel: reagent-name-heroin-15u
+    currentLabel: reagent-name-heroin-15u # Aquila Change
   - type: SolutionContainerManager
     solutions:
       injector:
@@ -265,4 +265,4 @@
         maxVol: 15
         reagents:
         - ReagentId: Microplastics
-          Quantity: 15
+          Quantity: 15 # Aquila Change

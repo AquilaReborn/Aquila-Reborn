@@ -1,7 +1,7 @@
 - type: entity
-  abstract: true
+  abstract: true # Aquila Change
   parent: [BaseDeltaPressureGlass, BaseStructure]
-  id: BaseWindowStructure
+  id: BaseWindowStructure # Aquila Change
   name: window
   description: Don't smudge up the glass down there.
   placement:
@@ -21,12 +21,14 @@
     arc: 360 # interact despite grilles
   - type: Tag
     tags:
+    # Aquila Change start
     - ForceFixRotations
     - Window
+    # Aquila Change end
   - type: Sprite
-    sprite: Structures/Windows/window-base.rsi
+    sprite: Structures/Windows/window-base.rsi # Aquila Change
   - type: Icon
-    sprite: Structures/Windows/window-base.rsi
+    sprite: Structures/Windows/window-base.rsi # Aquila Change
     state: full
   - type: Physics
     bodyType: Static
@@ -50,8 +52,10 @@
   - type: IconSmooth
     key: walls
     base: window
+  # Aquila Change start
   - type: PlacementReplacement
     key: walls
+  # Aquila Change end
   - type: InteractionPopup
     interactSuccessString: comp-window-knock
     messagePerceivedByOthers: comp-window-knock
@@ -71,6 +75,7 @@
     price: 100
   - type: BlockWeather
 
+# Aquila Change start
 - type: entity
   parent: [ BaseWindowStructure, StructureHealthBarrier ]
   id: Window
@@ -98,6 +103,7 @@
             max: 2
       - !type:DoActsBehavior # AQUILA FIXES
         acts: [ "Destruction" ]
+# Aquila Change end
 
 - type: entity
   parent: Window
@@ -105,9 +111,9 @@
   name: tinted window
   components:
   - type: Sprite
-    sprite: Structures/Windows/window-tinted.rsi
+    sprite: Structures/Windows/window-tinted.rsi # Aquila Change
   - type: Icon
-    sprite: Structures/Windows/window-tinted.rsi
+    sprite: Structures/Windows/window-tinted.rsi # Aquila Change
   - type: IconSmooth
     base: twindow
   - type: Construction
@@ -117,6 +123,7 @@
   - type: StaticPrice
     price: 70
 
+# Aquila Change start
 - type: entity # Goob
   parent: TintedWindow
   id: TintedWindowTransparent
@@ -124,23 +131,26 @@
   components:
   - type: Occluder
     enabled: false
+# Aquila Change end
 
 - type: entity
   abstract: true
-  id: BaseRCDResistant
+  id: BaseRCDResistant # Aquila Change
   components:
   - type: RCDDeconstructable
     deconstructable: false
 
 - type: entity
+  # Aquila Change start
   abstract: true
   parent: [Window, BaseRCDResistant]
   id: WindowRCDResistant
 
 - type: entity
   abstract: true
+  # Aquila Change end
   parent: [BaseDeltaPressureGlassQuarter, BaseStructure]
-  id: BaseWindowStructureDirectional
+  id: BaseWindowStructureDirectional # Aquila Change
   name: directional window
   description: Don't smudge up the glass down there.
   placement:
@@ -152,7 +162,7 @@
     arc: 360 # interact despite grilles
   - type: Tag
     tags:
-    - Window
+    - Window # Aquila Change
   - type: MeleeSound
     soundGroups:
       Brute:
@@ -183,6 +193,7 @@
     cost: 4
     delay: 2
     fx: EffectRCDDeconstruct2
+  # Aquila Change start
   - type: Airtight
     noAirWhenFullyAirBlocked: false
     airBlockedDirection:
@@ -211,11 +222,12 @@
     state: window
   - type: Damageable
     damageModifierSet: GlassMod
+  # Aquila Change end
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 30
+        damage: 30 # Aquila Change
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -225,6 +237,7 @@
           ShardGlass:
             min: 1
             max: 1
+      # Aquila Change start
       - !type:DoActsBehavior # AQUILA FIXES
         acts: [ "Destruction" ]
 
@@ -250,19 +263,24 @@
         - FullTileMask
         layer:
         - GlassLayer
+      # Aquila Change end
   - type: Construction
+    # Aquila Change start
     graph: WindowDirectionalCorner
     node: windowDirectionalCorner
+    # Aquila Change end
   - type: DamageVisuals
     thresholds: [5, 10, 20]
     trackAllDamage: true
     damageOverlay:
-      sprite: Structures/Windows/cracks_directional_corner.rsi
+      sprite: Structures/Windows/cracks_directional_corner.rsi # Aquila Change
 
 - type: entity
   abstract: true
+  # Aquila Change start
   parent: [WindowDirectional, BaseRCDResistant]
   id: WindowDirectionalRCDResistant
+  # Aquila Change end
 
 - type: entity
   id: WindowFrostedDirectional
@@ -283,6 +301,7 @@
   - type: StaticPrice
     price: 35
 
+# Aquila Change start
 - type: entity
   parent: WindowFrostedDirectional
   id: WindowFrostedDirectionalCorner
@@ -310,6 +329,7 @@
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks_directional_corner.rsi
+# Aquila Change end
 
 - type: entity
   parent: Window
@@ -321,7 +341,7 @@
     - Window
   components:
   - type: Sprite
-    sprite: Structures/Windows/window-base-diagonal.rsi
+    sprite: Structures/Windows/window-base-diagonal.rsi # Aquila Change
     state: state0
   - type: Tag
     tags:
@@ -329,10 +349,10 @@
     - Window
   - type: IconSmooth
     mode: Diagonal
-    key: walls
+    key: walls # Aquila Change
     base: state
   - type: Icon
-    sprite: Structures/Windows/window-base-diagonal.rsi
+    sprite: Structures/Windows/window-base-diagonal.rsi # Aquila Change
     state: state0
   - type: Fixtures
     fixtures:
@@ -354,7 +374,7 @@
     - East
   - type: DamageVisuals
     damageOverlay:
-      sprite: Structures/Windows/cracks-diagonal.rsi
+      sprite: Structures/Windows/cracks-diagonal.rsi # Aquila Change
   - type: Construction
     graph: WindowDiagonal
     node: windowDiagonal

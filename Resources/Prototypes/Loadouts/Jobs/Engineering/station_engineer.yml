@@ -7,17 +7,17 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobAtmosphericTechnician
-      time: 1h
+      time: 1h # Aquila Change
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
       role: JobStationEngineer
-      time: 1h
+      time: 1h # Aquila Change
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
       department: Engineering
-      time: 1h
+      time: 1h # Aquila Change
 
 # Head
 - type: startingGear

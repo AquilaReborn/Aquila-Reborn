@@ -11,7 +11,7 @@
     drawdepth: FloorTiles
 
 - type: entity
-  parent: [ BaseFloorDecoration, StructureHealthFurnitureStrong ]
+  parent: [ BaseFloorDecoration, StructureHealthFurnitureStrong ] # Aquila Change
   id: Stairs
   name: stairs
   suffix: Steel
@@ -24,21 +24,23 @@
     sprite: Structures/stairs.rsi
     state: stairs_steel
   - type: Damageable
-    damageModifierSet: SteelMod
+    damageModifierSet: SteelMod # Aquila Change
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 80
+        damage: 80 # Aquila Change
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
           SheetSteel1:
             min: 2
             max: 4
+      # Aquila Change start
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
+      # Aquila Change end
 
 - type: entity
   id: StairStage
@@ -108,4 +110,4 @@
   - type: Sprite
     sprite: Structures/stairs.rsi
     state: stairs_stage_wood
-    drawdepth: FloorTiles
+    drawdepth: FloorTiles # Aquila Change

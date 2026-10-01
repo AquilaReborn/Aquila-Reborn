@@ -6,10 +6,10 @@ using Robust.Client.GameObjects;
 namespace Content.Client.Doors;
 
 /// <inheritdoc/>
-public sealed partial class TurnstileSystem : SharedTurnstileSystem
+public sealed partial class TurnstileSystem : SharedTurnstileSystem // Aquila Change
 {
-    [Dependency] private AppearanceSystem _appearance = default!;
-    [Dependency] private AnimationPlayerSystem _animation = default!;
+    [Dependency] private AppearanceSystem _appearance = default!; // Aquila Change
+    [Dependency] private AnimationPlayerSystem _animation = default!; // Aquila Change
 
     private const string AnimationKey = "Turnstile";
 
@@ -25,11 +25,12 @@ public sealed partial class TurnstileSystem : SharedTurnstileSystem
         if (args.Key != AnimationKey)
             return;
 
-        _appearance.SetData(ent, TurnstileVisualLayers.Base, TurnstileStates.Idle);
+        _appearance.SetData(ent, TurnstileVisualLayers.Base, TurnstileStates.Idle); // Aquila Change
     }
 
-    protected override void PlayAnimation(EntityUid uid, TurnstileStates state)
+    protected override void PlayAnimation(EntityUid uid, TurnstileStates state) // Aquila Change
     {
+        // Aquila Change start
         if (!TryComp<AnimationPlayerComponent>(uid, out var animation))
             return;
 
@@ -43,5 +44,6 @@ public sealed partial class TurnstileSystem : SharedTurnstileSystem
 
         _animation.Play((uid, animation), anim, AnimationKey);
         _appearance.SetData(uid, TurnstileVisualLayers.Base, state);
+        // Aquila Change end
     }
 }

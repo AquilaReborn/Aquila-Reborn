@@ -164,7 +164,6 @@
   - type: Appearance
   - type: ToggleableVisuals
     spriteLayer: bowstring
-    enabled: true
     inhandVisuals:
       left:
       - state: inhand-left-bowstring

@@ -393,7 +393,7 @@
           enum.DamageStateVisualLayers.BaseUnshaded:
             powered: Rainbow
   - type: Sprite
-    sprite: Mobs/Silicon/Bots/medibot.rsi
+    sprite: Mobs/Silicon/Bots/medibot.rsi # Aquila Change
     layers:
       - state: medibot
         map: [ "enum.DamageStateVisualLayers.Base" ]

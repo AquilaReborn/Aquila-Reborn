@@ -62,6 +62,7 @@
   - type: Pullable
   - type: DamageExaminable
 
+# Aquila Change start
 - type: entity
   abstract: true
   id: BaseItemDestructible # Should be replaced by a variety of destruction bases, possibly combined with drink_base_materials.yml
@@ -76,6 +77,7 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+# Aquila Change end
 
 - type: entity
   name: "storage item"

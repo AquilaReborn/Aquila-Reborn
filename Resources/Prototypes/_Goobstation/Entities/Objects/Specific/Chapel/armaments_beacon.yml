@@ -1,8 +1,8 @@
 - type: entity
   name: armaments beacon
-  suffix: Chaplain
+  suffix: Chaplain # Aquila Change
   description: Summon a set of standard issue chaplain armaments, as dictated by I.C.R.A.
-  parent: [ BaseItem, BaseChaplainContraband ]
+  parent: [ BaseItem, BaseChaplainContraband ] # Aquila Change
   id: ArmamentsBeacon
   components:
   - type: Sprite
@@ -65,10 +65,12 @@
         sprite: _Goobstation/Clothing/OuterClothing/Misc/schema_monk.rsi
         state: icon
     # aquila start
+    # Aquila Change start
     - prototype: SpawnArmamentsDruid
       icon:
         sprite: _Aquila/Clothing/Sets/Shitchap/druid/OuterClothing/druid.rsi
         state: full
+    # Aquila Change end
     # aquila end
   - type: StaticPrice
     price: 500

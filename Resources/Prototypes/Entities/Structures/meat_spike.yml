@@ -1,5 +1,7 @@
-﻿- type: entity
+﻿# Aquila Change start
+- type: entity
   parent: [ BaseStructure, StructureHealthFurniture ]
+# Aquila Change end
   id: KitchenSpike
   name: meat spike
   description: A spike for collecting meat from animals.
@@ -13,12 +15,12 @@
     - state: spike
       map: ["base"]
   - type: Damageable
-    damageModifierSet: SteelMod
+    damageModifierSet: SteelMod # Aquila Change
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 40
+        damage: 40 # Aquila Change
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -28,8 +30,10 @@
       - !type:SpawnEntitiesBehavior
         spawn:
           SheetSteel1:
+            # Aquila Change start
             min: 3
             max: 6
+            # Aquila Change end
   - type: Transform
     noRot: true
   - type: KitchenSpike

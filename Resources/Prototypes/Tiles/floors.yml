@@ -1311,10 +1311,12 @@
   parent: BaseStationTile
   name: tiles-green-circuit-floor
   sprite: /Textures/Tiles/green_circuit.png
+  # Aquila Change start
   variants: 2
   placementVariants:
   - 0.8
   - 0.0166
+  # Aquila Change end
   footstepSounds:
     collection: FootstepHull
   itemDrop: FloorTileItemGCircuit
@@ -1325,10 +1327,12 @@
   parent: BaseStationTile
   name: tiles-blue-circuit-floor
   sprite: /Textures/Tiles/blue_circuit.png
+  # Aquila Change start
   variants: 2
   placementVariants:
   - 0.8
   - 0.0166
+  # Aquila Change end
   footstepSounds:
     collection: FootstepHull
   itemDrop: FloorTileItemBCircuit
@@ -1339,10 +1343,12 @@
   parent: BaseStationTile
   name: tiles-red-circuit-floor
   sprite: /Textures/Tiles/red_circuit.png
+  # Aquila Change start
   variants: 2
   placementVariants:
   - 0.8
   - 0.0166
+  # Aquila Change end
   footstepSounds:
     collection: FootstepHull
   itemDrop: FloorTileItemRCircuit
@@ -1918,12 +1924,14 @@
   parent: BaseStationTile
   name: tiles-astro-ice
   sprite: /Textures/Tiles/Planet/Snow/ice.png
+  # Aquila Change start
   variants: 4
   placementVariants:
   - 0.8
   - 0.0166
   - 0.0166
   - 0.0166
+  # Aquila Change end
   friction: 0.05
   mobFriction: 0.05
   mobAcceleration: 0.1
@@ -2075,7 +2083,7 @@
   parent: BaseStationTile
   name: tiles-white-marble
   sprite: /Textures/Tiles/white_marble.png
-  variants: 6
+  variants: 6 # Aquila Change
   placementVariants:
   - 1.0
   - 1.0
@@ -2083,6 +2091,7 @@
   - 1.0
   - 1.0
   - 1.0
+  # Aquila Change start
   footstepSounds:
     collection: FootstepTile
   friction: 0.8
@@ -2099,6 +2108,7 @@
   - 1.0
   - 1.0
   - 1.0
+  # Aquila Change end
   - 1.0
   - 1.0
   footstepSounds:
@@ -2111,7 +2121,7 @@
   parent: BaseStationTile
   name: tiles-dark-marble
   sprite: /Textures/Tiles/dark_marble.png
-  variants: 6
+  variants: 6 # Aquila Change
   placementVariants:
   - 1.0
   - 1.0
@@ -2119,6 +2129,7 @@
   - 1.0
   - 1.0
   - 1.0
+  # Aquila Change start
   footstepSounds:
     collection: FootstepTile
   friction: 0.8
@@ -2135,6 +2146,7 @@
   - 1.0
   - 1.0
   - 1.0
+  # Aquila Change end
   - 1.0
   - 1.0
   footstepSounds:

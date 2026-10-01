@@ -5,6 +5,7 @@
 ## Neutral against burns, making burn the preferred damage to destroy it.
 
 # Extremely strong metal that's unavailable to crew.
+# Aquila Change start
 - type: damageModifierSet
   id: PlastitaniumMod
   coefficients:
@@ -18,9 +19,11 @@
     Shock: 20
     Caustic: 20
     Structural: 9
+# Aquila Change end
 
 # Strong metal used by crew to protect important areas and items.
 # Used for static entities which mostly never move.
+# Aquila Change start
 - type: damageModifierSet
   id: PlasteelStaticMod
   coefficients:
@@ -34,9 +37,11 @@
     Shock: 15
     Caustic: 15
     Structural: 6
+# Aquila Change end
 
 # Strong metal used by crew to protect important areas and items.
 # Used for dynamic entities which might move frequently.
+# Aquila Change start
 - type: damageModifierSet
   id: PlasteelMod
   coefficients:
@@ -50,9 +55,11 @@
     Shock: 15
     Caustic: 15
     Structural: 6
+# Aquila Change end
 
 # Common metal found all over the place.
 # Used for static entities which mostly never move.
+# Aquila Change start
 - type: damageModifierSet
   id: SteelStaticMod
   coefficients:
@@ -66,9 +73,11 @@
     Shock: 15
     Caustic: 15
     Structural: 3
+# Aquila Change end
 
 # Common metal found all over the place.
 # Used for dynamic entities which might move frequently.
+# Aquila Change start
 - type: damageModifierSet
   id: SteelMod
   coefficients:
@@ -82,8 +91,10 @@
     Shock: 10
     Caustic: 15
     Structural: 3
+# Aquila Change end
 
 # Steel rods
+# Aquila Change start
 - type: damageModifierSet
   id: RodMetalMod
   coefficients:
@@ -98,8 +109,10 @@
     Shock: 15
     Caustic: 15
     Structural: 3
+# Aquila Change end
 
 # Weak metal with an orange hue
+# Aquila Change start
 - type: damageModifierSet
   id: BrassMod
   coefficients:
@@ -113,8 +126,10 @@
     Piercing: 5
     Shock: 30 # Way less electrical resistance compared to steel
     Caustic: 5
+# Aquila Change end
 
 # Metals that you really shouldn't be building things out of. Gold, silver, etc.
+# Aquila Change start
 - type: damageModifierSet
   id: PreciousMetalMod
   coefficients:
@@ -123,12 +138,14 @@
     Heat: 1.5
     Cold: 1.5
     Shock: 1.5
+# Aquila Change end
 
 #endregion
 #region Glass
 ## Glass acts somewhat like an inverse to metal. Resists burns, but weak to brutes.
 
 # Inverse of metal. Weak to brute but resists burns.
+# Aquila Change start
 - type: damageModifierSet
   id: GlassMod
   coefficients:
@@ -141,8 +158,10 @@
     Cold: 20
     Shock: 20
     Caustic: 20
+# Aquila Change end
 
 # Mix of RodMetal and Glass
+# Aquila Change start
 - type: damageModifierSet
   id: GlassReinforcedMod
   coefficients:
@@ -157,8 +176,10 @@
     Shock: 20
     Caustic: 20
     Structural: 3
+# Aquila Change end
 
 # Halfway between plasma and glass.
+# Aquila Change start
 - type: damageModifierSet
   id: GlassPlasmaMod
   coefficients:
@@ -174,8 +195,10 @@
     Cold: 20
     Shock: 20
     Caustic: 20
+# Aquila Change end
 
 # Halfway between reinforced glass and plasma.
+# Aquila Change start
 - type: damageModifierSet
   id: GlassReinforcedPlasmaMod
   coefficients:
@@ -193,11 +216,13 @@
     Shock: 20
     Caustic: 20
     Structural: 3
+# Aquila Change end
 
 #endregion
 #region Organic
 ## Poor resistances with specific, obvious weaknesses.
 
+# Aquila Change start
 - type: damageModifierSet
   id: CardboardMod
   coefficients:
@@ -214,16 +239,20 @@
   flatReductions:
     Blunt: 4 # Minecraft reference
     Piercing: 4
+# Aquila Change end
 
 # Silk, cloth, and other woven materials.
+# Aquila Change start
 - type: damageModifierSet
   id: ThreadMod
   coefficients:
     Slash: 2
     Piercing: 1.5
     Heat: 2
+# Aquila Change end
 
 # Halfway between thread and plastic.
+# Aquila Change start
 - type: damageModifierSet
   id: DurathreadMod
   coefficients:
@@ -235,8 +264,10 @@
     Blunt: 2
     Cold: 2
     Shock: 2
+# Aquila Change end
 
 # A little bit resistant to everything.
+# Aquila Change start
 - type: damageModifierSet
   id: PlasticMod
   coefficients:
@@ -248,8 +279,10 @@
     Heat: 2
     Cold: 2
     Shock: 2
+# Aquila Change end
 
 # Durable material with an extreme weakness to structural.
+# Aquila Change start
 - type: damageModifierSet
   id: RockMod # And dirt and porcelain
   coefficients:
@@ -262,8 +295,10 @@
     Cold: 10
     Shock: 10
     Caustic: 10
+# Aquila Change end
 
 # A weird space rock which fills gaps for unusual weaknesses.
+# Aquila Change start
 - type: damageModifierSet
   id: PlasmaMod
   coefficients:
@@ -275,8 +310,10 @@
     Slash: 10
     Heat: 10
     Caustic: 10
+# Aquila Change end
 
 # The least durable material in the universe. You'd need to be some sort of clown to build with this :o)
+# Aquila Change start
 - type: damageModifierSet
   id: BananiumMod
   coefficients:
@@ -296,5 +333,6 @@
     Structural: 2
   flatReductions:
     Structural: -5 # Destroyed by a soft breeze
+# Aquila Change end
 
 #endregion

@@ -136,7 +136,7 @@ public sealed partial class FaxMachineComponent : Component
     /// How long the printing animation will play
     /// </summary>
     [ViewVariables]
-    public float PrintingTime = 2f;
+    public float PrintingTime = 2f; // Aquila Change
 
     /// <summary>
     ///     The prototype ID to use for faxed or copied entities if we can't get one from

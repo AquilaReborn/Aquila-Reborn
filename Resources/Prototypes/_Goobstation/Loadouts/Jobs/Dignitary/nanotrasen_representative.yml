@@ -13,7 +13,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobNanotrasenRepresentative
-      time: 3600 #1 hour
+      time: 3600 #1 hour # Aquila Change
 
 - type: loadout
   id: NanotrasenRepresentativeTop

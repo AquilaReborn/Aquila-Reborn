@@ -341,7 +341,6 @@
   - type: StorageFill
     contents:
       - id: PenCentcomGift
-      - id: ReportGoalAchievement
 
 # Ми Лейм
 - type: entity
@@ -364,4 +363,13 @@
   components:
   - type: Sprite
     sprite: _Aquila/Objects/Fun/Toys/Toughguys/AndreyKushnarev.rsi
+    state: icon
+
+- type: entity
+  parent: BasePlushieCharacter
+  id: PlushieYanZuev
+  name: Yan Zuev
+  components:
+  - type: Sprite
+    sprite: _Aquila/Objects/Fun/Toys/Toughguys/yanzuev.rsi
     state: icon

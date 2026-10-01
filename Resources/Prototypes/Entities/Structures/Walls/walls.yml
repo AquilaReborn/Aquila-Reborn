@@ -651,10 +651,10 @@
   components:
   - type: Sprite
     drawdepth: Walls
-    sprite: Structures/Walls/plastitanium-diagonal.rsi
+    sprite: Structures/Walls/plastitanium-diagonal.rsi # Aquila Change
     state: state0
   - type: Icon
-    sprite: Structures/Walls/plastitanium-diagonal.rsi
+    sprite: Structures/Walls/plastitanium-diagonal.rsi # Aquila Change
     state: state0
   - type: Damageable
     damageContainer: StructuralInorganic
@@ -670,10 +670,10 @@
   components:
   - type: Sprite
     drawdepth: Walls
-    sprite: Structures/Walls/plastitanium-diagonal.rsi
+    sprite: Structures/Walls/plastitanium-diagonal.rsi # Aquila Change
     state: state0
   - type: Icon
-    sprite: Structures/Walls/plastitanium-diagonal.rsi
+    sprite: Structures/Walls/plastitanium-diagonal.rsi # Aquila Change
     state: state0
   - type: Destructible
     thresholds:
@@ -786,9 +786,9 @@
   suffix: rusted
   components:
   - type: Sprite
-    sprite: Structures/Walls/solid-rust.rsi
+    sprite: Structures/Walls/solid-rust.rsi # Aquila Change
   - type: Icon
-    sprite: Structures/Walls/solid-rust.rsi
+    sprite: Structures/Walls/solid-rust.rsi # Aquila Change
     state: rgeneric
   - type: Construction
     graph: Girder
@@ -833,10 +833,10 @@
     - Diagonal
   - type: Sprite
     drawdepth: Walls
-    sprite: Structures/Walls/reinforced-diagonal.rsi
+    sprite: Structures/Walls/reinforced-diagonal.rsi # Aquila Change
     state: state0
   - type: Icon
-    sprite: Structures/Walls/reinforced-diagonal.rsi
+    sprite: Structures/Walls/reinforced-diagonal.rsi # Aquila Change
     state: state0
   - type: Damageable
     damageContainer: StructuralInorganic
@@ -994,10 +994,10 @@
   components:
   - type: Sprite
     drawdepth: Walls
-    sprite: Structures/Walls/shuttle-diagonal.rsi
+    sprite: Structures/Walls/shuttle-diagonal.rsi # Aquila Change
     state: state0
   - type: Icon
-    sprite: Structures/Walls/shuttle-diagonal.rsi
+    sprite: Structures/Walls/shuttle-diagonal.rsi # Aquila Change
     state: state0
   - type: Reflect
     reflectProb: 1
@@ -1202,10 +1202,10 @@
   components:
   - type: Sprite
     drawdepth: Walls
-    sprite: Structures/Walls/solid-diagonal.rsi
+    sprite: Structures/Walls/solid-diagonal.rsi # Aquila Change
     state: state0
   - type: Icon
-    sprite: Structures/Walls/solid-diagonal.rsi
+    sprite: Structures/Walls/solid-diagonal.rsi # Aquila Change
     state: state0
   - type: Destructible
     thresholds:
@@ -1241,9 +1241,9 @@
   suffix: rusted
   components:
   - type: Sprite
-    sprite: Structures/Walls/solid-rust.rsi
+    sprite: Structures/Walls/solid-rust.rsi # Aquila Change
   - type: Icon
-    sprite: Structures/Walls/solid-rust.rsi
+    sprite: Structures/Walls/solid-rust.rsi # Aquila Change
     state: full
   - type: Construction
     graph: Girder
@@ -1283,9 +1283,9 @@
   name: xenoborg wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/exo-borg.rsi
+    sprite: Structures/Walls/exo-borg.rsi # Aquila Change
   - type: Icon
-    sprite: Structures/Walls/exo-borg.rsi
+    sprite: Structures/Walls/exo-borg.rsi # Aquila Change
   - type: IconSmooth
     key: walls
     base: xenoborg
@@ -1298,10 +1298,10 @@
   components:
   - type: Sprite
     drawdepth: Walls
-    sprite: Structures/Walls/exo-borg-diagonal.rsi
+    sprite: Structures/Walls/exo-borg-diagonal.rsi # Aquila Change
     state: state0
   - type: Icon
-    sprite: Structures/Walls/exo-borg-diagonal.rsi
+    sprite: Structures/Walls/exo-borg-diagonal.rsi # Aquila Change
     state: state0
 
 - type: entity
@@ -1335,9 +1335,9 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: Sprite
-    sprite: Structures/Walls/exo.rsi
+    sprite: Structures/Walls/exo.rsi # Aquila Change
   - type: Icon
-    sprite: Structures/Walls/exo.rsi
+    sprite: Structures/Walls/exo.rsi # Aquila Change
   - type: IconSmooth
     key: chitin
     base: solid
@@ -1355,9 +1355,9 @@
   name: reinforced chitin
   components:
   - type: Sprite
-    sprite: Structures/Walls/exo.rsi
+    sprite: Structures/Walls/exo.rsi # Aquila Change
   - type: Icon
-    sprite: Structures/Walls/exo.rsi
+    sprite: Structures/Walls/exo.rsi # Aquila Change
     state: rgeneric
   - type: Damageable
     damageContainer: StructuralInorganic
@@ -2001,6 +2001,7 @@
   - type: BlockWeather
   - type: SunShadowCast
 
+# Aquila Change start
 - type: entity
   parent: [ BaseWall, StructureHealthWallStrong ]
   id: WallMarble
@@ -2149,3 +2150,4 @@
   - type: IconSmooth
     key: walls
     base: brass
+# Aquila Change end

@@ -7,7 +7,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobBartender
-      time: 1h
+      time: 1h # Aquila Change
 
 # Head
 - type: loadout

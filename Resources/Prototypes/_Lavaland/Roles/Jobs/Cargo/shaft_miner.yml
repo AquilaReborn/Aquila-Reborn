@@ -7,7 +7,7 @@
   requirements:
   - !type:DepartmentTimeRequirement
     department: Cargo
-    time: 3600  #1 hour
+    time: 3600  #1 hour # Aquila Change
   icon: "JobIconLavaShaftMiner" # Wizden's icon is already called shaft miner for whatever reason.
   startingGear: ShaftMinerGear
   guides:

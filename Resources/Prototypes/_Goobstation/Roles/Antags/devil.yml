@@ -9,18 +9,20 @@
   guides: [ Devil ]
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 1h
+    time: 1h # Aquila Change
   - !type:DepartmentTimeRequirement
     department: Command
-    time: 1h
+    time: 1h # Aquila Change
   - !type:RoleTimeRequirement
+    # Aquila Change start
     role: JobLawyer
     time: 1h
+    # Aquila Change end
   - !type:SpeciesRequirement
     inverted: true
     species:
     - Plasmaman
-    - Abductor
+    - Abductor # Aquila Change
 
 - type: startingGear
   id: DevilStartingGear
