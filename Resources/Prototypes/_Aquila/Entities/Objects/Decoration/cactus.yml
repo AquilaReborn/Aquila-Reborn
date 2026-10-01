@@ -1,0 +1,51 @@
+- type: entity
+  id: DesertCactus
+  name: cactus
+  description: A prickly desert plant. Better not to touch it.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Sprite
+    noRot: true
+    sprite: _Aquila/Decals/desert_flora.rsi
+    layers:
+    - state: cactus1
+      map: ["random"]
+  - type: RandomSprite
+    available:
+    - random:
+        cactus1: ""
+        cactus2: ""
+        cactus3: ""
+        cactus4: ""
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.35,0.35,0.35"
+        layer:
+        - MidImpassable
+  - type: DamageOnInteract
+    damage:
+      types:
+        Piercing: 2
+    popupText: cactus-ouch
+    interactSound: /Audio/Effects/hit_kick.ogg
+  - type: DamageContacts
+    damage:
+      types:
+        Piercing: 2
+  - type: Damageable
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 40
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
