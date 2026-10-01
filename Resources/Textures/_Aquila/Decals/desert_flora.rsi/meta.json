@@ -1,0 +1,89 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Shiptest (https://github.com/shiptest-ss13/Shiptest)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "cactus1"
+        },
+        {
+            "name": "cactus2"
+        },
+        {
+            "name": "cactus3"
+        },
+        {
+            "name": "cactus4"
+        },
+        {
+            "name": "cactus5"
+        },
+        {
+            "name": "cactus6"
+        },
+        {
+            "name": "cactus7"
+        },
+        {
+            "name": "cactus8"
+        },
+        {
+            "name": "cactus9"
+        },
+        {
+            "name": "cactus10"
+        },
+        {
+            "name": "cactus11"
+        },
+        {
+            "name": "cactus12"
+        },
+        {
+            "name": "cactus13"
+        },
+        {
+            "name": "cactus14"
+        },
+        {
+            "name": "desertgrass1"
+        },
+        {
+            "name": "desertgrass2"
+        },
+        {
+            "name": "desertgrass3"
+        },
+        {
+            "name": "desertgrass4"
+        },
+        {
+            "name": "desertgrass5"
+        },
+        {
+            "name": "desertgrass6"
+        },
+        {
+            "name": "desertstones1"
+        },
+        {
+            "name": "desertstones2"
+        },
+        {
+            "name": "desertstones3"
+        },
+        {
+            "name": "desertstones4"
+        },
+        {
+            "name": "desertstones5"
+        },
+        {
+            "name": "desertstones6"
+        }
+    ]
+}
