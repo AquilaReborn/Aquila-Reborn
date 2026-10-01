@@ -374,6 +374,10 @@
   id: ClothingHeadHelmetSwatBase
   abstract: true
   components:
+  - type: ToggleHideLayersClothing # Aquila Change
+    layers: [ Hair ] # Aquila Change
+    slots: HEAD # Aquila Change
+    action: ActionToggleHideLayersHair # Aquila Change
   - type: Armor
     coverage:
     - Head

@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Shared.Actions;
 using Content.Shared.Clothing;
 using Content.Shared.Clothing.Components;
@@ -53,7 +54,8 @@ public sealed class ToggleHideLayersClothingSystem : EntitySystem
 
         args.Handled = true;
 
-        SetHidden(ent, args.Performer, !ent.Comp.Hidden);
+        var show = IsAnyLayerHidden(args.Performer, ent.Comp.Layers);
+        SetHidden(ent, args.Performer, !show, show);
 
         var popup = ent.Comp.Hidden ? ent.Comp.HidePopup : ent.Comp.ShowPopup;
         _popup.PopupClient(Loc.GetString(popup, ("item", ent.Owner)), args.Performer, args.Performer);
@@ -80,20 +82,57 @@ public sealed class ToggleHideLayersClothingSystem : EntitySystem
         SetHidden(ent, args.Wearer, false);
     }
 
-    private void SetHidden(Entity<ToggleHideLayersClothingComponent> ent, EntityUid wearer, bool hidden)
+    private void SetHidden(Entity<ToggleHideLayersClothingComponent> ent, EntityUid wearer, bool hidden, bool force = false)
     {
-        if (ent.Comp.Hidden == hidden)
+        if (!force && ent.Comp.Hidden == hidden)
             return;
 
-        ent.Comp.Hidden = hidden;
-        Dirty(ent);
+        if (ent.Comp.Hidden != hidden)
+        {
+            ent.Comp.Hidden = hidden;
+            Dirty(ent);
+        }
 
         foreach (var layer in ent.Comp.Layers)
         {
             if (!hidden && IsHiddenByOther(wearer, ent.Owner, layer))
                 continue;
 
+            if (!hidden && force)
+                ClearHideSources(wearer, layer);
+
             _humanoid.SetLayerVisibility(wearer, layer, !hidden, HideSource);
+        }
+    }
+
+    private bool IsAnyLayerHidden(EntityUid uid, HashSet<HumanoidVisualLayers> layers)
+    {
+        if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
+            return false;
+
+        foreach (var layer in layers)
+        {
+            if (humanoid.HiddenLayers.ContainsKey(layer))
+                return true;
+        }
+
+        return false;
+    }
+
+    private void ClearHideSources(EntityUid uid, HumanoidVisualLayers layer)
+    {
+        if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid)
+            || !humanoid.HiddenLayers.TryGetValue(layer, out var sources))
+            return;
+
+        foreach (var flag in Enum.GetValues<SlotFlags>())
+        {
+            if (flag == HideSource
+                || (sources & flag) == 0
+                || !BitOperations.IsPow2((uint) flag))
+                continue;
+
+            _humanoid.SetLayerVisibility(uid, layer, true, flag);
         }
     }
 
