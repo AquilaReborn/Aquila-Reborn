@@ -414,7 +414,7 @@ public sealed class SotRuleSystem : GameRuleSystem<SotRuleComponent>
 
     #region Утилиты
 
-    private static string SideName(SotSide side)
+    private string SideName(SotSide side)
     {
         return Loc.GetString(side switch
         {

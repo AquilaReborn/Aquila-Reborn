@@ -3,10 +3,11 @@
 # Заполните данными о ваших треках (автор, лицензия, источник).
 - files: ["athena_theme.ogg"]
   license: "CC-BY-SA-3.0"
-  copyright: "ЗАПОЛНИТЕ: автор трека"
-  source: "ЗАПОЛНИТЕ: ссылка на источник"
+  copyright: "Sea of Thieves"
+  source: "YouTube"
 
 - files: ["reapers_theme.ogg"]
   license: "CC-BY-SA-3.0"
-  copyright: "ЗАПОЛНИТЕ: автор трека"
-  source: "ЗАПОЛНИТЕ: ссылка на источник"
+  copyright: "Sea of Thieves"
+  source: "YouTube"
+

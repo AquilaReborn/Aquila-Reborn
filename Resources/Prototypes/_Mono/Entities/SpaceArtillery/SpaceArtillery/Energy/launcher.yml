@@ -92,7 +92,7 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
   - type: BatterySelfRecharger #CorvaxGoob-ShuttleGuns-Rebalance
-    autoRechargeRate: 0
+    autoRechargeRate: 80
   - type: SpaceArtillery
     powerChargeRate: 80 #CorvaxGoob-ShuttleGuns-Rebalance
     powerUsePassive: 125 #CorvaxGoob-ShuttleGuns-Rebalance
