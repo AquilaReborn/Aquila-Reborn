@@ -1,4 +1,6 @@
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Goobstation.Shared.Factory;
+using Content.Shared.DeviceLinking.Events;
 using Content.Server.Power.Components;
 using Content.Shared._Aquila.AutoCook;
 using Content.Shared.Chemistry.EntitySystems;
@@ -20,6 +22,7 @@ public sealed partial class AutoCookerSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private readonly AutomationSystem _automation = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
@@ -39,6 +42,7 @@ public sealed partial class AutoCookerSystem : EntitySystem
         SubscribeLocalEvent<AutoCookerComponent, EntRemovedFromContainerMessage>(OnUiRefresh);
         SubscribeLocalEvent<AutoCookerComponent, SolutionContainerChangedEvent>(OnUiRefresh);
         SubscribeLocalEvent<AutoCookerComponent, PowerChangedEvent>(OnUiRefresh);
+        SubscribeLocalEvent<AutoCookerComponent, SignalReceivedEvent>(OnSignalReceived);
         SubscribeLocalEvent<AutoCookerComponent, AutoCookerStartMessage>(OnStart);
         SubscribeLocalEvent<AutoCookerComponent, AutoCookerCancelMessage>(OnCancel);
         SubscribeLocalEvent<AutoCookerComponent, AutoCookerRemoveQueuedMessage>(OnRemoveQueued);
@@ -66,6 +70,20 @@ public sealed partial class AutoCookerSystem : EntitySystem
 
     private void OnStart(Entity<AutoCookerComponent> ent, ref AutoCookerStartMessage args)
     {
+        Order(ent, args.RecipeId, args.Amount);
+    }
+
+    private void OnSignalReceived(Entity<AutoCookerComponent> ent, ref SignalReceivedEvent args)
+    {
+        if (args.Port != ent.Comp.RepeatPort || !_automation.IsAutomated(ent.Owner))
+            return;
+
+        if (ent.Comp.LastOrder is { } order)
+            Order(ent, order.RecipeId, order.Amount);
+    }
+
+    private void Order(Entity<AutoCookerComponent> ent, string recipeId, int amount)
+    {
         if (!_power.IsPowered(ent.Owner))
             return;
 
@@ -74,13 +92,13 @@ public sealed partial class AutoCookerSystem : EntitySystem
         if (ent.Comp.Job != null || ent.Comp.Queue.Count > 0)
         {
             if (ent.Comp.Queue.Count < ent.Comp.MaxQueue)
-                ent.Comp.Queue.Add(new AutoCookOrder(args.RecipeId, args.Amount));
+                ent.Comp.Queue.Add(new AutoCookOrder(recipeId, amount));
 
             UpdateUi(ent);
             return;
         }
 
-        if (!TryBegin(ent, args.RecipeId, args.Amount))
+        if (!TryBegin(ent, recipeId, amount))
             UpdateUi(ent);
     }
 
@@ -101,6 +119,7 @@ public sealed partial class AutoCookerSystem : EntitySystem
 
         job.StepStart = _timing.CurTime;
         ent.Comp.Job = job;
+        ent.Comp.LastOrder = new AutoCookOrder(recipeId, amount);
         _audio.PlayPvs(ent.Comp.StartSound, ent);
         UpdateUi(ent);
         return true;
@@ -160,7 +179,7 @@ public sealed partial class AutoCookerSystem : EntitySystem
             return null;
 
         var steps = FinalizeReagentSteps(ent.Comp, raw);
-        if (steps.Count == 0)
+        if (steps.Count == 0 || IsTooComplex(ent.Comp, reagent, steps))
             return null;
 
         return new AutoCookJob

@@ -9,6 +9,7 @@ public sealed partial class AutoCookerSystem
 {
     private const int MaxReagentDepth = 6;
     private const int MaxMealDepth = 4;
+    private const int MaxChemReactions = 3;
     private const float MaxCookSeconds = 30f;
     private const float Epsilon = 0.001f;
     private const float RoomTemperature = 293.15f;
@@ -160,6 +161,11 @@ public sealed partial class AutoCookerSystem
         }
 
         return result;
+    }
+
+    private static bool IsTooComplex(AutoCookerComponent comp, string reagent, List<AutoCookStep> steps)
+    {
+        return comp.Kind == AutoCookKind.Chem && !IsExtraTarget(comp, reagent) && steps.Count(step => step.Kind == AutoCookStepKind.React) > MaxChemReactions;
     }
 
     private static bool CanMix(AutoCookerComponent comp, ReactionPrototype reaction)

@@ -49,6 +49,9 @@ public sealed partial class AutoCookerSystem
                 continue;
 
             var steps = FinalizeReagentSteps(ent.Comp, raw);
+            if (IsTooComplex(ent.Comp, proto.ID, steps))
+                continue;
+
             var ingredients = steps
                 .LastOrDefault(step => step.Kind == AutoCookStepKind.React)?.Consume
                 .Select(pair => new AutoCookIngredient(ReagentName(pair.Key), FormatAmount(pair.Value), true))
@@ -200,12 +203,7 @@ public sealed partial class AutoCookerSystem
             return Loc.GetString(IsAlcoholic(proto) ? "autocook-group-alcohol" : "autocook-group-drink");
 
         var reactions = steps.Count(step => step.Kind == AutoCookStepKind.React);
-        return Loc.GetString(reactions switch
-        {
-            <= 1 => "autocook-group-simple",
-            <= 3 => "autocook-group-medium",
-            _ => "autocook-group-complex",
-        });
+        return Loc.GetString(reactions <= 1 ? "autocook-group-simple" : "autocook-group-medium");
     }
 
     private static bool IsAlcoholic(ReagentPrototype proto)

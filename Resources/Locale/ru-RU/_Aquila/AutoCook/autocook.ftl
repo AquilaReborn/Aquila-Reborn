@@ -47,7 +47,6 @@ autocook-group-alcohol = Алкогольные
 autocook-group-drink = Безалкогольные
 autocook-group-simple = Простые
 autocook-group-medium = Средние
-autocook-group-complex = Сложные
 autocook-group-savory = Закуски и горячее
 autocook-group-soup = Супы
 autocook-group-breads = Хлеб
@@ -109,3 +108,6 @@ thankyou-autocook-2 = Блюдо готово. Остывает оно уже п
 thankyou-autocook-3 = Заходите ещё. Я никуда не тороплюсь, я же автомат.
 thankyou-autocook-4 = Спасибо, что доверили мне ужин.. Ээ.. Или сейчас только обед? В любом случае, я справился.
 thankyou-autocook-5 = Если вкусно - хвалите меня. Если нет - жалуйтесь на шефа.
+
+signal-port-name-autocook-repeat = Повторить последний рецепт
+signal-port-description-autocook-repeat = Порт сигнала, который при импульсе повторяет последний запущенный рецепт.

@@ -1,5 +1,6 @@
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.DeviceLinking;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -23,6 +24,9 @@ public sealed partial class AutoCookerComponent : Component
     public List<string> BaseMetabolisms = new();
 
     [DataField]
+    public List<ProtoId<ReagentPrototype>> ExtraTargets = new();
+
+    [DataField]
     public List<string> TargetGroups = new();
 
     [DataField]
@@ -33,6 +37,9 @@ public sealed partial class AutoCookerComponent : Component
 
     [DataField]
     public int MaxQueue = 5;
+
+    [DataField]
+    public ProtoId<SinkPortPrototype> RepeatPort = "AutoCookRepeat";
 
     [DataField]
     public float WorkingLoad = 400f;
@@ -71,6 +78,8 @@ public sealed partial class AutoCookerComponent : Component
     public SoundSpecifier DoneSound = new SoundPathSpecifier("/Audio/Machines/microwave_done_beep.ogg");
 
     public AutoCookJob? Job;
+
+    public AutoCookOrder? LastOrder;
 
     public TimeSpan DoneUntil;
 

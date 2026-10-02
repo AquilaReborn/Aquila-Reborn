@@ -215,6 +215,11 @@ public sealed partial class AutoCookerSystem
         return comp.ExcludedReagents.Any(excluded => excluded.Id == id);
     }
 
+    private static bool IsExtraTarget(AutoCookerComponent comp, string id)
+    {
+        return comp.ExtraTargets.Any(extra => extra.Id == id);
+    }
+
     private static bool HasMetabolism(ReagentPrototype proto, string group)
     {
         return proto.Metabolisms != null && proto.Metabolisms.Keys.Any(key => key.Id == group);
@@ -255,7 +260,7 @@ public sealed partial class AutoCookerSystem
 
     private static bool IsTargetReagent(AutoCookerComponent comp, ReagentPrototype proto)
     {
-        return comp.TargetGroups.Contains(proto.Group) || HasAnyMetabolism(proto, comp.TargetMetabolisms);
+        return comp.TargetGroups.Contains(proto.Group) || IsExtraTarget(comp, proto.ID) || HasAnyMetabolism(proto, comp.TargetMetabolisms);
     }
 
     private bool IsCraftableTarget(AutoCookerComponent comp, ReagentPrototype proto)

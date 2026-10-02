@@ -7,3 +7,8 @@
   id: KaraokeMicPort
   name: signal-port-name-KaraokeMicPort
   description: signal-port-description-KaraokeMicPort
+
+- type: sinkPort
+  id: AutoCookRepeat
+  name: signal-port-name-autocook-repeat
+  description: signal-port-description-autocook-repeat
