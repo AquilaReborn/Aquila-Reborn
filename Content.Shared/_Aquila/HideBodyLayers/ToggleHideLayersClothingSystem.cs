@@ -19,7 +19,6 @@ public sealed class ToggleHideLayersClothingSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
 
     private const SlotFlags HideSource = SlotFlags.PREVENTEQUIP;
-    private const int MainGroup = -1;
 
     public override void Initialize()
     {
@@ -36,25 +35,10 @@ public sealed class ToggleHideLayersClothingSystem : EntitySystem
         if (args.SlotFlags is not { } slot || (slot & ent.Comp.Slots) == 0)
             return;
 
-        EnsureExtraState(ent);
+        if (!HasAnyLayer(args.User, ent.Comp.Layers))
+            return;
 
-        if (HasAnyLayer(args.User, ent.Comp.Layers))
-            args.AddAction(ref ent.Comp.ActionEntity, ent.Comp.Action);
-
-        for (var i = 0; i < ent.Comp.ExtraToggles.Count; i++)
-        {
-            var group = ent.Comp.ExtraToggles[i];
-            if (!HasAnyLayer(args.User, group.Layers))
-                continue;
-
-            EntityUid? action = ent.Comp.ExtraActionEntities[i] == EntityUid.Invalid
-                ? null
-                : ent.Comp.ExtraActionEntities[i];
-
-            args.AddAction(ref action, group.Action);
-            ent.Comp.ExtraActionEntities[i] = action ?? EntityUid.Invalid;
-        }
-
+        args.AddAction(ref ent.Comp.ActionEntity, ent.Comp.Action);
         Dirty(ent);
     }
 
@@ -70,19 +54,16 @@ public sealed class ToggleHideLayersClothingSystem : EntitySystem
 
         args.Handled = true;
 
-        EnsureExtraState(ent);
+        var show = IsAnyLayerHidden(args.Performer, ent.Comp.Layers);
+        SetHidden(ent, args.Performer, !show, show);
 
-        var group = FindGroup(ent.Comp, args.Action.Owner);
-        var show = IsAnyLayerHidden(args.Performer, GetLayers(ent.Comp, group));
-        SetHidden(ent, args.Performer, group, !show, show);
-
-        var popup = GetHiddenFlag(ent.Comp, group) ? GetHidePopup(ent.Comp, group) : GetShowPopup(ent.Comp, group);
+        var popup = ent.Comp.Hidden ? ent.Comp.HidePopup : ent.Comp.ShowPopup;
         _popup.PopupClient(Loc.GetString(popup, ("item", ent.Owner)), args.Performer, args.Performer);
     }
 
     private void OnGotEquipped(Entity<ToggleHideLayersClothingComponent> ent, ref ClothingGotEquippedEvent args)
     {
-        if (_timing.ApplyingState)
+        if (_timing.ApplyingState || !ent.Comp.HiddenByDefault)
             return;
 
         if (!TryComp<ClothingComponent>(ent, out var clothing)
@@ -90,16 +71,7 @@ public sealed class ToggleHideLayersClothingSystem : EntitySystem
             || (slot & ent.Comp.Slots) == 0)
             return;
 
-        EnsureExtraState(ent);
-
-        if (ent.Comp.HiddenByDefault)
-            SetHidden(ent, args.Wearer, MainGroup, true);
-
-        for (var i = 0; i < ent.Comp.ExtraToggles.Count; i++)
-        {
-            if (ent.Comp.ExtraToggles[i].HiddenByDefault)
-                SetHidden(ent, args.Wearer, i, true);
-        }
+        SetHidden(ent, args.Wearer, true);
     }
 
     private void OnGotUnequipped(Entity<ToggleHideLayersClothingComponent> ent, ref ClothingGotUnequippedEvent args)
@@ -107,89 +79,23 @@ public sealed class ToggleHideLayersClothingSystem : EntitySystem
         if (_timing.ApplyingState)
             return;
 
-        EnsureExtraState(ent);
-
-        SetHidden(ent, args.Wearer, MainGroup, false);
-
-        for (var i = 0; i < ent.Comp.ExtraToggles.Count; i++)
-        {
-            SetHidden(ent, args.Wearer, i, false);
-        }
+        SetHidden(ent, args.Wearer, false);
     }
 
-    private void EnsureExtraState(Entity<ToggleHideLayersClothingComponent> ent)
+    private void SetHidden(Entity<ToggleHideLayersClothingComponent> ent, EntityUid wearer, bool hidden, bool force = false)
     {
-        var count = ent.Comp.ExtraToggles.Count;
-        var changed = false;
-
-        while (ent.Comp.ExtraActionEntities.Count < count)
-        {
-            ent.Comp.ExtraActionEntities.Add(EntityUid.Invalid);
-            changed = true;
-        }
-
-        while (ent.Comp.ExtraHidden.Count < count)
-        {
-            ent.Comp.ExtraHidden.Add(false);
-            changed = true;
-        }
-
-        if (changed)
-            Dirty(ent);
-    }
-
-    private static int FindGroup(ToggleHideLayersClothingComponent comp, EntityUid action)
-    {
-        if (comp.ActionEntity == action)
-            return MainGroup;
-
-        for (var i = 0; i < comp.ExtraActionEntities.Count; i++)
-        {
-            if (comp.ExtraActionEntities[i] == action)
-                return i;
-        }
-
-        return MainGroup;
-    }
-
-    private static HashSet<HumanoidVisualLayers> GetLayers(ToggleHideLayersClothingComponent comp, int group)
-    {
-        return group == MainGroup ? comp.Layers : comp.ExtraToggles[group].Layers;
-    }
-
-    private static bool GetHiddenFlag(ToggleHideLayersClothingComponent comp, int group)
-    {
-        return group == MainGroup ? comp.Hidden : comp.ExtraHidden[group];
-    }
-
-    private static LocId GetHidePopup(ToggleHideLayersClothingComponent comp, int group)
-    {
-        return group == MainGroup ? comp.HidePopup : comp.ExtraToggles[group].HidePopup;
-    }
-
-    private static LocId GetShowPopup(ToggleHideLayersClothingComponent comp, int group)
-    {
-        return group == MainGroup ? comp.ShowPopup : comp.ExtraToggles[group].ShowPopup;
-    }
-
-    private void SetHidden(Entity<ToggleHideLayersClothingComponent> ent, EntityUid wearer, int group, bool hidden, bool force = false)
-    {
-        if (!force && GetHiddenFlag(ent.Comp, group) == hidden)
+        if (!force && ent.Comp.Hidden == hidden)
             return;
 
-        if (GetHiddenFlag(ent.Comp, group) != hidden)
+        if (ent.Comp.Hidden != hidden)
         {
-            if (group == MainGroup)
-                ent.Comp.Hidden = hidden;
-            else
-                ent.Comp.ExtraHidden[group] = hidden;
-
+            ent.Comp.Hidden = hidden;
             Dirty(ent);
         }
 
-        foreach (var layer in GetLayers(ent.Comp, group))
+        foreach (var layer in ent.Comp.Layers)
         {
-            if (!hidden && IsHiddenByOther(wearer, ent.Owner, group, layer))
+            if (!hidden && IsHiddenByOther(wearer, ent.Owner, layer))
                 continue;
 
             if (!hidden && force)
@@ -230,29 +136,20 @@ public sealed class ToggleHideLayersClothingSystem : EntitySystem
         }
     }
 
-    private bool IsHiddenByOther(EntityUid wearer, EntityUid exceptItem, int exceptGroup, HumanoidVisualLayers layer)
+    private bool IsHiddenByOther(EntityUid wearer, EntityUid except, HumanoidVisualLayers layer)
     {
         if (!_inventory.TryGetContainerSlotEnumerator(wearer, out var enumerator))
             return false;
 
         while (enumerator.NextItem(out var item))
         {
-            if (!TryComp<ToggleHideLayersClothingComponent>(item, out var other))
+            if (item == except
+                || !TryComp<ToggleHideLayersClothingComponent>(item, out var other)
+                || !other.Hidden)
                 continue;
 
-            if ((item != exceptItem || exceptGroup != MainGroup)
-                && other.Hidden
-                && other.Layers.Contains(layer))
+            if (other.Layers.Contains(layer))
                 return true;
-
-            for (var i = 0; i < other.ExtraToggles.Count && i < other.ExtraHidden.Count; i++)
-            {
-                if ((item == exceptItem && i == exceptGroup) || !other.ExtraHidden[i])
-                    continue;
-
-                if (other.ExtraToggles[i].Layers.Contains(layer))
-                    return true;
-            }
         }
 
         return false;
