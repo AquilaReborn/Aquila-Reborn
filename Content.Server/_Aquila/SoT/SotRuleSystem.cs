@@ -1,4 +1,4 @@
-/// Работа выполнена Claude (Anthropic).
+// Работа выполнена Claude (Anthropic).
 // SPDX-FileCopyrightText: 2026 GromPlay739
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -152,6 +152,9 @@ public sealed class SotRuleSystem : GameRuleSystem<SotRuleComponent>
 
         rule.Comp.Battles.Add(battle);
         number = battle.Number;
+
+        // Колонки SoT и другие системы реагируют на начало битвы.
+        RaiseLocalEvent(new SotBattleStartedEvent(battle.Number, id1, id2));
         return true;
     }
 
@@ -411,7 +414,7 @@ public sealed class SotRuleSystem : GameRuleSystem<SotRuleComponent>
 
     #region Утилиты
 
-    private string SideName(SotSide side)
+    private static string SideName(SotSide side)
     {
         return Loc.GetString(side switch
         {
@@ -421,7 +424,7 @@ public sealed class SotRuleSystem : GameRuleSystem<SotRuleComponent>
         });
     }
 
-    private string ReasonKey(SotBattleEndReason reason)
+    private static string ReasonKey(SotBattleEndReason reason)
     {
         return reason switch
         {

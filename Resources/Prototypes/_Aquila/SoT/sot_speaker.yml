@@ -1,0 +1,106 @@
+# Работа выполнена Claude (Anthropic).
+# ==========================================================
+# Колонки SoT (Афина и Жнецы).
+# Кладите в Resources/Prototypes/_Aquila/SoT/
+# Играют заданный трек: по клику (вкл/выкл) и сами в начале битвы корабля,
+# на котором стоят (если уже играли - трек запускается заново).
+# ==========================================================
+
+# --- Общая база (в спавн-меню не видна) ---
+- type: entity
+  abstract: true
+  parent: BaseStructure
+  id: SotSpeakerBase
+  suffix: SoT
+  components:
+  # --- Прикрепление к полу ---
+  - type: Anchorable
+    flags: Anchorable
+  - type: Transform
+    anchored: true
+
+  # --- Коллизия ---
+  - type: Physics
+    bodyType: Static
+    canCollide: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.3,0.3,0.3"
+        density: 100
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+  # --- Урон и разрушение ---
+  - type: Damageable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+  # --- Обводка при наведении ---
+  - type: InteractionOutline
+
+  # --- Индикатор: играет / не играет (состояния спрайта меняет GenericVisualizer) ---
+  - type: Appearance
+
+# --- Колонка Афины ---
+- type: entity
+  parent: SotSpeakerBase
+  id: SotSpeakerAthena
+  name: колонка Афины
+  description: Странная колонка, играющая музыку Афины. Нажмите, чтобы включить или выключить. В начале битвы включается сама.
+  suffix: SoT, Афина
+  components:
+  - type: Sprite
+    sprite: _Aquila/SoT/speaker.rsi
+    drawdepth: Overdoors
+    layers:
+    - state: athena
+      map: [ "enum.SotSpeakerVisualLayers.Base" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.SotSpeakerVisuals.Playing:
+        enum.SotSpeakerVisualLayers.Base:
+          True: { state: athena-on }
+          False: { state: athena }
+  - type: SotSpeaker
+    sound:
+      path: /Audio/_Aquila/SoT/athena_theme.ogg
+    # loop: true              # зацикливать (по умолчанию да)
+    # volume: -4              # громкость, дБ
+    # maxDistance: 20         # дальность слышимости
+    # playOnBattleStart: true # включаться самой в начале битвы
+
+# --- Колонка Жнецов ---
+- type: entity
+  parent: SotSpeakerBase
+  id: SotSpeakerReapers
+  name: колонка Жнецов
+  description: Странная колонка, играющая музыку Жнецов. Нажмите, чтобы включить или выключить. В начале битвы включается сама.
+  suffix: SoT, Жнецы
+  components:
+  - type: Sprite
+    sprite: _Aquila/SoT/speaker.rsi
+    drawdepth: Overdoors
+    layers:
+    - state: reapers
+      map: [ "enum.SotSpeakerVisualLayers.Base" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.SotSpeakerVisuals.Playing:
+        enum.SotSpeakerVisualLayers.Base:
+          True: { state: reapers-on }
+          False: { state: reapers }
+  - type: SotSpeaker
+    sound:
+      path: /Audio/_Aquila/SoT/reapers_theme.ogg

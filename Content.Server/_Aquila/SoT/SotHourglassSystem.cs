@@ -3,9 +3,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Numerics;
 using Content.Server.Chat.Systems;
-using Content.Server.Shuttles.Systems;
+using Content.Server.Shuttles.Components; // FTLComponent (один из двух using окажется лишним - это нормально)
 using Content.Shared._Kakila.ShuttleLink;
 using Content.Shared._Kakila.Sot;
 using Content.Shared.Chat;
@@ -13,7 +12,6 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Shuttles.Components;
 using Robust.Server.GameObjects;
-using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
@@ -33,17 +31,12 @@ public sealed class SotHourglassSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly ShuttleSystem _shuttle = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly SotRoundSystem _round = default!;
     [Dependency] private readonly SotRuleSystem _rule = default!;
 
     private static readonly TimeSpan UpdateInterval = TimeSpan.FromSeconds(0.5);
     private TimeSpan _nextUpdate;
-
-    /// <summary>Позиция и поворот шаттла в момент вылета - чтобы вернуть его при отмене.</summary>
-    private readonly Dictionary<EntityUid, (Vector2 Position, Angle Rotation)> _departPositions = new();
 
     public override void Initialize()
     {
@@ -170,23 +163,13 @@ public sealed class SotHourglassSystem : EntitySystem
         if (_rule.IsInActiveBattle(id))
             return SotHourglassPhase.Battle;
 
-        // Шаттл уже отправлен и ждёт старта битвы: локальная проверка вместо _round.IsHeld.
-        if (IsHeld(grid.Value, comp))
+        if (_round.IsHeld(grid.Value))
             return SotHourglassPhase.Waiting;
 
         if (HasComp<FTLComponent>(grid.Value))
             return SotHourglassPhase.FtlBusy;
 
         return comp.DepartAt != null ? SotHourglassPhase.Countdown : SotHourglassPhase.Idle;
-    }
-
-    /// <summary>
-    ///     Шаттл считается "удержанным" (отправлен и ждёт sotbattlestart), если у его грида есть FTLComponent
-    ///     и часы уже переведены в фазу Waiting. Это заменяет отсутствующий SotRoundSystem.IsHeld.
-    /// </summary>
-    private bool IsHeld(EntityUid grid, SotHourglassComponent comp)
-    {
-        return comp.LastPhase == SotHourglassPhase.Waiting && HasComp<FTLComponent>(grid);
     }
 
     private bool IsValidVoter(EntityUid voter, EntityUid grid)
@@ -268,15 +251,6 @@ public sealed class SotHourglassSystem : EntitySystem
 
         if (_round.TryPrepare(id, out var error))
         {
-            // Запоминаем позицию до FTL, чтобы вернуть шаттл при отмене.
-            var grid = Transform(uid).GridUid;
-            if (grid != null)
-            {
-                _departPositions[grid.Value] = (
-                    _transform.GetWorldPosition(grid.Value),
-                    _transform.GetWorldRotation(grid.Value));
-            }
-
             comp.LastPhase = SotHourglassPhase.Waiting;
             Say(uid, Loc.GetString("sot-hourglass-say-departing"));
         }
@@ -295,16 +269,7 @@ public sealed class SotHourglassSystem : EntitySystem
         comp.Voters.Clear();
         comp.LastPhase = SotHourglassPhase.FtlBusy;
 
-        // Прямой возврат шаттла вместо отсутствующего _round.RequestReturn.
-        if (_departPositions.TryGetValue(grid, out var depart))
-        {
-            _transform.SetWorldPosition(grid, depart.Position);
-            _transform.SetWorldRotation(grid, depart.Rotation);
-            _departPositions.Remove(grid);
-        }
-
-        if (HasComp<FTLComponent>(grid))
-            RemComp<FTLComponent>(grid);
+        _round.RequestReturn(grid);
 
         Say(uid, Loc.GetString("sot-hourglass-say-return"));
     }

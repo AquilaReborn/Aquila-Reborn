@@ -23,7 +23,7 @@ using Robust.Shared.Timing;
 namespace Content.Server._Kakila.Sot;
 
 /// <summary>
-///     Логика раунда SoT.
+///     Логика битв SoT (команды sotbattleprepare / sotbattlestart / sotbattleend / sotroundend).
 ///     Prepare: шаттл уходит в настоящее FTL-пространство (карта гиперпространства ShuttleSystem)
 ///     и висит там в состоянии Travelling с очень большим временем прыжка.
 ///     Start: у обоих зависших шаттлов меняется цель на карту сражения и таймер обнуляется —
@@ -38,15 +38,19 @@ public sealed class SotRoundSystem : EntitySystem
     [Dependency] private readonly ShuttleSystem _shuttle = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SotRuleSystem _rule = default!;
 
     /// <summary>
     ///     Сколько секунд шаттл "летит" в гиперпространстве, пока ждёт начала битвы.
-    ///     Если за это время не вызвать sotroundstart, он вернётся на исходную точку.
+    ///     Если за это время не вызвать sotbattlestart, он вернётся на исходную точку.
     /// </summary>
     private const float HoldTime = 3 * 60 * 60f;
 
     /// <summary>Шаттлы, удерживаемые в FTL этой системой (подготовленные, но ещё не запущенные в битву).</summary>
     private readonly HashSet<EntityUid> _held = new();
+
+    /// <summary>Шаттлы, которым отменили готовность: ждут, пока можно завершить стадию Travelling и вернуться домой.</summary>
+    private readonly HashSet<EntityUid> _returning = new();
 
     public override void Initialize()
     {
@@ -57,7 +61,58 @@ public sealed class SotRoundSystem : EntitySystem
         SubscribeLocalEvent<FTLStartedEvent>(OnFtlStarted);
 
         // Список удерживаемых шаттлов не должен переживать рестарт раунда.
-        SubscribeLocalEvent<RoundRestartCleanupEvent>(_ => _held.Clear());
+        SubscribeLocalEvent<RoundRestartCleanupEvent>(_ =>
+        {
+            _held.Clear();
+            _returning.Clear();
+        });
+    }
+
+    /// <summary>Находится ли шаттл в FTL-ожидании (подготовлен и ждёт начала битвы).</summary>
+    public bool IsHeld(EntityUid grid) => _held.Contains(grid);
+
+    /// <summary>
+    ///     Отменяет ожидание: шаттл возвращается в FTL-прыжке на ту позицию, откуда улетел.
+    ///     Исходная точка уже записана как цель прыжка в <see cref="TryPrepare"/>, поэтому достаточно
+    ///     завершить стадию Travelling раньше срока. Если шаттл ещё разгоняется (Starting), ждём её конца.
+    /// </summary>
+    public void RequestReturn(EntityUid grid)
+    {
+        if (!_held.Remove(grid))
+            return;
+
+        if (!TryFinishReturn(grid))
+            _returning.Add(grid);
+    }
+
+    /// <returns>true, если делать больше нечего.</returns>
+    private bool TryFinishReturn(EntityUid grid)
+    {
+        if (!Exists(grid) || !TryComp<FTLComponent>(grid, out var ftl))
+            return true;
+
+        // Ещё не вошёл в гиперпространство - подождём.
+        if (ftl.State == FTLState.Starting)
+            return false;
+
+        // Stage Travelling завершаем сейчас, дальше ShuttleSystem сам проведёт Arriving и поставит шаттл в цель.
+        if (ftl.State == FTLState.Travelling)
+            ftl.StateTime = StartEndTime.FromStartDuration(_timing.CurTime, TimeSpan.Zero);
+
+        return true;
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        // Шаттлы, у которых FTL уже закончился (например, истёк HoldTime), удерживаемыми больше не считаются.
+        _held.RemoveWhere(g => !Exists(g) || !HasComp<FTLComponent>(g));
+
+        if (_returning.Count == 0)
+            return;
+
+        _returning.RemoveWhere(TryFinishReturn);
     }
 
     /// <summary>
@@ -109,7 +164,7 @@ public sealed class SotRoundSystem : EntitySystem
 
     /// <summary>
     ///     Отправляет шаттл с часами <paramref name="hourglassId"/> вместе со всем, что на нём находится,
-    ///     в FTL-пространство и удерживает его там до sotroundstart.
+    ///     в FTL-пространство и удерживает его там до sotbattlestart.
     /// </summary>
     public bool TryPrepare(string hourglassId, out string error)
     {
@@ -119,6 +174,12 @@ public sealed class SotRoundSystem : EntitySystem
         if (!_links.TryGetShuttle(hourglassId, out var grid))
         {
             error = $"Шаттл с ID часов \"{hourglassId}\" не найден.";
+            return false;
+        }
+
+        if (_rule.IsInActiveBattle(hourglassId))
+        {
+            error = $"Шаттл \"{hourglassId}\" участвует в идущей битве. Сначала завершите её: sotbattleend {hourglassId}.";
             return false;
         }
 
@@ -153,11 +214,35 @@ public sealed class SotRoundSystem : EntitySystem
 
     #endregion
 
+    #region End battle / round
+
+    /// <summary>Принудительно завершает битву (см. <see cref="SotRuleSystem.TryEndBattle"/>).</summary>
+    public bool TryEndBattle(string participantId, string? winnerArg, out SotBattle? battle, out string error)
+    {
+        battle = null;
+
+        if (!CheckPreset(out error))
+            return false;
+
+        return _rule.TryEndBattle(participantId, winnerArg, out battle, out error);
+    }
+
+    /// <summary>Завершает раунд; итоги битв попадают в итоговый экран.</summary>
+    public bool TryEndRound(TimeSpan? delay, out string error)
+    {
+        if (!CheckPreset(out error))
+            return false;
+
+        return _rule.TryEndRound(delay, out error);
+    }
+
+    #endregion
+
     #region Start
 
     /// <summary>
     ///     Отправляет оба подготовленных шаттла на карту сражения. Оба должны быть уже в гиперпространстве
-    ///     (sotroundprepare), тогда прибывают одновременно. Сначала всё проверяется, потом что-то меняется.
+    ///     (sotbattleprepare), тогда прибывают одновременно. Сначала всё проверяется, потом что-то меняется.
     /// </summary>
     public bool TryStart(
         string hourglassId1,
@@ -165,8 +250,11 @@ public sealed class SotRoundSystem : EntitySystem
         MapId battleMap,
         Vector2 position1,
         Vector2 position2,
+        out int battleNumber,
         out string error)
     {
+        battleNumber = 0;
+
         if (!CheckPreset(out error))
             return false;
 
@@ -206,6 +294,11 @@ public sealed class SotRoundSystem : EntitySystem
             return false;
         }
 
+        // Регистрируем битву до перемещения: если правило SoT не активно, часы не найдены
+        // или уже заняты другой битвой, шаттлы остаются на месте.
+        if (!_rule.TryBeginBattle(hourglassId1, hourglassId2, out battleNumber, out error))
+            return false;
+
         Redirect(ftl1, mapUid.Value, position1);
         Redirect(ftl2, mapUid.Value, position2);
 
@@ -221,7 +314,7 @@ public sealed class SotRoundSystem : EntitySystem
 
         if (!_held.Contains(grid) || !TryComp<FTLComponent>(grid, out var comp))
         {
-            error = $"Шаттл \"{id}\" не подготовлен. Сначала выполните sotroundprepare {id}.";
+            error = $"Шаттл \"{id}\" не подготовлен. Сначала выполните sotbattleprepare {id}.";
             return false;
         }
 

@@ -4,8 +4,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <controls:FancyWindow xmlns="https://spacestation14.io"
-                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
                       x:Class="Content.Client._Kakila.Sot.SotHourglassWindow"
                       Title="{Loc 'sot-hourglass-window-title'}"
                       MinSize="340 260">
