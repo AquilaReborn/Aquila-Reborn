@@ -341,6 +341,7 @@
     - BluespaceHarvesterBoards # BluespaceHarvester
     - Cloning # Cloning
     - ReactorCircuitboards # Nuclear Reactor
+    - AutoCookerBoards # Aquila Change
   - type: MaterialStorage
     whitelist: *StandardMaterialWhitelist
   - type: OreSiloClient

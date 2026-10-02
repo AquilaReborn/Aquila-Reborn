@@ -846,7 +846,7 @@ namespace Content.Shared.Containers.ItemSlots
             if (args.TryEject && slot.HasItem && !slot.DisableEject)
                 TryEjectToHands(uid, slot, args.Actor, true);
             else if (args.TryInsert && !slot.HasItem)
-                TryInsertFromHand(uid, slot, args.Actor);
+                TryInsertFromHand(uid, slot, args.Actor, excludeUserAudio: true); // Aquila Change
         }
 
         #endregion
