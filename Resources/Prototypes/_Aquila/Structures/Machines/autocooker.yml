@@ -61,15 +61,6 @@
     dataset: AutoBartenderAds
   - type: SpeakOnUIClosed
     pack: AutoBartenderGoodbyes
-  - type: AutomationSlots
-    slots:
-    - !type:AutomatedItemSlot
-      input: AutomationSlotBeaker
-      output: AutomationSlotBeaker
-      slotId: autoCookBeakerSlot
-    - !type:AutomatedPorts
-      sinks:
-      - AutoCookRepeat
   - type: AutoCooker
     kind: Bar
     allowedMixing:
@@ -122,15 +113,6 @@
     dataset: AutoChemistAds
   - type: SpeakOnUIClosed
     pack: AutoChemistGoodbyes
-  - type: AutomationSlots
-    slots:
-    - !type:AutomatedItemSlot
-      input: AutomationSlotBeaker
-      output: AutomationSlotBeaker
-      slotId: autoCookBeakerSlot
-    - !type:AutomatedPorts
-      sinks:
-      - AutoCookRepeat
   - type: AutoCooker
     kind: Chem
     allowedMixing:
@@ -142,19 +124,6 @@
     - Holywater
     targetGroups:
     - Medicine
-    extraTargets:
-    - Acetone
-    - Phenol
-    - Charcoal
-    - Ash
-    - Lye
-    - SodiumCarbonate
-    - Benzene
-    - Hydroxide
-    - SodiumHydroxide
-    - Fersilicite
-    - SodiumPolyacrylate
-    - Cellulose
     baseReagents:
     - Aluminium
     - Carbon
@@ -215,18 +184,6 @@
     dataset: AutoCookAds
   - type: SpeakOnUIClosed
     pack: AutoCookGoodbyes
-  - type: AutomationSlots
-    slots:
-    - !type:AutomatedStorage
-      input: AutomationSlotStorage
-      output: AutomationSlotStorage
-    - !type:AutomatedSolution
-      input: PlumbingInput
-      output: PlumbingOutput
-      solutionName: pantry
-    - !type:AutomatedPorts
-      sinks:
-      - AutoCookRepeat
   - type: AutoCooker
     kind: Kitchen
   - type: AntiRottingContainer

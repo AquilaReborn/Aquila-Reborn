@@ -34,6 +34,7 @@ autocook-group-alcohol = Alcoholic
 autocook-group-drink = Non-alcoholic
 autocook-group-simple = Simple
 autocook-group-medium = Medium
+autocook-group-complex = Complex
 autocook-queue = Queue
 autocook-queue-empty = The queue is empty
 autocook-queue-add = Add to queue
@@ -80,6 +81,3 @@ thankyou-autocook-2 = Dish is ready. It's cooling down by your fault.
 thankyou-autocook-3 = Come again. I'm in no hurry, I'm a machine.
 thankyou-autocook-4 = Thanks for trusting me with dinner. Leave the rest to your stomach.
 thankyou-autocook-5 = If it's tasty, praise me. If not, the chef.
-
-signal-port-name-autocook-repeat = Repeat last recipe
-signal-port-description-autocook-repeat = Signal port that repeats the last started recipe when pulsed.
