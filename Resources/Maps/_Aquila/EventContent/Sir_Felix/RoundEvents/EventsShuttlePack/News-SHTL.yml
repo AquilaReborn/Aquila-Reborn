@@ -5,7 +5,7 @@ meta:
   forkId: aquila
   forkVersion: 20260719150516
   time: 07/20/2026 21:08:36
-  entityCount: 709
+  entityCount: 672
 maps: []
 grids:
 - 1
@@ -23,10 +23,10 @@ tilemap:
   9: FloorWhitePavementVertical
   6: FloorWhitePlastic
   13: Lattice
-  8: LatticeCorner1
-  7: LatticeCorner2
-  5: LatticeCorner3
-  12: LatticeCorner4
+  8: Lattice
+  7: Lattice
+  5: Lattice
+  12: Lattice
   2: Plating
 entities:
 - proto: ""
@@ -439,46 +439,6 @@ entities:
       color: '#ADD8E6FF'
     - type: TileHistory
       chunkHistory: {}
-  - uid: 169
-    mapInit: true
-    paused: true
-    components:
-    - type: MetaData
-      name: solution - food
-    - type: Transform
-      parent: 168
-    - type: Solution
-      solution:
-        maxVol: 1
-        name: food
-        reagents:
-        - data: []
-          ReagentId: Fiber
-          Quantity: 1
-    - type: ContainedSolution
-      containerName: food
-      container: 168
-    - type: TimedReactionWatcher
-  - uid: 227
-    mapInit: true
-    paused: true
-    components:
-    - type: MetaData
-      name: solution - food
-    - type: Transform
-      parent: 226
-    - type: Solution
-      solution:
-        maxVol: 1
-        name: food
-        reagents:
-        - data: []
-          ReagentId: Fiber
-          Quantity: 1
-    - type: ContainedSolution
-      containerName: food
-      container: 226
-    - type: TimedReactionWatcher
   - uid: 706
     mapInit: true
     paused: true
@@ -498,7 +458,6 @@ entities:
     - type: ContainedSolution
       containerName: food
       container: 705
-    - type: TimedReactionWatcher
   - uid: 709
     mapInit: true
     paused: true
@@ -518,66 +477,6 @@ entities:
     - type: ContainedSolution
       containerName: food
       container: 708
-    - type: TimedReactionWatcher
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-- proto: AdminStamp
-  entities:
-  - uid: 531
-    mapInit: true
-    paused: true
-    components:
-    - type: MetaData
-      name: Штамп-фальсификации
-    - type: Transform
-      pos: 2.5440507,-0.37600765
-      parent: 1
-    - type: EverythingStamp
-      currentStamp: stamp-component-stamped-name-centcom
-      collectedStamps:
-      - stampedColor: '#006600FF'
-        stampedName: stamp-component-stamped-name-centcom
-      - stampedColor: '#850000FF'
-        stampedName: stamp-component-stamped-name-syndicate
-      - stampedColor: '#0066AAFF'
-        stampedName: stamp-component-stamped-name-captain
-      - stampedColor: '#6EC0EAFF'
-        stampedName: stamp-component-stamped-name-hop
-      - stampedColor: '#CC0000FF'
-        stampedName: stamp-component-stamped-name-hos
-      - stampedColor: '#D08000FF'
-        stampedName: stamp-component-stamped-name-ce
-      - stampedColor: '#6E0083FF'
-        stampedName: stamp-component-stamped-name-rd
-      - stampedColor: '#33CCFFFF'
-        stampedName: stamp-component-stamped-name-cmo
-      - stampedColor: '#A87300FF'
-        stampedName: stamp-component-stamped-name-qm
-      - stampedColor: '#777777FF'
-        stampedName: stamp-component-stamped-name-mime
-      - stampedColor: '#D70601FF'
-        stampedName: stamp-component-stamped-name-chaplain
-      - stampedColor: '#5B0000FF'
-        stampedName: stamp-component-stamped-name-warden
-      - stampedColor: '#000000FF'
-        stampedName: stamp-component-stamped-name-trader
-      - stampedColor: '#FF33CCFF'
-        stampedName: stamp-component-stamped-name-clown
-      - stampedColor: '#00BE00FF'
-        stampedName: stamp-component-stamped-name-approved
-      - stampedColor: '#A23E3EFF'
-        stampedName: stamp-component-stamped-name-denied
-    - type: EmitSoundOnCollide
-      nextSound: -43123.6800552
-    - type: Forensics
-      residues: []
-      dnas: []
-      fibers: []
-      fingerprints: []
 - proto: AirlockExternalGlass
   entities:
   - uid: 3
@@ -1604,7 +1503,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -0.5,-0.5
       parent: 1
-- proto: ChristmasTreeWithGarlands
+- proto: DecoratedFirTree
   entities:
   - uid: 298
     components:
@@ -1673,17 +1572,8 @@ entities:
         177:
           position: 4,0
           _rotation: South
-        178:
-          position: 6,0
-          _rotation: South
         179:
           position: 0,2
-          _rotation: South
-        180:
-          position: 2,2
-          _rotation: South
-        181:
-          position: 4,2
           _rotation: South
         182:
           position: 6,2
@@ -1697,10 +1587,7 @@ entities:
           - 175
           - 176
           - 177
-          - 178
           - 179
-          - 180
-          - 181
           - 182
     - type: Physics
       canCollide: False
@@ -1733,12 +1620,6 @@ entities:
       parent: 164
     - type: Storage
       storedItems:
-        184:
-          position: 0,0
-          _rotation: South
-        185:
-          position: 1,0
-          _rotation: South
         186:
           position: 0,1
           _rotation: East
@@ -1747,12 +1628,6 @@ entities:
           _rotation: South
         188:
           position: 3,0
-          _rotation: South
-        189:
-          position: 4,0
-          _rotation: South
-        190:
-          position: 6,0
           _rotation: South
         191:
           position: 7,0
@@ -1769,9 +1644,6 @@ entities:
         195:
           position: 4,2
           _rotation: South
-        196:
-          position: 5,2
-          _rotation: South
         197:
           position: 6,2
           _rotation: South
@@ -1784,9 +1656,6 @@ entities:
         200:
           position: 4,4
           _rotation: South
-        201:
-          position: 5,4
-          _rotation: South
         202:
           position: 6,4
           _rotation: East
@@ -1796,24 +1665,18 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 184
-          - 185
           - 186
           - 187
           - 188
-          - 189
-          - 190
           - 191
           - 192
           - 193
           - 194
           - 195
-          - 196
           - 197
           - 198
           - 199
           - 200
-          - 201
           - 202
     - type: Physics
       canCollide: False
@@ -1846,12 +1709,6 @@ entities:
       parent: 204
     - type: Storage
       storedItems:
-        206:
-          position: 0,0
-          _rotation: South
-        207:
-          position: 1,0
-          _rotation: South
         208:
           position: 0,1
           _rotation: East
@@ -1860,12 +1717,6 @@ entities:
           _rotation: South
         210:
           position: 3,0
-          _rotation: South
-        211:
-          position: 4,0
-          _rotation: South
-        212:
-          position: 6,0
           _rotation: South
         213:
           position: 7,0
@@ -1882,9 +1733,6 @@ entities:
         217:
           position: 4,2
           _rotation: South
-        218:
-          position: 5,2
-          _rotation: South
         219:
           position: 6,2
           _rotation: South
@@ -1897,9 +1745,6 @@ entities:
         222:
           position: 4,4
           _rotation: South
-        223:
-          position: 5,4
-          _rotation: South
         224:
           position: 6,4
           _rotation: East
@@ -1909,24 +1754,18 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 206
-          - 207
           - 208
           - 209
           - 210
-          - 211
-          - 212
           - 213
           - 214
           - 215
           - 216
           - 217
-          - 218
           - 219
           - 220
           - 221
           - 222
-          - 223
           - 224
     - type: Physics
       canCollide: False
@@ -1968,17 +1807,8 @@ entities:
         236:
           position: 4,0
           _rotation: South
-        237:
-          position: 6,0
-          _rotation: South
         238:
           position: 0,2
-          _rotation: South
-        239:
-          position: 2,2
-          _rotation: South
-        240:
-          position: 4,2
           _rotation: South
         241:
           position: 6,2
@@ -1992,10 +1822,7 @@ entities:
           - 234
           - 235
           - 236
-          - 237
           - 238
-          - 239
-          - 240
           - 241
     - type: Physics
       canCollide: False
@@ -2020,136 +1847,6 @@ entities:
         title: null
     - type: InsideEntityStorage
       storage: 204
-- proto: ClothingBackpackSatchelLeaderSacerdos_1
-  entities:
-  - uid: 166
-    components:
-    - type: Transform
-      parent: 164
-    - type: Storage
-      storedItems:
-        167:
-          position: 0,0
-          _rotation: South
-        168:
-          position: 1,0
-          _rotation: South
-        170:
-          position: 3,0
-          _rotation: South
-        171:
-          position: 4,0
-          _rotation: South
-        172:
-          position: 6,0
-          _rotation: South
-        173:
-          position: 0,1
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 167
-          - 168
-          - 170
-          - 171
-          - 172
-          - 173
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 164
-  - uid: 225
-    components:
-    - type: Transform
-      parent: 204
-    - type: Storage
-      storedItems:
-        226:
-          position: 0,0
-          _rotation: South
-        228:
-          position: 1,0
-          _rotation: South
-        229:
-          position: 3,0
-          _rotation: South
-        230:
-          position: 4,0
-          _rotation: South
-        231:
-          position: 6,0
-          _rotation: South
-        232:
-          position: 0,1
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 226
-          - 228
-          - 229
-          - 230
-          - 231
-          - 232
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 204
-- proto: ClothingCentComGlassesGold
-  entities:
-  - uid: 184
-    components:
-    - type: Transform
-      parent: 183
-    - type: Physics
-      canCollide: False
-    missingComponents:
-    - ShowJobIcons
-    - ShowMindShieldIcons
-    - ShowCriminalRecordIcons
-    - ShowContrabandDetails
-  - uid: 206
-    components:
-    - type: Transform
-      parent: 205
-    - type: Physics
-      canCollide: False
-    missingComponents:
-    - ShowJobIcons
-    - ShowMindShieldIcons
-    - ShowCriminalRecordIcons
-    - ShowContrabandDetails
-- proto: ClothingCentComGlassesYellow
-  entities:
-  - uid: 185
-    components:
-    - type: Transform
-      parent: 183
-    - type: Physics
-      canCollide: False
-    missingComponents:
-    - ShowJobIcons
-    - ShowMindShieldIcons
-    - ShowCriminalRecordIcons
-    - ShowContrabandDetails
-  - uid: 207
-    components:
-    - type: Transform
-      parent: 205
-    - type: Physics
-      canCollide: False
-    missingComponents:
-    - ShowJobIcons
-    - ShowMindShieldIcons
-    - ShowCriminalRecordIcons
-    - ShowContrabandDetails
 - proto: ClothingEyesGlasses
   entities:
   - uid: 188
@@ -2220,76 +1917,6 @@ entities:
       parent: 205
     - type: Physics
       canCollide: False
-- proto: ClothingHandsGlovesSponsorSignalis
-  entities:
-  - uid: 196
-    components:
-    - type: Transform
-      parent: 183
-    - type: Physics
-      canCollide: False
-  - uid: 218
-    components:
-    - type: Transform
-      parent: 205
-    - type: Physics
-      canCollide: False
-- proto: ClothingHeadHatFedoraPress
-  entities:
-  - uid: 190
-    components:
-    - type: Transform
-      parent: 183
-    - type: Physics
-      canCollide: False
-  - uid: 212
-    components:
-    - type: Transform
-      parent: 205
-    - type: Physics
-      canCollide: False
-- proto: ClothingHeadsetFADAK9M
-  entities:
-  - uid: 173
-    components:
-    - type: Transform
-      parent: 166
-    - type: Physics
-      canCollide: False
-  - uid: 232
-    components:
-    - type: Transform
-      parent: 225
-    - type: Physics
-      canCollide: False
-- proto: ClothingJumpsuitGOCpr
-  entities:
-  - uid: 180
-    components:
-    - type: Transform
-      parent: 174
-    - type: Physics
-      canCollide: False
-  - uid: 239
-    components:
-    - type: Transform
-      parent: 233
-    - type: Physics
-      canCollide: False
-- proto: ClothingJumpsuitupsilon11
-  entities:
-  - uid: 181
-    components:
-    - type: Transform
-      parent: 174
-    - type: Physics
-      canCollide: False
-  - uid: 240
-    components:
-    - type: Transform
-      parent: 233
-    - type: Physics
-      canCollide: False
 - proto: ClothingNeckTieDet
   entities:
   - uid: 193
@@ -2313,20 +1940,6 @@ entities:
     - type: Physics
       canCollide: False
   - uid: 216
-    components:
-    - type: Transform
-      parent: 205
-    - type: Physics
-      canCollide: False
-- proto: ClothingOuterVestPress
-  entities:
-  - uid: 189
-    components:
-    - type: Transform
-      parent: 183
-    - type: Physics
-      canCollide: False
-  - uid: 211
     components:
     - type: Transform
       parent: 205
@@ -2478,20 +2091,6 @@ entities:
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
-- proto: CSWeaponGlock-18
-  entities:
-  - uid: 171
-    components:
-    - type: Transform
-      parent: 166
-    - type: Physics
-      canCollide: False
-  - uid: 230
-    components:
-    - type: Transform
-      parent: 225
-    - type: Physics
-      canCollide: False
 - proto: CyberPen
   entities:
   - uid: 200
@@ -2856,553 +2455,6 @@ entities:
       dnas: []
       fibers: []
       fingerprints: []
-- proto: ElysiumPrimeFelixGreyKsivaPaper
-  entities:
-  - uid: 167
-    components:
-    - type: MetaData
-      name: Паспорт
-    - type: Transform
-      parent: 166
-    - type: Paper
-      stampState: paper_stamp-fedadmin
-      stampedBy:
-      - stampedColor: '#2E8B57FF'
-        stampedName: stamp-component-stamped-name-federation
-      content: >-
-        [color=#808080]▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄[/color]
-                                                    [head=10]Федерация[/head]
-                                           ❱❱ [bold][color=#006400]Элизиум[/color] [color=#A9A9A9]Прайм[/color][/bold] ❰❰
-                                      ❱❱ [bold][color=#A9A9A9]Паспорт гражданина[/color][/bold] ❰❰
-
-                                                                             [head=30][bold]╔═════════╗[/bold][/head]
-                                                                                  [head=10]░░[color=#006400]███[/color]░░░[/head]
-        [color=#696969]▌[/color][bold]Регистрационный Пост:[/bold]                    [head=10]░░[color=#006400]██[/color]░░░░[/head]
-
-        [color=#696969]▌[/color]        [bold]№9.[/bold]                                                        [head=10]░░[color=#006400]█[/color]░░[color=#D3D3D3]█[/color]░░[/head]
-
-        [color=#696969]▌[/color] [color=#008B8B][bold]Администрация.[/color][/bold]                                  [head=10]░░░░[color=#D3D3D3]██[/color]░░[/head]
-                                                                                  [head=10]░░░[color=#D3D3D3]███[/color]░░[/head]
-                                                                             [head=30][bold]╚═════════╝[/bold][/head]
-        [color=#696969]▌[/color] [bold][color=#008B8B]Серия:[/color][/bold] [bold]EP-[color=#A52A2A]А02[/color][/bold] [bold][color=#008B8B]Номер:[/color] [color=#A52A2A]9130002[/color][/bold]
-
-        [color=#696969]▌[/color] [bold][color=#008B8B]PIP-[/color]Номер +104-000-2008[/bold].
-
-        [color=#808080]▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄[/color]
-
-        ╓———————————————————————————╖
-                                         Данные гражданина
-        • [bold]ФИО:[/bold] Евгений Чекушкин
-
-        • [bold]Пол:[/bold] М
-
-        • [bold]Дата рождения:[/bold] 19/01/3000
-
-        • [bold]Место рождения:[/bold] Империум
-
-        • [bold]Гражданство:[/bold] Элизиум Прайм
-
-        • [bold]Статус:[/bold] Гражданин
-
-        • [bold]Контактные данные:[/bold] PIP-813-293-5912-2138-1239
-
-        • [bold]Военно-обязанный:[/bold] Нет.
-
-        • [bold]Военный Статус:[/bold] Отсранён по политическим причинам.
-
-        • [bold]В браке:[/bold] Холост.
-
-
-        • [bold]Код документа о гражданстве:[/bold] 154A-193A-49SD-AS16
-
-        ╙———————————————————————————╜
-
-
-        ╓———————————————————————————╖
-                                          Данные о паспорте
-        • [bold]Дата выдачи:[/bold] 01/01/3025
-
-        • [bold]Срок действия:[/bold] 01/01/3040
-
-        • [bold]Паспорт выдан:[/bold] "Abraxis, Ridge, Федеральный Регистрационный Пост №9 (уПИК)".
-
-        • [bold]Лицо выдавшее паспорт:[/bold] Вавилов А.А.
-
-        • [bold]Дата выдачи:[/bold] 3025/01/01.
-
-        • [bold]Должность поручителя:[/bold] Иммиграционный Инспектор.
-
-        ╙———————————————————————————╜
-
-
-        [bold] [color=#808080] ▐[/color][color=#006400]══════════════════════════════════════[/color][color=#808080]▌[/color][/bold]
-
-        [head=6] "[color=#696969]Юридические[/color]"[/head]
-
-        [head=6] "[color=#696969]Примечания[/color]"[/head]
-
-        ▶ Настоящий документ удостоверяет личность владельца на всей территории Федерации.
-
-        ▶ Утрата документа должна быть немедленно заявлена в Регистрационный Пост по месту выдачу документа.
-
-        ▶ Подделка документа карается по ст. 14.2 УК ЭП.
-
-        ▶ Гражданин обязуется бережно хранить паспорт являющийся основноым документом удостовряющим личность.
-
-        [bold] [color=#808080] ▐[/color][color=#006400]══════════════════════════════════════[/color][color=#808080]▌[/color][/bold]
-
-        [color=#808080]▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄[/color]
-    - type: Physics
-      canCollide: False
-  - uid: 226
-    mapInit: true
-    paused: true
-    components:
-    - type: MetaData
-      name: Паспорт
-    - type: Transform
-      parent: 225
-    - type: Flammable
-      nextUpdate: -42899.791411
-    - type: Physics
-      canCollide: False
-    - type: Paper
-      stampState: paper_stamp-fedadmin
-      stampedBy:
-      - stampedColor: '#2E8B57FF'
-        stampedName: stamp-component-stamped-name-federation
-      content: >-
-        [color=#808080]▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄[/color]
-                                                    [head=10]Федерация[/head]
-                                           ❱❱ [bold][color=#006400]Элизиум[/color] [color=#A9A9A9]Прайм[/color][/bold] ❰❰
-                                      ❱❱ [bold][color=#A9A9A9]Паспорт гражданина[/color][/bold] ❰❰
-
-                                                                             [head=30][bold]╔═════════╗[/bold][/head]
-                                                                                  [head=10]░░[color=#006400]███[/color]░░░[/head]
-        [color=#696969]▌[/color][bold]Регистрационный Пост:[/bold]                    [head=10]░░[color=#006400]██[/color]░░░░[/head]
-
-        [color=#696969]▌[/color]        [bold]№9.[/bold]                                                        [head=10]░░[color=#006400]█[/color]░░[color=#D3D3D3]█[/color]░░[/head]
-
-        [color=#696969]▌[/color] [color=#008B8B][bold]Администрация.[/color][/bold]                                  [head=10]░░░░[color=#D3D3D3]██[/color]░░[/head]
-                                                                                  [head=10]░░░[color=#D3D3D3]███[/color]░░[/head]
-                                                                             [head=30][bold]╚═════════╝[/bold][/head]
-        [color=#696969]▌[/color] [bold][color=#008B8B]Серия:[/color][/bold] [bold]EP-[color=#A52A2A]А02[/color][/bold] [bold][color=#008B8B]Номер:[/color] [color=#A52A2A]9130001[/color][/bold]
-
-        [color=#696969]▌[/color] [bold][color=#008B8B]PIP-[/color]Номер +104-000-2008[/bold].
-
-        [color=#808080]▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄[/color]
-
-        ╓———————————————————————————╖
-                                         Данные гражданина
-        • [bold]ФИО:[/bold] Анатолий Пупков
-
-        • [bold]Пол:[/bold] М
-
-        • [bold]Дата рождения:[/bold] 19/01/2985
-
-        • [bold]Место рождения:[/bold] Империум
-
-        • [bold]Гражданство:[/bold] Элизиум Прайм
-
-        • [bold]Статус:[/bold] Гражданин
-
-        • [bold]Контактные данные:[/bold] PIP-813-999-5542-3338-1239
-
-        • [bold]Военно-обязанный:[/bold] Нет.
-
-        • [bold]Военный Статус:[/bold] Отсранён по политическим причинам.
-
-        • [bold]В браке:[/bold] Холост.
-
-
-        • [bold]Код документа о гражданстве:[/bold] 154A-193A-49SD-AS16
-
-        ╙———————————————————————————╜
-
-
-        ╓———————————————————————————╖
-                                          Данные о паспорте
-        • [bold]Дата выдачи:[/bold] 01/01/3025
-
-        • [bold]Срок действия:[/bold] 01/01/3040
-
-        • [bold]Паспорт выдан:[/bold] "Abraxis, Ridge, Федеральный Регистрационный Пост №9 (уПИК)".
-
-        • [bold]Лицо выдавшее паспорт:[/bold] Вавилов А.А.
-
-        • [bold]Дата выдачи:[/bold] 3025/01/01.
-
-        • [bold]Должность поручителя:[/bold] Иммиграционный Инспектор.
-
-        ╙———————————————————————————╜
-
-
-        [bold] [color=#808080] ▐[/color][color=#006400]══════════════════════════════════════[/color][color=#808080]▌[/color][/bold]
-
-        [head=6] "[color=#696969]Юридические[/color]"[/head]
-
-        [head=6] "[color=#696969]Примечания[/color]"[/head]
-
-        ▶ Настоящий документ удостоверяет личность владельца на всей территории Федерации.
-
-        ▶ Утрата документа должна быть немедленно заявлена в Регистрационный Пост по месту выдачу документа.
-
-        ▶ Подделка документа карается по ст. 14.2 УК ЭП.
-
-        ▶ Гражданин обязуется бережно хранить паспорт являющийся основноым документом удостовряющим личность.
-
-        [bold] [color=#808080] ▐[/color][color=#006400]══════════════════════════════════════[/color][color=#808080]▌[/color][/bold]
-
-        [color=#808080]▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄[/color]
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
-          reagents: []
-      containers:
-      - food
-    - type: EmitSoundOnCollide
-      nextSound: -500764.1962416
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.25,-0.25
-            - 0.25,-0.25
-            - 0.25,0.25
-            - -0.25,0.25
-          mask:
-          - Impassable
-          - HighImpassable
-          layer: []
-          density: 20
-          hard: True
-          restitution: 0.3
-          friction: 0.2
-        flammable:
-          shape: !type:PhysShapeCircle
-            radius: 0.35
-            position: 0,0
-          mask:
-          - TableLayer
-          - HighImpassable
-          - LowImpassable
-          - BulletImpassable
-          - InteractImpassable
-          - Opaque
-          layer: []
-          density: 1
-          hard: False
-          restitution: 0
-          friction: 0.4
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 227
-    - type: Forensics
-      residues: []
-      dnas: []
-      fibers: []
-      fingerprints: []
-- proto: ElysiumPrimeFelixPaper
-  entities:
-  - uid: 168
-    mapInit: true
-    paused: true
-    components:
-    - type: MetaData
-      name: Положения журналистики
-    - type: Transform
-      parent: 166
-    - type: Paper
-      stampState: paper_stamp-centcom
-      stampedBy:
-      - stampedColor: '#006600FF'
-        stampedName: stamp-component-stamped-name-centcom
-      content: >-
-        [head=1]╔══════════════════╗[/head]
-
-        [color=#1D651D][head=6]                ░░███░█████░█████░░░░░░[/color][/head]
-
-        [color=#1D651D][head=6]                ░░██░░██░░░░██░░░░░░░░░[/color][/head]
-
-        [color=#1D651D][head=6]                ░░█░░░██░░░░██░░░░░░█░░[/color][/head]
-
-        [color=#1D651D][head=6]                ░░░░░░██░░░░██░░░░░██░░[/color][/head]
-
-        [color=#1D651D][head=6]                ░░░░░░█████░█████░███░░[/color][/head]
-
-
-        [head=1]╚══════════════════╝[/head]
-
-        [head=2]╔══════════════════════════╗[/head]
-
-        [head=2]   ПОЛОЖЕНИЕ [/head]
-
-        [head=2]   ЖУРНАЛИСТА [/head]
-
-        [head=2]   ══════════════════════════ [/head]
-
-        [head=2][/head][bold]    ФОРМА:[/bold] NT-CC-CMD-DCR
-
-        [head=2][/head][bold]    СТАНЦИЯ:[/bold] NT14-XX-###
-
-        [head=2][/head][bold]    ДАТА:[/bold] 3026/ММ/ДД.
-
-        [head=2][/head]    ПОДОТЧЁТНОЕ ЛИЦО:
-
-        Разумовский А.А.
-
-        [head=2][/head]    ДОЛЖНОСТЬ: Оператор Центрального
-
-        [head=2][/head]    Командования
-
-        [head=2]╚══════════════════════════╝[/head]
-
-        ╓———————————————————————————╖
-
-        • Здравствуйте, уважаемый читатель, этот документ регулирует положение журналистов разных организаций, предприятий, медиа-холдингов и так далее при нахождении на территории объектов НаноТрейзен.
-
-
-        Данный документ не означает, что журналистам разрешён вход на объекты станции, этот документ выдаётся каждому журналисту.
-
-
-        [head=1][color=darkblud] ОСНОВНЫЕ ПОЛОЖЕНИЯ: [/head][/color]
-
-        [head=3][color=darkred]• • • •  ОГРАНИЧЕНИЯ[/head][/color]
-
-        • Журналистам и любому неавторизованному лицу запрещается вход на любые объекты корпорации [bold][color=blue]NanoTrasen[/bold][/color], если только заранее они не получат разрешение от следующих в приоритете лиц: Капитан -> Глава Персонала -> Глава Службы Безопасности -> Офицер "Синий Щит" -> Любой член командования -> Любой сотрудник СБ по старшинству.
-
-
-        • Журналистам запрещается нарушение корпоративного закона, даже если они не осведомлены о его положениях, документах и т.п. В случае нарушения любой статьи 2XX журналистам могут отозвать права журналиста в обход игнорирования государственного закона о "Свободной Прессе", и заниматься журналистской деятельностью им будет запрещено, при повторном нарушении статьи 2XX или первом нарушении статьи 3XX журналист может быть изгнан со станции с отказом на повторное посещение.
-
-
-        • Журналист не обязан быть допущен в закрытые области станции, если сотрудники этих областей против этого или не выдавали разрешения на нахождение в закрытой области, такое разрешение может выдать -> Капитан, Офицер "Синий Щит", Командование, Сотрудник Отдела, Сотрудник СБ, при этом приказ, утверждение, постановление, объявление, поручение главы отдела, к которому относится закрытая зона, всегда приоритетнее, чем мнение кого-либо, кроме капитана станции и главы службы безопасности станции.
-
-
-        • Журналисты могут быть не допущены в места ведения следственных мероприятий или облав службы безопасности, если есть угроза жизни журналистам, в ином случае есть свободный доступ.
-
-
-        • Материалы, не указанные в описи документа в категории "Разрешения", нужно согласовывать с командвоанеи или службйо безопасности станции, иначе их пронос считается оборотом контрабанды.
-
-
-        [head=3][color=darkgreen]• • • • РАЗРЕШЕНИЯ[/head][/color]
-
-
-        • Согласно [bold]"Закону о свободной прессе"[/bold], журналист может быть допущен до любого объекта без уведомления, получения разрешения или любых других правовых актов о нахождении журналиста, без препятствий, только если законы или регламенты объекта не противоречат этому, и требуются дополнительные документы, станции [bold][color=blue]NanoTrasen[/bold][/color] не относятся к таковым, только если это не военный объект или закрытый исследовательский объект, что нужно ещё доказать.
-
-
-        • Журналисты имеют право на свободу слова в любой ситуации, даже в случае изгнания, ареста или задержания, это означает, что они могут составить также любой документ в ту же секунду, как пожелают, если только это не мешает процедурам отделов станции.
-
-
-        • Журналисты имеют право на ношение жучков камер, средств специальной связи, средств видео- и фото-записи, средств аудиозаписи, а также пистолетного лёгкого вооружения (ASP, ASTRA-60, Glock, AIM-Point), в целях самообороны, а также на ношение ножа для выживания и тревожной кнопки.
-
-
-        • Журналисты имеют право вывозить экипаж в космическое пространство без последствий для журналистов или экипажа, включая капитана станции, если при этом рядом с капитаном находится офицер синего щита или сотрудник службы безопасности (искл.: Кадет).
-
-
-        • Журналист имеет право предложить любому члену экипажа или гостю станции или аванпоста [bold][color=blue]NanoTrasen[/bold][/color], и если тот согласится, должна быть организована аудиенция, даже если это заключённый, враг корпорации и т.п., каждый осуждённый имеет право высказаться прессе и быть услышанным.
-
-
-        [head=2] ФОРМУЛИРОВКИ И ЗАБЛУЖДЕНИЯ [/bold]
-
-
-        Свобода слова это право человека выражать свои мысли, мнения и убеждения без цензуры и страха наказания [italic](в рамках закона)[/italic].
-
-
-        Свобода прессы это право СМИ собирать, публиковать и распространять информацию без вмешательства государства или давления от любых лиц. [italic](журналисты могут писать правду, расследовать коррупцию, публиковать неудобные факты, и никто не закроет газету «за непослушание». Это делает общество информированным и помогает контролировать власть, что крайне порицается и запрещается любому человеку, ниже позиции Центрального Командования.)[/italic]
-
-
-        [bold]Власть сектора у корпоратов[/bold], утверждение о том, что сектор находится во власти корпоратов, ошибочно. Сектора всегда являлись территорией Великой Империи. Корпорация не является государственным образованием, в противном случае это было бы зафиксировано во всех официальных источниках. «НаноТрейзен» это мегакорпорация, обладающая авторитетом и присутствующая своими объектами практически повсеместно. Сам сектор принадлежит Империи, а корпорации лишь её объекты. Таким образом, сектор является общедоступным пространством, однако любое лицо, демонстративно создающее угрозу для объектов «НаноТрейзен», может быть привлечено к ответственности корпорацией, вне зависимости от своего местонахождения на станции, аванпосте или в открытом космосе.
-
-        ╙———————————————————————————╜
-
-
-        [italic]ПРИМЕЧАНИЕ: Запросы Центрального Командования обязаны рассматриваться в приоритетной очереди между остальными отчётностями станции. Игнорирование отчётности Центрального Командования может повлечь за собой соответствующие дисциплинарные взыскания.[/italic]
-
-        [bold]   ————————<Место для печатей>————————[/bold]
-
-        ▶                                                                                                            ◀
-    - type: Flammable
-      nextUpdate: 0.76
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - food
-    - type: EmitSoundOnCollide
-      nextSound: -44606.6
-    - type: Physics
-      canCollide: False
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.25,-0.25
-            - 0.25,-0.25
-            - 0.25,0.25
-            - -0.25,0.25
-          mask:
-          - Impassable
-          - HighImpassable
-          layer: []
-          density: 20
-          hard: True
-          restitution: 0.3
-          friction: 0.2
-        flammable:
-          shape: !type:PhysShapeCircle
-            radius: 0.35
-            position: 0,0
-          mask:
-          - TableLayer
-          - HighImpassable
-          - LowImpassable
-          - BulletImpassable
-          - InteractImpassable
-          - Opaque
-          layer: []
-          density: 0
-          hard: False
-          restitution: 0
-          friction: 0.4
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 169
-    - type: Forensics
-      residues: []
-      dnas: []
-      fibers: []
-      fingerprints: []
-  - uid: 228
-    components:
-    - type: MetaData
-      name: Положения журналистики
-    - type: Transform
-      parent: 225
-    - type: Paper
-      stampState: paper_stamp-centcom
-      stampedBy:
-      - stampedColor: '#006600FF'
-        stampedName: stamp-component-stamped-name-centcom
-      content: >-
-        [head=1]╔══════════════════╗[/head]
-
-        [color=#1D651D][head=6]                ░░███░█████░█████░░░░░░[/color][/head]
-
-        [color=#1D651D][head=6]                ░░██░░██░░░░██░░░░░░░░░[/color][/head]
-
-        [color=#1D651D][head=6]                ░░█░░░██░░░░██░░░░░░█░░[/color][/head]
-
-        [color=#1D651D][head=6]                ░░░░░░██░░░░██░░░░░██░░[/color][/head]
-
-        [color=#1D651D][head=6]                ░░░░░░█████░█████░███░░[/color][/head]
-
-
-        [head=1]╚══════════════════╝[/head]
-
-        [head=2]╔══════════════════════════╗[/head]
-
-        [head=2]   ПОЛОЖЕНИЕ [/head]
-
-        [head=2]   ЖУРНАЛИСТА [/head]
-
-        [head=2]   ══════════════════════════ [/head]
-
-        [head=2][/head][bold]    ФОРМА:[/bold] NT-CC-CMD-DCR
-
-        [head=2][/head][bold]    СТАНЦИЯ:[/bold] NT14-XX-###
-
-        [head=2][/head][bold]    ДАТА:[/bold] 3026/ММ/ДД.
-
-        [head=2][/head]    ПОДОТЧЁТНОЕ ЛИЦО:
-
-        Разумовский А.А.
-
-        [head=2][/head]    ДОЛЖНОСТЬ: Оператор Центрального
-
-        [head=2][/head]    Командования
-
-        [head=2]╚══════════════════════════╝[/head]
-
-        ╓———————————————————————————╖
-
-        • Здравствуйте, уважаемый читатель, этот документ регулирует положение журналистов разных организаций, предприятий, медиа-холдингов и так далее при нахождении на территории объектов НаноТрейзен.
-
-
-        Данный документ не означает, что журналистам разрешён вход на объекты станции, этот документ выдаётся каждому журналисту.
-
-
-        [head=1][color=darkblud] ОСНОВНЫЕ ПОЛОЖЕНИЯ: [/head][/color]
-
-        [head=3][color=darkred]• • • •  ОГРАНИЧЕНИЯ[/head][/color]
-
-        • Журналистам и любому неавторизованному лицу запрещается вход на любые объекты корпорации [bold][color=blue]NanoTrasen[/bold][/color], если только заранее они не получат разрешение от следующих в приоритете лиц: Капитан -> Глава Персонала -> Глава Службы Безопасности -> Офицер "Синий Щит" -> Любой член командования -> Любой сотрудник СБ по старшинству.
-
-
-        • Журналистам запрещается нарушение корпоративного закона, даже если они не осведомлены о его положениях, документах и т.п. В случае нарушения любой статьи 2XX журналистам могут отозвать права журналиста в обход игнорирования государственного закона о "Свободной Прессе", и заниматься журналистской деятельностью им будет запрещено, при повторном нарушении статьи 2XX или первом нарушении статьи 3XX журналист может быть изгнан со станции с отказом на повторное посещение.
-
-
-        • Журналист не обязан быть допущен в закрытые области станции, если сотрудники этих областей против этого или не выдавали разрешения на нахождение в закрытой области, такое разрешение может выдать -> Капитан, Офицер "Синий Щит", Командование, Сотрудник Отдела, Сотрудник СБ, при этом приказ, утверждение, постановление, объявление, поручение главы отдела, к которому относится закрытая зона, всегда приоритетнее, чем мнение кого-либо, кроме капитана станции и главы службы безопасности станции.
-
-
-        • Журналисты могут быть не допущены в места ведения следственных мероприятий или облав службы безопасности, если есть угроза жизни журналистам, в ином случае есть свободный доступ.
-
-
-        • Материалы, не указанные в описи документа в категории "Разрешения", нужно согласовывать с командвоанеи или службйо безопасности станции, иначе их пронос считается оборотом контрабанды.
-
-
-        [head=3][color=darkgreen]• • • • РАЗРЕШЕНИЯ[/head][/color]
-
-
-        • Согласно [bold]"Закону о свободной прессе"[/bold], журналист может быть допущен до любого объекта без уведомления, получения разрешения или любых других правовых актов о нахождении журналиста, без препятствий, только если законы или регламенты объекта не противоречат этому, и требуются дополнительные документы, станции [bold][color=blue]NanoTrasen[/bold][/color] не относятся к таковым, только если это не военный объект или закрытый исследовательский объект, что нужно ещё доказать.
-
-
-        • Журналисты имеют право на свободу слова в любой ситуации, даже в случае изгнания, ареста или задержания, это означает, что они могут составить также любой документ в ту же секунду, как пожелают, если только это не мешает процедурам отделов станции.
-
-
-        • Журналисты имеют право на ношение жучков камер, средств специальной связи, средств видео- и фото-записи, средств аудиозаписи, а также пистолетного лёгкого вооружения (ASP, ASTRA-60, Glock, AIM-Point), в целях самообороны, а также на ношение ножа для выживания и тревожной кнопки.
-
-
-        • Журналисты имеют право вывозить экипаж в космическое пространство без последствий для журналистов или экипажа, включая капитана станции, если при этом рядом с капитаном находится офицер синего щита или сотрудник службы безопасности (искл.: Кадет).
-
-
-        • Журналист имеет право предложить любому члену экипажа или гостю станции или аванпоста [bold][color=blue]NanoTrasen[/bold][/color], и если тот согласится, должна быть организована аудиенция, даже если это заключённый, враг корпорации и т.п., каждый осуждённый имеет право высказаться прессе и быть услышанным.
-
-
-        [head=2] ФОРМУЛИРОВКИ И ЗАБЛУЖДЕНИЯ [/bold]
-
-
-        Свобода слова это право человека выражать свои мысли, мнения и убеждения без цензуры и страха наказания [italic](в рамках закона)[/italic].
-
-
-        Свобода прессы это право СМИ собирать, публиковать и распространять информацию без вмешательства государства или давления от любых лиц. [italic](журналисты могут писать правду, расследовать коррупцию, публиковать неудобные факты, и никто не закроет газету «за непослушание». Это делает общество информированным и помогает контролировать власть, что крайне порицается и запрещается любому человеку, ниже позиции Центрального Командования.)[/italic]
-
-
-        [bold]Власть сектора у корпоратов[/bold], утверждение о том, что сектор находится во власти корпоратов, ошибочно. Сектора всегда являлись территорией Великой Империи. Корпорация не является государственным образованием, в противном случае это было бы зафиксировано во всех официальных источниках. «НаноТрейзен» это мегакорпорация, обладающая авторитетом и присутствующая своими объектами практически повсеместно. Сам сектор принадлежит Империи, а корпорации лишь её объекты. Таким образом, сектор является общедоступным пространством, однако любое лицо, демонстративно создающее угрозу для объектов «НаноТрейзен», может быть привлечено к ответственности корпорацией, вне зависимости от своего местонахождения на станции, аванпосте или в открытом космосе.
-
-        ╙———————————————————————————╜
-
-
-        [italic]ПРИМЕЧАНИЕ: Запросы Центрального Командования обязаны рассматриваться в приоритетной очереди между остальными отчётностями станции. Игнорирование отчётности Центрального Командования может повлечь за собой соответствующие дисциплинарные взыскания.[/italic]
-
-        [bold]   ————————<Место для печатей>————————[/bold]
-
-        ▶                                                                                                            ◀
-    - type: Physics
-      canCollide: False
-    - type: Forensics
-      residues: []
-      dnas: []
-      fibers: []
-      fingerprints: []
 - proto: EncryptionKeySyndie
   entities:
   - uid: 203
@@ -3421,21 +2473,7 @@ entities:
       canCollide: False
     - type: InsideEntityStorage
       storage: 204
-- proto: FancyUniform
-  entities:
-  - uid: 178
-    components:
-    - type: Transform
-      parent: 174
-    - type: Physics
-      canCollide: False
-  - uid: 237
-    components:
-    - type: Transform
-      parent: 233
-    - type: Physics
-      canCollide: False
-- proto: FaxMachineBridgeInterGalactic
+- proto: FaxMachineBase
   entities:
   - uid: 419
     components:
@@ -4405,20 +3443,6 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#990000FF'
-- proto: Glock18MagazinePistol
-  entities:
-  - uid: 172
-    components:
-    - type: Transform
-      parent: 166
-    - type: Physics
-      canCollide: False
-  - uid: 231
-    components:
-    - type: Transform
-      parent: 225
-    - type: Physics
-      canCollide: False
 - proto: GravityGeneratorMini
   entities:
   - uid: 420
@@ -4661,12 +3685,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -4684,12 +3702,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 459
     mapInit: true
     paused: true
@@ -4702,12 +3714,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -4725,12 +3731,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 463
     mapInit: true
     paused: true
@@ -4743,12 +3743,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -4766,12 +3760,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 467
     mapInit: true
     paused: true
@@ -4784,12 +3772,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -4807,12 +3789,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 471
     mapInit: true
     paused: true
@@ -4825,12 +3801,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 473
     mapInit: true
     paused: true
@@ -4843,12 +3813,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -4866,12 +3830,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 477
     mapInit: true
     paused: true
@@ -4884,12 +3842,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -5146,8 +4098,6 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 165
-          - 166
           - 174
           - 183
           - 203
@@ -5178,9 +4128,7 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 242
           - 233
-          - 225
           - 205
           - 243
         paper_label: !type:ContainerSlot
@@ -5213,27 +4161,13 @@ entities:
       canCollide: False
     - type: InsideEntityStorage
       storage: 437
-- proto: MedkitCobmatImperialFilled
+- proto: MedkitCombatFilled
   entities:
   - uid: 480
     components:
     - type: Transform
       pos: 3.5520327,-12.747437
       parent: 1
-- proto: MicrophoneInstrument
-  entities:
-  - uid: 170
-    components:
-    - type: Transform
-      parent: 166
-    - type: Physics
-      canCollide: False
-  - uid: 229
-    components:
-    - type: Transform
-      parent: 225
-    - type: Physics
-      canCollide: False
 - proto: Paper
   entities:
   - uid: 481
@@ -5515,12 +4449,6 @@ entities:
       containers:
         solution@food: !type:ContainerSlot
           ent: 709
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -5857,8 +4785,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 4.5,-8.5
       parent: 1
-- proto: RailingImperial
-  entities:
   - uid: 251
     components:
     - type: Transform
@@ -5872,48 +4798,6 @@ entities:
     - type: Transform
       pos: 2.4874077,-14.446435
       parent: 1
-- proto: RubberStampDSO
-  entities:
-  - uid: 201
-    mapInit: true
-    paused: true
-    components:
-    - type: MetaData
-      name: Штамп прессы
-    - type: Transform
-      parent: 183
-    - type: Stamp
-      stampedName: Пресса "Colonial Times"
-      stampedColor: '#6E0083FF'
-    - type: EmitSoundOnCollide
-      nextSound: -45155.84
-    - type: Physics
-      canCollide: False
-    - type: Forensics
-      residues: []
-      dnas: []
-      fibers: []
-      fingerprints: []
-  - uid: 223
-    mapInit: true
-    paused: true
-    components:
-    - type: MetaData
-      name: Штамп прессы
-    - type: Transform
-      parent: 205
-    - type: Stamp
-      stampedName: Пресса "Colonial Times"
-      stampedColor: '#6E0083FF'
-    - type: EmitSoundOnCollide
-      nextSound: -45155.84
-    - type: Physics
-      canCollide: False
-    - type: Forensics
-      residues: []
-      dnas: []
-      fibers: []
-      fingerprints: []
 - proto: SheetUranium
   entities:
   - uid: 704
@@ -6145,7 +5029,7 @@ entities:
     - type: Transform
       pos: 1.5,-18.5
       parent: 1
-- proto: SofaLeft
+- proto: BenchSofaLeft
   entities:
   - uid: 530
     components:
@@ -6158,7 +5042,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -3.5,-9.5
       parent: 1
-- proto: SofaRight
+- proto: BenchSofaRight
   entities:
   - uid: 528
     components:
@@ -6345,7 +5229,7 @@ entities:
       canCollide: False
     - type: InsideEntityStorage
       storage: 437
-- proto: TGMCSmallFlag
+- proto: NTFlag
   entities:
   - uid: 675
     components:
@@ -6400,24 +5284,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -2.5,-20.5
       parent: 1
-- proto: TravelCamera
-  entities:
-  - uid: 165
-    components:
-    - type: Transform
-      parent: 164
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 164
-  - uid: 242
-    components:
-    - type: Transform
-      parent: 204
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 204
 - proto: TwoWayLever
   entities:
   - uid: 562

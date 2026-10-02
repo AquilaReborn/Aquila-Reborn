@@ -124,7 +124,7 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         || component.HornSound == null)
             return;
 
-        _audio.PlayPvs(component.HornSound, uid);
+        _audio.PlayPredicted(component.HornSound, uid, args.Performer); // Aquila Change
         args.Handled = true;
     }
 
@@ -135,7 +135,7 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         || component.SirenSound == null)
             return;
 
-        component.SirenStream = component.SirenEnabled ? _audio.Stop(component.SirenStream) : _audio.PlayPvs(component.SirenSound, uid)?.Entity;
+        component.SirenStream = component.SirenEnabled ? _audio.Stop(component.SirenStream) : _audio.PlayPredicted(component.SirenSound, uid, args.Performer)?.Entity; // Aquila Change
         component.SirenEnabled = !component.SirenEnabled;
         args.Handled = true;
     }

@@ -5,7 +5,7 @@ meta:
   forkId: aquila
   forkVersion: 20260729125804
   time: 08/07/2026 10:24:48
-  entityCount: 1675
+  entityCount: 1667
 maps: []
 grids:
 - 1
@@ -22,13 +22,13 @@ tilemap:
   0: FloorTechMaint3
   8: FloorTechMaintDark
   4: Lattice
-  3: LatticeCorner1
-  10: LatticeCorner2
-  9: LatticeCorner3
-  5: LatticeCorner4
-  11: LatticeSmall1
-  12: LatticeSmall2
-  13: LatticeSmall4
+  3: Lattice
+  10: Lattice
+  9: Lattice
+  5: Lattice
+  11: Lattice
+  12: Lattice
+  13: Lattice
   1: Plating
 entities:
 - proto: ""
@@ -3507,54 +3507,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 7.5,3.5
       parent: 1
-- proto: CardBin38
-  entities:
-  - uid: 1514
-    components:
-    - type: Transform
-      pos: -2.354001,15.5833235
-      parent: 1
-  - uid: 1515
-    components:
-    - type: Transform
-      pos: 4.692874,15.5676985
-      parent: 1
-  - uid: 1516
-    components:
-    - type: Transform
-      pos: 4.692874,20.567867
-      parent: 1
-  - uid: 1517
-    components:
-    - type: Transform
-      pos: -2.307126,20.567867
-      parent: 1
-  - uid: 1518
-    components:
-    - type: Transform
-      pos: -2.338376,25.534933
-      parent: 1
-  - uid: 1519
-    components:
-    - type: Transform
-      pos: 4.708499,25.503683
-      parent: 1
-  - uid: 1520
-    components:
-    - type: Transform
-      pos: 4.676289,30.56599
-      parent: 1
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 1521
-    components:
-    - type: Transform
-      pos: -2.354001,30.56599
-      parent: 1
 - proto: Catwalk
   entities:
   - uid: 3
@@ -4227,8 +4179,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 1.5,40.5
       parent: 1
-- proto: CatwalkNDADark
-  entities:
   - uid: 739
     components:
     - type: Transform
@@ -4390,7 +4340,7 @@ entities:
     - type: Transform
       pos: 2.5,47.5
       parent: 1
-- proto: CrateEngineeringAMEJar3
+- proto: CrateEngineeringAMEJar
   entities:
   - uid: 1455
     components:
@@ -4406,7 +4356,7 @@ entities:
       parent: 1
     - type: Lock
       locked: False
-- proto: DarkRedPoweredlight
+- proto: Poweredlight
   entities:
   - uid: 1334
     components:
@@ -5148,60 +5098,30 @@ entities:
       parent: 1567
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 1569
     components:
     - type: Transform
       parent: 1567
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 1570
     components:
     - type: Transform
       parent: 1567
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 1571
     components:
     - type: Transform
       parent: 1567
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 1572
     components:
     - type: Transform
       parent: 1567
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
 - proto: GasMinerCarbonDioxide
   entities:
   - uid: 540
@@ -7503,7 +7423,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -1.5,5.5
       parent: 1
-- proto: RailingImperial
+- proto: Railing
   entities:
   - uid: 1014
     components:
@@ -8389,8 +8309,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 11.5,0.5
       parent: 1
-- proto: ThrusterMedium
-  entities:
   - uid: 49
     components:
     - type: Transform

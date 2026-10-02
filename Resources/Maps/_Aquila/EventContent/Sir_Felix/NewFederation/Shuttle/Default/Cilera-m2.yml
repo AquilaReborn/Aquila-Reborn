@@ -17,14 +17,14 @@ tilemap:
   3: FloorMetalDiamond
   0: FloorTechMaint
   6: Lattice
-  10: LatticeCorner1
-  8: LatticeCorner2
-  4: LatticeCorner3
-  11: LatticeCorner4
-  12: LatticeSmall1
-  7: LatticeSmall2
-  5: LatticeSmall3
-  9: LatticeSmall4
+  10: Lattice
+  8: Lattice
+  4: Lattice
+  11: Lattice
+  12: Lattice
+  7: Lattice
+  5: Lattice
+  9: Lattice
   1: Plating
 entities:
 - proto: ""
@@ -731,7 +731,7 @@ entities:
     - type: Transform
       pos: 4.5,2.5
       parent: 1
-- proto: DarkRedPoweredlight
+- proto: Poweredlight
   entities:
   - uid: 160
     components:
@@ -1022,7 +1022,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 0.5,-3.5
       parent: 1
-- proto: ThrusterMedium
+- proto: Thruster
   entities:
   - uid: 54
     components:

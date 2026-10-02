@@ -19,11 +19,11 @@ tilemap:
   2: FloorMetalDiamond
   0: FloorSteelDirty
   4: Lattice
-  10: LatticeCorner1
-  9: LatticeCorner2
-  7: LatticeCorner3
-  11: LatticeCorner4
-  8: LatticeSmall3
+  10: Lattice
+  9: Lattice
+  7: Lattice
+  11: Lattice
+  8: Lattice
   6: Plating
 entities:
 - proto: ""
@@ -480,7 +480,7 @@ entities:
     - type: Transform
       pos: -0.5,-1.5
       parent: 1
-- proto: CatwalkNDADark
+- proto: Catwalk
   entities:
   - uid: 166
     components:
@@ -543,7 +543,7 @@ entities:
     - type: Transform
       pos: 0.5,2.5
       parent: 1
-- proto: DarkRedPoweredSmallLight
+- proto: PoweredSmallLight
   entities:
   - uid: 193
     components:

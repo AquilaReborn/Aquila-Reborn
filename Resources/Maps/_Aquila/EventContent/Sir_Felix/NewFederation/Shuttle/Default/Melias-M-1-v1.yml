@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 06/27/2025 17:07:21
-  entityCount: 279
+  entityCount: 277
 maps: []
 grids:
 - 1
@@ -14,25 +14,25 @@ orphans:
 nullspace: []
 tilemap:
   2: Space
-  9: FloorCrossWood
+  9: FloorWoodParquet
   6: FloorHull
   7: FloorMetalDiamond
   3: FloorRGlass
-  8: FloorRGlassPlasma
+  8: FloorRGlass
   4: FloorShuttleBlack
   5: FloorShuttleGrey
-  1: FloorTechDarkImperialMaint
+  1: FloorTechMaintDark
   10: FloorTechMaint
-  11: FloorWoodenTile
+  11: FloorWoodTile
   12: Lattice
-  19: LatticeCorner1
-  15: LatticeCorner2
-  13: LatticeCorner3
-  18: LatticeCorner4
-  20: LatticeSmall1
-  16: LatticeSmall2
-  17: LatticeSmall3
-  14: LatticeSmall4
+  19: Lattice
+  15: Lattice
+  13: Lattice
+  18: Lattice
+  20: Lattice
+  16: Lattice
+  17: Lattice
+  14: Lattice
   0: Plating
 entities:
 - proto: ""
@@ -1079,7 +1079,7 @@ entities:
     - type: Transform
       pos: -4.5,-12.5
       parent: 1
-- proto: ComfyCouch
+- proto: BenchSofaMiddle
   entities:
   - uid: 127
     components:
@@ -1130,14 +1130,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -4.5,-9.5
-      parent: 1
-- proto: CvetokBook
-  entities:
-  - uid: 132
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -4.501542,-13.394995
       parent: 1
 - proto: DiagonalWallShuttleStarCorps
   entities:
@@ -1342,12 +1334,6 @@ entities:
       color: '#A52A2AFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 171
     components:
     - type: Transform
@@ -1356,12 +1342,6 @@ entities:
       color: '#A52A2AFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 173
     components:
     - type: Transform
@@ -1370,12 +1350,6 @@ entities:
       color: '#808080FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 179
     components:
     - type: Transform
@@ -1384,12 +1358,6 @@ entities:
       color: '#EEE8AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 181
     components:
     - type: Transform
@@ -1398,12 +1366,6 @@ entities:
       color: '#008000FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 183
     components:
     - type: Transform
@@ -1412,12 +1374,6 @@ entities:
       color: '#AFEEEEFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
 - proto: LightTube
   entities:
   - uid: 175
@@ -1428,12 +1384,6 @@ entities:
       color: '#808080FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 177
     components:
     - type: Transform
@@ -1442,12 +1392,6 @@ entities:
       color: '#808080FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
 - proto: LockerBooze
   entities:
   - uid: 163
@@ -1918,8 +1862,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 3.5,-15.5
       parent: 1
-- proto: ThrusterMedium
-  entities:
   - uid: 216
     components:
     - type: Transform
@@ -1941,14 +1883,6 @@ entities:
     components:
     - type: Transform
       pos: 1.5,-13.5
-      parent: 1
-- proto: VlPCFlowerTwo
-  entities:
-  - uid: 219
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -2.3313766,-1.3225121
       parent: 1
 - proto: WallShuttleStarCorps
   entities:

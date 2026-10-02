@@ -19,12 +19,12 @@ tilemap:
   10: FloorShuttleBlack
   7: FloorTechMaint3
   8: Lattice
-  11: LatticeCorner1
-  3: LatticeCorner2
-  5: LatticeCorner3
-  6: LatticeCorner4
-  12: LatticeSmall2
-  9: LatticeSmall4
+  11: Lattice
+  3: Lattice
+  5: Lattice
+  6: Lattice
+  12: Lattice
+  9: Lattice
   1: Plating
 entities:
 - proto: ""
@@ -601,12 +601,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 124
     mapInit: true
     paused: true
@@ -619,12 +613,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 126
     mapInit: true
     paused: true
@@ -637,12 +625,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 128
     mapInit: true
     paused: true
@@ -655,12 +637,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
 - proto: OreBox
   entities:
   - uid: 120

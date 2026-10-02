@@ -19,14 +19,14 @@ tilemap:
   10: FloorGrayConcreteSmooth
   11: FloorShuttleBlack
   4: Lattice
-  1: LatticeCorner1
-  13: LatticeCorner2
-  12: LatticeCorner3
-  2: LatticeCorner4
-  3: LatticeSmall1
-  5: LatticeSmall2
-  14: LatticeSmall3
-  7: LatticeSmall4
+  1: Lattice
+  13: Lattice
+  12: Lattice
+  2: Lattice
+  3: Lattice
+  5: Lattice
+  14: Lattice
+  7: Lattice
   6: Plating
 entities:
 - proto: ""

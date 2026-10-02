@@ -5,7 +5,7 @@ meta:
   forkId: main
   forkVersion: 20260222162629
   time: 02/25/2026 11:57:04
-  entityCount: 7601
+  entityCount: 7541
 maps:
 - 1
 grids:
@@ -31,7 +31,7 @@ tilemap:
   16: FloorOldConcreteSmooth
   6: FloorPlanetDirt
   9: FloorPlanetGrass
-  8: FloorSandDesert
+  8: FloorDesert
   20: FloorSteelCheckerDark
   24: FloorSteelMini
   25: FloorSteelMono
@@ -20565,48 +20565,6 @@ entities:
       accessListsOriginal: []
       access:
       - - CentralCommand
-- proto: AlphaGasMask
-  entities:
-  - uid: 53
-    components:
-    - type: Transform
-      parent: 52
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 52
-  - uid: 56
-    components:
-    - type: Transform
-      parent: 55
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 55
-  - uid: 59
-    components:
-    - type: Transform
-      parent: 58
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 58
-  - uid: 62
-    components:
-    - type: Transform
-      parent: 61
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 61
-  - uid: 65
-    components:
-    - type: Transform
-      parent: 64
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 64
 - proto: AlwaysPoweredLightExterior
   entities:
   - uid: 67
@@ -21304,69 +21262,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 161.5,-0.5
       parent: 1
-- proto: BigAutoclave
-  entities:
-  - uid: 192
-    components:
-    - type: Transform
-      pos: 154.5,3.5
-      parent: 1
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        machine_board: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        machine_parts: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-- proto: BlackShieldHeadset
-  entities:
-  - uid: 194
-    components:
-    - type: Transform
-      parent: 193
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 193
-  - uid: 195
-    components:
-    - type: Transform
-      parent: 193
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 193
-  - uid: 196
-    components:
-    - type: Transform
-      parent: 193
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 193
-  - uid: 197
-    components:
-    - type: Transform
-      parent: 193
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 193
-  - uid: 198
-    components:
-    - type: Transform
-      parent: 193
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 193
 - proto: BlackSteelChair
   entities:
   - uid: 220
@@ -21740,7 +21635,7 @@ entities:
         7010:
         - - DoorStatus
           - Close
-- proto: BlastDoorGlassOpen
+- proto: BlastDoorWindowsOpen
   entities:
   - uid: 246
     components:
@@ -21900,13 +21795,6 @@ entities:
     - type: Transform
       pos: 160.41805,24.498209
       parent: 1
-- proto: BoxHeadsetPrisoner
-  entities:
-  - uid: 272
-    components:
-    - type: Transform
-      pos: 111.46228,27.49367
-      parent: 1
 - proto: BoxSyringe
   entities:
   - uid: 273
@@ -22036,7 +21924,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 140.5,-5.5
       parent: 1
-- proto: ButtonFrameExit
+- proto: ButtonFrame
   entities:
   - uid: 286
     components:
@@ -30661,7 +30549,7 @@ entities:
       canCollide: False
     - type: ContainerContainer
       containers:
-        toggleable-clothing: !type:ContainerSlot {}
+        toggleable-clothing: !type:Container {}
     - type: InsideEntityStorage
       storage: 1544
   - uid: 1556
@@ -30672,7 +30560,7 @@ entities:
       canCollide: False
     - type: ContainerContainer
       containers:
-        toggleable-clothing: !type:ContainerSlot {}
+        toggleable-clothing: !type:Container {}
     - type: InsideEntityStorage
       storage: 1544
   - uid: 1557
@@ -30683,7 +30571,7 @@ entities:
       canCollide: False
     - type: ContainerContainer
       containers:
-        toggleable-clothing: !type:ContainerSlot {}
+        toggleable-clothing: !type:Container {}
     - type: InsideEntityStorage
       storage: 1544
   - uid: 1558
@@ -30694,7 +30582,7 @@ entities:
       canCollide: False
     - type: ContainerContainer
       containers:
-        toggleable-clothing: !type:ContainerSlot {}
+        toggleable-clothing: !type:Container {}
     - type: InsideEntityStorage
       storage: 1544
   - uid: 1559
@@ -30705,7 +30593,7 @@ entities:
       canCollide: False
     - type: ContainerContainer
       containers:
-        toggleable-clothing: !type:ContainerSlot {}
+        toggleable-clothing: !type:Container {}
     - type: InsideEntityStorage
       storage: 1544
 - proto: CaptainIDCard
@@ -33197,48 +33085,6 @@ entities:
       canCollide: False
     - type: InsideEntityStorage
       storage: 1544
-- proto: ClothingUniformJumpsuitMinuteManCamoForest
-  entities:
-  - uid: 1570
-    components:
-    - type: Transform
-      parent: 1544
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 1544
-  - uid: 1571
-    components:
-    - type: Transform
-      parent: 1544
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 1544
-  - uid: 1572
-    components:
-    - type: Transform
-      parent: 1544
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 1544
-  - uid: 1573
-    components:
-    - type: Transform
-      parent: 1544
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 1544
-  - uid: 1574
-    components:
-    - type: Transform
-      parent: 1544
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 1544
 - proto: CombatKnife
   entities:
   - uid: 6402
@@ -33411,22 +33257,12 @@ entities:
           - 201
           - 200
           - 199
-          - 194
           - 213
           - 212
           - 211
           - 210
           - 209
           - 214
-          - 195
-          - 196
-          - 197
-          - 215
-          - 216
-          - 217
-          - 218
-          - 219
-          - 198
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -33490,11 +33326,6 @@ entities:
           - 1557
           - 1558
           - 1559
-          - 1570
-          - 1571
-          - 1572
-          - 1573
-          - 1574
           - 1560
           - 1561
           - 1562
@@ -33666,9 +33497,6 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 1981
-          - 1982
-          - 1983
           - 1984
           - 1985
           - 1986
@@ -36437,7 +36265,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -190.5,182.5
       parent: 1
-- proto: DirtyPoweredlight
+- proto: Poweredlight
   entities:
   - uid: 2052
     components:
@@ -36463,7 +36291,7 @@ entities:
       powerLoad: 0
     - type: DamageOnInteract
       isDamageActive: False
-- proto: DirtyPoweredSmallLight
+- proto: PoweredSmallLight
   entities:
   - uid: 2054
     components:
@@ -36885,8 +36713,6 @@ entities:
     - Faxecute
     - FaxMachine
     - ItemSlots
-- proto: FaxMachineERTColored
-  entities:
   - uid: 2093
     components:
     - type: Transform
@@ -41218,19 +41044,6 @@ entities:
     - type: Transform
       pos: 123.5,16.5
       parent: 1
-- proto: FlameThrower
-  entities:
-  - uid: 2253
-    components:
-    - type: Transform
-      parent: 2251
-    - type: Physics
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        gun_magazine: !type:ContainerSlot {}
-    - type: InsideEntityStorage
-      storage: 2251
 - proto: FloorChasmEntity
   entities:
   - uid: 2750
@@ -41593,8 +41406,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 147.5,12.5
       parent: 1
-- proto: FloorDesertChasm
-  entities:
   - uid: 2810
     components:
     - type: Transform
@@ -43106,44 +42917,6 @@ entities:
     - type: Transform
       pos: 47.5,-45.5
       parent: 1
-- proto: FuelTankFlamethrowerBig
-  entities:
-  - uid: 1981
-    components:
-    - type: Transform
-      parent: 1980
-    - type: Physics
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        ballistic-ammo: !type:Container
-          ents: []
-    - type: InsideEntityStorage
-      storage: 1980
-  - uid: 1982
-    components:
-    - type: Transform
-      parent: 1980
-    - type: Physics
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        ballistic-ammo: !type:Container
-          ents: []
-    - type: InsideEntityStorage
-      storage: 1980
-  - uid: 1983
-    components:
-    - type: Transform
-      parent: 1980
-    - type: Physics
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        ballistic-ammo: !type:Container
-          ents: []
-    - type: InsideEntityStorage
-      storage: 1980
 - proto: GasFilterFlipped
   entities:
   - uid: 3050
@@ -45920,7 +45693,6 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 2253
           - 2252
         paper_label: !type:ContainerSlot
           showEnts: False
@@ -46211,7 +45983,7 @@ entities:
       parent: 1
     - type: Label
       currentLabel: NT || Nexus-Base
-- proto: ImperialSimpleRadio
+- proto: AquilaSimpleRadio1Felix
   entities:
   - uid: 3489
     components:
@@ -46400,7 +46172,7 @@ entities:
       parent: 1
     - type: AccessReader
       accessListsOriginal: []
-- proto: LightPostUrbanUSSP
+- proto: LightPostSmall
   entities:
   - uid: 3503
     components:
@@ -46476,12 +46248,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 3516
     mapInit: true
     paused: true
@@ -46494,12 +46260,6 @@ entities:
       color: '#808080FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -46517,12 +46277,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 3520
     mapInit: true
     paused: true
@@ -46535,12 +46289,6 @@ entities:
       color: '#808080FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -46558,12 +46306,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -46581,12 +46323,6 @@ entities:
       color: '#EEE8AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -46604,12 +46340,6 @@ entities:
       color: '#808080FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -46627,12 +46357,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -46650,12 +46374,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 3532
     mapInit: true
     paused: true
@@ -46668,12 +46386,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 3534
     mapInit: true
     paused: true
@@ -46686,12 +46398,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -46709,12 +46415,6 @@ entities:
       color: '#808080FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 3538
     mapInit: true
     paused: true
@@ -46727,12 +46427,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 3540
     mapInit: true
     paused: true
@@ -46745,12 +46439,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -46768,12 +46456,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -46791,12 +46473,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 3546
     mapInit: true
     paused: true
@@ -46809,12 +46485,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -46832,12 +46502,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -46855,12 +46519,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -46878,12 +46536,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -46901,12 +46553,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -46924,12 +46570,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -46947,12 +46587,6 @@ entities:
       color: '#EEE8AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 3560
     mapInit: true
     paused: true
@@ -46965,12 +46599,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -46988,12 +46616,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -47011,12 +46633,6 @@ entities:
       color: '#EEE8AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 3566
     mapInit: true
     paused: true
@@ -47029,12 +46645,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -47052,12 +46662,6 @@ entities:
       color: '#808080FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 3570
     mapInit: true
     paused: true
@@ -47070,12 +46674,6 @@ entities:
       color: '#808080FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -47093,12 +46691,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 3574
     mapInit: true
     paused: true
@@ -47111,12 +46703,6 @@ entities:
       color: '#808080FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 3576
     mapInit: true
     paused: true
@@ -47129,12 +46715,6 @@ entities:
       color: '#808080FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -47152,12 +46732,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 3580
     mapInit: true
     paused: true
@@ -47170,12 +46744,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -47193,12 +46761,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -47216,12 +46778,6 @@ entities:
       color: '#EEE8AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 3586
     mapInit: true
     paused: true
@@ -47234,12 +46790,6 @@ entities:
       color: '#EEE8AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 3588
     mapInit: true
     paused: true
@@ -47252,12 +46802,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -47275,12 +46819,6 @@ entities:
       color: '#808080FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 3592
     mapInit: true
     paused: true
@@ -47293,12 +46831,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -47316,12 +46848,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -47339,12 +46865,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -47362,12 +46882,6 @@ entities:
       color: '#808080FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 3600
     mapInit: true
     paused: true
@@ -47380,12 +46894,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -47403,12 +46911,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -47426,12 +46928,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -47449,12 +46945,6 @@ entities:
       color: '#EEE8AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 3608
     mapInit: true
     paused: true
@@ -47467,12 +46957,6 @@ entities:
       color: '#EEE8AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -47490,12 +46974,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -47513,12 +46991,6 @@ entities:
       color: '#EEE8AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -47536,12 +47008,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -47559,12 +47025,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 6066
     mapInit: true
     paused: true
@@ -47577,12 +47037,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -47600,12 +47054,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -47623,12 +47071,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 6254
     mapInit: true
     paused: true
@@ -47641,12 +47083,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 6280
     mapInit: true
     paused: true
@@ -47659,12 +47095,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -47682,12 +47112,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -47705,12 +47129,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -47728,12 +47146,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -47751,12 +47163,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -47774,12 +47180,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -47797,12 +47197,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -47820,12 +47214,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -47843,12 +47231,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 6768
     mapInit: true
     paused: true
@@ -47861,12 +47243,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -47884,12 +47260,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -47907,12 +47277,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 6826
     mapInit: true
     paused: true
@@ -47925,12 +47289,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -47948,12 +47306,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -47971,12 +47323,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 7068
     mapInit: true
     paused: true
@@ -47989,12 +47335,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 7070
     mapInit: true
     paused: true
@@ -48007,12 +47347,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 7077
     mapInit: true
     paused: true
@@ -48025,12 +47359,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -48048,12 +47376,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -48071,12 +47393,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -48094,12 +47410,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -48117,12 +47427,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -48140,12 +47444,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -48382,7 +47680,7 @@ entities:
     - type: Transform
       pos: -74.5,95.5
       parent: 1
-- proto: MedievalAirlock
+- proto: Airlock
   entities:
   - uid: 3625
     components:
@@ -48409,19 +47707,7 @@ entities:
     - type: Transform
       pos: 144.5,6.5
       parent: 1
-- proto: MedievalDecorBags5
-  entities:
-  - uid: 3630
-    components:
-    - type: Transform
-      pos: 119.5,10.5
-      parent: 1
-  - uid: 3631
-    components:
-    - type: Transform
-      pos: 117.5,10.5
-      parent: 1
-- proto: MetalDetectorSecure
+- proto: ContrabandDetectorSecure
   entities:
   - uid: 3632
     components:
@@ -50648,9 +49934,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -213.5,184.5
       parent: 1
-    - type: AmbientSound
-      volume: 10
-      range: 3
   - uid: 7137
     components:
     - type: Transform
@@ -50767,7 +50050,7 @@ entities:
     - type: Transform
       pos: -77.5,95.5
       parent: 1
-- proto: RailingCornerImperial
+- proto: RailingCorner
   entities:
   - uid: 3804
     components:
@@ -50826,7 +50109,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 63.5,16.5
       parent: 1
-- proto: RailingImperial
+- proto: Railing
   entities:
   - uid: 3814
     components:
@@ -52377,8 +51660,6 @@ entities:
     - type: Transform
       pos: 111.5,22.5
       parent: 1
-- proto: RailingUrbanUSSP
-  entities:
   - uid: 4084
     components:
     - type: Transform
@@ -55386,55 +54667,6 @@ entities:
     - type: Transform
       pos: 160.37637,24.935709
       parent: 1
-- proto: RubberStampDSO
-  entities:
-  - uid: 4539
-    components:
-    - type: Transform
-      pos: 160.67845,25.248209
-      parent: 1
-- proto: RumCooler
-  entities:
-  - uid: 6300
-    components:
-    - type: Transform
-      pos: -192.5,185.5
-      parent: 1
-  - uid: 7091
-    components:
-    - type: Transform
-      pos: -202.5,185.5
-      parent: 1
-  - uid: 7117
-    components:
-    - type: Transform
-      pos: -197.5,185.5
-      parent: 1
-  - uid: 7244
-    components:
-    - type: Transform
-      pos: -205.5,200.5
-      parent: 1
-  - uid: 7259
-    components:
-    - type: Transform
-      pos: -200.5,200.5
-      parent: 1
-  - uid: 7297
-    components:
-    - type: Transform
-      pos: -195.5,200.5
-      parent: 1
-  - uid: 7440
-    components:
-    - type: Transform
-      pos: -190.5,200.5
-      parent: 1
-  - uid: 7441
-    components:
-    - type: Transform
-      pos: -187.5,185.5
-      parent: 1
 - proto: SecurityTechFab
   entities:
   - uid: 4540
@@ -55501,19 +54733,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -69.57472,86.498116
       parent: 1
-    - type: Ladder
-      soundUnlocked: !type:SoundPathSpecifier
-        path: /Audio/Machines/door_lock_off.ogg
-      activationTime: 5
-      ignoreObjects: []
-      groupID: 5
-      ladderID: 1
-      soundLocked: !type:SoundPathSpecifier
-        path: /Audio/Machines/door_lock_on.ogg
-      soundLockedClosed: !type:SoundPathSpecifier
-        path: /Audio/Effects/closetclose.ogg
-      soundUnlockedClosed: !type:SoundPathSpecifier
-        path: /Audio/Effects/closetopen.ogg
     - type: Stealth
       lastVisibility: -1
     missingComponents:
@@ -55525,31 +54744,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -212.51544,191.49687
       parent: 1
-    - type: Ladder
-      soundUnlocked: !type:SoundPathSpecifier
-        path: /Audio/Machines/door_lock_off.ogg
-      activationTime: 5
-      ignoreObjects: []
-      groupID: 5
-      ladderID: 1
-      soundLocked: !type:SoundPathSpecifier
-        path: /Audio/Machines/door_lock_on.ogg
-      soundLockedClosed: !type:SoundPathSpecifier
-        path: /Audio/Effects/closetclose.ogg
-      soundUnlockedClosed: !type:SoundPathSpecifier
-        path: /Audio/Effects/closetopen.ogg
     - type: Stealth
       lastVisibility: -1
     missingComponents:
     - Item
     - Pullable
-- proto: ShippingContainer-9
-  entities:
-  - uid: 4541
-    components:
-    - type: Transform
-      pos: 68.5,43.5
-      parent: 1
 - proto: ShippingContainerConarex
   entities:
   - uid: 4542
@@ -56056,10 +55255,7 @@ entities:
       pos: 153.5,5.5
       parent: 1
     - type: DeviceLinkSource
-      linkedPorts:
-        4663:
-        - - Pressed
-          - SurgeryActivate
+      linkedPorts: {}
     - type: Fixtures
       fixtures: {}
   - uid: 4594
@@ -56069,10 +55265,7 @@ entities:
       pos: 153.5,4.5
       parent: 1
     - type: DeviceLinkSource
-      linkedPorts:
-        4637:
-        - - Pressed
-          - SurgeryActivate
+      linkedPorts: {}
     - type: Fixtures
       fixtures: {}
   - uid: 4595
@@ -56490,10 +55683,7 @@ entities:
       pos: -213.5,196.5
       parent: 1
     - type: DeviceLinkSource
-      linkedPorts:
-        7222:
-        - - Pressed
-          - SurgeryActivate
+      linkedPorts: {}
     - type: Fixtures
       fixtures: {}
   - uid: 7482
@@ -56767,49 +55957,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 130.5,12.5
       parent: 1
-- proto: SODDeathSquadHeadset
-  entities:
-  - uid: 215
-    components:
-    - type: Transform
-      parent: 193
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 193
-  - uid: 216
-    components:
-    - type: Transform
-      parent: 193
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 193
-  - uid: 217
-    components:
-    - type: Transform
-      parent: 193
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 193
-  - uid: 218
-    components:
-    - type: Transform
-      parent: 193
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 193
-  - uid: 219
-    components:
-    - type: Transform
-      parent: 193
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 193
-- proto: SofaCorner
+- proto: BenchSofaCorner
   entities:
   - uid: 4623
     components:
@@ -56817,7 +55965,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 144.5,16.5
       parent: 1
-- proto: SofaLeft
+- proto: BenchSofaLeft
   entities:
   - uid: 4624
     components:
@@ -56843,7 +55991,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 113.5,12.5
       parent: 1
-- proto: SofaMiddle
+- proto: BenchSofaMiddle
   entities:
   - uid: 4628
     components:
@@ -56863,7 +56011,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 114.5,12.5
       parent: 1
-- proto: SofaRight
+- proto: BenchSofaRight
   entities:
   - uid: 4631
     components:
@@ -56906,13 +56054,6 @@ entities:
     - type: Transform
       pos: -67.5,93.5
       parent: 1
-- proto: SterileShower
-  entities:
-  - uid: 4637
-    components:
-    - type: Transform
-      pos: 154.5,4.5
-      parent: 1
 - proto: SubstationBasic
   entities:
   - uid: 4638
@@ -56949,9 +56090,7 @@ entities:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - 53
-          - 54
+          ents: []
   - uid: 55
     components:
     - type: Transform
@@ -56964,9 +56103,7 @@ entities:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - 56
-          - 57
+          ents: []
   - uid: 58
     components:
     - type: Transform
@@ -56979,9 +56116,7 @@ entities:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - 59
-          - 60
+          ents: []
   - uid: 61
     components:
     - type: Transform
@@ -56994,9 +56129,7 @@ entities:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - 62
-          - 63
+          ents: []
   - uid: 64
     components:
     - type: Transform
@@ -57009,9 +56142,7 @@ entities:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - 65
-          - 66
+          ents: []
   - uid: 4639
     components:
     - type: Transform
@@ -57672,121 +56803,6 @@ entities:
       open: True
     - type: PlaceableSurface
       isPlaceable: True
-- proto: SurgeryCrateConsumebles
-  entities:
-  - uid: 4659
-    components:
-    - type: Transform
-      pos: 159.5,4.5
-      parent: 1
-- proto: SurgeryCrateOrgans
-  entities:
-  - uid: 4660
-    components:
-    - type: Transform
-      pos: 158.5,4.5
-      parent: 1
-- proto: SurgeryRentgenLightTable
-  entities:
-  - uid: 4661
-    components:
-    - type: Transform
-      pos: 155.5,6.5
-      parent: 1
-  - uid: 4662
-    components:
-    - type: Transform
-      pos: 154.5,6.5
-      parent: 1
-  - uid: 7108
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -212.5,195.5
-      parent: 1
-  - uid: 7109
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -211.5,195.5
-      parent: 1
-- proto: SurgeryRentgenmachine
-  entities:
-  - uid: 4663
-    components:
-    - type: Transform
-      pos: 155.5,5.5
-      parent: 1
-    - type: ContainerContainer
-      containers:
-        machine_board: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        machine_parts: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        papper: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-  - uid: 7222
-    components:
-    - type: Transform
-      pos: -210.5,199.5
-      parent: 1
-    - type: ContainerContainer
-      containers:
-        machine_board: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        machine_parts: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        papper: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-- proto: SurgeryRentgenPaperUsedOperationEmpty
-  entities:
-  - uid: 4664
-    components:
-    - type: Transform
-      pos: 154.50531,6.5476217
-      parent: 1
-  - uid: 4665
-    components:
-    - type: Transform
-      pos: 154.35947,6.6413717
-      parent: 1
-  - uid: 4666
-    components:
-    - type: Transform
-      pos: 154.44281,6.5372047
-      parent: 1
-  - uid: 4667
-    components:
-    - type: Transform
-      pos: 154.46364,6.5163717
-      parent: 1
-  - uid: 5845
-    components:
-    - type: Transform
-      pos: -212.42435,195.50726
-      parent: 1
-  - uid: 7071
-    components:
-    - type: Transform
-      pos: -212.6431,195.63226
-      parent: 1
-  - uid: 7107
-    components:
-    - type: Transform
-      pos: -212.5181,195.61664
-      parent: 1
 - proto: SurveillanceCameraCommand
   entities:
   - uid: 4668
@@ -58497,10 +57513,7 @@ entities:
           showEnts: False
           occludes: True
           ents: []
-    - type: CrewSkillsInstrumentation
-      needSkills:
-      - skillInstrumentation
-- proto: TGMCSmallFlag
+- proto: NTFlag
   entities:
   - uid: 4757
     components:
@@ -58780,48 +57793,6 @@ entities:
       parent: 1
     - type: Fixtures
       fixtures: {}
-- proto: VlOldStationMercCMDSuitOne
-  entities:
-  - uid: 54
-    components:
-    - type: Transform
-      parent: 52
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 52
-  - uid: 57
-    components:
-    - type: Transform
-      parent: 55
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 55
-  - uid: 60
-    components:
-    - type: Transform
-      parent: 58
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 58
-  - uid: 63
-    components:
-    - type: Transform
-      parent: 61
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 61
-  - uid: 66
-    components:
-    - type: Transform
-      parent: 64
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 64
 - proto: WallInvisible
   entities:
   - uid: 5816
@@ -58860,42 +57831,34 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -212.46857,190.34062
       parent: 1
-- proto: WallInvisibleCrook
-  entities:
   - uid: 6512
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -70.5,86.5
       parent: 1
   - uid: 6883
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -69.5,85.5
       parent: 1
   - uid: 6884
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -68.5,86.5
       parent: 1
   - uid: 7090
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -212.5,192.5
       parent: 1
   - uid: 7252
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -213.5,191.5
       parent: 1
   - uid: 7253
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -212.5,190.5
       parent: 1
 - proto: WallmountTelescreen
@@ -65106,8 +64069,6 @@ entities:
     - type: Transform
       pos: -184.5,180.5
       parent: 1
-- proto: WallRockBasalt
-  entities:
   - uid: 5833
     components:
     - type: Transform
@@ -66478,13 +65439,6 @@ entities:
     components:
     - type: Transform
       pos: 132.59561,-6.378945
-      parent: 1
-- proto: WeaponTurretDeathSquad
-  entities:
-  - uid: 6521
-    components:
-    - type: Transform
-      pos: -74.5,80.5
       parent: 1
 - proto: WindoorSecurePlasma
   entities:

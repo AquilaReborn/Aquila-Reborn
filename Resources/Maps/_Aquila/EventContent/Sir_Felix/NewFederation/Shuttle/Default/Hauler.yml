@@ -21,11 +21,11 @@ tilemap:
   9: FloorTechMaint3
   0: FloorTechMaintDark
   6: Lattice
-  12: LatticeCorner1
-  10: LatticeCorner2
-  4: LatticeCorner3
-  13: LatticeCorner4
-  5: LatticeSmall4
+  12: Lattice
+  10: Lattice
+  4: Lattice
+  13: Lattice
+  5: Lattice
   3: Plating
 entities:
 - proto: ""
@@ -265,7 +265,7 @@ entities:
     - type: Transform
       pos: 1.5,-0.5
       parent: 1
-- proto: ButtonFrameExit
+- proto: ButtonFrame
   entities:
   - uid: 251
     components:

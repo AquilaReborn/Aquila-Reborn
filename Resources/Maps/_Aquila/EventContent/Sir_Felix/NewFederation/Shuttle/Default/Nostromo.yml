@@ -20,12 +20,12 @@ tilemap:
   5: FloorTechMaint3
   7: FloorTechMaintDark
   11: Lattice
-  12: LatticeCorner1
-  0: LatticeCorner2
-  2: LatticeCorner3
-  10: LatticeCorner4
-  13: LatticeSmall1
-  4: LatticeSmall3
+  12: Lattice
+  0: Lattice
+  2: Lattice
+  10: Lattice
+  13: Lattice
+  4: Lattice
   1: Plating
 entities:
 - proto: ""
@@ -1008,7 +1008,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 3.5,-7.5
       parent: 1
-- proto: ChristmasTreeWithGarlands
+- proto: DecoratedFirTree
   entities:
   - uid: 297
     components:
@@ -1207,7 +1207,7 @@ entities:
     - type: Transform
       pos: 3.5,-8.5
       parent: 1
-- proto: FaxMachineBridgeInterGalactic
+- proto: FaxMachineBase
   entities:
   - uid: 168
     components:
@@ -1353,12 +1353,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -1376,12 +1370,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -1399,12 +1387,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -1422,12 +1404,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -1445,12 +1421,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -1468,12 +1438,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
 - proto: PoweredlightEmpty
   entities:
   - uid: 303

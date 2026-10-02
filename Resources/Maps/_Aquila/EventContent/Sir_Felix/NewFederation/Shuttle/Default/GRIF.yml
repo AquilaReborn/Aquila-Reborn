@@ -20,13 +20,13 @@ tilemap:
   1: FloorTechMaint
   2: FloorTechMaintDark
   10: Lattice
-  9: LatticeCorner1
-  8: LatticeCorner2
-  7: LatticeCorner3
-  4: LatticeCorner4
-  11: LatticeSmall2
-  6: LatticeSmall3
-  14: LatticeSmall4
+  9: Lattice
+  8: Lattice
+  7: Lattice
+  4: Lattice
+  11: Lattice
+  6: Lattice
+  14: Lattice
   3: Plating
 entities:
 - proto: ""
@@ -537,7 +537,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 1.5,-1.5
       parent: 1
-- proto: RailingImperial
+- proto: Railing
   entities:
   - uid: 45
     components:
@@ -682,78 +682,66 @@ entities:
       rot: 3.141592653589793 rad
       pos: 2.5,-2.5
       parent: 1
-- proto: WallReinforcedUnbreakableImperial
+- proto: WallReinforced
   entities:
   - uid: 2
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 0.5,-1.5
       parent: 1
   - uid: 3
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 0.5,-0.5
       parent: 1
   - uid: 4
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -0.5,4.5
       parent: 1
   - uid: 5
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -0.5,-0.5
       parent: 1
   - uid: 6
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -0.5,1.5
       parent: 1
   - uid: 8
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -0.5,0.5
       parent: 1
   - uid: 10
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 2.5,-1.5
       parent: 1
   - uid: 11
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 2.5,-0.5
       parent: 1
   - uid: 12
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 3.5,-0.5
       parent: 1
   - uid: 13
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 3.5,1.5
       parent: 1
   - uid: 16
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 3.5,4.5
       parent: 1
   - uid: 17
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 3.5,0.5
       parent: 1
 ...

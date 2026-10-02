@@ -7,6 +7,12 @@
   id: ClothingHeadHelmetBase
   abstract: true
   components:
+    # Aquila Change start
+  - type: ToggleHideLayersClothing
+    layers: [ Hair ]
+    slots: HEAD
+    action: ActionToggleHideLayersHair
+    # Aquila Change end
   # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:

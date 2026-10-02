@@ -5,7 +5,7 @@ meta:
   forkId: main
   forkVersion: 20260114045134
   time: 01/28/2026 18:51:47
-  entityCount: 192
+  entityCount: 181
 maps: []
 grids:
 - 1
@@ -17,19 +17,19 @@ tilemap:
   0: FloorDarkOffset
   1: FloorDarkPlastic
   17: FloorGlass
-  6: FloorGlassPlasma
+  6: FloorGlass
   15: FloorGrayConcrete
   16: FloorGrayConcreteSmooth
   5: FloorMetalDiamond
   10: Lattice
-  12: LatticeCorner1
-  11: LatticeCorner2
-  13: LatticeCorner3
-  8: LatticeCorner4
-  7: LatticeSmall1
-  9: LatticeSmall2
-  14: LatticeSmall3
-  4: LatticeSmall4
+  12: Lattice
+  11: Lattice
+  13: Lattice
+  8: Lattice
+  7: Lattice
+  9: Lattice
+  14: Lattice
+  4: Lattice
   2: Plating
 entities:
 - proto: ""
@@ -210,8 +210,7 @@ entities:
     - type: ContainedSolution
       containerName: food
       container: 176
-    - type: TimedReactionWatcher
-- proto: AdvancedFirstAidMedkitImperialFilled
+- proto: MedkitAdvancedFilled
   entities:
   - uid: 169
     components:
@@ -529,20 +528,6 @@ entities:
     - type: Transform
       pos: 1.8707324,3.9418416
       parent: 1
-- proto: ClothingHeadHelmetOpsCore
-  entities:
-  - uid: 55
-    components:
-    - type: Transform
-      pos: 1.5894823,3.9001749
-      parent: 1
-- proto: ClothingJumpsuitupsilon11
-  entities:
-  - uid: 56
-    components:
-    - type: Transform
-      pos: 1.4644823,3.7855916
-      parent: 1
 - proto: ClothingShoesColorWhite
   entities:
   - uid: 57
@@ -598,7 +583,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 0.29410034,-0.62819624
       parent: 1
-- proto: DiagonalCatwalk
+- proto: Catwalk
   entities:
   - uid: 63
     components:
@@ -835,7 +820,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 1.5,2.5
       parent: 1
-- proto: FirstAidMedkitImperialFilled
+- proto: MedkitFilled
   entities:
   - uid: 168
     components:
@@ -974,8 +959,7 @@ entities:
       pos: 1.5,6.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
       deviceLists:
       - 2
   - uid: 97
@@ -993,8 +977,7 @@ entities:
       pos: 0.5,0.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
       deviceLists:
       - 2
   - uid: 99
@@ -1003,8 +986,7 @@ entities:
       pos: 2.5,6.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
       deviceLists:
       - 2
 - proto: GeneratorWallmountAPU
@@ -1080,52 +1062,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 0.67297506,-0.49492466
       parent: 1
-- proto: HardBurnKit
-  entities:
-  - uid: 170
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -1.5739822,-1.0773572
-      parent: 1
-  - uid: 171
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -1.5739822,-1.0773572
-      parent: 1
-  - uid: 172
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -1.5739822,-1.0773572
-      parent: 1
-  - uid: 173
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -1.5739822,-1.0773572
-      parent: 1
-- proto: HardTraumapack
-  entities:
-  - uid: 178
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -1.564723,-0.60050535
-      parent: 1
-  - uid: 179
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -1.564723,-0.60050535
-      parent: 1
-  - uid: 180
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -1.564723,-0.60050535
-      parent: 1
 - proto: HolopadUnlimitedRange
   entities:
   - uid: 110
@@ -1157,12 +1093,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -1180,18 +1110,12 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
       fibers: []
       fingerprints: []
-- proto: MedkitCobmatImperialFilled
+- proto: MedkitCombatFilled
   entities:
   - uid: 166
     components:
@@ -1199,7 +1123,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -1.8193526,-1.5917988
       parent: 1
-- proto: MedkitStimImperialFilled
+- proto: MedkitFilled
   entities:
   - uid: 167
     components:
@@ -1326,21 +1250,6 @@ entities:
     components:
     - type: Transform
       pos: 1.5,4.5
-      parent: 1
-- proto: SponsorCyberMaskMedical
-  entities:
-  - uid: 127
-    components:
-    - type: Transform
-      pos: 1.381149,3.9105916
-      parent: 1
-- proto: StandardHypospray
-  entities:
-  - uid: 174
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -1.5505171,-0.23371834
       parent: 1
 - proto: SubstationBasic
   entities:

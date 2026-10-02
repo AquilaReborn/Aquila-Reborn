@@ -18,14 +18,14 @@ tilemap:
   4: FloorDarkMono
   11: FloorDarkPlastic
   10: FloorMetalDiamond
-  8: LatticeCorner1
-  12: LatticeCorner2
-  2: LatticeCorner3
-  5: LatticeCorner4
-  9: LatticeSmall1
-  7: LatticeSmall2
-  6: LatticeSmall3
-  13: LatticeSmall4
+  8: Lattice
+  12: Lattice
+  2: Lattice
+  5: Lattice
+  9: Lattice
+  7: Lattice
+  6: Lattice
+  13: Lattice
   1: Plating
 entities:
 - proto: ""
@@ -208,7 +208,6 @@ entities:
     - type: ContainedSolution
       containerName: food
       container: 217
-    - type: TimedReactionWatcher
 - proto: AirlockGlassShuttle
   entities:
   - uid: 2
@@ -1385,12 +1384,6 @@ entities:
       color: '#808080FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
 - proto: Paper
   entities:
   - uid: 179

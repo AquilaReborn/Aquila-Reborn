@@ -20,14 +20,14 @@ tilemap:
   2: FloorShuttleBlack
   12: FloorTechMaint3
   8: Lattice
-  10: LatticeCorner1
-  5: LatticeCorner2
-  3: LatticeCorner3
-  9: LatticeCorner4
-  7: LatticeSmall1
-  14: LatticeSmall2
-  6: LatticeSmall3
-  4: LatticeSmall4
+  10: Lattice
+  5: Lattice
+  3: Lattice
+  9: Lattice
+  7: Lattice
+  14: Lattice
+  6: Lattice
+  4: Lattice
   0: Plating
 entities:
 - proto: ""
@@ -976,8 +976,7 @@ entities:
       pos: 4.5,2.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
 - proto: CrateCommandSecure
   entities:
   - uid: 112
@@ -2595,12 +2594,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -2618,12 +2611,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -2641,12 +2628,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -2664,12 +2645,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -2687,12 +2662,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 358
     mapInit: true
     paused: true
@@ -2705,12 +2674,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
 - proto: OreBox
   entities:
   - uid: 344
@@ -2835,7 +2798,7 @@ entities:
       powerLoad: 25
     - type: DamageOnInteract
       isDamageActive: False
-- proto: RailingUrbanUSSP
+- proto: Railing
   entities:
   - uid: 359
     components:
@@ -3264,8 +3227,7 @@ entities:
       pos: 1.5,2.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
     - type: SurveillanceCamera
       setupAvailableNetworks:
       - SurveillanceCameraGeneral
@@ -3278,8 +3240,7 @@ entities:
       pos: 0.5,-5.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
     - type: SurveillanceCamera
       setupAvailableNetworks:
       - SurveillanceCameraGeneral
@@ -3292,8 +3253,7 @@ entities:
       pos: 8.5,-7.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
     - type: SurveillanceCamera
       setupAvailableNetworks:
       - SurveillanceCameraGeneral
@@ -3306,8 +3266,7 @@ entities:
       pos: -2.5,-7.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
     - type: SurveillanceCamera
       setupAvailableNetworks:
       - SurveillanceCameraGeneral
@@ -3320,8 +3279,7 @@ entities:
       pos: -0.5,-13.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
     - type: SurveillanceCamera
       setupAvailableNetworks:
       - SurveillanceCameraGeneral
@@ -3335,9 +3293,8 @@ entities:
       pos: -2.5,-7.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
-- proto: TableReinforcedAlien
+      configurators: []
+- proto: TableReinforced
   entities:
   - uid: 407
     components:
@@ -3355,7 +3312,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 5.5,-5.5
       parent: 1
-- proto: ThrusterMedium
+- proto: Thruster
   entities:
   - uid: 409
     components:

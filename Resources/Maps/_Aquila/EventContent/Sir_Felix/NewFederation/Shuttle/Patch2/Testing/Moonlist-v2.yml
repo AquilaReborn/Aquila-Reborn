@@ -5,7 +5,7 @@ meta:
   forkId: eridani
   forkVersion: 20251129091635
   time: 11/30/2025 18:45:38
-  entityCount: 2054
+  entityCount: 2051
 maps: []
 grids:
 - 1
@@ -26,14 +26,14 @@ tilemap:
   18: FloorTechMaint3
   19: FloorXenoborg
   1: Lattice
-  9: LatticeCorner1
-  7: LatticeCorner2
-  2: LatticeCorner3
-  5: LatticeCorner4
-  6: LatticeSmall1
-  8: LatticeSmall2
-  10: LatticeSmall3
-  4: LatticeSmall4
+  9: Lattice
+  7: Lattice
+  2: Lattice
+  5: Lattice
+  6: Lattice
+  8: Lattice
+  10: Lattice
+  4: Lattice
   0: Plating
 entities:
 - proto: ""
@@ -3557,7 +3557,7 @@ entities:
     - type: Transform
       pos: -5.9827247,-30.416687
       parent: 1
-- proto: CoffeeTableGlass
+- proto: TableGlass
   entities:
   - uid: 2021
     components:
@@ -3565,7 +3565,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 5.5,-16.5
       parent: 1
-- proto: CoffeeTableSteel
+- proto: Table
   entities:
   - uid: 1928
     components:
@@ -3644,13 +3644,6 @@ entities:
     components:
     - type: Transform
       pos: 5.5,-18.5
-      parent: 1
-- proto: CrewSkillManualBasicAtmos
-  entities:
-  - uid: 1805
-    components:
-    - type: Transform
-      pos: -6.5764747,-30.385437
       parent: 1
 - proto: DarkAirlockStarCorps
   entities:
@@ -5064,7 +5057,7 @@ entities:
     - type: Transform
       pos: -10.5,20.5
       parent: 1
-- proto: DoubleBed
+- proto: Bed
   entities:
   - uid: 2033
     components:
@@ -5105,15 +5098,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 5.5,-13.5
       parent: 1
-- proto: ErtBorgWeaponTaser
-  entities:
-  - uid: 1943
-    components:
-    - type: Transform
-      pos: -2.5447745,-23.376673
-      parent: 1
-    missingComponents:
-    - BatterySelfRecharger
 - proto: FederationHandyFlag
   entities:
   - uid: 2031
@@ -8906,14 +8890,6 @@ entities:
     - type: Transform
       pos: 9.5,-32.5
       parent: 1
-- proto: HandHeldAtmosAlertsMonitor
-  entities:
-  - uid: 1807
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -7.319196,-30.416687
-      parent: 1
 - proto: HolofanProjector
   entities:
   - uid: 1801
@@ -9518,7 +9494,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 6.5,-8.5
       parent: 1
-- proto: RailingImperial
+- proto: Railing
   entities:
   - uid: 1791
     components:
@@ -10512,10 +10488,7 @@ entities:
     - type: Transform
       pos: 1.5,-29.5
       parent: 1
-    - type: CrewSkillsInstrumentation
-      needSkills:
-      - skillInstrumentation
-- proto: TGMCSmallFlag
+- proto: NTFlag
   entities:
   - uid: 2032
     components:
@@ -10548,7 +10521,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 12.5,-36.5
       parent: 1
-- proto: ThrusterMedium
+- proto: Thruster
   entities:
   - uid: 612
     components:

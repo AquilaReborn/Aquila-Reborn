@@ -5,7 +5,7 @@ meta:
   forkId: aquila
   forkVersion: 20260114045413
   time: 01/15/2026 20:42:22
-  entityCount: 341
+  entityCount: 330
 maps: []
 grids:
 - 1
@@ -17,16 +17,16 @@ tilemap:
   11: FloorDarkSquiggly
   2: FloorMetalDiamond
   14: FloorShuttleBlack
-  5: FloorTechDarkImperialMaint
+  5: FloorTechMaintDark
   15: FloorTechMaint
   3: Lattice
-  13: LatticeCorner1
-  9: LatticeCorner2
-  8: LatticeCorner3
-  7: LatticeCorner4
-  12: LatticeSmall2
-  10: LatticeSmall3
-  6: LatticeSmall4
+  13: Lattice
+  9: Lattice
+  8: Lattice
+  7: Lattice
+  12: Lattice
+  10: Lattice
+  6: Lattice
   0: Plating
   1: PlatingDamaged
 entities:
@@ -334,50 +334,6 @@ entities:
     - type: RadiationGridResistance
     - type: IFF
       color: '#800000FF'
-- proto: ActionInjection
-  entities:
-  - uid: 331
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 323
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 323
-- proto: ActionSuitToggleMarkingEars
-  entities:
-  - uid: 327
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 324
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 324
-- proto: ActionSuitToggleMarkingTail
-  entities:
-  - uid: 329
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 323
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 323
-- proto: ActionToggleInjection
-  entities:
-  - uid: 330
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 323
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 323
 - proto: ActionToggleLight
   entities:
   - uid: 222
@@ -389,37 +345,6 @@ entities:
     - type: Action
       originalIconColor: '#FFFFFFFF'
       container: 221
-  - uid: 325
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 324
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 324
-  - uid: 326
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 324
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 324
-      attachedEntity: 324
-- proto: ActionToggleSuitPiece
-  entities:
-  - uid: 328
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 323
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 323
-      entIcon: 324
 - proto: AirlockHatch
   entities:
   - uid: 133
@@ -448,13 +373,6 @@ entities:
     components:
     - type: Transform
       pos: 0.5,-13.5
-      parent: 1
-- proto: AlphaVisor
-  entities:
-  - uid: 218
-    components:
-    - type: Transform
-      pos: 1.4979341,-0.3991047
       parent: 1
 - proto: AtmosDeviceFanTiny
   entities:
@@ -1067,120 +985,6 @@ entities:
     - type: Transform
       pos: 4.5,-0.5
       parent: 1
-- proto: ClothingHeadHelmetDZ
-  entities:
-  - uid: 324
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 323
-    - type: ToggleMarking
-      actionEntity: 327
-    - type: HandheldLight
-      selfToggleActionEntity: 326
-      toggleActionEntity: 325
-    - type: PredictedBattery
-      lastCharge: 599.92126
-      lastUpdate: -100.2914738
-    - type: PredictedBatterySelfRecharger
-      nextAutoRecharge: null
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 325
-          - 326
-          - 327
-    - type: Actions
-      actions:
-      - 326
-    - type: AttachedClothing
-      attachedUid: 323
-- proto: ClothingOuterHardsuitDZ
-  entities:
-  - uid: 323
-    mapInit: true
-    paused: true
-    components:
-    - type: MetaData
-      name: Особый скафандр связиста
-    - type: Transform
-      parent: 320
-    - type: ToggleableClothing
-      clothingUid: 324
-      actionEntity: 328
-    - type: ContainerContainer
-      containers:
-        toggleable-clothing: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: 324
-        beakerSlot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 328
-          - 329
-          - 330
-          - 331
-    - type: GroupExamine
-      group:
-      - hoverMessage: ""
-        contextText: verb-examine-group-other
-        icon: /Textures/Interface/examine-star.png
-        components:
-        - Armor
-        - ClothingSpeedModifier
-        entries:
-        - message: >-
-            Обеспечивает следующую защиту:
-
-            - [color=yellow]Ударный[/color] урон снижается на [color=lightblue]50%[/color].
-
-            - [color=yellow]Режущий[/color] урон снижается на [color=lightblue]50%[/color].
-
-            - [color=yellow]Колющий[/color] урон снижается на [color=lightblue]50%[/color].
-
-            - [color=yellow]Высокотемпературный[/color] урон снижается на [color=lightblue]70%[/color].
-
-            - [color=yellow]Низкотемпературный[/color] урон снижается на [color=lightblue]70%[/color].
-
-            - [color=yellow]Электрический[/color] урон снижается на [color=lightblue]70%[/color].
-
-            - [color=yellow]Радиационный[/color] урон снижается на [color=lightblue]70%[/color].
-
-            - [color=yellow]Кислотный[/color] урон снижается на [color=lightblue]70%[/color].
-
-            [color=lightblue]Понижает шанс заражения на 25%[/color]
-
-            - [color=violet]Заражение[/color] снижено на [color=lightblue]75%[/color].
-
-            - [color=deepskyblue]Урон выносливости[/color] уменьшен на [color=lightblue]50%[/color].
-
-            - [color=orange]Урон от взрыва[/color] уменьшен на [color=lightblue]30%[/color].
-          priority: 0
-          component: Armor
-        title: null
-    - type: ToggleMarking
-      actionEntity: 329
-    - type: EmitSoundOnCollide
-      nextSound: -105120.9314738
-    - type: Physics
-      canCollide: False
-    - type: ActionsContainer
-    - type: Forensics
-      residues: []
-      dnas: []
-      fibers: []
-      fingerprints: []
-    - type: InsideEntityStorage
-      storage: 320
 - proto: ClothingShoesBootsMagSci
   entities:
   - uid: 322
@@ -1191,7 +995,7 @@ entities:
       canCollide: False
     - type: InsideEntityStorage
       storage: 320
-- proto: CoffeeTableGlass
+- proto: TableGlass
   entities:
   - uid: 194
     components:
@@ -1523,13 +1327,6 @@ entities:
     - type: Transform
       pos: 1.5,-2.5
       parent: 1
-- proto: HolographicCigarette
-  entities:
-  - uid: 288
-    components:
-    - type: Transform
-      pos: 8.662807,9.538493
-      parent: 1
 - proto: HolopadUnlimitedRange
   entities:
   - uid: 228
@@ -1577,12 +1374,6 @@ entities:
       color: '#696969FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 302
     components:
     - type: Transform
@@ -1591,12 +1382,6 @@ entities:
       color: '#696969FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
 - proto: LockerDetective
   entities:
   - uid: 199
@@ -2123,7 +1908,6 @@ entities:
           ents:
           - 321
           - 322
-          - 323
 - proto: TableGlass
   entities:
   - uid: 195

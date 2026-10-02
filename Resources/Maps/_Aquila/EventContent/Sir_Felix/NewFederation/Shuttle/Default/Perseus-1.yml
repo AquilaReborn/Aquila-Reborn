@@ -23,14 +23,14 @@ tilemap:
   10: FloorTechMaint3
   13: FloorTechMaintDark
   8: Lattice
-  6: LatticeCorner1
-  4: LatticeCorner2
-  1: LatticeCorner3
-  7: LatticeCorner4
-  11: LatticeSmall1
-  5: LatticeSmall2
-  3: LatticeSmall3
-  15: LatticeSmall4
+  6: Lattice
+  4: Lattice
+  1: Lattice
+  7: Lattice
+  11: Lattice
+  5: Lattice
+  3: Lattice
+  15: Lattice
   0: Plating
 entities:
 - proto: ""
@@ -887,8 +887,6 @@ entities:
     - type: Transform
       pos: 4.5,-10.5
       parent: 1
-- proto: CatwalkNDADark
-  entities:
   - uid: 139
     components:
     - type: Transform
@@ -941,7 +939,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 1.5,-1.5
       parent: 1
-- proto: ChristmasTreeWithGarlands
+- proto: DecoratedFirTree
   entities:
   - uid: 147
     components:
@@ -1169,61 +1167,31 @@ entities:
       parent: 184
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 186
     components:
     - type: Transform
       parent: 184
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 187
     components:
     - type: Transform
       parent: 184
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 188
     components:
     - type: Transform
       parent: 184
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 189
     components:
     - type: Transform
       parent: 184
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-- proto: FaxMachineBridgeInterGalactic
+- proto: FaxMachineBase
   entities:
   - uid: 190
     components:
@@ -1872,12 +1840,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 297
     mapInit: true
     paused: true
@@ -1890,12 +1852,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -1913,12 +1869,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 301
     mapInit: true
     paused: true
@@ -1931,12 +1881,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 303
     mapInit: true
     paused: true
@@ -1949,12 +1893,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -1972,12 +1910,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -1995,12 +1927,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -2018,12 +1944,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
 - proto: PaperBin
   entities:
   - uid: 184
@@ -2495,7 +2415,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 2.5,-14.5
       parent: 1
-- proto: ThrusterMedium
+- proto: Thruster
   entities:
   - uid: 361
     components:
