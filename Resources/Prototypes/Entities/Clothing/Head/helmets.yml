@@ -9,9 +9,10 @@
   components:
     # Aquila Change start
   - type: ToggleHideLayersClothing
-    layers: [ Hair ]
     slots: HEAD
-    action: ActionToggleHideLayersHair
+    groups:
+    - layers: [ Hair ]
+      action: ActionToggleHideLayersHair
     # Aquila Change end
   # Goobstation edit start
   - type: EmitSoundOnPickup

@@ -172,8 +172,9 @@
   name: base hardsuit singularity
   components:
   - type: ToggleHideLayersClothing
-    layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ]
     slots: OUTERCLOTHING
+    groups:
+    - layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ]
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000

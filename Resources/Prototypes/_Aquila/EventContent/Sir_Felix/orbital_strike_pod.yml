@@ -1,0 +1,80 @@
+- type: entity
+  id: OrbitalStrikePodBase
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  id: OrbitalStrikePodSpawn
+  name: orbital strike pod
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 3.75
+  - type: SpawnOnTrigger
+    proto: OrbitalStrikePodWarningMarker
+  - type: TriggerOnSpawn
+  - type: Sprite
+    sprite: Markers/cross.rsi
+    state: red
+    drawdepth: FloorObjects
+  - type: Marker
+
+- type: entity
+  id: OrbitalStrikePodWarningMarker
+  parent: OrbitalStrikePodBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/DropPod/marker.rsi
+    state: marker_ping
+    drawdepth: FloorObjects
+  - type: TimedDespawn
+    lifetime: 1.75
+  - type: SpawnOnTrigger
+    proto: OrbitalStrikePodWarningSound
+  - type: TriggerOnSpawn
+  - type: SpawnOnDespawn
+    prototype: OrbitalStrikePodMarkerReady
+
+- type: entity
+  id: OrbitalStrikePodMarkerReady
+  parent: OrbitalStrikePodBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/DropPod/marker.rsi
+    state: marker
+    drawdepth: FloorObjects
+  - type: TimedDespawn
+    lifetime: 2
+  - type: SpawnOnTrigger
+    proto: OrbitalStrikePodLandingAnimation
+  - type: TriggerOnSpawn
+
+- type: entity
+  id: OrbitalStrikePodWarningSound
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Goobstation/DropPod/supplypodlandig.ogg
+      params:
+        maxDistance: 5
+  - type: TriggerOnSpawn
+
+- type: entity
+  id: OrbitalStrikePodLandingAnimation
+  parent: OrbitalStrikePodBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/DropPod/landingpod.rsi
+    state: landing
+    offset: -1.7, 4.3
+    drawdepth: FloorObjects
+  - type: TimedDespawn
+    lifetime: 1.8

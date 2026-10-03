@@ -14,3 +14,12 @@ entity-effect-status-effect-StaminaModifier = modified stamina
 entity-effect-status-effect-RadiationProtection = radiation protection
 entity-effect-status-effect-Drowsiness = drowsiness
 entity-effect-status-effect-Adrenaline = adrenaline
+# Aquila Change
+entity-effect-status-effect-DemonsKiss = demon kiss
+entity-effect-status-effect-DemonsBlood = demon blood
+entity-effect-status-effect-Dementia = dementia
+entity-effect-status-effect-Centered = focus
+entity-effect-status-effect-Vulgarity = vulgarity
+entity-effect-status-effect-Corporeal = corporeality
+entity-effect-status-effect-Stunned = stun
+entity-effect-status-effect-StaminaModifierStatusEffect = modified stamina

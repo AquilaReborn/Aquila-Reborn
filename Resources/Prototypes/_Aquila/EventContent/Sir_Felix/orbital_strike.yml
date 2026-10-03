@@ -1,0 +1,14 @@
+- type: entity
+  id: OrbitalStrike
+  name: orbital strike
+  description: A device for calling an orbital strike. When activated, it rains pods down around the user.
+  suffix: Sir_Felix, Admin
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/OrbitalCall/imperial.rsi
+    state: icon
+  - type: Item
+    sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/OrbitalCall/imperial.rsi
+    size: Small
+  - type: OrbitalStrike

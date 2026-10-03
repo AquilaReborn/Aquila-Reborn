@@ -13,27 +13,29 @@ public sealed class HideableClothingSystem : EntitySystem
     [Dependency] private readonly SharedItemSystem _item = default!;
     [Dependency] private readonly INetManager _net = default!;
 
+    private const SlotFlags RelevantSlots = SlotFlags.INNERCLOTHING | SlotFlags.OUTERCLOTHING;
+
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<InventoryComponent, DidEquipEvent>(OnAnyEquip);
-        SubscribeLocalEvent<InventoryComponent, DidUnequipEvent>(OnAnyUnequip);
+        SubscribeLocalEvent<InventoryComponent, DidEquipEvent>(OnDidEquip);
+        SubscribeLocalEvent<InventoryComponent, DidUnequipEvent>(OnDidUnequip);
 
         SubscribeLocalEvent<HideableClothingComponent, GotUnequippedEvent>(OnGotUnequipped);
         SubscribeLocalEvent<HideableClothingComponent, ToggleClothingVisibilityEvent>(OnToggle);
     }
 
-    #region Event handlers
-
-    private void OnAnyEquip(Entity<InventoryComponent> ent, ref DidEquipEvent args)
+    private void OnDidEquip(Entity<InventoryComponent> ent, ref DidEquipEvent args)
     {
-        RefreshAction(ent);
+        if ((args.SlotFlags & RelevantSlots) != 0)
+            RefreshAction(ent);
     }
 
-    private void OnAnyUnequip(Entity<InventoryComponent> ent, ref DidUnequipEvent args)
+    private void OnDidUnequip(Entity<InventoryComponent> ent, ref DidUnequipEvent args)
     {
-        RefreshAction(ent);
+        if ((args.SlotFlags & RelevantSlots) != 0)
+            RefreshAction(ent);
     }
 
     private void OnGotUnequipped(Entity<HideableClothingComponent> ent, ref GotUnequippedEvent args)
@@ -46,13 +48,9 @@ public sealed class HideableClothingSystem : EntitySystem
         if (args.Handled)
             return;
 
-        SetHidden(ent, !ent.Comp.Hidden);
         args.Handled = true;
+        SetHidden(ent, !ent.Comp.Hidden);
     }
-
-    #endregion
-
-    #region Helpers
 
     private void SetHidden(Entity<HideableClothingComponent> ent, bool hidden)
     {
@@ -65,26 +63,27 @@ public sealed class HideableClothingSystem : EntitySystem
         _item.VisualsChanged(ent);
     }
 
+    /// <summary>
+    /// Выдаёт действие, пока под верхней одеждой есть комбез, иначе забирает его и возвращает видимость.
+    /// </summary>
     private void RefreshAction(EntityUid wearer)
     {
         if (!TryGetOuterClothing(wearer, out var outer))
             return;
 
-        if (HasInnerClothing(wearer))
+        var hasInner = HasInnerClothing(wearer);
+
+        // Действия создаёт и забирает только сервер, клиент получает их через состояние.
+        if (_net.IsServer)
         {
-            if (_net.IsServer)
-                _actions.AddAction(wearer, ref outer.Comp.ActionEntity, outer.Comp.ActionId, outer.Owner);
-            return;
+            if (hasInner)
+                _actions.AddAction(wearer, ref outer.Comp.ActionEntity, outer.Comp.Action, outer.Owner);
+            else
+                _actions.RemoveAction(outer.Comp.ActionEntity);
         }
 
-        if (_net.IsServer
-            && _actions.GetAction(outer.Comp.ActionEntity, false) is { } action
-            && action.Comp.AttachedEntity == wearer)
-        {
-            _actions.RemoveAction(wearer, outer.Comp.ActionEntity);
-        }
-
-        SetHidden(outer, false);
+        if (!hasInner)
+            SetHidden(outer, false);
     }
 
     private bool TryGetOuterClothing(EntityUid wearer, out Entity<HideableClothingComponent> outer)
@@ -108,11 +107,7 @@ public sealed class HideableClothingSystem : EntitySystem
 
     private bool HasInnerClothing(EntityUid wearer)
     {
-        if (!_inventory.TryGetContainerSlotEnumerator(wearer, out var enumerator, SlotFlags.INNERCLOTHING))
-            return false;
-
-        return enumerator.NextItem(out _);
+        return _inventory.TryGetContainerSlotEnumerator(wearer, out var enumerator, SlotFlags.INNERCLOTHING)
+               && enumerator.NextItem(out _);
     }
-
-    #endregion
 }

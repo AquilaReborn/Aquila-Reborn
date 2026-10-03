@@ -7,8 +7,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: ToggleHideLayersClothing # Aquila Change
-    layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ] # Aquila Change
     slots: OUTERCLOTHING # Aquila Change
+    groups:
+    - layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ] # Aquila Change
   - type: Appearance
   - type: AllowSuitStorage
   - type: Sprite
@@ -35,8 +36,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: ToggleHideLayersClothing # Aquila Change
-    layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ] # Aquila Change
     slots: OUTERCLOTHING # Aquila Change
+    groups:
+    - layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ] # Aquila Change
   - type: Appearance
   - type: AllowSuitStorage
   - type: Sprite
@@ -107,8 +109,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: ToggleHideLayersClothing # Aquila Change
-    layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ] # Aquila Change
     slots: OUTERCLOTHING # Aquila Change
+    groups:
+    - layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ] # Aquila Change
   - type: Appearance
   - type: AllowSuitStorage
   - type: Sprite
@@ -189,8 +192,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: ToggleHideLayersClothing # Aquila Change
-    layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ] # Aquila Change
     slots: OUTERCLOTHING # Aquila Change
+    groups:
+    - layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ] # Aquila Change
   - type: Appearance
   - type: AllowSuitStorage
   - type: Sprite
@@ -277,8 +281,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: ToggleHideLayersClothing # Aquila Change
-    layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ] # Aquila Change
     slots: OUTERCLOTHING # Aquila Change
+    groups:
+    - layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ] # Aquila Change
   - type: Appearance
   - type: AllowSuitStorage
   - type: Sprite
@@ -359,8 +364,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: ToggleHideLayersClothing # Aquila Change
-    layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ] # Aquila Change
     slots: OUTERCLOTHING # Aquila Change
+    groups:
+    - layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ] # Aquila Change
   - type: Appearance
   - type: AllowSuitStorage
   - type: Sprite
@@ -442,8 +448,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: ToggleHideLayersClothing # Aquila Change
-    layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ] # Aquila Change
     slots: OUTERCLOTHING # Aquila Change
+    groups:
+    - layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ] # Aquila Change
   - type: Appearance
   - type: AllowSuitStorage
   - type: Sprite
@@ -523,8 +530,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: ToggleHideLayersClothing # Aquila Change
-    layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ] # Aquila Change
     slots: OUTERCLOTHING # Aquila Change
+    groups:
+    - layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ] # Aquila Change
   - type: Appearance
   - type: AllowSuitStorage
   - type: Sprite
@@ -607,8 +615,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: ToggleHideLayersClothing # Aquila Change
-    layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ] # Aquila Change
     slots: OUTERCLOTHING # Aquila Change
+    groups:
+    - layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ] # Aquila Change
   - type: Appearance
   - type: AllowSuitStorage
   - type: GroupExamine

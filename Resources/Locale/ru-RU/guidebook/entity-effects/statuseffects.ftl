@@ -14,3 +14,12 @@ entity-effect-status-effect-StaminaModifier = изменённая выносл�
 entity-effect-status-effect-RadiationProtection = защита от радиации
 entity-effect-status-effect-Drowsiness = сонливость
 entity-effect-status-effect-Adrenaline = адреналин
+# Aquila Change
+entity-effect-status-effect-DemonsKiss = поцелуй демона
+entity-effect-status-effect-DemonsBlood = кровь демона
+entity-effect-status-effect-Dementia = слабоумие
+entity-effect-status-effect-Centered = сосредоточенность
+entity-effect-status-effect-Vulgarity = сквернословие
+entity-effect-status-effect-Corporeal = телесность
+entity-effect-status-effect-Stunned = оглушение
+entity-effect-status-effect-StaminaModifierStatusEffect = изменённая выносливость

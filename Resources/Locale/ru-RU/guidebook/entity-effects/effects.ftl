@@ -120,13 +120,14 @@ entity-effect-guidebook-status-effect-old =
                 *[other] удалить
             } { NATURALFIXED($time, 3) } { MANY("секунд", $time) } { LOC($key) }
     }
+# Aquila Change
 entity-effect-guidebook-status-effect =
     { $type ->
         [update]
             { $chance ->
                 [1] Вызывает
                *[other] вызывают
-            } { LOC($key) } минимум на { NATURALFIXED($time, 3) } { $time ->
+            } { $key } минимум на { NATURALFIXED($time, 3) } { $time ->
                 [one] секунду
                 [few] секунды
                *[other] секунд
@@ -135,7 +136,7 @@ entity-effect-guidebook-status-effect =
             { $chance ->
                 [1] Вызывает
                *[other] вызывают
-            } { LOC($key) } минимум на { NATURALFIXED($time, 3) } { $time ->
+            } { $key } минимум на { NATURALFIXED($time, 3) } { $time ->
                 [one] секунду
                 [few] секунды
                *[other] секунд
@@ -144,7 +145,7 @@ entity-effect-guidebook-status-effect =
             { $chance ->
                 [1] Вызывает
                *[other] вызывают
-            } { LOC($key) } минимум на { NATURALFIXED($time, 3) } { $time ->
+            } { $key } минимум на { NATURALFIXED($time, 3) } { $time ->
                 [one] секунду
                 [few] секунды
                *[other] секунд
@@ -157,7 +158,7 @@ entity-effect-guidebook-status-effect =
                 [one] секунду
                 [few] секунды
                *[other] секунд
-            } от { LOC($key) }
+            } от { $key }
     } { $delay ->
         [0] немедленно
        *[other]
@@ -167,28 +168,29 @@ entity-effect-guidebook-status-effect =
                *[other] секунд
             } задержки
     }
+# Aquila Change
 entity-effect-guidebook-status-effect-indef =
     { $type ->
         [update]
             { $chance ->
                 [1] Вызывает
                *[other] вызывает
-            } постоянный { LOC($key) }
+            } постоянный { $key }
         [add]
             { $chance ->
                 [1] Вызывает
                *[other] вызывают
-            } постоянный{ LOC($key) }
+            } постоянный{ $key }
         [set]
             { $chance ->
                 [1] Вызывает
                *[other] вызывают
-            } постоянный{ LOC($key) }
+            } постоянный{ $key }
        *[remove]
             { $chance ->
                 [1] Убирает
                *[other] убирают
-            } { LOC($key) }
+            } { $key }
     } { $delay ->
         [0] мгновенно
        *[other]

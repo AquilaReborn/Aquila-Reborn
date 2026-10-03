@@ -119,9 +119,12 @@
   name: base space helmet
   components:
   - type: ToggleHideLayersClothing # Aquila Change
-    layers: [ HeadTop, HeadSide, Special ] # Aquila Change
     slots: HEAD # Aquila Change
-    action: ActionToggleHideLayersHelmet # Aquila Change
+    groups:
+    - layers: [ HeadTop, HeadSide, Special ] # Aquila Change
+      action: ActionToggleHideLayersHelmet # Aquila Change
+    - layers: [ Hair ] # Aquila Change
+      action: ActionToggleHideLayersHair # Aquila Change
 # SlotBlocker blocked until UI change
 #  - type: SlotBlock
 #    slots: [ears, eyes, mask]
@@ -166,10 +169,10 @@
   components:
     # Aquila Change start
   - type: ToggleHideLayersClothing
-    layers: [ HeadTop, HeadSide, Special ]
     slots: HEAD
-    action: ActionToggleHideLayersHelmet
-    extraToggles:
+    groups:
+    - layers: [ HeadTop, HeadSide, Special ]
+      action: ActionToggleHideLayersHelmet
     - layers: [ Hair ]
       action: ActionToggleHideLayersHair
     # Aquila Change end

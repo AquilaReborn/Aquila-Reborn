@@ -1,9 +1,8 @@
-using System.Linq;
-using Content.Shared._Aquila.ArmorPlate;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Server.Destructible;
+using Content.Shared._Aquila.ArmorPlate;
 using Content.Shared.Armor;
 using Content.Shared.Body.Systems;
-using Content.Server.Destructible;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
@@ -19,45 +18,43 @@ namespace Content.Server._Aquila.ArmorPlate;
 
 public sealed class StorageArmorPlateSystem : EntitySystem
 {
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly DestructibleSystem _destructible = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly DestructibleSystem _destructible = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
-    private static VerbCategory? _defaultRemovePlateCategory;
+    private static readonly VerbCategory RemovePlateCategory = new(
+        "verb-categories-remove-plate",
+        "/Textures/Interface/VerbIcons/eject.svg.192dpi.png");
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<StorageArmorPlateComponent, ComponentInit>(OnComponentInit);
+        SubscribeLocalEvent<StorageArmorPlateComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<StorageArmorPlateComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<StorageArmorPlateComponent, InsertArmorPlateDoAfterEvent>(OnInsertDoAfter);
         SubscribeLocalEvent<StorageArmorPlateComponent, ExaminedEvent>(OnExamined);
-        SubscribeLocalEvent<StorageArmorPlateComponent, GetVerbsEvent<InteractionVerb>>(OnGetInteractionVerbs);
+        SubscribeLocalEvent<StorageArmorPlateComponent, GetVerbsEvent<InteractionVerb>>(OnGetVerbs);
         SubscribeLocalEvent<StorageArmorPlateComponent, InventoryRelayedEvent<DamageModifyEvent>>(OnRelayDamageModify);
-
     }
 
-    #region Event handlers
-
-    private void OnComponentInit(Entity<StorageArmorPlateComponent> ent, ref ComponentInit args)
+    private void OnInit(Entity<StorageArmorPlateComponent> ent, ref ComponentInit args)
     {
-        ent.Comp.Storage = _container.EnsureContainer<Container>(ent, ent.Comp.ContainerId);
+        ent.Comp.Storage = _container.EnsureContainer<Container>(ent, StorageArmorPlateComponent.ContainerId);
     }
 
     private void OnInteractUsing(Entity<StorageArmorPlateComponent> ent, ref InteractUsingEvent args)
     {
-        if (args.Handled)
+        if (args.Handled || !CanInsert(ent, args.Used))
             return;
 
-        if (!CanInsert(ent, args.Used))
-            return;
+        args.Handled = true;
 
         var doAfterArgs = new DoAfterArgs(EntityManager,
             args.User,
@@ -72,7 +69,6 @@ public sealed class StorageArmorPlateSystem : EntitySystem
             NeedHand = true,
         };
 
-        args.Handled = true;
         _doAfter.TryStartDoAfter(doAfterArgs);
     }
 
@@ -81,60 +77,52 @@ public sealed class StorageArmorPlateSystem : EntitySystem
         if (args.Handled || args.Cancelled || args.Used is not { } plate)
             return;
 
-        if (!CanInsert(ent, plate))
+        if (!CanInsert(ent, plate) || !_container.Insert(plate, ent.Comp.Storage))
             return;
 
-        if (!_container.Insert(plate, ent.Comp.Storage))
-            return;
-
-        _audio.PlayPvs(ent.Comp.PlateSound, ent);
         args.Handled = true;
+        _audio.PlayPvs(ent.Comp.PlateSound, ent);
     }
 
-    private void OnGetInteractionVerbs(Entity<StorageArmorPlateComponent> ent, ref GetVerbsEvent<InteractionVerb> args)
+    private void OnGetVerbs(Entity<StorageArmorPlateComponent> ent, ref GetVerbsEvent<InteractionVerb> args)
     {
-        if (!args.CanAccess || !args.CanInteract)
-            return;
-
-        if (!ent.Comp.CanRemovePlates || ent.Comp.Storage.ContainedEntities.Count == 0)
+        if (!args.CanAccess || !args.CanInteract || !ent.Comp.CanRemovePlates)
             return;
 
         var user = args.User;
-        var category = ent.Comp.RemovePlateCategory ?? GetDefaultCategory();
 
-        var plates = ent.Comp.Storage.ContainedEntities.ToArray();
-
-        foreach (var plateUid in plates)
+        foreach (var plate in ent.Comp.Storage.ContainedEntities)
         {
             args.Verbs.Add(new InteractionVerb
             {
                 Text = Loc.GetString("storage-armor-plate-verb-entry",
-                    ("name", MetaData(plateUid).EntityName),
-                    ("integrity", GetPlateIntegrity(plateUid))),
-                IconEntity = GetNetEntity(plateUid),
-                Category = category,
-                Act = () => RemovePlate(ent, user, plateUid),
+                    ("name", Name(plate)),
+                    ("integrity", GetPlateIntegrity(plate))),
+                IconEntity = GetNetEntity(plate),
+                Category = RemovePlateCategory,
+                Act = () => RemovePlate(ent, user, plate),
             });
         }
     }
 
     private void OnExamined(Entity<StorageArmorPlateComponent> ent, ref ExaminedEvent args)
     {
-        if (!args.IsInDetailsRange || ent.Comp.Storage.ContainedEntities.Count == 0)
+        var plates = ent.Comp.Storage.ContainedEntities;
+        if (!args.IsInDetailsRange || plates.Count == 0)
             return;
 
         using (args.PushGroup(nameof(StorageArmorPlateComponent)))
         {
             args.PushMarkup(Loc.GetString("storage-armor-plate-examine-count",
-                ("count", ent.Comp.Storage.ContainedEntities.Count),
+                ("count", plates.Count),
                 ("max", ent.Comp.MaxPlates)));
 
-            foreach (var plateUid in ent.Comp.Storage.ContainedEntities)
+            foreach (var plate in plates)
             {
-                var integrity = GetPlateIntegrity(plateUid);
+                var integrity = GetPlateIntegrity(plate);
 
                 args.PushMarkup(Loc.GetString("storage-armor-plate-examine-entry",
-                    ("name", MetaData(plateUid).EntityName),
+                    ("name", Name(plate)),
                     ("integrity", integrity),
                     ("color", GetIntegrityColor(integrity))));
             }
@@ -148,40 +136,39 @@ public sealed class StorageArmorPlateSystem : EntitySystem
 
         var (partType, _) = _body.ConvertTargetBodyPart(args.Args.TargetPart);
 
-        foreach (var plateUid in ent.Comp.Storage.ContainedEntities)
+        foreach (var plate in ent.Comp.Storage.ContainedEntities)
         {
-            if (!TryComp<ArmorComponent>(plateUid, out var plateArmor))
+            if (!TryComp<ArmorComponent>(plate, out var armor) || !armor.ArmorCoverage.Contains(partType))
                 continue;
 
-            if (!plateArmor.ArmorCoverage.Contains(partType))
-                continue;
+            var before = args.Args.Damage;
+            var after = DamageSpecifier.ApplyModifierSet(
+                before,
+                DamageSpecifier.PenetrateArmor(armor.Modifiers, before.ArmorPenetration));
 
-            var damageBeforePlate = args.Args.Damage;
-            var damageAfterPlate = DamageSpecifier.ApplyModifierSet(
-                damageBeforePlate,
-                DamageSpecifier.PenetrateArmor(plateArmor.Modifiers, damageBeforePlate.ArmorPenetration));
-
-            DamagePlate(plateUid, damageBeforePlate, damageAfterPlate);
-
-            args.Args.Damage = damageAfterPlate;
+            AbsorbDamage(plate, before, after);
+            args.Args.Damage = after;
         }
     }
 
-    #endregion
-
-    #region Helpers
-
-    private int GetPlateIntegrity(EntityUid plateUid)
+    private bool CanInsert(Entity<StorageArmorPlateComponent> ent, EntityUid plate)
     {
-        if (!TryComp<DamageableComponent>(plateUid, out var damageable))
+        return ent.Comp.Storage.ContainedEntities.Count < ent.Comp.MaxPlates
+               && _tag.HasTag(plate, ent.Comp.PlateTag);
+    }
+
+    /// <returns>Целостность пластины в процентах.</returns>
+    private int GetPlateIntegrity(EntityUid plate)
+    {
+        if (!TryComp<DamageableComponent>(plate, out var damageable))
             return 100;
 
-        var destroyedAt = _destructible.DestroyedAt(plateUid);
+        var destroyedAt = _destructible.DestroyedAt(plate);
         if (destroyedAt <= 0 || destroyedAt == FixedPoint2.MaxValue)
             return 100;
 
-        var fraction = 1f - (damageable.TotalDamage / destroyedAt).Float();
-        return (int) MathF.Round(Math.Clamp(fraction, 0f, 1f) * 100f);
+        var remaining = 1f - (damageable.TotalDamage / destroyedAt).Float();
+        return (int) MathF.Round(Math.Clamp(remaining, 0f, 1f) * 100f);
     }
 
     private static string GetIntegrityColor(int integrity)
@@ -194,47 +181,31 @@ public sealed class StorageArmorPlateSystem : EntitySystem
         };
     }
 
-    private bool CanInsert(Entity<StorageArmorPlateComponent> ent, EntityUid plate)
-    {
-        return ent.Comp.Storage.ContainedEntities.Count < ent.Comp.MaxPlates
-               && _tag.HasTag(plate, ent.Comp.PlateTag);
-    }
-
-    private void DamagePlate(EntityUid plateUid, DamageSpecifier before, DamageSpecifier after)
+    /// <summary>
+    /// Переносит на пластину ту часть урона, которую она погасила.
+    /// </summary>
+    private void AbsorbDamage(EntityUid plate, DamageSpecifier before, DamageSpecifier after)
     {
         var absorbed = new DamageSpecifier();
 
         foreach (var (type, beforeValue) in before.DamageDict)
         {
-            var afterValue = after.DamageDict.GetValueOrDefault(type);
-            var diff = beforeValue - afterValue;
-
+            var diff = beforeValue - after.DamageDict.GetValueOrDefault(type);
             if (diff > 0)
                 absorbed.DamageDict[type] = diff;
         }
 
-        if (absorbed.DamageDict.Count == 0)
-            return;
-
-        _damageable.TryChangeDamage(plateUid, absorbed, ignoreResistances: true);
+        if (absorbed.DamageDict.Count > 0)
+            _damageable.TryChangeDamage(plate, absorbed, ignoreResistances: true);
     }
 
-    private void RemovePlate(Entity<StorageArmorPlateComponent> ent, EntityUid user, EntityUid plateUid)
+    private void RemovePlate(Entity<StorageArmorPlateComponent> ent, EntityUid user, EntityUid plate)
     {
-        if (!_container.Remove(plateUid, ent.Comp.Storage))
+        if (!_container.Remove(plate, ent.Comp.Storage))
             return;
 
-        _transform.SetCoordinates(plateUid, Transform(user).Coordinates);
-        _hands.PickupOrDrop(user, plateUid);
+        _transform.SetCoordinates(plate, Transform(user).Coordinates);
+        _hands.PickupOrDrop(user, plate);
         _audio.PlayPvs(ent.Comp.PlateSound, ent);
     }
-
-    private static VerbCategory GetDefaultCategory()
-    {
-        return _defaultRemovePlateCategory ??= new VerbCategory(
-            "verb-categories-remove-plate",
-            "/Textures/Interface/VerbIcons/eject.svg.192dpi.png");
-    }
-
-    #endregion
 }
