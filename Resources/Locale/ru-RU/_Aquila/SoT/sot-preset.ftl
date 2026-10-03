@@ -9,9 +9,9 @@ sot-side-reapers = Жнецы
 sot-side-unknown = Неизвестно
 
 # --- Причины завершения (в нижнем регистре: подставляются в середину фразы) ---
-sot-battle-reason-destroyed = песочные часы проигравшего уничтожены
+sot-battle-reason-destroyed = песочные часы уничтожены
 sot-battle-reason-forced = битва завершена принудительно
-sot-battle-reason-round-end = раунд завершился до конца битвы
+sot-battle-reason-round-end = раунд завершился 
 
 # --- Объявления на весь сервер ---
 sot-battle-end-win = Битва №{ $number } окончена! Победитель: { $side } ({ $id }) — { $reason }.

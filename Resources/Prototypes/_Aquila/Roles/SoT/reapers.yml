@@ -1,0 +1,78 @@
+# Работа выполнена Claude (Anthropic).
+# Роли Жнецов. Сделаны по образцу Roles/OS14/command.yml.
+# Фракция игрока задаётся компонентом SotFaction (через AddComponentSpecial).
+
+- type: job
+  id: SotBurningHeartCaptain
+  name: job-name-SotBurningHeartCaptain
+  description: job-description-SotBurningHeartCaptain
+  playTimeTracker: SotBurningHeartCaptain
+  requirements:
+    - !type:SpeciesRequirement # CorvaxGoob-Species
+      inverted: true
+      species:
+      - Abductor
+  weight: 20
+  startingGear: SotBurningHeartCaptainGear
+  icon: "JobIconReaperLead"
+  joinNotifyCrew: false
+  supervisors: job-supervisors-nobody
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: SotFaction
+        side: Reapers
+
+- type: startingGear
+  id: SotBurningHeartCaptainGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryColorRed
+    head: ClothingHeadHatBeretCommand
+    eyes: ClothingEyesGlassesSunglasses
+    shoes: ClothingShoesBootsCombat
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterArmorBasic
+    id: CaptainPDA
+    back: ClothingBackpackSatchelLeather
+  inhand:
+  - Machete
+
+- type: job
+  id: SotFlameWarrior
+  name: job-name-SotFlameWarrior
+  description: job-description-SotFlameWarrior
+  playTimeTracker: SotFlameWarrior
+  requirements:
+    - !type:SpeciesRequirement # CorvaxGoob-Species
+      inverted: true
+      species:
+      - Abductor
+  weight: 10
+  startingGear: SotFlameWarriorGear
+  icon: "JobIconReaperWarrior"
+  joinNotifyCrew: false
+  supervisors: job-supervisors-sot-burning-heart-captain
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: SotFaction
+        side: Reapers
+
+- type: startingGear
+  id: SotFlameWarriorGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorRed
+    head: ClothingHeadHelmetBasic
+    shoes: ClothingShoesBootsCombat
+    gloves: ClothingHandsGlovesColorBlack
+    outerClothing: ClothingOuterArmorBasic
+    id: PassengerPDA
+    back: ClothingBackpackSatchel
+  inhand:
+  - Machete

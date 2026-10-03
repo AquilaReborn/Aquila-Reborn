@@ -1,0 +1,35 @@
+# Работа выполнена Claude (Anthropic).
+# Иконки должностей SoT (над головой персонажа и в лобби).
+# Спрайты лежат в Resources/Textures/Interface/Misc/job_icons.rsi (состояния
+# AthenaWarrior, AthenaLead, ReaperWarrior, ReaperLead, 8x8).
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconAthenaLead
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: AthenaLead
+  jobName: job-name-SotSupremePirate
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconAthenaWarrior
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: AthenaWarrior
+  jobName: job-name-SotTreasureWarrior
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconReaperLead
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: ReaperLead
+  jobName: job-name-SotBurningHeartCaptain
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconReaperWarrior
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: ReaperWarrior
+  jobName: job-name-SotFlameWarrior

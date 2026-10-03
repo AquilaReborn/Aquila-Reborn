@@ -34,6 +34,7 @@ public sealed class SotHourglassSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly SotRoundSystem _round = default!;
     [Dependency] private readonly SotRuleSystem _rule = default!;
+    [Dependency] private readonly SotHourglassAccessSystem _access = default!;
 
     private static readonly TimeSpan UpdateInterval = TimeSpan.FromSeconds(0.5);
     private TimeSpan _nextUpdate;
@@ -83,6 +84,14 @@ public sealed class SotHourglassSystem : EntitySystem
     private void OnVote(EntityUid uid, SotHourglassComponent comp, SotHourglassVoteMessage args)
     {
         var actor = args.Actor;
+
+        // Часами пользуется только своя фракция (окно у чужих не откроется, но сообщение могли подделать).
+        if (!_access.IsOwnFaction(actor, comp.Side))
+        {
+            _popup.PopupEntity(Loc.GetString("sot-hourglass-popup-wrong-faction"), uid, actor);
+            return;
+        }
+
         var phase = GetPhase(uid, comp, out var grid, out _);
 
         if (grid == null || phase is not (SotHourglassPhase.Idle or SotHourglassPhase.Countdown or SotHourglassPhase.Waiting))
@@ -92,7 +101,7 @@ public sealed class SotHourglassSystem : EntitySystem
             return;
         }
 
-        if (!IsValidVoter(actor, grid.Value))
+        if (!IsValidVoter(actor, grid.Value, comp.Side))
         {
             _popup.PopupEntity(Loc.GetString("sot-hourglass-popup-cannot-vote"), uid, actor);
             return;
@@ -113,7 +122,7 @@ public sealed class SotHourglassSystem : EntitySystem
         var phase = GetPhase(uid, comp, out var grid, out var id);
 
         if (grid != null)
-            comp.Voters.RemoveWhere(v => !IsValidVoter(v, grid.Value));
+            comp.Voters.RemoveWhere(v => !IsValidVoter(v, grid.Value, comp.Side));
 
         var votersSum = 0;
         foreach (var voter in comp.Voters)
@@ -172,11 +181,12 @@ public sealed class SotHourglassSystem : EntitySystem
         return comp.DepartAt != null ? SotHourglassPhase.Countdown : SotHourglassPhase.Idle;
     }
 
-    private bool IsValidVoter(EntityUid voter, EntityUid grid)
+    private bool IsValidVoter(EntityUid voter, EntityUid grid, SotSide side)
     {
         return Exists(voter)
                && !TerminatingOrDeleted(voter)
                && HasComp<ActorComponent>(voter) // подключённый игрок
+               && _access.IsOwnFaction(voter, side) // только своя фракция
                && _mobState.IsAlive(voter)
                && Transform(voter).GridUid == grid;
     }
@@ -203,7 +213,7 @@ public sealed class SotHourglassSystem : EntitySystem
 
         if (grid != null)
         {
-            comp.Voters.RemoveWhere(v => !IsValidVoter(v, grid.Value));
+            comp.Voters.RemoveWhere(v => !IsValidVoter(v, grid.Value, comp.Side));
 
             if (comp.Voters.Count >= Required(comp))
             {

@@ -1,0 +1,53 @@
+# Работа выполнена Claude (Anthropic).
+# Точки появления ролей SoT. Ставятся мапером на кораблях.
+- type: entity
+  id: SpawnPointSotSupremePirate
+  parent: SpawnPointJobBase
+  name: верховный пират
+  suffix: SoT, Афина
+  components:
+  - type: SpawnPoint
+    job_id: SotSupremePirate
+  - type: Sprite
+    layers:
+      - state: green
+      - state: captain
+
+- type: entity
+  id: SpawnPointSotTreasureWarrior
+  parent: SpawnPointJobBase
+  name: воитель сокровищ
+  suffix: SoT, Афина
+  components:
+  - type: SpawnPoint
+    job_id: SotTreasureWarrior
+  - type: Sprite
+    layers:
+      - state: green
+      - state: security_officer
+
+- type: entity
+  id: SpawnPointSotBurningHeartCaptain
+  parent: SpawnPointJobBase
+  name: капитан Пылающее Сердце
+  suffix: SoT, Жнецы
+  components:
+  - type: SpawnPoint
+    job_id: SotBurningHeartCaptain
+  - type: Sprite
+    layers:
+      - state: green
+      - state: captain
+
+- type: entity
+  id: SpawnPointSotFlameWarrior
+  parent: SpawnPointJobBase
+  name: воитель пламени
+  suffix: SoT, Жнецы
+  components:
+  - type: SpawnPoint
+    job_id: SotFlameWarrior
+  - type: Sprite
+    layers:
+      - state: green
+      - state: security_officer

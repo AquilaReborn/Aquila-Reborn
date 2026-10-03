@@ -1,0 +1,78 @@
+# Работа выполнена Claude (Anthropic).
+# Роли Афины. Сделаны по образцу Roles/OS14/command.yml.
+# Фракция игрока задаётся компонентом SotFaction (через AddComponentSpecial).
+
+- type: job
+  id: SotSupremePirate
+  name: job-name-SotSupremePirate
+  description: job-description-SotSupremePirate
+  playTimeTracker: SotSupremePirate
+  requirements:
+    - !type:SpeciesRequirement # CorvaxGoob-Species
+      inverted: true
+      species:
+      - Abductor
+  weight: 20
+  startingGear: SotSupremePirateGear
+  icon: "JobIconAthenaLead"
+  joinNotifyCrew: false
+  supervisors: job-supervisors-nobody
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: SotFaction
+        side: Athena
+
+- type: startingGear
+  id: SotSupremePirateGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitPirate
+    head: ClothingHeadHatPirateTricord
+    eyes: ClothingEyesEyepatch
+    shoes: ClothingShoesBootsCombat
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterCoatPirate
+    id: CaptainPDA
+    back: ClothingBackpackSatchelLeather
+  inhand:
+  - Cutlass
+
+- type: job
+  id: SotTreasureWarrior
+  name: job-name-SotTreasureWarrior
+  description: job-description-SotTreasureWarrior
+  playTimeTracker: SotTreasureWarrior
+  requirements:
+    - !type:SpeciesRequirement # CorvaxGoob-Species
+      inverted: true
+      species:
+      - Abductor
+  weight: 10
+  startingGear: SotTreasureWarriorGear
+  icon: "JobIconAthenaWarrior"
+  joinNotifyCrew: false
+  supervisors: job-supervisors-sot-supreme-pirate
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: SotFaction
+        side: Athena
+
+- type: startingGear
+  id: SotTreasureWarriorGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorYellow
+    head: ClothingHeadHelmetBasic
+    shoes: ClothingShoesBootsCombat
+    gloves: ClothingHandsGlovesColorBlack
+    outerClothing: ClothingOuterArmorBasic
+    id: PassengerPDA
+    back: ClothingBackpackSatchel
+  inhand:
+  - Cutlass

@@ -1,0 +1,21 @@
+# Работа выполнена Claude (Anthropic).
+# Департаменты SoT: по одному на сторону. setting: SoT группирует их в редакторе персонажа.
+- type: department
+  id: SotAthena
+  name: department-sot-athena
+  description: department-sot-athena-desc
+  setting: SoT
+  color: "#001aff"
+  roles:
+  - SotSupremePirate
+  - SotTreasureWarrior
+
+- type: department
+  id: SotReapers
+  name: department-sot-reapers
+  description: department-sot-reapers-desc
+  setting: SoT
+  color: "#ff2a00"
+  roles:
+  - SotBurningHeartCaptain
+  - SotFlameWarrior

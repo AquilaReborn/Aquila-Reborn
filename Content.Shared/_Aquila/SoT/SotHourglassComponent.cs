@@ -3,6 +3,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Robust.Shared.Serialization;
+
 namespace Content.Shared._Kakila.Sot;
 
 /// <summary>
@@ -42,6 +44,7 @@ public sealed partial class SotHourglassComponent : Component
 }
 
 /// <summary>Стороны противостояния.</summary>
+[Serializable, NetSerializable]
 public enum SotSide : byte
 {
     Athena,

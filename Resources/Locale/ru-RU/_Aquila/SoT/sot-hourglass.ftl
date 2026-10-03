@@ -33,6 +33,7 @@ sot-hourglass-info-Unavailable = Голосование сейчас недос�
 # --- Всплывающие подсказки ---
 sot-hourglass-popup-cannot-vote = Голосовать могут только живые члены экипажа на борту корабля.
 sot-hourglass-popup-unavailable = Сейчас голосование недоступно.
+sot-hourglass-popup-wrong-faction = Эти часы принадлежат другой стороне. Вы не можете ими пользоваться.
 
 # --- Фразы часов в местный чат ---
 sot-hourglass-say-countdown = Экипаж готов! Вылет через { $seconds } секунд.
