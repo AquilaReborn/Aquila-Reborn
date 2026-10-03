@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 07/06/2025 21:37:15
-  entityCount: 1448
+  entityCount: 1417
 maps: []
 grids:
 - 1
@@ -22,14 +22,14 @@ tilemap:
   16: FloorOldConcreteSmooth
   14: FloorTechMaint3
   5: Lattice
-  12: LatticeCorner1
-  10: LatticeCorner2
-  6: LatticeCorner3
-  13: LatticeCorner4
-  17: LatticeSmall1
-  11: LatticeSmall2
-  9: LatticeSmall3
-  8: LatticeSmall4
+  12: Lattice
+  10: Lattice
+  6: Lattice
+  13: Lattice
+  17: Lattice
+  11: Lattice
+  9: Lattice
+  8: Lattice
   4: Plating
 entities:
 - proto: ""
@@ -389,7 +389,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 5.5,-13.5
       parent: 1
-- proto: AirlockShuttle
+- proto: AirlockExternal
   entities:
   - uid: 14
     components:
@@ -799,12 +799,6 @@ entities:
       parent: 497
     - type: Storage
       storedItems:
-        499:
-          position: 0,0
-          _rotation: East
-        500:
-          position: 2,0
-          _rotation: North
         501:
           position: 0,1
           _rotation: South
@@ -814,17 +808,9 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 499
-          - 500
           - 501
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 502
     components:
@@ -834,12 +820,6 @@ entities:
       parent: 497
     - type: Storage
       storedItems:
-        503:
-          position: 0,0
-          _rotation: East
-        504:
-          position: 2,0
-          _rotation: North
         505:
           position: 0,1
           _rotation: South
@@ -849,17 +829,9 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 503
-          - 504
           - 505
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 506
     components:
@@ -869,12 +841,6 @@ entities:
       parent: 497
     - type: Storage
       storedItems:
-        507:
-          position: 0,0
-          _rotation: East
-        508:
-          position: 2,0
-          _rotation: North
         509:
           position: 0,1
           _rotation: South
@@ -884,17 +850,9 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 507
-          - 508
           - 509
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 510
     components:
@@ -907,12 +865,6 @@ entities:
         511:
           position: 0,0
           _rotation: South
-        512:
-          position: 1,0
-          _rotation: East
-        513:
-          position: 1,1
-          _rotation: East
     - type: ContainerContainer
       containers:
         storagebase: !type:Container
@@ -920,16 +872,8 @@ entities:
           occludes: True
           ents:
           - 511
-          - 512
-          - 513
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 514
     components:
@@ -939,12 +883,6 @@ entities:
       parent: 497
     - type: Storage
       storedItems:
-        515:
-          position: 0,0
-          _rotation: East
-        516:
-          position: 2,0
-          _rotation: North
         517:
           position: 0,1
           _rotation: South
@@ -954,17 +892,9 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 515
-          - 516
           - 517
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 518
     components:
@@ -974,12 +904,6 @@ entities:
       parent: 497
     - type: Storage
       storedItems:
-        519:
-          position: 0,0
-          _rotation: East
-        520:
-          position: 2,0
-          _rotation: North
         521:
           position: 0,1
           _rotation: South
@@ -989,17 +913,9 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 519
-          - 520
           - 521
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 522
     components:
@@ -1009,12 +925,6 @@ entities:
       parent: 497
     - type: Storage
       storedItems:
-        523:
-          position: 0,0
-          _rotation: East
-        524:
-          position: 2,0
-          _rotation: North
         525:
           position: 0,1
           _rotation: South
@@ -1024,17 +934,9 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 523
-          - 524
           - 525
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 526
     components:
@@ -1044,12 +946,6 @@ entities:
       parent: 497
     - type: Storage
       storedItems:
-        527:
-          position: 0,0
-          _rotation: East
-        528:
-          position: 2,0
-          _rotation: North
         529:
           position: 0,1
           _rotation: South
@@ -1059,17 +955,9 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 527
-          - 528
           - 529
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 530
     components:
@@ -1079,12 +967,6 @@ entities:
       parent: 497
     - type: Storage
       storedItems:
-        531:
-          position: 0,0
-          _rotation: East
-        532:
-          position: 2,0
-          _rotation: North
         533:
           position: 0,1
           _rotation: South
@@ -1094,17 +976,9 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 531
-          - 532
           - 533
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 534
     components:
@@ -1114,12 +988,6 @@ entities:
       parent: 497
     - type: Storage
       storedItems:
-        535:
-          position: 0,0
-          _rotation: East
-        536:
-          position: 2,0
-          _rotation: North
         537:
           position: 0,1
           _rotation: South
@@ -1129,17 +997,9 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 535
-          - 536
           - 537
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 539
     components:
@@ -1173,12 +1033,6 @@ entities:
           - 543
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 544
     components:
@@ -1212,12 +1066,6 @@ entities:
           - 548
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 549
     components:
@@ -1249,12 +1097,6 @@ entities:
           - 553
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 554
     components:
@@ -1288,12 +1130,6 @@ entities:
           - 558
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 559
     components:
@@ -1327,12 +1163,6 @@ entities:
           - 563
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 564
     components:
@@ -1366,12 +1196,6 @@ entities:
           - 568
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 569
     components:
@@ -1405,12 +1229,6 @@ entities:
           - 573
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 574
     components:
@@ -1444,12 +1262,6 @@ entities:
           - 578
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 579
     components:
@@ -1483,12 +1295,6 @@ entities:
           - 583
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 584
     components:
@@ -1522,12 +1328,6 @@ entities:
           - 588
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 589
     components:
@@ -1561,12 +1361,6 @@ entities:
           - 593
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 594
     components:
@@ -1600,12 +1394,6 @@ entities:
           - 598
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 599
     components:
@@ -1639,12 +1427,6 @@ entities:
           - 603
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 604
     components:
@@ -1678,12 +1460,6 @@ entities:
           - 608
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 609
     components:
@@ -1717,12 +1493,6 @@ entities:
           - 613
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 614
     components:
@@ -1756,12 +1526,6 @@ entities:
           - 618
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 619
     components:
@@ -1795,12 +1559,6 @@ entities:
           - 623
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 624
     components:
@@ -1834,12 +1592,6 @@ entities:
           - 628
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 629
     components:
@@ -1873,12 +1625,6 @@ entities:
           - 633
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 634
     components:
@@ -1912,12 +1658,6 @@ entities:
           - 638
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 640
     components:
@@ -1955,12 +1695,6 @@ entities:
           - 645
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 646
     components:
@@ -1998,12 +1732,6 @@ entities:
           - 651
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 652
     components:
@@ -2041,12 +1769,6 @@ entities:
           - 657
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 658
     components:
@@ -2084,12 +1806,6 @@ entities:
           - 663
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 664
     components:
@@ -2127,12 +1843,6 @@ entities:
           - 669
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 670
     components:
@@ -2170,12 +1880,6 @@ entities:
           - 675
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 676
     components:
@@ -2213,12 +1917,6 @@ entities:
           - 681
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 682
     components:
@@ -2256,12 +1954,6 @@ entities:
           - 687
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 688
     components:
@@ -2299,12 +1991,6 @@ entities:
           - 693
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 694
     components:
@@ -2342,12 +2028,6 @@ entities:
           - 699
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 700
     components:
@@ -2385,12 +2065,6 @@ entities:
           - 705
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 706
     components:
@@ -2428,12 +2102,6 @@ entities:
           - 711
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 712
     components:
@@ -2509,12 +2177,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 724
     components:
     - type: MetaData
@@ -2551,12 +2213,6 @@ entities:
           - 729
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 730
     components:
@@ -2594,12 +2250,6 @@ entities:
           - 735
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 736
     components:
@@ -2637,12 +2287,6 @@ entities:
           - 741
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 742
     components:
@@ -2680,12 +2324,6 @@ entities:
           - 747
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 748
     components:
@@ -2723,12 +2361,6 @@ entities:
           - 753
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 754
     components:
@@ -2766,12 +2398,6 @@ entities:
           - 759
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
 - proto: BoxFolderClipboard
   entities:
@@ -4893,249 +4519,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 5.5,-20.5
       parent: 1
-- proto: ClothingHeadHatBowlerOrange
-  entities:
-  - uid: 499
-    components:
-    - type: Transform
-      parent: 498
-    - type: Physics
-      canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 500
-    components:
-    - type: Transform
-      parent: 498
-    - type: Physics
-      canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 503
-    components:
-    - type: Transform
-      parent: 502
-    - type: Physics
-      canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 504
-    components:
-    - type: Transform
-      parent: 502
-    - type: Physics
-      canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 507
-    components:
-    - type: Transform
-      parent: 506
-    - type: Physics
-      canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 508
-    components:
-    - type: Transform
-      parent: 506
-    - type: Physics
-      canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 512
-    components:
-    - type: Transform
-      parent: 510
-    - type: Physics
-      canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 513
-    components:
-    - type: Transform
-      parent: 510
-    - type: Physics
-      canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 515
-    components:
-    - type: Transform
-      parent: 514
-    - type: Physics
-      canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 516
-    components:
-    - type: Transform
-      parent: 514
-    - type: Physics
-      canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 519
-    components:
-    - type: Transform
-      parent: 518
-    - type: Physics
-      canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 520
-    components:
-    - type: Transform
-      parent: 518
-    - type: Physics
-      canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 523
-    components:
-    - type: Transform
-      parent: 522
-    - type: Physics
-      canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 524
-    components:
-    - type: Transform
-      parent: 522
-    - type: Physics
-      canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 527
-    components:
-    - type: Transform
-      parent: 526
-    - type: Physics
-      canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 528
-    components:
-    - type: Transform
-      parent: 526
-    - type: Physics
-      canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 531
-    components:
-    - type: Transform
-      parent: 530
-    - type: Physics
-      canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 532
-    components:
-    - type: Transform
-      parent: 530
-    - type: Physics
-      canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 535
-    components:
-    - type: Transform
-      parent: 534
-    - type: Physics
-      canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 536
-    components:
-    - type: Transform
-      parent: 534
-    - type: Physics
-      canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-- proto: CoffeeTableWood
+- proto: TableWood
   entities:
   - uid: 485
     components:
@@ -5208,7 +4592,7 @@ entities:
     - type: Transform
       pos: 5.5,-19.5
       parent: 1
-- proto: CrateEngineeringAMEJar3
+- proto: CrateEngineeringAMEJar
   entities:
   - uid: 496
     components:
@@ -5802,600 +5186,300 @@ entities:
       parent: 498
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 505
     components:
     - type: Transform
       parent: 502
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 509
     components:
     - type: Transform
       parent: 506
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 511
     components:
     - type: Transform
       parent: 510
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 517
     components:
     - type: Transform
       parent: 514
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 521
     components:
     - type: Transform
       parent: 518
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 525
     components:
     - type: Transform
       parent: 522
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 529
     components:
     - type: Transform
       parent: 526
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 533
     components:
     - type: Transform
       parent: 530
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 537
     components:
     - type: Transform
       parent: 534
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 541
     components:
     - type: Transform
       parent: 539
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 546
     components:
     - type: Transform
       parent: 544
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 551
     components:
     - type: Transform
       parent: 549
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 556
     components:
     - type: Transform
       parent: 554
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 563
     components:
     - type: Transform
       parent: 559
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 568
     components:
     - type: Transform
       parent: 564
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 573
     components:
     - type: Transform
       parent: 569
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 578
     components:
     - type: Transform
       parent: 574
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 583
     components:
     - type: Transform
       parent: 579
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 588
     components:
     - type: Transform
       parent: 584
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 592
     components:
     - type: Transform
       parent: 589
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 596
     components:
     - type: Transform
       parent: 594
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 603
     components:
     - type: Transform
       parent: 599
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 606
     components:
     - type: Transform
       parent: 604
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 611
     components:
     - type: Transform
       parent: 609
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 615
     components:
     - type: Transform
       parent: 614
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 621
     components:
     - type: Transform
       parent: 619
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 625
     components:
     - type: Transform
       parent: 624
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 633
     components:
     - type: Transform
       parent: 629
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 638
     components:
     - type: Transform
       parent: 634
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 641
     components:
     - type: Transform
       parent: 640
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 650
     components:
     - type: Transform
       parent: 646
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 653
     components:
     - type: Transform
       parent: 652
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 659
     components:
     - type: Transform
       parent: 658
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 665
     components:
     - type: Transform
       parent: 664
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 674
     components:
     - type: Transform
       parent: 670
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 677
     components:
     - type: Transform
       parent: 676
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 686
     components:
     - type: Transform
       parent: 682
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 689
     components:
     - type: Transform
       parent: 688
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 695
     components:
     - type: Transform
       parent: 694
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 704
     components:
     - type: Transform
       parent: 700
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 710
     components:
     - type: Transform
       parent: 706
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 716
     components:
     - type: Transform
       parent: 712
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 722
     components:
     - type: Transform
       parent: 718
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 728
     components:
     - type: Transform
       parent: 724
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 734
     components:
     - type: Transform
       parent: 730
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 738
     components:
     - type: Transform
       parent: 736
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 743
     components:
     - type: Transform
       parent: 742
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 749
     components:
     - type: Transform
       parent: 748
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 758
     components:
     - type: Transform
       parent: 754
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
 - proto: ElysiumPosterHolo
   entities:
   - uid: 829
@@ -6452,128 +5536,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 2.5,13.5
       parent: 1
-- proto: EncryptionKeyRadio10
-  entities:
-  - uid: 839
-    components:
-    - type: Transform
-      parent: 838
-    - type: Physics
-      canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 841
-    components:
-    - type: Transform
-      parent: 840
-    - type: Physics
-      canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 843
-    components:
-    - type: Transform
-      parent: 842
-    - type: Physics
-      canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 845
-    components:
-    - type: Transform
-      parent: 844
-    - type: Physics
-      canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 847
-    components:
-    - type: Transform
-      parent: 846
-    - type: Physics
-      canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 849
-    components:
-    - type: Transform
-      parent: 848
-    - type: Physics
-      canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 851
-    components:
-    - type: Transform
-      parent: 850
-    - type: Physics
-      canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 853
-    components:
-    - type: Transform
-      parent: 852
-    - type: Physics
-      canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 855
-    components:
-    - type: Transform
-      parent: 854
-    - type: Physics
-      canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 857
-    components:
-    - type: Transform
-      parent: 856
-    - type: Physics
-      canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
 - proto: FoodBreadBun
   entities:
   - uid: 540
@@ -6582,480 +5544,240 @@ entities:
       parent: 539
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 545
     components:
     - type: Transform
       parent: 544
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 550
     components:
     - type: Transform
       parent: 549
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 555
     components:
     - type: Transform
       parent: 554
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 560
     components:
     - type: Transform
       parent: 559
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 566
     components:
     - type: Transform
       parent: 564
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 571
     components:
     - type: Transform
       parent: 569
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 576
     components:
     - type: Transform
       parent: 574
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 581
     components:
     - type: Transform
       parent: 579
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 586
     components:
     - type: Transform
       parent: 584
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 591
     components:
     - type: Transform
       parent: 589
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 595
     components:
     - type: Transform
       parent: 594
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 601
     components:
     - type: Transform
       parent: 599
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 605
     components:
     - type: Transform
       parent: 604
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 610
     components:
     - type: Transform
       parent: 609
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 616
     components:
     - type: Transform
       parent: 614
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 620
     components:
     - type: Transform
       parent: 619
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 626
     components:
     - type: Transform
       parent: 624
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 631
     components:
     - type: Transform
       parent: 629
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 636
     components:
     - type: Transform
       parent: 634
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 642
     components:
     - type: Transform
       parent: 640
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 648
     components:
     - type: Transform
       parent: 646
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 654
     components:
     - type: Transform
       parent: 652
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 660
     components:
     - type: Transform
       parent: 658
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 666
     components:
     - type: Transform
       parent: 664
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 671
     components:
     - type: Transform
       parent: 670
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 678
     components:
     - type: Transform
       parent: 676
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 683
     components:
     - type: Transform
       parent: 682
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 690
     components:
     - type: Transform
       parent: 688
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 696
     components:
     - type: Transform
       parent: 694
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 701
     components:
     - type: Transform
       parent: 700
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 707
     components:
     - type: Transform
       parent: 706
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 713
     components:
     - type: Transform
       parent: 712
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 720
     components:
     - type: Transform
       parent: 718
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 725
     components:
     - type: Transform
       parent: 724
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 731
     components:
     - type: Transform
       parent: 730
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 737
     components:
     - type: Transform
       parent: 736
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 744
     components:
     - type: Transform
       parent: 742
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 750
     components:
     - type: Transform
       parent: 748
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 756
     components:
     - type: Transform
       parent: 754
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
 - proto: FoodDonkpocketCarpWarm
   entities:
   - uid: 645
@@ -7064,240 +5786,120 @@ entities:
       parent: 640
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 651
     components:
     - type: Transform
       parent: 646
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 657
     components:
     - type: Transform
       parent: 652
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 663
     components:
     - type: Transform
       parent: 658
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 669
     components:
     - type: Transform
       parent: 664
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 675
     components:
     - type: Transform
       parent: 670
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 681
     components:
     - type: Transform
       parent: 676
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 687
     components:
     - type: Transform
       parent: 682
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 693
     components:
     - type: Transform
       parent: 688
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 699
     components:
     - type: Transform
       parent: 694
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 705
     components:
     - type: Transform
       parent: 700
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 711
     components:
     - type: Transform
       parent: 706
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 717
     components:
     - type: Transform
       parent: 712
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 723
     components:
     - type: Transform
       parent: 718
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 729
     components:
     - type: Transform
       parent: 724
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 735
     components:
     - type: Transform
       parent: 730
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 741
     components:
     - type: Transform
       parent: 736
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 747
     components:
     - type: Transform
       parent: 742
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 753
     components:
     - type: Transform
       parent: 748
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 759
     components:
     - type: Transform
       parent: 754
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
 - proto: FoodMeatChickenFried
   entities:
   - uid: 542
@@ -7306,240 +5908,120 @@ entities:
       parent: 539
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 547
     components:
     - type: Transform
       parent: 544
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 553
     components:
     - type: Transform
       parent: 549
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 557
     components:
     - type: Transform
       parent: 554
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 562
     components:
     - type: Transform
       parent: 559
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 567
     components:
     - type: Transform
       parent: 564
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 572
     components:
     - type: Transform
       parent: 569
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 577
     components:
     - type: Transform
       parent: 574
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 582
     components:
     - type: Transform
       parent: 579
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 587
     components:
     - type: Transform
       parent: 584
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 593
     components:
     - type: Transform
       parent: 589
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 597
     components:
     - type: Transform
       parent: 594
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 602
     components:
     - type: Transform
       parent: 599
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 607
     components:
     - type: Transform
       parent: 604
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 612
     components:
     - type: Transform
       parent: 609
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 617
     components:
     - type: Transform
       parent: 614
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 622
     components:
     - type: Transform
       parent: 619
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 627
     components:
     - type: Transform
       parent: 624
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 632
     components:
     - type: Transform
       parent: 629
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 637
     components:
     - type: Transform
       parent: 634
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
 - proto: FoodSnackChocolate
   entities:
   - uid: 543
@@ -7548,480 +6030,240 @@ entities:
       parent: 539
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 548
     components:
     - type: Transform
       parent: 544
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 552
     components:
     - type: Transform
       parent: 549
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 558
     components:
     - type: Transform
       parent: 554
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 561
     components:
     - type: Transform
       parent: 559
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 565
     components:
     - type: Transform
       parent: 564
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 570
     components:
     - type: Transform
       parent: 569
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 575
     components:
     - type: Transform
       parent: 574
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 580
     components:
     - type: Transform
       parent: 579
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 585
     components:
     - type: Transform
       parent: 584
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 590
     components:
     - type: Transform
       parent: 589
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 598
     components:
     - type: Transform
       parent: 594
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 600
     components:
     - type: Transform
       parent: 599
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 608
     components:
     - type: Transform
       parent: 604
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 613
     components:
     - type: Transform
       parent: 609
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 618
     components:
     - type: Transform
       parent: 614
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 623
     components:
     - type: Transform
       parent: 619
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 628
     components:
     - type: Transform
       parent: 624
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 630
     components:
     - type: Transform
       parent: 629
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 635
     components:
     - type: Transform
       parent: 634
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 644
     components:
     - type: Transform
       parent: 640
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 647
     components:
     - type: Transform
       parent: 646
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 656
     components:
     - type: Transform
       parent: 652
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 662
     components:
     - type: Transform
       parent: 658
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 668
     components:
     - type: Transform
       parent: 664
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 672
     components:
     - type: Transform
       parent: 670
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 680
     components:
     - type: Transform
       parent: 676
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 684
     components:
     - type: Transform
       parent: 682
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 692
     components:
     - type: Transform
       parent: 688
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 698
     components:
     - type: Transform
       parent: 694
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 702
     components:
     - type: Transform
       parent: 700
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 708
     components:
     - type: Transform
       parent: 706
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 714
     components:
     - type: Transform
       parent: 712
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 719
     components:
     - type: Transform
       parent: 718
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 726
     components:
     - type: Transform
       parent: 724
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 732
     components:
     - type: Transform
       parent: 730
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 740
     components:
     - type: Transform
       parent: 736
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 746
     components:
     - type: Transform
       parent: 742
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 752
     components:
     - type: Transform
       parent: 748
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 755
     components:
     - type: Transform
       parent: 754
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
 - proto: FoodTacoFish
   entities:
   - uid: 643
@@ -8030,240 +6272,120 @@ entities:
       parent: 640
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 649
     components:
     - type: Transform
       parent: 646
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 655
     components:
     - type: Transform
       parent: 652
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 661
     components:
     - type: Transform
       parent: 658
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 667
     components:
     - type: Transform
       parent: 664
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 673
     components:
     - type: Transform
       parent: 670
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 679
     components:
     - type: Transform
       parent: 676
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 685
     components:
     - type: Transform
       parent: 682
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 691
     components:
     - type: Transform
       parent: 688
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 697
     components:
     - type: Transform
       parent: 694
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 703
     components:
     - type: Transform
       parent: 700
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 709
     components:
     - type: Transform
       parent: 706
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 715
     components:
     - type: Transform
       parent: 712
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 721
     components:
     - type: Transform
       parent: 718
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 727
     components:
     - type: Transform
       parent: 724
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 733
     components:
     - type: Transform
       parent: 730
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 739
     components:
     - type: Transform
       parent: 736
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 745
     components:
     - type: Transform
       parent: 742
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 751
     components:
     - type: Transform
       parent: 748
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 757
     components:
     - type: Transform
       parent: 754
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
 - proto: GravityGeneratorMini
   entities:
   - uid: 858
@@ -8739,8 +6861,7 @@ entities:
         key_slots: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - 839
+          ents: []
   - uid: 840
     components:
     - type: Transform
@@ -8764,8 +6885,7 @@ entities:
         key_slots: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - 841
+          ents: []
   - uid: 842
     components:
     - type: Transform
@@ -8790,8 +6910,7 @@ entities:
         key_slots: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - 843
+          ents: []
   - uid: 844
     components:
     - type: Transform
@@ -8816,8 +6935,7 @@ entities:
         key_slots: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - 845
+          ents: []
   - uid: 846
     components:
     - type: Transform
@@ -8842,8 +6960,7 @@ entities:
         key_slots: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - 847
+          ents: []
   - uid: 848
     components:
     - type: Transform
@@ -8867,8 +6984,7 @@ entities:
         key_slots: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - 849
+          ents: []
   - uid: 850
     components:
     - type: Transform
@@ -8893,8 +7009,7 @@ entities:
         key_slots: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - 851
+          ents: []
   - uid: 852
     components:
     - type: Transform
@@ -8919,8 +7034,7 @@ entities:
         key_slots: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - 853
+          ents: []
   - uid: 854
     components:
     - type: Transform
@@ -8945,8 +7059,7 @@ entities:
         key_slots: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - 855
+          ents: []
   - uid: 856
     components:
     - type: Transform
@@ -8971,8 +7084,7 @@ entities:
         key_slots: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - 857
+          ents: []
 - proto: Jukebox
   entities:
   - uid: 930
@@ -9019,12 +7131,6 @@ entities:
       color: '#EEE8AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -9042,12 +7148,6 @@ entities:
       color: '#808080FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 940
     mapInit: true
     paused: true
@@ -9060,12 +7160,6 @@ entities:
       color: '#808080FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -9083,12 +7177,6 @@ entities:
       color: '#808080FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -9106,12 +7194,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -9129,12 +7211,6 @@ entities:
       color: '#808080FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -9152,12 +7228,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 950
     mapInit: true
     paused: true
@@ -9170,12 +7240,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 952
     mapInit: true
     paused: true
@@ -9188,12 +7252,6 @@ entities:
       color: '#808080FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -9211,12 +7269,6 @@ entities:
       color: '#98FB98FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -9234,12 +7286,6 @@ entities:
       color: '#98FB98FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 958
     mapInit: true
     paused: true
@@ -9252,12 +7298,6 @@ entities:
       color: '#EEE8AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -9275,12 +7315,6 @@ entities:
       color: '#EEE8AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -9298,12 +7332,6 @@ entities:
       color: '#EEE8AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 964
     mapInit: true
     paused: true
@@ -9316,12 +7344,6 @@ entities:
       color: '#EEE8AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 966
     mapInit: true
     paused: true
@@ -9334,12 +7356,6 @@ entities:
       color: '#808080FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -9357,12 +7373,6 @@ entities:
       color: '#808080FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -9380,12 +7390,6 @@ entities:
       color: '#808080FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 972
     mapInit: true
     paused: true
@@ -9398,12 +7402,6 @@ entities:
       color: '#808080FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 974
     mapInit: true
     paused: true
@@ -9416,12 +7414,6 @@ entities:
       color: '#808080FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -9439,12 +7431,6 @@ entities:
       color: '#808080FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -9462,12 +7448,6 @@ entities:
       color: '#696969FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 980
     mapInit: true
     paused: true
@@ -9480,12 +7460,6 @@ entities:
       color: '#696969FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -9503,12 +7477,6 @@ entities:
       color: '#696969FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -9526,12 +7494,6 @@ entities:
       color: '#696969FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -9549,12 +7511,6 @@ entities:
       color: '#EEE8AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -9572,12 +7528,6 @@ entities:
       color: '#EEE8AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -9595,12 +7545,6 @@ entities:
       color: '#98FB98FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -9618,12 +7562,6 @@ entities:
       color: '#98FB98FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -9641,12 +7579,6 @@ entities:
       color: '#EEE8AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 996
     mapInit: true
     paused: true
@@ -9659,12 +7591,6 @@ entities:
       color: '#EEE8AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -9682,12 +7608,6 @@ entities:
       color: '#20B2AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -9705,12 +7625,6 @@ entities:
       color: '#20B2AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 1002
     mapInit: true
     paused: true
@@ -9723,12 +7637,6 @@ entities:
       color: '#98FB98FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -9746,12 +7654,6 @@ entities:
       color: '#98FB98FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 1006
     mapInit: true
     paused: true
@@ -9764,12 +7666,6 @@ entities:
       color: '#808080FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -9787,12 +7683,6 @@ entities:
       color: '#808080FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -9810,12 +7700,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -9833,12 +7717,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -9856,12 +7734,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -9879,12 +7751,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -9902,12 +7768,6 @@ entities:
       color: '#98FB98FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -9925,12 +7785,6 @@ entities:
       color: '#98FB98FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -9948,12 +7802,6 @@ entities:
       color: '#EEE8AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -9971,12 +7819,6 @@ entities:
       color: '#EEE8AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -9990,12 +7832,6 @@ entities:
       color: '#B22222FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 1028
     components:
     - type: Transform
@@ -10004,12 +7840,6 @@ entities:
       color: '#B22222FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 1030
     components:
     - type: Transform
@@ -10018,12 +7848,6 @@ entities:
       color: '#B22222FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 1032
     components:
     - type: Transform
@@ -10032,12 +7856,6 @@ entities:
       color: '#B22222FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 1034
     components:
     - type: Transform
@@ -10046,12 +7864,6 @@ entities:
       color: '#B22222FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 1036
     components:
     - type: Transform
@@ -10060,12 +7872,6 @@ entities:
       color: '#B22222FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 1038
     mapInit: true
     paused: true
@@ -10078,12 +7884,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -10240,13 +8040,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 10.5,12.5
-      parent: 1
-- proto: PlaqueAtmos
-  entities:
-  - uid: 1064
-    components:
-    - type: Transform
-      pos: 6.5,-27.5
       parent: 1
 - proto: PottedPlantRandom
   entities:
@@ -11185,7 +8978,7 @@ entities:
     - type: Transform
       pos: 10.5,5.5
       parent: 1
-- proto: RailingImperial
+- proto: Railing
   entities:
   - uid: 1088
     components:
@@ -11287,7 +9080,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 4.5,-28.5
       parent: 1
-- proto: RandomCommunityPoster
+- proto: RandomPosterAny
   entities:
   - uid: 1106
     components:
@@ -11381,7 +9174,7 @@ entities:
     - type: Transform
       pos: 4.5,-17.5
       parent: 1
-- proto: ReinforcedWindowUnbreakable
+- proto: ReinforcedWindow
   entities:
   - uid: 1122
     components:
@@ -11963,7 +9756,7 @@ entities:
     - type: BatterySelfRecharger
       autoRechargeRate: 8000000
       autoRecharge: True
-- proto: SofaLeft
+- proto: BenchSofaLeft
   entities:
   - uid: 1218
     components:
@@ -12007,7 +9800,7 @@ entities:
     - type: Transform
       pos: 10.5,-4.5
       parent: 1
-- proto: SofaMiddle
+- proto: BenchSofaMiddle
   entities:
   - uid: 1226
     components:
@@ -12021,7 +9814,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 8.5,9.5
       parent: 1
-- proto: SofaRight
+- proto: BenchSofaRight
   entities:
   - uid: 1228
     components:
@@ -12133,7 +9926,7 @@ entities:
       parent: 1
     - type: Thruster
       enabled: False
-- proto: ThrusterMedium
+- proto: Thruster
   entities:
   - uid: 1246
     components:

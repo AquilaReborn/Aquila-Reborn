@@ -16,14 +16,14 @@ tilemap:
   3: Space
   4: FloorDark
   0: FloorMetalDiamond
-  9: LatticeCorner1
-  10: LatticeCorner2
-  6: LatticeCorner3
-  1: LatticeCorner4
-  2: LatticeSmall1
-  11: LatticeSmall2
-  8: LatticeSmall3
-  7: LatticeSmall4
+  9: Lattice
+  10: Lattice
+  6: Lattice
+  1: Lattice
+  2: Lattice
+  11: Lattice
+  8: Lattice
+  7: Lattice
   5: Plating
 entities:
 - proto: ""
@@ -446,12 +446,6 @@ entities:
       color: '#008B8BFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -469,12 +463,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -513,7 +501,7 @@ entities:
       powerLoad: 25
     - type: DamageOnInteract
       isDamageActive: False
-- proto: ReinforcedWindowUnbreakable
+- proto: ReinforcedWindow
   entities:
   - uid: 27
     components:

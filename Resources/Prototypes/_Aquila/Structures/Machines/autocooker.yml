@@ -1,0 +1,252 @@
+- type: entity
+  abstract: true
+  id: BaseAutoCooker
+  parent: [ BaseMachinePowered, ConstructibleMachine, BaseSmallConstructibleMachineDestructible ]
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Clickable
+  - type: Sprite
+    sprite: _Aquila/Structures/Machines/autocooker.rsi
+    layers:
+    - state: off
+    - state: off
+      map: [ "overlay" ]
+      shader: unshaded
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.AutoCookerVisuals.State:
+        overlay:
+          Off: { state: off }
+          Normal: { state: normal-unshaded }
+          Cooking: { state: cooking-unshaded }
+          Done: { state: done-unshaded }
+  - type: ApcPowerReceiver
+    powerLoad: 70
+  - type: ActivatableUI
+    key: enum.AutoCookerUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: ActivatableUIRequiresAccess
+  - type: UserInterface
+    interfaces:
+      enum.AutoCookerUiKey.Key:
+        type: AutoCookerBoundUserInterface
+  - type: ScreenNoiseUi
+  - type: Pullable
+  - type: WiresPanel
+
+- type: entity
+  id: AutoCookerBar
+  parent: BaseAutoCooker
+  name: auto-bartender
+  description: Mixes cocktails and drinks on its own. Synthesizes ingredients from energy.
+  components:
+  - type: Machine
+    board: AutoCookerBarMachineCircuitboard
+  - type: AccessReader
+    access: [["Bar"]]
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Vending
+  - type: Vocalizer
+    minVocalizeInterval: 8m
+    maxVocalizeInterval: 10m
+    hideChat: true
+  - type: VocalizerRequiresPower
+  - type: DatasetVocalizer
+    dataset: AutoBartenderAds
+  - type: SpeakOnUIClosed
+    pack: AutoBartenderGoodbyes
+  - type: AutoCooker
+    kind: Bar
+    allowedMixing:
+    - Shake
+    - Stir
+    targetMetabolisms:
+    - Alcohol
+    - Drink
+    baseMetabolisms:
+    - Alcohol
+    - Drink
+    baseReagents:
+    - Water
+    - Sugar
+    beakerSlot:
+      whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
+      whitelist:
+        components:
+        - FitsInDispenser
+      priority: 9
+  - type: ItemSlots
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      autoCookBeakerSlot: !type:ContainerSlot
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - autoCookBeakerSlot
+
+- type: entity
+  id: AutoCookerChem
+  parent: BaseAutoCooker
+  name: auto-chemist
+  description: Synthesizes medicine and chemicals on its own, step by step, from base elements made out of energy.
+  components:
+  - type: Machine
+    board: AutoCookerChemMachineCircuitboard
+  - type: AccessReader
+    access: [["Chemistry"]]
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Vending
+  - type: Vocalizer
+    minVocalizeInterval: 8m
+    maxVocalizeInterval: 10m
+    hideChat: true
+  - type: VocalizerRequiresPower
+  - type: DatasetVocalizer
+    dataset: AutoChemistAds
+  - type: SpeakOnUIClosed
+    pack: AutoChemistGoodbyes
+  - type: AutoCooker
+    kind: Chem
+    allowedMixing:
+    - Stir
+    - Shake
+    - Centrifuge
+    - Electrolysis
+    excludedReagents:
+    - Holywater
+    targetGroups:
+    - Medicine
+    baseReagents:
+    - Aluminium
+    - Carbon
+    - Chlorine
+    - Copper
+    - Ethanol
+    - Fluorine
+    - Hydrogen
+    - Iodine
+    - Iron
+    - Lithium
+    - Mercury
+    - Nitrogen
+    - Oxygen
+    - Phosphorus
+    - Potassium
+    - Radium
+    - Silicon
+    - Sodium
+    - Sugar
+    - Sulfur
+    - Water
+    beakerSlot:
+      whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
+      whitelist:
+        components:
+        - FitsInDispenser
+      priority: 9
+  - type: ItemSlots
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      autoCookBeakerSlot: !type:ContainerSlot
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - autoCookBeakerSlot
+
+- type: entity
+  id: AutoCookerKitchen
+  parent: BaseAutoCooker
+  name: auto-cook
+  description: Cooks dishes step by step from the ingredients stored inside. The storage is refrigerated, so food does not spoil.
+  components:
+  - type: Machine
+    board: AutoCookerKitchenMachineCircuitboard
+  - type: AccessReader
+    access: [["Kitchen"]]
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Vending
+  - type: Vocalizer
+    minVocalizeInterval: 8m
+    maxVocalizeInterval: 10m
+    hideChat: true
+  - type: VocalizerRequiresPower
+  - type: DatasetVocalizer
+    dataset: AutoCookAds
+  - type: SpeakOnUIClosed
+    pack: AutoCookGoodbyes
+  - type: AutoCooker
+    kind: Kitchen
+  - type: AntiRottingContainer
+  - type: Storage
+    openOnActivate: false
+    maxItemSize: Normal
+    grid:
+    - 0,0,9,5
+  - type: UserInterface
+    interfaces:
+      enum.AutoCookerUiKey.Key:
+        type: AutoCookerBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: SolutionContainerManager
+    solutions:
+      pantry:
+        maxVol: 400
+  - type: RefillableSolution
+    solution: pantry
+  - type: ExaminableSolution
+    solution: pantry
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      storagebase: !type:Container
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - storagebase
+
+- type: localizedDataset
+  id: AutoBartenderAds
+  values:
+    prefix: advertisement-autobartender-
+    count: 8
+
+- type: localizedDataset
+  id: AutoBartenderGoodbyes
+  values:
+    prefix: thankyou-autobartender-
+    count: 5
+
+- type: localizedDataset
+  id: AutoChemistAds
+  values:
+    prefix: advertisement-autochemist-
+    count: 8
+
+- type: localizedDataset
+  id: AutoChemistGoodbyes
+  values:
+    prefix: thankyou-autochemist-
+    count: 5
+
+- type: localizedDataset
+  id: AutoCookAds
+  values:
+    prefix: advertisement-autocook-
+    count: 8
+
+- type: localizedDataset
+  id: AutoCookGoodbyes
+  values:
+    prefix: thankyou-autocook-
+    count: 5

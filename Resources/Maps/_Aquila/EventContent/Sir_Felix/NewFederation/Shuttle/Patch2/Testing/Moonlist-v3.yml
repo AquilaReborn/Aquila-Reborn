@@ -5,7 +5,7 @@ meta:
   forkId: eridani
   forkVersion: 20251129091635
   time: 11/30/2025 19:34:55
-  entityCount: 2308
+  entityCount: 2303
 maps: []
 grids:
 - 1
@@ -26,14 +26,14 @@ tilemap:
   18: FloorTechMaint3
   19: FloorXenoborg
   1: Lattice
-  9: LatticeCorner1
-  7: LatticeCorner2
-  2: LatticeCorner3
-  5: LatticeCorner4
-  6: LatticeSmall1
-  8: LatticeSmall2
-  10: LatticeSmall3
-  4: LatticeSmall4
+  9: Lattice
+  7: Lattice
+  2: Lattice
+  5: Lattice
+  6: Lattice
+  8: Lattice
+  10: Lattice
+  4: Lattice
   0: Plating
 entities:
 - proto: ""
@@ -4770,7 +4770,7 @@ entities:
     - type: Transform
       pos: -5.9827247,-30.416687
       parent: 1
-- proto: CoffeeTableGlass
+- proto: TableGlass
   entities:
   - uid: 636
     components:
@@ -4778,7 +4778,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 5.5,-16.5
       parent: 1
-- proto: CoffeeTableSteel
+- proto: Table
   entities:
   - uid: 637
     components:
@@ -4963,13 +4963,6 @@ entities:
     components:
     - type: Transform
       pos: 5.5,-18.5
-      parent: 1
-- proto: CrewSkillManualBasicAtmos
-  entities:
-  - uid: 649
-    components:
-    - type: Transform
-      pos: -6.5764747,-30.385437
       parent: 1
 - proto: DarkAirlockStarCorps
   entities:
@@ -6372,7 +6365,7 @@ entities:
     - type: Transform
       pos: -10.5,20.5
       parent: 1
-- proto: DoubleBed
+- proto: Bed
   entities:
   - uid: 902
     components:
@@ -6383,20 +6376,6 @@ entities:
     components:
     - type: Transform
       pos: 8.5,-3.5
-      parent: 1
-- proto: DoubleBedsheetCap
-  entities:
-  - uid: 2097
-    components:
-    - type: Transform
-      pos: 8.5,-3.5
-      parent: 1
-- proto: DoubleBedsheetHOS
-  entities:
-  - uid: 2096
-    components:
-    - type: Transform
-      pos: -4.5,-3.5
       parent: 1
 - proto: DrinkMugBlack
   entities:
@@ -6456,15 +6435,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 5.5,-13.5
       parent: 1
-- proto: ErtBorgWeaponTaser
-  entities:
-  - uid: 908
-    components:
-    - type: Transform
-      pos: -2.5447745,-23.376673
-      parent: 1
-    missingComponents:
-    - BatterySelfRecharger
 - proto: FederationHandyFlag
   entities:
   - uid: 909
@@ -10419,14 +10389,6 @@ entities:
     - type: Transform
       pos: 9.5,-32.5
       parent: 1
-- proto: HandHeldAtmosAlertsMonitor
-  entities:
-  - uid: 1393
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -7.319196,-30.416687
-      parent: 1
 - proto: HolofanProjector
   entities:
   - uid: 1394
@@ -10815,24 +10777,12 @@ entities:
       parent: 2297
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 2302
     components:
     - type: Transform
       parent: 2301
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
 - proto: PowerCageRecharger
   entities:
   - uid: 1447
@@ -10863,48 +10813,24 @@ entities:
       parent: 2282
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 2296
     components:
     - type: Transform
       parent: 2295
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 2300
     components:
     - type: Transform
       parent: 2299
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 2304
     components:
     - type: Transform
       parent: 2303
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
 - proto: PoweredlightEmpty
   entities:
   - uid: 1453
@@ -11194,7 +11120,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 6.5,-8.5
       parent: 1
-- proto: RailingImperial
+- proto: Railing
   entities:
   - uid: 1503
     components:
@@ -11278,8 +11204,6 @@ entities:
     - type: Transform
       pos: 3.5,-20.5
       parent: 1
-- proto: RailingUrbanUSSP
-  entities:
   - uid: 2184
     components:
     - type: Transform
@@ -12544,7 +12468,7 @@ entities:
     - type: Transform
       pos: 5.5,-4.5
       parent: 1
-- proto: SofaLeft
+- proto: BenchSofaLeft
   entities:
   - uid: 2121
     components:
@@ -12552,7 +12476,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 0.5,3.5
       parent: 1
-- proto: SofaRight
+- proto: BenchSofaRight
   entities:
   - uid: 2120
     components:
@@ -13043,10 +12967,7 @@ entities:
     - type: Transform
       pos: 1.5,-29.5
       parent: 1
-    - type: CrewSkillsInstrumentation
-      needSkills:
-      - skillInstrumentation
-- proto: TGMCSmallFlag
+- proto: NTFlag
   entities:
   - uid: 1638
     components:
@@ -13089,7 +13010,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 12.5,-36.5
       parent: 1
-- proto: ThrusterMedium
+- proto: Thruster
   entities:
   - uid: 1643
     components:

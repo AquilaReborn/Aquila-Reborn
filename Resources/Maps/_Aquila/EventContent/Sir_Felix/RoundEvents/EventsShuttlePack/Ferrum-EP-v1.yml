@@ -5,7 +5,7 @@ meta:
   forkId: main
   forkVersion: 20260114045134
   time: 01/28/2026 18:46:24
-  entityCount: 578
+  entityCount: 576
 maps: []
 grids:
 - 1
@@ -23,10 +23,10 @@ tilemap:
   9: FloorWhitePavementVertical
   6: FloorWhitePlastic
   13: Lattice
-  8: LatticeCorner1
-  7: LatticeCorner2
-  5: LatticeCorner3
-  12: LatticeCorner4
+  8: Lattice
+  7: Lattice
+  5: Lattice
+  12: Lattice
   2: Plating
 entities:
 - proto: ""
@@ -450,7 +450,6 @@ entities:
     - type: ContainedSolution
       containerName: food
       container: 570
-    - type: TimedReactionWatcher
 - proto: AirlockExternalGlass
   entities:
   - uid: 2
@@ -1383,7 +1382,7 @@ entities:
     - type: Construction
       containers:
       - entity_storage
-- proto: ClothingBackpackSatchelDSO
+- proto: ClothingBackpackSatchel
   entities:
   - uid: 167
     components:
@@ -1462,18 +1461,6 @@ entities:
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
-- proto: CSWeaponGlock-18
-  entities:
-  - uid: 177
-    components:
-    - type: Transform
-      pos: -0.51076704,0.5412307
-      parent: 1
-  - uid: 574
-    components:
-    - type: Transform
-      pos: 1.5141506,-8.232283
-      parent: 1
 - proto: DiagonalWallShuttleStarCorps
   entities:
   - uid: 178
@@ -2789,7 +2776,7 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#990000FF'
-- proto: Glock18MagazinePistol
+- proto: MagazinePistol
   entities:
   - uid: 575
     components:
@@ -2999,12 +2986,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -3022,12 +3003,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 372
     mapInit: true
     paused: true
@@ -3040,12 +3015,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -3063,12 +3032,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 376
     mapInit: true
     paused: true
@@ -3081,12 +3044,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -3104,12 +3061,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 380
     mapInit: true
     paused: true
@@ -3122,12 +3073,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -3145,12 +3090,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 384
     mapInit: true
     paused: true
@@ -3163,12 +3102,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 386
     mapInit: true
     paused: true
@@ -3181,12 +3114,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -3204,12 +3131,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 390
     mapInit: true
     paused: true
@@ -3222,12 +3143,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -3265,7 +3180,7 @@ entities:
       canCollide: False
     - type: InsideEntityStorage
       storage: 355
-- proto: MedkitCobmatImperialFilled
+- proto: MedkitCombatFilled
   entities:
   - uid: 572
     components:
@@ -3757,7 +3672,7 @@ entities:
     - type: Transform
       pos: 1.5,-18.5
       parent: 1
-- proto: SofaLeft
+- proto: BenchSofaLeft
   entities:
   - uid: 436
     components:
@@ -3765,7 +3680,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -1.5,-9.5
       parent: 1
-- proto: SofaMiddle
+- proto: BenchSofaMiddle
   entities:
   - uid: 437
     components:
@@ -3773,7 +3688,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -1.5,-8.5
       parent: 1
-- proto: SofaRight
+- proto: BenchSofaRight
   entities:
   - uid: 438
     components:
@@ -3790,12 +3705,6 @@ entities:
       parent: 1
     - type: Stack
       count: 3000
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
 - proto: SpawnMobHuman
   entities:
   - uid: 439

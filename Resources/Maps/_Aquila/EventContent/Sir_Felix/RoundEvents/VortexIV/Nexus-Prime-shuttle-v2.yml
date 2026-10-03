@@ -5,7 +5,7 @@ meta:
   forkId: eridani
   forkVersion: 20260308113118
   time: 03/08/2026 12:33:51
-  entityCount: 2570
+  entityCount: 2393
 maps: []
 grids:
 - 1
@@ -27,14 +27,14 @@ tilemap:
   13: FloorTechMaint3
   15: FloorTechMaintDark
   7: Lattice
-  18: LatticeCorner1
-  11: LatticeCorner2
-  2: LatticeCorner3
-  9: LatticeCorner4
-  19: LatticeSmall1
-  12: LatticeSmall2
-  10: LatticeSmall3
-  4: LatticeSmall4
+  18: Lattice
+  11: Lattice
+  2: Lattice
+  9: Lattice
+  19: Lattice
+  12: Lattice
+  10: Lattice
+  4: Lattice
   0: Plating
 entities:
 - proto: ""
@@ -779,239 +779,6 @@ entities:
     - type: ContainedSolution
       containerName: beaker
       container: 1121
-    - type: TimedReactionWatcher
-- proto: AbductorsAmputator
-  entities:
-  - uid: 2
-    components:
-    - type: Transform
-      pos: -4.4811735,6.0106964
-      parent: 1
-- proto: AbductorsCautery
-  entities:
-  - uid: 3
-    components:
-    - type: Transform
-      pos: -4.4603405,5.9898634
-      parent: 1
-- proto: AbductorsChemDispenser
-  entities:
-  - uid: 4
-    components:
-    - type: Transform
-      pos: -2.5,9.5
-      parent: 1
-    - type: ContainerContainer
-      containers:
-        beakerSlot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        machine_board: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        machine_parts: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-  - uid: 5
-    components:
-    - type: Transform
-      pos: 5.5,9.5
-      parent: 1
-    - type: ContainerContainer
-      containers:
-        beakerSlot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        machine_board: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        machine_parts: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-- proto: AbductorsDrill
-  entities:
-  - uid: 6
-    components:
-    - type: Transform
-      pos: -4.5172653,6.060536
-      parent: 1
-- proto: AbductorsHandcuffs
-  entities:
-  - uid: 24
-    components:
-    - type: Transform
-      parent: 23
-    - type: Physics
-      canCollide: False
-  - uid: 25
-    components:
-    - type: Transform
-      parent: 23
-    - type: Physics
-      canCollide: False
-  - uid: 26
-    components:
-    - type: Transform
-      parent: 23
-    - type: Physics
-      canCollide: False
-  - uid: 50
-    components:
-    - type: Transform
-      parent: 49
-    - type: Physics
-      canCollide: False
-  - uid: 51
-    components:
-    - type: Transform
-      parent: 49
-    - type: Physics
-      canCollide: False
-  - uid: 52
-    components:
-    - type: Transform
-      parent: 49
-    - type: Physics
-      canCollide: False
-  - uid: 91
-    components:
-    - type: Transform
-      parent: 90
-    - type: Physics
-      canCollide: False
-  - uid: 92
-    components:
-    - type: Transform
-      parent: 90
-    - type: Physics
-      canCollide: False
-  - uid: 93
-    components:
-    - type: Transform
-      parent: 90
-    - type: Physics
-      canCollide: False
-  - uid: 132
-    components:
-    - type: Transform
-      parent: 131
-    - type: Physics
-      canCollide: False
-  - uid: 133
-    components:
-    - type: Transform
-      parent: 131
-    - type: Physics
-      canCollide: False
-  - uid: 134
-    components:
-    - type: Transform
-      parent: 131
-    - type: Physics
-      canCollide: False
-  - uid: 171
-    components:
-    - type: Transform
-      pos: -4.527682,5.9876194
-      parent: 1
-  - uid: 172
-    components:
-    - type: Transform
-      pos: -4.527682,5.9876194
-      parent: 1
-- proto: AbductorsRetractor
-  entities:
-  - uid: 173
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -4.4310164,6.021644
-      parent: 1
-- proto: AbductorsSaw
-  entities:
-  - uid: 174
-    components:
-    - type: Transform
-      pos: -4.4997873,5.9960475
-      parent: 1
-- proto: AbductorsScalpel
-  entities:
-  - uid: 175
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -4.4585366,5.979977
-      parent: 1
-- proto: AbductorsStepler
-  entities:
-  - uid: 176
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -4.4257812,5.979977
-      parent: 1
-    - type: ContainerContainer
-      containers:
-        cartridge: !type:ContainerSlot {}
-- proto: AbductorsSurgeryBoxToolsFilled
-  entities:
-  - uid: 177
-    components:
-    - type: Transform
-      pos: -4.5092306,7.6231856
-      parent: 1
-- proto: ActionToggleInternals
-  entities:
-  - uid: 28
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 27
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 27
-  - uid: 54
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 53
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 53
-  - uid: 95
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 94
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 94
-  - uid: 136
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 135
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 135
 - proto: ActionToggleLight
   entities:
   - uid: 12
@@ -1104,7 +871,7 @@ entities:
     - type: Action
       originalIconColor: '#FFFFFFFF'
       container: 2561
-- proto: AlienBed
+- proto: Bed
   entities:
   - uid: 221
     components:
@@ -1116,98 +883,6 @@ entities:
     - type: Transform
       pos: -3.5,10.5
       parent: 1
-- proto: AlienHypospray
-  entities:
-  - uid: 223
-    components:
-    - type: Transform
-      pos: -4.5310373,4.9022975
-      parent: 1
-- proto: AlienRadioJammer
-  entities:
-  - uid: 19
-    components:
-    - type: Transform
-      parent: 7
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 7
-  - uid: 78
-    components:
-    - type: Transform
-      parent: 48
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 119
-    components:
-    - type: Transform
-      parent: 89
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 160
-    components:
-    - type: Transform
-      parent: 130
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: AlphaGasMask
-  entities:
-  - uid: 20
-    components:
-    - type: Transform
-      parent: 7
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 7
-  - uid: 79
-    components:
-    - type: Transform
-      parent: 48
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 120
-    components:
-    - type: Transform
-      parent: 89
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 161
-    components:
-    - type: Transform
-      parent: 130
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 226
-    components:
-    - type: Transform
-      parent: 225
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 233
-    components:
-    - type: Transform
-      parent: 232
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: AlphaVisor
-  entities:
-  - uid: 187
-    components:
-    - type: Transform
-      parent: 178
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ANARC164
   entities:
   - uid: 188
@@ -1331,46 +1006,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 2.5,-15.5
       parent: 1
-- proto: BigAutoclave
-  entities:
-  - uid: 253
-    components:
-    - type: Transform
-      pos: -1.5,4.5
-      parent: 1
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        machine_board: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        machine_parts: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-  - uid: 254
-    components:
-    - type: Transform
-      pos: 2.5,4.5
-      parent: 1
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        machine_board: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        machine_parts: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
 - proto: BlastDoor
   entities:
   - uid: 255
@@ -1421,7 +1056,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 3.5,-22.5
       parent: 1
-- proto: BlastDoorGlass
+- proto: BlastDoorWindows
   entities:
   - uid: 263
     components:
@@ -1587,7 +1222,7 @@ entities:
     - type: Transform
       pos: 8.5,2.5
       parent: 1
-- proto: ButtonFrameExit
+- proto: ButtonFrame
   entities:
   - uid: 291
     components:
@@ -5695,17 +5330,11 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 23
-          - 19
-          - 21
           - 46
-          - 20
           - 47
-          - 45
           - 22
           - 11
           - 8
-          - 44
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -5733,16 +5362,10 @@ entities:
           occludes: True
           ents:
           - 83
-          - 79
           - 70
           - 81
-          - 86
-          - 80
           - 88
           - 87
-          - 49
-          - 78
-          - 82
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -5770,16 +5393,10 @@ entities:
           occludes: True
           ents:
           - 124
-          - 90
           - 111
           - 129
           - 128
-          - 127
-          - 121
-          - 120
           - 122
-          - 119
-          - 123
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -5808,15 +5425,9 @@ entities:
           ents:
           - 165
           - 152
-          - 160
-          - 161
           - 163
-          - 162
-          - 168
-          - 131
           - 170
           - 169
-          - 164
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -5846,11 +5457,7 @@ entities:
           - 179
           - 200
           - 191
-          - 187
-          - 192
-          - 199
           - 190
-          - 197
           - 188
           - 198
           - 193
@@ -5881,9 +5488,7 @@ entities:
           occludes: True
           ents:
           - 212
-          - 216
           - 214
-          - 215
           - 211
           - 213
           - 202
@@ -5942,37 +5547,6 @@ entities:
     - type: Construction
       containers:
       - entity_storage
-- proto: ClothingAbductorsBeltFilled
-  entities:
-  - uid: 21
-    components:
-    - type: Transform
-      parent: 7
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 7
-  - uid: 80
-    components:
-    - type: Transform
-      parent: 48
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 121
-    components:
-    - type: Transform
-      parent: 89
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 162
-    components:
-    - type: Transform
-      parent: 130
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ClothingBackpackDuffelSyndicateFilledMedical
   entities:
   - uid: 1087
@@ -5985,374 +5559,7 @@ entities:
     - type: Transform
       pos: 5.5,4.5
       parent: 1
-- proto: ClothingBackpackSacerdos_1
-  entities:
-  - uid: 23
-    components:
-    - type: Transform
-      parent: 7
-    - type: Storage
-      storedItems:
-        24:
-          position: 0,0
-          _rotation: South
-        25:
-          position: 1,0
-          _rotation: South
-        26:
-          position: 2,0
-          _rotation: South
-        43:
-          position: 3,0
-          _rotation: South
-        35:
-          position: 4,0
-          _rotation: North
-        39:
-          position: 6,0
-          _rotation: South
-        40:
-          position: 7,0
-          _rotation: South
-        32:
-          position: 1,2
-          _rotation: South
-        33:
-          position: 0,2
-          _rotation: South
-        34:
-          position: 2,2
-          _rotation: South
-        29:
-          position: 0,3
-          _rotation: South
-        30:
-          position: 1,3
-          _rotation: South
-        31:
-          position: 2,3
-          _rotation: South
-        36:
-          position: 7,2
-          _rotation: South
-        41:
-          position: 7,4
-          _rotation: South
-        37:
-          position: 6,2
-          _rotation: South
-        38:
-          position: 3,2
-          _rotation: South
-        42:
-          position: 4,2
-          _rotation: South
-        27:
-          position: 5,2
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 24
-          - 25
-          - 26
-          - 43
-          - 35
-          - 39
-          - 40
-          - 32
-          - 33
-          - 34
-          - 29
-          - 30
-          - 31
-          - 36
-          - 41
-          - 37
-          - 38
-          - 42
-          - 27
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 7
-  - uid: 49
-    components:
-    - type: Transform
-      parent: 48
-    - type: Storage
-      storedItems:
-        50:
-          position: 0,0
-          _rotation: South
-        51:
-          position: 1,0
-          _rotation: South
-        52:
-          position: 2,0
-          _rotation: South
-        69:
-          position: 3,0
-          _rotation: South
-        61:
-          position: 4,0
-          _rotation: North
-        65:
-          position: 6,0
-          _rotation: South
-        66:
-          position: 7,0
-          _rotation: South
-        58:
-          position: 0,2
-          _rotation: South
-        59:
-          position: 1,2
-          _rotation: South
-        60:
-          position: 2,2
-          _rotation: South
-        55:
-          position: 0,3
-          _rotation: South
-        56:
-          position: 1,3
-          _rotation: South
-        57:
-          position: 2,3
-          _rotation: South
-        62:
-          position: 7,2
-          _rotation: South
-        67:
-          position: 7,4
-          _rotation: South
-        63:
-          position: 6,2
-          _rotation: South
-        64:
-          position: 3,2
-          _rotation: South
-        68:
-          position: 4,2
-          _rotation: South
-        53:
-          position: 5,2
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 50
-          - 51
-          - 52
-          - 69
-          - 61
-          - 65
-          - 66
-          - 58
-          - 59
-          - 60
-          - 55
-          - 56
-          - 57
-          - 62
-          - 67
-          - 63
-          - 64
-          - 68
-          - 53
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 90
-    components:
-    - type: Transform
-      parent: 89
-    - type: Storage
-      storedItems:
-        91:
-          position: 0,0
-          _rotation: South
-        92:
-          position: 1,0
-          _rotation: South
-        93:
-          position: 2,0
-          _rotation: South
-        110:
-          position: 3,0
-          _rotation: South
-        102:
-          position: 4,0
-          _rotation: North
-        106:
-          position: 6,0
-          _rotation: South
-        107:
-          position: 7,0
-          _rotation: South
-        99:
-          position: 0,2
-          _rotation: South
-        100:
-          position: 1,2
-          _rotation: South
-        101:
-          position: 2,2
-          _rotation: South
-        96:
-          position: 0,3
-          _rotation: South
-        97:
-          position: 1,3
-          _rotation: South
-        98:
-          position: 2,3
-          _rotation: South
-        103:
-          position: 7,2
-          _rotation: South
-        108:
-          position: 7,4
-          _rotation: South
-        104:
-          position: 6,2
-          _rotation: South
-        105:
-          position: 3,2
-          _rotation: South
-        109:
-          position: 4,2
-          _rotation: South
-        94:
-          position: 5,2
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 91
-          - 92
-          - 93
-          - 110
-          - 102
-          - 106
-          - 107
-          - 99
-          - 100
-          - 101
-          - 96
-          - 97
-          - 98
-          - 103
-          - 108
-          - 104
-          - 105
-          - 109
-          - 94
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 131
-    components:
-    - type: Transform
-      parent: 130
-    - type: Storage
-      storedItems:
-        132:
-          position: 0,0
-          _rotation: South
-        133:
-          position: 1,0
-          _rotation: South
-        134:
-          position: 2,0
-          _rotation: South
-        151:
-          position: 3,0
-          _rotation: South
-        143:
-          position: 4,0
-          _rotation: North
-        147:
-          position: 6,0
-          _rotation: South
-        148:
-          position: 7,0
-          _rotation: South
-        140:
-          position: 0,2
-          _rotation: South
-        141:
-          position: 1,2
-          _rotation: South
-        142:
-          position: 2,2
-          _rotation: South
-        137:
-          position: 0,3
-          _rotation: South
-        138:
-          position: 1,3
-          _rotation: South
-        139:
-          position: 2,3
-          _rotation: South
-        144:
-          position: 7,2
-          _rotation: South
-        149:
-          position: 7,4
-          _rotation: South
-        145:
-          position: 6,2
-          _rotation: South
-        146:
-          position: 3,2
-          _rotation: South
-        150:
-          position: 4,2
-          _rotation: South
-        135:
-          position: 5,2
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 132
-          - 133
-          - 134
-          - 151
-          - 143
-          - 147
-          - 148
-          - 140
-          - 141
-          - 142
-          - 137
-          - 138
-          - 139
-          - 144
-          - 149
-          - 145
-          - 146
-          - 150
-          - 135
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: ClothingBackpackSona
+- proto: ClothingBackpack
   entities:
   - uid: 210
     components:
@@ -6405,80 +5612,6 @@ entities:
           component: Armor
         title: null
     - type: InsideEntityStorage
-- proto: ClothingEyesBlindfold
-  entities:
-  - uid: 29
-    components:
-    - type: Transform
-      parent: 23
-    - type: Physics
-      canCollide: False
-  - uid: 30
-    components:
-    - type: Transform
-      parent: 23
-    - type: Physics
-      canCollide: False
-  - uid: 31
-    components:
-    - type: Transform
-      parent: 23
-    - type: Physics
-      canCollide: False
-  - uid: 55
-    components:
-    - type: Transform
-      parent: 49
-    - type: Physics
-      canCollide: False
-  - uid: 56
-    components:
-    - type: Transform
-      parent: 49
-    - type: Physics
-      canCollide: False
-  - uid: 57
-    components:
-    - type: Transform
-      parent: 49
-    - type: Physics
-      canCollide: False
-  - uid: 96
-    components:
-    - type: Transform
-      parent: 90
-    - type: Physics
-      canCollide: False
-  - uid: 97
-    components:
-    - type: Transform
-      parent: 90
-    - type: Physics
-      canCollide: False
-  - uid: 98
-    components:
-    - type: Transform
-      parent: 90
-    - type: Physics
-      canCollide: False
-  - uid: 137
-    components:
-    - type: Transform
-      parent: 131
-    - type: Physics
-      canCollide: False
-  - uid: 138
-    components:
-    - type: Transform
-      parent: 131
-    - type: Physics
-      canCollide: False
-  - uid: 139
-    components:
-    - type: Transform
-      parent: 131
-    - type: Physics
-      canCollide: False
 - proto: ClothingEyesHudMedCorps
   entities:
   - uid: 211
@@ -6571,41 +5704,7 @@ entities:
       canCollide: False
     - type: InsideEntityStorage
       storage: 201
-- proto: ClothingHeadHatSpecialOfficer
-  entities:
-  - uid: 192
-    components:
-    - type: MetaData
-      name: Фуражка
-    - type: Transform
-      parent: 178
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: ClothingHeadHelmetOpsCore
-  entities:
-  - uid: 44
-    components:
-    - type: Transform
-      parent: 7
-    - type: InsideEntityStorage
-      storage: 7
-  - uid: 82
-    components:
-    - type: Transform
-      parent: 48
-    - type: InsideEntityStorage
-  - uid: 123
-    components:
-    - type: Transform
-      parent: 89
-    - type: InsideEntityStorage
-  - uid: 164
-    components:
-    - type: Transform
-      parent: 130
-    - type: InsideEntityStorage
-- proto: ClothingHeadHelmetSWAT
+- proto: ClothingHeadHelmetSwat
   entities:
   - uid: 2160
     components:
@@ -6757,56 +5856,6 @@ entities:
     - type: Transform
       pos: -7.5495744,-7.597793
       parent: 1
-- proto: ClothingJumpsuitupsilon11
-  entities:
-  - uid: 45
-    components:
-    - type: Transform
-      parent: 7
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 7
-  - uid: 86
-    components:
-    - type: Transform
-      parent: 48
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 127
-    components:
-    - type: Transform
-      parent: 89
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 168
-    components:
-    - type: Transform
-      parent: 130
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 215
-    components:
-    - type: MetaData
-      name: Комбинезон Вектора
-    - type: Transform
-      parent: 201
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 201
-- proto: ClothingJumpsuitZeta9
-  entities:
-  - uid: 197
-    components:
-    - type: Transform
-      parent: 178
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ClothingMaskBreathMedicalSecurity
   entities:
   - uid: 1089
@@ -6828,80 +5877,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingMaskMuzzle
-  entities:
-  - uid: 32
-    components:
-    - type: Transform
-      parent: 23
-    - type: Physics
-      canCollide: False
-  - uid: 33
-    components:
-    - type: Transform
-      parent: 23
-    - type: Physics
-      canCollide: False
-  - uid: 34
-    components:
-    - type: Transform
-      parent: 23
-    - type: Physics
-      canCollide: False
-  - uid: 58
-    components:
-    - type: Transform
-      parent: 49
-    - type: Physics
-      canCollide: False
-  - uid: 59
-    components:
-    - type: Transform
-      parent: 49
-    - type: Physics
-      canCollide: False
-  - uid: 60
-    components:
-    - type: Transform
-      parent: 49
-    - type: Physics
-      canCollide: False
-  - uid: 99
-    components:
-    - type: Transform
-      parent: 90
-    - type: Physics
-      canCollide: False
-  - uid: 100
-    components:
-    - type: Transform
-      parent: 90
-    - type: Physics
-      canCollide: False
-  - uid: 101
-    components:
-    - type: Transform
-      parent: 90
-    - type: Physics
-      canCollide: False
-  - uid: 140
-    components:
-    - type: Transform
-      parent: 131
-    - type: Physics
-      canCollide: False
-  - uid: 141
-    components:
-    - type: Transform
-      parent: 131
-    - type: Physics
-      canCollide: False
-  - uid: 142
-    components:
-    - type: Transform
-      parent: 131
-    - type: Physics
-      canCollide: False
 - proto: ClothingMaskSterile
   entities:
   - uid: 214
@@ -6940,105 +5915,6 @@ entities:
     components:
     - type: Transform
       parent: 130
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: ClothingOuterArmorNu7
-  entities:
-  - uid: 199
-    components:
-    - type: Transform
-      parent: 178
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: ClothingOuterHardsuitSCPDeva
-  entities:
-  - uid: 228
-    components:
-    - type: MetaData
-      name: Резонаторный скафандр
-    - type: Transform
-      parent: 225
-    - type: GroupExamine
-      group:
-      - hoverMessage: ""
-        contextText: verb-examine-group-other
-        icon: /Textures/Interface/examine-star.png
-        components:
-        - Armor
-        - ClothingSpeedModifier
-        entries:
-        - message: Понижает вашу скорость на [color=yellow]10%[/color].
-          priority: 0
-          component: ClothingSpeedModifier
-        - message: >-
-            Обеспечивает следующую защиту:
-
-            - [color=yellow]Ударный[/color] урон снижается на [color=lightblue]50%[/color].
-
-            - [color=yellow]Режущий[/color] урон снижается на [color=lightblue]50%[/color].
-
-            - [color=yellow]Колющий[/color] урон снижается на [color=lightblue]50%[/color].
-
-            - [color=yellow]Высокотемпературный[/color] урон снижается на [color=lightblue]50%[/color].
-
-            - [color=yellow]Радиационный[/color] урон снижается на [color=lightblue]50%[/color].
-
-            - [color=yellow]Кислотный[/color] урон снижается на [color=lightblue]50%[/color].
-
-            [color=lightblue]Понижает шанс заражения на 25%[/color]
-
-            - [color=deepskyblue]Урон выносливости[/color] уменьшен на [color=lightblue]25%[/color].
-
-            - [color=orange]Урон от взрыва[/color] уменьшен на [color=lightblue]50%[/color].
-          priority: 0
-          component: Armor
-        title: null
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 235
-    components:
-    - type: MetaData
-      name: Резонаторный скафандр
-    - type: Transform
-      parent: 232
-    - type: GroupExamine
-      group:
-      - hoverMessage: ""
-        contextText: verb-examine-group-other
-        icon: /Textures/Interface/examine-star.png
-        components:
-        - Armor
-        - ClothingSpeedModifier
-        entries:
-        - message: Понижает вашу скорость на [color=yellow]10%[/color].
-          priority: 0
-          component: ClothingSpeedModifier
-        - message: >-
-            Обеспечивает следующую защиту:
-
-            - [color=yellow]Ударный[/color] урон снижается на [color=lightblue]50%[/color].
-
-            - [color=yellow]Режущий[/color] урон снижается на [color=lightblue]50%[/color].
-
-            - [color=yellow]Колющий[/color] урон снижается на [color=lightblue]50%[/color].
-
-            - [color=yellow]Высокотемпературный[/color] урон снижается на [color=lightblue]50%[/color].
-
-            - [color=yellow]Радиационный[/color] урон снижается на [color=lightblue]50%[/color].
-
-            - [color=yellow]Кислотный[/color] урон снижается на [color=lightblue]50%[/color].
-
-            [color=lightblue]Понижает шанс заражения на 25%[/color]
-
-            - [color=deepskyblue]Урон выносливости[/color] уменьшен на [color=lightblue]25%[/color].
-
-            - [color=orange]Урон от взрыва[/color] уменьшен на [color=lightblue]50%[/color].
-          priority: 0
-          component: Armor
-        title: null
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -7097,52 +5973,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingShoesBootsMagSCPTay5
-  entities:
-  - uid: 1091
-    components:
-    - type: MetaData
-      name: Инопланетный элемент
-    - type: Transform
-      pos: 9.509945,-40.52192
-      parent: 1
-  - uid: 1103
-    components:
-    - type: MetaData
-      name: Инопланетный элемент
-    - type: Transform
-      pos: -7.5,-7.5
-      parent: 1
-    missingComponents:
-    - Unremoveable
-  - uid: 1104
-    components:
-    - type: MetaData
-      name: Инопланетный элемент
-    - type: Transform
-      pos: -7.5,-5.5
-      parent: 1
-    missingComponents:
-    - Unremoveable
-  - uid: 1105
-    components:
-    - type: MetaData
-      name: Инопланетный элемент
-    - type: Transform
-      pos: -7.5,-3.5
-      parent: 1
-    missingComponents:
-    - Unremoveable
-  - uid: 1106
-    components:
-    - type: MetaData
-      name: Инопланетный элемент
-    - type: Transform
-      pos: -7.5,-1.5
-      parent: 1
-    missingComponents:
-    - Unremoveable
-- proto: ClothingShoesBootsWorkSCP
+- proto: ClothingShoesBootsWork
   entities:
   - uid: 200
     components:
@@ -7151,37 +5982,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingUniformSponsorSec
-  entities:
-  - uid: 1107
-    components:
-    - type: MetaData
-      name: Инопланетный элемент
-    - type: Transform
-      pos: -7.5,-1.5
-      parent: 1
-  - uid: 1108
-    components:
-    - type: MetaData
-      name: Инопланетный элемент
-    - type: Transform
-      pos: -7.5,-3.5
-      parent: 1
-  - uid: 1109
-    components:
-    - type: MetaData
-      name: Инопланетный элемент
-    - type: Transform
-      pos: -7.5,-5.5
-      parent: 1
-  - uid: 1110
-    components:
-    - type: MetaData
-      name: Инопланетный элемент
-    - type: Transform
-      pos: -7.5,-7.5
-      parent: 1
-- proto: CoffeeTableWood
+- proto: TableWood
   entities:
   - uid: 1123
     components:
@@ -7324,15 +6125,7 @@ entities:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - 2521
-          - 2523
-          - 2525
-          - 2527
-          - 2529
-          - 2531
-          - 2533
-          - 2535
+          ents: []
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -7483,32 +6276,6 @@ entities:
     - type: Transform
       pos: 3.5,6.5
       parent: 1
-- proto: CSWeaponGlock-18
-  entities:
-  - uid: 35
-    components:
-    - type: Transform
-      parent: 23
-    - type: Physics
-      canCollide: False
-  - uid: 61
-    components:
-    - type: Transform
-      parent: 49
-    - type: Physics
-      canCollide: False
-  - uid: 102
-    components:
-    - type: Transform
-      parent: 90
-    - type: Physics
-      canCollide: False
-  - uid: 143
-    components:
-    - type: Transform
-      parent: 131
-    - type: Physics
-      canCollide: False
 - proto: DarkWallShuttleStarCorps
   entities:
   - uid: 1144
@@ -12122,71 +10889,8 @@ entities:
     - type: Transform
       pos: 8.5,-42.5
       parent: 1
-- proto: DNAInjector
-  entities:
-  - uid: 1101
-    components:
-    - type: Transform
-      pos: -4.4893703,5.475214
-      parent: 1
 - proto: DoubleEmergencyOxygenTankFilled
   entities:
-  - uid: 27
-    components:
-    - type: Transform
-      parent: 23
-    - type: GasTank
-      toggleActionEntity: 28
-    - type: Physics
-      canCollide: False
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 28
-  - uid: 53
-    components:
-    - type: Transform
-      parent: 49
-    - type: GasTank
-      toggleActionEntity: 54
-    - type: Physics
-      canCollide: False
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 54
-  - uid: 94
-    components:
-    - type: Transform
-      parent: 90
-    - type: GasTank
-      toggleActionEntity: 95
-    - type: Physics
-      canCollide: False
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 95
-  - uid: 135
-    components:
-    - type: Transform
-      parent: 131
-    - type: GasTank
-      toggleActionEntity: 136
-    - type: Physics
-      canCollide: False
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 136
   - uid: 230
     components:
     - type: Transform
@@ -12356,32 +11060,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -9.5,-40.5
       parent: 1
-- proto: EmpGrenade
-  entities:
-  - uid: 36
-    components:
-    - type: Transform
-      parent: 23
-    - type: Physics
-      canCollide: False
-  - uid: 62
-    components:
-    - type: Transform
-      parent: 49
-    - type: Physics
-      canCollide: False
-  - uid: 103
-    components:
-    - type: Transform
-      parent: 90
-    - type: Physics
-      canCollide: False
-  - uid: 144
-    components:
-    - type: Transform
-      parent: 131
-    - type: Physics
-      canCollide: False
 - proto: EncryptionKeyGuard
   entities:
   - uid: 1993
@@ -12484,33 +11162,7 @@ entities:
       parent: 1992
     - type: Physics
       canCollide: False
-- proto: ExGrenade
-  entities:
-  - uid: 37
-    components:
-    - type: Transform
-      parent: 23
-    - type: Physics
-      canCollide: False
-  - uid: 63
-    components:
-    - type: Transform
-      parent: 49
-    - type: Physics
-      canCollide: False
-  - uid: 104
-    components:
-    - type: Transform
-      parent: 90
-    - type: Physics
-      canCollide: False
-  - uid: 145
-    components:
-    - type: Transform
-      parent: 131
-    - type: Physics
-      canCollide: False
-- proto: FaxMachineNedra
+- proto: FaxMachineBase
   entities:
   - uid: 1996
     components:
@@ -12526,32 +11178,6 @@ entities:
     - type: Transform
       pos: -2.4963212,-29.430496
       parent: 1
-- proto: FreedomImplanter
-  entities:
-  - uid: 38
-    components:
-    - type: Transform
-      parent: 23
-    - type: Physics
-      canCollide: False
-  - uid: 64
-    components:
-    - type: Transform
-      parent: 49
-    - type: Physics
-      canCollide: False
-  - uid: 105
-    components:
-    - type: Transform
-      parent: 90
-    - type: Physics
-      canCollide: False
-  - uid: 146
-    components:
-    - type: Transform
-      parent: 131
-    - type: Physics
-      canCollide: False
 - proto: GeneratorBasic15kW
   entities:
   - uid: 1998
@@ -12644,56 +11270,6 @@ entities:
     - type: Transform
       pos: 5.5,21.5
       parent: 1
-- proto: Glock18MagazinePistol
-  entities:
-  - uid: 39
-    components:
-    - type: Transform
-      parent: 23
-    - type: Physics
-      canCollide: False
-  - uid: 40
-    components:
-    - type: Transform
-      parent: 23
-    - type: Physics
-      canCollide: False
-  - uid: 65
-    components:
-    - type: Transform
-      parent: 49
-    - type: Physics
-      canCollide: False
-  - uid: 66
-    components:
-    - type: Transform
-      parent: 49
-    - type: Physics
-      canCollide: False
-  - uid: 106
-    components:
-    - type: Transform
-      parent: 90
-    - type: Physics
-      canCollide: False
-  - uid: 107
-    components:
-    - type: Transform
-      parent: 90
-    - type: Physics
-      canCollide: False
-  - uid: 147
-    components:
-    - type: Transform
-      parent: 131
-    - type: Physics
-      canCollide: False
-  - uid: 148
-    components:
-    - type: Transform
-      parent: 131
-    - type: Physics
-      canCollide: False
 - proto: GravityGeneratorMini
   entities:
   - uid: 2016
@@ -12701,32 +11277,6 @@ entities:
     - type: Transform
       pos: 3.5,16.5
       parent: 1
-- proto: GrenadeShrapnel
-  entities:
-  - uid: 41
-    components:
-    - type: Transform
-      parent: 23
-    - type: Physics
-      canCollide: False
-  - uid: 67
-    components:
-    - type: Transform
-      parent: 49
-    - type: Physics
-      canCollide: False
-  - uid: 108
-    components:
-    - type: Transform
-      parent: 90
-    - type: Physics
-      canCollide: False
-  - uid: 149
-    components:
-    - type: Transform
-      parent: 131
-    - type: Physics
-      canCollide: False
 - proto: Grille
   entities:
   - uid: 2017
@@ -12946,11 +11496,7 @@ entities:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - 2050
-          - 2051
-          - 2052
-          - 2053
+          ents: []
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -12973,8 +11519,7 @@ entities:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - 2055
+          ents: []
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -12987,55 +11532,6 @@ entities:
       pos: -4.5,-44.5
       parent: 1
     - type: Label
-- proto: ImperialBlinkImplanter
-  entities:
-  - uid: 42
-    components:
-    - type: Transform
-      parent: 23
-    - type: Physics
-      canCollide: False
-  - uid: 68
-    components:
-    - type: Transform
-      parent: 49
-    - type: Physics
-      canCollide: False
-  - uid: 109
-    components:
-    - type: Transform
-      parent: 90
-    - type: Physics
-      canCollide: False
-  - uid: 150
-    components:
-    - type: Transform
-      parent: 131
-    - type: Physics
-      canCollide: False
-- proto: ItemODENMagazine
-  entities:
-  - uid: 2050
-    components:
-    - type: Transform
-      parent: 2049
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 2051
-    components:
-    - type: Transform
-      parent: 2049
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 2052
-    components:
-    - type: Transform
-      parent: 2049
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: JetpackBlackFilled
   entities:
   - uid: 231
@@ -13179,12 +11675,6 @@ entities:
       color: '#EEE8AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 2075
     mapInit: true
     paused: true
@@ -13197,12 +11687,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -13220,12 +11704,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -13243,12 +11721,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -13266,12 +11738,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -13289,12 +11755,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -13312,12 +11772,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -13335,12 +11789,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -13358,12 +11806,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -13381,12 +11823,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 2093
     mapInit: true
     paused: true
@@ -13399,12 +11835,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 2095
     mapInit: true
     paused: true
@@ -13417,12 +11847,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -13440,12 +11864,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 2099
     mapInit: true
     paused: true
@@ -13458,12 +11876,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 2101
     mapInit: true
     paused: true
@@ -13476,12 +11888,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -13499,12 +11905,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -13522,12 +11922,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -13545,12 +11939,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -13568,12 +11956,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -13591,12 +11973,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -13614,12 +11990,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -13637,12 +12007,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -13660,12 +12024,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -13683,12 +12041,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -13706,12 +12058,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 2123
     mapInit: true
     paused: true
@@ -13724,12 +12070,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 2125
     mapInit: true
     paused: true
@@ -13742,12 +12082,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 2127
     mapInit: true
     paused: true
@@ -13760,12 +12094,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -13783,12 +12111,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 2131
     mapInit: true
     paused: true
@@ -13801,12 +12123,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -13824,12 +12140,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -13847,12 +12157,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -13870,12 +12174,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -13893,12 +12191,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -13916,12 +12208,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -13939,12 +12225,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -13962,12 +12242,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -13985,12 +12259,6 @@ entities:
       color: '#EEE8AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 2149
     mapInit: true
     paused: true
@@ -14003,12 +12271,6 @@ entities:
       color: '#EEE8AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -14026,94 +12288,11 @@ entities:
       color: '#EEE8AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
       fibers: []
       fingerprints: []
-- proto: LockerSurgeonFilled
-  entities:
-  - uid: 2152
-    components:
-    - type: Transform
-      pos: -2.5,7.5
-      parent: 1
-    - type: AccessReader
-      accessListsOriginal:
-      - - Medical
-      access: []
-  - uid: 2153
-    components:
-    - type: Transform
-      pos: 3.5,7.5
-      parent: 1
-    - type: AccessReader
-      accessListsOriginal:
-      - - Medical
-      access: []
-- proto: MachineGunODEN
-  entities:
-  - uid: 2053
-    components:
-    - type: Transform
-      parent: 2049
-    - type: ClothingFactionExplosion
-      timerDuration: 5
-      TimerDelay: 13.600126
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: MaskAlpha9SCP
-  entities:
-  - uid: 1119
-    components:
-    - type: MetaData
-      desc: Выступает как декорация.
-      name: Proto-Element
-    - type: Transform
-      pos: 5.699601,5.037714
-      parent: 1
-  - uid: 2154
-    components:
-    - type: MetaData
-      name: Инопланетный элемент
-    - type: Transform
-      pos: 9.509945,-39.42817
-      parent: 1
-  - uid: 2155
-    components:
-    - type: MetaData
-      name: Инопланетный элемент
-    - type: Transform
-      pos: -7.5,-1.5
-      parent: 1
-  - uid: 2156
-    components:
-    - type: MetaData
-      name: Инопланетный элемент
-    - type: Transform
-      pos: -7.5,-3.5
-      parent: 1
-  - uid: 2157
-    components:
-    - type: MetaData
-      name: Инопланетный элемент
-    - type: Transform
-      pos: -7.5,-5.5
-      parent: 1
-  - uid: 2158
-    components:
-    - type: MetaData
-      name: Инопланетный элемент
-    - type: Transform
-      pos: -7.5,-7.5
-      parent: 1
 - proto: Mattress
   entities:
   - uid: 2163
@@ -14121,7 +12300,7 @@ entities:
     - type: Transform
       pos: 1.5,11.5
       parent: 1
-- proto: MetalDetectorSecure
+- proto: ContrabandDetectorSecure
   entities:
   - uid: 2164
     components:
@@ -15508,7 +13687,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 1.5,-13.5
       parent: 1
-- proto: RailingImperial
+- proto: Railing
   entities:
   - uid: 2207
     components:
@@ -15526,8 +13705,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 5.5,-43.5
       parent: 1
-- proto: RailingUrbanUSSP
-  entities:
   - uid: 2210
     components:
     - type: Transform
@@ -16100,19 +14277,6 @@ entities:
       parent: 1
     - type: Stealth
       lastVisibility: -1
-    - type: Ladder
-      soundUnlocked: !type:SoundPathSpecifier
-        path: /Audio/Machines/door_lock_off.ogg
-      activationTime: 0.5
-      ignoreObjects: []
-      groupID: 998
-      ladderID: 1
-      soundLocked: !type:SoundPathSpecifier
-        path: /Audio/Machines/door_lock_on.ogg
-      soundLockedClosed: !type:SoundPathSpecifier
-        path: /Audio/Effects/closetclose.ogg
-      soundUnlockedClosed: !type:SoundPathSpecifier
-        path: /Audio/Effects/closetopen.ogg
     - type: WarpPoint
   - uid: 2159
     components:
@@ -16123,19 +14287,6 @@ entities:
       parent: 1
     - type: Stealth
       lastVisibility: -1
-    - type: Ladder
-      soundUnlocked: !type:SoundPathSpecifier
-        path: /Audio/Machines/door_lock_off.ogg
-      activationTime: 0.5
-      ignoreObjects: []
-      groupID: 998
-      ladderID: 1
-      soundLocked: !type:SoundPathSpecifier
-        path: /Audio/Machines/door_lock_on.ogg
-      soundLockedClosed: !type:SoundPathSpecifier
-        path: /Audio/Effects/closetclose.ogg
-      soundUnlockedClosed: !type:SoundPathSpecifier
-        path: /Audio/Effects/closetopen.ogg
     - type: WarpPoint
 - proto: ShuttersNormalOpen
   entities:
@@ -16816,7 +14967,7 @@ entities:
     - type: Transform
       pos: 7.5,17.5
       parent: 1
-- proto: SofaCorner
+- proto: BenchSofaCorner
   entities:
   - uid: 2344
     components:
@@ -16824,7 +14975,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -0.5,-29.5
       parent: 1
-- proto: SofaLeft
+- proto: BenchSofaLeft
   entities:
   - uid: 2345
     components:
@@ -16844,7 +14995,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -4.5,-10.5
       parent: 1
-- proto: SofaMiddle
+- proto: BenchSofaMiddle
   entities:
   - uid: 2348
     components:
@@ -16864,7 +15015,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -4.5,-11.5
       parent: 1
-- proto: SofaRight
+- proto: BenchSofaRight
   entities:
   - uid: 2351
     components:
@@ -16884,16 +15035,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 5.5,-10.5
       parent: 1
-- proto: SonaLabCoat
-  entities:
-  - uid: 216
-    components:
-    - type: Transform
-      parent: 201
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 201
 - proto: StarCorpsIDCard
   entities:
   - uid: 1098
@@ -595928,14 +594069,6 @@ entities:
       dnas: []
       fibers: []
       fingerprints: []
-- proto: SterileAbductorsSanitazer
-  entities:
-  - uid: 2354
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -4.467448,6.073727
-      parent: 1
 - proto: SubstationBasic
   entities:
   - uid: 2355
@@ -595970,8 +594103,6 @@ entities:
           ents:
           - 230
           - 231
-          - 228
-          - 226
           - 227
           - 229
   - uid: 232
@@ -595999,263 +594130,8 @@ entities:
           ents:
           - 237
           - 238
-          - 235
-          - 233
           - 234
           - 236
-- proto: SurgeryBoxToolsFilled
-  entities:
-  - uid: 2356
-    components:
-    - type: Transform
-      pos: 5.5,7.5
-      parent: 1
-- proto: SurgeryCrateOrgans
-  entities:
-  - uid: 2357
-    components:
-    - type: Transform
-      pos: -1.5,6.5
-      parent: 1
-    - type: AccessReader
-      accessListsOriginal:
-      - - Medical
-      access: []
-  - uid: 2358
-    components:
-    - type: Transform
-      pos: 2.5,6.5
-      parent: 1
-    - type: AccessReader
-      accessListsOriginal:
-      - - Medical
-      access: []
-- proto: SurgeryProsthesisBodyPartOrganBaseGland
-  entities:
-  - uid: 2522
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 2521
-    - type: SurgeryBodypart
-      states:
-      - cuted
-    - type: ContainerContainer
-      containers:
-        tool: !type:Container
-          ents: []
-  - uid: 2524
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 2523
-    - type: SurgeryBodypart
-      states:
-      - cuted
-    - type: ContainerContainer
-      containers:
-        tool: !type:Container
-          ents: []
-  - uid: 2526
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 2525
-    - type: SurgeryBodypart
-      states:
-      - cuted
-    - type: ContainerContainer
-      containers:
-        tool: !type:Container
-          ents: []
-  - uid: 2528
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 2527
-    - type: SurgeryBodypart
-      states:
-      - cuted
-    - type: ContainerContainer
-      containers:
-        tool: !type:Container
-          ents: []
-  - uid: 2530
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 2529
-    - type: SurgeryBodypart
-      states:
-      - cuted
-    - type: ContainerContainer
-      containers:
-        tool: !type:Container
-          ents: []
-  - uid: 2532
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 2531
-    - type: SurgeryBodypart
-      states:
-      - cuted
-    - type: ContainerContainer
-      containers:
-        tool: !type:Container
-          ents: []
-  - uid: 2534
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 2533
-    - type: SurgeryBodypart
-      states:
-      - cuted
-    - type: ContainerContainer
-      containers:
-        tool: !type:Container
-          ents: []
-  - uid: 2536
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 2535
-    - type: SurgeryBodypart
-      states:
-      - cuted
-    - type: ContainerContainer
-      containers:
-        tool: !type:Container
-          ents: []
-- proto: SurgeryProsthesisOrganBaseGlandHeal
-  entities:
-  - uid: 2527
-    components:
-    - type: Transform
-      parent: 2520
-    - type: Physics
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        originalOrgan: !type:Container
-          ents:
-          - 2528
-    - type: InsideEntityStorage
-      storage: 2520
-- proto: SurgeryProsthesisOrganGlandBlood
-  entities:
-  - uid: 2535
-    components:
-    - type: Transform
-      parent: 2520
-    - type: Physics
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        originalOrgan: !type:Container
-          ents:
-          - 2536
-    - type: InsideEntityStorage
-      storage: 2520
-- proto: SurgeryProsthesisOrganGlandElectric
-  entities:
-  - uid: 2533
-    components:
-    - type: Transform
-      parent: 2520
-    - type: Physics
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        originalOrgan: !type:Container
-          ents:
-          - 2534
-    - type: InsideEntityStorage
-      storage: 2520
-- proto: SurgeryProsthesisOrganGlandEMP
-  entities:
-  - uid: 2531
-    components:
-    - type: Transform
-      parent: 2520
-    - type: Physics
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        originalOrgan: !type:Container
-          ents:
-          - 2532
-    - type: InsideEntityStorage
-      storage: 2520
-- proto: SurgeryProsthesisOrganGlandPlasma
-  entities:
-  - uid: 2525
-    components:
-    - type: Transform
-      parent: 2520
-    - type: Physics
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        originalOrgan: !type:Container
-          ents:
-          - 2526
-    - type: InsideEntityStorage
-      storage: 2520
-- proto: SurgeryProsthesisOrganGlandSlime
-  entities:
-  - uid: 2523
-    components:
-    - type: Transform
-      parent: 2520
-    - type: Physics
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        originalOrgan: !type:Container
-          ents:
-          - 2524
-    - type: InsideEntityStorage
-      storage: 2520
-- proto: SurgeryProsthesisOrganGlandSpecies
-  entities:
-  - uid: 2529
-    components:
-    - type: Transform
-      parent: 2520
-    - type: Physics
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        originalOrgan: !type:Container
-          ents:
-          - 2530
-    - type: InsideEntityStorage
-      storage: 2520
-- proto: SurgeryProsthesisOrganGlandSpider
-  entities:
-  - uid: 2521
-    components:
-    - type: Transform
-      parent: 2520
-    - type: Physics
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        originalOrgan: !type:Container
-          ents:
-          - 2522
-    - type: InsideEntityStorage
-      storage: 2520
 - proto: SurveillanceCameraEngineering
   entities:
   - uid: 2359
@@ -596470,7 +594346,7 @@ entities:
     - type: Transform
       pos: 3.5,-29.5
       parent: 1
-- proto: TableReinforcedAlien
+- proto: TableReinforced
   entities:
   - uid: 2383
     components:
@@ -596614,9 +594490,6 @@ entities:
           showEnts: False
           occludes: True
           ents: []
-    - type: CrewSkillsInstrumentation
-      needSkills:
-      - skillInstrumentation
 - proto: Thruster
   entities:
   - uid: 2403
@@ -597152,7 +595025,7 @@ entities:
     - type: Transform
       pos: 0.5,31.5
       parent: 1
-- proto: ThrusterMedium
+- proto: Thruster
   entities:
   - uid: 2492
     components:
@@ -597252,219 +595125,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -6.5,-29.5
       parent: 1
-- proto: USSPHardsuitBlue
-  entities:
-  - uid: 2509
-    components:
-    - type: MetaData
-      name: Инопланетный элемент
-    - type: Transform
-      pos: 9.509945,-39.975044
-      parent: 1
-    - type: GroupExamine
-      group:
-      - hoverMessage: ""
-        contextText: verb-examine-group-other
-        icon: /Textures/Interface/examine-star.png
-        components:
-        - Armor
-        - ClothingSpeedModifier
-        entries:
-        - message: Понижает вашу скорость на [color=yellow]15%[/color].
-          priority: 0
-          component: ClothingSpeedModifier
-        - message: >-
-            Обеспечивает следующую защиту:
-
-            - [color=yellow]Ударный[/color] урон снижается на [color=lightblue]80%[/color].
-
-            - [color=yellow]Режущий[/color] урон снижается на [color=lightblue]80%[/color].
-
-            - [color=yellow]Колющий[/color] урон снижается на [color=lightblue]80%[/color].
-
-            - [color=yellow]Высокотемпературный[/color] урон снижается на [color=lightblue]80%[/color].
-
-            - [color=yellow]Радиационный[/color] урон снижается на [color=lightblue]80%[/color].
-
-            - [color=yellow]Кислотный[/color] урон снижается на [color=lightblue]80%[/color].
-
-            [color=lightblue]Понижает шанс заражения на 25%[/color]
-
-            - [color=orange]Урон от взрыва[/color] уменьшен на [color=lightblue]80%[/color].
-
-            - [color=deepskyblue]Урон выносливости[/color] уменьшен на [color=lightblue]80%[/color].
-          priority: 0
-          component: Armor
-        title: null
-    - type: WarpPoint
-  - uid: 2537
-    components:
-    - type: MetaData
-      name: Инопланетный элемент
-    - type: Transform
-      pos: -7.5,-7.5
-      parent: 1
-    - type: GroupExamine
-      group:
-      - hoverMessage: ""
-        contextText: verb-examine-group-other
-        icon: /Textures/Interface/examine-star.png
-        components:
-        - Armor
-        - ClothingSpeedModifier
-        entries:
-        - message: Понижает вашу скорость на [color=yellow]15%[/color].
-          priority: 0
-          component: ClothingSpeedModifier
-        - message: >-
-            Обеспечивает следующую защиту:
-
-            - [color=yellow]Ударный[/color] урон снижается на [color=lightblue]80%[/color].
-
-            - [color=yellow]Режущий[/color] урон снижается на [color=lightblue]80%[/color].
-
-            - [color=yellow]Колющий[/color] урон снижается на [color=lightblue]80%[/color].
-
-            - [color=yellow]Высокотемпературный[/color] урон снижается на [color=lightblue]80%[/color].
-
-            - [color=yellow]Радиационный[/color] урон снижается на [color=lightblue]80%[/color].
-
-            - [color=yellow]Кислотный[/color] урон снижается на [color=lightblue]80%[/color].
-
-            [color=lightblue]Понижает шанс заражения на 25%[/color]
-
-            - [color=orange]Урон от взрыва[/color] уменьшен на [color=lightblue]80%[/color].
-
-            - [color=deepskyblue]Урон выносливости[/color] уменьшен на [color=lightblue]80%[/color].
-          priority: 0
-          component: Armor
-        title: null
-  - uid: 2538
-    components:
-    - type: MetaData
-      name: Инопланетный элемент
-    - type: Transform
-      pos: -7.5,-5.5
-      parent: 1
-    - type: GroupExamine
-      group:
-      - hoverMessage: ""
-        contextText: verb-examine-group-other
-        icon: /Textures/Interface/examine-star.png
-        components:
-        - Armor
-        - ClothingSpeedModifier
-        entries:
-        - message: Понижает вашу скорость на [color=yellow]15%[/color].
-          priority: 0
-          component: ClothingSpeedModifier
-        - message: >-
-            Обеспечивает следующую защиту:
-
-            - [color=yellow]Ударный[/color] урон снижается на [color=lightblue]80%[/color].
-
-            - [color=yellow]Режущий[/color] урон снижается на [color=lightblue]80%[/color].
-
-            - [color=yellow]Колющий[/color] урон снижается на [color=lightblue]80%[/color].
-
-            - [color=yellow]Высокотемпературный[/color] урон снижается на [color=lightblue]80%[/color].
-
-            - [color=yellow]Радиационный[/color] урон снижается на [color=lightblue]80%[/color].
-
-            - [color=yellow]Кислотный[/color] урон снижается на [color=lightblue]80%[/color].
-
-            [color=lightblue]Понижает шанс заражения на 25%[/color]
-
-            - [color=orange]Урон от взрыва[/color] уменьшен на [color=lightblue]80%[/color].
-
-            - [color=deepskyblue]Урон выносливости[/color] уменьшен на [color=lightblue]80%[/color].
-          priority: 0
-          component: Armor
-        title: null
-  - uid: 2539
-    components:
-    - type: MetaData
-      name: Инопланетный элемент
-    - type: Transform
-      pos: -7.5,-3.5
-      parent: 1
-    - type: GroupExamine
-      group:
-      - hoverMessage: ""
-        contextText: verb-examine-group-other
-        icon: /Textures/Interface/examine-star.png
-        components:
-        - Armor
-        - ClothingSpeedModifier
-        entries:
-        - message: Понижает вашу скорость на [color=yellow]15%[/color].
-          priority: 0
-          component: ClothingSpeedModifier
-        - message: >-
-            Обеспечивает следующую защиту:
-
-            - [color=yellow]Ударный[/color] урон снижается на [color=lightblue]80%[/color].
-
-            - [color=yellow]Режущий[/color] урон снижается на [color=lightblue]80%[/color].
-
-            - [color=yellow]Колющий[/color] урон снижается на [color=lightblue]80%[/color].
-
-            - [color=yellow]Высокотемпературный[/color] урон снижается на [color=lightblue]80%[/color].
-
-            - [color=yellow]Радиационный[/color] урон снижается на [color=lightblue]80%[/color].
-
-            - [color=yellow]Кислотный[/color] урон снижается на [color=lightblue]80%[/color].
-
-            [color=lightblue]Понижает шанс заражения на 25%[/color]
-
-            - [color=orange]Урон от взрыва[/color] уменьшен на [color=lightblue]80%[/color].
-
-            - [color=deepskyblue]Урон выносливости[/color] уменьшен на [color=lightblue]80%[/color].
-          priority: 0
-          component: Armor
-        title: null
-  - uid: 2540
-    components:
-    - type: MetaData
-      name: Инопланетный элемент
-    - type: Transform
-      pos: -7.5,-1.5
-      parent: 1
-    - type: GroupExamine
-      group:
-      - hoverMessage: ""
-        contextText: verb-examine-group-other
-        icon: /Textures/Interface/examine-star.png
-        components:
-        - Armor
-        - ClothingSpeedModifier
-        entries:
-        - message: Понижает вашу скорость на [color=yellow]15%[/color].
-          priority: 0
-          component: ClothingSpeedModifier
-        - message: >-
-            Обеспечивает следующую защиту:
-
-            - [color=yellow]Ударный[/color] урон снижается на [color=lightblue]80%[/color].
-
-            - [color=yellow]Режущий[/color] урон снижается на [color=lightblue]80%[/color].
-
-            - [color=yellow]Колющий[/color] урон снижается на [color=lightblue]80%[/color].
-
-            - [color=yellow]Высокотемпературный[/color] урон снижается на [color=lightblue]80%[/color].
-
-            - [color=yellow]Радиационный[/color] урон снижается на [color=lightblue]80%[/color].
-
-            - [color=yellow]Кислотный[/color] урон снижается на [color=lightblue]80%[/color].
-
-            [color=lightblue]Понижает шанс заражения на 25%[/color]
-
-            - [color=orange]Урон от взрыва[/color] уменьшен на [color=lightblue]80%[/color].
-
-            - [color=deepskyblue]Урон выносливости[/color] уменьшен на [color=lightblue]80%[/color].
-          priority: 0
-          component: Armor
-        title: null
 - proto: VendingMachineEngivend
   entities:
   - uid: 2541
@@ -597524,32 +595184,8 @@ entities:
     - type: Transform
       pos: -0.5,9.5
       parent: 1
-- proto: WeaponAlphaPulsePistol
+- proto: WeaponPulsePistol
   entities:
-  - uid: 43
-    components:
-    - type: Transform
-      parent: 23
-    - type: Physics
-      canCollide: False
-  - uid: 69
-    components:
-    - type: Transform
-      parent: 49
-    - type: Physics
-      canCollide: False
-  - uid: 110
-    components:
-    - type: Transform
-      parent: 90
-    - type: Physics
-      canCollide: False
-  - uid: 151
-    components:
-    - type: Transform
-      parent: 131
-    - type: Physics
-      canCollide: False
   - uid: 189
     components:
     - type: Transform
@@ -597712,15 +595348,6 @@ entities:
     - type: DeviceList
       devices:
       - 2553
-- proto: WeaponPulseSniperRed
-  entities:
-  - uid: 2055
-    components:
-    - type: Transform
-      parent: 2054
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: WeaponRifleAk
   entities:
   - uid: 280

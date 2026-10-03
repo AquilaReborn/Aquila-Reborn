@@ -18,18 +18,18 @@ tilemap:
   2: FloorMetalDiamond
   1: FloorOldConcrete
   14: FloorReinforced
-  16: FloorTechDarkImperialMaint
+  16: FloorTechMaintDark
   15: FloorTechMaint
   13: FloorTechMaint3
   10: Lattice
-  9: LatticeCorner1
-  6: LatticeCorner2
-  4: LatticeCorner3
-  11: LatticeCorner4
-  8: LatticeSmall1
-  12: LatticeSmall2
-  7: LatticeSmall3
-  5: LatticeSmall4
+  9: Lattice
+  6: Lattice
+  4: Lattice
+  11: Lattice
+  8: Lattice
+  12: Lattice
+  7: Lattice
+  5: Lattice
   0: Plating
 entities:
 - proto: ""
@@ -1934,7 +1934,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -6.5,-3.5
       parent: 1
-- proto: DirtyPoweredSmallLight
+- proto: PoweredSmallLight
   entities:
   - uid: 232
     components:
@@ -2220,7 +2220,7 @@ entities:
       powerLoad: 60
     - type: DamageOnInteract
       isDamageActive: False
-- proto: FaxMachineBridgeInterGalactic
+- proto: FaxMachineBase
   entities:
   - uid: 290
     components:
@@ -2417,12 +2417,6 @@ entities:
       color: '#CD5C5CFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 219
     components:
     - type: Transform
@@ -2432,12 +2426,6 @@ entities:
       color: '#CD5C5CFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 221
     components:
     - type: Transform
@@ -2447,12 +2435,6 @@ entities:
       color: '#EEE8AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 223
     components:
     - type: Transform
@@ -2462,12 +2444,6 @@ entities:
       color: '#EEE8AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 225
     components:
     - type: Transform
@@ -2477,12 +2453,6 @@ entities:
       color: '#006400FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 227
     components:
     - type: Transform
@@ -2492,12 +2462,6 @@ entities:
       color: '#CD5C5CFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 229
     components:
     - type: Transform
@@ -2507,12 +2471,6 @@ entities:
       color: '#CD5C5CFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 231
     components:
     - type: Transform
@@ -2522,12 +2480,6 @@ entities:
       color: '#CD5C5CFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 233
     components:
     - type: Transform
@@ -2537,12 +2489,6 @@ entities:
       color: '#EEE8AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 235
     components:
     - type: Transform
@@ -2552,12 +2498,6 @@ entities:
       color: '#EEE8AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 237
     components:
     - type: Transform
@@ -2567,12 +2507,6 @@ entities:
       color: '#EEE8AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 239
     components:
     - type: Transform
@@ -2582,12 +2516,6 @@ entities:
       color: '#EEE8AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 241
     components:
     - type: Transform
@@ -2597,12 +2525,6 @@ entities:
       color: '#EEE8AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 243
     components:
     - type: Transform
@@ -2612,12 +2534,6 @@ entities:
       color: '#EEE8AAFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 245
     components:
     - type: Transform
@@ -2627,12 +2543,6 @@ entities:
       color: '#CD5C5CFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 247
     components:
     - type: Transform
@@ -2642,12 +2552,6 @@ entities:
       color: '#CD5C5CFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 249
     components:
     - type: Transform
@@ -2656,12 +2560,6 @@ entities:
       color: '#FFFFE0FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 251
     components:
     - type: Transform
@@ -2671,12 +2569,6 @@ entities:
       color: '#CD5C5CFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 253
     components:
     - type: Transform
@@ -2686,12 +2578,6 @@ entities:
       color: '#CD5C5CFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 255
     components:
     - type: Transform
@@ -2700,12 +2586,6 @@ entities:
       color: '#FFFFE0FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 257
     components:
     - type: Transform
@@ -2714,12 +2594,6 @@ entities:
       color: '#FFFFE0FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 259
     components:
     - type: Transform
@@ -2729,12 +2603,6 @@ entities:
       color: '#CD5C5CFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 261
     components:
     - type: Transform
@@ -2744,12 +2612,6 @@ entities:
       color: '#CD5C5CFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 263
     components:
     - type: Transform
@@ -2758,12 +2620,6 @@ entities:
       color: '#FFFFE0FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
 - proto: LockableButtonExternal
   entities:
   - uid: 214

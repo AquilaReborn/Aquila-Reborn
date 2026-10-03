@@ -3,15 +3,22 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Aquila.HideableClothing;
 
+/// <summary>
+/// Верхняя одежда, которую можно скрыть визуально, не снимая, пока под ней надет комбез. В основном только для броников.
+/// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
+[Access(typeof(HideableClothingSystem), Other = AccessPermissions.Read)]
 public sealed partial class HideableClothingComponent : Component
 {
     [DataField]
-    public EntProtoId ActionId = "ActionToggleClothingVisibility";
+    public EntProtoId Action = "ActionToggleClothingVisibility";
 
-    [DataField, AutoNetworkedField]
+    /// <summary>
+    /// Выданное носителю действие. Создаётся и хранится только на сервере.
+    /// </summary>
+    [ViewVariables]
     public EntityUid? ActionEntity;
 
-    [DataField, AutoNetworkedField]
+    [ViewVariables, AutoNetworkedField]
     public bool Hidden;
 }

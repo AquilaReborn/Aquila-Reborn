@@ -5,7 +5,7 @@ meta:
   forkId: main
   forkVersion: 20260729125258
   time: 08/02/2026 02:49:19
-  entityCount: 292
+  entityCount: 290
 maps: []
 grids:
 - 1
@@ -20,12 +20,12 @@ tilemap:
   7: FloorTechMaint
   0: FloorTechMaintDark
   2: Lattice
-  12: LatticeCorner1
-  11: LatticeCorner2
-  5: LatticeCorner3
-  8: LatticeCorner4
-  13: LatticeSmall1
-  10: LatticeSmall3
+  12: Lattice
+  11: Lattice
+  5: Lattice
+  8: Lattice
+  13: Lattice
+  10: Lattice
   1: Plating
 entities:
 - proto: ""
@@ -1141,12 +1141,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -1164,12 +1158,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 256
     mapInit: true
     paused: true
@@ -1182,12 +1170,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -1205,12 +1187,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 260
     mapInit: true
     paused: true
@@ -1223,12 +1199,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -1246,24 +1216,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-- proto: MedievalLightSphereDespawnEffect
-  entities:
-  - uid: 243
-    components:
-    - type: Transform
-      pos: 0.68378335,9.087519
-      parent: 1
-  - uid: 244
-    components:
-    - type: Transform
-      pos: 1.2619083,9.071894
-      parent: 1
 - proto: PottedPlantRandomPlastic
   entities:
   - uid: 242
@@ -1675,8 +1627,6 @@ entities:
     - type: Transform
       pos: 4.5,10.5
       parent: 1
-- proto: ThrusterMedium
-  entities:
   - uid: 84
     components:
     - type: Transform

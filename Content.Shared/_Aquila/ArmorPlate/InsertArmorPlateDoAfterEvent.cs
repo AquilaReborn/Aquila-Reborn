@@ -4,6 +4,4 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._Aquila.ArmorPlate;
 
 [Serializable, NetSerializable]
-public sealed partial class InsertArmorPlateDoAfterEvent : SimpleDoAfterEvent
-{
-}
+public sealed partial class InsertArmorPlateDoAfterEvent : SimpleDoAfterEvent;

@@ -15,13 +15,13 @@ nullspace: []
 tilemap:
   2: Space
   3: FloorMetalDiamond
-  5: FloorTechDarkImperialMaint
+  5: FloorTechMaintDark
   1: FloorTechMaint3
   6: Lattice
-  9: LatticeCorner1
-  7: LatticeCorner2
-  8: LatticeCorner3
-  4: LatticeCorner4
+  9: Lattice
+  7: Lattice
+  8: Lattice
+  4: Lattice
   0: Plating
 entities:
 - proto: ""
@@ -754,7 +754,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 3.5850463,2.480891
       parent: 1
-- proto: DarkRedPoweredSmallLight
+- proto: PoweredSmallLight
   entities:
   - uid: 210
     components:
@@ -905,7 +905,7 @@ entities:
       parent: 1
     - type: Label
       currentLabel: MED | "Сериоль"
-- proto: KitchenReagentGrinderBeakerLarge
+- proto: KitchenReagentGrinder
   entities:
   - uid: 100
     components:

@@ -1,0 +1,52 @@
+- type: entity
+  id: AutoCookerBarMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: auto-bartender machine board
+  description: A machine printed circuit board for an auto-bartender.
+  components:
+  - type: Sprite
+    state: service
+  - type: MachineBoard
+    prototype: AutoCookerBar
+    stackRequirements:
+      Manipulator: 2
+      Glass: 2
+      Steel: 5
+    tagRequirements:
+      GlassBeaker:
+        amount: 1
+        defaultPrototype: Beaker
+
+- type: entity
+  id: AutoCookerChemMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: auto-chemist machine board
+  description: A machine printed circuit board for an auto-chemist.
+  components:
+  - type: Sprite
+    state: medical
+  - type: MachineBoard
+    prototype: AutoCookerChem
+    stackRequirements:
+      Manipulator: 3
+      Glass: 2
+      Steel: 5
+    tagRequirements:
+      GlassBeaker:
+        amount: 2
+        defaultPrototype: Beaker
+
+- type: entity
+  id: AutoCookerKitchenMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: auto-cook machine board
+  description: A machine printed circuit board for an auto-cook.
+  components:
+  - type: Sprite
+    state: service
+  - type: MachineBoard
+    prototype: AutoCookerKitchen
+    stackRequirements:
+      Manipulator: 2
+      Glass: 2
+      Steel: 5

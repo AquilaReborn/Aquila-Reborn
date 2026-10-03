@@ -8,14 +8,14 @@ tilemap:
   2: FloorShuttleGrey
   4: FloorTechMaint3
   148: Lattice
-  149: LatticeCorner1
-  150: LatticeCorner2
-  151: LatticeCorner3
-  152: LatticeCorner4
-  153: LatticeSmall1
-  154: LatticeSmall2
-  155: LatticeSmall3
-  156: LatticeSmall4
+  149: Lattice
+  150: Lattice
+  151: Lattice
+  152: Lattice
+  153: Lattice
+  154: Lattice
+  155: Lattice
+  156: Lattice
   163: Plating
 entities:
 - proto: ""
@@ -780,105 +780,69 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -13.900822,1.5114594
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 453
     components:
     - type: Transform
       pos: -10.774918,1.576561
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 454
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -9.745972,1.6156235
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 455
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -8.430489,1.5635452
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 456
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -4.536133,1.6026077
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 457
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 13.107803,1.6286469
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 458
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 15.269886,1.5114594
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 459
     components:
     - type: Transform
       pos: 16.416054,1.6677094
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 460
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 19.385662,1.4463577
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 461
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 20.285526,1.5244827
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 462
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 21.483791,1.4854202
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 463
     components:
     - type: Transform
       pos: 22.603905,1.420311
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
 - proto: CableHV
   entities:
   - uid: 173
@@ -1434,234 +1398,153 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -3.4780006,1.3661575
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 288
     components:
     - type: Transform
       pos: -5.353546,1.5419388
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 290
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -8.420837,1.4247513
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 293
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -11.4685955,1.4247513
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 295
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -13.500435,3.2584305
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 297
     components:
     - type: Transform
       pos: -14.399132,3.609993
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 299
     components:
     - type: Transform
       pos: -6.460842,3.2316666
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 301
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -13.676266,10.543587
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 303
     components:
     - type: Transform
       pos: -6.512577,10.349724
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 308
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -7.30093,5.594948
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 309
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -7.476761,4.5402603
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 327
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -14.496815,4.625618
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 332
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -14.360058,9.391243
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 340
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 14.357643,1.516304
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 342
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 15.783836,1.4772415
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 344
     components:
     - type: Transform
       pos: 19.515388,1.438179
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 346
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 21.371391,1.281929
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 347
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -13.51997,2.3209305
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 349
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 22.016113,1.1842728
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 350
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 22.331146,3.5406876
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 352
     components:
     - type: Transform
       pos: 14.442284,8.48896
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 354
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 14.442284,7.3952103
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 355
     components:
     - type: Transform
       pos: 15.360516,3.4889603
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 356
     components:
     - type: Transform
       pos: 14.5204315,6.4772415
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 385
     components:
     - type: Transform
       pos: 23.542427,8.606209
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 386
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 23.347061,7.512459
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
   - uid: 392
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 17.73753,1.4186478
       parent: 1
-    - type: CrewSkillsCabelBlock
-      needSkills:
-      - skillMaintenance
 - proto: CableMV
   entities:
   - uid: 252
@@ -2089,7 +1972,7 @@ entities:
       powerLoad: 60
     - type: DamageOnInteract
       isDamageActive: False
-- proto: RailingImperial
+- proto: Railing
   entities:
   - uid: 478
     components:
@@ -2509,7 +2392,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -3.5,0.5
       parent: 1
-- proto: RandomWeldingFuelTank
+- proto: WeldingFuelTankFull
   entities:
   - uid: 552
     components:
@@ -3005,17 +2888,11 @@ entities:
     - type: Transform
       pos: 2.5,2.5
       parent: 1
-    - type: CrewSkillsInstrumentation
-      needSkills:
-      - skillInstrumentation
   - uid: 402
     components:
     - type: Transform
       pos: 0.5,1.5
       parent: 1
-    - type: CrewSkillsInstrumentation
-      needSkills:
-      - skillInstrumentation
 - proto: TelecomServerFilledCargo
   entities:
   - uid: 396
@@ -3023,9 +2900,6 @@ entities:
     - type: Transform
       pos: 5.5,2.5
       parent: 1
-    - type: CrewSkillsInstrumentation
-      needSkills:
-      - skillInstrumentation
 - proto: TelecomServerFilledCommand
   entities:
   - uid: 406
@@ -3033,9 +2907,6 @@ entities:
     - type: Transform
       pos: 6.5,2.5
       parent: 1
-    - type: CrewSkillsInstrumentation
-      needSkills:
-      - skillInstrumentation
 - proto: TelecomServerFilledCommon
   entities:
   - uid: 395
@@ -3043,9 +2914,6 @@ entities:
     - type: Transform
       pos: 5.5,0.5
       parent: 1
-    - type: CrewSkillsInstrumentation
-      needSkills:
-      - skillInstrumentation
 - proto: TelecomServerFilledEngineering
   entities:
   - uid: 394
@@ -3053,9 +2921,6 @@ entities:
     - type: Transform
       pos: 3.5,2.5
       parent: 1
-    - type: CrewSkillsInstrumentation
-      needSkills:
-      - skillInstrumentation
 - proto: TelecomServerFilledMedical
   entities:
   - uid: 397
@@ -3063,9 +2928,6 @@ entities:
     - type: Transform
       pos: 2.5,0.5
       parent: 1
-    - type: CrewSkillsInstrumentation
-      needSkills:
-      - skillInstrumentation
 - proto: TelecomServerFilledScience
   entities:
   - uid: 398
@@ -3073,9 +2935,6 @@ entities:
     - type: Transform
       pos: 3.5,0.5
       parent: 1
-    - type: CrewSkillsInstrumentation
-      needSkills:
-      - skillInstrumentation
 - proto: TelecomServerFilledSecurity
   entities:
   - uid: 403
@@ -3083,9 +2942,6 @@ entities:
     - type: Transform
       pos: 8.5,1.5
       parent: 1
-    - type: CrewSkillsInstrumentation
-      needSkills:
-      - skillInstrumentation
 - proto: TelecomServerFilledService
   entities:
   - uid: 405
@@ -3093,9 +2949,6 @@ entities:
     - type: Transform
       pos: 6.5,0.5
       parent: 1
-    - type: CrewSkillsInstrumentation
-      needSkills:
-      - skillInstrumentation
 - proto: VendingMachineSustenance
   entities:
   - uid: 418

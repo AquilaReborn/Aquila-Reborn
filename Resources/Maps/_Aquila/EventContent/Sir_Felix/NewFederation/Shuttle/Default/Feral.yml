@@ -5,7 +5,7 @@ meta:
   forkId: aquila
   forkVersion: 20260729125804
   time: 08/07/2026 11:42:11
-  entityCount: 113
+  entityCount: 111
 maps: []
 grids:
 - 1
@@ -20,13 +20,13 @@ tilemap:
   1: FloorShuttleBlack
   14: FloorShuttleGrey
   3: Lattice
-  11: LatticeCorner1
-  13: LatticeCorner2
-  9: LatticeCorner3
-  4: LatticeCorner4
-  12: LatticeSmall2
-  10: LatticeSmall3
-  7: LatticeSmall4
+  11: Lattice
+  13: Lattice
+  9: Lattice
+  4: Lattice
+  12: Lattice
+  10: Lattice
+  7: Lattice
   6: Plating
 entities:
 - proto: ""
@@ -557,32 +557,6 @@ entities:
       parent: 1
     - type: Label
       currentLabel: GDR | "Feral"
-- proto: MechPowerCageMedium
-  entities:
-  - uid: 46
-    components:
-    - type: Transform
-      parent: 45
-    - type: Physics
-      canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 48
-    components:
-    - type: Transform
-      parent: 47
-    - type: Physics
-      canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
 - proto: PowerCageRecharger
   entities:
   - uid: 24
@@ -600,12 +574,6 @@ entities:
       lastCharge: 29.544678
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 52
     components:
     - type: Transform
@@ -614,12 +582,6 @@ entities:
       lastCharge: 25.199997
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
 - proto: ReinforcedWindowWhiteElysiumPrime
   entities:
   - uid: 53
@@ -705,7 +667,7 @@ entities:
         cell_slot: !type:ContainerSlot
           showEnts: False
           occludes: True
-          ent: 46
+          ent: null
   - uid: 47
     components:
     - type: Transform
@@ -725,7 +687,7 @@ entities:
         cell_slot: !type:ContainerSlot
           showEnts: False
           occludes: True
-          ent: 48
+          ent: null
 - proto: ShuttleGunSvalinnMachineGun
   entities:
   - uid: 49

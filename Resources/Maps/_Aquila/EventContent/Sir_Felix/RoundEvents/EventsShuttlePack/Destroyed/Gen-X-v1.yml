@@ -5,7 +5,7 @@ meta:
   forkId: main
   forkVersion: 20260211191406
   time: 02/15/2026 21:39:59
-  entityCount: 523
+  entityCount: 503
 maps: []
 grids:
 - 1
@@ -18,14 +18,14 @@ tilemap:
   8: FloorMetalDiamond
   3: FloorTechMaint3
   13: Lattice
-  10: LatticeCorner1
-  9: LatticeCorner2
-  1: LatticeCorner3
-  5: LatticeCorner4
-  12: LatticeSmall1
-  11: LatticeSmall2
-  14: LatticeSmall3
-  6: LatticeSmall4
+  10: Lattice
+  9: Lattice
+  1: Lattice
+  5: Lattice
+  12: Lattice
+  11: Lattice
+  14: Lattice
+  6: Lattice
   0: Plating
   4: PlatingDamaged
 entities:
@@ -2573,7 +2573,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 2.5,-4.5
       parent: 1
-- proto: DirtyPoweredlight
+- proto: Poweredlight
   entities:
   - uid: 495
     components:
@@ -2991,7 +2991,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 0.5,28.5
       parent: 1
-- proto: RailingImperial
+- proto: Railing
   entities:
   - uid: 309
     components:
@@ -3404,7 +3404,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 6.5,-2.5
       parent: 1
-- proto: ThrusterMedium
+- proto: Thruster
   entities:
   - uid: 373
     components:
@@ -3514,34 +3514,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -4.5,9.5
       parent: 1
-- proto: TrashDecorativeampula2
-  entities:
-  - uid: 507
-    components:
-    - type: Transform
-      pos: 2.9092422,15.430674
-      parent: 1
-    - type: Physics
-      canCollide: False
-- proto: TrashDecorativeampula3
-  entities:
-  - uid: 522
-    components:
-    - type: Transform
-      pos: -1.6315393,12.4709215
-      parent: 1
-    - type: Physics
-      canCollide: False
-- proto: TrashDecorativeampula4
-  entities:
-  - uid: 516
-    components:
-    - type: Transform
-      pos: -0.19403934,9.232665
-      parent: 1
-    - type: Physics
-      canCollide: False
-- proto: TrashDecorativeBag
+- proto: TrashBag
   entities:
   - uid: 520
     components:
@@ -3550,154 +3523,6 @@ entities:
       parent: 1
     - type: Physics
       canCollide: False
-- proto: TrashDecorativeFoodWaste
-  entities:
-  - uid: 508
-    components:
-    - type: Transform
-      pos: 1.3779922,15.1409855
-      parent: 1
-    - type: Physics
-      canCollide: False
-- proto: TrashDecorativegauze
-  entities:
-  - uid: 512
-    components:
-    - type: Transform
-      pos: -0.62200785,22.456684
-      parent: 1
-    - type: Physics
-      canCollide: False
-- proto: TrashDecorativeglasses
-  entities:
-  - uid: 510
-    components:
-    - type: Transform
-      pos: 3.3623672,13.2487755
-      parent: 1
-    - type: Physics
-      canCollide: False
-  - uid: 511
-    components:
-    - type: Transform
-      pos: 1.6748672,21.456448
-      parent: 1
-    - type: Physics
-      canCollide: False
-- proto: TrashDecorativejar
-  entities:
-  - uid: 518
-    components:
-    - type: Transform
-      pos: -2.3346643,8.944758
-      parent: 1
-    - type: Physics
-      canCollide: False
-- proto: TrashDecorativejar2
-  entities:
-  - uid: 504
-    components:
-    - type: Transform
-      pos: -0.77825785,5.2265697
-      parent: 1
-    - type: Physics
-      canCollide: False
-- proto: TrashDecorativejar3
-  entities:
-  - uid: 509
-    components:
-    - type: Transform
-      pos: 3.5186172,14.5941105
-      parent: 1
-    - type: Physics
-      canCollide: False
-- proto: TrashDecorativejar4
-  entities:
-  - uid: 513
-    components:
-    - type: Transform
-      pos: -0.37200785,20.519184
-      parent: 1
-    - type: Physics
-      canCollide: False
-- proto: TrashDecorativePaper1
-  entities:
-  - uid: 514
-    components:
-    - type: Transform
-      pos: 1.2281425,25.495855
-      parent: 1
-    - type: Physics
-      canCollide: False
-- proto: TrashDecorativePaper3
-  entities:
-  - uid: 517
-    components:
-    - type: Transform
-      pos: 1.7747107,8.835383
-      parent: 1
-    - type: Physics
-      canCollide: False
-- proto: TrashDecorativerag
-  entities:
-  - uid: 521
-    components:
-    - type: Transform
-      pos: -1.1002893,10.513731
-      parent: 1
-    - type: Physics
-      canCollide: False
-  - uid: 523
-    components:
-    - type: Transform
-      pos: 1.3997107,19.624022
-      parent: 1
-    - type: Physics
-      canCollide: False
-- proto: TrashDecorativeRust2
-  entities:
-  - uid: 519
-    components:
-    - type: Transform
-      pos: 1.2434607,7.7728834
-      parent: 1
-    - type: Physics
-      canCollide: False
-- proto: TrashDecorativeRust3
-  entities:
-  - uid: 503
-    components:
-    - type: Transform
-      pos: 1.1279922,4.5859447
-      parent: 1
-    - type: Physics
-      canCollide: False
-  - uid: 505
-    components:
-    - type: Transform
-      pos: -0.13763285,6.585869
-      parent: 1
-    - type: Physics
-      canCollide: False
-  - uid: 506
-    components:
-    - type: Transform
-      pos: -2.7313828,15.814031
-      parent: 1
-    - type: Physics
-      canCollide: False
-- proto: TrashDecorativewire
-  entities:
-  - uid: 515
-    components:
-    - type: Transform
-      pos: 1.5559607,5.5982304
-      parent: 1
-    - type: Physics
-      canCollide: False
-    - type: AmbientSound
-      volume: 3
-      range: 10
 - proto: VendingMachineTankDispenserEVA
   entities:
   - uid: 432

@@ -411,8 +411,9 @@
   categories: [ DoNotMap ]
   components:
   - type: ToggleHideLayersClothing # Aquila Change
-    layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ] # Aquila Change
     slots: OUTERCLOTHING # Aquila Change
+    groups:
+    - layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ] # Aquila Change
   - type: PressureProtection
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000

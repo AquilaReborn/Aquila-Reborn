@@ -14,7 +14,7 @@ orphans:
 nullspace: []
 tilemap:
   1: Space
-  5: FloorCrossWood
+  5: FloorWoodParquet
   15: FloorHull
   14: FloorHullReinforced
   4: FloorMetalDiamond
@@ -24,12 +24,12 @@ tilemap:
   8: FloorShuttleGrey
   10: FloorTechMaint3
   0: Lattice
-  7: LatticeCorner1
-  13: LatticeCorner2
-  6: LatticeCorner3
-  3: LatticeCorner4
-  12: LatticeSmall1
-  16: LatticeSmall3
+  7: Lattice
+  13: Lattice
+  6: Lattice
+  3: Lattice
+  12: Lattice
+  16: Lattice
   2: Plating
 entities:
 - proto: ""
@@ -1397,7 +1397,7 @@ entities:
     - type: Transform
       pos: 1.2021301,4.7850475
       parent: 1
-- proto: DrinkSodaWaterBottleFullImperial
+- proto: DrinkSodaWaterBottleFull
   entities:
   - uid: 220
     components:
@@ -1612,7 +1612,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -0.6841279,4.6461587
       parent: 1
-- proto: FaxMachineCentcomColored
+- proto: FaxMachineCentcom
   entities:
   - uid: 256
     components:
@@ -1637,7 +1637,7 @@ entities:
     - type: Transform
       pos: 3.5,8.5
       parent: 1
-- proto: FoodCaviarGolden
+- proto: FoodRedCaviar
   entities:
   - uid: 259
     components:
@@ -2273,12 +2273,6 @@ entities:
       color: '#800000FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 364
     mapInit: true
     paused: true
@@ -2292,12 +2286,6 @@ entities:
       color: '#800000FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 366
     mapInit: true
     paused: true
@@ -2311,12 +2299,6 @@ entities:
       color: '#800000FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 368
     mapInit: true
     paused: true
@@ -2330,12 +2312,6 @@ entities:
       color: '#800000FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 392
     mapInit: true
     paused: true
@@ -2349,12 +2325,6 @@ entities:
       color: '#98FB98FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 394
     mapInit: true
     paused: true
@@ -2368,12 +2338,6 @@ entities:
       color: '#98FB98FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
 - proto: LuxuryPen
   entities:
   - uid: 369
@@ -2381,7 +2345,7 @@ entities:
     - type: Transform
       pos: 0.7868248,12.757914
       parent: 1
-- proto: MetalDetectorNonAccess
+- proto: ContrabandDetectorSecure
   entities:
   - uid: 370
     components:
@@ -2682,7 +2646,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 4.5,13.5
       parent: 1
-- proto: RailingImperial
+- proto: Railing
   entities:
   - uid: 398
     components:
@@ -2962,14 +2926,14 @@ entities:
     - type: Transform
       pos: -1.5337524,4.532944
       parent: 1
-- proto: TGMCSmallFlag
+- proto: NTFlag
   entities:
   - uid: 444
     components:
     - type: Transform
       pos: 0.049734592,4.208658
       parent: 1
-- proto: ThrusterMedium
+- proto: Thruster
   entities:
   - uid: 445
     components:

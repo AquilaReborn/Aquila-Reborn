@@ -171,7 +171,7 @@ public abstract partial class SharedVehicleGallopSystem : EntitySystem
                 _movementSpeed.RefreshMovementSpeedModifiers(ent);
 
                 if (comp.GallopSuccessSound != null)
-                    _audio.PlayPvs(comp.GallopSuccessSound, ent);
+                    _audio.PlayPredicted(comp.GallopSuccessSound, ent, args.Performer);
 
                 if (comp.Rider != null)
                     RaiseLocalEvent(ent.Owner, new VehicleGallopSuccessEvent(comp.Rider.Value));

@@ -228,7 +228,7 @@ public abstract class SharedEntityStorageSystem : EntitySystem
         }
     }
 
-    public void OpenStorage(EntityUid uid, EntityStorageComponent? component = null)
+    public void OpenStorage(EntityUid uid, EntityStorageComponent? component = null, EntityUid? user = null) // Aquila Change
     {
         if (!Resolve(uid, ref component))
             return;
@@ -242,14 +242,13 @@ public abstract class SharedEntityStorageSystem : EntitySystem
         Dirty(uid, component);
         EmptyContents(uid, component);
         ModifyComponents(uid, component);
-        if (_net.IsClient && _timing.IsFirstTimePredicted)
-            _audio.PlayPvs(component.OpenSound, uid);
+        PlayStorageSound(component.OpenSound, uid, user); // Aquila Change
         ReleaseGas(uid, component);
         var afterev = new StorageAfterOpenEvent();
         RaiseLocalEvent(uid, ref afterev);
     }
 
-    public void CloseStorage(EntityUid uid, EntityStorageComponent? component = null)
+    public void CloseStorage(EntityUid uid, EntityStorageComponent? component = null, EntityUid? user = null) // Aquila Change
     {
         if (!Resolve(uid, ref component))
             return;
@@ -293,8 +292,7 @@ public abstract class SharedEntityStorageSystem : EntitySystem
 
         TakeGas(uid, component);
         ModifyComponents(uid, component);
-        if (_net.IsClient && _timing.IsFirstTimePredicted)
-            _audio.PlayPvs(component.CloseSound, uid);
+        PlayStorageSound(component.CloseSound, uid, user); // Aquila Change
 
         var afterev = new StorageAfterCloseEvent();
         RaiseLocalEvent(uid, ref afterev);
@@ -394,7 +392,7 @@ public abstract class SharedEntityStorageSystem : EntitySystem
         if (!CanOpen(user, target, silent))
             return false;
 
-        OpenStorage(target);
+        OpenStorage(target, user: user); // Aquila Change
         return true;
     }
 
@@ -405,9 +403,19 @@ public abstract class SharedEntityStorageSystem : EntitySystem
             return false;
         }
 
-        CloseStorage(target);
+        CloseStorage(target, user: user); // Aquila Change
         return true;
     }
+
+    // Aquila Change start
+    private void PlayStorageSound(Robust.Shared.Audio.SoundSpecifier sound, EntityUid uid, EntityUid? user)
+    {
+        if (user != null)
+            _audio.PlayPredicted(sound, uid, user);
+        else if (_net.IsServer)
+            _audio.PlayPvs(sound, uid);
+    }
+    // Aquila Change end
 
     public bool IsOpen(EntityUid target, EntityStorageComponent? component = null)
     {

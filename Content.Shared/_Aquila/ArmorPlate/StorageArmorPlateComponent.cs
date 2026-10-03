@@ -1,34 +1,33 @@
-using Content.Shared.Verbs;
+using Content.Shared.Tag;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
-using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Aquila.ArmorPlate;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+/// <summary>
+/// Позволяет вкладывать в комбезы бронепластины, которые поглощают часть входящего урона вместо носителя.
+/// </summary>
+[RegisterComponent]
 public sealed partial class StorageArmorPlateComponent : Component
 {
-    [DataField, AutoNetworkedField]
+    public const string ContainerId = "storage-armor-plate";
+
+    [DataField]
     public int MaxPlates = 2;
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public bool CanRemovePlates = true;
 
     [DataField]
-    public string PlateTag = "ArmorPlate";
+    public ProtoId<TagPrototype> PlateTag = "ArmorPlate";
 
     [DataField]
     public SoundSpecifier PlateSound = new SoundPathSpecifier("/Audio/Items/jumpsuit_equip.ogg");
 
     [DataField]
-    public VerbCategory? RemovePlateCategory;
-
-    [DataField]
-    public string ContainerId = "storage-armor-plate";
+    public TimeSpan InsertDelay = TimeSpan.FromSeconds(3);
 
     [ViewVariables]
     public Container Storage = default!;
-
-    [DataField, AutoNetworkedField]
-    public TimeSpan InsertDelay = TimeSpan.FromSeconds(3);
 }

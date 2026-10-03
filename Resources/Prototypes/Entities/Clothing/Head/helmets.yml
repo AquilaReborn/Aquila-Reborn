@@ -7,6 +7,13 @@
   id: ClothingHeadHelmetBase
   abstract: true
   components:
+    # Aquila Change start
+  - type: ToggleHideLayersClothing
+    slots: HEAD
+    groups:
+    - layers: [ Hair ]
+      action: ActionToggleHideLayersHair
+    # Aquila Change end
   # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
@@ -92,15 +99,11 @@
   name: SWAT helmet
   description: An extremely robust helmet, commonly used by paramilitary forces. This one has the Nanotrasen logo emblazoned on the top.
   components:
-  - type: ToggleHideLayersClothing # Aquila Change
-    layers: [ Hair ] # Aquila Change
-    slots: HEAD # Aquila Change
-    action: ActionToggleHideLayersHair # Aquila Change
   - type: Sprite
     sprite: Clothing/Head/Helmets/swat.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/swat.rsi
-  #- type: Armor # Goob Start - ClothingHeadHelmetSwatBase makes this obsolete 
+  #- type: Armor # Goob Start - ClothingHeadHelmetSwatBase makes this obsolete
   #  coverage:
   #  - Head
   #  traumaDeductions:

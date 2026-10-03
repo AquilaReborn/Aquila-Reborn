@@ -18,14 +18,14 @@ tilemap:
   13: FloorMetalDiamond
   1: FloorMiningLight
   6: Lattice
-  10: LatticeCorner1
-  11: LatticeCorner2
-  8: LatticeCorner3
-  5: LatticeCorner4
-  12: LatticeSmall1
-  9: LatticeSmall2
-  7: LatticeSmall3
-  4: LatticeSmall4
+  10: Lattice
+  11: Lattice
+  8: Lattice
+  5: Lattice
+  12: Lattice
+  9: Lattice
+  7: Lattice
+  4: Lattice
   2: Plating
 entities:
 - proto: ""
@@ -183,7 +183,7 @@ entities:
     - type: ExplosionAirtightGrid
     - type: IFF
       color: '#A9A9A9FF'
-- proto: AdvancedFirstAidMedkitImperialFilled
+- proto: MedkitAdvancedFilled
   entities:
   - uid: 3
     components:
@@ -681,7 +681,7 @@ entities:
       parent: 1
     - type: Fixtures
       fixtures: {}
-- proto: FaxMachineERTColored
+- proto: FaxMachineBase
   entities:
   - uid: 88
     components:
@@ -873,7 +873,7 @@ entities:
           - Toggle
     - type: Fixtures
       fixtures: {}
-- proto: MedkitCobmatImperialFilled
+- proto: MedkitCombatFilled
   entities:
   - uid: 5
     components:
@@ -921,7 +921,7 @@ entities:
     - type: Transform
       pos: 1.5,4.5
       parent: 1
-- proto: RailingImperial
+- proto: Railing
   entities:
   - uid: 116
     components:
@@ -1113,8 +1113,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 4.5,1.5
       parent: 1
-- proto: ThrusterMedium
-  entities:
   - uid: 149
     components:
     - type: Transform

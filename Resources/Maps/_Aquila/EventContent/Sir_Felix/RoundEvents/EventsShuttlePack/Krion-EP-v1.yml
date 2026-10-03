@@ -5,7 +5,7 @@ meta:
   forkId: main
   forkVersion: 20260114045134
   time: 01/28/2026 18:48:27
-  entityCount: 248
+  entityCount: 244
 maps: []
 grids:
 - 1
@@ -14,19 +14,19 @@ orphans:
 nullspace: []
 tilemap:
   3: Space
-  8: FloorCrossWood
+  8: FloorWoodParquet
   1: FloorDarkPlastic
   10: FloorGlass
   14: FloorGrayConcrete
   4: FloorMetalDiamond
-  12: LatticeCorner1
-  9: LatticeCorner2
-  5: LatticeCorner3
-  2: LatticeCorner4
-  13: LatticeSmall1
-  7: LatticeSmall2
-  11: LatticeSmall3
-  6: LatticeSmall4
+  12: Lattice
+  9: Lattice
+  5: Lattice
+  2: Lattice
+  13: Lattice
+  7: Lattice
+  11: Lattice
+  6: Lattice
   0: Plating
 entities:
 - proto: ""
@@ -279,13 +279,6 @@ entities:
     - type: ContainedSolution
       containerName: food
       container: 221
-    - type: TimedReactionWatcher
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
 - proto: AirlockGlassShuttle
   entities:
   - uid: 2
@@ -402,13 +395,6 @@ entities:
     components:
     - type: Transform
       pos: -3.9614277,4.7377863
-      parent: 1
-- proto: BoxFolderPresentable
-  entities:
-  - uid: 17
-    components:
-    - type: Transform
-      pos: -4.2860165,4.590294
       parent: 1
 - proto: CableApcExtension
   entities:
@@ -774,13 +760,6 @@ entities:
     - type: Transform
       pos: -0.5,8.5
       parent: 1
-- proto: CCShuttleDresser
-  entities:
-  - uid: 84
-    components:
-    - type: Transform
-      pos: -4.5,-0.5
-      parent: 1
 - proto: ChairOfficeDark
   entities:
   - uid: 85
@@ -863,13 +842,6 @@ entities:
     - type: Transform
       pos: -0.86630726,6.5858946
       parent: 1
-- proto: ClothingHeadMinutemanCap
-  entities:
-  - uid: 95
-    components:
-    - type: Transform
-      pos: -0.37325174,6.5233946
-      parent: 1
 - proto: ClothingHeadsetFADAK9M
   entities:
   - uid: 96
@@ -891,7 +863,7 @@ entities:
     - type: Transform
       pos: -0.5260295,6.5095053
       parent: 1
-- proto: CoffeeTableReinforcedUranium
+- proto: TableReinforced
   entities:
   - uid: 99
     components:
@@ -1212,12 +1184,6 @@ entities:
       containers:
         solution@food: !type:ContainerSlot
           ent: 222
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -1247,7 +1213,7 @@ entities:
     - type: Transform
       pos: -5.5,1.5
       parent: 1
-- proto: FoodCaviarGolden
+- proto: FoodRedCaviar
   entities:
   - uid: 122
     components:
@@ -1535,12 +1501,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 142
     mapInit: true
     paused: true
@@ -1553,12 +1513,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -1576,12 +1530,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -1599,12 +1547,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -1622,12 +1564,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 150
     mapInit: true
     paused: true
@@ -1640,12 +1576,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -1658,7 +1588,7 @@ entities:
     - type: Transform
       pos: -2.5,-0.5
       parent: 1
-- proto: MedkitCobmatImperialFilled
+- proto: MedkitCombatFilled
   entities:
   - uid: 225
     components:
@@ -1870,14 +1800,14 @@ entities:
       rot: 3.141592653589793 rad
       pos: -5.5,0.5
       parent: 1
-- proto: TGMCSmallFlag
+- proto: NTFlag
   entities:
   - uid: 168
     components:
     - type: Transform
       pos: -4.6302795,4.6689568
       parent: 1
-- proto: TGMCSmallTransFlag
+- proto: LGBTQFlag
   entities:
   - uid: 169
     components:
@@ -1920,8 +1850,6 @@ entities:
     - type: Transform
       pos: -4.5,7.5
       parent: 1
-- proto: ThrusterMedium
-  entities:
   - uid: 176
     components:
     - type: Transform
@@ -2184,11 +2112,3 @@ entities:
     - type: Transform
       pos: 1.5,3.5
       parent: 1
-- proto: WeaponRifleBlackAKMS
-  entities:
-  - uid: 219
-    components:
-    - type: Transform
-      pos: -0.782974,6.620616
-      parent: 1
-...

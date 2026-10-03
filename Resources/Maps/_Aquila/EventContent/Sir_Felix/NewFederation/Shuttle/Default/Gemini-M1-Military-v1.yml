@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 06/15/2025 03:32:30
-  entityCount: 275
+  entityCount: 273
 maps: []
 grids:
 - 1
@@ -18,14 +18,14 @@ tilemap:
   0: FloorMetalDiamond
   1: FloorMiningLight
   2: Lattice
-  9: LatticeCorner1
-  7: LatticeCorner2
-  8: LatticeCorner3
-  10: LatticeCorner4
-  13: LatticeSmall1
-  11: LatticeSmall2
-  6: LatticeSmall3
-  4: LatticeSmall4
+  9: Lattice
+  7: Lattice
+  8: Lattice
+  10: Lattice
+  13: Lattice
+  11: Lattice
+  6: Lattice
+  4: Lattice
   3: Plating
 entities:
 - proto: ""
@@ -283,7 +283,7 @@ entities:
     - type: Transform
       pos: 3.5,3.5
       parent: 1
-- proto: BlastDoorGlass
+- proto: BlastDoorWindows
   entities:
   - uid: 9
     components:
@@ -297,7 +297,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 4.5,0.5
       parent: 1
-- proto: BlastDoorGlassOpen
+- proto: BlastDoorWindowsOpen
   entities:
   - uid: 11
     components:
@@ -364,7 +364,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 0.5,3.5
       parent: 1
-- proto: ButtonFrameExit
+- proto: ButtonFrame
   entities:
   - uid: 38
     components:
@@ -794,15 +794,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingHeadHelmetPilot
-  entities:
-  - uid: 122
-    components:
-    - type: Transform
-      parent: 104
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ClothingHeadsetLinkDiodeRegularForce
   entities:
   - uid: 126
@@ -811,12 +802,6 @@ entities:
       parent: 104
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
 - proto: ClothingOuterHardsuitEVA
   entities:
@@ -915,7 +900,6 @@ entities:
           occludes: True
           ents:
           - 105
-          - 106
           - 107
           - 108
           - 109
@@ -931,7 +915,6 @@ entities:
           - 119
           - 120
           - 121
-          - 122
           - 123
           - 124
           - 125
@@ -948,15 +931,6 @@ entities:
     components:
     - type: Transform
       parent: 12
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: CSWeaponGlock-18
-  entities:
-  - uid: 106
-    components:
-    - type: Transform
-      parent: 104
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -1378,36 +1352,18 @@ entities:
       parent: 13
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 15
     components:
     - type: Transform
       parent: 13
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 16
     components:
     - type: Transform
       parent: 13
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
 - proto: EmergencyOxygenTankFilled
   entities:
   - uid: 27
@@ -1439,12 +1395,6 @@ entities:
       parent: 104
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
 - proto: EncryptionKeySpecOperation
   entities:
@@ -1454,12 +1404,6 @@ entities:
       parent: 104
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
 - proto: Flare
   entities:
@@ -1469,12 +1413,6 @@ entities:
       parent: 12
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
   - uid: 31
     components:
@@ -1492,7 +1430,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: Glock18MagazinePistol
+- proto: MagazinePistol
   entities:
   - uid: 105
     components:
@@ -1631,12 +1569,6 @@ entities:
       color: '#008000FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
 - proto: LightTube
   entities:
   - uid: 210
@@ -1647,12 +1579,6 @@ entities:
       color: '#B22222FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 212
     components:
     - type: Transform
@@ -1663,12 +1589,6 @@ entities:
       color: '#48D1CCFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 214
     components:
     - type: Transform
@@ -1677,12 +1597,6 @@ entities:
       color: '#696969FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 216
     components:
     - type: Transform
@@ -1691,12 +1605,6 @@ entities:
       color: '#696969FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 218
     components:
     - type: Transform
@@ -1705,12 +1613,6 @@ entities:
       color: '#696969FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 220
     components:
     - type: Transform
@@ -1719,12 +1621,6 @@ entities:
       color: '#696969FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 222
     components:
     - type: Transform
@@ -1733,12 +1629,6 @@ entities:
       color: '#696969FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 224
     components:
     - type: Transform
@@ -1749,12 +1639,6 @@ entities:
       color: '#48D1CCFF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 226
     components:
     - type: Transform
@@ -1765,12 +1649,6 @@ entities:
       color: '#B22222FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
 - proto: MagazineGrenadeFrag
   entities:
   - uid: 110
@@ -2080,7 +1958,7 @@ entities:
       powerLoad: 60
     - type: DamageOnInteract
       isDamageActive: False
-- proto: RailingImperial
+- proto: Railing
   entities:
   - uid: 232
     components:
@@ -2119,7 +1997,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ReinforcedWindowUnbreakable
+- proto: ReinforcedWindow
   entities:
   - uid: 237
     components:
@@ -2644,34 +2522,16 @@ entities:
       parent: 13
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 18
     components:
     - type: Transform
       parent: 13
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
   - uid: 19
     components:
     - type: Transform
       parent: 13
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
 ...

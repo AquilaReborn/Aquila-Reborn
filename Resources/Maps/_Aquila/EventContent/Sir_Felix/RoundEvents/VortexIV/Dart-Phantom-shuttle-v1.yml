@@ -17,13 +17,13 @@ tilemap:
   5: FloorMiningDark
   1: FloorMiningLight
   8: Lattice
-  10: LatticeCorner1
-  3: LatticeCorner2
-  4: LatticeCorner3
-  11: LatticeCorner4
-  9: LatticeSmall1
-  6: LatticeSmall3
-  7: LatticeSmall4
+  10: Lattice
+  3: Lattice
+  4: Lattice
+  11: Lattice
+  9: Lattice
+  6: Lattice
+  7: Lattice
   0: Plating
 entities:
 - proto: ""
@@ -836,12 +836,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -859,12 +853,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []
@@ -882,12 +870,6 @@ entities:
       color: '#A9A9A9FF'
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: Forensics
       residues: []
       dnas: []

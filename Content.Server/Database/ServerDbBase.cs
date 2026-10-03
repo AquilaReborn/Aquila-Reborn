@@ -83,7 +83,29 @@ namespace Content.Server.Database
             await db.DbContext.SaveChangesAsync();
         }
 
+        // Aquila Change start
         public async Task SaveCharacterSlotAsync(NetUserId userId, ICharacterProfile? profile, int slot)
+        {
+            for (var attempt = 1; ; attempt++)
+            {
+                try
+                {
+                    await SaveCharacterSlotOnceAsync(userId, profile, slot);
+                    return;
+                }
+                catch (DbUpdateConcurrencyException e)
+                {
+                    if (attempt < 3)
+                        continue;
+
+                    _opsLog.Error($"Failed to save character slot {slot} for {userId} after {attempt} attempts: {e.Message}");
+                    return;
+                }
+            }
+        }
+
+        private async Task SaveCharacterSlotOnceAsync(NetUserId userId, ICharacterProfile? profile, int slot)
+        // Aquila Change end
         {
             await using var db = await GetDb();
 

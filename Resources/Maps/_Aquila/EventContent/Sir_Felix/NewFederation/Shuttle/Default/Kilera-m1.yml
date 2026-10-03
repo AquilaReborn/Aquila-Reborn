@@ -18,12 +18,12 @@ tilemap:
   2: FloorTechMaint
   0: FloorTechMaintDark
   10: Lattice
-  11: LatticeCorner1
-  8: LatticeCorner2
-  5: LatticeCorner3
-  9: LatticeCorner4
-  7: LatticeSmall2
-  6: LatticeSmall4
+  11: Lattice
+  8: Lattice
+  5: Lattice
+  9: Lattice
+  7: Lattice
+  6: Lattice
   3: Plating
 entities:
 - proto: ""
@@ -423,7 +423,7 @@ entities:
     - type: Transform
       pos: 0.5,-0.5
       parent: 1
-- proto: CatwalkNDADark
+- proto: Catwalk
   entities:
   - uid: 48
     components:

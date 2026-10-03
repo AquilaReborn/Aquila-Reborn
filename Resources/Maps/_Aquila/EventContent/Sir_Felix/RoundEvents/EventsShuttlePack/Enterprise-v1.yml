@@ -5,7 +5,7 @@ meta:
   forkId: main
   forkVersion: 20260114045134
   time: 01/28/2026 19:04:05
-  entityCount: 5705
+  entityCount: 5624
 maps: []
 grids:
 - 1
@@ -14,9 +14,9 @@ orphans:
 nullspace: []
 tilemap:
   5: Space
-  30: AbductorTile1
-  16: AbductorTile2
-  17: AbductorTile6
+  30: FloorAbductor
+  16: FloorAbductor
+  17: FloorAbductor
   19: FloorAstroGrass
   21: FloorBrokenWood
   14: FloorConcrete
@@ -41,20 +41,20 @@ tilemap:
   33: FloorShuttleBlack
   29: FloorSteel
   35: FloorSteelCheckerDark
-  37: FloorTechDarkImperialMaint
+  37: FloorTechMaintDark
   34: FloorTechMaint
   41: FloorTechMaint3
   23: FloorWhitePavement
   20: FloorWood
   8: Lattice
-  9: LatticeCorner1
-  4: LatticeCorner2
-  6: LatticeCorner3
-  11: LatticeCorner4
-  13: LatticeSmall1
-  10: LatticeSmall2
-  3: LatticeSmall3
-  7: LatticeSmall4
+  9: Lattice
+  4: Lattice
+  6: Lattice
+  11: Lattice
+  13: Lattice
+  10: Lattice
+  3: Lattice
+  7: Lattice
   0: Plating
 entities:
 - proto: ""
@@ -2434,8 +2434,7 @@ entities:
       pos: -11.5,-37.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
       deviceLists:
       - 7
   - uid: 84
@@ -2535,7 +2534,7 @@ entities:
     - type: Transform
       pos: -24.5,-46.5
       parent: 1
-- proto: AmeJar2
+- proto: AmeJar
   entities:
   - uid: 99
     components:
@@ -10022,16 +10021,6 @@ entities:
     - type: Transform
       pos: -6.5,7.5
       parent: 1
-- proto: CatHardsuitDeathSquad
-  entities:
-  - uid: 1477
-    components:
-    - type: Transform
-      pos: -7.5,-40.5
-      parent: 1
-    - type: ClothingFactionExplosion
-      timerDuration: 5
-      TimerDelay: 38.88343
 - proto: Catwalk
   entities:
   - uid: 1478
@@ -10706,38 +10695,6 @@ entities:
     - type: Transform
       pos: -19.5,-4.5
       parent: 1
-- proto: ChristmasBushNGSpawner
-  entities:
-  - uid: 4486
-    components:
-    - type: Transform
-      pos: 18.5,-3.5
-      parent: 1
-  - uid: 4487
-    components:
-    - type: Transform
-      pos: -6.5,3.5
-      parent: 1
-  - uid: 4488
-    components:
-    - type: Transform
-      pos: 17.5,-9.5
-      parent: 1
-  - uid: 4489
-    components:
-    - type: Transform
-      pos: -1.5,-10.5
-      parent: 1
-  - uid: 4490
-    components:
-    - type: Transform
-      pos: -21.5,-3.5
-      parent: 1
-  - uid: 4491
-    components:
-    - type: Transform
-      pos: -6.5,-12.5
-      parent: 1
 - proto: CigarCase
   entities:
   - uid: 1600
@@ -10753,12 +10710,6 @@ entities:
       parent: 1601
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
 - proto: CloningPodMachineCircuitboard
   entities:
@@ -10768,12 +10719,6 @@ entities:
       parent: 1601
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
 - proto: ClosetEmergencyN2
   entities:
@@ -11032,7 +10977,7 @@ entities:
     - type: Transform
       pos: 5.5,-16.5
       parent: 1
-- proto: CoffeeTableSteel
+- proto: Table
   entities:
   - uid: 1639
     components:
@@ -11172,8 +11117,7 @@ entities:
       pos: -9.5,-51.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
 - proto: ConveyorBelt
   entities:
   - uid: 1660
@@ -11599,7 +11543,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -4.5,-52.5
       parent: 1
-- proto: DarkRedPoweredSmallLight
+- proto: PoweredSmallLight
   entities:
   - uid: 1724
     components:
@@ -11658,7 +11602,7 @@ entities:
     - type: Transform
       pos: -13.5,-42.5
       parent: 1
-- proto: DarkVioletPoweredlight
+- proto: Poweredlight
   entities:
   - uid: 1734
     components:
@@ -18653,7 +18597,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 70.5,-39.5
       parent: 1
-- proto: DirtyPoweredlight
+- proto: Poweredlight
   entities:
   - uid: 2952
     components:
@@ -20852,13 +20796,6 @@ entities:
     - type: Transform
       pos: 15.5,-5.5
       parent: 1
-- proto: EncryptionKeyCult
-  entities:
-  - uid: 3335
-    components:
-    - type: Transform
-      pos: -2.5,-65.5
-      parent: 1
 - proto: ExosuitFabricator
   entities:
   - uid: 3336
@@ -20906,13 +20843,6 @@ entities:
       parent: 1
     - type: Fixtures
       fixtures: {}
-- proto: FancyFlippoLighter
-  entities:
-  - uid: 3342
-    components:
-    - type: Transform
-      pos: -3.5,-15.5
-      parent: 1
 - proto: FelixMiniLightsLightRed
   entities:
   - uid: 3343
@@ -21588,7 +21518,7 @@ entities:
     - type: Transform
       pos: -6.5,-14.5
       parent: 1
-- proto: FirstAidMedkitImperialFilled
+- proto: MedkitFilled
   entities:
   - uid: 3442
     components:
@@ -21759,12 +21689,6 @@ entities:
       rot: -25.132741228718352 rad
       pos: 67.84832,-44.435177
       parent: 1
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
 - proto: ForensicPad
   entities:
   - uid: 3469
@@ -27066,14 +26990,11 @@ entities:
       pos: -14.5,-37.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
       deviceLists:
       - 7
     - type: AtmosPipeColor
       color: '#0000FFFF'
-- proto: GasVentPumpNoCritters
-  entities:
   - uid: 4172
     components:
     - type: Transform
@@ -27319,8 +27240,7 @@ entities:
       pos: -11.5,-36.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
       deviceLists:
       - 7
     - type: AtmosPipeColor
@@ -28191,7 +28111,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -23.5,-44.5
       parent: 1
-- proto: ImperialMetalDetector
+- proto: ContrabandDetectorSecure
   entities:
   - uid: 4355
     components:
@@ -28930,12 +28850,6 @@ entities:
       parent: 1601
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
     - type: InsideEntityStorage
 - proto: MedicalTechFab
   entities:
@@ -28944,21 +28858,21 @@ entities:
     - type: Transform
       pos: -16.5,-4.5
       parent: 1
-- proto: MedkitCobmatImperialFilled
+- proto: MedkitCombatFilled
   entities:
   - uid: 4418
     components:
     - type: Transform
       pos: -17.496538,-4.2231355
       parent: 1
-- proto: MedkitRadiationImperialFilled
+- proto: MedkitRadiation
   entities:
   - uid: 4419
     components:
     - type: Transform
       pos: 11.5,-64
       parent: 1
-- proto: MetalDetectorNonAccess
+- proto: ContrabandDetectorSecure
   entities:
   - uid: 4420
     components:
@@ -29175,13 +29089,6 @@ entities:
       parent: 1
     - type: Fixtures
       fixtures: {}
-- proto: ModsuitFab
-  entities:
-  - uid: 4455
-    components:
-    - type: Transform
-      pos: -12.5,-47.5
-      parent: 1
 - proto: Morgue
   entities:
   - uid: 4456
@@ -29268,12 +29175,6 @@ entities:
     - type: Transform
       pos: -6.55861,6.6230817
       parent: 1
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
 - proto: PlasticFlapsAirtightClear
   entities:
   - uid: 4469
@@ -30709,7 +30610,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 2.5,-77.5
       parent: 1
-- proto: RailingUrbanUSSP
+- proto: Railing
   entities:
   - uid: 4719
     components:
@@ -31142,12 +31043,6 @@ entities:
       parent: 4484
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
 - proto: ReinforcedWindowShadowElysiumPrime
   entities:
   - uid: 4798
@@ -31415,56 +31310,6 @@ entities:
     - type: Transform
       pos: -13.5,-53.5
       parent: 1
-- proto: sakuraleaf
-  entities:
-  - uid: 4850
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -0.53697085,-63.652756
-      parent: 1
-  - uid: 4851
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 5.524124,-47.708843
-      parent: 1
-  - uid: 4852
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 5.463029,-68.746506
-      parent: 1
-  - uid: 4853
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 5.666154,-63.29338
-      parent: 1
-  - uid: 4854
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 5.400529,-56.422527
-      parent: 1
-  - uid: 4855
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 67.30265,-44.648632
-      parent: 1
-  - uid: 4856
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 69.45265,-44.36113
-      parent: 1
-  - uid: 4857
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 69.77765,-44.73613
-      parent: 1
 - proto: ShadowGlassesFederationShuttle
   entities:
   - uid: 4858
@@ -31491,18 +31336,6 @@ entities:
     components:
     - type: Transform
       pos: -0.5,-75.5
-      parent: 1
-- proto: ShippingContainer-4
-  entities:
-  - uid: 4862
-    components:
-    - type: Transform
-      pos: 12.5,-48.5
-      parent: 1
-  - uid: 4863
-    components:
-    - type: Transform
-      pos: 12.5,-55.5
       parent: 1
 - proto: ShippingContainerDonkCo
   entities:
@@ -31857,10 +31690,7 @@ entities:
       pos: -12.5,-20.5
       parent: 1
     - type: DeviceLinkSource
-      linkedPorts:
-        5043:
-        - - Pressed
-          - SurgeryActivate
+      linkedPorts: {}
     - type: Fixtures
       fixtures: {}
   - uid: 4914
@@ -32024,10 +31854,7 @@ entities:
       pos: -15.5,-13.5
       parent: 1
     - type: DeviceLinkSource
-      linkedPorts:
-        4985:
-        - - Pressed
-          - SurgeryActivate
+      linkedPorts: {}
     - type: Fixtures
       fixtures: {}
 - proto: SignCryogenics
@@ -32333,28 +32160,7 @@ entities:
     - type: Transform
       pos: 8.5,-36.5
       parent: 1
-- proto: SmallAutoclave
-  entities:
-  - uid: 4960
-    components:
-    - type: Transform
-      pos: -15.5,-15.5
-      parent: 1
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        machine_board: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        machine_parts: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-- proto: SmallLightOld
+- proto: SmallLight
   entities:
   - uid: 4961
     components:
@@ -32424,7 +32230,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 18.5,-9.5
       parent: 1
-- proto: StairUrbanImperialUSSP
+- proto: StairDark
   entities:
   - uid: 4973
     components:
@@ -32491,13 +32297,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -30.5,-44.5
-      parent: 1
-- proto: SterileShower
-  entities:
-  - uid: 4985
-    components:
-    - type: Transform
-      pos: -15.5,-14.5
       parent: 1
 - proto: StorageCanister
   entities:
@@ -32638,210 +32437,6 @@ entities:
     - type: Transform
       pos: -25.5,-48.5
       parent: 1
-- proto: SurgeryBoxSmallRenthenPhoto
-  entities:
-  - uid: 5011
-    components:
-    - type: Transform
-      pos: -13.478878,-18.40962
-      parent: 1
-- proto: SurgeryBoxToolsFilled
-  entities:
-  - uid: 5012
-    components:
-    - type: Transform
-      pos: -10.522301,-15.349031
-      parent: 1
-- proto: SurgeryCrateConsumebles
-  entities:
-  - uid: 5013
-    components:
-    - type: Transform
-      pos: -15.5,-16.5
-      parent: 1
-- proto: SurgeryCrateOrgans
-  entities:
-  - uid: 5014
-    components:
-    - type: Transform
-      pos: -10.5,-14.5
-      parent: 1
-- proto: SurgeryRentgenLightTable
-  entities:
-  - uid: 5015
-    components:
-    - type: Transform
-      pos: -22.5,-3.5
-      parent: 1
-  - uid: 5016
-    components:
-    - type: Transform
-      pos: -17.5,-5.5
-      parent: 1
-  - uid: 5017
-    components:
-    - type: Transform
-      pos: -10.5,-15.5
-      parent: 1
-  - uid: 5018
-    components:
-    - type: Transform
-      pos: -13.5,-18.5
-      parent: 1
-  - uid: 5019
-    components:
-    - type: Transform
-      pos: -13.5,-19.5
-      parent: 1
-  - uid: 5020
-    components:
-    - type: Transform
-      pos: -22.5,-4.5
-      parent: 1
-  - uid: 5021
-    components:
-    - type: Transform
-      pos: -19.5,-3.5
-      parent: 1
-  - uid: 5022
-    components:
-    - type: Transform
-      pos: -20.5,-3.5
-      parent: 1
-  - uid: 5023
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -12.5,-10.5
-      parent: 1
-  - uid: 5024
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -12.5,-11.5
-      parent: 1
-  - uid: 5025
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -9.5,-9.5
-      parent: 1
-  - uid: 5026
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -18.5,-11.5
-      parent: 1
-  - uid: 5027
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -21.5,-9.5
-      parent: 1
-  - uid: 5028
-    components:
-    - type: Transform
-      pos: -11.5,-3.5
-      parent: 1
-  - uid: 5029
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -15.5,-11.5
-      parent: 1
-  - uid: 5030
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -21.5,-10.5
-      parent: 1
-  - uid: 5031
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -18.5,-9.5
-      parent: 1
-  - uid: 5032
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -18.5,-10.5
-      parent: 1
-  - uid: 5033
-    components:
-    - type: Transform
-      pos: -13.5,-3.5
-      parent: 1
-  - uid: 5034
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -12.5,-9.5
-      parent: 1
-  - uid: 5035
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -21.5,-11.5
-      parent: 1
-  - uid: 5036
-    components:
-    - type: Transform
-      pos: -17.5,-4.5
-      parent: 1
-  - uid: 5037
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -15.5,-9.5
-      parent: 1
-  - uid: 5038
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -15.5,-10.5
-      parent: 1
-  - uid: 5039
-    components:
-    - type: Transform
-      pos: -13.5,-50.5
-      parent: 1
-  - uid: 5040
-    components:
-    - type: Transform
-      pos: -9.5,-10.5
-      parent: 1
-  - uid: 5041
-    components:
-    - type: Transform
-      pos: -9.5,-11.5
-      parent: 1
-  - uid: 5042
-    components:
-    - type: Transform
-      pos: -13.5,-51.5
-      parent: 1
-- proto: SurgeryRentgenmachine
-  entities:
-  - uid: 5043
-    components:
-    - type: Transform
-      pos: -11.5,-19.5
-      parent: 1
-    - type: ContainerContainer
-      containers:
-        machine_board: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        machine_parts: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        papper: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
 - proto: SurveillanceCameraAssembly
   entities:
   - uid: 5044
@@ -33085,8 +32680,7 @@ entities:
       pos: -15.5,-50.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
 - proto: SurveillanceCameraWirelessRouterConstructed
   entities:
   - uid: 5084
@@ -33095,8 +32689,7 @@ entities:
       pos: -14.5,-50.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
 - proto: SurveillanceWirelessCameraAnchoredConstructed
   entities:
   - uid: 5085
@@ -33106,8 +32699,7 @@ entities:
       pos: -9.5,-49.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
 - proto: SyndicateMicrowave
   entities:
   - uid: 5086
@@ -33215,7 +32807,7 @@ entities:
     - type: Transform
       pos: -5.5,6.5
       parent: 1
-- proto: TableReinforcedAlien
+- proto: TableReinforced
   entities:
   - uid: 5104
     components:
@@ -33259,12 +32851,6 @@ entities:
       parent: 3289
     - type: Physics
       canCollide: False
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
 - proto: ThrusterLarge
   entities:
   - uid: 5110
@@ -33293,7 +32879,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -17.5,-20.5
       parent: 1
-- proto: ThrusterMedium
+- proto: Thruster
   entities:
   - uid: 5114
     components:
@@ -34274,205 +33860,6 @@ entities:
       parent: 1
     - type: Fixtures
       fixtures: {}
-- proto: VlPCFlowerTwo
-  entities:
-  - uid: 5190
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 67.165146,-44.42363
-      parent: 1
-  - uid: 5191
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 67.27765,-44.848633
-      parent: 1
-  - uid: 5192
-    components:
-    - type: Transform
-      rot: -25.132741228718352 rad
-      pos: 69.93455,-44.29863
-      parent: 1
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 5193
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 67.040146,-44.661133
-      parent: 1
-  - uid: 5194
-    components:
-    - type: Transform
-      rot: -25.132741228718352 rad
-      pos: 67.64408,-44.911133
-      parent: 1
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 5195
-    components:
-    - type: Transform
-      rot: -25.132741228718352 rad
-      pos: 69.70954,-44.273632
-      parent: 1
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 5196
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 67.92765,-44.93613
-      parent: 1
-  - uid: 5197
-    components:
-    - type: Transform
-      rot: -25.132741228718352 rad
-      pos: 68.84706,-44.24863
-      parent: 1
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 5198
-    components:
-    - type: Transform
-      rot: -25.132741228718352 rad
-      pos: 69.12206,-44.523632
-      parent: 1
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 5199
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 67.44015,-44.94863
-      parent: 1
-  - uid: 5200
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 66.96515,-44.848633
-      parent: 1
-  - uid: 5201
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 67.02765,-44.336132
-      parent: 1
-  - uid: 5202
-    components:
-    - type: Transform
-      rot: -25.132741228718352 rad
-      pos: 69.42204,-44.723633
-      parent: 1
-    - type: EntityLayer
-      collideLayers:
-      - AllWithOverworld
-      collideMasks:
-      - AllWithOverworld
-      effectComponents: []
-  - uid: 5203
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 69.67765,-44.973633
-      parent: 1
-  - uid: 5204
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 69.07765,-44.36113
-      parent: 1
-- proto: VlPCLightOne
-  entities:
-  - uid: 5205
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 35.5,-67.5
-      parent: 1
-  - uid: 5206
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 57.5,-67.5
-      parent: 1
-  - uid: 5207
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 41.5,-67.5
-      parent: 1
-  - uid: 5208
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 47.5,-67.5
-      parent: 1
-  - uid: 5209
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 29.5,-67.5
-      parent: 1
-  - uid: 5210
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 23.5,-67.5
-      parent: 1
-  - uid: 5211
-    components:
-    - type: Transform
-      pos: 57.5,-67.5
-      parent: 1
-- proto: VlZzzBoots
-  entities:
-  - uid: 5212
-    components:
-    - type: Transform
-      pos: -0.5,-34.5
-      parent: 1
-- proto: VlZzzDress
-  entities:
-  - uid: 5213
-    components:
-    - type: Transform
-      pos: -0.5,-34.5
-      parent: 1
-- proto: VlZzzJumpsuit
-  entities:
-  - uid: 5214
-    components:
-    - type: Transform
-      pos: -0.5,-34.5
-      parent: 1
-- proto: VlZzzObrych
-  entities:
-  - uid: 5215
-    components:
-    - type: Transform
-      pos: -0.5,-34.5
-      parent: 1
 - proto: WallShuttleStarCorps
   entities:
   - uid: 5216

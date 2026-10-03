@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 06/22/2025 16:10:59
-  entityCount: 8253
+  entityCount: 8217
 maps: []
 grids:
 - 1
@@ -24,17 +24,17 @@ tilemap:
   19: FloorOldConcrete
   21: FloorSteelDirty
   0: FloorSteelMini
-  2: FloorTechDarkImperialMaint
+  2: FloorTechMaintDark
   18: FloorTechMaint3
   6: Lattice
-  12: LatticeCorner1
-  8: LatticeCorner2
-  14: LatticeCorner3
-  11: LatticeCorner4
-  10: LatticeSmall1
-  17: LatticeSmall2
-  7: LatticeSmall3
-  15: LatticeSmall4
+  12: Lattice
+  8: Lattice
+  14: Lattice
+  11: Lattice
+  10: Lattice
+  17: Lattice
+  7: Lattice
+  15: Lattice
   1: Plating
   16: PlatingDamaged
 entities:
@@ -2246,8 +2246,7 @@ entities:
     - type: ContainedSolution
       containerName: battery
       container: 4311
-    - type: TimedReactionWatcher
-- proto: AdvancedFirstAidMedkitImperialFilled
+- proto: MedkitAdvancedFilled
   entities:
   - uid: 2110
     components:
@@ -3330,46 +3329,6 @@ entities:
     - type: Transform
       pos: 15.5,6.5
       parent: 1
-- proto: BigAutoclave
-  entities:
-  - uid: 2014
-    components:
-    - type: Transform
-      pos: -9.5,76.5
-      parent: 1
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        machine_board: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        machine_parts: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-  - uid: 2015
-    components:
-    - type: Transform
-      pos: -8.5,76.5
-      parent: 1
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        machine_board: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        machine_parts: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
 - proto: Binoculars
   entities:
   - uid: 5142
@@ -4381,7 +4340,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -9.5,7.5
       parent: 1
-- proto: ButtonFrameExit
+- proto: ButtonFrame
   entities:
   - uid: 1670
     components:
@@ -12296,7 +12255,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: CoffeeTableReinforcedGlass
+- proto: TableReinforcedGlass
   entities:
   - uid: 6798
     components:
@@ -12348,7 +12307,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 7.5,63.5
       parent: 1
-- proto: ComfyCouch
+- proto: BenchSofaMiddle
   entities:
   - uid: 7508
     components:
@@ -12617,7 +12576,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -4.5,59.5
       parent: 1
-- proto: CrateEngineeringAMEJar3
+- proto: CrateEngineeringAMEJar
   entities:
   - uid: 1961
     components:
@@ -21122,7 +21081,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -11.5,74.5
       parent: 1
-- proto: DiagonalCatwalk
+- proto: Catwalk
   entities:
   - uid: 5114
     components:
@@ -23014,7 +22973,7 @@ entities:
       parent: 2266
     - type: Physics
       canCollide: False
-- proto: FaxMachineBridgeInterGalactic
+- proto: FaxMachineBase
   entities:
   - uid: 5127
     components:
@@ -30432,7 +30391,7 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#0055CCFF'
-- proto: GasVentPumpNoCritters
+- proto: GasVentPump
   entities:
   - uid: 635
     components:
@@ -31310,8 +31269,7 @@ entities:
       pos: 8.5,4.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
+      configurators: []
       deviceLists:
       - 6825
     - type: AtmosPipeColor
@@ -46916,10 +46874,6 @@ entities:
           - 2589
           - 2594
           - 2599
-          - 2604
-          - 2605
-          - 2606
-          - 2607
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -48629,7 +48583,7 @@ entities:
     - type: Transform
       pos: -8.334777,86.73659
       parent: 1
-- proto: MagazineLightRifleGolden
+- proto: MagazineLightRifle
   entities:
   - uid: 2585
     components:
@@ -48761,7 +48715,7 @@ entities:
       dnas: []
       fibers: []
       fingerprints: []
-- proto: MedkitCobmatImperialFilled
+- proto: MedkitCombatFilled
   entities:
   - uid: 2107
     components:
@@ -48773,7 +48727,7 @@ entities:
     - type: Transform
       pos: -5.503035,74.50495
       parent: 1
-- proto: MedkitStimImperialFilled
+- proto: MedkitFilled
   entities:
   - uid: 2109
     components:
@@ -49179,13 +49133,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -4.5,98.5
-      parent: 1
-- proto: OldStationComp
-  entities:
-  - uid: 718
-    components:
-    - type: Transform
-      pos: -6.5,15.5
       parent: 1
 - proto: OperatingTable
   entities:
@@ -52077,7 +52024,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 7.5,65.5
       parent: 1
-- proto: RailingCornerImperial
+- proto: RailingCorner
   entities:
   - uid: 5399
     components:
@@ -52091,7 +52038,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 20.5,13.5
       parent: 1
-- proto: RailingImperial
+- proto: Railing
   entities:
   - uid: 657
     components:
@@ -58820,10 +58767,7 @@ entities:
       pos: -6.5,74.5
       parent: 1
     - type: DeviceLinkSource
-      linkedPorts:
-        2016:
-        - - Pressed
-          - SurgeryActivate
+      linkedPorts: {}
   - uid: 2033
     components:
     - type: MetaData
@@ -61814,7 +61758,7 @@ entities:
     - type: Transform
       pos: 11.5,68.5
       parent: 1
-- proto: SofaLeft
+- proto: BenchSofaLeft
   entities:
   - uid: 2153
     components:
@@ -61822,7 +61766,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 17.5,78.5
       parent: 1
-- proto: SofaMiddle
+- proto: BenchSofaMiddle
   entities:
   - uid: 2154
     components:
@@ -61830,20 +61774,13 @@ entities:
       rot: 3.141592653589793 rad
       pos: 18.5,78.5
       parent: 1
-- proto: SofaRight
+- proto: BenchSofaRight
   entities:
   - uid: 2152
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 19.5,78.5
-      parent: 1
-- proto: SpaceCleanerTankFull
-  entities:
-  - uid: 6577
-    components:
-    - type: Transform
-      pos: -5.5,34.5
       parent: 1
 - proto: SpawnMobButterfly
   entities:
@@ -62035,18 +61972,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 7.5,54.5
-      parent: 1
-- proto: SterileShower
-  entities:
-  - uid: 2030
-    components:
-    - type: Transform
-      pos: -10.5,75.5
-      parent: 1
-  - uid: 2031
-    components:
-    - type: Transform
-      pos: -7.5,75.5
       parent: 1
 - proto: StorageCanister
   entities:
@@ -62385,143 +62310,6 @@ entities:
           - 2648
           - 2649
           - 2650
-- proto: SurgeryBoxSmallBoneGelBottle
-  entities:
-  - uid: 2052
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -10.459277,74.45937
-      parent: 1
-  - uid: 2053
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -10.381152,74.475
-      parent: 1
-  - uid: 2054
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -10.428027,74.63125
-      parent: 1
-- proto: SurgeryBoxSmallSpaceacillinBottle
-  entities:
-  - uid: 2049
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -10.646777,74.6625
-      parent: 1
-  - uid: 2050
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -10.787402,74.5375
-      parent: 1
-  - uid: 2051
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -10.709277,74.6625
-      parent: 1
-- proto: SurgeryCrateOrgans
-  entities:
-  - uid: 2055
-    components:
-    - type: Transform
-      pos: -8.5,75.5
-      parent: 1
-- proto: SurgeryRentgenLightTable
-  entities:
-  - uid: 2017
-    components:
-    - type: Transform
-      pos: -8.5,73.5
-      parent: 1
-- proto: SurgeryRentgenmachine
-  entities:
-  - uid: 2016
-    components:
-    - type: Transform
-      pos: -7.5,73.5
-      parent: 1
-    - type: ContainerContainer
-      containers:
-        machine_board: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        machine_parts: !type:Container
-          showEnts: False
-          occludes: True
-          ents: []
-        papper: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-- proto: SurgeryRentgenPaperUsedOperationEmpty
-  entities:
-  - uid: 2018
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -8.524262,73.67921
-      parent: 1
-  - uid: 2019
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -8.477387,73.53858
-      parent: 1
-  - uid: 2020
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -8.539887,73.58546
-      parent: 1
-  - uid: 2021
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -8.539887,73.63233
-      parent: 1
-  - uid: 2022
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -8.539887,73.66358
-      parent: 1
-  - uid: 2023
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -8.477387,73.67921
-      parent: 1
-  - uid: 2024
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -8.414887,73.67921
-      parent: 1
-  - uid: 2025
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -8.430512,73.61671
-      parent: 1
-  - uid: 2026
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -8.508637,73.58546
-      parent: 1
-  - uid: 2027
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -8.508637,73.58546
-      parent: 1
 - proto: SurveillanceCameraWirelessRouterConstructed
   entities:
   - uid: 5055
@@ -62673,9 +62461,6 @@ entities:
           showEnts: False
           occludes: True
           ents: []
-    - type: CrewSkillsInstrumentation
-      needSkills:
-      - skillInstrumentation
   - uid: 2272
     components:
     - type: Transform
@@ -62686,12 +62471,7 @@ entities:
         key_slots: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - 2273
-          - 2274
-          - 2275
-          - 2276
-          - 2277
+          ents: []
         machine_board: !type:Container
           showEnts: False
           occludes: True
@@ -62700,9 +62480,6 @@ entities:
           showEnts: False
           occludes: True
           ents: []
-    - type: CrewSkillsInstrumentation
-      needSkills:
-      - skillInstrumentation
 - proto: Terminal_weapons
   entities:
   - uid: 2655
@@ -62710,7 +62487,7 @@ entities:
     - type: Transform
       pos: -10.5,85.5
       parent: 1
-- proto: TGMCSmallFlag
+- proto: NTFlag
   entities:
   - uid: 2566
     components:
@@ -62722,7 +62499,7 @@ entities:
     - type: Transform
       pos: 16.627209,12.639295
       parent: 1
-- proto: TGMCSmallTransFlag
+- proto: LGBTQFlag
   entities:
   - uid: 2567
     components:
@@ -62772,7 +62549,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 17.5,-4.5
       parent: 1
-- proto: ThrusterMedium
+- proto: Thruster
   entities:
   - uid: 1081
     components:

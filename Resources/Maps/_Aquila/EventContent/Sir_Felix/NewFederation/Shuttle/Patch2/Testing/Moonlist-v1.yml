@@ -15,14 +15,14 @@ nullspace: []
 tilemap:
   3: Space
   1: Lattice
-  9: LatticeCorner1
-  7: LatticeCorner2
-  2: LatticeCorner3
-  5: LatticeCorner4
-  6: LatticeSmall1
-  8: LatticeSmall2
-  10: LatticeSmall3
-  4: LatticeSmall4
+  9: Lattice
+  7: Lattice
+  2: Lattice
+  5: Lattice
+  6: Lattice
+  8: Lattice
+  10: Lattice
+  4: Lattice
   0: Plating
 entities:
 - proto: ""
@@ -3809,7 +3809,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 12.5,-36.5
       parent: 1
-- proto: ThrusterMedium
+- proto: Thruster
   entities:
   - uid: 255
     components:
