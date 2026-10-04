@@ -93,6 +93,11 @@
           32:
             sprite: _White/Mobs/Species/displacement.rsi
             state: shoes
+      head: # Aquila Change start
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Reptilian/displacement.rsi
+            state: head # Aquila Change end
     displacements:
       jumpsuit:
         sizeMaps:
@@ -104,6 +109,11 @@
           32:
             sprite: _White/Mobs/Species/displacement.rsi
             state: shoes
+      head: # Aquila Change start
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Reptilian/displacement.rsi
+            state: head # Aquila Change end
     # WWDP-Edit-End
   - type: Consciousness # Idk they are kinda more resistant to pain
     threshold: 105
@@ -144,6 +154,11 @@
           32:
             sprite: _White/Mobs/Species/displacement.rsi
             state: shoes
+      head: # Aquila Change start
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Reptilian/displacement.rsi
+            state: head # Aquila Change end
     displacements:
       jumpsuit:
         sizeMaps:
@@ -155,6 +170,11 @@
           32:
             sprite: _White/Mobs/Species/displacement.rsi
             state: shoes
+      head: # Aquila Change start
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Reptilian/displacement.rsi
+            state: head # Aquila Change end
     # WWDP-Edit-End
 
 #Weh
