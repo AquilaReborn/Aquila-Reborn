@@ -25,7 +25,7 @@
     modifiers:
       coefficients:
         Piercing: 0.8
-        Blunt: 0.9
+        Blunt: 0.95
   - type: Item
     size: Small
   - type: Sprite
@@ -37,7 +37,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 50
+        damage: 40
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -59,7 +59,7 @@
     - Groin
     modifiers:
       coefficients:
-        Piercing: 0.9
+        Piercing: 0.95
         Blunt: 0.8
   - type: Item
     size: Small
