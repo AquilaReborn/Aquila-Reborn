@@ -1,0 +1,118 @@
+- type: entity
+  name: Horse
+  parent: MobHorse
+  id: MobHorseBase
+  description: A thousand years of space evolution and this is the best we could come up with.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Aquila/Mobs/Vehicle/horses/horse.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: horse
+  - type: VehicleSafety
+  - type: VehicleStaminaFall
+    stunDuration: 4
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.6
+          position: "0, 0"
+        density: 100
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+        hard: true
+  - type: Strap
+    position: Stand
+    blockMovement: false
+  - type: InputMover
+  - type: Vehicle
+    requiredHands: 0
+    engineRunning: true
+    renderOver: None
+  - type: VehicleGallop
+    interval: 3
+    windowLength: 1
+    intervalStepPerStreak: 0.5
+    windowLengthStepPerStreak: 0.15
+    minInterval: 0.75
+    minWindowLength: 0.4
+    gallopSuccessSound:
+    path: /Audio/_Goobstation/Effects/Sprinting/sprint_puff.ogg
+    successCloudEffect: SprintAnimation
+    stepCloudEffect: SmallSprintAnimation
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Critical
+      250: Dead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: horse
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+
+- type: entity
+  name: Horse
+  parent: MobHorseBase
+  id: MobHorseBlack
+  description: A racehorse. Loves apples and steel balls.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Aquila/Mobs/Vehicle/horses/horseBlack.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: horse
+
+- type: entity
+  parent: MobHorseBase
+  id: MobHorseWhite
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Aquila/Mobs/Vehicle/horses/horseWhite.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: horse
+
+- type: entity
+  parent: MobHorseBase
+  id: MobHorseYellow
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Aquila/Mobs/Vehicle/horses/horseYellow.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: horse
+
+- type: entity
+  parent: MobHorseBase
+  id: MobHorseBlackWhite
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Aquila/Mobs/Vehicle/horses/horseBlackWhite.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: horse
+
+- type: entity
+  parent: BaseAction
+  id: ActionGallop
+  name: Speed ​​up
+  description: Speed ​​up on horseback
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+  - type: InstantAction
+    event: !type:GallopActionEvent
