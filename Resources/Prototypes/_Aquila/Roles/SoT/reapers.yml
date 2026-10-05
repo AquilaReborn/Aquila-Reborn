@@ -35,10 +35,8 @@
     shoes: ClothingShoesBootsCombat
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterArmorBasic
-    id: CaptainPDA
+    id: ReaperLeadPDA
     back: ClothingBackpackSatchelLeather
-  inhand:
-  - Machete
 
 - type: job
   id: SotFlameWarrior
@@ -67,12 +65,10 @@
 - type: startingGear
   id: SotFlameWarriorGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitColorRed
-    head: ClothingHeadHelmetBasic
+    jumpsuit: ClothingUniformJumpsuitPirate
+    head: ClothingHeadBandRed
     shoes: ClothingShoesBootsCombat
-    gloves: ClothingHandsGlovesColorBlack
-    outerClothing: ClothingOuterArmorBasic
-    id: PassengerPDA
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitPirateCap
+    id: ReaperPDA
     back: ClothingBackpackSatchel
-  inhand:
-  - Machete

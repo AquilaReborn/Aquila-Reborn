@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Укажите автора текстур",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        { "name": "athena" },
+        { "name": "athena_door" },
+        { "name": "athena_open" },
+        { "name": "reapers" },
+        { "name": "reapers_door" },
+        { "name": "reapers_open" }
+    ]
+}

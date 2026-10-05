@@ -35,10 +35,8 @@
     shoes: ClothingShoesBootsCombat
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterCoatPirate
-    id: CaptainPDA
+    id: AthenaLeadPDA
     back: ClothingBackpackSatchelLeather
-  inhand:
-  - Cutlass
 
 - type: job
   id: SotTreasureWarrior
@@ -67,12 +65,10 @@
 - type: startingGear
   id: SotTreasureWarriorGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitColorYellow
-    head: ClothingHeadHelmetBasic
+    jumpsuit: ClothingUniformJumpsuitPirate
+    head: ClothingHeadBandGreen
     shoes: ClothingShoesBootsCombat
-    gloves: ClothingHandsGlovesColorBlack
-    outerClothing: ClothingOuterArmorBasic
-    id: PassengerPDA
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitPirateCap
+    id: AthenaPDA
     back: ClothingBackpackSatchel
-  inhand:
-  - Cutlass

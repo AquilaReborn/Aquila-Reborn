@@ -1,0 +1,91 @@
+- type: entity
+  parent: BasePDA
+  id: AthenaPDA
+  name: КПК Афины
+  description: Ого, этот КПК нужен примерно нигде, круто!
+  suffix: SoT
+  components:
+  - type: Pda
+    id: PassengerIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        athena_pda
+  - type: PdaBorderColor
+    borderColor: "#28745f"
+  - type: Sprite
+    sprite: _Aquila/SoT/sot_pda.rsi
+    state: athena_pda
+  - type: Icon
+    sprite: _Aquila/SoT/sot_pda.rsi
+    state: athena_pda
+    
+- type: entity
+  parent: BasePDA
+  id: AthenaLeadPDA
+  name: КПК Верховного пирата
+  description: Ого, этот КПК нужен примерно нигде, круто!
+  suffix: SoT
+  components:
+  - type: Pda
+    id: CaptainIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        athena_pda
+  - type: PdaBorderColor
+    borderColor: "#28745f"
+  - type: Sprite
+    sprite: _Aquila/SoT/sot_pda.rsi
+    state: athena_pda
+  - type: Icon
+    sprite: _Aquila/SoT/sot_pda.rsi
+    state: athena_pda
+
+- type: entity
+  parent: BasePDA
+  id: ReaperPDA
+  name: КПК Жнеца
+  description: Ого, этот КПК нужен примерно нигде, круто!
+  suffix: SoT
+  components:
+  - type: Pda
+    id: PassengerIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        reaper_pda          
+  - type: PdaBorderColor
+    borderColor: "#4d0000"
+  - type: Sprite
+    sprite: _Aquila/SoT/sot_pda.rsi
+    state: reaper_pda
+  - type: Icon
+    sprite: _Aquila/SoT/sot_pda.rsi
+    state: reaper_pda
+    
+- type: entity
+  parent: BasePDA
+  id: ReaperLeadPDA
+  name: КПК Капитана Пылающее Сердце
+  description: Ого, этот КПК нужен примерно нигде, круто!
+  suffix: SoT
+  components:
+  - type: Pda
+    id: CaptainIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        reaper_pda          
+  - type: PdaBorderColor
+    borderColor: "#4d0000"
+  - type: Sprite
+    sprite: _Aquila/SoT/sot_pda.rsi
+    state: reaper_pda
+  - type: Icon
+    sprite: _Aquila/SoT/sot_pda.rsi
+    state: reaper_pda
