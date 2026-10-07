@@ -16,8 +16,8 @@ lidgren_log_error = false
 log_late_msg = false
 
 [game]
-hostname = "Акила | Играем метакомпашкой"
-desc = "яндекс верните 450 рублей!!1!"
+hostname = "[WL] Акила Стейшен | Ивенты от игроков"
+desc = "Акила - не зависимый вайтлист проект, нацеленный на саморегуляцию сообщества и активное влияние каждого игрока на жизнь сервера. Присоединяйся к Акиле прямо сейчас и воплощай свой взгляд на идеальный WL"
 soft_max_players = 35 # Aquila Change
 maxcharacterslots = 25
 round_end_pvs_overrides = true
