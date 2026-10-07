@@ -1,0 +1,189 @@
+- type: entity
+  name: holoparasite injector
+  id: HoloparasiteInjectorD4C
+  parent: [BaseItem, BaseSyndicateContraband]
+  description: A complex artwork of handheld machinery allowing the user to host a holoparasite guardian.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/hypospray.rsi
+    state: combat_hypo
+  - type: GuardianCreator
+    guardianProto: MobGuardianD4C
+
+- type: entity
+  name: D4C
+  id: MobGuardianD4C
+  description: guardian
+  parent: MobGuardianRangedBase
+  components:
+  - type: StaminaDamageOnHit
+    damage: 15
+  - type: MeleeWeapon
+    hidden: false
+    altDisarm: false
+    animation: WeaponArcFist
+    attackRate: 1.8
+    autoAttack: true
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 2.5
+        Structural: 10
+  - type: Guardian
+    distanceAllowed: 1.5
+  - type: RandomSprite
+    available: []
+  - type: Sprite
+    sprite: _Aquila/Mobs/Aliens/Guardians/D4C.rsi
+    layers:
+      - state: D4C
+      - state: D4C-unshaded
+        shader: unshaded
+  - type: SmartGun
+  - type: Gun
+    fireRate: 1.5
+    projectileSpeed: 12.5
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectOmnilaser
+
+- type: entity
+  name: GuardianBase
+  id: MobGuardianRangedBase
+  description: guardian
+  save: false
+  components:
+    - type: StaminaDamageOnHit
+      damage: 5
+    - type: Hands
+    - type: SmartGun
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 1.5
+    - type: BasicEntityAmmoProvider
+      proto: NailShot
+      capacity: 8
+      count: 8
+    - type: Gun
+      fireRate: 3.5
+      useKey: false
+      selectedMode: FullAuto
+      availableModes:
+        - FullAuto
+      soundGunshot: /Audio/_Aquila/Weapons/Guns/Gunshots/shot_nail.ogg
+    - type: HTN
+      rootTask:
+        task: SimpleRangedHostileCompound
+    - type: NpcFactionMember
+      factions:
+      - Syndicate
+    - type: LagCompensation
+    - type: GhostRole
+      allowMovement: true
+      allowSpeech: true
+      makeSentient: true
+      name: ghost-role-information-guardian-name
+      description: ghost-role-information-guardian-description
+      rules: ghost-role-information-familiar-rules
+      mindRoles:
+      - MindRoleGhostRoleFamiliar
+      raffle:
+        settings: default
+      requirements: # Goobstation - ghost roles requirements
+      - !type:OverallPlaytimeRequirement
+        time: 1h
+    - type: GhostTakeoverAvailable
+    - type: Input
+      context: "human"
+    - type: MobMover
+    - type: InputMover
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 4
+      baseSprintSpeed: 5.5
+    - type: DamageOnHighSpeedImpact
+      damage:
+        types:
+          Blunt: 5
+      soundHit:
+        collection: MetalThud
+    - type: RandomSprite
+      available:
+        - enum.DamageStateVisualLayers.Base:
+            magic_base: ""
+          enum.DamageStateVisualLayers.BaseUnshaded:
+            magic_flare: Sixteen
+        - enum.DamageStateVisualLayers.Base:
+            miner_base: ""
+          enum.DamageStateVisualLayers.BaseUnshaded:
+            miner_flare: Sixteen
+        - enum.DamageStateVisualLayers.Base:
+            tech_base: ""
+          enum.DamageStateVisualLayers.BaseUnshaded:
+            tech_flare: Sixteen
+    - type: Sprite
+      drawdepth: Mobs
+      sprite: Mobs/Aliens/Guardians/guardians.rsi
+      layers:
+        - state: tech_base
+          map: [ "enum.DamageStateVisualLayers.Base" ]
+        - state: tech_flare
+          map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+          color: "#40a7d7"
+          shader: unshaded
+      noRot: true
+    - type: Clickable
+    - type: InteractionOutline
+    - type: Physics
+      bodyType: KinematicController
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.35
+          density: 25
+          mask:
+            - FlyingMobMask
+          layer:
+            - Opaque
+    - type: Damageable
+      damageContainer: Biological
+    - type: MobState
+      allowedStates:
+        - Alive
+    - type: CombatMode
+    - type: Internals
+    - type: Examiner
+    - type: Speech
+      speechVerb: Robotic
+    - type: TypingIndicator
+      proto: guardian
+    - type: Pullable
+    - type: MeleeWeapon
+      hidden: false
+      altDisarm: false
+      animation: WeaponArcFist
+      attackRate: 1.8
+      autoAttack: true
+      soundHit:
+        collection: Punch
+      damage:
+        types:
+          Blunt: 10
+          Structural: 10
+    - type: MeleeSpeech
+    - type: UserInterface
+      interfaces:
+        enum.MeleeSpeechUiKey.Key:
+          type: MeleeSpeechBoundUserInterface
+    - type: Actions
+    - type: Guardian
+    - type: Tag
+      tags:
+        - CannotSuicide
+    # <Goobstation>
+    - type: MovementIgnoreGravity
+    - type: ActionGrant
+      actions:
+        - ActionSelfToggleGuardian
+    - type: Targeting
+    # </Goobstation>

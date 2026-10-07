@@ -52,5 +52,13 @@ namespace Content.Server.Guardian
         [DataField]
         public SoundSpecifier DeathSound = new SoundPathSpecifier("/Audio/Voice/Human/malescream_guardian.ogg", AudioParams.Default.WithVariation(0.2f));
 
+        // Aquila Start
+        /// <summary>
+        /// Флаг для того чтобы сраные паразиты не крашили игру пока носитель сидит на транспорте.
+        /// </summary>
+        [DataField]
+        public bool IsBeginRepositioned;
+        // Aquila End
+
     }
 }

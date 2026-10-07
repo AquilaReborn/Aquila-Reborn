@@ -15,8 +15,16 @@
     interfaces:
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
+      enum.StorageUiKey.Key: # Aquila Change
+        type: StorageBoundUserInterface # Aquila Change
   - type: ActivatableUI
     key: enum.StoreUiKey.Key
+  # Aquila Change start
+  - type: Storage
+    openOnActivate: false # использование в руке открывает магазин, хранилище открывается через verb "Открыть"
+    grid:
+    - 0,0,5,3
+  # Aquila Change end
   - type: Store
     ownerOnly: false # me when NTR cryos and the next one cant do anything
     balance:
