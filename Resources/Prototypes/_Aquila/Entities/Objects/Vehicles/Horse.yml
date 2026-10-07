@@ -42,7 +42,7 @@
     minInterval: 0.75
     minWindowLength: 0.4
     gallopSuccessSound:
-    path: /Audio/_Goobstation/Effects/Sprinting/sprint_puff.ogg
+      path: /Audio/_Goobstation/Effects/Sprinting/sprint_puff.ogg
     successCloudEffect: SprintAnimation
     stepCloudEffect: SmallSprintAnimation
   - type: MobThresholds

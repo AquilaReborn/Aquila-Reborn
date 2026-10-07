@@ -1124,3 +1124,16 @@ ClothingShoesHighheelBootsFilled: ClothingShoesHighheelBoots
 
 #2026-09-09 CorvaxGoob
 EnergyChemDispenser: ChemDispenser
+
+# Aquila Change start
+ButtonFrameExit: null
+TurnstileGenpopEnter: EnergyGateGenpopEnter
+TurnstileGenpopLeave: EnergyGateGenpopLeave
+BlastDoorOpenCentralCommand: BlastDoorOpen
+FloorChromiteChasm: FloorChasmEntity
+RMCPlatformHybrisaEdge: null
+RMCPlatformHybrisaEdgeCornerSmall: null
+RMCPlatformHybrisaThree: null
+RMCPlatformHybrisaThreeCorner: null
+RMCPlatformHybrisaThreeStairAlt: null
+# Aquila Change end
