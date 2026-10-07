@@ -149,6 +149,14 @@ namespace Content.Shared.Preferences
         [DataField]
         public Gender Gender { get; private set; } = Gender.Male;
 
+        // Aquila Change start
+        [DataField]
+        public float Height { get; set; } = 1f;
+
+        [DataField]
+        public float Width { get; set; } = 1f;
+        // Aquila Change end
+
         /// <summary>
         /// <see cref="Appearance"/>
         /// </summary>
@@ -255,6 +263,8 @@ namespace Content.Shared.Preferences
         {
             OocNotes = other.OocNotes; // Aquila Change
             BarkVoice = other.BarkVoice; // Aquila Change
+            Height = other.Height; // Aquila Change
+            Width = other.Width; // Aquila Change
         }
 
         /// <summary>
@@ -352,6 +362,8 @@ namespace Content.Shared.Preferences
                 Age = age,
                 Gender = gender,
                 Species = species,
+                Height = height, // Aquila Change
+                Width = width, // Aquila Change
                 TTSVoice = voiceId, // CorvaxGoob-TTS
                 Appearance = HumanoidCharacterAppearance.Random(species, sex),
                 BarkVoice = barkvoiceId, // Goob Station - Barks // Aquila Change
@@ -394,6 +406,18 @@ namespace Content.Shared.Preferences
         {
             return new(this) { Species = species };
         }
+
+        // Aquila Change start
+        public HumanoidCharacterProfile WithHeight(float height)
+        {
+            return new(this) { Height = height };
+        }
+
+        public HumanoidCharacterProfile WithWidth(float width)
+        {
+            return new(this) { Width = width };
+        }
+        // Aquila Change end
 
         // CorvaxGoob-TTS-Start
         public HumanoidCharacterProfile WithVoice(string voice)
@@ -579,8 +603,8 @@ namespace Content.Shared.Preferences
             if (TTSVoice != other.TTSVoice) return false; // CorvaxGoob-TTS
             if (Gender != other.Gender) return false;
             if (Species != other.Species) return false;
-            // if (Height != other.Height) return false; // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
-            // if (Width != other.Width) return false; // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
+            if (Height != other.Height) return false; // Goobstation: port EE height/width sliders // Aquila Change
+            if (Width != other.Width) return false; // Goobstation: port EE height/width sliders // Aquila Change
             if (BarkVoice != other.BarkVoice) return false; // Goob Station - Barks // Aquila Change
             if (PreferenceUnavailable != other.PreferenceUnavailable) return false;
             if (SpawnPriority != other.SpawnPriority) return false;
@@ -699,6 +723,11 @@ namespace Content.Shared.Preferences
             }
             // Aquila Change end
 
+            // Aquila Change start
+            var height = Math.Clamp(Height, speciesPrototype.MinHeight, speciesPrototype.MaxHeight);
+            var width = Math.Clamp(Width, speciesPrototype.MinWidth, speciesPrototype.MaxWidth);
+            // Aquila Change end
+
             var appearance = HumanoidCharacterAppearance.EnsureValid(Appearance, Species, Sex, sponsorPrototypes); // CorvaxGoob-Sponsors
 
             var prefsUnavailableMode = PreferenceUnavailable switch
@@ -750,8 +779,8 @@ namespace Content.Shared.Preferences
             OocNotes = oocNotes; // Aquila Change
             BarkVoice = barkVoice; // Aquila Change
             Age = age;
-            // Height = height; // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
-            // Width = width; // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
+            Height = height; // Goobstation: port EE height/width sliders // Aquila Change
+            Width = width; // Goobstation: port EE height/width sliders // Aquila Change
             Sex = sex;
             Gender = gender;
             Appearance = appearance;
@@ -885,8 +914,8 @@ namespace Content.Shared.Preferences
             hashCode.Add(FlavorText);
             hashCode.Add(OocNotes); // Aquila Change
             hashCode.Add(Species);
-            // hashCode.Add(Height); // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
-            // hashCode.Add(Width); // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
+            hashCode.Add(Height); // Goobstation: port EE height/width sliders // Aquila Change
+            hashCode.Add(Width); // Goobstation: port EE height/width sliders // Aquila Change
             hashCode.Add(Age);
             hashCode.Add((int) Sex);
             hashCode.Add(TTSVoice); // CorvaxGoob-TTS

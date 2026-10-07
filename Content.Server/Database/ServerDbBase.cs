@@ -319,6 +319,8 @@ namespace Content.Server.Database
             {
                 OocNotes = profile.OocNotes ?? string.Empty, // Aquila Change
                 BarkVoice = barkVoice, // Aquila Change
+                Height = profile.Height, // Aquila Change
+                Width = profile.Width, // Aquila Change
             };
         }
 
@@ -336,6 +338,8 @@ namespace Content.Server.Database
             profile.CharacterName = humanoid.Name;
             profile.FlavorText = humanoid.FlavorText;
             profile.OocNotes = humanoid.OocNotes; // Aquila Change
+            profile.Height = humanoid.Height; // Aquila Change
+            profile.Width = humanoid.Width; // Aquila Change
             profile.Species = humanoid.Species;
             profile.TTSVoice = humanoid.TTSVoice; // CorvaxGoob-TTS
             profile.Age = humanoid.Age;

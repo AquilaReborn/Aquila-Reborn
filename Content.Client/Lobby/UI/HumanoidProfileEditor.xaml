@@ -95,23 +95,23 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                                     <Control HorizontalExpand="True"/>
                                     <OptionButton Name="SpawnPriorityButton" HorizontalAlignment="Right" />
                                 </BoxContainer>
-                                <!-- CorvaxGoob-Revert : DB conflicts -->
+                                <!-- Aquila Change -->
                                 <!-- Height Slider --> <!-- begin Goobstation: port EE height/width sliders -->
-                                <!-- <BoxContainer HorizontalExpand="True">
+                                <BoxContainer HorizontalExpand="True">
                                     <Label Name="HeightLabel" MinWidth="110" />
                                     <Slider Name="HeightSlider" MinValue="0.5" Value="1" MaxValue="1.5" HorizontalExpand="True" Margin="5 0 5 0" />
                                     <Button Name="HeightReset" Text="{Loc 'ui-options-bind-reset'}" />
-                                </BoxContainer> -->
+                                </BoxContainer>
                                 <!-- Width Slider -->
-                                <!-- <BoxContainer HorizontalExpand="True">
+                                <BoxContainer HorizontalExpand="True">
                                     <Label Name="WidthLabel" MinWidth="110" />
                                     <Slider Name="WidthSlider" MinValue="0.5" Value="1" MaxValue="1.5" HorizontalExpand="True" Margin="5 0 5 0" />
                                     <Button Name="WidthReset" Text="{Loc 'ui-options-bind-reset'}" />
-                                </BoxContainer> -->
+                                </BoxContainer>
                                 <!--Weight (Derived from height and width)-->
-                                <!-- <BoxContainer HorizontalExpand="True">
+                                <BoxContainer HorizontalExpand="True">
                                     <Label Name="WeightLabel" />
-                                </BoxContainer> -->
+                                </BoxContainer>
                                 <!-- end Goobstation: port EE height/width sliders -->
                                 <!-- Corvax-Frontier-Barks-Start -->
                                 <!-- Aquila Change -->

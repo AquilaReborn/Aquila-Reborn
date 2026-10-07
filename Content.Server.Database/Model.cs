@@ -442,6 +442,8 @@ namespace Content.Server.Database
         public string FlavorText { get; set; } = null!;
         public string? OocNotes { get; set; } // Aquila Change
         public string? BarkVoice { get; set; } // Aquila Change
+        public float Height { get; set; } = 1f; // Aquila Change
+        public float Width { get; set; } = 1f; // Aquila Change
         public int Age { get; set; }
         public string Sex { get; set; } = null!;
         public string? Voice { get; set; } = null!; // CorvaxGoob-TTS
