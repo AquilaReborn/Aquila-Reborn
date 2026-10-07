@@ -19,9 +19,7 @@
       - MindRoleGhostRoleFamiliar
       raffle:
         settings: default
-      requirements: # Goobstation - ghost roles requirements
-      - !type:OverallPlaytimeRequirement
-        time: 1h # Aquila Change
+      # Aquila Change: убрано поле requirements, GhostRoleComponent его больше не поддерживает
     - type: GhostTakeoverAvailable
     - type: Input
       context: "human"
