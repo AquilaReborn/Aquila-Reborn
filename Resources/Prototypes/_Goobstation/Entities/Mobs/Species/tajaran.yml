@@ -114,6 +114,11 @@
           32:
             sprite: _CorvaxGoob/Mobs/Species/displacement.rsi
             state: shoes
+      outerClothing: # Aquila Change start
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: outerClothing-female # Aquila Change end
     displacements:
       jumpsuit:
         sizeMaps:
@@ -125,6 +130,11 @@
           32:
             sprite: _CorvaxGoob/Mobs/Species/displacement.rsi
             state: shoes
+      outerClothing: # Aquila Change start
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: outerClothing # Aquila Change end
   - type: PseudoItem
     storedOffset: 0,17
     shape:
@@ -169,6 +179,11 @@
           32:
             sprite: _CorvaxGoob/Mobs/Species/displacement.rsi
             state: shoes
+      outerClothing: # Aquila Change start
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: outerClothing-female # Aquila Change end
     displacements:
       jumpsuit:
         sizeMaps:
@@ -180,3 +195,8 @@
           32:
             sprite: _CorvaxGoob/Mobs/Species/displacement.rsi
             state: shoes
+      outerClothing: # Aquila Change start
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: outerClothing # Aquila Change end
