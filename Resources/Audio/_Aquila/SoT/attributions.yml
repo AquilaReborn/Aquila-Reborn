@@ -1,0 +1,13 @@
+# Работа выполнена Claude (Anthropic).
+# Шаблон для Resources/Audio/_Aquila/SoT/attributions.yml
+# Заполните данными о ваших треках (автор, лицензия, источник).
+- files: ["athena_theme.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Sea of Thieves"
+  source: "YouTube"
+
+- files: ["reapers_theme.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Sea of Thieves"
+  source: "YouTube"
+

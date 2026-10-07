@@ -1,0 +1,12 @@
+# Работа выполнена Claude (Anthropic).
+- type: playTimeTracker
+  id: SotSupremePirate
+
+- type: playTimeTracker
+  id: SotTreasureWarrior
+
+- type: playTimeTracker
+  id: SotBurningHeartCaptain
+
+- type: playTimeTracker
+  id: SotFlameWarrior

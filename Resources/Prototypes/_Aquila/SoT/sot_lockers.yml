@@ -1,0 +1,207 @@
+# Работа выполнена Claude (Anthropic).
+
+- type: entity
+  parent: LockerSteel
+  id: SotLockerAthenaWarrior
+  name: шкафчик воителя сокровищ
+  description: Шкафчик экипажа Афины.
+  suffix: SoT, Афина
+  components:
+  - type: LockVisuals
+  - type: Sprite
+    sprite: _Aquila/SoT/sot_locker.rsi
+    noRot: true
+    layers:
+    - state: athena                    
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: athena_door               
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: locked                   
+      sprite: Structures/Storage/closet.rsi
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+    - state: welded                    
+      sprite: Structures/Storage/closet.rsi
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: paper                   
+      visible: false
+      sprite: Structures/Storage/closet_labels.rsi
+      offset: "-0.065,0"
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: EntityStorageVisuals
+    stateBaseClosed: athena            
+    stateDoorClosed: athena_door       
+    stateDoorOpen: athena_open         
+  - type: Lock
+    locked: false
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+         - id: Cutlass                  
+         - id: WeaponShotgunSawn
+         - id: WeaponRevolverPirate
+         - id: BoxLethalshot
+         - id: MagazineBoxMagnum
+         - id: ClothingBeltUtilityFilled
+         - id: ClothingOuterHardsuitPirateCap 
+         - id: ClothingBeltMercWebbing
+         - id: JetpackVoidFilled
+         - id: HandHeldMassScanner
+# хардсьют временно
+
+- type: entity
+  parent: LockerSteel
+  id: SotLockerReapersWarrior
+  name: шкафчик воителя пламени
+  description: Шкафчик экипажа Жнецов.
+  suffix: SoT, Жнецы
+  components:
+  - type: LockVisuals
+  - type: Sprite
+    sprite: _Aquila/SoT/sot_locker.rsi
+    noRot: true
+    layers:
+    - state: athena                    
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: athena_door               
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: locked                   
+      sprite: Structures/Storage/closet.rsi
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+    - state: welded                    
+      sprite: Structures/Storage/closet.rsi
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: paper                   
+      visible: false
+      sprite: Structures/Storage/closet_labels.rsi
+      offset: "-0.065,0"
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: EntityStorageVisuals
+    stateBaseClosed: reapers           
+    stateDoorClosed: reapers_door       
+    stateDoorOpen: reapers_open   
+  - type: Lock
+    locked: false
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+         - id: Cutlass                  
+         - id: WeaponShotgunSawn
+         - id: WeaponRevolverPirate
+         - id: BoxLethalshot
+         - id: MagazineBoxMagnum
+         - id: ClothingBeltUtilityFilled
+         - id: ClothingOuterHardsuitPirateCap 
+         - id: ClothingBeltMercWebbing
+         - id: JetpackVoidFilled
+         - id: HandHeldMassScanner
+# хардсьют временно
+
+# ---------- КАПИТАНЫ: доступ Captain ----------
+
+- type: entity
+  parent: LockerSteel
+  id: SotLockerSupremePirate
+  name: шкафчик верховного пирата
+  description: Личный шкафчик Верховного пирата.
+  suffix: SoT, Афина
+  components:
+  - type: LockVisuals
+  - type: Sprite
+    sprite: _Aquila/SoT/sot_locker.rsi
+    noRot: true
+    layers:
+    - state: athena                    
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: athena_door               
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: locked                    
+      sprite: Structures/Storage/closet.rsi
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+    - state: welded                    
+      sprite: Structures/Storage/closet.rsi
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: paper                  
+      visible: false
+      sprite: Structures/Storage/closet_labels.rsi
+      offset: "-0.065,0"
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: EntityStorageVisuals
+    stateBaseClosed: athena            
+    stateDoorClosed: athena_door      
+    stateDoorOpen: athena_open         
+  - type: AccessReader
+    access: [ [ "Captain" ] ]
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+         - id: Cutlass                  
+         - id: WeaponShotgunSawn
+         - id: WeaponRevolverPirate
+         - id: BoxLethalshot
+         - id: MagazineBoxMagnum
+         - id: ClothingBeltUtilityFilled
+         - id: ClothingOuterHardsuitPirateCap 
+         - id: ClothingBeltMercWebbing
+         - id: JetpackVoidFilled
+         - id: HandHeldMassScanner
+# хардсьют временно
+
+- type: entity
+  parent: LockerSteel
+  id: SotLockerBurningHeartCaptain
+  name: шкафчик капитана Пылающее Сердце
+  description: Личный шкафчик капитана Пылающее Сердце.
+  suffix: SoT, Жнецы
+  components:
+  - type: LockVisuals
+  - type: AccessReader
+    access: [ [ "Captain" ] ]
+  - type: Sprite
+    sprite: _Aquila/SoT/sot_locker.rsi
+    noRot: true
+    layers:
+    - state: reapers                   
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: athena_door            
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: locked                   
+      sprite: Structures/Storage/closet.rsi
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+    - state: welded                    
+      sprite: Structures/Storage/closet.rsi
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: paper                     
+      visible: false
+      sprite: Structures/Storage/closet_labels.rsi
+      offset: "-0.065,0"
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: EntityStorageVisuals
+    stateBaseClosed: reapers           
+    stateDoorClosed: reapers_door       
+    stateDoorOpen: reapers_open 
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+         - id: Cutlass                  
+         - id: WeaponShotgunSawn
+         - id: WeaponRevolverPirate
+         - id: BoxLethalshot
+         - id: MagazineBoxMagnum
+         - id: ClothingBeltUtilityFilled
+         - id: ClothingOuterHardsuitPirateCap 
+         - id: ClothingBeltMercWebbing
+         - id: JetpackVoidFilled
+         - id: HandHeldMassScanner
+# хардсьют временно
