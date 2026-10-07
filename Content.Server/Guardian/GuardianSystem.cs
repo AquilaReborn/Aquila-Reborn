@@ -344,7 +344,8 @@ namespace Content.Server.Guardian
         /// <summary>
         /// Retract the guardian if either the host or the guardian move away from each other.
         /// </summary>
-        private void CheckGuardianMove(
+        // Aquila: private -> public
+        public void CheckGuardianMove(
             EntityUid hostUid,
             EntityUid guardianUid,
             GuardianHostComponent? hostComponent = null,
@@ -364,20 +365,48 @@ namespace Content.Server.Guardian
             if (!guardianComponent.GuardianLoose)
                 return;
 
+            // Aquila Start
+            if (guardianComponent.IsBeginRepositioned)
+                return;
+            // Aquila End
+
             // Goobstation - now moves you closer instead of retracting
             if (!_transform.InRange(guardianXform.Coordinates, hostXform.Coordinates, guardianComponent.DistanceAllowed))
             {
                 if (hostXform.MapID != guardianXform.MapID)
                 {
-                    _transform.SetCoordinates(guardianUid, guardianXform, hostXform.Coordinates);
+                    // Aquila Start
+                    guardianComponent.IsBeginRepositioned = true;
+                    try
+                    {
+                        _transform.SetCoordinates(guardianUid, guardianXform, hostXform.Coordinates);
+                    }
+                    finally
+                    {
+                        guardianComponent.IsBeginRepositioned = false;
+                    }
+                    // Aquila End
                 }
                 else
                 {
                     // host's position in our parent's coordinates
                     var hostPos = hostXform.Coordinates.WithEntityId(guardianXform.ParentUid, EntityManager).Position;
                     var diff = guardianXform.LocalPosition - hostPos;
+                    // Aquila Start
+                    if (diff.LengthSquared() < 0.0001f)
+                        return;
+
                     var newDiff = diff.Normalized() * guardianComponent.DistanceAllowed;
-                    _transform.SetLocalPosition(guardianUid, hostPos + newDiff, guardianXform);
+                    guardianComponent.IsBeginRepositioned = true;
+                    try
+                    {
+                        _transform.SetLocalPosition(guardianUid, hostPos + newDiff, guardianXform);
+                    }
+                    finally
+                    {
+                        guardianComponent.IsBeginRepositioned = false;
+                    }
+                    // Aquila End
                 }
             }
         }

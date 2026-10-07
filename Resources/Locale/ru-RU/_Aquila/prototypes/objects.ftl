@@ -178,8 +178,16 @@ ent-BombCollarKit = набор бомбы-ошейника
 
 ## Мобы
 
-ent-MobHorseTest = Лошадь
-    .desc = Тысяча лет космической эволюции, и это лучшее, до чего мы додумались.
+ent-MobHorseBase = Лошадь
+    .desc = Ездовая лошадь для скачек на гонке. Любит яблоки и стальные шары.
+ent-MobHorseBlack = Лошадь
+    .desc = { ent-MobHorseBase.desc }
+ent-MobHorseBlackWhite = Лошадь
+    .desc = { ent-MobHorseBase.desc }
+ent-MobHorseWhite = Лошадь
+    .desc = { ent-MobHorseBase.desc }
+ent-MobHorseYellow = Лошадь
+    .desc = { ent-MobHorseBase.desc }
 ent-MobShadowRandom = Урист МакТень
     .desc = { ent-MobShadow.desc }
     .suffix = Случайная внешность

@@ -2,6 +2,7 @@ using Content.Goobstation.Shared.Vehicles;
 using Content.Shared.Projectiles;
 using Content.Shared.Throwing;
 using Robust.Shared.Physics.Events;
+using Content.Shared._Goobstation.Wizard.Guardian;
 
 namespace Content.Goobstation.Shared.Aquila.Vehicles;
 
@@ -19,18 +20,26 @@ public sealed class VehicleProjectileImmunitySystem : EntitySystem
             return;
 
         var other = args.OtherEntity;
+        var driver = component.Driver.Value;
 
         if (TryComp<ProjectileComponent>(other, out var projectile)
-            && projectile.Shooter == component.Driver)
+            && (projectile.Shooter == driver || IsGuardianOfHost(projectile.Shooter, driver)))
         {
             args.Cancelled = true;
             return;
         }
 
         if (TryComp<ThrownItemComponent>(other, out var thrown)
-            && thrown.Thrower == component.Driver)
+            && thrown.Thrower == driver)
         {
             args.Cancelled = true;
         }
+    }
+
+    private bool IsGuardianOfHost(EntityUid? shooter, EntityUid host)
+    {
+        return shooter != null
+            && TryComp<GuardianSharedComponent>(shooter.Value, out var guardianShared)
+            && guardianShared.Host == host;
     }
 }

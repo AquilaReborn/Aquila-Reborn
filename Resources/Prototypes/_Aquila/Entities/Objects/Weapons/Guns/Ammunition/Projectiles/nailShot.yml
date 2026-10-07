@@ -1,0 +1,32 @@
+- type: entity
+  parent: BaseBullet
+  id: NailShot
+  #categories: [ HideSpawnMenu ]
+  name: fingernail shot
+  components:
+  - type: Sprite
+    sprite: _Aquila/Objects/Weapons/Guns/Projectiles/nailShot.rsi
+    layers:
+    - state: nailShotProjectile
+      shader: unshaded
+  - type: HomingProjectile
+    homingTime: 0.05
+    homingSpeed: 150
+  - type: Trail
+    color: "#0096FA"
+    scale: 0.08
+    frequency: 0.02
+    lifetime: 0.3
+    lerpTime: 0.0001
+    alphaLerpAmount: 0.2
+    scaleLerpAmount: 0.08
+    shader: unshaded
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectOmnilaser
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
+    damage:
+      types:
+        Blunt: 0.05
+  - type: StaminaDamageOnCollide
+    damage: 15

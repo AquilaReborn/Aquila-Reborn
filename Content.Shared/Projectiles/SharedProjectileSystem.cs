@@ -21,6 +21,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using Content.Shared._Goobstation.Wizard.Guardian; // Aquila
 
 namespace Content.Shared.Projectiles;
 
@@ -232,6 +233,16 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         {
             args.Cancelled = true;
         }
+
+        // Aquila start
+        if (component.Shooter != null &&
+        TryComp<GuardianSharedComponent>(component.Shooter.Value, out var guardianShared) &&
+        guardianShared.Host == args.OtherEntity)
+        {
+            args.Cancelled = true;
+        }
+        // Aquila end
+
     }
 
     // Goobstation - Crawling fix
