@@ -93,6 +93,11 @@
           32:
             sprite: _White/Mobs/Species/displacement.rsi
             state: shoes
+      outerClothing: # Aquila Change start
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: outerClothing-female # Aquila Change end
       head: # Aquila Change start
         sizeMaps:
           32:
@@ -109,6 +114,11 @@
           32:
             sprite: _White/Mobs/Species/displacement.rsi
             state: shoes
+      outerClothing: # Aquila Change start
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: outerClothing # Aquila Change end
       head: # Aquila Change start
         sizeMaps:
           32:
@@ -154,6 +164,11 @@
           32:
             sprite: _White/Mobs/Species/displacement.rsi
             state: shoes
+      outerClothing: # Aquila Change start
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: outerClothing-female # Aquila Change end
       head: # Aquila Change start
         sizeMaps:
           32:
@@ -170,6 +185,11 @@
           32:
             sprite: _White/Mobs/Species/displacement.rsi
             state: shoes
+      outerClothing: # Aquila Change start
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: outerClothing # Aquila Change end
       head: # Aquila Change start
         sizeMaps:
           32:
