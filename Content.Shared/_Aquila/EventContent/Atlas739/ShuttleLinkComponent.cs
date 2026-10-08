@@ -3,7 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Shared._Kakila.ShuttleLink;
+namespace Content.Shared._Aquila.EventContent.Atlas739;
 
 /// <summary>
 ///     Общий ID, связывающий сущность (например, песочные часы) с шаттлом (гридом).

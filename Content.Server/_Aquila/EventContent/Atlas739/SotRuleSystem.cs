@@ -8,13 +8,12 @@ using Content.Server.Destructible;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.RoundEnd;
-using Content.Shared._Kakila.ShuttleLink;
-using Content.Shared._Kakila.Sot;
+using Content.Shared._Aquila.EventContent.Atlas739;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.GameTicking.Components;
 
-namespace Content.Server._Kakila.Sot;
+namespace Content.Server._Aquila.EventContent.Atlas739;
 
 /// <summary>
 ///     Учёт битв SoT: кто с кем воюет, автоматическое завершение битвы при уничтожении часов,

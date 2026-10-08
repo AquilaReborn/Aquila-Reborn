@@ -15,10 +15,10 @@
   - type: PdaBorderColor
     borderColor: "#28745f"
   - type: Sprite
-    sprite: _Aquila/SoT/sot_pda.rsi
+    sprite: _Aquila/EventContent/Atlas739/sot_pda.rsi
     state: athena_pda
   - type: Icon
-    sprite: _Aquila/SoT/sot_pda.rsi
+    sprite: _Aquila/EventContent/Atlas739/sot_pda.rsi
     state: athena_pda
     
 - type: entity
@@ -38,10 +38,10 @@
   - type: PdaBorderColor
     borderColor: "#28745f"
   - type: Sprite
-    sprite: _Aquila/SoT/sot_pda.rsi
+    sprite: _Aquila/EventContent/Atlas739/sot_pda.rsi
     state: athena_pda
   - type: Icon
-    sprite: _Aquila/SoT/sot_pda.rsi
+    sprite: _Aquila/EventContent/Atlas739/sot_pda.rsi
     state: athena_pda
 
 - type: entity
@@ -61,10 +61,10 @@
   - type: PdaBorderColor
     borderColor: "#4d0000"
   - type: Sprite
-    sprite: _Aquila/SoT/sot_pda.rsi
+    sprite: _Aquila/EventContent/Atlas739/sot_pda.rsi
     state: reaper_pda
   - type: Icon
-    sprite: _Aquila/SoT/sot_pda.rsi
+    sprite: _Aquila/EventContent/Atlas739/sot_pda.rsi
     state: reaper_pda
     
 - type: entity
@@ -84,8 +84,8 @@
   - type: PdaBorderColor
     borderColor: "#4d0000"
   - type: Sprite
-    sprite: _Aquila/SoT/sot_pda.rsi
+    sprite: _Aquila/EventContent/Atlas739/sot_pda.rsi
     state: reaper_pda
   - type: Icon
-    sprite: _Aquila/SoT/sot_pda.rsi
+    sprite: _Aquila/EventContent/Atlas739/sot_pda.rsi
     state: reaper_pda

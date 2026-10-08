@@ -5,7 +5,7 @@
 
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Kakila.Sot;
+namespace Content.Shared._Aquila.EventContent.Atlas739;
 
 /// <summary>
 ///     Песочные часы SoT: сторона (Афина или Жнецы), голосование экипажа за готовность к битве.

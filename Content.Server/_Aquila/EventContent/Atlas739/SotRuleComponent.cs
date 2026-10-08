@@ -3,7 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Server._Kakila.Sot;
+namespace Content.Server._Aquila.EventContent.Atlas739;
 
 /// <summary>
 ///     Игровое правило пресета SoT. Раунд состоит из нескольких битв; здесь хранится их журнал.

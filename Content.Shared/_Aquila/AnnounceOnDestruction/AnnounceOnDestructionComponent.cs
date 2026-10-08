@@ -5,7 +5,7 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Kakila.AnnounceOnDestruction;
+namespace Content.Shared._Aquila.AnnounceOnDestruction;
 
 /// <summary>
 ///     При уничтожении сущности делает глобальное объявление на весь сервер

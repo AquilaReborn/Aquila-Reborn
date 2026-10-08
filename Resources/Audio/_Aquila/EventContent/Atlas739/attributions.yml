@@ -1,5 +1,5 @@
 # Работа выполнена Claude (Anthropic).
-# Шаблон для Resources/Audio/_Aquila/SoT/attributions.yml
+# Шаблон для Resources/Audio/_Aquila/EventContent/Atlas739/attributions.yml
 # Заполните данными о ваших треках (автор, лицензия, источник).
 - files: ["athena_theme.ogg"]
   license: "CC-BY-SA-3.0"

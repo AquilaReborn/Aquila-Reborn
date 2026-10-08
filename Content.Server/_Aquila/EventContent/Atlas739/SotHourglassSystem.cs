@@ -5,8 +5,7 @@
 
 using Content.Server.Chat.Systems;
 using Content.Server.Shuttles.Components; // FTLComponent (один из двух using окажется лишним - это нормально)
-using Content.Shared._Kakila.ShuttleLink;
-using Content.Shared._Kakila.Sot;
+using Content.Shared._Aquila.EventContent.Atlas739;
 using Content.Shared.Chat;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
@@ -15,7 +14,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
-namespace Content.Server._Kakila.Sot;
+namespace Content.Server._Aquila.EventContent.Atlas739;
 
 /// <summary>
 ///     Голосование экипажа за готовность к битве через песочные часы.

@@ -3,11 +3,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Kakila.Sot;
+using Content.Shared._Aquila.EventContent.Atlas739;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 
-namespace Content.Client._Kakila.Sot;
+namespace Content.Client._Aquila.EventContent.Atlas739;
 
 [UsedImplicitly]
 public sealed class SotHourglassBoundUserInterface : BoundUserInterface

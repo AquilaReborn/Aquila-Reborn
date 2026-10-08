@@ -4,12 +4,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
-using Content.Server._Kakila.ShuttleLink;
 using Content.Server.GameTicking;
 using Content.Server.Shuttles.Components; // один из двух using (Server/Shared) для FTLComponent/ShuttleComponent окажется лишним — это нормально
 using Content.Server.Shuttles.Events;
 using Content.Server.Shuttles.Systems;
-using Content.Shared._Kakila.CCVars;
+using Content.Shared._Aquila.CCVars;
 using Content.Shared.GameTicking; // RoundRestartCleanupEvent
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems; // FTLState
@@ -20,7 +19,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
 
-namespace Content.Server._Kakila.Sot;
+namespace Content.Server._Aquila.EventContent.Atlas739;
 
 /// <summary>
 ///     Логика битв SoT (команды sotbattleprepare / sotbattlestart / sotbattleend / sotroundend).
@@ -136,13 +135,13 @@ public sealed class SotRoundSystem : EntitySystem
     #region Preset check
 
     /// <summary>
-    ///     Проверяет, разрешено ли использование команд при текущем пресете (CVar kakila.sot_allowed_presets).
+    ///     Проверяет, разрешено ли использование команд при текущем пресете (CVar aquila.sot_allowed_presets).
     /// </summary>
     public bool CheckPreset(out string error)
     {
         error = string.Empty;
 
-        var raw = _cfg.GetCVar(KakilaCVars.SotAllowedPresets);
+        var raw = _cfg.GetCVar(AquilaCVars.SotAllowedPresets);
         var allowed = raw.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 
         if (allowed.Length == 0)
@@ -154,7 +153,7 @@ public sealed class SotRoundSystem : EntitySystem
 
         error = $"Команда недоступна при текущем пресете (\"{current ?? "нет"}\"). " +
                 $"Разрешены: {string.Join(", ", allowed)}. " +
-                $"Изменить: cvar {KakilaCVars.SotAllowedPresets.Name} \"...\" (пусто = любой пресет).";
+                $"Изменить: cvar {AquilaCVars.SotAllowedPresets.Name} \"...\" (пусто = любой пресет).";
         return false;
     }
 

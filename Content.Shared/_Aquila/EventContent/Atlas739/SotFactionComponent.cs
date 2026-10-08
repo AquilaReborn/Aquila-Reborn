@@ -5,11 +5,11 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Kakila.Sot;
+namespace Content.Shared._Aquila.EventContent.Atlas739;
 
 /// <summary>
 ///     Фракция игрока в SoT (Афина или Жнецы). Выдаётся ролям через AddComponentSpecial
-///     (см. Roles/SoT/athena.yml и reapers.yml) или вручную админом: addcomp &lt;uid&gt; SotFaction.
+///     (см. Roles/athena.yml и reapers.yml) или вручную админом: addcomp &lt;uid&gt; SotFaction.
 ///     Песочными часами могут пользоваться только игроки своей фракции.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]

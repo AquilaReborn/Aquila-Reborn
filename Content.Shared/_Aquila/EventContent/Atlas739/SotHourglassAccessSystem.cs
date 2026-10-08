@@ -6,7 +6,7 @@
 using Content.Shared.Popups;
 using Content.Shared.UserInterface;
 
-namespace Content.Shared._Kakila.Sot;
+namespace Content.Shared._Aquila.EventContent.Atlas739;
 
 /// <summary>
 ///     Доступ к песочным часам только для своей фракции. Работает и на клиенте, и на сервере,

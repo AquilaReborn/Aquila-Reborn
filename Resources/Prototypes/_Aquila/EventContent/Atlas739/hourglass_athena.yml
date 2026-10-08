@@ -15,7 +15,7 @@
   components:
   # --- Спрайт ---
   - type: Sprite
-    sprite: _Aquila/SoT/hourglass.rsi
+    sprite: _Aquila/EventContent/Atlas739/hourglass.rsi
     drawdepth: Overdoors
 
   # --- Прикрепление к полу ---

@@ -10,7 +10,7 @@ using Content.Shared.Administration;
 using Robust.Shared.Console;
 using Robust.Shared.Map;
 
-namespace Content.Server._Kakila.Sot;
+namespace Content.Server._Aquila.EventContent.Atlas739;
 
 /// <summary>sotbattleprepare [ID часов]</summary>
 [AdminCommand(AdminFlags.Round)]

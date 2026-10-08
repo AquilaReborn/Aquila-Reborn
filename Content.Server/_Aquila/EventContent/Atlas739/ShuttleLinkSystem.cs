@@ -3,12 +3,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Kakila.ShuttleLink;
+using Content.Shared._Aquila.EventContent.Atlas739;
 using Content.Shared.Shuttles.Components; // FTLComponent; если не находится: Content.Server.Shuttles.Components
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 
-namespace Content.Server._Kakila.ShuttleLink;
+namespace Content.Server._Aquila.EventContent.Atlas739;
 
 public sealed class ShuttleLinkSystem : EntitySystem
 {

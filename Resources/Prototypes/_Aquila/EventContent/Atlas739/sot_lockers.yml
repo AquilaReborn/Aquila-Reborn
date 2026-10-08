@@ -9,7 +9,7 @@
   components:
   - type: LockVisuals
   - type: Sprite
-    sprite: _Aquila/SoT/sot_locker.rsi
+    sprite: _Aquila/EventContent/Atlas739/sot_locker.rsi
     noRot: true
     layers:
     - state: athena                    
@@ -60,7 +60,7 @@
   components:
   - type: LockVisuals
   - type: Sprite
-    sprite: _Aquila/SoT/sot_locker.rsi
+    sprite: _Aquila/EventContent/Atlas739/sot_locker.rsi
     noRot: true
     layers:
     - state: athena                    
@@ -113,7 +113,7 @@
   components:
   - type: LockVisuals
   - type: Sprite
-    sprite: _Aquila/SoT/sot_locker.rsi
+    sprite: _Aquila/EventContent/Atlas739/sot_locker.rsi
     noRot: true
     layers:
     - state: athena                    
@@ -166,7 +166,7 @@
   - type: AccessReader
     access: [ [ "Captain" ] ]
   - type: Sprite
-    sprite: _Aquila/SoT/sot_locker.rsi
+    sprite: _Aquila/EventContent/Atlas739/sot_locker.rsi
     noRot: true
     layers:
     - state: reapers                   

@@ -3,15 +3,14 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server._Kakila.ShuttleLink;
-using Content.Shared._Kakila.Sot;
+using Content.Shared._Aquila.EventContent.Atlas739;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 
-namespace Content.Server._Kakila.Sot;
+namespace Content.Server._Aquila.EventContent.Atlas739;
 
 /// <summary>
 ///     Колонка SoT. Включается и выключается взаимодействием. В начале битвы корабля, на котором она стоит,

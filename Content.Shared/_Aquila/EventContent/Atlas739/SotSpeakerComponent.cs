@@ -6,7 +6,7 @@
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Kakila.Sot;
+namespace Content.Shared._Aquila.EventContent.Atlas739;
 
 /// <summary>
 ///     Колонка SoT: проигрывает заданную музыку по взаимодействию (вкл/выкл) и сама включается
@@ -15,7 +15,7 @@ namespace Content.Shared._Kakila.Sot;
 [RegisterComponent]
 public sealed partial class SotSpeakerComponent : Component
 {
-    /// <summary>Трек. Путь пишется от Resources, например /Audio/_Aquila/SoT/athena_theme.ogg.</summary>
+    /// <summary>Трек. Путь пишется от Resources, например /Audio/_Aquila/EventContent/Atlas739/athena_theme.ogg.</summary>
     [DataField(required: true)]
     public SoundSpecifier Sound = default!;
 

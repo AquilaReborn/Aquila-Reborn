@@ -1,7 +1,7 @@
 # Работа выполнена Claude (Anthropic).
 # ==========================================================
 # Колонки SoT (Афина и Жнецы).
-# Кладите в Resources/Prototypes/_Aquila/SoT/
+# Кладите в Resources/Prototypes/_Aquila/EventContent/Atlas739/
 # Играют заданный трек: по клику (вкл/выкл) и сами в начале битвы корабля,
 # на котором стоят (если уже играли - трек запускается заново).
 # ==========================================================
@@ -62,7 +62,7 @@
   suffix: SoT, Афина
   components:
   - type: Sprite
-    sprite: _Aquila/SoT/speaker.rsi
+    sprite: _Aquila/EventContent/Atlas739/speaker.rsi
     drawdepth: Overdoors
     layers:
     - state: athena
@@ -75,7 +75,7 @@
           False: { state: athena }
   - type: SotSpeaker
     sound:
-      path: /Audio/_Aquila/SoT/athena_theme.ogg
+      path: /Audio/_Aquila/EventContent/Atlas739/athena_theme.ogg
     # loop: true              # зацикливать (по умолчанию да)
     # volume: -4              # громкость, дБ
     # maxDistance: 20         # дальность слышимости
@@ -90,7 +90,7 @@
   suffix: SoT, Жнецы
   components:
   - type: Sprite
-    sprite: _Aquila/SoT/speaker.rsi
+    sprite: _Aquila/EventContent/Atlas739/speaker.rsi
     drawdepth: Overdoors
     layers:
     - state: reapers
@@ -103,4 +103,4 @@
           False: { state: reapers }
   - type: SotSpeaker
     sound:
-      path: /Audio/_Aquila/SoT/reapers_theme.ogg
+      path: /Audio/_Aquila/EventContent/Atlas739/reapers_theme.ogg

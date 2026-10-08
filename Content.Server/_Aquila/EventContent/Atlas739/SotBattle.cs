@@ -3,9 +3,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Kakila.Sot;
+using Content.Shared._Aquila.EventContent.Atlas739;
 
-namespace Content.Server._Kakila.Sot;
+namespace Content.Server._Aquila.EventContent.Atlas739;
 
 public enum SotBattleStatus : byte
 {

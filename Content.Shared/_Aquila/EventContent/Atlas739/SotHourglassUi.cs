@@ -5,7 +5,7 @@
 
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Kakila.Sot;
+namespace Content.Shared._Aquila.EventContent.Atlas739;
 
 [Serializable, NetSerializable]
 public enum SotHourglassUiKey : byte
