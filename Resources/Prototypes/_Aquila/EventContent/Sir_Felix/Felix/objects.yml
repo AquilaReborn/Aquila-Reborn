@@ -2509,6 +2509,12 @@
   components:
   - type: Sprite
     noRot: true
+  - type: AmbientSound
+    enabled: true
+    volume: -6
+    range: 5
+    sound:
+      path: /Audio/_Aquila/EventContent/Sir_Felix/Oldradio/static.ogg
   - type: Fixtures
     fixtures:
       fix1:
