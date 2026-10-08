@@ -18,8 +18,10 @@ public sealed class AutoCookerBoundUserInterface(EntityUid owner, Enum uiKey) : 
         _window = this.CreateWindow<AutoCookerWindow>();
         _window.OnStart += (recipe, amount) => SendMessage(new AutoCookerStartMessage(recipe, amount));
         _window.OnCancel += () => SendMessage(new AutoCookerCancelMessage());
-        _window.OnEject += () => SendMessage(new ItemSlotButtonPressedEvent(AutoCookerComponent.BeakerSlotName));
+        _window.OnEject += () => SendMessage(new ItemSlotButtonPressedEvent(AutoCookerComponent.BeakerSlotId));
         _window.OnRemoveQueued += index => SendMessage(new AutoCookerRemoveQueuedMessage(index));
+        _window.OnFlushBuffer += () => SendMessage(new AutoCookerFlushBufferMessage());
+        _window.OnFillBuffer += () => SendMessage(new AutoCookerFillBufferMessage());
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)

@@ -1,35 +1,79 @@
+using Content.Shared.Body.Prototypes;
+using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Containers.ItemSlots;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._Aquila.AutoCook;
 
-[RegisterComponent]
+/// <summary>
+/// Машина, которая сама, этап за этапом, готовит выбранный рецепт.
+/// Бар и химия синтезируют реагенты в стакан, кухня готовит блюда из хранилища.
+/// </summary>
+[RegisterComponent, AutoGenerateComponentPause]
 public sealed partial class AutoCookerComponent : Component
 {
-    public const string BeakerSlotName = "autoCookBeakerSlot";
+    public const string BeakerSlotId = "autoCookBeakerSlot";
 
     [DataField(required: true)]
     public AutoCookKind Kind;
 
+    /// <summary>
+    /// Реагенты, которые машина синтезирует из энергии, а не через реакции.
+    /// </summary>
     [DataField]
     public List<ProtoId<ReagentPrototype>> BaseReagents = new();
 
+    /// <summary>
+    /// Реагенты без реакций получения с этими группами метаболизма тоже считаются базовыми.
+    /// </summary>
     [DataField]
-    public List<ProtoId<ReagentPrototype>> ExcludedReagents = new();
+    public List<ProtoId<MetabolismGroupPrototype>> BaseMetabolisms = new();
 
-    [DataField]
-    public List<string> BaseMetabolisms = new();
-
+    /// <summary>
+    /// Группы реагентов (<see cref="ReagentPrototype.Group"/>), которые машина умеет готовить.
+    /// </summary>
     [DataField]
     public List<string> TargetGroups = new();
 
     [DataField]
-    public List<string> TargetMetabolisms = new();
+    public List<ProtoId<MetabolismGroupPrototype>> TargetMetabolisms = new();
 
     [DataField]
-    public List<string> AllowedMixing = new();
+    public List<ProtoId<ReagentPrototype>> ExcludedReagents = new();
+
+    /// <summary>
+    /// Максимум реакций в цепочке синтеза. Более сложные реагенты недоступны, если их нет в <see cref="ComplexWhitelist"/>.
+    /// </summary>
+    [DataField]
+    public int? MaxReactions;
+
+    [DataField]
+    public List<ProtoId<ReagentPrototype>> ComplexWhitelist = new();
+
+    /// <summary>
+    /// Показывать <see cref="BaseReagents"/> как отдельные рецепты, чтобы их можно было налить напрямую.
+    /// </summary>
+    [DataField]
+    public bool ListBaseReagents;
+
+    /// <summary>
+    /// Раствор-буфер с реагентами от игрока или автоматизации. Готовые промежуточные реагенты
+    /// берутся из него вместо синтеза и не считаются в <see cref="MaxReactions"/>.
+    /// </summary>
+    [DataField]
+    public string? BufferSolution;
+
+    [DataField]
+    public List<ProtoId<MixingCategoryPrototype>> AllowedMixing = new();
+
+    /// <summary>
+    /// Ингредиенты рецептов, которые не расходуются и не требуются, например посуда.
+    /// </summary>
+    [DataField]
+    public List<EntProtoId> FreeIngredients = new();
 
     [DataField]
     public int MaxQueue = 5;
@@ -38,19 +82,37 @@ public sealed partial class AutoCookerComponent : Component
     public float WorkingLoad = 400f;
 
     [DataField]
-    public float DoneSeconds = 3f;
+    public TimeSpan DoneDuration = TimeSpan.FromSeconds(3);
 
     [DataField]
-    public float SynthesisSeconds = 1.5f;
+    public TimeSpan SynthesisDuration = TimeSpan.FromSeconds(1.5);
 
     [DataField]
-    public float SecondsPerUnit = 0.04f;
+    public TimeSpan SynthesisDurationPerUnit = TimeSpan.FromSeconds(0.04);
 
     [DataField]
-    public float ReactionSeconds = 3f;
+    public TimeSpan BufferTakeDuration = TimeSpan.FromSeconds(1);
 
     [DataField]
-    public float PrepareSeconds = 2f;
+    public TimeSpan ReactionDuration = TimeSpan.FromSeconds(3);
+
+    [DataField]
+    public TimeSpan ConditionDuration = TimeSpan.FromSeconds(1.5);
+
+    [DataField]
+    public TimeSpan PrepareDuration = TimeSpan.FromSeconds(2);
+
+    [DataField]
+    public TimeSpan SliceDuration = TimeSpan.FromSeconds(1);
+
+    /// <summary>
+    /// Доля времени готовки из рецепта микроволновки, которую тратит машина.
+    /// </summary>
+    [DataField]
+    public float CookTimeMultiplier = 0.5f;
+
+    [DataField]
+    public TimeSpan MaxCookDuration = TimeSpan.FromSeconds(15);
 
     [DataField]
     public string StorageContainer = "storagebase";
@@ -70,11 +132,21 @@ public sealed partial class AutoCookerComponent : Component
     [DataField]
     public SoundSpecifier DoneSound = new SoundPathSpecifier("/Audio/Machines/microwave_done_beep.ogg");
 
+    [ViewVariables]
     public AutoCookJob? Job;
 
-    public TimeSpan DoneUntil;
-
-    public AutoCookerVisualState? Visual;
-
+    [ViewVariables]
     public readonly List<AutoCookOrder> Queue = new();
+
+    /// <summary>
+    /// Последний заказ, его повторяет сигнал запуска от автоматизации.
+    /// </summary>
+    [ViewVariables]
+    public AutoCookOrder? LastOrder;
+
+    /// <summary>
+    /// До этого времени машина показывает, что заказ готов.
+    /// </summary>
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan? DoneUntil;
 }

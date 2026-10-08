@@ -1,7 +1,7 @@
 - type: entity
   abstract: true
   id: BaseAutoCooker
-  parent: [ BaseMachinePowered, ConstructibleMachine, BaseSmallConstructibleMachineDestructible ]
+  parent: [ BaseMachinePowered, ConstructibleMachine, BaseSmallConstructibleMachineDestructible, BaseAutomatedMachine ]
   placement:
     mode: SnapgridCenter
   components:
@@ -38,17 +38,6 @@
   - type: ScreenNoiseUi
   - type: Pullable
   - type: WiresPanel
-
-- type: entity
-  id: AutoCookerBar
-  parent: BaseAutoCooker
-  name: auto-bartender
-  description: Mixes cocktails and drinks on its own. Synthesizes ingredients from energy.
-  components:
-  - type: Machine
-    board: AutoCookerBarMachineCircuitboard
-  - type: AccessReader
-    access: [["Bar"]]
   - type: Speech
     speechVerb: Robotic
     speechSounds: Vending
@@ -57,6 +46,54 @@
     maxVocalizeInterval: 10m
     hideChat: true
   - type: VocalizerRequiresPower
+  - type: StartableMachine # сигнал Start повторяет последний заказ
+  - type: GuideHelp
+    guides:
+    - AutoCookers
+    - Automation
+
+- type: entity
+  abstract: true
+  id: BaseAutoCookerSynthesizer
+  parent: BaseAutoCooker
+  components:
+  - type: AutoCooker
+    beakerSlot:
+      whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
+      whitelist:
+        components:
+        - FitsInDispenser
+      priority: 9
+  - type: ItemSlots
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      autoCookBeakerSlot: !type:ContainerSlot
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - autoCookBeakerSlot
+  - type: AutomationSlots
+    slots:
+    - !type:AutomatedItemSlot
+      input: AutomationSlotBeaker
+      output: AutomationSlotBeaker
+      slotId: autoCookBeakerSlot
+    - !type:AutomatedBeakerSlot
+      input: PlumbingDispenser
+      output: PlumbingDispenser
+      slotName: autoCookBeakerSlot
+
+- type: entity
+  id: AutoCookerBar
+  parent: BaseAutoCookerSynthesizer
+  name: auto-bartender
+  description: Mixes cocktails and drinks on its own. Synthesizes ingredients from energy.
+  components:
+  - type: Machine
+    board: AutoCookerBarMachineCircuitboard
+  - type: AccessReader
+    access: [["Bar"]]
   - type: DatasetVocalizer
     dataset: AutoBartenderAds
   - type: SpeakOnUIClosed
@@ -75,40 +112,17 @@
     baseReagents:
     - Water
     - Sugar
-    beakerSlot:
-      whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
-      whitelist:
-        components:
-        - FitsInDispenser
-      priority: 9
-  - type: ItemSlots
-  - type: ContainerContainer
-    containers:
-      machine_board: !type:Container
-      machine_parts: !type:Container
-      autoCookBeakerSlot: !type:ContainerSlot
-  - type: EmptyOnMachineDeconstruct
-    containers:
-    - autoCookBeakerSlot
 
 - type: entity
   id: AutoCookerChem
-  parent: BaseAutoCooker
+  parent: BaseAutoCookerSynthesizer
   name: auto-chemist
-  description: Synthesizes medicine and chemicals on its own, step by step, from base elements made out of energy.
+  description: Synthesizes basic medicine on its own, step by step, from base elements made out of energy.
   components:
   - type: Machine
     board: AutoCookerChemMachineCircuitboard
   - type: AccessReader
     access: [["Chemistry"]]
-  - type: Speech
-    speechVerb: Robotic
-    speechSounds: Vending
-  - type: Vocalizer
-    minVocalizeInterval: 8m
-    maxVocalizeInterval: 10m
-    hideChat: true
-  - type: VocalizerRequiresPower
   - type: DatasetVocalizer
     dataset: AutoChemistAds
   - type: SpeakOnUIClosed
@@ -120,10 +134,21 @@
     - Shake
     - Centrifuge
     - Electrolysis
-    excludedReagents:
-    - Holywater
     targetGroups:
     - Medicine
+    excludedReagents:
+    - Holywater
+    - Ambuzol
+    listBaseReagents: true
+    bufferSolution: buffer
+    maxReactions: 1 # средние и сложные препараты собираются цепочкой: промежуточные реагенты подаются в буфер
+    complexWhitelist: # базовая медицина, которую можно сделать несмотря на сложность
+    - Bicaridine
+    - Dermaline
+    - Hyronalin
+    - Tricordrazine
+    - Saline
+    - Spaceacilin
     baseReagents:
     - Aluminium
     - Carbon
@@ -146,21 +171,29 @@
     - Sugar
     - Sulfur
     - Water
-    beakerSlot:
-      whitelistFailPopup: reagent-dispenser-component-cannot-put-entity-message
-      whitelist:
-        components:
-        - FitsInDispenser
-      priority: 9
-  - type: ItemSlots
-  - type: ContainerContainer
-    containers:
-      machine_board: !type:Container
-      machine_parts: !type:Container
-      autoCookBeakerSlot: !type:ContainerSlot
-  - type: EmptyOnMachineDeconstruct
-    containers:
-    - autoCookBeakerSlot
+  - type: SolutionContainerManager
+    solutions:
+      buffer:
+        maxVol: 300
+        canReact: false # реагенты из разных источников не должны реагировать до этапов синтеза
+  - type: DumpableSolution
+    solution: buffer
+  - type: ExaminableSolution
+    solution: buffer
+  - type: AutomationSlots
+    slots:
+    - !type:AutomatedItemSlot
+      input: AutomationSlotBeaker
+      output: AutomationSlotBeaker
+      slotId: autoCookBeakerSlot
+    - !type:AutomatedBeakerSlot
+      input: PlumbingDispenser
+      output: PlumbingDispenser
+      slotName: autoCookBeakerSlot
+    - !type:AutomatedSolution
+      input: PlumbingInput
+      output: PlumbingOutput
+      solutionName: buffer
 
 - type: entity
   id: AutoCookerKitchen
@@ -172,20 +205,18 @@
     board: AutoCookerKitchenMachineCircuitboard
   - type: AccessReader
     access: [["Kitchen"]]
-  - type: Speech
-    speechVerb: Robotic
-    speechSounds: Vending
-  - type: Vocalizer
-    minVocalizeInterval: 8m
-    maxVocalizeInterval: 10m
-    hideChat: true
-  - type: VocalizerRequiresPower
   - type: DatasetVocalizer
     dataset: AutoCookAds
   - type: SpeakOnUIClosed
     pack: AutoCookGoodbyes
   - type: AutoCooker
     kind: Kitchen
+    freeIngredients: # посуда не нужна, блюдо выдаётся без неё
+    - FoodBowlBig
+    - FoodPlate
+    - FoodPlateSmall
+    - FoodPlateTin
+    - FoodPlateMuffinTin
   - type: AntiRottingContainer
   - type: Storage
     openOnActivate: false
@@ -202,6 +233,7 @@
     solutions:
       pantry:
         maxVol: 400
+        canReact: false # реакции идут только этапами готовки, как в криостазисной мензурке
   - type: RefillableSolution
     solution: pantry
   - type: ExaminableSolution
@@ -214,6 +246,15 @@
   - type: EmptyOnMachineDeconstruct
     containers:
     - storagebase
+  - type: AutomationSlots
+    slots:
+    - !type:AutomatedStorage
+      input: AutomationSlotInput
+      output: AutomationSlotInput
+    - !type:AutomatedSolution
+      input: PlumbingInput
+      output: PlumbingOutput
+      solutionName: pantry
 
 - type: localizedDataset
   id: AutoBartenderAds

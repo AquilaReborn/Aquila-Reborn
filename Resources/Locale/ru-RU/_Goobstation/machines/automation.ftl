@@ -20,8 +20,10 @@ signal-port-description-automation-slot-filter = Слот автоматизац
 
 # Измельчитель реагентов
 
-signal-port-name-automation-slot-beaker = Предмет: Слот стакана
-signal-port-description-automation-slot-beaker = Слот автоматизации для стакана машины, работающей с жидкостями.
+# Aquila Change start
+signal-port-name-automation-slot-beaker = Предмет: Слот ёмкости
+signal-port-description-automation-slot-beaker = Слот автоматизации для ёмкости машины, работающей с жидкостями.
+# Aquila Change end
 signal-port-name-automation-slot-input = Предмет: Входные предметы
 signal-port-description-automation-slot-input = Слот автоматизации для хранения входных предметов машины.
 

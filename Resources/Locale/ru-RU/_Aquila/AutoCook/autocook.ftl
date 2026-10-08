@@ -1,7 +1,7 @@
 ent-AutoCookerBar = автобармен
     .desc = Сам смешивает коктейли и напитки. Ингредиенты синтезирует из энергии.
 ent-AutoCookerChem = автохимик
-    .desc = Самостоятельно, этап за этапом, синтезирует лекарства и химикаты из базовых элементов, получаемых из энергии.
+    .desc = Самостоятельно, этап за этапом, синтезирует базовые лекарства из элементов, получаемых из энергии.
 ent-AutoCookerKitchen = автоповар
     .desc = Готовит блюда этап за этапом из хранящихся внутри ингредиентов. Хранилище охлаждается, поэтому продукты не портятся.
 
@@ -23,7 +23,11 @@ autocook-no-container = Ёмкость не установлена
 autocook-eject = Извлечь
 autocook-stock = Хранилище
 autocook-stock-empty = Пусто
+autocook-buffer = Буфер
+autocook-buffer-fill = Залить в буфер
+autocook-buffer-flush = Слить в ёмкость
 autocook-step-synthesize = Синтез: { $name } ({ $amount })
+autocook-step-take-buffer = Забор из буфера: { $name } ({ $amount })
 autocook-step-react = Реакция: { $name }
 autocook-step-prepare = Подготовка ингредиентов
 autocook-step-cook = Приготовление: { $name }
@@ -45,6 +49,7 @@ autocook-step-cool = Охлаждение до { $temp } К
 autocook-queue-failed = Не удалось запустить рецепт из очереди: { $name }
 autocook-group-alcohol = Алкогольные
 autocook-group-drink = Безалкогольные
+autocook-group-elements = Элементы
 autocook-group-simple = Простые
 autocook-group-medium = Средние
 autocook-group-complex = Сложные
@@ -109,3 +114,5 @@ thankyou-autocook-2 = Блюдо готово. Остывает оно уже п
 thankyou-autocook-3 = Заходите ещё. Я никуда не тороплюсь, я же автомат.
 thankyou-autocook-4 = Спасибо, что доверили мне ужин.. Ээ.. Или сейчас только обед? В любом случае, я справился.
 thankyou-autocook-5 = Если вкусно - хвалите меня. Если нет - жалуйтесь на шефа.
+
+guide-entry-autocookers = Автоготовщики

@@ -3,14 +3,6 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._Aquila.AutoCook;
 
-public static class AutoCookIds
-{
-    public const string Reagent = "reagent:";
-    public const string Meal = "meal:";
-    public const string Mix = "mix:";
-    public const string Make = "make:";
-}
-
 [Serializable, NetSerializable]
 public enum AutoCookKind : byte
 {
@@ -41,6 +33,49 @@ public enum AutoCookerVisualState : byte
 }
 
 [Serializable, NetSerializable]
+public enum AutoCookRecipeKind : byte
+{
+    /// <summary>
+    /// Реагент, <see cref="AutoCookRecipeId.Id"/> - прототип реагента.
+    /// </summary>
+    Reagent,
+
+    /// <summary>
+    /// Блюдо, <see cref="AutoCookRecipeId.Id"/> - рецепт микроволновки.
+    /// </summary>
+    Meal,
+
+    /// <summary>
+    /// Замес теста реакцией, <see cref="AutoCookRecipeId.Id"/> - прототип реакции.
+    /// </summary>
+    Mix,
+
+    /// <summary>
+    /// Обработка инструментом, <see cref="AutoCookRecipeId.Id"/> - прототип результата.
+    /// </summary>
+    Make,
+}
+
+[Serializable, NetSerializable]
+public readonly record struct AutoCookRecipeId(AutoCookRecipeKind Kind, string Id);
+
+[Serializable, NetSerializable]
+public enum AutoCookStepKind : byte
+{
+    Synthesize,
+    TakeBuffer,
+    React,
+    Mixing,
+    Heat,
+    Cool,
+    PrepareIngredients,
+    Cook,
+    Mix,
+    Slice,
+    Process,
+}
+
+[Serializable, NetSerializable]
 public enum AutoCookStepStatus : byte
 {
     Pending,
@@ -48,39 +83,49 @@ public enum AutoCookStepStatus : byte
     Done,
 }
 
+/// <summary>
+/// Описание этапа. <see cref="Subject"/> - прототип реагента, сущности или категории смешивания,
+/// <see cref="Value"/> - количество или температура.
+/// </summary>
 [Serializable, NetSerializable]
-public sealed record AutoCookIngredient(string Label, string Amount, bool Ok);
+public sealed record AutoCookStepData(AutoCookStepKind Kind, string Subject, float Value, TimeSpan Duration);
 
+/// <summary>
+/// <see cref="Have"/> равен null, если наличие не проверяется, например для синтеза.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed record AutoCookIngredient(string Id, bool Reagent, FixedPoint2? Have, FixedPoint2 Need, bool Ok);
+
+/// <summary>
+/// <see cref="Result"/> - прототип результата для названия, <see cref="Group"/> - id локализации категории.
+/// </summary>
 [Serializable, NetSerializable]
 public sealed record AutoCookRecipeEntry(
-    string Id,
-    string Name,
+    AutoCookRecipeId Id,
+    string Result,
     string Group,
     bool Available,
     List<AutoCookIngredient> Ingredients,
-    List<string> Steps);
-
-[Serializable, NetSerializable]
-public sealed record AutoCookStepInfo(string Text, float Duration, AutoCookStepStatus Status);
+    List<AutoCookStepData> Steps);
 
 [Serializable, NetSerializable]
 public sealed record AutoCookJobInfo(
-    string RecipeName,
-    List<AutoCookStepInfo> Steps,
+    AutoCookRecipeKind Kind,
+    string Result,
+    List<AutoCookStepData> Steps,
     int ActiveIndex,
     TimeSpan StepStart,
-    TimeSpan PausedElapsed,
-    bool Paused,
+    TimeSpan? PausedElapsed,
     bool WaitingOutput);
 
 [Serializable, NetSerializable]
 public sealed record AutoCookOutputInfo(string Name, FixedPoint2 Volume, FixedPoint2 MaxVolume, Color Color);
 
 [Serializable, NetSerializable]
-public sealed record AutoCookStockEntry(string Name, string Amount);
+public sealed record AutoCookStockEntry(string Id, bool Reagent, FixedPoint2 Amount);
 
 [Serializable, NetSerializable]
-public sealed record AutoCookQueueEntry(string Name, int Amount);
+public sealed record AutoCookQueueEntry(AutoCookRecipeKind Kind, string Result, int Amount);
 
 [Serializable, NetSerializable]
 public sealed class AutoCookerBoundUserInterfaceState(
@@ -91,7 +136,8 @@ public sealed class AutoCookerBoundUserInterfaceState(
     List<AutoCookQueueEntry> queue,
     int maxQueue,
     AutoCookOutputInfo? output,
-    List<AutoCookStockEntry> stock) : BoundUserInterfaceState
+    List<AutoCookStockEntry> stock,
+    bool hasBuffer) : BoundUserInterfaceState
 {
     public readonly AutoCookKind Kind = kind;
     public readonly bool Powered = powered;
@@ -101,12 +147,17 @@ public sealed class AutoCookerBoundUserInterfaceState(
     public readonly int MaxQueue = maxQueue;
     public readonly AutoCookOutputInfo? Output = output;
     public readonly List<AutoCookStockEntry> Stock = stock;
+
+    /// <summary>
+    /// У синтезатора есть буфер, <see cref="Stock"/> показывает его содержимое.
+    /// </summary>
+    public readonly bool HasBuffer = hasBuffer;
 }
 
 [Serializable, NetSerializable]
-public sealed class AutoCookerStartMessage(string recipeId, int amount) : BoundUserInterfaceMessage
+public sealed class AutoCookerStartMessage(AutoCookRecipeId recipe, int amount) : BoundUserInterfaceMessage
 {
-    public readonly string RecipeId = recipeId;
+    public readonly AutoCookRecipeId Recipe = recipe;
     public readonly int Amount = amount;
 }
 
@@ -118,3 +169,9 @@ public sealed class AutoCookerRemoveQueuedMessage(int index) : BoundUserInterfac
 {
     public readonly int Index = index;
 }
+
+[Serializable, NetSerializable]
+public sealed class AutoCookerFlushBufferMessage : BoundUserInterfaceMessage;
+
+[Serializable, NetSerializable]
+public sealed class AutoCookerFillBufferMessage : BoundUserInterfaceMessage;

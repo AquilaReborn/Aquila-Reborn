@@ -7,6 +7,7 @@ using Content.Shared._Aquila.AutoCook;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -15,13 +16,22 @@ namespace Content.Client._Aquila.AutoCook;
 public sealed class AutoCookerWindow : FancyWindow
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
 
     private static readonly int[] Amounts = [5, 10, 15, 30, 50];
+    private const int MaxShownRecipes = 250;
 
-    public event Action<string, int>? OnStart;
+    private static readonly Comparer<string> NameComparer =
+        Comparer<string>.Create((a, b) => string.Compare(a, b, StringComparison.CurrentCultureIgnoreCase));
+
+    public event Action<AutoCookRecipeId, int>? OnStart;
     public event Action? OnCancel;
     public event Action? OnEject;
     public event Action<int>? OnRemoveQueued;
+    public event Action? OnFlushBuffer;
+    public event Action? OnFillBuffer;
+
+    private readonly AutoCookText _text;
 
     private readonly BoxContainer _recipeList = new() { Orientation = BoxContainer.LayoutOrientation.Vertical, SeparationOverride = 3, HorizontalExpand = true };
     private readonly LineEdit _search = new() { PlaceHolder = Loc.GetString("autocook-search"), HorizontalExpand = true };
@@ -39,9 +49,12 @@ public sealed class AutoCookerWindow : FancyWindow
     private readonly Button _cancelButton = new() { Text = Loc.GetString("autocook-cancel") };
     private readonly Label _jobHint = new();
     private readonly RichTextLabel _outputName = new() { HorizontalExpand = true };
-    private readonly AutoCookBar _outputBar = new() { MinSize = new Vector2(0, 8) };
+    private readonly AutoCookBar _outputBar = new() { MinSize = new Vector2(0, 8), BarColor = PdaStyle.Accent };
     private readonly Button _ejectButton = new() { Text = Loc.GetString("autocook-eject") };
     private readonly BoxContainer _stock = new() { Orientation = BoxContainer.LayoutOrientation.Vertical, SeparationOverride = 2, HorizontalExpand = true };
+    private readonly Label _stockTitle = Header(string.Empty);
+    private readonly Button _fillButton = new() { Text = Loc.GetString("autocook-buffer-fill") };
+    private readonly Button _flushButton = new() { Text = Loc.GetString("autocook-buffer-flush") };
     private readonly PanelContainer _jobPanel;
     private readonly PanelContainer _outputPanel;
     private readonly PanelContainer _stockPanel;
@@ -52,18 +65,21 @@ public sealed class AutoCookerWindow : FancyWindow
     private readonly BoxContainer _queueList = new() { Orientation = BoxContainer.LayoutOrientation.Vertical, SeparationOverride = 2, HorizontalExpand = true };
     private readonly List<string> _groups = new();
 
-    private ButtonGroup _recipeGroup = new(false);
+    private readonly List<RecipeView> _recipes = new();
+
     private AutoCookerBoundUserInterfaceState? _state;
-    private string? _selected;
+    private AutoCookRecipeId? _selected;
     private int _amount = 10;
     private string? _groupFilter;
-    private AutoCookJobInfo? _job;
     private Control? _activeStepLabel;
     private bool _scrollPending;
+
+    private readonly record struct RecipeView(AutoCookRecipeEntry Entry, string Name);
 
     public AutoCookerWindow()
     {
         IoCManager.InjectDependencies(this);
+        _text = new AutoCookText(_proto);
 
         Resizable = false;
         MinSize = new Vector2(940, 660);
@@ -71,7 +87,6 @@ public sealed class AutoCookerWindow : FancyWindow
 
         _status.FontColorOverride = PdaStyle.Red;
         _jobHint.FontColorOverride = PdaStyle.TextMuted;
-        _outputBar.BarColor = PdaStyle.Accent;
         SetText(_title, Loc.GetString("autocook-no-recipe"), PdaStyle.TextHeader);
 
         _search.OnTextChanged += _ => RebuildRecipes();
@@ -84,11 +99,13 @@ public sealed class AutoCookerWindow : FancyWindow
         };
         _startButton.OnPressed += _ =>
         {
-            if (_selected != null)
-                OnStart?.Invoke(_selected, _amount);
+            if (_selected is { } selected)
+                OnStart?.Invoke(selected, _amount);
         };
         _cancelButton.OnPressed += _ => OnCancel?.Invoke();
         _ejectButton.OnPressed += _ => OnEject?.Invoke();
+        _flushButton.OnPressed += _ => OnFlushBuffer?.Invoke();
+        _fillButton.OnPressed += _ => OnFillBuffer?.Invoke();
 
         _jobPanel = Panel(BuildJobPanel(), PdaStyle.BackgroundTertiary);
         _queuePanel = Panel(BuildQueuePanel(), PdaStyle.BackgroundTertiary);
@@ -107,6 +124,83 @@ public sealed class AutoCookerWindow : FancyWindow
         root.AddChild(BuildLeft());
         root.AddChild(BuildRight());
         ContentsContainer.AddChild(Panel(root, PdaStyle.Background));
+
+        BuildAmountButtons();
+    }
+
+    public void UpdateState(AutoCookerBoundUserInterfaceState state)
+    {
+        _state = state;
+
+        Title = state.Kind switch
+        {
+            AutoCookKind.Bar => Loc.GetString("autocook-title-bar"),
+            AutoCookKind.Kitchen => Loc.GetString("autocook-title-kitchen"),
+            _ => Loc.GetString("autocook-title-chem"),
+        };
+
+        var synthesis = state.Kind != AutoCookKind.Kitchen;
+        _amountRow.Visible = synthesis;
+        _outputPanel.Visible = synthesis;
+        _stockPanel.Visible = !synthesis || state.HasBuffer;
+        _stockTitle.Text = Loc.GetString(synthesis ? "autocook-buffer" : "autocook-stock");
+        _flushButton.Visible = synthesis;
+        _fillButton.Visible = synthesis;
+        _fillButton.Disabled = state.Output is not { } beaker || beaker.Volume <= 0;
+        _flushButton.Disabled = state.Stock.Count == 0 || state.Output == null;
+
+        _recipes.Clear();
+        _recipes.AddRange(state.Recipes
+            .Select(entry => new RecipeView(entry, _text.ResultName(entry.Id.Kind, entry.Result)))
+            .OrderByDescending(view => view.Entry.Available)
+            .ThenBy(view => view.Name, NameComparer));
+
+        if (_selected is { } selected && _recipes.All(view => view.Entry.Id != selected))
+            _selected = null;
+
+        RebuildCategories();
+        RebuildRecipes();
+        RebuildDetails();
+        RebuildJob();
+        RebuildOutput();
+        RebuildStock();
+        RebuildQueue();
+        UpdateStartButton();
+    }
+
+    protected override void FrameUpdate(FrameEventArgs args)
+    {
+        base.FrameUpdate(args);
+
+        if (_scrollPending && _activeStepLabel is { Height: > 0f })
+        {
+            _scrollPending = false;
+            _jobScroll.SetScrollValue(new Vector2(0, MathF.Max(0f, _activeStepLabel.Position.Y - 24f)));
+        }
+
+        var job = _state?.Job;
+        if (job == null || job.ActiveIndex >= job.Steps.Count)
+        {
+            _stepBar.Value = job != null ? 1f : 0f;
+            _totalBar.Value = job != null ? 1f : 0f;
+            return;
+        }
+
+        var duration = Math.Max(0.01, job.Steps[job.ActiveIndex].Duration.TotalSeconds);
+        var elapsed = (job.PausedElapsed ?? _timing.CurTime - job.StepStart).TotalSeconds;
+        elapsed = Math.Clamp(elapsed, 0, duration);
+        _stepBar.Value = (float) (elapsed / duration);
+
+        var total = 0.0;
+        var done = 0.0;
+        for (var i = 0; i < job.Steps.Count; i++)
+        {
+            total += job.Steps[i].Duration.TotalSeconds;
+            if (i < job.ActiveIndex)
+                done += job.Steps[i].Duration.TotalSeconds;
+        }
+
+        _totalBar.Value = total > 0 ? (float) ((done + elapsed) / total) : 0f;
     }
 
     private Control BuildLeft()
@@ -226,6 +320,24 @@ public sealed class AutoCookerWindow : FancyWindow
         return box;
     }
 
+    private Control BuildQueuePanel()
+    {
+        var box = new BoxContainer
+        {
+            Orientation = BoxContainer.LayoutOrientation.Vertical,
+            SeparationOverride = 4,
+            Margin = new Thickness(10),
+        };
+
+        var scroll = new ScrollContainer { MinHeight = 40, MaxHeight = 90, HScrollEnabled = false };
+        scroll.AddChild(_queueList);
+
+        _queueTitle.FontColorOverride = PdaStyle.TextHeader;
+        box.AddChild(_queueTitle);
+        box.AddChild(scroll);
+        return box;
+    }
+
     private Control BuildOutputPanel()
     {
         var box = new BoxContainer
@@ -256,48 +368,19 @@ public sealed class AutoCookerWindow : FancyWindow
         var scroll = new ScrollContainer { MinHeight = 70, MaxHeight = 110, HScrollEnabled = false };
         scroll.AddChild(_stock);
 
-        box.AddChild(Header(Loc.GetString("autocook-stock")));
+        _stockTitle.HorizontalExpand = true;
+        var head = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Horizontal, SeparationOverride = 8 };
+        head.AddChild(_stockTitle);
+        head.AddChild(_fillButton);
+        head.AddChild(_flushButton);
+
+        box.AddChild(head);
         box.AddChild(scroll);
         return box;
     }
 
-    public void UpdateState(AutoCookerBoundUserInterfaceState state)
-    {
-        _state = state;
-        _job = state.Job;
-
-        Title = state.Kind switch
-        {
-            AutoCookKind.Bar => Loc.GetString("autocook-title-bar"),
-            AutoCookKind.Kitchen => Loc.GetString("autocook-title-kitchen"),
-            _ => Loc.GetString("autocook-title-chem"),
-        };
-
-        var showAmount = state.Kind != AutoCookKind.Kitchen;
-        _amountRow.Visible = showAmount;
-        _outputPanel.Visible = showAmount;
-        _stockPanel.Visible = !showAmount;
-
-        BuildAmountButtons();
-
-        RebuildCategories();
-
-        if (_selected != null && state.Recipes.All(r => r.Id != _selected))
-            _selected = null;
-
-        RebuildRecipes();
-        RebuildDetails();
-        RebuildJob();
-        RebuildOutput();
-        RebuildStock();
-        RebuildQueue();
-        UpdateStartButton();
-    }
-
     private void BuildAmountButtons()
     {
-        _amountRow.RemoveAllChildren();
-
         var group = new ButtonGroup();
         foreach (var amount in Amounts)
         {
@@ -312,47 +395,66 @@ public sealed class AutoCookerWindow : FancyWindow
             if (amount == _amount)
                 button.Pressed = true;
 
-            var value = amount;
-            button.OnPressed += _ => _amount = value;
+            button.OnPressed += _ => _amount = amount;
             _amountRow.AddChild(button);
         }
+    }
+
+    private void RebuildCategories()
+    {
+        _groups.Clear();
+        _groups.AddRange(_recipes
+            .Select(view => view.Entry.Group)
+            .Distinct()
+            .OrderBy(group => Loc.GetString(group), NameComparer));
+
+        _category.Clear();
+        _category.AddItem(Loc.GetString("autocook-filter-all"), 0);
+
+        for (var i = 0; i < _groups.Count; i++)
+        {
+            _category.AddItem(Loc.GetString(_groups[i]), i + 1);
+        }
+
+        var selected = _groupFilter == null ? -1 : _groups.IndexOf(_groupFilter);
+        if (selected < 0)
+            _groupFilter = null;
+
+        _category.SelectId(selected + 1);
     }
 
     private void RebuildRecipes()
     {
         _recipeList.RemoveAllChildren();
-        _recipeGroup = new ButtonGroup(false);
 
-        if (_state == null)
-            return;
-
+        var recipeGroup = new ButtonGroup(false);
         var filter = _search.Text.Trim();
         var shown = 0;
 
-        foreach (var recipe in _state.Recipes)
+        foreach (var (entry, name) in _recipes)
         {
-            if ((_groupFilter != null && recipe.Group != _groupFilter)
-                || (_availableOnly.Pressed && !recipe.Available)
-                || (filter.Length > 0 && !recipe.Name.Contains(filter, StringComparison.CurrentCultureIgnoreCase)))
+            if ((_groupFilter != null && entry.Group != _groupFilter)
+                || (_availableOnly.Pressed && !entry.Available)
+                || (filter.Length > 0 && !name.Contains(filter, StringComparison.CurrentCultureIgnoreCase)))
                 continue;
 
-            if (++shown > 250)
+            if (++shown > MaxShownRecipes)
                 break;
 
             var button = new Button
             {
-                Text = recipe.Name,
+                Text = name,
                 ToggleMode = true,
-                Group = _recipeGroup,
+                Group = recipeGroup,
                 ClipText = true,
                 HorizontalExpand = true,
-                Modulate = recipe.Available ? Color.White : new Color(1f, 1f, 1f, 0.45f),
+                Modulate = entry.Available ? Color.White : Color.White.WithAlpha(0.45f),
             };
 
-            if (recipe.Id == _selected)
+            if (entry.Id == _selected)
                 button.Pressed = true;
 
-            var id = recipe.Id;
+            var id = entry.Id;
             button.OnPressed += _ =>
             {
                 _selected = id;
@@ -369,69 +471,65 @@ public sealed class AutoCookerWindow : FancyWindow
         _ingredients.RemoveAllChildren();
         _steps.RemoveAllChildren();
 
-        var recipe = _state?.Recipes.Find(r => r.Id == _selected);
-        if (recipe == null)
+        if (FindSelected() is not { } selected)
         {
             SetText(_title, Loc.GetString("autocook-no-recipe"), PdaStyle.TextHeader);
             return;
         }
 
-        SetText(_title, recipe.Name, PdaStyle.TextHeader);
+        var (entry, name) = selected;
 
-        foreach (var ingredient in recipe.Ingredients)
+        SetText(_title, name, PdaStyle.TextHeader);
+
+        foreach (var ingredient in entry.Ingredients)
         {
-            var text = string.IsNullOrEmpty(ingredient.Amount)
-                ? ingredient.Label
-                : $"{ingredient.Label} — {ingredient.Amount}";
-
-            _ingredients.AddChild(Wrapped(text, ingredient.Ok ? PdaStyle.TextNormal : PdaStyle.Red));
+            _ingredients.AddChild(Wrapped(_text.IngredientText(ingredient), ingredient.Ok ? PdaStyle.TextNormal : PdaStyle.Red));
         }
 
-        var index = 1;
-        foreach (var step in recipe.Steps)
+        for (var i = 0; i < entry.Steps.Count; i++)
         {
-            _steps.AddChild(Wrapped($"{index++}. {step}", PdaStyle.TextInteractive));
+            _steps.AddChild(Wrapped($"{i + 1}. {_text.StepText(entry.Steps[i])}", PdaStyle.TextInteractive));
         }
     }
 
     private void RebuildJob()
     {
         _jobSteps.RemoveAllChildren();
-        _jobPanel.Visible = _job != null;
         _activeStepLabel = null;
 
-        if (_job == null)
+        var job = _state?.Job;
+        _jobPanel.Visible = job != null;
+
+        if (job == null)
             return;
 
-        SetText(_jobTitle, $"{Loc.GetString("autocook-job")}: {_job.RecipeName}", PdaStyle.TextHeader);
+        SetText(_jobTitle, $"{Loc.GetString("autocook-job")}: {_text.ResultName(job.Kind, job.Result)}", PdaStyle.TextHeader);
 
-        foreach (var step in _job.Steps)
+        for (var i = 0; i < job.Steps.Count; i++)
         {
-            var (mark, color) = step.Status switch
-            {
-                AutoCookStepStatus.Done => ("✓", PdaStyle.Accent),
-                AutoCookStepStatus.Active => ("▶", PdaStyle.Yellow),
-                _ => ("·", PdaStyle.TextMuted),
-            };
+            var (mark, color) = i < job.ActiveIndex
+                ? ("✓", PdaStyle.Accent)
+                : i == job.ActiveIndex
+                    ? ("▶", PdaStyle.Yellow)
+                    : ("·", PdaStyle.TextMuted);
 
-            var label = Wrapped($"{mark} {step.Text}", color);
+            var label = Wrapped($"{mark} {_text.StepText(job.Steps[i])}", color);
             _jobSteps.AddChild(label);
 
-            if (step.Status == AutoCookStepStatus.Active)
+            if (i == job.ActiveIndex)
                 _activeStepLabel = label;
         }
 
         _scrollPending = true;
 
-        _jobHint.Text = _job.Paused
+        _jobHint.Text = job.PausedElapsed != null
             ? Loc.GetString("autocook-paused")
-            : _job.WaitingOutput ? Loc.GetString("autocook-waiting-output") : string.Empty;
+            : job.WaitingOutput ? Loc.GetString("autocook-waiting-output") : string.Empty;
     }
 
     private void RebuildOutput()
     {
-        var output = _state?.Output;
-        if (output == null)
+        if (_state?.Output is not { } output)
         {
             SetText(_outputName, Loc.GetString("autocook-no-container"), PdaStyle.TextMuted);
             _outputBar.Value = 0f;
@@ -441,7 +539,7 @@ public sealed class AutoCookerWindow : FancyWindow
 
         SetText(_outputName, $"{output.Name}  {output.Volume}/{output.MaxVolume}", PdaStyle.TextNormal);
         _outputBar.BarColor = output.Color;
-        _outputBar.Value = output.MaxVolume > 0 ? (float) (output.Volume / output.MaxVolume) : 0f;
+        _outputBar.Value = output.MaxVolume > 0 ? (output.Volume / output.MaxVolume).Float() : 0f;
         _ejectButton.Disabled = false;
     }
 
@@ -455,42 +553,10 @@ public sealed class AutoCookerWindow : FancyWindow
             return;
         }
 
-        foreach (var entry in _state.Stock)
+        foreach (var text in _state.Stock.Select(_text.StockText).OrderBy(text => text, NameComparer))
         {
-            _stock.AddChild(Wrapped($"{entry.Name} — {entry.Amount}", PdaStyle.TextNormal));
+            _stock.AddChild(Wrapped(text, PdaStyle.TextNormal));
         }
-    }
-
-    private void UpdateStartButton()
-    {
-        var recipe = _state?.Recipes.Find(r => r.Id == _selected);
-        var powered = _state?.Powered ?? false;
-        var busy = _job != null || _state?.Queue.Count > 0;
-        var queueFull = busy && _state != null && _state.Queue.Count >= _state.MaxQueue;
-
-        _startButton.Text = Loc.GetString(busy ? "autocook-queue-add" : "autocook-start");
-        _startButton.Disabled = recipe == null || !recipe.Available || !powered || queueFull
-            || (_state?.Kind != AutoCookKind.Kitchen && _state?.Output == null);
-
-        _status.Text = powered ? string.Empty : Loc.GetString("autocook-no-power");
-    }
-
-    private Control BuildQueuePanel()
-    {
-        var box = new BoxContainer
-        {
-            Orientation = BoxContainer.LayoutOrientation.Vertical,
-            SeparationOverride = 4,
-            Margin = new Thickness(10),
-        };
-
-        var scroll = new ScrollContainer { MinHeight = 40, MaxHeight = 90, HScrollEnabled = false };
-        scroll.AddChild(_queueList);
-
-        _queueTitle.FontColorOverride = PdaStyle.TextHeader;
-        box.AddChild(_queueTitle);
-        box.AddChild(scroll);
-        return box;
     }
 
     private void RebuildQueue()
@@ -498,7 +564,7 @@ public sealed class AutoCookerWindow : FancyWindow
         _queueList.RemoveAllChildren();
 
         var queue = _state?.Queue ?? [];
-        _queuePanel.Visible = _job != null || queue.Count > 0;
+        _queuePanel.Visible = _state?.Job != null || queue.Count > 0;
         _queueTitle.Text = $"{Loc.GetString("autocook-queue")} {queue.Count}/{_state?.MaxQueue ?? 0}";
 
         if (queue.Count == 0)
@@ -509,9 +575,11 @@ public sealed class AutoCookerWindow : FancyWindow
 
         for (var i = 0; i < queue.Count; i++)
         {
+            var order = queue[i];
+            var amount = _state?.Kind != AutoCookKind.Kitchen ? $" ×{order.Amount}" : string.Empty;
+
             var row = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Horizontal, SeparationOverride = 6 };
-            var amount = _state?.Kind != AutoCookKind.Kitchen ? $" ×{queue[i].Amount}" : string.Empty;
-            row.AddChild(Wrapped($"{i + 1}. {queue[i].Name}{amount}", PdaStyle.TextNormal));
+            row.AddChild(Wrapped($"{i + 1}. {_text.ResultName(order.Kind, order.Result)}{amount}", PdaStyle.TextNormal));
 
             var index = i;
             var remove = new Button { Text = "✕", MinWidth = 28 };
@@ -522,68 +590,27 @@ public sealed class AutoCookerWindow : FancyWindow
         }
     }
 
-    private void RebuildCategories()
+    private void UpdateStartButton()
     {
-        _groups.Clear();
-        _category.Clear();
-        _category.AddItem(Loc.GetString("autocook-filter-all"), 0);
+        var powered = _state?.Powered ?? false;
+        var busy = _state is { } state && (state.Job != null || state.Queue.Count > 0);
+        var queueFull = busy && _state!.Queue.Count >= _state.MaxQueue;
+        var needsOutput = _state?.Kind != AutoCookKind.Kitchen && _state?.Output == null;
 
-        if (_state == null)
-            return;
-
-        _groups.AddRange(_state.Recipes
-            .Select(recipe => recipe.Group)
-            .Where(group => !string.IsNullOrEmpty(group))
-            .Distinct()
-            .OrderBy(group => group));
-
-        for (var i = 0; i < _groups.Count; i++)
-        {
-            _category.AddItem(_groups[i], i + 1);
-        }
-
-        var selected = _groupFilter == null ? -1 : _groups.IndexOf(_groupFilter);
-        if (selected < 0)
-            _groupFilter = null;
-
-        _category.SelectId(selected < 0 ? 0 : selected + 1);
+        _startButton.Text = Loc.GetString(busy ? "autocook-queue-add" : "autocook-start");
+        _startButton.Disabled = FindSelected() is not { Entry.Available: true } || !powered || queueFull || needsOutput;
+        _status.Text = powered ? string.Empty : Loc.GetString("autocook-no-power");
     }
 
-    protected override void FrameUpdate(FrameEventArgs args)
+    private RecipeView? FindSelected()
     {
-        base.FrameUpdate(args);
-
-        if (_scrollPending && _activeStepLabel is { Height: > 0f })
+        foreach (var view in _recipes)
         {
-            _scrollPending = false;
-            _jobScroll.SetScrollValue(new Vector2(0, MathF.Max(0f, _activeStepLabel.Position.Y - 24f)));
+            if (view.Entry.Id == _selected)
+                return view;
         }
 
-        if (_job == null || _job.ActiveIndex >= _job.Steps.Count)
-        {
-            _stepBar.Value = _job != null ? 1f : 0f;
-            _totalBar.Value = _job != null ? 1f : 0f;
-            return;
-        }
-
-        var duration = MathF.Max(0.01f, _job.Steps[_job.ActiveIndex].Duration);
-        var elapsed = _job.Paused
-            ? (float) _job.PausedElapsed.TotalSeconds
-            : (float) (_timing.CurTime - _job.StepStart).TotalSeconds;
-
-        elapsed = Math.Clamp(elapsed, 0f, duration);
-        _stepBar.Value = elapsed / duration;
-
-        var total = 0f;
-        var done = 0f;
-        for (var i = 0; i < _job.Steps.Count; i++)
-        {
-            total += _job.Steps[i].Duration;
-            if (i < _job.ActiveIndex)
-                done += _job.Steps[i].Duration;
-        }
-
-        _totalBar.Value = total > 0f ? (done + elapsed) / total : 0f;
+        return null;
     }
 
     private static Control Column(string title, Control content)
@@ -628,38 +655,15 @@ public sealed class AutoCookerWindow : FancyWindow
         var panel = new PanelContainer
         {
             HorizontalExpand = true,
-            PanelOverride = Flat(background),
+            PanelOverride = new StyleBoxFlat
+            {
+                BackgroundColor = background,
+                BorderColor = PdaStyle.Separator,
+                BorderThickness = new Thickness(1),
+            },
         };
 
         panel.AddChild(child);
         return panel;
-    }
-
-    private static StyleBoxFlat Flat(Color background)
-    {
-        return new StyleBoxFlat
-        {
-            BackgroundColor = background,
-            BorderColor = PdaStyle.Separator,
-            BorderThickness = new Thickness(1),
-        };
-    }
-}
-
-public sealed class AutoCookBar : Control
-{
-    public float Value { get; set; }
-    public Color BarColor { get; set; } = PdaStyle.Accent;
-
-    protected override void Draw(DrawingHandleScreen handle)
-    {
-        base.Draw(handle);
-
-        var size = PixelSize;
-        handle.DrawRect(new UIBox2(0, 0, size.X, size.Y), PdaStyle.BackgroundFloating);
-
-        var width = size.X * Math.Clamp(Value, 0f, 1f);
-        if (width > 0f)
-            handle.DrawRect(new UIBox2(0, 0, width, size.Y), BarColor);
     }
 }

@@ -1,0 +1,4 @@
+- type: guideEntry
+  id: AutoCookers
+  name: guide-entry-autocookers
+  text: "/ServerInfo/_Aquila/Guidebook/Service/AutoCookers.xml"

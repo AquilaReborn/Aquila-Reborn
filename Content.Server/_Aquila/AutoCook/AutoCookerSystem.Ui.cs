@@ -1,15 +1,32 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared._Aquila.AutoCook;
+using Content.Shared.Body.Prototypes;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Kitchen;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Aquila.AutoCook;
 
+/// <summary>
+/// Состояние интерфейса. Сервер отдаёт только данные, названия и тексты этапов локализует клиент.
+/// </summary>
 public sealed partial class AutoCookerSystem
 {
-    private const float PreviewAmount = 10f;
+    /// <summary>
+    /// Объём, для которого строится превью рецепта реагента.
+    /// </summary>
+    private static readonly FixedPoint2 PreviewAmount = 10;
+
     private const string AlcoholicGroup = "AlcoholicDrinks";
+    private static readonly ProtoId<MetabolismGroupPrototype> AlcoholMetabolism = "Alcohol";
+
+    private const int MediumMaxReactions = 3;
+    private const string MealGroupPrefix = "autocook-group-";
+    private const string OtherGroup = "autocook-group-other";
+    private const string DoughGroup = "autocook-group-dough";
 
     private void UpdateUi(Entity<AutoCookerComponent> ent)
     {
@@ -18,260 +35,356 @@ public sealed partial class AutoCookerSystem
 
         EnsureIndex();
 
-        var recipes = ent.Comp.Kind == AutoCookKind.Kitchen
-            ? BuildKitchenEntries(ent)
-            : BuildReagentEntries(ent);
+        if (ent.Comp.Kind == AutoCookKind.Kitchen)
+        {
+            var inventory = CreateKitchenPlan(ent);
+            SetUiState(ent, BuildKitchenEntries(ent.Comp, inventory), null, BuildStock(ent.Comp, inventory));
+            return;
+        }
 
+        var buffer = GetBufferContents(ent);
+        var stock = buffer
+            .Where(pair => pair.Value > FixedPoint2.Zero)
+            .Select(pair => new AutoCookStockEntry(pair.Key, true, pair.Value))
+            .ToList();
+
+        SetUiState(ent, GetReagentEntries(ent, buffer), BuildOutputInfo(ent), stock);
+    }
+
+    private void SetUiState(
+        Entity<AutoCookerComponent> ent,
+        List<AutoCookRecipeEntry> recipes,
+        AutoCookOutputInfo? output,
+        List<AutoCookStockEntry> stock)
+    {
         var state = new AutoCookerBoundUserInterfaceState(
             ent.Comp.Kind,
             _power.IsPowered(ent.Owner),
             recipes,
             BuildJobInfo(ent.Comp.Job),
-            ent.Comp.Queue.Select(order => new AutoCookQueueEntry(GetRecipeName(order.RecipeId), order.Amount)).ToList(),
+            ent.Comp.Queue.Select(order => new AutoCookQueueEntry(order.Recipe.Kind, GetResult(order.Recipe), order.Amount)).ToList(),
             ent.Comp.MaxQueue,
-            BuildOutputInfo(ent),
-            BuildStock(ent));
+            output,
+            stock,
+            ent.Comp.BufferSolution != null);
 
         _ui.SetUiState(ent.Owner, AutoCookerUiKey.Key, state);
     }
 
-    private List<AutoCookRecipeEntry> BuildReagentEntries(Entity<AutoCookerComponent> ent)
+    /// <summary>
+    /// Список зависит только от настроек прототипа и содержимого буфера.
+    /// Пустой буфер кэшируется на прототип, заполненный - на машину, пока буфер не изменится.
+    /// </summary>
+    private List<AutoCookRecipeEntry> GetReagentEntries(
+        Entity<AutoCookerComponent> ent,
+        Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> buffer)
     {
-        if (_reagentEntries.TryGetValue(ent.Comp.Kind, out var cached))
-            return cached;
+        var key = MetaData(ent).EntityPrototype?.ID ?? string.Empty;
+        var cacheable = buffer.Count == 0;
+        if (cacheable)
+        {
+            _bufferEntries.Remove(ent.Owner);
+            if (_reagentEntries.TryGetValue(key, out var cached))
+                return cached;
+        }
+        else if (_bufferEntries.TryGetValue(ent.Owner, out var bufferCached) && SameBuffer(bufferCached.Buffer, buffer))
+        {
+            return bufferCached.Entries;
+        }
 
         var entries = new List<AutoCookRecipeEntry>();
 
-        foreach (var proto in _proto.EnumeratePrototypes<ReagentPrototype>().Where(proto => IsCraftableTarget(ent.Comp, proto)))
+        foreach (var proto in _proto.EnumeratePrototypes<ReagentPrototype>())
         {
-            var raw = new List<AutoCookStep>();
-            if (!TryPlanReagent(ent.Comp, proto.ID, PreviewAmount, raw) || PlanUsesRestricted(ent.Comp, raw))
-                continue;
+            if (IsListedReagent(ent.Comp, proto) && BuildReagentEntry(ent.Comp, proto, buffer) is { } entry)
+                entries.Add(entry);
+        }
 
-            var steps = FinalizeReagentSteps(ent.Comp, raw);
-            var ingredients = steps
-                .LastOrDefault(step => step.Kind == AutoCookStepKind.React)?.Consume
-                .Select(pair => new AutoCookIngredient(ReagentName(pair.Key), FormatAmount(pair.Value), true))
-                .ToList() ?? new List<AutoCookIngredient>();
+        if (cacheable)
+            _reagentEntries[key] = entries;
+        else
+            _bufferEntries[ent.Owner] = new BufferEntries(buffer, entries);
 
-            entries.Add(new AutoCookRecipeEntry(
-                AutoCookIds.Reagent + proto.ID,
-                proto.LocalizedName,
-                GetReagentGroup(ent.Comp, proto, steps),
+        return entries;
+    }
+
+    private static bool SameBuffer(
+        Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> a,
+        Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> b)
+    {
+        if (a.Count != b.Count)
+            return false;
+
+        foreach (var (id, amount) in a)
+        {
+            if (!b.TryGetValue(id, out var other) || other != amount)
+                return false;
+        }
+
+        return true;
+    }
+
+    private AutoCookRecipeEntry? BuildReagentEntry(
+        AutoCookerComponent comp,
+        ReagentPrototype proto,
+        Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> buffer)
+    {
+        var id = new AutoCookRecipeId(AutoCookRecipeKind.Reagent, proto.ID);
+
+        if (TryPlanTarget(comp, proto.ID, PreviewAmount, buffer, false, out var plan))
+        {
+            var ingredients = plan.Steps
+                .LastOrDefault(step => step.Data.Kind == AutoCookStepKind.React)?.Consume
+                .Select(pair => new AutoCookIngredient(pair.Key, true, null, pair.Value, true))
+                .ToList() ?? [];
+
+            return new AutoCookRecipeEntry(
+                id,
+                proto.ID,
+                GetReagentGroup(comp, proto, plan.Steps),
                 true,
                 ingredients,
-                steps.Select(step => step.Text).ToList()));
+                plan.Steps.Select(step => step.Data).ToList());
         }
 
-        entries.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.CurrentCultureIgnoreCase));
-        _reagentEntries[ent.Comp.Kind] = entries;
-        return entries;
+        // Сама машина реагент не сделает: показываем последнюю реакцию и что для неё нужно подать в буфер
+        if (!TryGetLastReaction(comp, proto.ID, out var reaction))
+            return null;
+
+        var batches = GetBatches(PreviewAmount, reaction.Products[proto.ID]);
+        var missing = reaction.Reactants
+            .Select(pair =>
+            {
+                var need = pair.Value.Amount * batches;
+                var have = buffer.GetValueOrDefault(pair.Key);
+                return new AutoCookIngredient(pair.Key, true, have, need, have >= need || IsBaseReagent(comp, pair.Key));
+            })
+            .ToList();
+
+        var steps = new List<AutoCookStep>();
+        AddConditionSteps(comp, reaction, steps);
+        steps.Add(ReactStep(comp, reaction, proto.ID, batches));
+
+        var group = TryPlanTarget(comp, proto.ID, PreviewAmount, buffer, true, out var full)
+            ? GetReagentGroup(comp, proto, full.Steps)
+            : "autocook-group-complex";
+
+        return new AutoCookRecipeEntry(id, proto.ID, group, false, missing, steps.Select(step => step.Data).ToList());
     }
 
-    private List<AutoCookRecipeEntry> BuildKitchenEntries(Entity<AutoCookerComponent> ent)
+    /// <summary>
+    /// Реакция, которой машина получила бы реагент, если бы ей подали все реактивы.
+    /// </summary>
+    private bool TryGetLastReaction(AutoCookerComponent comp, string reagent, [NotNullWhen(true)] out ReactionPrototype? reaction)
     {
-        var (items, reagents) = GetKitchenInventory(ent);
+        reaction = null;
+        if (!_reactionsByProduct.TryGetValue(reagent, out var reactions))
+            return false;
+
+        reaction = reactions.FirstOrDefault(candidate =>
+            candidate.Products[reagent] > 0
+            && CanMix(comp, candidate)
+            && !candidate.Reactants.Keys.Any(id => IsRestrictedReagent(id) || IsForbiddenReagent(comp, id)));
+
+        return reaction != null;
+    }
+
+    private List<AutoCookRecipeEntry> BuildKitchenEntries(AutoCookerComponent comp, KitchenPlan inventory)
+    {
         var entries = new List<AutoCookRecipeEntry>();
 
-        entries.AddRange(_meals.Select(recipe => BuildMealEntry(ent, recipe, items, reagents)));
-        entries.AddRange(_mixList.Select(mix => BuildMixEntry(mix.Reaction, mix.Entity, reagents)));
-        entries.AddRange(_transformSources.Select(pair => BuildMakeEntry(ent, pair.Key, pair.Value, items, reagents)));
-
-        entries.Sort((a, b) =>
+        foreach (var meal in _meals)
         {
-            var byAvailable = b.Available.CompareTo(a.Available);
-            return byAvailable != 0
-                ? byAvailable
-                : string.Compare(a.Name, b.Name, StringComparison.CurrentCultureIgnoreCase);
-        });
+            if (HasRealIngredients(comp, meal))
+                entries.Add(BuildMealEntry(comp, meal, inventory));
+        }
+
+        foreach (var mix in _mixes)
+        {
+            entries.Add(BuildMixEntry(comp, mix, inventory));
+        }
+
+        foreach (var (target, sources) in _transformSources)
+        {
+            entries.Add(BuildMakeEntry(comp, target, sources, inventory));
+        }
 
         return entries;
     }
 
-    private AutoCookRecipeEntry BuildMealEntry(
-        Entity<AutoCookerComponent> ent,
-        FoodRecipePrototype recipe,
-        Dictionary<string, int> items,
-        Dictionary<string, float> reagents)
+    private AutoCookRecipeEntry BuildMealEntry(AutoCookerComponent comp, FoodRecipePrototype meal, KitchenPlan inventory)
     {
-        var plan = new KitchenPlan(new Dictionary<string, int>(items), new Dictionary<string, float>(reagents));
-        var available = TryPlanMeal(ent.Comp, recipe, plan);
+        var plan = inventory.Branch();
+        var available = TryPlanMeal(comp, meal, plan, 0);
 
         var ingredients = new List<AutoCookIngredient>();
-        foreach (var (solid, count) in recipe.IngredientsSolids.Where(pair => !IsDishware(pair.Key)))
+        foreach (var (solid, count) in meal.IngredientsSolids)
         {
-            var have = items.GetValueOrDefault(solid);
-            ingredients.Add(new AutoCookIngredient(
-                EntityName(solid),
-                $"{have}/{count.Int()}",
-                have >= count.Int() || CanProduceSolid(recipe, solid)));
+            if (IsFreeIngredient(comp, solid))
+                continue;
+
+            var have = inventory.Items.GetValueOrDefault(solid);
+            var ok = have >= count.Int() || CanProduceSolid(meal, solid);
+            ingredients.Add(new AutoCookIngredient(solid, false, have, count, ok));
         }
 
-        foreach (var (reagent, quantity) in recipe.IngredientsReagents)
+        foreach (var (reagent, quantity) in meal.IngredientsReagents)
         {
-            var have = reagents.GetValueOrDefault(reagent);
-            ingredients.Add(new AutoCookIngredient(
-                ReagentName(reagent),
-                $"{FormatAmount(have)}/{FormatAmount(quantity.Float())}",
-                have + Epsilon >= quantity.Float()));
+            ingredients.Add(new AutoCookIngredient(reagent, true, inventory.Reagents.GetValueOrDefault(reagent), quantity, inventory.Has(reagent, quantity)));
         }
 
         var steps = available
-            ? plan.Steps.Select(step => step.Text).ToList()
-            : [Loc.GetString("autocook-step-cook", ("name", MealName(recipe)))];
+            ? plan.Steps.Select(step => step.Data).ToList()
+            : [new AutoCookStepData(AutoCookStepKind.Cook, meal.Result, 0f, TimeSpan.Zero)];
 
-        return new AutoCookRecipeEntry(AutoCookIds.Meal + recipe.ID, MealName(recipe), GetMealGroup(recipe), available, ingredients, steps);
+        return new AutoCookRecipeEntry(
+            new AutoCookRecipeId(AutoCookRecipeKind.Meal, meal.ID),
+            meal.Result,
+            GetMealGroup(meal),
+            available,
+            ingredients,
+            steps);
     }
 
-    private AutoCookRecipeEntry BuildMixEntry(
-        ReactionPrototype reaction,
-        string entity,
-        Dictionary<string, float> reagents)
+    private static AutoCookRecipeEntry BuildMixEntry(AutoCookerComponent comp, KitchenMix mix, KitchenPlan inventory)
     {
-        var ingredients = reaction.Reactants
+        var ingredients = mix.Reaction.Reactants
             .Select(pair => new AutoCookIngredient(
-                ReagentName(pair.Key),
-                $"{FormatAmount(reagents.GetValueOrDefault(pair.Key))}/{FormatAmount(pair.Value.Amount.Float())}",
-                reagents.GetValueOrDefault(pair.Key) + Epsilon >= pair.Value.Amount.Float()))
+                pair.Key,
+                true,
+                inventory.Reagents.GetValueOrDefault(pair.Key),
+                pair.Value.Amount,
+                inventory.Has(pair.Key, pair.Value.Amount)))
             .ToList();
 
         return new AutoCookRecipeEntry(
-            AutoCookIds.Mix + reaction.ID,
-            EntityName(entity),
-            Loc.GetString("autocook-group-dough"),
+            new AutoCookRecipeId(AutoCookRecipeKind.Mix, mix.Reaction.ID),
+            mix.Entity,
+            DoughGroup,
             ingredients.All(ingredient => ingredient.Ok),
             ingredients,
-            [Loc.GetString("autocook-step-mix", ("name", EntityName(entity)))]);
+            [new AutoCookStepData(AutoCookStepKind.Mix, mix.Entity, 0f, comp.PrepareDuration)]);
     }
 
-    private AutoCookRecipeEntry BuildMakeEntry(
-        Entity<AutoCookerComponent> ent,
-        string target,
-        List<string> sources,
-        Dictionary<string, int> items,
-        Dictionary<string, float> reagents)
+    private AutoCookRecipeEntry BuildMakeEntry(AutoCookerComponent comp, EntProtoId target, List<EntProtoId> sources, KitchenPlan inventory)
     {
-        var plan = new KitchenPlan(new Dictionary<string, int>(items), new Dictionary<string, float>(reagents));
-        var available = TryProduceSolid(ent.Comp, target, null, plan, 0);
+        var plan = inventory.Branch();
+        var available = TryProduceSolid(comp, target, null, plan, 0);
 
         var ingredients = sources
-            .Select(source => new AutoCookIngredient(
-                EntityName(source),
-                $"{items.GetValueOrDefault(source)}/1",
-                items.GetValueOrDefault(source) >= 1 || CanProduceSolid(null, source)))
+            .Select(source =>
+            {
+                var have = inventory.Items.GetValueOrDefault(source);
+                return new AutoCookIngredient(source, false, have, 1, have >= 1 || CanProduceSolid(null, source));
+            })
             .ToList();
 
         var steps = available
-            ? plan.Steps.Select(step => step.Text).ToList()
-            : [Loc.GetString("autocook-step-process", ("name", EntityName(target)))];
+            ? plan.Steps.Select(step => step.Data).ToList()
+            : [new AutoCookStepData(AutoCookStepKind.Process, target, 0f, TimeSpan.Zero)];
 
-        return new AutoCookRecipeEntry(AutoCookIds.Make + target, EntityName(target), Loc.GetString("autocook-group-dough"), available, ingredients, steps);
+        return new AutoCookRecipeEntry(
+            new AutoCookRecipeId(AutoCookRecipeKind.Make, target),
+            target,
+            DoughGroup,
+            available,
+            ingredients,
+            steps);
     }
 
-    private string GetRecipeName(string recipeId)
+    /// <summary>
+    /// Прототип результата заказа, по нему клиент показывает название.
+    /// </summary>
+    private string GetResult(AutoCookRecipeId recipe)
     {
-        if (recipeId.StartsWith(AutoCookIds.Reagent))
-            return ReagentName(recipeId[AutoCookIds.Reagent.Length..]);
-
-        if (recipeId.StartsWith(AutoCookIds.Meal))
+        return recipe.Kind switch
         {
-            var meal = _meals.FirstOrDefault(m => m.ID == recipeId[AutoCookIds.Meal.Length..]);
-            return meal == null ? recipeId : MealName(meal);
-        }
-
-        if (recipeId.StartsWith(AutoCookIds.Mix))
-        {
-            var mix = _mixList.FirstOrDefault(m => m.Reaction.ID == recipeId[AutoCookIds.Mix.Length..]);
-            return mix.Entity == null ? recipeId : EntityName(mix.Entity);
-        }
-
-        return recipeId.StartsWith(AutoCookIds.Make) ? EntityName(recipeId[AutoCookIds.Make.Length..]) : recipeId;
+            AutoCookRecipeKind.Meal => _meals.FirstOrDefault(meal => meal.ID == recipe.Id)?.Result ?? recipe.Id,
+            AutoCookRecipeKind.Mix => _mixes.FirstOrDefault(mix => mix.Reaction.ID == recipe.Id)?.Entity ?? recipe.Id,
+            _ => recipe.Id,
+        };
     }
 
-    private string GetMealGroup(FoodRecipePrototype recipe)
+    private string GetResultName(AutoCookRecipeId recipe)
     {
-        var key = "autocook-group-" + recipe.Group.ToLowerInvariant();
-        return Loc.TryGetString(key, out var text) ? text : recipe.Group;
+        var result = GetResult(recipe);
+
+        if (recipe.Kind == AutoCookRecipeKind.Reagent)
+            return _proto.TryIndex<ReagentPrototype>(result, out var reagent) ? reagent.LocalizedName : result;
+
+        return _proto.TryIndex<EntityPrototype>(result, out var entity) ? entity.Name : result;
     }
 
-    private string GetReagentGroup(AutoCookerComponent comp, ReagentPrototype proto, List<AutoCookStep> steps)
+    private string GetMealGroup(FoodRecipePrototype meal)
+    {
+        var key = MealGroupPrefix + meal.Group.ToLowerInvariant();
+        return Loc.TryGetString(key, out _) ? key : OtherGroup;
+    }
+
+    private static string GetReagentGroup(AutoCookerComponent comp, ReagentPrototype proto, List<AutoCookStep> steps)
     {
         if (comp.Kind == AutoCookKind.Bar)
-            return Loc.GetString(IsAlcoholic(proto) ? "autocook-group-alcohol" : "autocook-group-drink");
-
-        var reactions = steps.Count(step => step.Kind == AutoCookStepKind.React);
-        return Loc.GetString(reactions switch
         {
-            <= 1 => "autocook-group-simple",
-            <= 3 => "autocook-group-medium",
-            _ => "autocook-group-complex",
-        });
-    }
+            var alcoholic = proto.Group == AlcoholicGroup || proto.Metabolisms?.ContainsKey(AlcoholMetabolism) == true;
+            return alcoholic ? "autocook-group-alcohol" : "autocook-group-drink";
+        }
 
-    private static bool IsAlcoholic(ReagentPrototype proto)
-    {
-        return proto.Group == AlcoholicGroup || HasMetabolism(proto, "Alcohol");
+        return CountReactions(steps) switch
+        {
+            0 => "autocook-group-elements",
+            1 => "autocook-group-simple",
+            <= MediumMaxReactions => "autocook-group-medium",
+            _ => "autocook-group-complex",
+        };
     }
 
     private bool CanProduceSolid(FoodRecipePrototype? recipe, string solid)
     {
         return _meals.Any(meal => meal.Result == solid && meal != recipe)
-               || _mixByEntity.ContainsKey(solid)
+               || _mixesByEntity.ContainsKey(solid)
                || _sliceSources.ContainsKey(solid)
                || _transformSources.ContainsKey(solid);
     }
 
-    private AutoCookJobInfo? BuildJobInfo(AutoCookJob? job)
+    private static AutoCookJobInfo? BuildJobInfo(AutoCookJob? job)
     {
         if (job == null)
             return null;
 
-        var steps = job.Steps.Select((step, index) => new AutoCookStepInfo(
-            step.Text,
-            step.Duration,
-            index < job.StepIndex
-                ? AutoCookStepStatus.Done
-                : index == job.StepIndex ? AutoCookStepStatus.Active : AutoCookStepStatus.Pending)).ToList();
-
         return new AutoCookJobInfo(
-            job.RecipeName,
-            steps,
+            job.Recipe.Kind,
+            job.Result,
+            job.Steps.Select(step => step.Data).ToList(),
             job.StepIndex,
             job.StepStart,
             job.PausedElapsed,
-            job.Paused,
             job.WaitingOutput);
     }
 
     private AutoCookOutputInfo? BuildOutputInfo(Entity<AutoCookerComponent> ent)
     {
-        if (ent.Comp.Kind == AutoCookKind.Kitchen)
+        if (_itemSlots.GetItemOrNull(ent, AutoCookerComponent.BeakerSlotId) is not { } beaker
+            || !_solution.TryGetFitsInDispenser(beaker, out _, out var solution))
             return null;
 
-        var beaker = _itemSlots.GetItemOrNull(ent, AutoCookerComponent.BeakerSlotName);
-        if (beaker == null || !_solution.TryGetFitsInDispenser(beaker.Value, out _, out var solution))
-            return null;
-
-        return new AutoCookOutputInfo(Name(beaker.Value), solution.Volume, solution.MaxVolume, solution.GetColor(_proto));
+        return new AutoCookOutputInfo(Name(beaker), solution.Volume, solution.MaxVolume, solution.GetColor(_proto));
     }
 
-    private List<AutoCookStockEntry> BuildStock(Entity<AutoCookerComponent> ent)
+    private List<AutoCookStockEntry> BuildStock(AutoCookerComponent comp, KitchenPlan inventory)
     {
         var stock = new List<AutoCookStockEntry>();
-        if (ent.Comp.Kind != AutoCookKind.Kitchen)
-            return stock;
 
-        var (items, reagents) = GetKitchenInventory(ent);
+        foreach (var (id, count) in inventory.Items)
+        {
+            if (_usedSolids.Contains(id) && !IsFreeIngredient(comp, id))
+                stock.Add(new AutoCookStockEntry(id, false, count));
+        }
 
-        stock.AddRange(items
-            .Where(pair => _usedSolids.Contains(pair.Key))
-            .OrderBy(pair => EntityName(pair.Key))
-            .Select(pair => new AutoCookStockEntry(EntityName(pair.Key), "×" + pair.Value)));
-
-        stock.AddRange(reagents
-            .Where(pair => pair.Value > 0.01f && _usedReagents.Contains(pair.Key))
-            .OrderBy(pair => ReagentName(pair.Key))
-            .Select(pair => new AutoCookStockEntry(ReagentName(pair.Key), FormatAmount(pair.Value))));
+        foreach (var (id, amount) in inventory.Reagents)
+        {
+            if (amount > FixedPoint2.Zero && _usedReagents.Contains(id))
+                stock.Add(new AutoCookStockEntry(id, true, amount));
+        }
 
         return stock;
     }
