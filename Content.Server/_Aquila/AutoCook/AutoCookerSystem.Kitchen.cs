@@ -5,6 +5,7 @@ using Content.Shared._Aquila.AutoCook;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Kitchen;
+using Content.Shared.Stacks;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Aquila.AutoCook;
@@ -121,7 +122,6 @@ public sealed partial class AutoCookerSystem
         return new AutoCookJob(recipe, result, plan.Steps)
         {
             ResultCount = count,
-            ConsumedSolids = plan.ConsumedSolids,
             ConsumedReagents = plan.ConsumedReagents,
         };
     }
@@ -300,8 +300,8 @@ public sealed partial class AutoCookerSystem
 
         foreach (var item in GetStoredItems(ent))
         {
-            if (MetaData(item).EntityPrototype is { } proto)
-                items[proto.ID] = items.GetValueOrDefault(proto.ID) + 1;
+            if (GetSolid(item) is { } solid)
+                items[solid.Id] = items.GetValueOrDefault(solid.Id) + solid.Count;
         }
 
         foreach (var source in GetLiquidSources(ent))
@@ -314,6 +314,18 @@ public sealed partial class AutoCookerSystem
         }
 
         return new KitchenPlan(items, reagents);
+    }
+
+    private (EntProtoId Id, int Count)? GetSolid(EntityUid item)
+    {
+        if (TryComp<StackComponent>(item, out var stack))
+        {
+            return _proto.TryIndex(stack.StackTypeId, out var stackType)
+                ? (stackType.Spawn, stack.Count)
+                : null;
+        }
+
+        return MetaData(item).EntityPrototype is { } proto ? (proto.ID, 1) : null;
     }
 
     private IReadOnlyList<EntityUid> GetStoredItems(Entity<AutoCookerComponent> ent)
@@ -344,28 +356,43 @@ public sealed partial class AutoCookerSystem
 
     private bool TryConsumeKitchenIngredients(Entity<AutoCookerComponent> ent, KitchenPlan plan)
     {
+        if (!_container.TryGetContainer(ent, ent.Comp.ProcessingContainer, out var processing))
+            return false;
+
         var stored = GetStoredItems(ent);
-        var toDelete = new List<EntityUid>();
+        var picked = new Dictionary<EntityUid, int>();
 
         foreach (var (id, count) in plan.ConsumedSolids)
         {
-            var matching = stored
-                .Where(item => !toDelete.Contains(item) && MetaData(item).EntityPrototype?.ID == id.Id)
-                .Take(count)
-                .ToList();
+            var remaining = count;
+            foreach (var item in stored)
+            {
+                if (remaining <= 0)
+                    break;
 
-            if (matching.Count < count)
+                if (picked.ContainsKey(item) || GetSolid(item) is not { } solid || solid.Id != id)
+                    continue;
+
+                var take = Math.Min(solid.Count, remaining);
+                picked[item] = take;
+                remaining -= take;
+            }
+
+            if (remaining > 0)
                 return false;
-
-            toDelete.AddRange(matching);
         }
 
         if (!TryDrainLiquids(ent, plan.ConsumedReagents))
             return false;
 
-        foreach (var item in toDelete)
+        var coords = Transform(ent).Coordinates;
+        foreach (var (item, count) in picked)
         {
-            QueueDel(item);
+            var moved = item;
+            if (TryComp<StackComponent>(item, out var stack) && stack.Count > count)
+                moved = _stack.Split((item, stack), count, coords) ?? item;
+
+            _container.Insert(moved, processing);
         }
 
         return true;
@@ -404,15 +431,12 @@ public sealed partial class AutoCookerSystem
         if (job.Finished)
             return;
 
-        if (_container.TryGetContainer(ent, ent.Comp.StorageContainer, out var container))
+        if (_container.TryGetContainer(ent, ent.Comp.ProcessingContainer, out var processing))
         {
-            var coords = Transform(ent).Coordinates;
-            foreach (var (id, count) in job.ConsumedSolids)
+            foreach (var item in processing.ContainedEntities.ToArray())
             {
-                for (var i = 0; i < count; i++)
-                {
-                    _container.Insert(Spawn(id, coords), container);
-                }
+                if (!_storage.Insert(ent, item, out _, playSound: false))
+                    _container.Remove(item, processing);
             }
         }
 
@@ -426,21 +450,9 @@ public sealed partial class AutoCookerSystem
         }
     }
 
-    /// <summary>
-    /// Если машину разобрали посреди готовки, ингредиенты выпадают рядом.
-    /// </summary>
-    private void DropKitchenJob(Entity<AutoCookerComponent> ent, AutoCookJob job)
+    private void ClearProcessing(Entity<AutoCookerComponent> ent)
     {
-        var xform = Transform(ent);
-        if (xform.MapUid is not { } map || TerminatingOrDeleted(map))
-            return;
-
-        foreach (var (id, count) in job.ConsumedSolids)
-        {
-            for (var i = 0; i < count; i++)
-            {
-                Spawn(id, xform.Coordinates);
-            }
-        }
+        if (_container.TryGetContainer(ent, ent.Comp.ProcessingContainer, out var processing))
+            _container.CleanContainer(processing);
     }
 }

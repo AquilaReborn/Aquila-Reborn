@@ -1,12 +1,15 @@
 using Content.Goobstation.Shared.Factory;
 using Content.Server.Power.Components;
+using Content.Server.Stack;
 using Content.Shared._Aquila.AutoCook;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Popups;
 using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
+using Content.Shared.Storage.EntitySystems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -26,6 +29,8 @@ public sealed partial class AutoCookerSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private readonly SharedStorageSystem _storage = default!;
+    [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly StartableMachineSystem _startable = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
 
@@ -37,6 +42,7 @@ public sealed partial class AutoCookerSystem : EntitySystem
         SubscribeLocalEvent<AutoCookerComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<AutoCookerComponent, PowerChangedEvent>(OnPowerChanged);
         SubscribeLocalEvent<AutoCookerComponent, BoundUIOpenedEvent>(OnContentsChanged);
+        SubscribeLocalEvent<AutoCookerComponent, BoundUIClosedEvent>(OnUiClosed);
         SubscribeLocalEvent<AutoCookerComponent, EntInsertedIntoContainerMessage>(OnContentsChanged);
         SubscribeLocalEvent<AutoCookerComponent, EntRemovedFromContainerMessage>(OnContentsChanged);
         SubscribeLocalEvent<AutoCookerComponent, SolutionContainerChangedEvent>(OnContentsChanged);
@@ -60,6 +66,8 @@ public sealed partial class AutoCookerSystem : EntitySystem
         while (query.MoveNext(out var uid, out var comp))
         {
             var ent = (uid, comp);
+
+            FlushUi(ent, now);
 
             if (comp.DoneUntil is { } doneUntil && now >= doneUntil)
             {
@@ -95,6 +103,8 @@ public sealed partial class AutoCookerSystem : EntitySystem
     {
         if (ent.Comp.Kind != AutoCookKind.Kitchen)
             _itemSlots.AddItemSlot(ent.Owner, AutoCookerComponent.BeakerSlotId, ent.Comp.BeakerSlot);
+        else
+            _container.EnsureContainer<Container>(ent, ent.Comp.ProcessingContainer);
 
         UpdateVisuals(ent);
     }
@@ -102,11 +112,10 @@ public sealed partial class AutoCookerSystem : EntitySystem
     private void OnShutdown(Entity<AutoCookerComponent> ent, ref ComponentShutdown args)
     {
         _bufferEntries.Remove(ent.Owner);
+        _kitchenEntries.Remove(ent.Owner);
 
         if (ent.Comp.Kind != AutoCookKind.Kitchen)
             _itemSlots.RemoveItemSlot(ent.Owner, ent.Comp.BeakerSlot);
-        else if (ent.Comp.Job is { Finished: false } job)
-            DropKitchenJob(ent, job);
     }
 
     private void OnPowerChanged(Entity<AutoCookerComponent> ent, ref PowerChangedEvent args)
@@ -135,9 +144,35 @@ public sealed partial class AutoCookerSystem : EntitySystem
 
     private void OnStartMessage(Entity<AutoCookerComponent> ent, ref AutoCookerStartMessage args)
     {
+        if (!IsValidRecipe(ent.Comp, args.Recipe) || args.Amount < 1 || args.Amount > ent.Comp.MaxOrderAmount)
+            return;
+
         var order = new AutoCookOrder(args.Recipe, args.Amount);
         ent.Comp.LastOrder = order;
         TryOrder(ent, order);
+    }
+
+    private bool IsValidRecipe(AutoCookerComponent comp, AutoCookRecipeId recipe)
+    {
+        if (string.IsNullOrEmpty(recipe.Id))
+            return false;
+
+        EnsureIndex();
+
+        if (comp.Kind != AutoCookKind.Kitchen)
+        {
+            return recipe.Kind == AutoCookRecipeKind.Reagent
+                   && _proto.TryIndex<ReagentPrototype>(recipe.Id, out var reagent)
+                   && IsListedReagent(comp, reagent);
+        }
+
+        return recipe.Kind switch
+        {
+            AutoCookRecipeKind.Meal => TryGetMeal(comp, recipe.Id, out _),
+            AutoCookRecipeKind.Mix => TryGetMix(recipe.Id, out _),
+            AutoCookRecipeKind.Make => _transformSources.ContainsKey(recipe.Id),
+            _ => false,
+        };
     }
 
     private void OnCancelMessage(Entity<AutoCookerComponent> ent, ref AutoCookerCancelMessage args)
@@ -294,6 +329,8 @@ public sealed partial class AutoCookerSystem : EntitySystem
             {
                 Spawn(job.Result, coords);
             }
+
+            ClearProcessing(ent);
         }
         else if (!TryOutputReagent(ent, job))
         {

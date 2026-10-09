@@ -6,6 +6,7 @@ using Content.Shared.Body.Prototypes;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Kitchen;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Aquila.AutoCook;
@@ -30,15 +31,31 @@ public sealed partial class AutoCookerSystem
 
     private void UpdateUi(Entity<AutoCookerComponent> ent)
     {
+        ent.Comp.UiDirty = true;
+    }
+
+    private void FlushUi(Entity<AutoCookerComponent> ent, TimeSpan now)
+    {
+        if (!ent.Comp.UiDirty || now < ent.Comp.NextUiUpdate)
+            return;
+
+        ent.Comp.UiDirty = false;
+
         if (!_ui.IsUiOpen(ent.Owner, AutoCookerUiKey.Key))
             return;
 
+        ent.Comp.NextUiUpdate = now + ent.Comp.UiUpdateInterval;
+        SendUiState(ent);
+    }
+
+    private void SendUiState(Entity<AutoCookerComponent> ent)
+    {
         EnsureIndex();
 
         if (ent.Comp.Kind == AutoCookKind.Kitchen)
         {
             var inventory = CreateKitchenPlan(ent);
-            SetUiState(ent, BuildKitchenEntries(ent.Comp, inventory), null, BuildStock(ent.Comp, inventory));
+            SetUiState(ent, GetKitchenEntries(ent, inventory), null, BuildStock(ent.Comp, inventory));
             return;
         }
 
@@ -57,10 +74,11 @@ public sealed partial class AutoCookerSystem
         AutoCookOutputInfo? output,
         List<AutoCookStockEntry> stock)
     {
+        SendRecipes(ent, recipes);
+
         var state = new AutoCookerBoundUserInterfaceState(
             ent.Comp.Kind,
             _power.IsPowered(ent.Owner),
-            recipes,
             BuildJobInfo(ent.Comp.Job),
             ent.Comp.Queue.Select(order => new AutoCookQueueEntry(order.Recipe.Kind, GetResult(order.Recipe), order.Amount)).ToList(),
             ent.Comp.MaxQueue,
@@ -69,6 +87,31 @@ public sealed partial class AutoCookerSystem
             ent.Comp.BufferSolution != null);
 
         _ui.SetUiState(ent.Owner, AutoCookerUiKey.Key, state);
+    }
+
+    private void SendRecipes(Entity<AutoCookerComponent> ent, List<AutoCookRecipeEntry> recipes)
+    {
+        if (!ReferenceEquals(recipes, ent.Comp.SentRecipes))
+        {
+            ent.Comp.SentRecipes = recipes;
+            ent.Comp.RecipeViewers.Clear();
+        }
+
+        AutoCookerRecipesEvent? ev = null;
+        foreach (var actor in _ui.GetActors(ent.Owner, AutoCookerUiKey.Key))
+        {
+            if (!TryComp<ActorComponent>(actor, out var actorComp) || !ent.Comp.RecipeViewers.Add(actor))
+                continue;
+
+            ev ??= new AutoCookerRecipesEvent(GetNetEntity(ent), recipes);
+            RaiseNetworkEvent(ev, actorComp.PlayerSession);
+        }
+    }
+
+    private void OnUiClosed(Entity<AutoCookerComponent> ent, ref BoundUIClosedEvent args)
+    {
+        if (AutoCookerUiKey.Key.Equals(args.UiKey))
+            ent.Comp.RecipeViewers.Remove(args.Actor);
     }
 
     /// <summary>
@@ -87,7 +130,7 @@ public sealed partial class AutoCookerSystem
             if (_reagentEntries.TryGetValue(key, out var cached))
                 return cached;
         }
-        else if (_bufferEntries.TryGetValue(ent.Owner, out var bufferCached) && SameBuffer(bufferCached.Buffer, buffer))
+        else if (_bufferEntries.TryGetValue(ent.Owner, out var bufferCached) && SameContents(bufferCached.Buffer, buffer))
         {
             return bufferCached.Entries;
         }
@@ -108,20 +151,35 @@ public sealed partial class AutoCookerSystem
         return entries;
     }
 
-    private static bool SameBuffer(
-        Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> a,
-        Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> b)
+    private static bool SameContents<TKey, TValue>(Dictionary<TKey, TValue> a, Dictionary<TKey, TValue> b)
+        where TKey : notnull
     {
         if (a.Count != b.Count)
             return false;
 
-        foreach (var (id, amount) in a)
+        foreach (var (key, value) in a)
         {
-            if (!b.TryGetValue(id, out var other) || other != amount)
+            if (!b.TryGetValue(key, out var other) || !EqualityComparer<TValue>.Default.Equals(value, other))
                 return false;
         }
 
         return true;
+    }
+
+    private List<AutoCookRecipeEntry> GetKitchenEntries(Entity<AutoCookerComponent> ent, KitchenPlan inventory)
+    {
+        if (_kitchenEntries.TryGetValue(ent.Owner, out var cached)
+            && SameContents(cached.Items, inventory.Items)
+            && SameContents(cached.Reagents, inventory.Reagents))
+            return cached.Entries;
+
+        var entries = BuildKitchenEntries(ent.Comp, inventory);
+        _kitchenEntries[ent.Owner] = new KitchenEntries(
+            new Dictionary<EntProtoId, int>(inventory.Items),
+            new Dictionary<ProtoId<ReagentPrototype>, FixedPoint2>(inventory.Reagents),
+            entries);
+
+        return entries;
     }
 
     private AutoCookRecipeEntry? BuildReagentEntry(

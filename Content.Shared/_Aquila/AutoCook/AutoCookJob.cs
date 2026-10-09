@@ -42,7 +42,6 @@ public sealed class AutoCookJob(AutoCookRecipeId recipe, string result, List<Aut
 
     public FixedPoint2 TargetAmount;
     public int ResultCount = 1;
-    public Dictionary<EntProtoId, int> ConsumedSolids = new();
     public Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> ConsumedReagents = new();
 
     public bool Finished => StepIndex >= Steps.Count;

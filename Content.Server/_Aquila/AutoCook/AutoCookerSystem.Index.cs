@@ -46,6 +46,13 @@ public sealed partial class AutoCookerSystem
     /// </summary>
     private sealed record BufferEntries(Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> Buffer, List<AutoCookRecipeEntry> Entries);
 
+    private readonly Dictionary<EntityUid, KitchenEntries> _kitchenEntries = new();
+
+    private sealed record KitchenEntries(
+        Dictionary<EntProtoId, int> Items,
+        Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> Reagents,
+        List<AutoCookRecipeEntry> Entries);
+
     /// <summary>
     /// Реакция, при которой из реагентов появляется съедобная сущность, например тесто.
     /// </summary>
@@ -80,6 +87,7 @@ public sealed partial class AutoCookerSystem
         _edibleSolids.Clear();
         _reagentEntries.Clear();
         _bufferEntries.Clear();
+        _kitchenEntries.Clear();
 
         IndexReactions();
         IndexSliceable();

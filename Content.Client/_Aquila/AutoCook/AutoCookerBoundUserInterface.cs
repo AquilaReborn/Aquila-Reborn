@@ -11,6 +11,8 @@ public sealed class AutoCookerBoundUserInterface(EntityUid owner, Enum uiKey) : 
     [ViewVariables]
     private AutoCookerWindow? _window;
 
+    private NetEntity _netOwner;
+
     protected override void Open()
     {
         base.Open();
@@ -22,6 +24,10 @@ public sealed class AutoCookerBoundUserInterface(EntityUid owner, Enum uiKey) : 
         _window.OnRemoveQueued += index => SendMessage(new AutoCookerRemoveQueuedMessage(index));
         _window.OnFlushBuffer += () => SendMessage(new AutoCookerFlushBufferMessage());
         _window.OnFillBuffer += () => SendMessage(new AutoCookerFillBufferMessage());
+
+        _netOwner = EntMan.GetNetEntity(Owner);
+        if (EntMan.System<AutoCookerSystem>().GetRecipes(_netOwner) is { } recipes)
+            _window.UpdateRecipes(recipes);
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
@@ -30,5 +36,18 @@ public sealed class AutoCookerBoundUserInterface(EntityUid owner, Enum uiKey) : 
 
         if (state is AutoCookerBoundUserInterfaceState cast)
             _window?.UpdateState(cast);
+    }
+
+    public void UpdateRecipes(List<AutoCookRecipeEntry> recipes)
+    {
+        _window?.UpdateRecipes(recipes);
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        base.Dispose(disposing);
+
+        if (disposing)
+            EntMan.System<AutoCookerSystem>().ForgetRecipes(_netOwner);
     }
 }

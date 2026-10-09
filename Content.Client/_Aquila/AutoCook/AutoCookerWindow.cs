@@ -149,8 +149,17 @@ public sealed class AutoCookerWindow : FancyWindow
         _fillButton.Disabled = state.Output is not { } beaker || beaker.Volume <= 0;
         _flushButton.Disabled = state.Stock.Count == 0 || state.Output == null;
 
+        RebuildJob();
+        RebuildOutput();
+        RebuildStock();
+        RebuildQueue();
+        UpdateStartButton();
+    }
+
+    public void UpdateRecipes(List<AutoCookRecipeEntry> recipes)
+    {
         _recipes.Clear();
-        _recipes.AddRange(state.Recipes
+        _recipes.AddRange(recipes
             .Select(entry => new RecipeView(entry, _text.ResultName(entry.Id.Kind, entry.Result)))
             .OrderByDescending(view => view.Entry.Available)
             .ThenBy(view => view.Name, NameComparer));
@@ -161,10 +170,6 @@ public sealed class AutoCookerWindow : FancyWindow
         RebuildCategories();
         RebuildRecipes();
         RebuildDetails();
-        RebuildJob();
-        RebuildOutput();
-        RebuildStock();
-        RebuildQueue();
         UpdateStartButton();
     }
 

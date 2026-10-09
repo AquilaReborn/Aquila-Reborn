@@ -85,6 +85,12 @@ public sealed partial class AutoCookerComponent : Component
     public TimeSpan DoneDuration = TimeSpan.FromSeconds(3);
 
     [DataField]
+    public TimeSpan UiUpdateInterval = TimeSpan.FromSeconds(0.2);
+
+    [DataField]
+    public int MaxOrderAmount = 1000;
+
+    [DataField]
     public TimeSpan SynthesisDuration = TimeSpan.FromSeconds(1.5);
 
     [DataField]
@@ -121,6 +127,9 @@ public sealed partial class AutoCookerComponent : Component
     public string PantrySolution = "pantry";
 
     [DataField]
+    public string ProcessingContainer = "autoCookProcessing";
+
+    [DataField]
     public ItemSlot BeakerSlot = new();
 
     [DataField]
@@ -149,4 +158,16 @@ public sealed partial class AutoCookerComponent : Component
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan? DoneUntil;
+
+    [ViewVariables]
+    public bool UiDirty;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan NextUiUpdate;
+
+    [ViewVariables]
+    public List<AutoCookRecipeEntry>? SentRecipes;
+
+    [ViewVariables]
+    public readonly HashSet<EntityUid> RecipeViewers = new();
 }

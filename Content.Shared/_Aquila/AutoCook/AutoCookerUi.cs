@@ -131,7 +131,6 @@ public sealed record AutoCookQueueEntry(AutoCookRecipeKind Kind, string Result, 
 public sealed class AutoCookerBoundUserInterfaceState(
     AutoCookKind kind,
     bool powered,
-    List<AutoCookRecipeEntry> recipes,
     AutoCookJobInfo? job,
     List<AutoCookQueueEntry> queue,
     int maxQueue,
@@ -141,7 +140,6 @@ public sealed class AutoCookerBoundUserInterfaceState(
 {
     public readonly AutoCookKind Kind = kind;
     public readonly bool Powered = powered;
-    public readonly List<AutoCookRecipeEntry> Recipes = recipes;
     public readonly AutoCookJobInfo? Job = job;
     public readonly List<AutoCookQueueEntry> Queue = queue;
     public readonly int MaxQueue = maxQueue;
@@ -152,6 +150,13 @@ public sealed class AutoCookerBoundUserInterfaceState(
     /// У синтезатора есть буфер, <see cref="Stock"/> показывает его содержимое.
     /// </summary>
     public readonly bool HasBuffer = hasBuffer;
+}
+
+[Serializable, NetSerializable]
+public sealed class AutoCookerRecipesEvent(NetEntity cooker, List<AutoCookRecipeEntry> recipes) : EntityEventArgs
+{
+    public readonly NetEntity Cooker = cooker;
+    public readonly List<AutoCookRecipeEntry> Recipes = recipes;
 }
 
 [Serializable, NetSerializable]

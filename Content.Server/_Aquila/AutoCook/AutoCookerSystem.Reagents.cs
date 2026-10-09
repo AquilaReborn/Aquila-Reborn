@@ -121,7 +121,6 @@ public sealed partial class AutoCookerSystem
         if (!_proto.TryIndex<ReagentPrototype>(reagent, out var proto) || !IsListedReagent(comp, proto))
             return false;
 
-        // копия: план списывает реагенты из буфера, а исходный словарь используют превью других рецептов и кэш
         var draft = new ReagentPlan(new Dictionary<ProtoId<ReagentPrototype>, FixedPoint2>(buffer));
         if (!TryPlanReagent(comp, draft, proto.ID, amount, 0)
             || draft.Steps.Any(step => step.Produce.Keys.Any(id => IsRestrictedReagent(id) || IsForbiddenReagent(comp, id))))

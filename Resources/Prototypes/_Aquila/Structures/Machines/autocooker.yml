@@ -243,9 +243,11 @@
       machine_board: !type:Container
       machine_parts: !type:Container
       storagebase: !type:Container
+      autoCookProcessing: !type:Container
   - type: EmptyOnMachineDeconstruct
     containers:
     - storagebase
+    - autoCookProcessing
   - type: AutomationSlots
     slots:
     - !type:AutomatedStorage
