@@ -1,6 +1,6 @@
 - type: entity
   id: WeaponDSBeneli
-  suffix: DeadSector, Gun
+  suffix: DeadSector, Gun, Sir_Felix
   name: Beneli
   description: .
   parent: [ BaseItem, BaseGunWieldable, BaseMinorContraband ]
@@ -47,7 +47,7 @@
 
 - type: entity
   id: WeaponDSMicrone14K
-  suffix: DeadSector, Gun
+  suffix: DeadSector, Gun, Sir_Felix
   name: Microne-14K
   description: .
   parent: [ BaseItem, BaseGunWieldable, BaseMinorContraband ]
@@ -94,7 +94,7 @@
 
 - type: entity
   id: WeaponDSObrez
-  suffix: DeadSector, Gun
+  suffix: DeadSector, Gun, Sir_Felix
   name: Обрез
   description: .
   parent: [ BaseItem, BaseMinorContraband ]
@@ -137,7 +137,7 @@
 
 - type: entity
   id: WeaponDSRemington870
-  suffix: DeadSector, Gun
+  suffix: DeadSector, Gun, Sir_Felix
   name: Remington 870
   description: .
   parent: [ BaseItem, BaseGunWieldable, BaseMinorContraband ]
@@ -184,7 +184,7 @@
 
 - type: entity
   id: WeaponDSSPAS12
-  suffix: DeadSector, Gun
+  suffix: DeadSector, Gun, Sir_Felix
   name: SPAS-12
   description: .
   parent: [ BaseItem, BaseGunWieldable, BaseMinorContraband ]

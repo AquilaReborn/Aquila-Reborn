@@ -6,6 +6,7 @@
   id: BaseAmmoBoxDSSmall
   parent: BaseItem
   abstract: true
+  suffix: Sir_Felix
   components:
   - type: ContainerContainer
     containers:
@@ -22,6 +23,7 @@
   id: BaseAmmoBoxDSBig
   parent: BaseItem
   abstract: true
+  suffix: Sir_Felix
   components:
   - type: ContainerContainer
     containers:
@@ -38,7 +40,7 @@
 
 - type: entity
   id: AmmoBigBoxDS5x6
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Ящик патрон 5x6
   parent: BaseAmmoBoxDSBig
   components:
@@ -66,7 +68,7 @@
 
 - type: entity
   id: AmmoBigBoxDS9x18
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Ящик патрон 9x18
   parent: BaseAmmoBoxDSBig
   components:
@@ -94,7 +96,7 @@
 
 - type: entity
   id: AmmoBigBoxDS9x19
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Ящик патрон 9x19
   parent: BaseAmmoBoxDSBig
   components:
@@ -122,7 +124,7 @@
 
 - type: entity
   id: AmmoBigBoxDS40
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Ящик патрон .40
   parent: BaseAmmoBoxDSBig
   components:
@@ -150,7 +152,7 @@
 
 - type: entity
   id: AmmoBigBoxDS357
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Ящик патрон .357
   parent: BaseAmmoBoxDSBig
   components:
@@ -178,7 +180,7 @@
 
 - type: entity
   id: AmmoBigBoxDS5x45x39
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Ящик патрон 5x45x39
   parent: BaseAmmoBoxDSBig
   components:
@@ -206,7 +208,7 @@
 
 - type: entity
   id: AmmoBigBoxDS7x62x39
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Ящик патрон 7x62x39
   parent: BaseAmmoBoxDSBig
   components:
@@ -234,7 +236,7 @@
 
 - type: entity
   id: AmmoBigBoxDS5x56x45
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Ящик патрон 5x56x45
   parent: BaseAmmoBoxDSBig
   components:
@@ -262,7 +264,7 @@
 
 - type: entity
   id: AmmoBigBoxDS7x62x51
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Ящик патрон 7x62x51
   parent: BaseAmmoBoxDSBig
   components:
@@ -290,7 +292,7 @@
 
 - type: entity
   id: AmmoBigBoxDS7x62x54
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Ящик патрон 7x62x54
   parent: BaseAmmoBoxDSBig
   components:
@@ -318,7 +320,7 @@
 
 - type: entity
   id: AmmoBigBoxDS308
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Ящик патрон .308
   parent: BaseAmmoBoxDSBig
   components:
@@ -348,7 +350,7 @@
 
 - type: entity
   id: AmmoBoxDS5x6
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Коробка патрон 5x6
   parent: BaseAmmoBoxDSSmall
   components:
@@ -376,7 +378,7 @@
 
 - type: entity
   id: AmmoBoxDS9x18
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Коробка патрон 9x18
   parent: BaseAmmoBoxDSSmall
   components:
@@ -404,7 +406,7 @@
 
 - type: entity
   id: AmmoBoxDS9x19
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Коробка патрон 9x19
   parent: BaseAmmoBoxDSSmall
   components:
@@ -432,7 +434,7 @@
 
 - type: entity
   id: AmmoBoxDS40
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Коробка патрон .40
   parent: BaseAmmoBoxDSSmall
   components:
@@ -460,7 +462,7 @@
 
 - type: entity
   id: AmmoBoxDS357
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Коробка патрон .357
   parent: BaseAmmoBoxDSSmall
   components:
@@ -488,7 +490,7 @@
 
 - type: entity
   id: AmmoBoxDS5x45x39
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Коробка патрон 5x45x39
   parent: BaseAmmoBoxDSSmall
   components:
@@ -516,7 +518,7 @@
 
 - type: entity
   id: AmmoBoxDS7x62x39
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Коробка патрон 7x62x39
   parent: BaseAmmoBoxDSSmall
   components:
@@ -544,7 +546,7 @@
 
 - type: entity
   id: AmmoBoxDS5x56x45
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Коробка патрон 5x56x45
   parent: BaseAmmoBoxDSSmall
   components:
@@ -572,7 +574,7 @@
 
 - type: entity
   id: AmmoBoxDS7x62x51
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Коробка патрон 7x62x51
   parent: BaseAmmoBoxDSSmall
   components:
@@ -600,7 +602,7 @@
 
 - type: entity
   id: AmmoBoxDS7x62x54
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Коробка патрон 7x62x54
   parent: BaseAmmoBoxDSSmall
   components:
@@ -628,7 +630,7 @@
 
 - type: entity
   id: AmmoBoxDS308
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Коробка патрон .308
   parent: BaseAmmoBoxDSSmall
   components:
@@ -658,7 +660,7 @@
 
 - type: entity
   id: AmmoBoxDS12x70Slug
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Коробка патрон 12x70 Жекан
   parent: BaseAmmoBoxDSSmall
   components:
@@ -686,7 +688,7 @@
 
 - type: entity
   id: AmmoBoxDS12x70Buck
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Коробка патрон 12x70 Картечь
   parent: BaseAmmoBoxDSSmall
   components:
@@ -716,7 +718,7 @@
 
 - type: entity
   id: AmmoCrateDSTrophy
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Трофейный ящик боезапаса
   parent: BaseItem
   components:

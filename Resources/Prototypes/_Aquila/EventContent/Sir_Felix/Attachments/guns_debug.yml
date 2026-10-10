@@ -3,6 +3,7 @@
   parent: WeaponRifleAk
   id: HamMaggotsonWeaponRifleAKAttachments
   description: жопа.
+  suffix: Sir_Felix
   components:
   - type: ItemSlots
     slots:

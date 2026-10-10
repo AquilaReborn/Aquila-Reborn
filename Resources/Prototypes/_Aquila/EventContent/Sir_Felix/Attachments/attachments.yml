@@ -2,7 +2,7 @@
   id: WeaponAttachmentFlashlight
   parent: BaseItem
   name: тактический фонарик
-  suffix: Felix, Weapons
+  suffix: Felix, Weapons, Sir_Felix
   description: Компактный фонарик для крепления на оружие.
   components:
   - type: Sprite
@@ -63,6 +63,7 @@
   id: ActionToggleAttachmentFlashlight
   name: Toggle Flashlight Attachment
   description: Toggles the flashlight attachment off and on.
+  suffix: Sir_Felix
   components:
   - type: Action
     itemIconStyle: BigItem
@@ -76,7 +77,7 @@
 - type: entity
   id: WeaponAttachmentMuffler
   parent: BaseItem
-  suffix: Felix, Weapons
+  suffix: Felix, Weapons, Sir_Felix
   name: глушитель
   description: Глушитель для крепления на оружие.
   components:
@@ -95,7 +96,7 @@
 
 - type: entity
   id: WeaponAttachmentScope
-  suffix: Felix, Weapons
+  suffix: Felix, Weapons, Sir_Felix
   parent: BaseItem
   name: прицел
   description: Прицел для крепления на оружие.

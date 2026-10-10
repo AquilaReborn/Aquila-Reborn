@@ -1,6 +1,6 @@
 - type: entity
   id: WeaponDSM32A1
-  suffix: DeadSector, Gun
+  suffix: DeadSector, Gun, Sir_Felix
   name: Гранатомёт М32А1
   description: .
   parent: [ BaseItem, BaseGunWieldable, BaseMinorContraband ]
@@ -47,7 +47,7 @@
 
 - type: entity
   id: WeaponDSRPG7
-  suffix: DeadSector, Gun
+  suffix: DeadSector, Gun, Sir_Felix
   name: РПГ-7
   description: .
   parent: [ BaseItem, BaseGunWieldable, BaseMinorContraband ]

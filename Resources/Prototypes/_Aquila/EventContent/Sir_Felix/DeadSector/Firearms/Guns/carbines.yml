@@ -1,6 +1,6 @@
 - type: entity
   id: WeaponDSSteyrAUG
-  suffix: DeadSector, Gun
+  suffix: DeadSector, Gun, Sir_Felix
   name: Steyr AUG
   description: .
   parent: [ BaseItem, BaseGunWieldable, BaseMinorContraband, BaseAttachmentsGun ]
@@ -76,7 +76,7 @@
 
 - type: entity
   id: WeaponDSFAMAS
-  suffix: DeadSector, Gun
+  suffix: DeadSector, Gun, Sir_Felix
   name: FAMAS
   description: .
   parent: [ BaseItem, BaseGunWieldable, BaseMinorContraband, BaseAttachmentsGun ]
@@ -152,7 +152,7 @@
 
 - type: entity
   id: WeaponDSHK416
-  suffix: DeadSector, Gun
+  suffix: DeadSector, Gun, Sir_Felix
   name: HK 416
   description: .
   parent: [ BaseItem, BaseGunWieldable, BaseMinorContraband, BaseAttachmentsGun ]
@@ -246,7 +246,7 @@
 
 - type: entity
   id: WeaponDSM4A1
-  suffix: DeadSector, Gun
+  suffix: DeadSector, Gun, Sir_Felix
   name: M4A1
   description: .
   parent: [ BaseItem, BaseGunWieldable, BaseMinorContraband, BaseAttachmentsGun ]
@@ -340,7 +340,7 @@
 
 - type: entity
   id: WeaponDSM16
-  suffix: DeadSector, Gun
+  suffix: DeadSector, Gun, Sir_Felix
   name: M16
   description: .
   parent: [ BaseItem, BaseGunWieldable, BaseMinorContraband, BaseAttachmentsGun ]
@@ -425,7 +425,7 @@
 
 - type: entity
   id: WeaponDSSIGSauer
-  suffix: DeadSector, Gun
+  suffix: DeadSector, Gun, Sir_Felix
   name: SIG Sauer
   description: .
   parent: [ BaseItem, BaseGunWieldable, BaseMinorContraband, BaseAttachmentsGun ]
@@ -501,7 +501,7 @@
 
 - type: entity
   id: WeaponDSAK12
-  suffix: DeadSector, Gun
+  suffix: DeadSector, Gun, Sir_Felix
   name: АК-12
   description: .
   parent: [ BaseItem, BaseGunWieldable, BaseMinorContraband, BaseAttachmentsGun ]
@@ -595,7 +595,7 @@
 
 - type: entity
   id: WeaponDSAR57
-  suffix: DeadSector, Gun
+  suffix: DeadSector, Gun, Sir_Felix
   name: AR-57
   description: .
   parent: [ BaseItem, BaseGunWieldable, BaseMinorContraband, BaseAttachmentsGun ]
@@ -689,7 +689,7 @@
 
 - type: entity
   id: WeaponDSAR15
-  suffix: DeadSector, Gun
+  suffix: DeadSector, Gun, Sir_Felix
   name: AR-15
   description: .
   parent: [ BaseItem, BaseGunWieldable, BaseMinorContraband, BaseAttachmentsGun ]
@@ -774,7 +774,7 @@
 
 - type: entity
   id: WeaponDSAK74
-  suffix: DeadSector, Gun
+  suffix: DeadSector, Gun, Sir_Felix
   name: АК-74
   description: .
   parent: [ BaseItem, BaseGunWieldable, BaseMinorContraband, BaseAttachmentsGun ]

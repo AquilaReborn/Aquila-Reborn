@@ -1,2 +1,2 @@
-ent-FloorChasmOpeningSpawner = chasm opening
-    .desc = A rapidly opening chasm. If it's under you, RUN!!!
+ent-FloorChasmOpeningSpawner = раскрывающаяся пропасть
+    .desc = Стремительно раскрывающаяся пропасть. Если она под вами — БЕГИТЕ!!!

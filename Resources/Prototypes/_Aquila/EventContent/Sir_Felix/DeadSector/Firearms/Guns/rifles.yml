@@ -1,6 +1,6 @@
 - type: entity
   id: WeaponDSPSL
-  suffix: DeadSector, Gun
+  suffix: DeadSector, Gun, Sir_Felix
   name: PSL
   description: .
   parent: [ BaseItem, BaseGunWieldable, BaseMinorContraband, BaseAttachmentsGun ]
@@ -86,7 +86,7 @@
 
 - type: entity
   id: WeaponDSM40
-  suffix: DeadSector, Gun
+  suffix: DeadSector, Gun, Sir_Felix
   name: M40
   description: .
   parent: [ BaseItem, BaseGunWieldable, BaseMinorContraband, BaseAttachmentsGun ]
@@ -172,7 +172,7 @@
 
 - type: entity
   id: WeaponDSBarretM82
-  suffix: DeadSector, Gun
+  suffix: DeadSector, Gun, Sir_Felix
   name: Barret M82
   description: .
   parent: [ BaseItem, BaseGunWieldable, BaseMinorContraband, BaseAttachmentsGun ]
@@ -258,7 +258,7 @@
 
 - type: entity
   id: WeaponDSAWM
-  suffix: DeadSector, Gun
+  suffix: DeadSector, Gun, Sir_Felix
   name: AWP
   description: .
   parent: [ BaseItem, BaseGunWieldable, BaseMinorContraband, BaseAttachmentsGun ]

@@ -3,6 +3,7 @@
   abstract: true
   name: пушка
   description: привет я пушка мной можно стрелять
+  suffix: Sir_Felix
   components:
   - type: PointLight
     enabled: false

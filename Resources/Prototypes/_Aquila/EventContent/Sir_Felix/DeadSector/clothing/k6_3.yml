@@ -3,7 +3,7 @@
   parent: ClothingHeadHelmetBase
   name: fire helmet
   description: An atmos tech's best friend. Provides some heat resistance and looks cool.
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/Sir_Felix/DeadSector/head/k6_3_new.rsi
@@ -39,7 +39,7 @@
   name: fire helmet
   categories: [ HideSpawnMenu ]
   description: An atmos tech's best friend. Provides some heat resistance and looks cool.
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/Sir_Felix/DeadSector/head/k6_3_new.rsi
@@ -72,6 +72,7 @@
   id: ToggleK63Helmet
   name: Toggle ninja gloves
   description: Toggles all glove actions on left click. Includes your doorjack, draining power, stunning enemies and hacking certain computers.
+  suffix: Sir_Felix
   components:
   - type: InstantAction
     event: !type:PullHelmetActionEvent
@@ -84,7 +85,7 @@
   parent: ClothingHeadHelmetBase
   name: fire helmet
   description: An atmos tech's best friend. Provides some heat resistance and looks cool.
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/Sir_Felix/DeadSector/head/k6_3_new_alt.rsi
@@ -120,7 +121,7 @@
   name: fire helmet
   categories: [ HideSpawnMenu ]
   description: An atmos tech's best friend. Provides some heat resistance and looks cool.
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/Sir_Felix/DeadSector/head/k6_3_new_alt.rsi

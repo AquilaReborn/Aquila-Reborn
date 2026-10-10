@@ -6,6 +6,7 @@
   id: BaseMagazineDSBizon
   parent: BaseItem
   abstract: true
+  suffix: Sir_Felix
   components:
   - type: BallisticAmmoProvider
     mayTransfer: true
@@ -28,6 +29,7 @@
   id: BaseMagazineDSP90
   parent: BaseItem
   abstract: true
+  suffix: Sir_Felix
   components:
   - type: BallisticAmmoProvider
     mayTransfer: true
@@ -46,6 +48,7 @@
   id: BaseMagazineDSPPSH
   parent: BaseItem
   abstract: true
+  suffix: Sir_Felix
   components:
   - type: BallisticAmmoProvider
     mayTransfer: true
@@ -64,6 +67,7 @@
   id: BaseMagazineDSPistol
   parent: BaseItem
   abstract: true
+  suffix: Sir_Felix
   components:
   - type: BallisticAmmoProvider
     mayTransfer: true
@@ -82,6 +86,7 @@
   id: BaseMagazineDSRifle1
   parent: BaseItem
   abstract: true
+  suffix: Sir_Felix
   components:
   - type: BallisticAmmoProvider
     mayTransfer: true
@@ -100,6 +105,7 @@
   id: BaseMagazineDSRifle2
   parent: BaseItem
   abstract: true
+  suffix: Sir_Felix
   components:
   - type: BallisticAmmoProvider
     mayTransfer: true
@@ -118,6 +124,7 @@
   id: BaseMagazineDSSniper
   parent: BaseItem
   abstract: true
+  suffix: Sir_Felix
   components:
   - type: BallisticAmmoProvider
     mayTransfer: true
@@ -136,6 +143,7 @@
   id: BaseMagazineDSHMG
   parent: BaseItem
   abstract: true
+  suffix: Sir_Felix
   components:
   - type: BallisticAmmoProvider
     mayTransfer: true
@@ -154,7 +162,7 @@
 
 - type: entity
   id: MagazineDSBizon
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин ПП-19 Бизон
   parent: BaseMagazineDSBizon
   components:
@@ -165,7 +173,7 @@
 
 - type: entity
   id: MagazineDSBizonBB
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин ПП-19 Бизон ББ
   parent: BaseMagazineDSBizon
   components:
@@ -183,7 +191,7 @@
 
 - type: entity
   id: MagazineDSMac10
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин Mac-10
   parent: BaseMagazineDSP90
   components:
@@ -199,7 +207,7 @@
 
 - type: entity
   id: MagazineDSMac10BB
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин Mac-10 ББ
   parent: MagazineDSMac10
   components:
@@ -211,7 +219,7 @@
 
 - type: entity
   id: MagazineDSMineral
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин Минервал
   parent: BaseMagazineDSP90
   components:
@@ -227,7 +235,7 @@
 
 - type: entity
   id: MagazineDSMineralBB
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин Минервал ББ
   parent: MagazineDSMineral
   components:
@@ -239,7 +247,7 @@
 
 - type: entity
   id: MagazineDSMP5
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин МП-5
   parent: BaseMagazineDSP90
   components:
@@ -255,7 +263,7 @@
 
 - type: entity
   id: MagazineDSMP5BB
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин МП-5 ББ
   parent: MagazineDSMP5
   components:
@@ -267,7 +275,7 @@
 
 - type: entity
   id: MagazineDSP90
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин FN P90
   parent: BaseMagazineDSP90
   components:
@@ -284,7 +292,7 @@
 
 - type: entity
   id: MagazineDSP90BB
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин FN P90 ББ
   parent: MagazineDSP90
   components:
@@ -296,7 +304,7 @@
 
 - type: entity
   id: MagazineDSFAMAS
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин FAMAS
   parent: BaseMagazineDSP90
   components:
@@ -312,7 +320,7 @@
 
 - type: entity
   id: MagazineDSFAMASBB
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин FAMAS ББ
   parent: MagazineDSFAMAS
   components:
@@ -324,7 +332,7 @@
 
 - type: entity
   id: MagazineDSNamaz
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин Namaz
   parent: BaseMagazineDSP90
   components:
@@ -340,7 +348,7 @@
 
 - type: entity
   id: MagazineDSNamazBB
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин Namaz ББ
   parent: MagazineDSNamaz
   components:
@@ -352,7 +360,7 @@
 
 - type: entity
   id: MagazineDSAgram
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин Аграм
   parent: BaseMagazineDSP90
   components:
@@ -368,7 +376,7 @@
 
 - type: entity
   id: MagazineDSAgramBB
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин Аграм ББ
   parent: MagazineDSAgram
   components:
@@ -380,7 +388,7 @@
 
 - type: entity
   id: MagazineDSScorpion
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин Скорпион
   parent: BaseMagazineDSP90
   components:
@@ -396,7 +404,7 @@
 
 - type: entity
   id: MagazineDSScorpionBB
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин Скорпион ББ
   parent: MagazineDSScorpion
   components:
@@ -408,7 +416,7 @@
 
 - type: entity
   id: MagazineDSTEC9
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин TEC-9
   parent: BaseMagazineDSP90
   components:
@@ -424,7 +432,7 @@
 
 - type: entity
   id: MagazineDSTEC9BB
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин TEC-9 ББ
   parent: MagazineDSTEC9
   components:
@@ -436,7 +444,7 @@
 
 - type: entity
   id: MagazineDSUzi
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин Узи
   parent: BaseMagazineDSP90
   components:
@@ -452,7 +460,7 @@
 
 - type: entity
   id: MagazineDSUziBB
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин Узи ББ
   parent: MagazineDSUzi
   components:
@@ -466,7 +474,7 @@
 
 - type: entity
   id: MagazineDSThompson
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин Томпсон
   parent: BaseMagazineDSPPSH
   components:
@@ -482,13 +490,13 @@
 
 - type: entity
   id: MagazineDSThompsonBB
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин Томпсон ББ
   parent: MagazineDSThompson
 
 - type: entity
   id: MagazineDSPPSh
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин ППШ
   parent: BaseMagazineDSPPSH
   components:
@@ -504,7 +512,7 @@
 
 - type: entity
   id: MagazineDSPPShBB
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин ППШ ББ
   parent: MagazineDSPPSh
 
@@ -512,7 +520,7 @@
 
 - type: entity
   id: MagazineDSKeparis
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин Кепарис
   parent: BaseMagazineDSPistol
   components:
@@ -528,7 +536,7 @@
 
 - type: entity
   id: MagazineDSKeparisBB
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин Кепарис ББ
   parent: MagazineDSKeparis
   components:
@@ -540,7 +548,7 @@
 
 - type: entity
   id: MagazineDSDesertEagle
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин Desert Eagle
   parent: BaseMagazineDSPistol
   components:
@@ -557,7 +565,7 @@
 
 - type: entity
   id: MagazineDSDesertEagleBB
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин Desert Eagle ББ
   parent: MagazineDSDesertEagle
   components:
@@ -569,7 +577,7 @@
 
 - type: entity
   id: MagazineDSPM
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин ПМ
   parent: BaseMagazineDSPistol
   components:
@@ -586,7 +594,7 @@
 
 - type: entity
   id: MagazineDSPMBB
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин ПМ ББ
   parent: MagazineDSPM
   components:
@@ -598,7 +606,7 @@
 
 - type: entity
   id: MagazineDSStok
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин Сток
   parent: BaseMagazineDSPistol
   components:
@@ -614,7 +622,7 @@
 
 - type: entity
   id: MagazineDSStokBB
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин Сток ББ
   parent: MagazineDSStok
   components:
@@ -626,7 +634,7 @@
 
 - type: entity
   id: MagazineDSMilton
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин Милтон
   parent: BaseMagazineDSPistol
   components:
@@ -642,7 +650,7 @@
 
 - type: entity
   id: MagazineDSMiltonBB
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин Милтон ББ
   parent: MagazineDSMilton
   components:
@@ -656,7 +664,7 @@
 
 - type: entity
   id: MagazineDSAK74
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин АК-74
   parent: BaseMagazineDSRifle1
   components:
@@ -672,7 +680,7 @@
 
 - type: entity
   id: MagazineDSAK74BB
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин АК-74 ББ
   parent: MagazineDSAK74
   components:
@@ -684,7 +692,7 @@
 
 - type: entity
   id: MagazineDSAR15
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин AR-15
   parent: BaseMagazineDSRifle1
   components:
@@ -700,7 +708,7 @@
 
 - type: entity
   id: MagazineDSAR15BB
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин AR-15 ББ
   parent: MagazineDSAR15
   components:
@@ -712,7 +720,7 @@
 
 - type: entity
   id: MagazineDSAR57
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин AR-57
   parent: BaseMagazineDSRifle1
   components:
@@ -728,7 +736,7 @@
 
 - type: entity
   id: MagazineDSAR57BB
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин AR-57 ББ
   parent: MagazineDSAR57
   components:
@@ -740,7 +748,7 @@
 
 - type: entity
   id: MagazineDSSteyrAUG
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин Steyr AUG
   parent: BaseMagazineDSRifle1
   components:
@@ -756,7 +764,7 @@
 
 - type: entity
   id: MagazineDSSteyrAUGBB
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин Steyr AUG ББ
   parent: MagazineDSSteyrAUG
   components:
@@ -768,7 +776,7 @@
 
 - type: entity
   id: MagazineDSM4A1
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин M4A1
   parent: BaseMagazineDSRifle1
   components:
@@ -784,7 +792,7 @@
 
 - type: entity
   id: MagazineDSM4A1BB
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин M4A1 ББ
   parent: MagazineDSM4A1
   components:
@@ -796,7 +804,7 @@
 
 - type: entity
   id: MagazineDSM16
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин M16
   parent: BaseMagazineDSRifle1
   components:
@@ -812,7 +820,7 @@
 
 - type: entity
   id: MagazineDSM16BB
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин M16 ББ
   parent: MagazineDSM16
   components:
@@ -824,7 +832,7 @@
 
 - type: entity
   id: MagazineDSSIGSauer
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин SIG Sauer
   parent: BaseMagazineDSRifle1
   components:
@@ -840,7 +848,7 @@
 
 - type: entity
   id: MagazineDSSIGSauerBB
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин SIG Sauer ББ
   parent: MagazineDSSIGSauer
   components:
@@ -852,7 +860,7 @@
 
 - type: entity
   id: MagazineDSAK12
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин АК-12
   parent: BaseMagazineDSRifle1
   components:
@@ -868,7 +876,7 @@
 
 - type: entity
   id: MagazineDSAK12BB
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин АК-12 ББ
   parent: MagazineDSAK12
   components:
@@ -882,7 +890,7 @@
 
 - type: entity
   id: MagazineDSHK416
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин HK-416
   parent: BaseMagazineDSRifle2
   components:
@@ -898,7 +906,7 @@
 
 - type: entity
   id: MagazineDSHK416BB
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин HK-416 ББ
   parent: MagazineDSHK416
   components:
@@ -912,7 +920,7 @@
 
 - type: entity
   id: MagazineDSAWM
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин AWM
   parent: BaseMagazineDSSniper
   components:
@@ -928,7 +936,7 @@
 
 - type: entity
   id: MagazineDSAWMBB
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин AWM ББ
   parent: MagazineDSAWM
   components:
@@ -940,7 +948,7 @@
 
 - type: entity
   id: MagazineDSBarrettM82
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин Barret M82
   parent: BaseMagazineDSSniper
   components:
@@ -956,7 +964,7 @@
 
 - type: entity
   id: MagazineDSBarrettM82BB
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин Barret M82 ББ
   parent: MagazineDSBarrettM82
   components:
@@ -968,7 +976,7 @@
 
 - type: entity
   id: MagazineDSM40
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин M40
   parent: BaseMagazineDSSniper
   components:
@@ -984,7 +992,7 @@
 
 - type: entity
   id: MagazineDSM40BB
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин M40 ББ
   parent: MagazineDSM40
   components:
@@ -996,7 +1004,7 @@
 
 - type: entity
   id: MagazineDSPSL
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин PSL
   parent: BaseMagazineDSSniper
   components:
@@ -1012,7 +1020,7 @@
 
 - type: entity
   id: MagazineDSPSLBB
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин PSL ББ
   parent: MagazineDSPSL
   components:
@@ -1026,7 +1034,7 @@
 
 - type: entity
   id: MagazineDSMk48
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин Mk.48
   parent: BaseMagazineDSHMG
   components:
@@ -1042,7 +1050,7 @@
 
 - type: entity
   id: MagazineDSPKM
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин ПКМ
   parent: BaseMagazineDSHMG
   components:
@@ -1058,7 +1066,7 @@
 
 - type: entity
   id: MagazineDSRPK
-  suffix: DeadSector
+  suffix: DeadSector, Sir_Felix
   name: Магазин РПК
   parent: BaseItem
   components:

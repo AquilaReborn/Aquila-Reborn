@@ -5,6 +5,7 @@
   name: cartridge (9x19)
   parent: BaseCartridge
   abstract: true
+  suffix: Sir_Felix
   components:
   - type: Tag
     tags:
@@ -24,7 +25,7 @@
 
 - type: entity
   id: CartridgeDS9x19
-  suffix: DS
+  suffix: DS, Sir_Felix
   name: cartridge (9x19)
   parent: BaseCartridgeDS9x19
   components:
@@ -38,6 +39,7 @@
   name: cartridge (9x18)
   parent: BaseCartridge
   abstract: true
+  suffix: Sir_Felix
   components:
   - type: Tag
     tags:
@@ -57,7 +59,7 @@
 
 - type: entity
   id: CartridgeDS9x18
-  suffix: DS
+  suffix: DS, Sir_Felix
   name: cartridge (9x18)
   parent: BaseCartridgeDS9x18
   components:
@@ -71,6 +73,7 @@
   name: cartridge (7.62x39)
   parent: BaseCartridge
   abstract: true
+  suffix: Sir_Felix
   components:
   - type: Tag
     tags:
@@ -90,7 +93,7 @@
 
 - type: entity
   id: CartridgeDS7x62x39
-  suffix: DS
+  suffix: DS, Sir_Felix
   name: cartridge (7.62x39)
   parent: BaseCartridgeDS7x62x39
   components:
@@ -104,6 +107,7 @@
   name: cartridge (7.62x51)
   parent: BaseCartridge
   abstract: true
+  suffix: Sir_Felix
   components:
   - type: Tag
     tags:
@@ -123,7 +127,7 @@
 
 - type: entity
   id: CartridgeDS7x62x51
-  suffix: DS
+  suffix: DS, Sir_Felix
   name: cartridge (7.62x51)
   parent: BaseCartridgeDS7x62x51
   components:
@@ -137,6 +141,7 @@
   name: cartridge (7.62x54R)
   parent: BaseCartridge
   abstract: true
+  suffix: Sir_Felix
   components:
   - type: Tag
     tags:
@@ -156,7 +161,7 @@
 
 - type: entity
   id: CartridgeDS7x62x54
-  suffix: DS
+  suffix: DS, Sir_Felix
   name: cartridge (7.62x54R)
   parent: BaseCartridgeDS7x62x54
   components:
@@ -170,6 +175,7 @@
   name: cartridge (5.45x39)
   parent: BaseCartridge
   abstract: true
+  suffix: Sir_Felix
   components:
   - type: Tag
     tags:
@@ -189,7 +195,7 @@
 
 - type: entity
   id: CartridgeDS5x45x39
-  suffix: DS
+  suffix: DS, Sir_Felix
   name: cartridge (5.45x39)
   parent: BaseCartridgeDS5x45x39
   components:
@@ -203,6 +209,7 @@
   name: cartridge (5.56x45)
   parent: BaseCartridge
   abstract: true
+  suffix: Sir_Felix
   components:
   - type: Tag
     tags:
@@ -222,7 +229,7 @@
 
 - type: entity
   id: CartridgeDS5x56x45
-  suffix: DS
+  suffix: DS, Sir_Felix
   name: cartridge (5.56x45)
   parent: BaseCartridgeDS5x56x45
   components:
@@ -236,6 +243,7 @@
   name: cartridge (5.6mm)
   parent: BaseCartridge
   abstract: true
+  suffix: Sir_Felix
   components:
   - type: Tag
     tags:
@@ -255,7 +263,7 @@
 
 - type: entity
   id: CartridgeDS5x6
-  suffix: DS
+  suffix: DS, Sir_Felix
   name: cartridge (5.6mm)
   parent: BaseCartridgeDS5x6
   components:
@@ -269,6 +277,7 @@
   name: cartridge (12x70)
   parent: BaseCartridge
   abstract: true
+  suffix: Sir_Felix
   components:
   - type: Tag
     tags:
@@ -288,7 +297,7 @@
 
 - type: entity
   id: CartridgeDS12x70
-  suffix: DS
+  suffix: DS, Sir_Felix
   name: cartridge (12x70)
   parent: BaseCartridgeDS12x70
   components:
@@ -297,7 +306,7 @@
 
 - type: entity
   id: CartridgeDS12x70AP
-  suffix: DS
+  suffix: DS, Sir_Felix
   name: cartridge (12x70 AP)
   parent: BaseCartridgeDS12x70
   components:
@@ -318,6 +327,7 @@
   name: cartridge (.308)
   parent: BaseCartridge
   abstract: true
+  suffix: Sir_Felix
   components:
   - type: Tag
     tags:
@@ -337,7 +347,7 @@
 
 - type: entity
   id: CartridgeDS308
-  suffix: DS
+  suffix: DS, Sir_Felix
   name: cartridge (.308)
   parent: BaseCartridgeDS308
   components:
@@ -351,6 +361,7 @@
   name: cartridge (.357)
   parent: BaseCartridge
   abstract: true
+  suffix: Sir_Felix
   components:
   - type: Tag
     tags:
@@ -370,7 +381,7 @@
 
 - type: entity
   id: CartridgeDS357
-  suffix: DS
+  suffix: DS, Sir_Felix
   name: cartridge (.357)
   parent: BaseCartridgeDS357
   components:
@@ -384,6 +395,7 @@
   name: cartridge (.40)
   parent: BaseCartridge
   abstract: true
+  suffix: Sir_Felix
   components:
   - type: Tag
     tags:
@@ -403,7 +415,7 @@
 
 - type: entity
   id: CartridgeDS40
-  suffix: DS
+  suffix: DS, Sir_Felix
   name: cartridge (.40)
   parent: BaseCartridgeDS40
   components:
@@ -414,7 +426,7 @@
 
 - type: entity
   id: CartridgeDSM32A1Grenade
-  suffix: DS
+  suffix: DS, Sir_Felix
   name: граната M32A1
   description: Осколочная граната для гранатомёта M32A1. При попадании вызывает взрыв.
   parent: BaseItem
@@ -436,7 +448,7 @@
 
 - type: entity
   id: CartridgeDSSmokeM32A1
-  suffix: DS
+  suffix: DS, Sir_Felix
   name: дымовая граната M32A1
   description: Дымовая граната для гранатомёта M32A1. Создаёт облако дыма на 30 секунд.
   parent: BaseItem
@@ -460,7 +472,7 @@
 
 - type: entity
   id: CartridgeDSRPG7
-  suffix: DS
+  suffix: DS, Sir_Felix
   name: граната РПГ-7
   description: Стандартная кумулятивная граната для РПГ-7. Вызывает мощный взрыв при попадании.
   parent: BaseItem

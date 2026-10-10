@@ -2,7 +2,7 @@
 
 - type: entity
   id: BulletDS9x19
-  suffix: DS
+  suffix: DS, Sir_Felix
   name: bullet (9x19)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -14,7 +14,7 @@
 
 - type: entity
   id: BulletDS9x18
-  suffix: DS
+  suffix: DS, Sir_Felix
   name: bullet (9x18)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -26,7 +26,7 @@
 
 - type: entity
   id: BulletDS7x62x39
-  suffix: DS
+  suffix: DS, Sir_Felix
   name: bullet (7.62x39)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -38,7 +38,7 @@
 
 - type: entity
   id: BulletDS7x62x51
-  suffix: DS
+  suffix: DS, Sir_Felix
   name: bullet (7.62x51)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -50,7 +50,7 @@
 
 - type: entity
   id: BulletDS7x62x54
-  suffix: DS
+  suffix: DS, Sir_Felix
   name: bullet (7.62x54R)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -62,7 +62,7 @@
 
 - type: entity
   id: BulletDS5x45x39
-  suffix: DS
+  suffix: DS, Sir_Felix
   name: bullet (5.45x39)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -74,7 +74,7 @@
 
 - type: entity
   id: BulletDS5x56x45
-  suffix: DS
+  suffix: DS, Sir_Felix
   name: bullet (5.56x45)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -86,7 +86,7 @@
 
 - type: entity
   id: BulletDS5x6
-  suffix: DS
+  suffix: DS, Sir_Felix
   name: bullet (5.6mm)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -98,7 +98,7 @@
 
 - type: entity
   id: BulletDS12x70
-  suffix: DS
+  suffix: DS, Sir_Felix
   name: bullet (12x70)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -110,7 +110,7 @@
 
 - type: entity
   id: BulletDS12x70AP
-  suffix: DS
+  suffix: DS, Sir_Felix
   name: bullet (12x70 AP)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -123,7 +123,7 @@
 
 - type: entity
   id: BulletDS308
-  suffix: DS
+  suffix: DS, Sir_Felix
   name: bullet (.308)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -135,7 +135,7 @@
 
 - type: entity
   id: BulletDS357
-  suffix: DS
+  suffix: DS, Sir_Felix
   name: bullet (.357)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -147,7 +147,7 @@
 
 - type: entity
   id: BulletDS40
-  suffix: DS
+  suffix: DS, Sir_Felix
   name: bullet (.40)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -161,7 +161,7 @@
 
 - type: entity
   id: BulletDSM32A1Grenade
-  suffix: DS
+  suffix: DS, Sir_Felix
   name: grenade M32A1
   parent: BaseBulletTrigger
   components:
@@ -186,7 +186,7 @@
 
 - type: entity
   id: BulletDSSmokeM32A1
-  suffix: DS
+  suffix: DS, Sir_Felix
   name: smoke grenade M32A1
   parent: BaseBulletTrigger
   components:
@@ -203,7 +203,7 @@
 
 - type: entity
   id: BulletDSRPG7
-  suffix: DS
+  suffix: DS, Sir_Felix
   name: grenade RPG-7
   parent: BaseBulletTrigger
   components:

@@ -1,6 +1,7 @@
 - type: entity
   id: XenomorphBloodstream
   parent: MobBloodstream
+  categories: [ HideSpawnMenu ] # Aquila Change
   components:
   - type: Bloodstream
     bloodReferenceSolution:

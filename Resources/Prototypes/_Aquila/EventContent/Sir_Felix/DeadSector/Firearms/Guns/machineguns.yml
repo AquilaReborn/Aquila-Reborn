@@ -1,6 +1,6 @@
 - type: entity
   id: WeaponDSMk48
-  suffix: DeadSector, Gun
+  suffix: DeadSector, Gun, Sir_Felix
   name: Mk48
   description: .
   parent: [ BaseItem, BaseGunWieldable, BaseMinorContraband, BaseAttachmentsGun ]
@@ -87,7 +87,7 @@
 
 - type: entity
   id: WeaponDSPKM
-  suffix: DeadSector, Gun
+  suffix: DeadSector, Gun, Sir_Felix
   name: Штурмовой ПКМ
   description: .
   parent: [ BaseItem, BaseGunWieldable, BaseMinorContraband, BaseAttachmentsGun ]
@@ -174,7 +174,7 @@
 
 - type: entity
   id: WeaponDSRPK
-  suffix: DeadSector, Gun
+  suffix: DeadSector, Gun, Sir_Felix
   name: Штурмовой РПК
   description: .
   parent: [ BaseItem, BaseGunWieldable, BaseMinorContraband, BaseAttachmentsGun ]

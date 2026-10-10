@@ -1,6 +1,6 @@
 - type: entity
   id: WeaponDSDesertEagle
-  suffix: DeadSector, Gun
+  suffix: DeadSector, Gun, Sir_Felix
   name: Desert Eagle
   description: .
   parent: [ BaseItem, BaseMinorContraband ]
@@ -59,7 +59,7 @@
 
 - type: entity
   id: WeaponDSIgla
-  suffix: DeadSector, Gun
+  suffix: DeadSector, Gun, Sir_Felix
   name: Игла
   description: .
   parent: [ BaseItem, BaseMinorContraband ]
@@ -99,7 +99,7 @@
 
 - type: entity
   id: WeaponDSJudge
-  suffix: DeadSector, Gun
+  suffix: DeadSector, Gun, Sir_Felix
   name: Судья
   description: .
   parent: [ BaseItem, BaseMinorContraband ]
@@ -139,7 +139,7 @@
 
 - type: entity
   id: WeaponDSMilton
-  suffix: DeadSector, Gun
+  suffix: DeadSector, Gun, Sir_Felix
   name: Пистолет Милтон
   description: .
   parent: [ BaseItem, BaseMinorContraband ]
@@ -198,7 +198,7 @@
 
 - type: entity
   id: WeaponDSPM
-  suffix: DeadSector, Gun
+  suffix: DeadSector, Gun, Sir_Felix
   name: Пистолет Макарова
   description: .
   parent: [ BaseItem, BaseMinorContraband ]
@@ -257,7 +257,7 @@
 
 - type: entity
   id: WeaponDSStok
-  suffix: DeadSector, Gun
+  suffix: DeadSector, Gun, Sir_Felix
   name: Пистолет Сток
   description: .
   parent: [ BaseItem, BaseMinorContraband ]
