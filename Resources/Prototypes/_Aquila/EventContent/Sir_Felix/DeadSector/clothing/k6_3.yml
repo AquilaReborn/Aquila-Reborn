@@ -1,0 +1,150 @@
+- type: entity
+  id: ClothingHeadHelmetK63
+  parent: ClothingHeadHelmetBase
+  name: fire helmet
+  description: An atmos tech's best friend. Provides some heat resistance and looks cool.
+  suffix: DeadSector
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/head/k6_3_new.rsi
+    state: icon-off
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/head/k6_3_new.rsi
+    quickEquip: true
+    clothingVisuals:
+      head:
+      - state: off-equipped-HELMET
+  - type: Item
+    size: Normal
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.93
+  - type: ExplosionResistance
+    damageCoefficient: 0.75
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - HeadTop
+  - type: PullableHelmet
+    untoggledPrototype: ClothingHeadHelmetK63
+    toggledPrototype: ClothingHeadHelmetK63Lowered
+    pullAction: ToggleK63Helmet
+
+- type: entity
+  id: ClothingHeadHelmetK63Lowered
+  parent: ClothingHeadHelmetK63
+  name: fire helmet
+  categories: [ HideSpawnMenu ]
+  description: An atmos tech's best friend. Provides some heat resistance and looks cool.
+  suffix: DeadSector
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/head/k6_3_new.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/head/k6_3_new.rsi
+    quickEquip: true
+    clothingVisuals:
+      head:
+      - state: on-equipped-HELMET
+  - type: Item
+    size: Normal
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.75
+        Heat: 0.75
+        Shock: 0.75
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - HeadTop
+  - type: IngestionBlocker
+
+- type: entity
+  id: ToggleK63Helmet
+  name: Toggle ninja gloves
+  description: Toggles all glove actions on left click. Includes your doorjack, draining power, stunning enemies and hacking certain computers.
+  components:
+  - type: InstantAction
+    event: !type:PullHelmetActionEvent
+  - type: Action
+    itemIconStyle: BigItem
+    useDelay: 1
+
+- type: entity
+  id: ClothingHeadHelmetK63Alternate
+  parent: ClothingHeadHelmetBase
+  name: fire helmet
+  description: An atmos tech's best friend. Provides some heat resistance and looks cool.
+  suffix: DeadSector
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/head/k6_3_new_alt.rsi
+    state: icon-off
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/head/k6_3_new_alt.rsi
+    quickEquip: true
+    clothingVisuals:
+      head:
+      - state: off-equipped-HELMET
+  - type: Item
+    size: Normal
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.93
+  - type: ExplosionResistance
+    damageCoefficient: 0.7
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - HeadTop
+  - type: PullableHelmet
+    untoggledPrototype: ClothingHeadHelmetK63Alternate
+    toggledPrototype: ClothingHeadHelmetK63AlternateLowered
+    pullAction: ToggleK63Helmet
+
+- type: entity
+  id: ClothingHeadHelmetK63AlternateLowered
+  parent: ClothingHeadHelmetK63Alternate
+  name: fire helmet
+  categories: [ HideSpawnMenu ]
+  description: An atmos tech's best friend. Provides some heat resistance and looks cool.
+  suffix: DeadSector
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/head/k6_3_new_alt.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/DeadSector/head/k6_3_new_alt.rsi
+    quickEquip: true
+    clothingVisuals:
+      head:
+      - state: on-equipped-HELMET
+  - type: Item
+    size: Normal
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.75
+        Heat: 0.75
+        Shock: 0.75
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - HeadTop
+  - type: IngestionBlocker
