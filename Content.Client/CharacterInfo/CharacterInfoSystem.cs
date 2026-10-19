@@ -35,7 +35,9 @@ public sealed class CharacterInfoSystem : EntitySystem
 
     private void OnCharacterInfoEvent(CharacterInfoEvent msg, EntitySessionEventArgs args)
     {
-        var entity = GetEntity(msg.NetEntity);
+        if (!TryGetEntity(msg.NetEntity, out var maybeEntity) || maybeEntity is not { } entity || !Exists(entity)) // Aquila Change
+            return; // Aquila Change
+
         var data = new CharacterData(entity, msg.JobProto, msg.Objectives, msg.Briefing, Name(entity)); // CorvaxGoob
 
         OnCharacterUpdate?.Invoke(data);
