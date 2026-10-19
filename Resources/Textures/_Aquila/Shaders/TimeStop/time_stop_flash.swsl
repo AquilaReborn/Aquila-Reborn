@@ -1,0 +1,17 @@
+light_mode unshaded;
+blend_mode mix;
+
+uniform highp float progress;
+
+highp vec3 hsv2rgb(highp vec3 c) {
+    highp vec4 k = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+    highp vec3 p = abs(fract(c.xxx + k.xyz) * 6.0 - k.www);
+    return c.z * mix(k.xxx, clamp(p - k.xxx, 0.0, 1.0), c.y);
+}
+
+void fragment() {
+    highp float hue = fract(progress * 2.5);
+    highp vec3 rainbow = hsv2rgb(vec3(hue, 0.85, 1.0));
+    highp float alpha = (1.0 - progress) * 0.85;
+    COLOR = vec4(rainbow, alpha);
+}

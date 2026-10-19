@@ -13,6 +13,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
+using Content.Shared.Aquila.TimeStop; // Aquila
 
 namespace Content.Shared.Throwing
 {
@@ -98,6 +99,9 @@ namespace Content.Shared.Throwing
             if (HasComp<FrozenComponent>(uid)) // Goobstation
                 return;
 
+            if (TryComp<TimeStopSlowedComponent>(uid, out var timeStopSlowed) && timeStopSlowed.IsSlowed) // Aquila
+                return;
+
             if (TryComp<PhysicsComponent>(uid, out var physics))
             {
                 _physics.SetBodyStatus(uid, physics, BodyStatus.OnGround);
@@ -124,6 +128,9 @@ namespace Content.Shared.Throwing
         public void LandComponent(EntityUid uid, ThrownItemComponent thrownItem, PhysicsComponent physics, bool playSound)
         {
             if (HasComp<FrozenComponent>(uid)) // Goobstation
+                return;
+
+            if (TryComp<TimeStopSlowedComponent>(uid, out var timeStopSlowed) && timeStopSlowed.IsSlowed) // Aquila
                 return;
 
             if (thrownItem.Landed || thrownItem.Deleted || _gravity.IsWeightless(uid) || Deleted(uid))
@@ -172,6 +179,7 @@ namespace Content.Shared.Throwing
 
             var query = EntityQueryEnumerator<ThrownItemComponent, PhysicsComponent>();
             var frozenQuery = GetEntityQuery<FrozenComponent>(); // Goobstation
+            var timeStopQuery = GetEntityQuery<TimeStopSlowedComponent>(); // Aquila
             while (query.MoveNext(out var uid, out var thrown, out var physics))
             {
                 // If you remove this check verify slipping for other entities is networked properly.
@@ -179,6 +187,9 @@ namespace Content.Shared.Throwing
                     continue;
 
                 if (frozenQuery.HasComp(uid)) // Goobstation
+                    continue;
+
+                if (timeStopQuery.TryGetComponent(uid, out var timeStopSlowed) && timeStopSlowed.IsSlowed) // Aquila
                     continue;
 
                 if (thrown.LandTime <= _gameTiming.CurTime)

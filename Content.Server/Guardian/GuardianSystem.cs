@@ -439,5 +439,38 @@ namespace Content.Server.Guardian
             _popupSystem.PopupEntity(Loc.GetString("guardian-entity-recall"), host);
             guardianComponent.GuardianLoose = false;
         }
+
+        // Aquila Start
+        public EntityUid? CreateGuardian(EntityUid target, string guardianProto)
+        {
+            if (HasComp<GuardianHostComponent>(target))
+                return null;
+
+            var hostXform = Transform(target);
+            var host = EnsureComp<GuardianHostComponent>(target);
+            var guardian = Spawn(guardianProto, _transform.GetMapCoordinates(target, xform: hostXform));
+
+            _faction.IgnoreEntity(guardian, target);
+            var sharedComp = EnsureComp<GuardianSharedComponent>(guardian);
+            sharedComp.Host = target;
+            Dirty(guardian, sharedComp);
+
+            _container.Insert(guardian, host.GuardianContainer);
+            host.HostedGuardian = guardian;
+
+            if (TryComp<GuardianComponent>(guardian, out var guardianComp))
+            {
+                guardianComp.Host = target;
+                _audio.PlayPvs(guardianComp.InjectSound, target);
+                _popupSystem.PopupEntity(Loc.GetString("guardian-created"), target, target);
+                return guardian;
+            }
+
+            QueueDel(guardian);
+            QueueDel(host.ActionEntity);
+            RemComp<GuardianHostComponent>(target);
+            return null;
+        }
+        // Aquila End
     }
 }

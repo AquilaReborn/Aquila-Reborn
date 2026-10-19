@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by KoQdiev",
+  "size": {
+    "x": 64,
+    "y": 32
+  },
+  "states": [
+    { "name": "spin_0" },
+    { "name": "spin_1" },
+    { "name": "spin_2" },
+    { "name": "spin_3" },
+    { "name": "spin_4" },
+    { "name": "spin_5" },
+    { "name": "spin_6" },
+    { "name": "spin_7" }
+  ]
+}

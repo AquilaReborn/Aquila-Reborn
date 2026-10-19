@@ -1,0 +1,133 @@
+- type: entity
+  name: holy corpse skull
+  id: HolyCorpseSkull
+  parent: BaseItem
+  description: A limb from a holy corpse, granting its possessor an unknown power!
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/KoQdiev/HolyCorpse.rsi
+    state: HolyCorpseSkull
+  - type: HolyCorpseCreator
+    guardianProto: MobGuardianKingCrimson
+    flashProto: HolyCorpseEffect
+    delay: 1.9
+    components:
+    - type: ErasureTime
+
+- type: entity
+  name: holy corpse heart
+  id: HolyCorpseHeart
+  parent: HolyCorpseSkull
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/KoQdiev/HolyCorpse.rsi
+    state: HolyCorpseHeart
+  - type: HolyCorpseCreator
+    guardianProto: MobGuardianD4C
+    flashProto: HolyCorpseEffect
+    delay: 1.9
+    components:
+    - type: CloneSummonerAction
+
+- type: entity
+  name: holy corpse chest
+  id: HolyCorpseChest
+  parent: HolyCorpseSkull
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/KoQdiev/HolyCorpse.rsi
+    state: HolyCorpseChest
+  - type: HolyCorpseCreator
+    guardianProto: MobGuardianTheWorld
+    flashProto: HolyCorpseEffect
+    delay: 1.9
+    components:
+    - type: TimeStop
+
+- type: entity
+  name: holy corpse right hand
+  id: HolyCorpseRightHand
+  parent: HolyCorpseSkull
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/KoQdiev/HolyCorpse.rsi
+    state: HolyCorpseRightHand
+  - type: HolyCorpseCreator
+    guardianProto: MobGuardianTaskOne
+    flashProto: HolyCorpseEffect
+    delay: 1.9
+    components: []
+
+- type: entity
+  name: holy corpse left hand
+  id: HolyCorpseLeftHand
+  parent: HolyCorpseSkull
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/KoQdiev/HolyCorpse.rsi
+    state: HolyCorpseLeftHand
+  - type: HolyCorpseCreator
+    guardianProto: MobGuardianTaskOne
+    flashProto: HolyCorpseEffect
+    delay: 1.9
+    components: []
+
+- type: entity
+  name: holy corpse right foot
+  id: HolyCorpseRightFoot
+  parent: HolyCorpseSkull
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/KoQdiev/HolyCorpse.rsi
+    state: HolyCorpseRightFoot
+  - type: HolyCorpseCreator
+    guardianProto: MobGuardianMandom
+    flashProto: HolyCorpseEffect
+    delay: 1.9
+    components:
+    - type: TimeRewind
+
+- type: entity
+  name: holy corpse left foot
+  id: HolyCorpseLeftFoot
+  parent: HolyCorpseSkull
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/KoQdiev/HolyCorpse.rsi
+    state: HolyCorpseLeftFoot
+  - type: HolyCorpseCreator
+    guardianProto: MobGuardianMandom
+    flashProto: HolyCorpseEffect
+    delay: 1.9
+    components:
+    - type: TimeRewind
+
+- type: entity
+  name: holy corpse left eye
+  id: HolyCorpseLeftEye
+  parent: HolyCorpseSkull
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/KoQdiev/HolyCorpse.rsi
+    state: HolyCorpseLeftEye
+  - type: HolyCorpseCreator
+    guardianProto: MobGuardianMandom
+    flashProto: HolyCorpseEffect
+    delay: 1.9
+    components:
+    - type: TimeRewind
+
+- type: entity
+  name: holy corpse right eye
+  id: HolyCorpseRightEye
+  parent: HolyCorpseSkull
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/KoQdiev/HolyCorpse.rsi
+    state: HolyCorpseRightEye
+  - type: HolyCorpseCreator
+    guardianProto: MobGuardianMandom
+    flashProto: HolyCorpseEffect
+    delay: 1.9
+    components:
+    - type: TimeRewind

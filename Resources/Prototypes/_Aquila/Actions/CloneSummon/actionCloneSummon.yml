@@ -1,0 +1,32 @@
+- type: entity
+  id: ActionSummonClone
+  name: Summoning human clone
+  description: Summoning a clone from another dimension. A clone lives for only 30 seconds.
+  components:
+  - type: Action
+    icon: { sprite: Mobs/Customization/reptilian_parts.rsi, state: tail_smooth }
+    itemIconStyle: BigItem
+    useDelay: 7.5
+  - type: TargetAction
+    range: 7.5
+    interactOnMiss: true
+    checkCanAccess: false
+    deselectOnMiss: true
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - HumanoidAppearance
+    canTargetSelf: true
+    event: !type:SummonCloneActionEvent
+
+- type: entity
+  id: ActionTeleportToClone
+  name: Teleport to clone
+  description: Teleport to the location of the last clone, destroying it and healing yourself.
+  components:
+  - type: InstantAction
+    event: !type:TeleportToCloneActionEvent
+  - type: Action
+    icon: { sprite: Mobs/Customization/reptilian_parts.rsi, state: tail_smooth }
+    itemIconStyle: BigItem
+    useDelay: 0.5

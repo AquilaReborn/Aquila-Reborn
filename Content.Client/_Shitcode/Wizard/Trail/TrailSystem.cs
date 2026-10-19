@@ -13,6 +13,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Robust.Shared.Containers; // Aquila
 
 namespace Content.Client._Shitcode.Wizard.Trail;
 
@@ -23,6 +24,7 @@ public sealed class TrailSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!; // Aquila
 
     private EntityQuery<TransformComponent> _xformQuery;
     private EntityQuery<FrozenComponent> _frozenQuery;
@@ -123,7 +125,14 @@ public sealed class TrailSystem : EntitySystem
 
             Lerp(trail, position, frameTime);
 
-            trail.Accumulator += frameTime;
+            // Aquila Start: stop spawning new trail particles while the entity is inside a container
+            // (hands, pockets, backpacks, etc). Already spawned TrailData keeps lerping/fading as usual above;
+            // only the accumulator is frozen so it doesn't dump accumulated particles the moment the item is taken back out.
+            if (_container.IsEntityInContainer(uid))
+                continue;
+           // Aquila End
+
+           trail.Accumulator += frameTime;
 
             // Assuming that lifetime and frequency don't change
             if (trail.Accumulator > trail.Lifetime && trail.Lifetime < trail.Frequency && trail.TrailData.Count > 0)

@@ -1,0 +1,11 @@
+- type: entity
+  id: ActionErasureTime
+  name: Erase time
+  description: Carves out a segment of time, slowing down everyone around you while speeding you up.
+  components:
+  - type: Action
+    icon: { sprite: Mobs/Customization/reptilian_parts.rsi, state: tail_smooth }
+    itemIconStyle: BigItem
+    useDelay: 20
+  - type: InstantAction
+    event: !type:ErasureTimeActionEvent

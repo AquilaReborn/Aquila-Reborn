@@ -1,0 +1,11 @@
+- type: entity
+  id: ActionAquilaTimeStop
+  name: Time Stop
+  description: Stop time for everyone except yourself!
+  components:
+  - type: Action
+    icon: { sprite: Mobs/Customization/reptilian_parts.rsi, state: tail_smooth }
+    itemIconStyle: BigItem
+    useDelay: 25
+  - type: InstantAction
+    event: !type:TimeStopActionEvent

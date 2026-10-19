@@ -1,0 +1,19 @@
+- type: entity
+  id: SpawnLightEffect
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    noRot: true
+    sprite: _Aquila/Effects/light_effect.rsi
+    state: light
+    netsync: false
+    drawdepth: Effects
+  - type: PointLight
+    color: "#ffff00"
+    radius: 4
+    energy: 5
+  - type: LightFade
+    duration: 0.4

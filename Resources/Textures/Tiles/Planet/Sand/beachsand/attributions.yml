@@ -1,0 +1,3 @@
+- files: ["drySand.png", "sand.png", "sand_single_edge_ne.png", "sand_single_edge_nw.png", "sand_single_edge_se.png", "sand_single_edge_sw.png", "sand_double_edge_e.png", "sand_double_edge_n.png", "sand_double_edge_s.png", "sand_double_edge_w.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from shiptest"

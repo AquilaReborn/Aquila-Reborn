@@ -1,0 +1,9 @@
+- type: shader
+  id: TimeStopGrayscale
+  kind: source
+  path: "/Textures/_Aquila/Shaders/TimeStop/time_stop_grayscale.swsl"
+
+- type: shader
+  id: TimeStopFlash
+  kind: source
+  path: "/Textures/_Aquila/Shaders/TimeStop/time_stop_flash.swsl"

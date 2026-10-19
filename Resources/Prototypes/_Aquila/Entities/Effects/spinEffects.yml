@@ -1,0 +1,55 @@
+- type: entity
+  id: SpinHitEffect
+  components:
+  - type: TimedDespawn
+    lifetime: 0.60
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    scale: 0.5, 0.5
+    noRot: true
+    sprite: _Aquila/Effects/Spin/SpinHitEffect.rsi
+    state: spinHitEffect
+    shader: unshaded
+    netsync: false
+    drawdepth: Effects
+
+- type: entity
+  id: SpinEmpowerEffect
+  components:
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    scale: 0.65, 0.65
+    noRot: true
+    sprite: _Aquila/Effects/Spin/SpinEmpowerEffect.rsi
+    state: spinEmpowerEffect
+    shader: unshaded
+    netsync: false
+    drawdepth: Effects
+  - type: PointLight
+    color: "#ffff00"
+    radius: 0.5
+    energy: 15
+
+- type: entity
+  id: SpinUserEmpowerEffect
+  components:
+  - type: TimedDespawn
+    lifetime: 0.8
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    scale: 0.65, 0.65
+    noRot: true
+    sprite: _Aquila/Effects/Spin/SpinUserEmpowerEffect.rsi
+    state: spinUserEmpowerEffect
+    shader: unshaded
+    netsync: false
+    drawdepth: Effects
+  - type: PointLight
+    color: "#6ecd56"
+    radius: 1.5
+    energy: 3
+  - type: LightFade
+    duration: 0.6

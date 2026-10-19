@@ -8,6 +8,7 @@ using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
+using Robust.Shared.Containers; // Aquila
 
 namespace Content.Client._Shitcode.Wizard.Trail;
 
@@ -46,9 +47,10 @@ public sealed class TrailOverlay : Overlay
 
         var xformQuery = _entManager.GetEntityQuery<TransformComponent>();
         var spriteQuery = _entManager.GetEntityQuery<SpriteComponent>();
+        var container = _entManager.System<SharedContainerSystem>(); // Aquila
 
         var query = _entManager.EntityQueryEnumerator<TrailComponent, TransformComponent>();
-        while (query.MoveNext(out _, out var trail, out var xform))
+        while (query.MoveNext(out var uid, out var trail, out var xform)) // Aquila
         {
             if (trail.TrailData.Count == 0)
                 continue;
@@ -121,7 +123,11 @@ public sealed class TrailOverlay : Overlay
             if (trail.Sprite == null)
             {
                 handle.SetTransform(Matrix3x2.Identity);
-                if (xform.MapID == args.MapId)
+                // Aquila Start: skip the segment connecting the trail tail to the entity's *current* position
+                // while it's stored in a container (hands, pockets, backpacks). Otherwise this segment stretches
+                // from the last recorded trail point all the way to wherever the entity got picked up/stored.
+                if (xform.MapID == args.MapId && !container.IsEntityInContainer(uid))
+                // Aquila End
                 {
                     var start = trail.TrailData[^1].Position;
                     DrawTrailLine(start, position, trail.Color, trail.Scale, bounds, handle);

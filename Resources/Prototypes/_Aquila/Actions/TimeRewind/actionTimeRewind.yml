@@ -1,0 +1,11 @@
+- type: entity
+  id: ActionTimeRewind
+  name: Time Rewind
+  description: In 6 seconds, everything within the radius will return to its original position.
+  components:
+  - type: Action
+    icon: { sprite: Mobs/Customization/reptilian_parts.rsi, state: tail_smooth }
+    itemIconStyle: BigItem
+    useDelay: 6.5
+  - type: InstantAction
+    event: !type:TimeRewindActionEvent

@@ -1,0 +1,174 @@
+- type: tile
+  id: FloorBeachSandBorderless
+  parent: BaseFloorPlanet
+  name: tiles-desert-floor
+  sprite: /Textures/Tiles/Planet/Sand/beachsand/sand.png
+  variants: 7
+  placementVariants:
+  - 1.0
+  - 0.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+
+- type: tile
+  id: FloorDryBeachSandBorderless
+  parent: BaseFloorPlanet
+  name: tiles-desert-floor
+  sprite: /Textures/Tiles/Planet/Sand/beachsand/drySand.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+
+- type: tile
+  id: FloorBeachSand
+  parent: FloorBeachSandBorderless
+  name: tiles-asteroid-ironsand
+  edgeSpritePriority: 1
+  edgeSprites:
+    SouthEast: /Textures/Tiles/Planet/Sand/beachsand/sand_single_edge_se.png
+    NorthEast: /Textures/Tiles/Planet/Sand/beachsand/sand_single_edge_ne.png
+    NorthWest: /Textures/Tiles/Planet/Sand/beachsand/sand_single_edge_nw.png
+    SouthWest: /Textures/Tiles/Planet/Sand/beachsand/sand_single_edge_sw.png
+    South: /Textures/Tiles/Planet/Sand/beachsand/sand_double_edge_s.png
+    East: /Textures/Tiles/Planet/Sand/beachsand/sand_double_edge_e.png
+    North: /Textures/Tiles/Planet/Sand/beachsand/sand_double_edge_n.png
+    West: /Textures/Tiles/Planet/Sand/beachsand/sand_double_edge_w.png
+
+- type: tile
+  id: FloorDryBeachSand
+  parent: FloorDryBeachSandBorderless
+  name: tiles-asteroid-ironsand
+  edgeSpritePriority: 1
+  edgeSprites:
+    SouthEast: /Textures/Tiles/Planet/Sand/beachsand/sand_single_edge_se.png
+    NorthEast: /Textures/Tiles/Planet/Sand/beachsand/sand_single_edge_ne.png
+    NorthWest: /Textures/Tiles/Planet/Sand/beachsand/sand_single_edge_nw.png
+    SouthWest: /Textures/Tiles/Planet/Sand/beachsand/sand_single_edge_sw.png
+    South: /Textures/Tiles/Planet/Sand/beachsand/sand_double_edge_s.png
+    East: /Textures/Tiles/Planet/Sand/beachsand/sand_double_edge_e.png
+    North: /Textures/Tiles/Planet/Sand/beachsand/sand_double_edge_n.png
+    West: /Textures/Tiles/Planet/Sand/beachsand/sand_double_edge_w.png
+
+# beach sand wet
+
+- type: tile
+  id: FloorBeachSandWetBorderless
+  parent: BaseFloorPlanet
+  name: tiles-desert-floor
+  sprite: /Textures/Tiles/Planet/Sand/beachsand_wet/sand.png
+  variants: 7
+  placementVariants:
+  - 1.0
+  - 0.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+
+- type: tile
+  id: FloorDryBeachSandWetBorderless
+  parent: BaseFloorPlanet
+  name: tiles-desert-floor
+  sprite: /Textures/Tiles/Planet/Sand/beachsand_wet/drySand.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+
+- type: tile
+  id: FloorBeachSandWet
+  parent: FloorBeachSandWetBorderless
+  name: tiles-asteroid-ironsand
+  edgeSpritePriority: 1
+  edgeSprites:
+    SouthEast: /Textures/Tiles/Planet/Sand/beachsand_wet/sand_single_edge_se.png
+    NorthEast: /Textures/Tiles/Planet/Sand/beachsand_wet/sand_single_edge_ne.png
+    NorthWest: /Textures/Tiles/Planet/Sand/beachsand_wet/sand_single_edge_nw.png
+    SouthWest: /Textures/Tiles/Planet/Sand/beachsand_wet/sand_single_edge_sw.png
+    South: /Textures/Tiles/Planet/Sand/beachsand_wet/sand_double_edge_s.png
+    East: /Textures/Tiles/Planet/Sand/beachsand_wet/sand_double_edge_e.png
+    North: /Textures/Tiles/Planet/Sand/beachsand_wet/sand_double_edge_n.png
+    West: /Textures/Tiles/Planet/Sand/beachsand_wet/sand_double_edge_w.png
+
+- type: tile
+  id: FloorDryBeachSandWet
+  parent: FloorDryBeachSandBorderless
+  name: tiles-asteroid-ironsand
+  edgeSpritePriority: 1
+  edgeSprites:
+    SouthEast: /Textures/Tiles/Planet/Sand/beachsand_wet/sand_single_edge_se.png
+    NorthEast: /Textures/Tiles/Planet/Sand/beachsand_wet/sand_single_edge_ne.png
+    NorthWest: /Textures/Tiles/Planet/Sand/beachsand_wet/sand_single_edge_nw.png
+    SouthWest: /Textures/Tiles/Planet/Sand/beachsand_wet/sand_single_edge_sw.png
+    South: /Textures/Tiles/Planet/Sand/beachsand_wet/sand_double_edge_s.png
+    East: /Textures/Tiles/Planet/Sand/beachsand_wet/sand_double_edge_e.png
+    North: /Textures/Tiles/Planet/Sand/beachsand_wet/sand_double_edge_n.png
+    West: /Textures/Tiles/Planet/Sand/beachsand_wet/sand_double_edge_w.png
+
+# desret sand
+
+- type: tile
+  id: FloorDesertSandBorderless
+  parent: BaseFloorPlanet
+  name: tiles-desert-floor
+  sprite: /Textures/Tiles/Planet/Sand/desertsand/sand.png
+  variants: 7
+  placementVariants:
+  - 1.0
+  - 0.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+
+- type: tile
+  id: FloorDryDesertSandBorderless
+  parent: BaseFloorPlanet
+  name: tiles-desert-floor
+  sprite: /Textures/Tiles/Planet/Sand/desertsand/drySand.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+
+- type: tile
+  id: FloorDesertSand
+  parent: FloorDesertSandBorderless
+  name: tiles-asteroid-ironsand
+  edgeSpritePriority: 1
+  edgeSprites:
+    SouthEast: /Textures/Tiles/Planet/Sand/desertsand/sand_single_edge_se.png
+    NorthEast: /Textures/Tiles/Planet/Sand/desertsand/sand_single_edge_ne.png
+    NorthWest: /Textures/Tiles/Planet/Sand/desertsand/sand_single_edge_nw.png
+    SouthWest: /Textures/Tiles/Planet/Sand/desertsand/sand_single_edge_sw.png
+    South: /Textures/Tiles/Planet/Sand/desertsand/sand_double_edge_s.png
+    East: /Textures/Tiles/Planet/Sand/desertsand/sand_double_edge_e.png
+    North: /Textures/Tiles/Planet/Sand/desertsand/sand_double_edge_n.png
+    West: /Textures/Tiles/Planet/Sand/desertsand/sand_double_edge_w.png
+
+- type: tile
+  id: FloorDryDesertSand
+  parent: FloorDryDesertSandBorderless
+  name: tiles-asteroid-ironsand
+  edgeSpritePriority: 1
+  edgeSprites:
+    SouthEast: /Textures/Tiles/Planet/Sand/desertsand/sand_single_edge_se.png
+    NorthEast: /Textures/Tiles/Planet/Sand/desertsand/sand_single_edge_ne.png
+    NorthWest: /Textures/Tiles/Planet/Sand/desertsand/sand_single_edge_nw.png
+    SouthWest: /Textures/Tiles/Planet/Sand/desertsand/sand_single_edge_sw.png
+    South: /Textures/Tiles/Planet/Sand/desertsand/sand_double_edge_s.png
+    East: /Textures/Tiles/Planet/Sand/desertsand/sand_double_edge_e.png
+    North: /Textures/Tiles/Planet/Sand/desertsand/sand_double_edge_n.png
+    West: /Textures/Tiles/Planet/Sand/desertsand/sand_double_edge_w.png

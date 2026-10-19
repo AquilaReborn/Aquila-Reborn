@@ -1,0 +1,37 @@
+- type: entity
+  id: SteelBall
+  parent: BaseItem
+  name: Steel Ball
+  description: A steel sphere, well-suited for long-range throws. It effectively transfers rotational energy, weakening the target.
+  components:
+  - type: Spin
+  - type: LandAtCursor
+  - type: Sprite
+    sprite: _Aquila/Objects/Weapons/Throwable/SteelBall.rsi
+    layers:
+    - state: icon
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 0
+  - type: SpawnEntitiesOnHit
+    spawnOnlyIfHitMob: true
+    proto: SpinHitEffect
+    amount: 1
+  - type: Trail
+    color: "#80c828"
+    scale: 0.08
+    frequency: 0.02
+    lifetime: 0.3
+    lerpTime: 0.0001
+    alphaLerpAmount: 0.2
+    scaleLerpAmount: 0.08
+    shader: unshaded
+  - type: StaminaDamageOnCollide
+    damage: 15 
+  - type: Item
+    size: Small
+  - type: Boomerang # Goobstation
+    maxHops: 1000
+    returnSpeed: 20
+    pickupDistance: 2.5
