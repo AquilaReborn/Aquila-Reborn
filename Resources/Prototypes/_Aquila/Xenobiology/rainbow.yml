@@ -52,7 +52,7 @@
         time: 3
         frequency: 20
       - !type:SpawnEntity
-        entity: XenobioSlimeAnySpawner
+        entity: XenobioSlimeAnyDelayedSpawner
     - reagents: [ Blood ]
       methods: [ Touch, Injection ]
       effects:
@@ -168,3 +168,14 @@
     - MobSlimeXenobioBabyAdamantine
     - MobSlimeXenobioBabyMeat
     - MobSlimeXenobioBabyRainbow
+
+- type: entity
+  parent: MarkerBase
+  id: XenobioSlimeAnyDelayedSpawner
+  name: delayed random slime spawner
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 3
+  - type: SpawnOnDespawn
+    prototype: XenobioSlimeAnySpawner

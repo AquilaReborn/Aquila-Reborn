@@ -91,6 +91,7 @@ ent-XenobioCommonExtractSpawner = спавнер случайного экстр
 ent-XenobioRareExtractSpawner = спавнер случайного редкого экстракта слайма
 ent-XenobioSlimeRareSpawner = спавнер случайного редкого слайма
 ent-XenobioSlimeAnySpawner = спавнер случайного слайма
+ent-XenobioSlimeAnyDelayedSpawner = отложенный спавнер случайного слайма
 
 ent-XenobioSlimeArmorPlate = слизистая бронепластина
     .desc = Лёгкая металлическая пластина, укреплённая затвердевшей слизью. Немного смягчает любой физический удар. Крепится на комбинезон.

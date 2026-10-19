@@ -106,37 +106,23 @@ public sealed class SlimeScannerSystem : EntitySystem
             return _sb.ToString();
         }
 
-        var reactions = reactive.Reactions;
-        for (int i = 0; i < reactions.Count; i++)
+        // Aquila Change start
+        var names = new List<string>();
+        foreach (var reaction in reactive.Reactions)
         {
-            var item = reactions[i];
-            if (item.Reagents == null)
+            if (reaction.Reagents == null)
                 continue;
 
-            var reagents = item.Reagents.ToList();
-            for (int j = 0; j < reagents.Count; j++)
+            foreach (var reagent in reaction.Reagents)
             {
-                var reagent = reagents[j];
-                if (!_proto.TryIndex<ReagentPrototype>(reagent, out var rid))
-                    continue;
-
-                _sb.Append($"[color={rid.SubstanceColor.ToHex()}]{rid.ID.ToLower()}[/color]");
-
-                if (reagents.Count <= 1)
-                    continue;
-
-                // jic
-                if (i == reagents.Count - 1)
-                    _sb.Append("; ");
-                else
-                    _sb.Append(", ");
+                if (_proto.TryIndex<ReagentPrototype>(reagent, out var rid))
+                    names.Add($"[color={rid.SubstanceColor.ToHex()}]{rid.LocalizedName}[/color]");
             }
-
-            if (i == reactions.Count - 1)
-                _sb.AppendLine(".");
-            else
-                _sb.Append(", ");
         }
+
+        _sb.Append(string.Join(", ", names));
+        _sb.AppendLine(".");
+        // Aquila Change end
 
         return _sb.ToString();
     }
