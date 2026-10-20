@@ -1,0 +1,23 @@
+light_mode unshaded;
+
+const highp vec3 lightColor = vec3(0.396, 0.722, 0.886);
+const highp vec3 darkColor = vec3(0.165, 0.302, 0.388);
+const highp float alpha = 0.9;
+const highp float intensity = 2.0;
+const highp float stripeTexels = 1.0;
+const highp float scrollSpeed = 4.0;
+
+void fragment() {
+    highp vec4 base = texture2D(TEXTURE, UV);
+    highp float bw = zGrayscale(base.rgb * intensity);
+    highp vec3 tint = lightColor;
+
+    // Полосы считаются в пикселях текстуры, поэтому их размер не зависит от приближения камеры.
+    highp float texel = floor(UV.y / TEXTURE_PIXEL_SIZE.y);
+    if (mod(floor((texel + floor(TIME * scrollSpeed)) / stripeTexels), 2.0) > 0.5)
+    {
+        tint = darkColor;
+    }
+
+    COLOR = vec4(vec3(bw) * tint, base.a * alpha);
+}

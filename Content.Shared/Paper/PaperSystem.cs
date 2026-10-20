@@ -5,6 +5,7 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.UserInterface;
 using Content.Shared.Database;
 using Content.Shared.Examine;
+using Content.Shared._Aquila.TypingIndicator.Systems; // Aquila Change
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
@@ -32,6 +33,7 @@ public sealed class PaperSystem : EntitySystem
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedTypingIndicatorChannelSystem _typingIndicatorChannel = default!; // Aquila Change
     [Dependency] private readonly IdentitySystem _identitySystem = default!; // Starlight-edit
 
     private static readonly ProtoId<TagPrototype> WriteIgnoreStampsTag = "WriteIgnoreStamps";
@@ -80,6 +82,13 @@ public sealed class PaperSystem : EntitySystem
     {
         entity.Comp.Mode = PaperAction.Read;
         UpdateUserInterface(entity);
+
+        // Aquila Change start
+        foreach (var actor in _uiSystem.GetActors(entity.Owner, PaperUiKey.Key))
+        {
+            _typingIndicatorChannel.SetWriting(actor, false);
+        }
+        // Aquila Change end
     }
 
     private void OnExamined(Entity<PaperComponent> entity, ref ExaminedEvent args)
@@ -150,6 +159,7 @@ public sealed class PaperSystem : EntitySystem
                 entity.Comp.Mode = PaperAction.Write;
                 _uiSystem.OpenUi(entity.Owner, PaperUiKey.Key, args.User);
                 UpdateUserInterface(entity);
+                _typingIndicatorChannel.SetWriting(args.User, true); // Aquila Change
             }
             args.Handled = true;
             return;
@@ -214,6 +224,7 @@ public sealed class PaperSystem : EntitySystem
 
         entity.Comp.Mode = PaperAction.Read;
         UpdateUserInterface(entity);
+        _typingIndicatorChannel.SetWriting(args.Actor, false); // Aquila Change
     }
 
     private void OnPaperWrite(Entity<ActivateOnPaperOpenedComponent> entity, ref PaperWriteEvent args)

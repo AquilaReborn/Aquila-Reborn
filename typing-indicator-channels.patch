@@ -1,0 +1,820 @@
+From ccf2c89ec504f4e612f3c19d2ec26ba1f9c52bf6 Mon Sep 17 00:00:00 2001
+From: CrookLv <tpeckamail@gmail.com>
+Date: Tue, 20 Oct 2026 14:16:47 +0800
+Subject: [PATCH] feat: cool typing indicator
+
+---
+ .../TypingIndicatorVisualizerSystem.cs        |  20 +++
+ .../TypingIndicatorChannelSystem.cs           |  32 +++++
+ .../Systems/Chat/ChatUIController.cs          |   4 +
+ .../Systems/Chat/Widgets/ChatBox.xaml.cs      |   2 +
+ .../TypingIndicatorChannelSystem.cs           |   7 ++
+ .../TypingIndicatorChannelComponent.cs        |  37 ++++++
+ .../SharedTypingIndicatorChannelSystem.cs     | 119 ++++++++++++++++++
+ .../TypingIndicatorChannelEvents.cs           |  21 ++++
+ .../TypingIndicatorChannelVisuals.cs          |  10 ++
+ Content.Shared/Paper/PaperSystem.cs           |  11 ++
+ .../Imperial/Shaders/hologram_indicator.yml   |   4 +
+ .../TypingIndicator/typing_indicator.yml      |  33 +++++
+ .../Imperial/Shaders/hologram_indicator.swsl  |  23 ++++
+ .../TypingIndicator/speech.rsi/emote0.png     | Bin 0 -> 1052 bytes
+ .../TypingIndicator/speech.rsi/emote1.png     | Bin 0 -> 756 bytes
+ .../TypingIndicator/speech.rsi/meta.json      |  76 +++++++++++
+ .../TypingIndicator/speech.rsi/paper0.png     | Bin 0 -> 681 bytes
+ .../TypingIndicator/speech.rsi/radio0.png     | Bin 0 -> 2946 bytes
+ .../TypingIndicator/speech.rsi/radio1.png     | Bin 0 -> 742 bytes
+ .../TypingIndicator/speech.rsi/whisper0.png   | Bin 0 -> 738 bytes
+ .../TypingIndicator/speech.rsi/whisper1.png   | Bin 0 -> 562 bytes
+ 21 files changed, 399 insertions(+)
+ create mode 100644 Content.Client/Imperial/TypingIndicator/TypingIndicatorChannelSystem.cs
+ create mode 100644 Content.Server/Imperial/TypingIndicator/TypingIndicatorChannelSystem.cs
+ create mode 100644 Content.Shared/Imperial/TypingIndicator/Components/TypingIndicatorChannelComponent.cs
+ create mode 100644 Content.Shared/Imperial/TypingIndicator/Systems/SharedTypingIndicatorChannelSystem.cs
+ create mode 100644 Content.Shared/Imperial/TypingIndicator/TypingIndicatorChannelEvents.cs
+ create mode 100644 Content.Shared/Imperial/TypingIndicator/TypingIndicatorChannelVisuals.cs
+ create mode 100644 Resources/Prototypes/Imperial/Shaders/hologram_indicator.yml
+ create mode 100644 Resources/Prototypes/Imperial/TypingIndicator/typing_indicator.yml
+ create mode 100644 Resources/Textures/Imperial/Shaders/hologram_indicator.swsl
+ create mode 100644 Resources/Textures/Imperial/TypingIndicator/speech.rsi/emote0.png
+ create mode 100644 Resources/Textures/Imperial/TypingIndicator/speech.rsi/emote1.png
+ create mode 100644 Resources/Textures/Imperial/TypingIndicator/speech.rsi/meta.json
+ create mode 100644 Resources/Textures/Imperial/TypingIndicator/speech.rsi/paper0.png
+ create mode 100644 Resources/Textures/Imperial/TypingIndicator/speech.rsi/radio0.png
+ create mode 100644 Resources/Textures/Imperial/TypingIndicator/speech.rsi/radio1.png
+ create mode 100644 Resources/Textures/Imperial/TypingIndicator/speech.rsi/whisper0.png
+ create mode 100644 Resources/Textures/Imperial/TypingIndicator/speech.rsi/whisper1.png
+
+diff --git a/Content.Client/Chat/TypingIndicator/TypingIndicatorVisualizerSystem.cs b/Content.Client/Chat/TypingIndicator/TypingIndicatorVisualizerSystem.cs
+index bb30ca1c55..437a4574cf 100644
+--- a/Content.Client/Chat/TypingIndicator/TypingIndicatorVisualizerSystem.cs
++++ b/Content.Client/Chat/TypingIndicator/TypingIndicatorVisualizerSystem.cs
+@@ -2,6 +2,7 @@
+ using Robust.Client.GameObjects;
+ using Robust.Shared.Prototypes;
+ using Content.Shared.Inventory;
++using Content.Shared.Imperial.TypingIndicator; // Imperial TypingIndicatorChannel
+ 
+ namespace Content.Client.Chat.TypingIndicator;
+ 
+@@ -27,6 +28,21 @@ protected override void OnAppearanceChange(EntityUid uid, TypingIndicatorCompone
+         if (overrideIndicator != null)
+             currentTypingIndicator = overrideIndicator.Value;
+ 
++        // Imperial TypingIndicatorChannel Start
++        var isWriting = false;
++        AppearanceSystem.TryGetData<TypingIndicatorState>(uid, TypingIndicatorVisuals.State, out var chatState, args.Component);
++        if (chatState == TypingIndicatorState.None
++            && AppearanceSystem.TryGetData<ProtoId<TypingIndicatorPrototype>>(uid, TypingIndicatorChannelVisuals.Writing, out var writingIndicator, args.Component))
++        {
++            currentTypingIndicator = writingIndicator;
++            isWriting = true;
++        }
++        else if (AppearanceSystem.TryGetData<ProtoId<TypingIndicatorPrototype>>(uid, TypingIndicatorChannelVisuals.Indicator, out var channelIndicator, args.Component))
++        {
++            currentTypingIndicator = channelIndicator;
++        }
++        // Imperial TypingIndicatorChannel End
++
+         if (!_prototypeManager.Resolve(currentTypingIndicator, out var proto))
+         {
+             Log.Error($"Unknown typing indicator id: {component.TypingIndicatorPrototype}");
+@@ -42,6 +58,10 @@ protected override void OnAppearanceChange(EntityUid uid, TypingIndicatorCompone
+         SpriteSystem.LayerSetOffset((uid, args.Sprite), layer, proto.Offset);
+ 
+         AppearanceSystem.TryGetData<TypingIndicatorState>(uid, TypingIndicatorVisuals.State, out var state);
++        // Imperial TypingIndicatorChannel Start
++        if (isWriting)
++            state = TypingIndicatorState.Typing;
++        // Imperial TypingIndicatorChannel End
+         SpriteSystem.LayerSetVisible((uid, args.Sprite), layer, state != TypingIndicatorState.None);
+         switch (state)
+         {
+diff --git a/Content.Client/Imperial/TypingIndicator/TypingIndicatorChannelSystem.cs b/Content.Client/Imperial/TypingIndicator/TypingIndicatorChannelSystem.cs
+new file mode 100644
+index 0000000000..b2e488b8d6
+--- /dev/null
++++ b/Content.Client/Imperial/TypingIndicator/TypingIndicatorChannelSystem.cs
+@@ -0,0 +1,32 @@
++using Content.Shared.CCVar;
++using Content.Shared.Chat;
++using Content.Shared.Imperial.TypingIndicator;
++using Content.Shared.Imperial.TypingIndicator.Systems;
++using Robust.Client.Player;
++using Robust.Shared.Configuration;
++
++namespace Content.Client.Imperial.TypingIndicator;
++
++public sealed class TypingIndicatorChannelSystem : SharedTypingIndicatorChannelSystem
++{
++    [Dependency] private readonly IConfigurationManager _cfg = default!;
++    [Dependency] private readonly IPlayerManager _player = default!;
++
++    /// <summary>
++    /// Сообщает серверу, в какой канал чата печатает игрок, если от этого зависит индикатор над персонажем.
++    /// </summary>
++    /// <param name="channel">Канал, в который сейчас печатает игрок.</param>
++    public void ClientChangedChatChannel(ChatSelectChannel channel)
++    {
++        if (!_cfg.GetCVar(CCVars.ChatShowTypingIndicator))
++            return;
++
++        if (_player.LocalEntity is not { } uid)
++            return;
++
++        if (GetChannelIndicator(uid, channel) == GetCurrentIndicator(uid))
++            return;
++
++        RaisePredictiveEvent(new TypingChannelChangedEvent(channel));
++    }
++}
+diff --git a/Content.Client/UserInterface/Systems/Chat/ChatUIController.cs b/Content.Client/UserInterface/Systems/Chat/ChatUIController.cs
+index f1fdb51aef..e74fc227e0 100644
+--- a/Content.Client/UserInterface/Systems/Chat/ChatUIController.cs
++++ b/Content.Client/UserInterface/Systems/Chat/ChatUIController.cs
+@@ -9,6 +9,7 @@
+ using Content.Client.Examine;
+ using Content.Client.Gameplay;
+ using Content.Client.Ghost;
++using Content.Client.Imperial.TypingIndicator; // Imperial TypingIndicatorChannel
+ using Content.Client.Mind;
+ using Content.Client.Roles;
+ using Content.Client.Stylesheets;
+@@ -62,6 +63,7 @@ public sealed partial class ChatUIController : UIController
+     [UISystemDependency] private readonly ExamineSystem? _examine = default;
+     [UISystemDependency] private readonly GhostSystem? _ghost = default;
+     [UISystemDependency] private readonly TypingIndicatorSystem? _typingIndicator = default;
++    [UISystemDependency] private readonly TypingIndicatorChannelSystem? _typingIndicatorChannel = default; // Imperial TypingIndicatorChannel
+     [UISystemDependency] private readonly ChatSystem? _chatSys = default;
+     [UISystemDependency] private readonly TransformSystem? _transform = default;
+     [UISystemDependency] private readonly MindSystem? _mindSystem = default!;
+@@ -700,6 +702,8 @@ public void UpdateSelectedChannel(ChatBox box)
+             box.ChatInput.ChannelSelector.UpdateChannelSelectButton(box.SelectedChannel, null);
+         else
+             box.ChatInput.ChannelSelector.UpdateChannelSelectButton(prefixChannel, radioChannel);
++
++        _typingIndicatorChannel?.ClientChangedChatChannel(prefixChannel == ChatSelectChannel.None ? box.SelectedChannel : prefixChannel); // Imperial TypingIndicatorChannel
+     }
+ 
+     public (ChatSelectChannel chatChannel, string text, RadioChannelPrototype? radioChannel) SplitInputContents(string text)
+diff --git a/Content.Client/UserInterface/Systems/Chat/Widgets/ChatBox.xaml.cs b/Content.Client/UserInterface/Systems/Chat/Widgets/ChatBox.xaml.cs
+index 6e8a41de7c..6bce442b89 100644
+--- a/Content.Client/UserInterface/Systems/Chat/Widgets/ChatBox.xaml.cs
++++ b/Content.Client/UserInterface/Systems/Chat/Widgets/ChatBox.xaml.cs
+@@ -192,6 +192,8 @@ private void OnTextChanged(LineEditEventArgs args)
+ 
+     private void OnFocusEnter(LineEditEventArgs args)
+     {
++        _controller.UpdateSelectedChannel(this); // Imperial TypingIndicatorChannel
++
+         // Warn typing indicator about focus
+         _controller.NotifyChatFocus(true);
+     }
+diff --git a/Content.Server/Imperial/TypingIndicator/TypingIndicatorChannelSystem.cs b/Content.Server/Imperial/TypingIndicator/TypingIndicatorChannelSystem.cs
+new file mode 100644
+index 0000000000..c3d4f9d8c3
+--- /dev/null
++++ b/Content.Server/Imperial/TypingIndicator/TypingIndicatorChannelSystem.cs
+@@ -0,0 +1,7 @@
++using Content.Shared.Imperial.TypingIndicator.Systems;
++
++namespace Content.Server.Imperial.TypingIndicator;
++
++public sealed class TypingIndicatorChannelSystem : SharedTypingIndicatorChannelSystem
++{
++}
+diff --git a/Content.Shared/Imperial/TypingIndicator/Components/TypingIndicatorChannelComponent.cs b/Content.Shared/Imperial/TypingIndicator/Components/TypingIndicatorChannelComponent.cs
+new file mode 100644
+index 0000000000..c90ba0a837
+--- /dev/null
++++ b/Content.Shared/Imperial/TypingIndicator/Components/TypingIndicatorChannelComponent.cs
+@@ -0,0 +1,37 @@
++using Content.Shared.Chat;
++using Content.Shared.Chat.TypingIndicator;
++using Content.Shared.Imperial.TypingIndicator.Systems;
++using Robust.Shared.GameStates;
++using Robust.Shared.Prototypes;
++
++namespace Content.Shared.Imperial.TypingIndicator.Components;
++
++/// <summary>
++/// Индикаторы печатания над персонажем для отдельных каналов чата и для письма на бумаге.
++/// Добавляется автоматически, когда игрок вселяется в сущность.
++/// </summary>
++[RegisterComponent, NetworkedComponent]
++[Access(typeof(SharedTypingIndicatorChannelSystem))]
++public sealed partial class TypingIndicatorChannelComponent : Component
++{
++    /// <summary>
++    /// Индикатор, который показывается вместо обычного, пока игрок печатает в указанный канал.
++    /// Для каналов без записи остаётся обычный индикатор.
++    /// </summary>
++    [DataField]
++    public Dictionary<ChatSelectChannel, ProtoId<TypingIndicatorPrototype>> Indicators = new()
++    {
++        [ChatSelectChannel.Whisper] = "ChannelWhisper",
++        [ChatSelectChannel.Radio] = "ChannelRadio",
++        [ChatSelectChannel.Emotes] = "ChannelEmote",
++        [ChatSelectChannel.LOOC] = "ChannelOoc",
++        [ChatSelectChannel.OOC] = "ChannelOoc",
++        [ChatSelectChannel.Admin] = "ChannelOoc",
++    };
++
++    /// <summary>
++    /// Индикатор, который показывается, пока персонаж пишет на бумаге и не печатает в чат.
++    /// </summary>
++    [DataField]
++    public ProtoId<TypingIndicatorPrototype> WritingIndicator = "WritingPaper";
++}
+diff --git a/Content.Shared/Imperial/TypingIndicator/Systems/SharedTypingIndicatorChannelSystem.cs b/Content.Shared/Imperial/TypingIndicator/Systems/SharedTypingIndicatorChannelSystem.cs
+new file mode 100644
+index 0000000000..ecc8c99aba
+--- /dev/null
++++ b/Content.Shared/Imperial/TypingIndicator/Systems/SharedTypingIndicatorChannelSystem.cs
+@@ -0,0 +1,119 @@
++using Content.Shared.Chat;
++using Content.Shared.Chat.TypingIndicator;
++using Content.Shared.Imperial.TypingIndicator.Components;
++using Content.Shared.Paper;
++using Robust.Shared.Player;
++using Robust.Shared.Prototypes;
++
++namespace Content.Shared.Imperial.TypingIndicator.Systems;
++
++/// <summary>
++/// Подменяет индикатор печатания над персонажем в зависимости от канала чата, в который печатает игрок,
++/// и показывает индикатор, пока персонаж пишет на бумаге.
++/// </summary>
++public abstract class SharedTypingIndicatorChannelSystem : EntitySystem
++{
++    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
++
++    public override void Initialize()
++    {
++        base.Initialize();
++
++        SubscribeLocalEvent<PlayerAttachedEvent>(OnPlayerAttachedEvent);
++        SubscribeLocalEvent<TypingIndicatorChannelComponent, PlayerDetachedEvent>(OnPlayerDetachedEvent);
++
++        SubscribeLocalEvent<PaperComponent, BoundUIClosedEvent>(OnBoundUIClosedEvent);
++
++        SubscribeAllEvent<TypingChannelChangedEvent>(OnTypingChannelChangedEvent);
++    }
++
++    /// <summary>
++    /// Показывает или скрывает над сущностью индикатор письма на бумаге.
++    /// </summary>
++    /// <param name="ent">Пишущая сущность.</param>
++    /// <param name="writing">Пишет ли сущность сейчас.</param>
++    public void SetWriting(Entity<TypingIndicatorChannelComponent?> ent, bool writing)
++    {
++        if (!Resolve(ent, ref ent.Comp, false))
++            return;
++
++        if (!writing)
++        {
++            _appearance.RemoveData(ent, TypingIndicatorChannelVisuals.Writing);
++            return;
++        }
++
++        _appearance.SetData(ent, TypingIndicatorChannelVisuals.Writing, ent.Comp.WritingIndicator);
++    }
++
++    /// <summary>
++    /// Возвращает индикатор печатания, который соответствует каналу чата.
++    /// </summary>
++    /// <param name="ent">Сущность с индикаторами каналов.</param>
++    /// <param name="channel">Канал чата.</param>
++    /// <returns>Прототип индикатора или <c>null</c>, если для канала используется обычный индикатор.</returns>
++    public ProtoId<TypingIndicatorPrototype>? GetChannelIndicator(Entity<TypingIndicatorChannelComponent?> ent, ChatSelectChannel channel)
++    {
++        if (!Resolve(ent, ref ent.Comp, false))
++            return null;
++
++        if (!ent.Comp.Indicators.TryGetValue(channel, out var indicator))
++            return null;
++
++        return indicator;
++    }
++
++    /// <summary>
++    /// Возвращает индикатор печатания, который сейчас показан над сущностью вместо обычного.
++    /// </summary>
++    /// <param name="ent">Сущность с внешним видом.</param>
++    /// <returns>Прототип индикатора или <c>null</c>, если показан обычный индикатор.</returns>
++    public ProtoId<TypingIndicatorPrototype>? GetCurrentIndicator(Entity<AppearanceComponent?> ent)
++    {
++        if (!Resolve(ent, ref ent.Comp, false))
++            return null;
++
++        if (!_appearance.TryGetData<ProtoId<TypingIndicatorPrototype>>(ent, TypingIndicatorChannelVisuals.Indicator, out var indicator, ent.Comp))
++            return null;
++
++        return indicator;
++    }
++
++    private void OnPlayerAttachedEvent(PlayerAttachedEvent ev)
++    {
++        EnsureComp<TypingIndicatorChannelComponent>(ev.Entity);
++    }
++
++    private void OnPlayerDetachedEvent(Entity<TypingIndicatorChannelComponent> ent, ref PlayerDetachedEvent args)
++    {
++        SetCurrentIndicator(ent, null);
++        SetWriting(ent.AsNullable(), false);
++    }
++
++    private void OnBoundUIClosedEvent(Entity<PaperComponent> ent, ref BoundUIClosedEvent args)
++    {
++        if (!PaperComponent.PaperUiKey.Key.Equals(args.UiKey))
++            return;
++
++        SetWriting(args.Actor, false);
++    }
++
++    private void OnTypingChannelChangedEvent(TypingChannelChangedEvent ev, EntitySessionEventArgs args)
++    {
++        if (args.SenderSession.AttachedEntity is not { } uid)
++            return;
++
++        SetCurrentIndicator(uid, GetChannelIndicator(uid, ev.Channel));
++    }
++
++    private void SetCurrentIndicator(EntityUid uid, ProtoId<TypingIndicatorPrototype>? indicator)
++    {
++        if (indicator == null)
++        {
++            _appearance.RemoveData(uid, TypingIndicatorChannelVisuals.Indicator);
++            return;
++        }
++
++        _appearance.SetData(uid, TypingIndicatorChannelVisuals.Indicator, indicator.Value);
++    }
++}
+diff --git a/Content.Shared/Imperial/TypingIndicator/TypingIndicatorChannelEvents.cs b/Content.Shared/Imperial/TypingIndicator/TypingIndicatorChannelEvents.cs
+new file mode 100644
+index 0000000000..4027f96765
+--- /dev/null
++++ b/Content.Shared/Imperial/TypingIndicator/TypingIndicatorChannelEvents.cs
+@@ -0,0 +1,21 @@
++using Content.Shared.Chat;
++using Robust.Shared.Serialization;
++
++namespace Content.Shared.Imperial.TypingIndicator;
++
++/// <summary>
++/// Отправляется клиентом на сервер, когда игрок начинает печатать в другой канал чата.
++/// </summary>
++[Serializable, NetSerializable]
++public sealed class TypingChannelChangedEvent : EntityEventArgs
++{
++    /// <summary>
++    /// Канал чата, в который печатает игрок.
++    /// </summary>
++    public readonly ChatSelectChannel Channel;
++
++    public TypingChannelChangedEvent(ChatSelectChannel channel)
++    {
++        Channel = channel;
++    }
++}
+diff --git a/Content.Shared/Imperial/TypingIndicator/TypingIndicatorChannelVisuals.cs b/Content.Shared/Imperial/TypingIndicator/TypingIndicatorChannelVisuals.cs
+new file mode 100644
+index 0000000000..61c007c4e3
+--- /dev/null
++++ b/Content.Shared/Imperial/TypingIndicator/TypingIndicatorChannelVisuals.cs
+@@ -0,0 +1,10 @@
++using Robust.Shared.Serialization;
++
++namespace Content.Shared.Imperial.TypingIndicator;
++
++[Serializable, NetSerializable]
++public enum TypingIndicatorChannelVisuals : byte
++{
++    Indicator,
++    Writing,
++}
+diff --git a/Content.Shared/Paper/PaperSystem.cs b/Content.Shared/Paper/PaperSystem.cs
+index d99fffda74..afb05f7e31 100644
+--- a/Content.Shared/Paper/PaperSystem.cs
++++ b/Content.Shared/Paper/PaperSystem.cs
+@@ -3,6 +3,7 @@
+ using Content.Shared.UserInterface;
+ using Content.Shared.Database;
+ using Content.Shared.Examine;
++using Content.Shared.Imperial.TypingIndicator.Systems; // Imperial TypingIndicatorChannel
+ using Content.Shared.Interaction;
+ using Content.Shared.Random.Helpers;
+ using Content.Shared.Popups;
+@@ -27,6 +28,7 @@ public sealed class PaperSystem : EntitySystem
+     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
+     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
+     [Dependency] private readonly SharedAudioSystem _audio = default!;
++    [Dependency] private readonly SharedTypingIndicatorChannelSystem _typingIndicatorChannel = default!; // Imperial TypingIndicatorChannel
+ 
+     [Dependency] private readonly EntityQuery<PaperComponent> _paperQuery = default!;
+ 
+@@ -77,6 +79,13 @@ private void BeforeUIOpen(Entity<PaperComponent> entity, ref BeforeActivatableUI
+     {
+         entity.Comp.Mode = PaperAction.Read;
+         UpdateUserInterface(entity);
++
++        // Imperial TypingIndicatorChannel Start
++        foreach (var actor in _uiSystem.GetActors(entity.Owner, PaperUiKey.Key))
++        {
++            _typingIndicatorChannel.SetWriting(actor, false);
++        }
++        // Imperial TypingIndicatorChannel End
+     }
+ 
+     private void OnExamined(Entity<PaperComponent> entity, ref ExaminedEvent args)
+@@ -147,6 +156,7 @@ private void OnInteractUsing(Entity<PaperComponent> entity, ref InteractUsingEve
+                 entity.Comp.Mode = PaperAction.Write;
+                 _uiSystem.OpenUi(entity.Owner, PaperUiKey.Key, args.User);
+                 UpdateUserInterface(entity);
++                _typingIndicatorChannel.SetWriting(args.User, true); // Imperial TypingIndicatorChannel
+             }
+             args.Handled = true;
+             return;
+@@ -210,6 +220,7 @@ private void OnInputTextMessage(Entity<PaperComponent> entity, ref PaperInputTex
+ 
+         entity.Comp.Mode = PaperAction.Read;
+         UpdateUserInterface(entity);
++        _typingIndicatorChannel.SetWriting(args.Actor, false); // Imperial TypingIndicatorChannel
+     }
+ 
+     private void OnRandomPaperContentMapInit(Entity<RandomPaperContentComponent> ent, ref MapInitEvent args)
+diff --git a/Resources/Prototypes/Imperial/Shaders/hologram_indicator.yml b/Resources/Prototypes/Imperial/Shaders/hologram_indicator.yml
+new file mode 100644
+index 0000000000..5f79862f78
+--- /dev/null
++++ b/Resources/Prototypes/Imperial/Shaders/hologram_indicator.yml
+@@ -0,0 +1,4 @@
++- type: shader
++  id: HologramIndicator
++  kind: source
++  path: "/Textures/Imperial/Shaders/hologram_indicator.swsl"
+diff --git a/Resources/Prototypes/Imperial/TypingIndicator/typing_indicator.yml b/Resources/Prototypes/Imperial/TypingIndicator/typing_indicator.yml
+new file mode 100644
+index 0000000000..dd4335f4a3
+--- /dev/null
++++ b/Resources/Prototypes/Imperial/TypingIndicator/typing_indicator.yml
+@@ -0,0 +1,33 @@
++- type: typingIndicator
++  id: ChannelEmote
++  spritePath: /Textures/Imperial/TypingIndicator/speech.rsi
++  typingState: emote0
++  idleState: emote1
++  offset: -0.05, 0.1
++
++- type: typingIndicator
++  id: ChannelOoc
++  typingState: default0
++  idleState: default3
++  shader: HologramIndicator
++
++- type: typingIndicator
++  id: ChannelWhisper
++  spritePath: /Textures/Imperial/TypingIndicator/speech.rsi
++  typingState: whisper0
++  idleState: whisper1
++  offset: -0.05, 0.1
++
++- type: typingIndicator
++  id: ChannelRadio
++  spritePath: /Textures/Imperial/TypingIndicator/speech.rsi
++  typingState: radio0
++  idleState: radio1
++  offset: -0.05, 0.1
++
++- type: typingIndicator
++  id: WritingPaper
++  spritePath: /Textures/Imperial/TypingIndicator/speech.rsi
++  typingState: paper0
++  idleState: paper0
++  offset: 0, 0.1
+diff --git a/Resources/Textures/Imperial/Shaders/hologram_indicator.swsl b/Resources/Textures/Imperial/Shaders/hologram_indicator.swsl
+new file mode 100644
+index 0000000000..372b9974d8
+--- /dev/null
++++ b/Resources/Textures/Imperial/Shaders/hologram_indicator.swsl
+@@ -0,0 +1,23 @@
++light_mode unshaded;
++
++const highp vec3 lightColor = vec3(0.396, 0.722, 0.886);
++const highp vec3 darkColor = vec3(0.165, 0.302, 0.388);
++const highp float alpha = 0.9;
++const highp float intensity = 2.0;
++const highp float stripeTexels = 1.0;
++const highp float scrollSpeed = 4.0;
++
++void fragment() {
++    highp vec4 base = texture2D(TEXTURE, UV);
++    highp float bw = zGrayscale(base.rgb * intensity);
++    highp vec3 tint = lightColor;
++
++    // Полосы считаются в пикселях текстуры, поэтому их размер не зависит от приближения камеры.
++    highp float texel = floor(UV.y / TEXTURE_PIXEL_SIZE.y);
++    if (mod(floor((texel + floor(TIME * scrollSpeed)) / stripeTexels), 2.0) > 0.5)
++    {
++        tint = darkColor;
++    }
++
++    COLOR = vec4(vec3(bw) * tint, base.a * alpha);
++}
+diff --git a/Resources/Textures/Imperial/TypingIndicator/speech.rsi/emote0.png b/Resources/Textures/Imperial/TypingIndicator/speech.rsi/emote0.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..8848256e14436db9088a37f214c291165f021cce
+GIT binary patch
+literal 1052
+zcmV+%1mpXOP)<h;3K|Lk000e1NJLTq002M$002M;1^@s6s%dfF00001b5ch_0Itp)
+z=>Px&)=5M`RCt{2T3d44Fbo8nT%nP_8hIM|g3U2}!X`6K{+eEb{ivzJ>jeloqSBdi
+zXFQg~2c85dfg=AoQn|Rhf5;b&=}&XcdA@&pc}lvywBb1Yyw)$JB%i;0%}9@p|MmKu
+zE+%>hZZ(mgKfXVDoriHcYNjpd_M9_Sh8C*a*XZx|hvO3ABKYJH8^-C3ATn(!qV&_A
+zBOpBXM-1b1M1h$Xy%)DugGY=BpoK*twZ+-8LVCs1YIN7Y>;cF?xz<+D*2n*pk}JG`
+zXO#X(TSVmT<>|5X)4a6s0J;R;UY;I>#04z~``4C6kH9%lD9gGntgb<qz%Wk7q6B@7
+z!HY4AZ8!#%#jx8SW}2-*6`+YDBg|q<NDPv?KU0EMoRtk)c!RkQD8vdgB^H!@fS23F
+z5e^ln>9e+CfZhIZ%sH>V54d0+wLFYd&N+W84B}597BEZWwe<}9r<COG{$ZxSqNp6q
+zUFD<%%>ZM(CLk(_jj^8H-9KdXkmj(g=?QAJc|zkH*0@$UOM}+>WZPDYaqF2t0L3N5
+zvIoxD+yj<aIkKH)7W8P~ICk9}%sN&o^MYYSm?g2~LxhhoV%;zG6gK}B*1yrj*xMUp
+zycWp3acm=11g*VhZ-xjH)^fo1CGo^sPMawu8qq!BBSLxed&_L|eE?%9k^+|~BocQl
+zT1~J9p{UZl0J&8fJPU%z%(ZFC3TTma&HA+X5E8<*DXx|cSpP_RZMqDi5jc_#Bke2}
+zu(7QLKl>&a`4C#`6Jgle8{ji*->@cb^o_M4VN6QU)mc`s;)AtJHi-eXNF8x~Fa3$3
+zjB9vm28%hCx0lWt5xN#+o5I_u2ngaa81(|2v&L5|n6o2c_DP&EXVnAP7_SJr6=rU%
+zh-*b*@AJ4A*`g*O8;e1+xq@o$&7MW}5Rq$-pH`R)BenAZ#S*_>pOcrTwS}x=D0BUC
+zK7jSp*Z;)%0FS{0RUuX!6+>YkdOiTHvfCdn>hnT&j8<&W*VelA*7Gn<7v~c;s}5Vl
+zto4WrVR0dn74UgV>8w27A|6l$c;^E=VFavRt0L=vE!;3p$1=Wkm3UTwW<V2V=L5vC
+zs<qc=bBGZOSie@7gP>+W*XQwkKrKqM4HIUAnsC|xNPlgdWq|^1b#y^1t)UVS?DR-P
+zpw>%Zmikl%|J!h4R(pb+^01fAyu5F1oztlT%;qV^C@EN<Q(RXQPH7tJ^Gn|7aDMAW
+z3&)i9LVp;iZC(=Cn_8*QBXizZHdn2`1w5b7(b3V-(b3V-(b3V-(b3V-(b3UyEq((M
+W^R6j|dft%$0000<MNUMnLSTY?X8NB1
+
+literal 0
+HcmV?d00001
+
+diff --git a/Resources/Textures/Imperial/TypingIndicator/speech.rsi/emote1.png b/Resources/Textures/Imperial/TypingIndicator/speech.rsi/emote1.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..ddb35948386c8b586b278ac739c2ab9332ac3af9
+GIT binary patch
+literal 756
+zcmV<Q0t@|#P)<h;3K|Lk000e1NJLTq002M$001Be1^@s6qMd$(00001b5ch_0Itp)
+z=>Px%u1Q2eRA_<aSzD6YFc2JN_X>;oT1*9V!Eg+pFl<%GU)W11AG>l5P0wh|TFyth
+zibA#?^Hh%zBL6v3X>4|feAk&ix^vFc^YwC0y1(?{JpH~lE~O+duirDuWAopCzool{
+zzJO;f<j=34CvR}q52IGvg6_{bQ)g(S%5zQrc7Gh_7#G1ePgvIvHv&;<%MoRq&Kv>b
+zaXg~yhY<~CS@czy4)BDfl%|h>0ous&(Gh3c3gwkdD{Z~@(wH283Y4~vf{s3Zqp^Ap
+zW`G`#vPDF$m-DHNyI#&Gl)ofs1{9&VFEQfyts|`?j2xhWnXopV*~_jU#^MCsM)E?i
+zKAeNjV%YAFRDKIk2WWvPoJEWoi6n_UA*5Oq=&aN7TV#oO4k*HkGKCAuIl!y!;uwdH
+z)ACtgalm$e9COZ#p9AicM=y8%kaNyIih}qN-~twDY+LVed`d|+yTc@ZK~p(cy2_^$
+zv;s`=nt|vfHphCm*&Q-wNOM@x^bEE7Jfm?9YhEkdltF8MvSX{Ixb;qeKyeGP>Va!E
+z&wx2mjvQxM1U(rzkF}eFMaL>-9vMcAnZqUj#Q2CJ*7Mv<Ve79E{U<Gq{d!}H*NDuU
+z#|~1((Av-J)eup_+78%1hfl2Sw3<_*jP4m9G0I!t+h(hu1DHaQ5;(^p5#F(6HNg^s
+zqE7P&a;-9WLxQNxqh-n>w8*|@V_IB<gz#vIt5pLwK2lzrZi6TTN6KNOpK$@3+uHD(
+zJHgsTsLZ@9t*s?$yI{X{le9FR^n-OEVM<Cc)mc@r_`%vHt8hS#sUxZHl|M0@@rX{%
+zU@6Dy_S`iiM%PHTDZGP<fFYiO(Ja6<YkIYUxjG7FSK>@L>;C{Y$NLj>Elk>2jBBy5
+mcRemfwWt}$<|1h>?V!I<v5`2K&2&ou0000<MNUMnLSTZd4`nz2
+
+literal 0
+HcmV?d00001
+
+diff --git a/Resources/Textures/Imperial/TypingIndicator/speech.rsi/meta.json b/Resources/Textures/Imperial/TypingIndicator/speech.rsi/meta.json
+new file mode 100644
+index 0000000000..108b5ee6b0
+--- /dev/null
++++ b/Resources/Textures/Imperial/TypingIndicator/speech.rsi/meta.json
+@@ -0,0 +1,76 @@
++{
++    "version": 1,
++    "license": "CC-BY-SA-3.0",
++    "copyright": "Taken from DeltaV-Station/Delta-v at commit https://github.com/DeltaV-Station/Delta-v/commit/73363b9ff550f635526eaafd5eb22aa44fefd264 | paper sprite by CrookLv (GitHub) | Emote and whispering sprites made by Nesoryo (Discord) | Radio, emote and whisper idle states modified from default states by kotobdev (GitHub)",
++    "size": {
++        "x": 32,
++        "y": 32
++    },
++    "states": [
++        {
++            "name": "paper0",
++            "delays": [
++                [
++                    0.2,
++                    0.3,
++                    0.3,
++                    0.5
++                ]
++            ]
++        },
++        {
++            "name": "emote0",
++            "delays": [
++                [
++                    0.3,
++                    0.2,
++                    0.3,
++                    0.2
++                ]
++            ]
++        },
++        {
++            "name": "emote1",
++            "delays": [
++                [
++                    0.5,
++                    0.5
++                ]
++            ]
++        },
++        {
++            "name": "whisper0",
++            "delays": [
++                [
++                    0.2,
++                    0.3,
++                    0.3,
++                    0.5
++                ]
++            ]
++        },
++        {
++            "name": "whisper1"
++        },
++        {
++            "name": "radio0",
++            "delays": [
++                [
++                    0.2,
++                    0.3,
++                    0.3,
++                    0.5
++                ]
++            ]
++        },
++        {
++            "name": "radio1",
++            "delays": [
++                [
++                    0.5,
++                    0.5
++                ]
++            ]
++        }
++    ]
++}
+diff --git a/Resources/Textures/Imperial/TypingIndicator/speech.rsi/paper0.png b/Resources/Textures/Imperial/TypingIndicator/speech.rsi/paper0.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..4c5f3f64490371a1742ab29e5ec456114d938720
+GIT binary patch
+literal 681
+zcmV;a0#^NrP)<h;3K|Lk000e1NJLTq002M$002M;1^@s6s%dfF00001b5ch_0Itp)
+z=>Px%V@X6oRCt{2+OcaBQ5*;G?|F|>Q5)%E>GYQ5LIW9`MC679ga#bzpHOhg7LaCf
+zDuP=k$y#(NE^#OX?xqaRr3iO$a<^nq2t;ftLHs$?JMWT9sPbMS^83I+co+D-y!`SK
+z@_q(V9LFK#sMqU8-neS3$QRQCQp%YpIgUfiT7+fiXBHreA^<?M*@WkL@H{Uwu3HpE
+zkW!*lD#0+WUaw_Y$vkwpF+CuqM5oiicu<A&x~?sF5#RTdH=x(+VLYg!+mg8-52b3g
+z8U;Z>K@gA-g3dqOr*2D9VdM6N_VB6v^p&2A>dbTntfy~yo`+)N3{UU9z%%*qrt07v
+z>+^09Q8Jh3)yGN~A-xA&0zeps$-vR^33m2&Rpu=+lb_xYhogzHbGWay0&;iRqvI2N
+z{`y08Zl0O^FbolfVX`3(M-yW>nkfA?NLK*4u4@3uta7{EhHcw$T~}ppo|WX!{0{gv
+ziOj^bB+s$xe8w1Kj4{R-V~jDz7-Rpl%wN#lAHe+qzt87mzV9!+Kftmq5YbZdXDT2L
+zT_v3j5evoV^QLK%X__R2ph~4eLWrdtPsRB{h~x@_fC?LTwDl*5yvNfOu=QmRZ{Ce)
+z|5d1SA4vKGrYqpv`GvOrg!BS@$DH%|!lP4+2UP&jxd@l>gSbbCh)^z<ljCt6(hHD#
+zJ`Vu4ZKK#2;Nw9TpQ>-^<!N8XjEp$5-|uH`Jh;`;R)N>*4}iuFjqBt;Ik=1WhgZ*0
+zy$FBQAE3HBBhS42V&hDA1^)ZCH`i!;bB!A&7-Nhv#u#IaF~%5U>~H-9f}%nIeJsJn
+P00000NkvXXu0mjfsES28
+
+literal 0
+HcmV?d00001
+
+diff --git a/Resources/Textures/Imperial/TypingIndicator/speech.rsi/radio0.png b/Resources/Textures/Imperial/TypingIndicator/speech.rsi/radio0.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..57919e93f741fe13bcef7232279874a9edd95773
+GIT binary patch
+literal 2946
+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
+KPGt_~ul*Nfd%;Bj
+
+literal 0
+HcmV?d00001
+
+diff --git a/Resources/Textures/Imperial/TypingIndicator/speech.rsi/radio1.png b/Resources/Textures/Imperial/TypingIndicator/speech.rsi/radio1.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..fac7aa105d239c0d746b30e19c1505f3390fdc4f
+GIT binary patch
+literal 742
+zcmV<C0vY{@P)<h;3K|Lk000e1NJLTq002M$001Be1^@s6qMd$(00001b5ch_0Itp)
+z=>Px%ph-kQRA_<CSxJuLFbpJn`Ayz2r{uNCrT>w;AJV{Z4zbfznMKhJ%b5ZKYvn4E
+zvZDe}Ra@F-&!)P0KfZ#hhU2)0(TVu$Of=)W7Z?YVKsl!D)^+X~@@M0Fz<burESB^E
+zTbyBLPobGt*u3BG=NkTBA1b1vDq?@WZ8bjvXyw3b7J0HV7I?Z@Gxs0-zdqZ|bAQw+
+zc#8&ARsJRcw<v&$33zz<d5`1CSoa@vPN$Rk{;2qW8o)C!GeN)lBO5(Y*@l)gl$kZ_
+znR560eV+T_KLQO^h%@s7`b?Z<dT%J$zgj2jlhE*&*6>3t@Bw}GmEe3ni-^eWc54L9
+z5+BZ0jq*d{5$k3qm&-*|Rj$|Tun<54$YN<#wP~7GN}wW4Nq^LFePje*^XIlr(?qMr
+zUTBhFRI;L{Uyu2KDeBiU8jR1V_+J6b)0_tk=UEkq%3IWCW27{O<#!0G9*Fuq1<^>+
+z9yaz8FmGmxvbjuYq`~%$LX!h9vH5YV`Al#&CXgpEgre$Ep}8xzc)4;^BM)Xga38i0
+zLF64)%CcnGQ>K~&vhm$fiPLI=+<H<X`po!y;@vaL>TxgbtNYk}L4)^*m!TpA3kRIv
+zl20mki=n7y^i27RQW^dK<}Q%MWhU5GgH-PaFFggnp;0kf=INtCph<!#%x}vSOK26P
+zqBTc+4Nir@ey_y!szJ2AT3+|Y^D4}em2dan%kkAXnv3XW@Fj8tns0)YKRkMCDlyCM
+z1~|s<4SV9<ci4r5d7yICqpHC20}GQwazHOr_u^Sd7**~JTV)!CULL3(@rY(c>0Xi@
+zitM5yphzZQ^%Nk@o?N3qsUu_Zf8J_e@AElU6`VV|=7$%dNJv(*qcWK(U#TKEhJ5zK
+YKig(`Ra`9rB>(^b07*qoM6N<$f}|8=pa1{>
+
+literal 0
+HcmV?d00001
+
+diff --git a/Resources/Textures/Imperial/TypingIndicator/speech.rsi/whisper0.png b/Resources/Textures/Imperial/TypingIndicator/speech.rsi/whisper0.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..2ed0cd7ea7e951e8eab902a381af44368b771a06
+GIT binary patch
+literal 738
+zcmV<80v-K{P)<h;3K|Lk000e1NJLTq002M$002M;1^@s6s%dfF0004mX+uL$Nkc;*
+zaB^>EX>4Tx04R}tkv&MmKpe$iQ%glE3Kmgu$WWc^qEZ}76^me@v=v%)FuC*#nlvOS
+zE{=k0!NHHks)LKOt`4q(Aou~|E;uQ=NQwVT3N2ziIPS;0dyl(!fY7Kg)$EA^s%9Cf
+zcudUZRz?3Sd>F<cA{dpJsVCBl8FU?A_wexbF3hvKpZjz4D|wRv9+5c8bi*RvAdYNW
+zI_G`jAS+1<@j3C7K^G)`<htzg8|R|K0?!N@nbbUSkXS5su-w6{WT?cm#34o1C|}6B
+ztZ?4qtX68Qbx;1nKweu(bDicm;#figNr;e9Lm3rV2-B*OVj@NRu`d2G$DbsZOs+B*
+zITlcb3d!+<|H1EW&BDyIn-quvz8Bm6m;n5{K(lV!-^aGyJORAVz?IhaR~x|GC+YRJ
+z7CHh3wt<W5wkGcZmpj17lP(#OBY9~Gg#z$?M&FbJhHinrHMh6cK29Hi40W}90~{Oz
+zlSRs2@AB^6&ffk#)9UXB@hx)MM{g{S00006VoOIv00000008+zyMF)x010qNS#tmY
+z4#NNd4#NS*Z>VGd000McNliru=>--SEd$_3*?9l}02y>eSad^gZEa<4bO1wgWnpw>
+zWFU8GbZ8()Nlj2!fese{006p4L_t(|+U?rS4T3-r22hsRk(E${Rapd$Xia$GU=~I_
+zxVwaX??^~KGL!vDm|>uAY3JGU<9nr4&A;T~({y|0FU|9PsZ@mO`RQBu+ecgr7okc1
+z*!v!ExB{%5?zaG+mO+hEAligVum5KG`6-ar9k)q04v@dwkw<Vg_mCf6OnS-(00000
+z;55t!<l*K60_FowY78n}{Xcz_U-~<`UjpU>@`9KT*mlHxK<g&BuL1x70095;0(l^U
+UqDJq@*#H0l07*qoM6N<$g0T}s7ytkO
+
+literal 0
+HcmV?d00001
+
+diff --git a/Resources/Textures/Imperial/TypingIndicator/speech.rsi/whisper1.png b/Resources/Textures/Imperial/TypingIndicator/speech.rsi/whisper1.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..4a6723e4d82d5626b2f1c517884427a70bc7e47c
+GIT binary patch
+literal 562
+zcmV-20?qx2P)<h;3K|Lk000e1NJLTq001BW001Be1^@s6b9#F80004fX+uL$Nkc;*
+zaB^>EX>4Tx04R}tkvT{MQ4~ebOq7Ti6bzzbF@;)bqY^A7ia}727$J!k&XNr><1mw8
+zlTxq^ShzH9g^jhg7Pf*QxPaITR*E(vBR>fwi19W5aR0lH|LzC*Ft3|#%M_Sa!HGt~
+zN<5KN{4cc9Ll+_XRNb`~mS$r#t<O6oao&!KS<U<Ytbmbnb&wQbO1GT?NNYf7qhJf(
+z1%i53H9$H8Mx1ye3DSemwJN^~&Qw?yGlNbnIt_9VP%;gyHL#v_OpqslLBq5RkmFT0
+z1eXMx`J!HXr`WI~Wi2lW9T*_O91AR>piv}8o&uxfuuyP`5+U5g-(T@BQbZ$94jqLV
+z)-h2le#9UA&elzjk5wmigrW7>^WKNRzYX7I&-*&^yzgW1J;9|__pcwq<Olf5b#3qf
+zIyd3`s;+4}aIpowkGATl70Cz4=`_5ZLLdR%H_*OP&8>FN$vwnMFn<ku`!Jk=&ebM+
+zw>9SWZ%-}1AMq`6+3!l-umAu6a7jc#R9J;$U>NCu5sTP=BGpj^u%KHW7?^q%UD5jW
+zv;Wh|5y*yOwH(P2#<Xw*6SWN-bpWXVJx*~YLYl-s1D0IC2u<+}3=9km_!1?(!2iI&
+z)H68B2KqT-AT1vSqhJ(_f>AIEM!_f;1;ZZz0DR9Hdy@njWdHyG07*qoM6N<$f+Xwf
+AJ^%m!
+
+literal 0
+HcmV?d00001
+
+-- 
+2.56.0.windows.2
+

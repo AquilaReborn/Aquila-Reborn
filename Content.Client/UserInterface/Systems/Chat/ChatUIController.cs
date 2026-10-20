@@ -11,6 +11,8 @@ using Content.Client.Chat.UI;
 using Content.Client.Examine;
 using Content.Client.Gameplay;
 using Content.Client.Ghost;
+using Content.Client._Aquila.TypingIndicator; // Aquila Change
+using Content.Client._Aquila.TypingIndicator; // Aquila Change
 using Content.Client.Mind;
 using Content.Client.Roles;
 using Content.Client.Stylesheets;
@@ -66,6 +68,7 @@ public sealed partial class ChatUIController : UIController
     [UISystemDependency] private readonly GhostSystem? _ghost = default;
     [UISystemDependency] private readonly CollectiveMindSystem? _collectiveMind = default!; // Goobstation - Starlight collective mind port
     [UISystemDependency] private readonly TypingIndicatorSystem? _typingIndicator = default;
+    [UISystemDependency] private readonly TypingIndicatorChannelSystem? _typingIndicatorChannel = default; // Aquila Change
     [UISystemDependency] private readonly ChatSystem? _chatSys = default;
     [UISystemDependency] private readonly PsionicChatUpdateSystem? _psionic = default!; //Nyano - Summary: makes the psionic chat available.
     [UISystemDependency] private readonly TransformSystem? _transform = default;
@@ -756,6 +759,8 @@ public sealed partial class ChatUIController : UIController
                 break;
         }
         // </Goobstation>
+
+        _typingIndicatorChannel?.ClientChangedChatChannel(prefixChannel == ChatSelectChannel.None ? box.SelectedChannel : prefixChannel); // Aquila Change
     }
 
     // Goobstation - Starlight collective mind port

@@ -4,6 +4,7 @@ using Content.Shared.Chat.TypingIndicator;
 using Robust.Client.GameObjects;
 using Robust.Shared.Prototypes;
 using Content.Shared.Inventory;
+using Content.Shared._Aquila.TypingIndicator; // Aquila Change
 
 namespace Content.Client.Chat.TypingIndicator;
 
@@ -30,6 +31,21 @@ public sealed class TypingIndicatorVisualizerSystem : VisualizerSystem<TypingInd
         if (overrideIndicator != null)
             currentTypingIndicator = overrideIndicator.Value;
 
+        // Aquila Change start
+        var isWriting = false;
+        AppearanceSystem.TryGetData<TypingIndicatorState>(uid, TypingIndicatorVisuals.State, out var chatState, args.Component);
+        if (chatState == TypingIndicatorState.None
+            && AppearanceSystem.TryGetData<ProtoId<TypingIndicatorPrototype>>(uid, TypingIndicatorChannelVisuals.Writing, out var writingIndicator, args.Component))
+        {
+            currentTypingIndicator = writingIndicator;
+            isWriting = true;
+        }
+        else if (AppearanceSystem.TryGetData<ProtoId<TypingIndicatorPrototype>>(uid, TypingIndicatorChannelVisuals.Indicator, out var channelIndicator, args.Component))
+        {
+            currentTypingIndicator = channelIndicator;
+        }
+        // Aquila Change end
+
         if (!_prototypeManager.Resolve(currentTypingIndicator, out var proto))
         {
             Log.Error($"Unknown typing indicator id: {component.TypingIndicatorPrototype}");
@@ -45,6 +61,10 @@ public sealed class TypingIndicatorVisualizerSystem : VisualizerSystem<TypingInd
         _sprite.LayerSetOffset((uid, args.Sprite), layer, proto.Offset);
 
         AppearanceSystem.TryGetData<TypingIndicatorState>(uid, TypingIndicatorVisuals.State, out var state);
+        // Aquila Change start
+        if (isWriting)
+            state = TypingIndicatorState.Typing;
+        // Aquila Change end
         _sprite.LayerSetVisible((uid, args.Sprite), layer, state != TypingIndicatorState.None);
         switch (state)
         {

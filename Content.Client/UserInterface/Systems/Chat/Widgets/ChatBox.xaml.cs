@@ -250,6 +250,8 @@ public partial class ChatBox : UIWidget
 
     private void OnFocusEnter(LineEditEventArgs args)
     {
+        _controller.UpdateSelectedChannel(this); // Aquila Change
+
         // Warn typing indicator about focus
         _controller.NotifyChatFocus(true);
     }

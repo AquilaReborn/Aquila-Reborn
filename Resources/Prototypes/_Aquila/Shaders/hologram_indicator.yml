@@ -1,0 +1,4 @@
+- type: shader
+  id: HologramIndicator
+  kind: source
+  path: "/Textures/_Aquila/Shaders/hologram_indicator.swsl"

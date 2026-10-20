@@ -1,0 +1,76 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from DeltaV-Station/Delta-v at commit https://github.com/DeltaV-Station/Delta-v/commit/73363b9ff550f635526eaafd5eb22aa44fefd264 | paper sprite by CrookLv (GitHub) | Emote and whispering sprites made by Nesoryo (Discord) | Radio, emote and whisper idle states modified from default states by kotobdev (GitHub)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "paper0",
+            "delays": [
+                [
+                    0.2,
+                    0.3,
+                    0.3,
+                    0.5
+                ]
+            ]
+        },
+        {
+            "name": "emote0",
+            "delays": [
+                [
+                    0.3,
+                    0.2,
+                    0.3,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "emote1",
+            "delays": [
+                [
+                    0.5,
+                    0.5
+                ]
+            ]
+        },
+        {
+            "name": "whisper0",
+            "delays": [
+                [
+                    0.2,
+                    0.3,
+                    0.3,
+                    0.5
+                ]
+            ]
+        },
+        {
+            "name": "whisper1"
+        },
+        {
+            "name": "radio0",
+            "delays": [
+                [
+                    0.2,
+                    0.3,
+                    0.3,
+                    0.5
+                ]
+            ]
+        },
+        {
+            "name": "radio1",
+            "delays": [
+                [
+                    0.5,
+                    0.5
+                ]
+            ]
+        }
+    ]
+}
