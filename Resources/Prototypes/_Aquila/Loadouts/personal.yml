@@ -9,6 +9,7 @@
 
 # Каждый лоадаут появляется во вкладке "Мой инвентарь" любой станционной роли,
 # но виден и доступен только игрокам, чьи UUID указаны в PersonalLoadoutEffect.
+# Если в PersonalLoadoutEffect указан список roles, вещь появится только у этих ролей.
 # Один лоадаут - один предмет: так у него будут своё название и иконка в меню. СТРОГО СЛЕДОВАТЬ ЭТОМУ ПРАВИЛУ.
 
 #endregion
@@ -21,6 +22,8 @@
   - !type:PersonalLoadoutEffect
     users:
     - 00000000-0000-0000-0000-000000000000 # Ваш UUID
+    # roles: # Необязательно: роли, у которых вещь появится в "Мой инвентарь". Без списка вещь доступна у всех ролей
+    # - Warden
   equipment: # Наденется на вас, заменяя старую вещь, старая вещь кладётся в рюкзак, либо в руку, если места нет
     head: ClothingHeadHatBeret # Слот головы
     # jumpsuit: ClothingUniformJumpsuitColorGrey # Слот комбинезона
@@ -103,6 +106,19 @@
   equipment:
     back: ClothingBackpackSatchelLeaderSacerdos
 # KEEYN
+
+# Wedge
+- type: loadout
+  id: PersonalLoadoutWedgeCoat
+  effects:
+  - !type:PersonalLoadoutEffect
+    users:
+    - e6512798-ab5c-4e57-a411-bd9a8e4ffcf7
+    roles:
+    - Warden
+  equipment:
+    outerClothing: ClothingOuterCoatWardenWedge
+# Wedge
 
 # Ckey
 # something

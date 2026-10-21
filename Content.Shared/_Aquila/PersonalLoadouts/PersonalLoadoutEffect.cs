@@ -1,4 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared.Clothing;
+using Content.Shared.Roles;
+using Robust.Shared.Prototypes;
 using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Preferences.Loadouts.Effects;
@@ -19,6 +22,43 @@ public sealed partial class PersonalLoadoutEffect : LoadoutEffect
     [DataField(required: true)]
     public List<string> Users = new();
 
+    /// <summary>
+    /// Роли, у которых лоадаут появляется во вкладке "Мой инвентарь". Пустой список - у всех ролей.
+    /// </summary>
+    [DataField]
+    public List<ProtoId<JobPrototype>> Roles = new();
+
+    /// <summary>
+    /// Разрешён ли лоадаут для указанной роли.
+    /// </summary>
+    public bool IsAllowedRole(ProtoId<RoleLoadoutPrototype> role)
+    {
+        if (Roles.Count == 0)
+            return true;
+
+        foreach (var job in Roles)
+        {
+            if (LoadoutSystem.GetJobPrototype(job) == role.Id)
+                return true;
+        }
+
+        return false;
+    }
+
+    /// <summary>
+    /// Разрешён ли лоадаут для указанной роли с учётом всех его личных эффектов.
+    /// </summary>
+    public static bool IsAvailableForRole(LoadoutPrototype proto, ProtoId<RoleLoadoutPrototype> role)
+    {
+        foreach (var effect in proto.Effects)
+        {
+            if (effect is PersonalLoadoutEffect personal && !personal.IsAllowedRole(role))
+                return false;
+        }
+
+        return true;
+    }
+
     public bool IsOwner(NetUserId userId)
     {
         foreach (var user in Users)
@@ -38,13 +78,19 @@ public sealed partial class PersonalLoadoutEffect : LoadoutEffect
         IDependencyCollection collection,
         [NotNullWhen(false)] out FormattedMessage? reason)
     {
-        if (session != null && IsOwner(session.UserId))
+        if (session == null || !IsOwner(session.UserId))
         {
-            reason = null;
-            return true;
+            reason = FormattedMessage.FromMarkupOrThrow(Loc.GetString("loadout-personal-only"));
+            return false;
         }
 
-        reason = FormattedMessage.FromMarkupOrThrow(Loc.GetString("loadout-personal-only"));
-        return false;
+        if (!IsAllowedRole(loadout.Role))
+        {
+            reason = FormattedMessage.FromMarkupOrThrow(Loc.GetString("loadout-personal-wrong-role"));
+            return false;
+        }
+
+        reason = null;
+        return true;
     }
 }

@@ -1,0 +1,47 @@
+- type: entity
+  parent: ClothingOuterCoatWarden
+  id: ClothingOuterCoatWardenWedge
+  name: custom jacket with armored rig
+  suffix: Personal
+  description: A thick leather jacket with an armored rig underneath. The jacket has extra armor inside, with the fur collar reinforced the most. The rig itself is a very roomy plate carrier with a tough aramid layer. It holds 2 armor plates. The rig is made in a unique custom style.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/OuterClothing/wedge_coat.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/OuterClothing/wedge_coat.rsi
+  - type: Storage
+    maxItemSize: Normal
+    defaultStorageOrientation: Vertical
+    grid:
+    - 0,0,7,1
+    whitelist:
+      tags:
+      - CigPack
+      - Taser
+      - SecBeltEquip
+      - Radio
+      - Sidearm
+      - MagazinePistol
+      - MagazineMagnum
+      - CombatKnife
+      - Truncheon
+      - HandGrenade
+      - MilitaryPowerCellSMG
+      - MilitaryPowerCellSniper
+      - MilitaryPowerCellRevolver
+      - EnergyMagAmmo
+      - Bola
+      - BolaEnergy
+      - TelescopicShield
+      - TelescopicBaton
+      components:
+      - Stunbaton
+      - FlashOnTrigger
+      - SmokeOnTrigger
+      - Flash
+      - Handcuff
+      - BallisticAmmoProvider
+      - CartridgeAmmo
+      - DoorRemote
+      - Whistle
+      - BalloonPopper

@@ -1,8 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq; // Aquila Change
 using System.Numerics;
 using Content.Client.UserInterface.Controls;
 using Content.Corvax.Interfaces.Shared; // Aquila Change
+using Content.Shared._Aquila.PersonalLoadouts; // Aquila Change
 using Content.Shared.CCVar;
 using Content.Shared.Dataset;
 using Content.Shared.Preferences;
@@ -79,7 +81,7 @@ public sealed partial class LoadoutWindow : FancyWindow
                 // Aquila Change start
                 if (group == "Inventory"
                     && collection.TryResolveType<ISharedLoadoutsManager>(out var loadoutsManager)
-                    && loadoutsManager.GetClientPrototypes().Count == 0)
+                    && !loadoutsManager.GetClientPrototypes().Any(id => protoManager.TryIndex<LoadoutPrototype>(id, out var personal) && PersonalLoadoutEffect.IsAvailableForRole(personal, loadout.Role)))
                     continue;
                 // Aquila Change end
 
