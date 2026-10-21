@@ -124,6 +124,7 @@ public sealed class AutoSurgeonSystem : EntitySystem
             else
             {
                 if (!TryComp<OrganComponent>(newPart, out var newOrganComp)
+                || (ent.Comp.CreateOrganSlot && !_body.TryCreateOrganSlot(parent, newOrganComp.SlotId, out _, parentComp)) // Aquila Change
                 || !_body.CanInsertOrgan(parent, newOrganComp.SlotId))
                 {
                     Del(newPart);
@@ -135,7 +136,16 @@ public sealed class AutoSurgeonSystem : EntitySystem
                     .FirstOrDefault(organ => organ.Component.SlotId == newOrganComp.SlotId)
                     .Id;
 
-                if (!_body.AddOrganToFirstValidSlot(parent, newPart) && oldOrgan.Valid)
+                // Aquila Change start
+                if (ent.Comp.CreateOrganSlot)
+                {
+                    if (oldOrgan.Valid)
+                        _body.RemoveOrgan(oldOrgan);
+
+                    _body.InsertOrgan(parent, newPart, newOrganComp.SlotId, parentComp, newOrganComp);
+                }
+                else if (!_body.AddOrganToFirstValidSlot(parent, newPart) && oldOrgan.Valid)
+                // Aquila Change end
                 {
                     _body.RemoveOrgan(oldOrgan);
                     _body.InsertOrgan(parent, newPart, newOrganComp.SlotId);

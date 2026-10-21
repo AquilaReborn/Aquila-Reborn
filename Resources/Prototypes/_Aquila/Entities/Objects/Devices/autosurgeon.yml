@@ -1,0 +1,258 @@
+# Заполненные аугменты
+
+- type: entity
+  parent: AugmentPowerCellSlot
+  id: AugmentPowerCellSlotFilled
+  suffix: Filled
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHigh
+        whitelist:
+          components:
+          - PowerCell
+        blacklist:
+          tags:
+          - PowerCage
+
+- type: entity
+  parent: AugmentToolsPanel
+  id: AugmentToolsPanelFilled
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: Crowbar
+    - id: Wrench
+    - id: Screwdriver
+    - id: Wirecutter
+    - id: Welder
+    - id: Multitool
+
+- type: entity
+  parent: AugmentBotanyPanel
+  id: AugmentBotanyPanelFilled
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: HydroponicsToolMiniHoe
+    - id: HydroponicsToolSpade
+    - id: HydroponicsToolHatchet
+    - id: HydroponicsToolClippers
+
+- type: entity
+  parent: AugmentPaperworkPanel
+  id: AugmentPaperworkPanelFilled
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxFolderBlue
+    - id: HandLabeler
+    - id: RubberStampApproved
+    - id: RubberStampDenied
+
+- type: entity
+  parent: AugmentSurgicalPanel
+  id: AugmentSurgicalPanelFilled
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: Scalpel
+    - id: Retractor
+    - id: Hemostat
+    - id: SawElectric
+    - id: Drill
+    - id: Cautery
+
+# Админские автохирурги
+
+- type: entity
+  abstract: true
+  parent: BaseAutosurgeonSingle
+  id: BaseAutosurgeonAdmin
+  suffix: Admin
+  description: A reusable autosurgeon for installing augments. Not for mere mortals.
+
+- type: entity
+  parent: BaseAutosurgeonAdmin
+  id: AutosurgeonAdminPowerCellSlot
+  name: autosurgeon (power cell slot augment)
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Chest
+    targetOrgan: powerCell
+    newPartProto: AugmentPowerCellSlotFilled
+    oneTimeUse: false
+    createOrganSlot: true
+    doAfterTime: 3
+
+- type: entity
+  parent: BaseAutosurgeonAdmin
+  id: AutosurgeonAdminRechargerAPC
+  name: autosurgeon (apc recharger augment)
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Chest
+    targetOrgan: charger
+    newPartProto: AugmentRechargerAPC
+    oneTimeUse: false
+    createOrganSlot: true
+    doAfterTime: 3
+
+- type: entity
+  parent: BaseAutosurgeonAdmin
+  id: AutosurgeonAdminRechargerStation
+  name: autosurgeon (station recharger augment)
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Chest
+    targetOrgan: charger
+    newPartProto: AugmentRechargerStation
+    oneTimeUse: false
+    createOrganSlot: true
+    doAfterTime: 3
+
+- type: entity
+  parent: BaseAutosurgeonAdmin
+  id: AutosurgeonAdminStrengthRight
+  name: autosurgeon (right strength augment)
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Arm
+    targetBodyPartSymmetry: Right
+    targetOrgan: armImplant
+    newPartProto: AugmentStrength
+    oneTimeUse: false
+    createOrganSlot: true
+    doAfterTime: 3
+
+- type: entity
+  parent: BaseAutosurgeonAdmin
+  id: AutosurgeonAdminStrengthLeft
+  name: autosurgeon (left strength augment)
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Arm
+    targetBodyPartSymmetry: Left
+    targetOrgan: armImplant
+    newPartProto: AugmentStrength
+    oneTimeUse: false
+    createOrganSlot: true
+    doAfterTime: 3
+
+- type: entity
+  parent: BaseAutosurgeonAdmin
+  id: AutosurgeonAdminToolsPanelRight
+  name: autosurgeon (right utility tools panel augment)
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Arm
+    targetBodyPartSymmetry: Right
+    targetOrgan: armImplant
+    newPartProto: AugmentToolsPanelFilled
+    oneTimeUse: false
+    createOrganSlot: true
+    doAfterTime: 3
+
+- type: entity
+  parent: BaseAutosurgeonAdmin
+  id: AutosurgeonAdminToolsPanelLeft
+  name: autosurgeon (left utility tools panel augment)
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Arm
+    targetBodyPartSymmetry: Left
+    targetOrgan: armImplant
+    newPartProto: AugmentToolsPanelFilled
+    oneTimeUse: false
+    createOrganSlot: true
+    doAfterTime: 3
+
+- type: entity
+  parent: BaseAutosurgeonAdmin
+  id: AutosurgeonAdminBotanyPanelRight
+  name: autosurgeon (right botanical tools panel augment)
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Arm
+    targetBodyPartSymmetry: Right
+    targetOrgan: armImplant
+    newPartProto: AugmentBotanyPanelFilled
+    oneTimeUse: false
+    createOrganSlot: true
+    doAfterTime: 3
+
+- type: entity
+  parent: BaseAutosurgeonAdmin
+  id: AutosurgeonAdminBotanyPanelLeft
+  name: autosurgeon (left botanical tools panel augment)
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Arm
+    targetBodyPartSymmetry: Left
+    targetOrgan: armImplant
+    newPartProto: AugmentBotanyPanelFilled
+    oneTimeUse: false
+    createOrganSlot: true
+    doAfterTime: 3
+
+- type: entity
+  parent: BaseAutosurgeonAdmin
+  id: AutosurgeonAdminPaperworkPanelRight
+  name: autosurgeon (right paperwork tools panel augment)
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Arm
+    targetBodyPartSymmetry: Right
+    targetOrgan: armImplant
+    newPartProto: AugmentPaperworkPanelFilled
+    oneTimeUse: false
+    createOrganSlot: true
+    doAfterTime: 3
+
+- type: entity
+  parent: BaseAutosurgeonAdmin
+  id: AutosurgeonAdminPaperworkPanelLeft
+  name: autosurgeon (left paperwork tools panel augment)
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Arm
+    targetBodyPartSymmetry: Left
+    targetOrgan: armImplant
+    newPartProto: AugmentPaperworkPanelFilled
+    oneTimeUse: false
+    createOrganSlot: true
+    doAfterTime: 3
+
+- type: entity
+  parent: BaseAutosurgeonAdmin
+  id: AutosurgeonAdminSurgicalPanelRight
+  name: autosurgeon (right surgical tools panel augment)
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Arm
+    targetBodyPartSymmetry: Right
+    targetOrgan: armImplant
+    newPartProto: AugmentSurgicalPanelFilled
+    oneTimeUse: false
+    createOrganSlot: true
+    doAfterTime: 3
+
+- type: entity
+  parent: BaseAutosurgeonAdmin
+  id: AutosurgeonAdminSurgicalPanelLeft
+  name: autosurgeon (left surgical tools panel augment)
+  components:
+  - type: AutoSurgeon
+    targetBodyPart: Arm
+    targetBodyPartSymmetry: Left
+    targetOrgan: armImplant
+    newPartProto: AugmentSurgicalPanelFilled
+    oneTimeUse: false
+    createOrganSlot: true
+    doAfterTime: 3

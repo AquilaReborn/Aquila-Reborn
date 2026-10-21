@@ -55,6 +55,14 @@ public sealed partial class AutoSurgeonComponent : Component
     [DataField]
     public bool OneTimeUse = true;
 
+    // Aquila Change start
+    /// <summary>
+    /// Создавать ли слот под орган, если его нет. Нужно для аугментов, у которых слот появляется только при операции.
+    /// </summary>
+    [DataField]
+    public bool CreateOrganSlot;
+    // Aquila Change end
+
     [DataField, AutoNetworkedField]
     public bool Used;
 

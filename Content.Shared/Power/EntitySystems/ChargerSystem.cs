@@ -8,6 +8,7 @@ using Content.Shared.Storage.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
+using Content.Shared._Aquila.Power; // Aquila Change
 
 namespace Content.Shared.Power.EntitySystems;
 
@@ -68,7 +69,7 @@ public sealed class ChargerSystem : EntitySystem
                 // add how much each item is charged it
                 foreach (var contained in container.ContainedEntities)
                 {
-                    if (!_powerCell.TryGetBatteryFromEntityOrSlot(contained, out var battery))
+                    if (!TryGetChargeableBattery(contained, out var battery))
                         continue;
 
                     var chargePercent = _battery.GetChargeLevel(battery.Value.AsNullable()) * 100;
@@ -93,7 +94,7 @@ public sealed class ChargerSystem : EntitySystem
             return;
 
         AddComp<InsideChargerComponent>(args.Entity);
-        if (_powerCell.TryGetBatteryFromEntityOrSlot(args.Entity, out var battery))
+        if (TryGetChargeableBattery(args.Entity, out var battery))
             _battery.RefreshChargeRate(battery.Value.AsNullable());
         UpdateStatus(ent);
     }
@@ -107,7 +108,7 @@ public sealed class ChargerSystem : EntitySystem
             return;
 
         RemComp<InsideChargerComponent>(args.Entity);
-        if (_powerCell.TryGetBatteryFromEntityOrSlot(args.Entity, out var battery))
+        if (TryGetChargeableBattery(args.Entity, out var battery))
             _battery.RefreshChargeRate(battery.Value.AsNullable());
         UpdateStatus(ent);
     }
@@ -195,7 +196,7 @@ public sealed class ChargerSystem : EntitySystem
 
         foreach (var item in container.ContainedEntities)
         {
-            if (_powerCell.TryGetBatteryFromEntityOrSlot(item, out var battery))
+            if (TryGetChargeableBattery(item, out var battery))
                 _battery.RefreshChargeRate(battery.Value.AsNullable());
         }
     }
@@ -225,6 +226,19 @@ public sealed class ChargerSystem : EntitySystem
         _appearance.SetData(ent.Owner, CellVisual.Light, status, appearance);
     }
 
+    // Aquila Change start
+    private bool TryGetChargeableBattery(EntityUid uid, [NotNullWhen(true)] out Entity<BatteryComponent>? battery)
+    {
+        if (_powerCell.TryGetBatteryFromEntityOrSlot(uid, out battery))
+            return true;
+
+        var ev = new FindChargerBatteryEvent();
+        RaiseLocalEvent(uid, ref ev);
+        battery = ev.Battery;
+        return battery != null;
+    }
+    // Aquila Change end
+
     private CellChargerStatus GetStatus(Entity<ChargerComponent> ent)
     {
         if (!ent.Comp.Portable && !Transform(ent).Anchored)
@@ -243,7 +257,7 @@ public sealed class ChargerSystem : EntitySystem
             return CellChargerStatus.Empty;
 
         // Use the first stored battery for visuals. If someone ever makes a multi-slot charger then this will need to be changed.
-        if (!_powerCell.TryGetBatteryFromEntityOrSlot(container.ContainedEntities[0], out var battery))
+        if (!TryGetChargeableBattery(container.ContainedEntities[0], out var battery))
             return CellChargerStatus.Off;
 
         if (_battery.IsFull(battery.Value.AsNullable()))

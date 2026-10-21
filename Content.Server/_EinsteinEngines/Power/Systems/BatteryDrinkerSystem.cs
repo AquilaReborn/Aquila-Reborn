@@ -127,8 +127,12 @@ public sealed class BatteryDrinkerSystem : SharedBatteryDrinkerSystem
 
         var amountToDrink = drinkerComp.DrinkMultiplier * 1000;
 
-        amountToDrink = MathF.Min(amountToDrink, sourceBattery.LastCharge);
-        amountToDrink = MathF.Min(amountToDrink, drinkerBatteryComponent!.MaxCharge - drinkerBatteryComponent.LastCharge);
+        // Aquila Change start
+        var sourceCharge = _battery.GetCharge((source, sourceBattery));
+        var drinkerCharge = _battery.GetCharge((drinkerBattery.Value, drinkerBatteryComponent));
+        amountToDrink = MathF.Min(amountToDrink, sourceCharge);
+        amountToDrink = MathF.Min(amountToDrink, drinkerBatteryComponent.MaxCharge - drinkerCharge);
+        // Aquila Change end
 
         if (sourceComp != null && sourceComp.MaxAmount > 0)
             amountToDrink = MathF.Min(amountToDrink, (float) sourceComp.MaxAmount);
@@ -139,13 +143,15 @@ public sealed class BatteryDrinkerSystem : SharedBatteryDrinkerSystem
             return;
         }
 
+        // Aquila Change start
         if (_battery.TryUseCharge(source, amountToDrink))
-            _battery.SetCharge(drinkerBattery.Value, drinkerBatteryComponent.LastCharge + amountToDrink); // DeltaV - people with augment power cells can drink batteries
+            _battery.ChangeCharge(drinkerBattery.Value, amountToDrink);
         else
         {
-            _battery.SetCharge(drinkerBattery.Value, sourceBattery.LastCharge + drinkerBatteryComponent.LastCharge); // DeltaV - people with augment power cells can drink batteries
+            _battery.ChangeCharge(drinkerBattery.Value, sourceCharge);
             _battery.SetCharge(source, 0);
         }
+        // Aquila Change end
 
         if (sourceComp != null && sourceComp.DrinkSound != null){
             _popup.PopupEntity(Loc.GetString("ipc-recharge-tip"), drinker, drinker, PopupType.SmallCaution);

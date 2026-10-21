@@ -39,7 +39,7 @@ public sealed class AugmentPowerDrawSystem : EntitySystem
     {
         if (_augment.GetBody(ent) is not {} body ||
             _augmentPower.GetBodyAugment(body) is not {} slot ||
-            !_powerCell.HasActivatableCharge(slot.Owner))
+            !_powerCell.HasCharge(slot.Owner, ent.Comp.Draw, args.Silent ? null : args.User, predicted: true)) // Aquila Change
         {
             args.Cancelled = true;
         }

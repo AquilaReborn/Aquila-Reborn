@@ -1,0 +1,62 @@
+## Заполненные аугменты
+
+ent-AugmentPowerCellSlotFilled = { ent-AugmentPowerCellSlot }
+    .desc = { ent-AugmentPowerCellSlot.desc }
+    .suffix = Заполненный
+ent-AugmentToolsPanelFilled = { ent-AugmentToolsPanel }
+    .desc = { ent-AugmentToolsPanel.desc }
+    .suffix = Заполненный
+ent-AugmentBotanyPanelFilled = { ent-AugmentBotanyPanel }
+    .desc = { ent-AugmentBotanyPanel.desc }
+    .suffix = Заполненный
+ent-AugmentPaperworkPanelFilled = { ent-AugmentPaperworkPanel }
+    .desc = { ent-AugmentPaperworkPanel.desc }
+    .suffix = Заполненный
+ent-AugmentSurgicalPanelFilled = { ent-AugmentSurgicalPanel }
+    .desc = { ent-AugmentSurgicalPanel.desc }
+    .suffix = Заполненный
+
+## Админские автохирурги
+
+ent-BaseAutosurgeonAdmin = { ent-BaseAutosurgeonSingle }
+    .desc = Многоразовый автохирург для установки аугментов. Не для простых смертных.
+    .suffix = Админ
+ent-AutosurgeonAdminPowerCellSlot = автохирург (имплант энергетической ячейки)
+    .desc = { ent-BaseAutosurgeonAdmin.desc }
+    .suffix = Админ
+ent-AutosurgeonAdminRechargerAPC = автохирург (имплант зарядки от ЛКП)
+    .desc = { ent-BaseAutosurgeonAdmin.desc }
+    .suffix = Админ
+ent-AutosurgeonAdminRechargerStation = автохирург (имплант зарядки от станции)
+    .desc = { ent-BaseAutosurgeonAdmin.desc }
+    .suffix = Админ
+ent-AutosurgeonAdminStrengthRight = автохирург (имплант силы, правая рука)
+    .desc = { ent-BaseAutosurgeonAdmin.desc }
+    .suffix = Админ
+ent-AutosurgeonAdminStrengthLeft = автохирург (имплант силы, левая рука)
+    .desc = { ent-BaseAutosurgeonAdmin.desc }
+    .suffix = Админ
+ent-AutosurgeonAdminToolsPanelRight = автохирург (панель инструментов, правая рука)
+    .desc = { ent-BaseAutosurgeonAdmin.desc }
+    .suffix = Админ
+ent-AutosurgeonAdminToolsPanelLeft = автохирург (панель инструментов, левая рука)
+    .desc = { ent-BaseAutosurgeonAdmin.desc }
+    .suffix = Админ
+ent-AutosurgeonAdminBotanyPanelRight = автохирург (панель ботанических инструментов, правая рука)
+    .desc = { ent-BaseAutosurgeonAdmin.desc }
+    .suffix = Админ
+ent-AutosurgeonAdminBotanyPanelLeft = автохирург (панель ботанических инструментов, левая рука)
+    .desc = { ent-BaseAutosurgeonAdmin.desc }
+    .suffix = Админ
+ent-AutosurgeonAdminPaperworkPanelRight = автохирург (панель канцелярских принадлежностей, правая рука)
+    .desc = { ent-BaseAutosurgeonAdmin.desc }
+    .suffix = Админ
+ent-AutosurgeonAdminPaperworkPanelLeft = автохирург (панель канцелярских принадлежностей, левая рука)
+    .desc = { ent-BaseAutosurgeonAdmin.desc }
+    .suffix = Админ
+ent-AutosurgeonAdminSurgicalPanelRight = автохирург (панель хирургических инструментов, правая рука)
+    .desc = { ent-BaseAutosurgeonAdmin.desc }
+    .suffix = Админ
+ent-AutosurgeonAdminSurgicalPanelLeft = автохирург (панель хирургических инструментов, левая рука)
+    .desc = { ent-BaseAutosurgeonAdmin.desc }
+    .suffix = Админ

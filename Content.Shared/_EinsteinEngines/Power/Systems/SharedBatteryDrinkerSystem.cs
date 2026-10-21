@@ -3,6 +3,7 @@ using Content.Shared._EinsteinEngines.Silicon.Charge;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Weapons.Ranged;
+using Content.Shared._Aquila.Power; // Aquila Change
 
 namespace Content.Shared._EinsteinEngines.Power.Systems;
 
@@ -42,6 +43,16 @@ public abstract class SharedBatteryDrinkerSystem : EntitySystem
     public bool SearchForDrinker(EntityUid ent, [NotNullWhen(true)] out EntityUid? drinker)
     {
         drinker = null;
+
+        // Aquila Change start
+        var findEv = new FindDrinkerBatteryEvent();
+        RaiseLocalEvent(ent, ref findEv);
+        if (findEv.Battery is { } found)
+        {
+            drinker = found;
+            return true;
+        }
+        // Aquila Change end
 
         // Do we have a cell slot
         if (SearchForCellSlot(ent, out var slot)) {
