@@ -87,7 +87,7 @@
     - 39328e26-5588-4c9b-9211-29cd40c64183
   equipment:
     jumpsuit: Theteamleadersjumpsuitskirt_sacerdos
-    
+
 - type: loadout
   id: PersonalLoadoutKeeynGlasses
   effects:
@@ -96,7 +96,7 @@
     - 39328e26-5588-4c9b-9211-29cd40c64183
   equipment:
     eyes: ClothingCentComGlassesYellowNoThermal
-    
+
 - type: loadout
   id: PersonalLoadoutKeeynSatchel
   effects:
@@ -107,7 +107,7 @@
     back: ClothingBackpackSatchelLeaderSacerdos
 # KEEYN
 
-# Wedge
+# McDonaldsObamaBurger
 - type: loadout
   id: PersonalLoadoutWedgeCoat
   effects:
@@ -118,7 +118,7 @@
     - Warden
   equipment:
     outerClothing: ClothingOuterCoatWardenWedge
-# Wedge
+# McDonaldsObamaBurger
 
 # Ckey
 # something
