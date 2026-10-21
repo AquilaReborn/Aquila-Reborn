@@ -12,7 +12,6 @@ using Content.Client.Examine;
 using Content.Client.Gameplay;
 using Content.Client.Ghost;
 using Content.Client._Aquila.TypingIndicator; // Aquila Change
-using Content.Client._Aquila.TypingIndicator; // Aquila Change
 using Content.Client.Mind;
 using Content.Client.Roles;
 using Content.Client.Stylesheets;
