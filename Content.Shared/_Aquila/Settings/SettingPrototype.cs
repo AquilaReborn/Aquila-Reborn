@@ -21,6 +21,13 @@ public sealed partial class AqSettingPrototype : IPrototype
     /// </summary>
     [DataField]
     public int Weight { get; private set; }
+
+    /// <summary>
+    /// ID пула карт (gameMapPool), из которого выбираются карты при этом сеттинге.
+    /// Если не указан, используется пул из CVar game.map_pool.
+    /// </summary>
+    [DataField]
+    public string? MapPool;
 }
 
 /// <summary>

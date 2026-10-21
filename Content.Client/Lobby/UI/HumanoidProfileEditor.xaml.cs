@@ -7,6 +7,7 @@ using Content.Client._Aquila.OocNotes; // Aquila Change
 using Content.Client._CorvaxGoob.TTS;
 using Content.Goobstation.Common.Barks; // Aquila Change
 using Content.Goobstation.Common.CCVar; // Aquila Change
+using Content.Shared._Aquila.CCVars; // Aquila Change
 using Content.Client.Humanoid;
 using Content.Client.Lobby.UI.Loadouts;
 using Content.Client.Lobby.UI.Roles;
@@ -158,6 +159,7 @@ namespace Content.Client.Lobby.UI
 
             _maxNameLength = _cfgManager.GetCVar(CCVars.MaxNameLength);
             _allowFlavorText = _cfgManager.GetCVar(CCVars.FlavorText);
+            _cfgManager.OnValueChanged(AquilaCVars.Setting, OnSettingChanged); // Aquila Change
 
             ImportButton.OnPressed += args =>
             {
@@ -1010,9 +1012,16 @@ namespace Content.Client.Lobby.UI
             departments.Sort(DepartmentUIComparer.Instance);
 
             // Aquila Change start
+            var activeSetting = _cfgManager.GetCVar(AquilaCVars.Setting);
+            var filterSetting = _prototypeManager.HasIndex<AqSettingPrototype>(activeSetting);
+            departments.RemoveAll(department => filterSetting && department.Setting != activeSetting);
+
             var settings = new List<AqSettingPrototype>();
             foreach (var setting in _prototypeManager.EnumeratePrototypes<AqSettingPrototype>())
             {
+                if (filterSetting && setting.ID != activeSetting)
+                    continue;
+
                 settings.Add(setting);
             }
 
@@ -1399,7 +1408,15 @@ namespace Content.Client.Lobby.UI
 
             _loadoutWindow?.Dispose();
             _loadoutWindow = null;
+            _cfgManager.UnsubValueChanged(AquilaCVars.Setting, OnSettingChanged); // Aquila Change
         }
+
+        // Aquila Change start
+        private void OnSettingChanged(string setting)
+        {
+            RefreshJobs();
+        }
+        // Aquila Change end
 
         protected override void EnteredTree()
         {

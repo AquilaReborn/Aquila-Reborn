@@ -26,4 +26,7 @@ public sealed class AquilaCVars
 
     public static readonly CVarDef<bool> Economy =
         CVarDef.Create("aquila.economy", true, CVar.SERVER | CVar.REPLICATED);
+
+    public static readonly CVarDef<string> Setting =
+        CVarDef.Create("aquila.setting", "SS14", CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
 }

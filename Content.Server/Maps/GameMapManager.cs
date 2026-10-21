@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.GameTicking;
+using Content.Server._Aquila.Settings; // Aquila Change
 using Content.Shared.CCVar;
 using Content.Shared.Maps;
 using Robust.Server.Player;
@@ -105,6 +106,7 @@ public sealed class GameMapManager : IGameMapManager
     public IEnumerable<GameMapPrototype> AllVotableMaps()
     {
         var poolPrototype = _entityManager.System<GameTicker>().Preset?.MapPool ??
+                   _entityManager.System<AqSettingSystem>().GetActiveSetting()?.MapPool ?? // Aquila Change
                    _configurationManager.GetCVar(CCVars.GameMapPool);
 
         if (_prototypeManager.TryIndex<GameMapPoolPrototype>(poolPrototype, out var pool))

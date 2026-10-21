@@ -6,6 +6,7 @@ using Content.Server.Station.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using System.Text;
+using Content.Server._Aquila.Settings; // Aquila Change
 
 namespace Content.Server.GameTicking
 {
@@ -77,6 +78,10 @@ namespace Content.Server.GameTicking
 
             var gmTitle = Loc.GetString(preset.ModeTitle);
             var desc = Loc.GetString(preset.Description);
+            // Aquila Change start
+            var activeSetting = EntityManager.System<AqSettingSystem>().GetActiveSetting();
+            var setting = activeSetting != null ? Loc.GetString(activeSetting.Name) : "Space Station 14";
+            // Aquila Change end
             var infoText = RunLevel == GameRunLevel.PreRoundLobby
                     ? "game-ticker-get-info-preround-text"
                     : "game-ticker-get-info-text";
@@ -91,7 +96,8 @@ namespace Content.Server.GameTicking
                 ("readyCount", readyCount),
                 ("mapName", stationNames.ToString()),
                 ("gmTitle", gmTitle),
-                ("desc", desc));
+                ("desc", desc),
+                ("setting", setting)); // Aquila Change
         }
 
         private TickerConnectionStatusEvent GetConnectionStatusMsg()

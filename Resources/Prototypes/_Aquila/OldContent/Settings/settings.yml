@@ -2,6 +2,7 @@
   id:  SS14
   weight: 10
   name: aq-setting-ss14
+  mapPool: SS14MapPool
 
 - type: aqSetting
   id:  OS14
