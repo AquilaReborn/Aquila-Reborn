@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from desertrose at https://github.com/DesertRose2/desertrose/commit/120961e254d7f83a6e00a02c76e734f9e5019345, https://github.com/DesertRose2/desertrose/blob/master/icons/obj/guns/projectile.dmi, resprite by RedTerror",
+    "copyright": "Taken from desertrose at https://github.com/DesertRose2/desertrose/commit/120961e254d7f83a6e00a02c76e734f9e5019345, https://github.com/DesertRose2/desertrose/blob/master/icons/obj/guns/projectile.dmi, resprite by RedTerror, flashlight state taken from Resources/Textures/Objects/Weapons/Guns/Pistols/mk58.rsi and shifted to fit the resprite",
     "size": {
         "x": 32,
         "y": 32
@@ -34,6 +34,9 @@
 		{
             "name": "equipped-SUITSTORAGE",
             "directions": 4
+        },
+        {
+            "name": "flashlight"
         }
     ]
 }
