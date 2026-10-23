@@ -1067,7 +1067,7 @@
   description: A one-of-a-kind energy weapon that fires a barrage of red-hot plasma rather than a laser beam. Comes with a fire selector between narrow, wide, and disabling, making it a diverse weapon in the right hands. # Goobstation
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+    sprite: _Aquila/Objects/Weapons/Guns/Battery/energy_shotgun.rsi # Aquila Change
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]

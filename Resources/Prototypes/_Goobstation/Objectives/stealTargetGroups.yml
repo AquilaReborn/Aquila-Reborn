@@ -53,5 +53,5 @@
   id: WeaponEnergyShotgun
   name: steal-target-groups-weapon-energy-shot-gun
   sprite:
-    sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+    sprite: _Aquila/Objects/Weapons/Guns/Battery/energy_shotgun.rsi # Aquila Change
     state: base
