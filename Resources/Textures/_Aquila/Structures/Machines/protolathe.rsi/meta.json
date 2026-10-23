@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Shiptest at https://github.com/shiptest-ss13/Shiptest/blob/28e96272a69e75b871f22f890e5c3b3bd79a1b1d/icons/obj/machines/research.dmi, unlit layers extracted from the original sprites",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon",
+      "delays": [
+        [ 0.8, 0.8, 0.8, 0.8 ]
+      ]
+    },
+    {
+      "name": "unlit",
+      "delays": [
+        [ 0.8, 0.8, 0.8, 0.8 ]
+      ]
+    },
+    {
+      "name": "building",
+      "delays": [
+        [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1 ]
+      ]
+    },
+    {
+      "name": "unlit-building",
+      "delays": [
+        [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1 ]
+      ]
+    },
+    {
+      "name": "inserting",
+      "delays": [
+        [ 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09 ]
+      ]
+    },
+    {
+      "name": "panel"
+    }
+  ]
+}

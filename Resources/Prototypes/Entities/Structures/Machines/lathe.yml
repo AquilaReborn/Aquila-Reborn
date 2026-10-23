@@ -117,7 +117,7 @@
   description: It produces basic items using metal and glass. Has the ability to process blueprints to print new recipes.
   components:
   - type: Sprite
-    sprite: Structures/Machines/autolathe.rsi
+    sprite: _Aquila/Structures/Machines/autolathe.rsi # Aquila Change
     snapCardinals: true
     layers:
     - state: icon
@@ -212,7 +212,7 @@
   description: Converts raw materials into advanced items.
   components:
   - type: Sprite
-    sprite: Structures/Machines/protolathe.rsi
+    sprite: _Aquila/Structures/Machines/protolathe.rsi # Aquila Change
     snapCardinals: true
     layers:
     - state: icon
@@ -296,7 +296,7 @@
   description: Prints circuit boards for machines.
   components:
   - type: Sprite
-    sprite: Structures/Machines/circuit_imprinter.rsi
+    sprite: _Aquila/Structures/Machines/circuit_imprinter.rsi # Aquila Change
     snapCardinals: true
     layers:
     - state: icon

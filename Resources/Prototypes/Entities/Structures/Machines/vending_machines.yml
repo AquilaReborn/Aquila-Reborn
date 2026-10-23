@@ -1701,7 +1701,7 @@
   #  normalState: normal-unshaded
   #  denyState: deny-unshaded
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/mining.rsi
+    sprite: _Aquila/Structures/Machines/VendingMachines/mining.rsi # Aquila Change
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]

@@ -11,7 +11,7 @@
     - type: Transform
       noRot: false
     - type: Sprite
-      sprite: Structures/Power/Generation/teg.rsi
+      sprite: _Aquila/Structures/Power/Generation/teg.rsi # Aquila Change
       layers:
         - state: teg
         - state: teg_mid
@@ -56,7 +56,7 @@
     - type: PowerMonitoringDevice
       group: Generator
       loadNode: output
-      sprite: Structures/Power/Generation/teg.rsi
+      sprite: _Aquila/Structures/Power/Generation/teg.rsi # Aquila Change
       state: static
     - type: Rotatable
 
@@ -120,7 +120,7 @@
 
     # visuals
     - type: Sprite
-      sprite: Structures/Power/Generation/teg.rsi
+      sprite: _Aquila/Structures/Power/Generation/teg.rsi # Aquila Change
       layers:
         - state: circ-0
           map: [ "enum.TegVisualLayers.CirculatorBase" ]

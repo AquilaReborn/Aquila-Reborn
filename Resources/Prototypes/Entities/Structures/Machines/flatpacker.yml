@@ -102,6 +102,6 @@
   - HideSpawnMenu
   components:
   - type: Sprite
-    sprite: Structures/Machines/autolathe.rsi
+    sprite: _Aquila/Structures/Machines/autolathe.rsi # Aquila Change
     state: icon
     color: "#222222"

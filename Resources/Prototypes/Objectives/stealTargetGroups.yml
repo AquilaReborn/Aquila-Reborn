@@ -351,7 +351,7 @@
   id: Teg
   name: steal-target-groups-teg
   sprite:
-    sprite: Structures/Power/Generation/teg.rsi
+    sprite: _Aquila/Structures/Power/Generation/teg.rsi # Aquila Change
     state: teg
 
 - type: stealTargetGroup

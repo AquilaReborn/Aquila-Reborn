@@ -411,7 +411,7 @@
 - type: latheRecipe
   parent: [ BaseCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
   id: ProtolatheMachineCircuitboard
-  icon: { sprite: Structures/Machines/protolathe.rsi, state: icon } # Goobstation
+  icon: { sprite: _Aquila/Structures/Machines/protolathe.rsi, state: icon } # Goobstation # Aquila Change
   result: ProtolatheMachineCircuitboard
 
 - type: latheRecipe
@@ -423,7 +423,7 @@
 - type: latheRecipe
   parent: [ BaseCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
   id: CircuitImprinterMachineCircuitboard
-  icon: { sprite: Structures/Machines/circuit_imprinter.rsi, state: icon } # Goobstation
+  icon: { sprite: _Aquila/Structures/Machines/circuit_imprinter.rsi, state: icon } # Goobstation # Aquila Change
   result: CircuitImprinterMachineCircuitboard
 
 - type: latheRecipe
@@ -465,7 +465,7 @@
 - type: latheRecipe
   parent: [ BaseCircuitboardRecipe, BaseGeneralMachineRecipeCategory ]
   id: AutolatheMachineCircuitboard
-  icon: { sprite: Structures/Machines/autolathe.rsi, state: icon } # Goobstation
+  icon: { sprite: _Aquila/Structures/Machines/autolathe.rsi, state: icon } # Goobstation # Aquila Change
   result: AutolatheMachineCircuitboard
 
 - type: latheRecipe
