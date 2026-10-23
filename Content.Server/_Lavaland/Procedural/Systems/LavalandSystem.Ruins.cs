@@ -352,10 +352,6 @@ public sealed partial class LavalandSystem
         Vector2i offset,
         HashSet<Vector2i>? reservedTiles = null)
     {
-        var box = grid.Comp.LocalAABB.Translated(offset);
-        var center = box.Center;
-        var roomTransform = Matrix3Helpers.CreateTranslation(center.X, center.Y);
-
         // Copy all tiles
         _tiles.Clear();
 
@@ -385,70 +381,18 @@ public sealed partial class LavalandSystem
         if (TryComp<DecalGridComponent>(grid.Owner, out var loadedDecals))
         {
             EnsureComp<DecalGridComponent>(lavaland);
-            foreach (var (_, decal) in _decals.GetDecalsIntersecting(grid.Owner, box, loadedDecals))
+
+            // Aquila Change start
+            foreach (var (_, decal) in _decals.GetDecalsIntersecting(grid.Owner, grid.Comp.LocalAABB, loadedDecals))
             {
-                // Offset by 0.5 because decals are offset from bot-left corner
-                // So we convert it to center of tile then convert it back again after transform.
-                // Do these shenanigans because 32x32 decals assume as they are centered on bottom-left of tiles.
-                var position = Vector2.Transform(decal.Coordinates + grid.Comp.TileSizeHalfVector - center,
-                    roomTransform);
-                position -= grid.Comp.TileSizeHalfVector;
+                var position = decal.Coordinates + offset;
 
                 if (reservedTiles?.Contains(position.Floored()) == true)
                     continue;
 
-                // Umm uhh I love decals so uhhhh idk what to do about this
-                var angle = decal.Angle.Reduced();
-
-                // Adjust because 32x32 so we can't rotate cleanly
-                // Yeah idk about the uhh vectors here but it looked visually okay but they may still be off by 1.
-                // Also EyeManager.PixelsPerMeter should really be in shared.
-                if (angle.Equals(Math.PI))
-                {
-                    position += new Vector2(-1f / 32f, 1f / 32f);
-                }
-                else if (angle.Equals(-Math.PI / 2f))
-                {
-                    position += new Vector2(-1f / 32f, 0f);
-                }
-                else if (angle.Equals(Math.PI / 2f))
-                {
-                    position += new Vector2(0f, 1f / 32f);
-                }
-                else if (angle.Equals(Math.PI * 1.5f))
-                {
-                    // I hate this but decals are bottom-left rather than center position and doing the
-                    // matrix ops is a PITA hence this workaround for now; I also don't want to add a stupid
-                    // field for 1 specific op on decals
-                    if (decal.Id != "DiagonalCheckerAOverlay" &&
-                        decal.Id != "DiagonalCheckerBOverlay")
-                    {
-                        position += new Vector2(-1f / 32f, 0f);
-                    }
-                }
-
-                var tilePos = position.Floored();
-
-                // Fallback because uhhhhhhhh yeah, a corner tile might look valid on the original
-                // but place 1 nanometre off grid and fail the add.
-                if (!_map.TryGetTileRef(grid, grid, tilePos, out var tileRef) || tileRef.Tile.IsEmpty)
-                {
-                    _map.SetTile(grid,
-                        grid,
-                        tilePos,
-                        _tile.GetVariantTile((ContentTileDefinition) _tiledef[DungeonSystem.FallbackTileId],
-                            _random.GetRandom()));
-                }
-
-                _decals.TryAddDecal(
-                    decal.Id,
-                    new EntityCoordinates(grid, position),
-                    out _,
-                    decal.Color,
-                    angle,
-                    decal.ZIndex,
-                    decal.Cleanable);
+                _decals.TryAddDecal(decal.WithCoordinates(position), new EntityCoordinates(lavaland.Owner, position), out _);
             }
+            // Aquila Change end
         }
 
         Del(grid);

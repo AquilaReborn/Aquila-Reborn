@@ -99,7 +99,7 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
 
     private void ProtoReload(PrototypesReloadedEventArgs obj)
     {
-        // ClearNoiseCache(); // Goob - Cache Noise // CorvaxGoob-Reverts : Вызывает краши. Требует фикса
+        ClearNoiseCache(); // Goob - Cache Noise // Aquila Change
 
         if (!obj.ByType.TryGetValue(typeof(BiomeTemplatePrototype), out var reloads))
             return;
@@ -478,8 +478,15 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
         var loadedMarkers = component.LoadedMarkers;
         var idx = 0;
 
+        // Aquila Change start
+        _optimizeQuery.TryComp(gridUid, out var optimize);
+        var entityCache = CreateMarkerEntityCache(component, (gridUid, grid), markers, optimize);
+        // Aquila Change end
+
         foreach (var (layer, chunks) in markers)
         {
+            var layerSize = ProtoManager.Index<BiomeMarkerLayerPrototype>(layer).Size; // Aquila Change
+
             // I know dictionary ordering isn't guaranteed but I just need something to differentiate seeds.
             idx++;
             var localIdx = idx;
@@ -488,6 +495,11 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
             {
                 if (loadedMarkers.TryGetValue(layer, out var mobChunks) && mobChunks.Contains(chunk))
                     return;
+
+                // Aquila Change start
+                if (IsOutsideLoadArea(chunk, layerSize, optimize))
+                    return;
+                // Aquila Change end
 
                 var forced = component.ForcedMarkerLayers.Contains(layer);
 
@@ -505,7 +517,7 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
                 count = Math.Min(count, layerProto.MaxCount);
 
                 GetMarkerNodes(gridUid, component, grid, layerProto, forced, bounds, count, rand,
-                    out var spawnSet, out var existing);
+                    out var spawnSet, out var existing, entityCache: entityCache); // Aquila Change
 
                 // Forcing markers to spawn so delete any that were found to be in the way.
                 if (forced && existing.Count > 0)
@@ -569,10 +581,100 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
         component.ForcedMarkerLayers.Clear();
     }
 
+    // Aquila Change start
+    private Dictionary<Vector2i, string?[]>? CreateMarkerEntityCache(
+        BiomeComponent component,
+        Entity<MapGridComponent>? grid,
+        Dictionary<string, HashSet<Vector2i>> markers,
+        _Lavaland.Biome.BiomeOptimizeComponent? optimize)
+    {
+        HashSet<Vector2i>? origins = null;
+
+        foreach (var (layer, chunks) in markers)
+        {
+            var size = ProtoManager.Index<BiomeMarkerLayerPrototype>(layer).Size;
+            component.LoadedMarkers.TryGetValue(layer, out var loaded);
+
+            foreach (var chunk in chunks)
+            {
+                if ((loaded != null && loaded.Contains(chunk)) || IsOutsideLoadArea(chunk, size, optimize))
+                    continue;
+
+                origins ??= new HashSet<Vector2i>();
+                var min = SharedMapSystem.GetChunkIndices(chunk, ChunkSize);
+                var max = SharedMapSystem.GetChunkIndices(chunk + new Vector2i(size - 1, size - 1), ChunkSize);
+
+                for (var x = min.X; x <= max.X; x++)
+                {
+                    for (var y = min.Y; y <= max.Y; y++)
+                    {
+                        origins.Add(new Vector2i(x, y) * ChunkSize);
+                    }
+                }
+            }
+        }
+
+        if (origins == null)
+            return null;
+
+        var cache = new Dictionary<Vector2i, string?[]>(origins.Count);
+        var entries = new List<(Vector2i Origin, string?[] Entities)>(origins.Count);
+
+        foreach (var origin in origins)
+        {
+            var entities = new string?[ChunkSize * ChunkSize];
+            cache.Add(origin, entities);
+            entries.Add((origin, entities));
+        }
+
+        Parallel.ForEach(entries, new ParallelOptions() { MaxDegreeOfParallelism = _parallel.ParallelProcessCount }, entry =>
+        {
+            for (var x = 0; x < ChunkSize; x++)
+            {
+                for (var y = 0; y < ChunkSize; y++)
+                {
+                    TryGetEntity(entry.Origin + new Vector2i(x, y), component, grid, out var entity);
+                    entry.Entities[x + y * ChunkSize] = entity;
+                }
+            }
+        });
+
+        return cache;
+    }
+
+    private string? GetMarkerEntity(
+        Vector2i node,
+        BiomeComponent biome,
+        Entity<MapGridComponent>? grid,
+        Dictionary<Vector2i, string?[]>? entityCache)
+    {
+        var origin = SharedMapSystem.GetChunkIndices(node, ChunkSize) * ChunkSize;
+
+        if (entityCache != null && entityCache.TryGetValue(origin, out var entities))
+            return entities[node.X - origin.X + (node.Y - origin.Y) * ChunkSize];
+
+        TryGetEntity(node, biome, grid, out var entity);
+        return entity;
+    }
+
+    private static bool IsOutsideLoadArea(Vector2i chunk, int size, _Lavaland.Biome.BiomeOptimizeComponent? optimize)
+    {
+        if (optimize == null)
+            return false;
+
+        var area = optimize.LoadArea;
+        return chunk.X >= area.Right
+               || chunk.Y >= area.Top
+               || chunk.X + size <= area.Left
+               || chunk.Y + size <= area.Bottom;
+    }
+    // Aquila Change end
+
     /// <summary>
     /// Gets the marker nodes for the specified area.
     /// </summary>
     /// <param name="emptyTiles">Should we include empty tiles when determine markers (e.g. if they are yet to be loaded)</param>
+    /// <param name="entityCache">Кэш прототипов сущностей биома по чанкам, общий для нескольких слоёв маркеров.</param>
     public void GetMarkerNodes(
         EntityUid gridUid,
         BiomeComponent biome,
@@ -584,7 +686,8 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
         Random rand,
         out Dictionary<Vector2i, string?> spawnSet,
         out HashSet<EntityUid> existingEnts,
-        bool emptyTiles = true)
+        bool emptyTiles = true,
+        Dictionary<Vector2i, string?[]>? entityCache = null) // Aquila Change
     {
         DebugTools.Assert(count > 0);
         var remainingTiles = _tilePool.Get();
@@ -613,7 +716,7 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
                     continue;
 
                 // Check if mask matches // anything blocking.
-                TryGetEntity(node, biome, (gridUid, grid), out var proto);
+                var proto = GetMarkerEntity(node, biome, (gridUid, grid), entityCache); // Aquila Change
 
                 // If there's an existing entity and it doesn't match the mask then skip.
                 if (layerProto.EntityMask.Count > 0 &&
