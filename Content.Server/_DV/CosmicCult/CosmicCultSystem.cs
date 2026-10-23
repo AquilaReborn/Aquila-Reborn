@@ -84,7 +84,7 @@ public sealed partial class CosmicCultSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
+        // SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart); // Aquila Change
 
         SubscribeLocalEvent<CosmicCultComponent, ComponentInit>(OnStartCultist);
         SubscribeLocalEvent<CosmicCultLeadComponent, ComponentInit>(OnStartCultLead);
@@ -133,14 +133,20 @@ public sealed partial class CosmicCultSystem
     #region Housekeeping
 
     // Rogue Ascendants use this too, which are generalized MidRoundAntags, so we keep the map around. If you're porting cosmic cult, and do not want rogue ascendants, feel free to move this into selective usage akin to NukeOps base.
+    // Aquila Change start
     /// <summary>
-    /// Creates the Cosmic Void pocket dimension map.
+    /// Загружает карту космической пустоты, если она ещё не загружена.
     /// </summary>
-    private void OnRoundStart(RoundStartingEvent ev)
+    public void EnsureCosmicVoid()
     {
+        var query = EntityQueryEnumerator<CosmicVoidSpawnComponent>();
+        if (query.MoveNext(out _, out _))
+            return;
+
         if (_mapLoader.TryLoadMap(_mapPath, out var map, out _, new DeserializationOptions { InitializeMaps = true }))
             _map.SetPaused(map.Value.Comp.MapId, false);
     }
+    // Aquila Change end
 
     #endregion
 

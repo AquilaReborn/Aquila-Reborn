@@ -120,7 +120,7 @@ GunSafeEnergyGunMini: null
 GunSafeVulcanRifle: null
 HatSpawner: null
 KitchenDeepFryer: null
-KvassTankFull: null
+# KvassTankFull: null # Aquila Change
 LockerForensicMantisFilled: null
 LunchboxSecurityFilledRandom: null
 MagazineBoxSpecialPractice: null
@@ -383,13 +383,13 @@ CrystalSubspaceStockPart: null
 TransmitterSubspaceStockPart: null
 
 # 2024-01-10
-ClothingHeadHatHoodRad: null
+# ClothingHeadHatHoodRad: null # Aquila Change
 
 # 2024-01-12
-SpaceMedipen: null
+# SpaceMedipen: null # Aquila Change
 
 # 2024-01-18
-ClothingHeadHelmetVoidParamed: null
+# ClothingHeadHelmetVoidParamed: null # Aquila Change
 
 # 2024-01-19
 DefaultStationBeaconTeslaEngine: null
@@ -511,7 +511,7 @@ MachineTraversalDistorter: null
 # 2024-03-31
 ClothingNeckFlowerWreath: ClothingHeadHatFlowerWreath
 ClothingHeadHatFlowerCrown: ClothingHeadHatFlowerWreath
-BriefcaseSyndieBase: null
+# BriefcaseSyndieBase: null # Aquila Change
 
 # 2024-04-08
 BodyBag_Container: BodyBag
@@ -653,8 +653,8 @@ CentcomPDAFake: null
 CentcomIDCardSyndie: null
 
 # 2024-09-06
-AntimovCircuitBoard: null
-OverlordCircuitBoard: null
+# AntimovCircuitBoard: null # Aquila Change
+# OverlordCircuitBoard: null # Aquila Change
 
 # 2024-09-08
 HatBase: null
@@ -763,7 +763,7 @@ LightTree05: LightTree
 LightTree06: LightTree
 
 # 2024-12-22 # Lavaland Change: Migrations
-VendingMachineRestockSalvageEquipment: null
+# VendingMachineRestockSalvageEquipment: null # Aquila Change
 ComputerSalvageExpedition: ComputerShuttleMiningLavaland
 SalvageExpeditionsComputerCircuitboard: LavalandShuttleConsoleCircuitboard
 
@@ -788,10 +788,10 @@ PosterContrabandLustyExomorph: PosterContrabandRealExomorph
 PosterContrabandBustyBackdoorExoBabes6: PosterContrabandRouny
 
 # 2025-02-20
-MagazineBoxAntiMaterielBig: null
-MagazineBoxCaselessRifle10x24: null
-MagazineBoxCaselessRifleBig: null
-MagazinePistolHighCapacityRubber: null
+# MagazineBoxAntiMaterielBig: null # Aquila Change
+# MagazineBoxCaselessRifle10x24: null # Aquila Change
+# MagazineBoxCaselessRifleBig: null # Aquila Change
+# MagazinePistolHighCapacityRubber: null # Aquila Change
 
 # 2025-03-09 - Shitmed Woundmed, separating torsos into chest and groin
 TorsoHuman: ChestHuman
@@ -927,20 +927,20 @@ FloorTileItemBCircuit4: FloorTileItemBCircuit
 FloorTileItemRCircuit4: FloorTileItemRCircuit
 
 # 2025-06-06
-MagazineLightRifleMaxim: null
-MagazineLightRiflePkBox: null
-MagazineCaselessRifle10x24: null
-BaseMagazineCaselessRifleShort: null
-MagazineCaselessRifleShort: null
-MagazineCaselessRifleShortPractice: null
-BaseMagazineMagnumSubMachineGun: null
-MagazineMagnumSubMachineGunEmpty: null
-MagazineMagnumSubMachineGun: null
-MagazineMagnumSubMachineGunPractice: null
-MagazineMagnumSubMachineGunUranium: null
-MagazineMagnumSubMachineGunPiercing: null
-BoxMagazineMagnumSubMachineGun: null
-BoxMagazineMagnumSubMachineGunPractice: null
+# MagazineLightRifleMaxim: null # Aquila Change
+# MagazineLightRiflePkBox: null # Aquila Change
+# MagazineCaselessRifle10x24: null # Aquila Change
+# BaseMagazineCaselessRifleShort: null # Aquila Change
+# MagazineCaselessRifleShort: null # Aquila Change
+# MagazineCaselessRifleShortPractice: null # Aquila Change
+# BaseMagazineMagnumSubMachineGun: null # Aquila Change
+# MagazineMagnumSubMachineGunEmpty: null # Aquila Change
+# MagazineMagnumSubMachineGun: null # Aquila Change
+# MagazineMagnumSubMachineGunPractice: null # Aquila Change
+# MagazineMagnumSubMachineGunUranium: null # Aquila Change
+# MagazineMagnumSubMachineGunPiercing: null # Aquila Change
+# BoxMagazineMagnumSubMachineGun: null # Aquila Change
+# BoxMagazineMagnumSubMachineGunPractice: null # Aquila Change
 
 # 2025-06-09
 BarSignAlignTile: BarSign
@@ -1005,8 +1005,8 @@ PrefilledSyringe: Syringe
 BaseChemistryEmptyVial: ChemistryEmptyVial
 
 # 2025-10-6
-BibleTanakh: null
-BibleSatanic: null
+# BibleTanakh: null # Aquila Change
+# BibleSatanic: null # Aquila Change
 
 # Reverted by CorvaxGoob-GhostBar
 # # 2026-01-04
@@ -1029,10 +1029,10 @@ DVSmartFridge: SmartFridge
 SpawnMobGorillaLargo: SpawnMobBingleCargo
 
 #2026-04-14 CorvaxGoob
-BookExpensiveCrystal: null
+BookExpensiveCrystal: BookRandomStory # Aquila Change
 BookClones: null
 BookDAM: null
-BookFaks: null
+BookFaks: BookRandomStory # Aquila Change
 BookFamalis: null
 BookGrav: null
 BookHalifat: null
@@ -1072,7 +1072,7 @@ BoxMailCapsulePrimed: null
 VendingMachineMailDrobe: null
 MailMetricsCartridge: null
 WeaponMailLake: null
-ComputerShuttleSalvage: null
+ComputerShuttleSalvage: ComputerShuttle # Aquila Change
 GygaxChassis: null
 RipleyMKIIChassis: null
 ClarkeChassis: null

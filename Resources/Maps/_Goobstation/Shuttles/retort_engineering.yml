@@ -1414,7 +1414,7 @@ entities:
       linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
-- proto: MagazineLightRiflePkBox
+- proto: MagazineLightRifle
   entities:
   - uid: 43
     components:

@@ -3,11 +3,11 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
-using Content.Server.Procedural;
+// using Content.Server.Procedural; // Aquila Change
 using Content.Shared._Lavaland.Procedural.Components;
 using Content.Shared._Lavaland.Procedural.Prototypes;
 using Content.Shared.Decals;
-using Content.Shared.Maps;
+// using Content.Shared.Maps; // Aquila Change
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
@@ -352,6 +352,12 @@ public sealed partial class LavalandSystem
         Vector2i offset,
         HashSet<Vector2i>? reservedTiles = null)
     {
+        // Aquila Change start
+        // var box = grid.Comp.LocalAABB.Translated(offset);
+        // var center = box.Center;
+        // var roomTransform = Matrix3Helpers.CreateTranslation(center.X, center.Y);
+        // Aquila Change end
+
         // Copy all tiles
         _tiles.Clear();
 

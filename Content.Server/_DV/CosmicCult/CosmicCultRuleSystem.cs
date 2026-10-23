@@ -111,6 +111,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly CuffableSystem _cuffable = default!; // goob edit
+    [Dependency] private readonly CosmicCultSystem _cosmicCult = default!; // Aquila Change
 
     private ISawmill _sawmill = default!;
     private TimeSpan _t3RevealDelay = default!;
@@ -165,6 +166,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
     protected override void Started(EntityUid uid, CosmicCultRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         component.StewardVoteTimer = _timing.CurTime + _voteDelay;
+        _cosmicCult.EnsureCosmicVoid(); // Aquila Change
     }
 
     protected override void ActiveTick(EntityUid uid, CosmicCultRuleComponent component, GameRuleComponent gameRule, float frameTime)

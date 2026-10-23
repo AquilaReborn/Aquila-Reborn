@@ -10,7 +10,7 @@ using Content.Shared._Lavaland.Procedural.Components;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Maps;
+// using Content.Shared.Maps; // Aquila Change
 using Robust.Shared.Configuration;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
@@ -29,8 +29,8 @@ public sealed partial class LavalandSystem : EntitySystem
 
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly TileSystem _tile = default!;
-    [Dependency] private readonly ITileDefinitionManager _tiledef = default!;
+    // [Dependency] private readonly TileSystem _tile = default!; // Aquila Change
+    // [Dependency] private readonly ITileDefinitionManager _tiledef = default!; // Aquila Change
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly INetConfigurationManager _config = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
