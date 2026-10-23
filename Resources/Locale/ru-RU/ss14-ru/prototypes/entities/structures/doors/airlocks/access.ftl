@@ -442,3 +442,11 @@ ent-AirlockHatchSyndicateLocked = { ent-AirlockHatchSyndicate }
 ent-AirlockHatchMaintenanceLocked = { ent-AirlockHatchMaintenance }
     .desc = { ent-AirlockHatchMaintenance.desc }
     .suffix = Закрыт
+# Aquila Change start
+ent-AirlockXenoMaintLocked = { ent-AirlockXeno }
+    .desc = { ent-AirlockXeno.desc }
+    .suffix = Техобслуживание, Закрыт
+ent-AirlockXenoborgLocked = { ent-AirlockXenoborg }
+    .desc = { ent-AirlockXenoborg.desc }
+    .suffix = Ксеноборг, Закрыт
+# Aquila Change end
