@@ -30,6 +30,10 @@
     - id: FoodMeatLizard
       amount: 5
   - type: LizardAccent
+  # Aquila Change start
+  - type: ReplacementAccent
+    accent: lizard
+  # Aquila Change end
   - type: Speech
     speechSounds: Lizard
     speechVerb: Reptilian

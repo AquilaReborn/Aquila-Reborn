@@ -20,7 +20,7 @@ public sealed class LizardAccentSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<LizardAccentComponent, AccentGetEvent>(OnAccent);
+        SubscribeLocalEvent<LizardAccentComponent, AccentGetEvent>(OnAccent, before: new[] { typeof(ReplacementAccentSystem) }); // Aquila Change
     }
 
     private void OnAccent(EntityUid uid, LizardAccentComponent component, AccentGetEvent args)
