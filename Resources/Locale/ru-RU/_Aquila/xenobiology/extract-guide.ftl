@@ -1,5 +1,5 @@
 guide-entry-xenobiology-extracts = Экстракты слаймов
-guidebook-xenobio-extract-name-display = [bold]{ $extract }[/bold]
+guidebook-xenobio-extract-name-display = { CAPITALIZE($extract) }
 guidebook-xenobio-extract-reagent-name-display = [color={ $color }]■[/color] [bold]{ $reagent }[/bold]
 
 xenobio-extract-guide-grey-water = Наполняется 30 ед. [bold]эпинефрина[/bold].

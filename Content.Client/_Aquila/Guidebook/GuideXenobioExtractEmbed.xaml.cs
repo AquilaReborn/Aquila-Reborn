@@ -20,7 +20,7 @@ namespace Content.Client._Aquila.Guidebook;
 /// Карточка экстракта слайма в руководстве с его реакциями на реагенты.
 /// </summary>
 [UsedImplicitly, GenerateTypedNameReferences]
-public sealed partial class GuideXenobioExtractEmbed : PanelContainer, IDocumentTag, ISearchableControl, IPrototypeRepresentationControl
+public sealed partial class GuideXenobioExtractEmbed : BoxContainer, IDocumentTag, ISearchableControl, IPrototypeRepresentationControl
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
@@ -55,11 +55,13 @@ public sealed partial class GuideXenobioExtractEmbed : PanelContainer, IDocument
     }
 
     /// <summary>
-    /// Скрывает или показывает карточку в зависимости от поискового запроса.
+    /// Скрывает или показывает карточку в зависимости от поискового запроса и раскрывает найденные карточки.
     /// </summary>
     public void SetHiddenState(bool state, string query)
     {
-        Visible = CheckMatchesSearch(query) ? state : !state;
+        var matches = CheckMatchesSearch(query);
+        Visible = matches ? state : !state;
+        ExtractCollapsible.BodyVisible = matches && state && query.Length > 0;
     }
 
     /// <summary>
@@ -91,8 +93,14 @@ public sealed partial class GuideXenobioExtractEmbed : PanelContainer, IDocument
         var extract = _prototype.Index(guide.Extract);
         RepresentedPrototype = extract;
 
-        IconContainer.AddChild(new GuideEntityEmbed(guide.Extract, false, false));
-        ExtractName.SetMarkup(Loc.GetString("guidebook-xenobio-extract-name-display", ("extract", extract.Name)));
+        ExtractHeading.Title = Loc.GetString("guidebook-xenobio-extract-name-display", ("extract", extract.Name));
+
+        if (ExtractHeading.Label.Parent is { } headingBox)
+        {
+            var icon = new GuideEntityEmbed(guide.Extract, false, false);
+            headingBox.AddChild(icon);
+            icon.SetPositionInParent(ExtractHeading.Label.GetPositionInParent());
+        }
 
         foreach (var reaction in guide.Reactions)
         {

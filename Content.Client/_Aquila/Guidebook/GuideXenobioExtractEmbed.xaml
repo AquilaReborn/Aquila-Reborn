@@ -1,21 +1,16 @@
-<PanelContainer xmlns="https://spacestation14.io"
-                xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
-                Margin="5 5 5 5">
-    <PanelContainer.PanelOverride>
-        <gfx:StyleBoxFlat BorderThickness="1" BorderColor="#777777"/>
-    </PanelContainer.PanelOverride>
-
-    <BoxContainer Orientation="Vertical">
-        <PanelContainer HorizontalExpand="True">
-            <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center">
-                <BoxContainer Name="IconContainer"/>
-                <RichTextLabel Name="ExtractName" VerticalAlignment="Center"/>
-            </BoxContainer>
-            <PanelContainer.PanelOverride>
-                <gfx:StyleBoxFlat BackgroundColor="#393c3f"/>
-            </PanelContainer.PanelOverride>
-        </PanelContainer>
-
-        <BoxContainer Name="ReactionsContainer" Orientation="Vertical" Margin="8 4 8 8"/>
-    </BoxContainer>
-</PanelContainer>
+<BoxContainer xmlns="https://spacestation14.io"
+              xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+              Orientation="Vertical"
+              Margin="5 2 5 2">
+    <PanelContainer HorizontalExpand="True">
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BorderThickness="1" BorderColor="#777777" BackgroundColor="#393c3f"/>
+        </PanelContainer.PanelOverride>
+        <Collapsible Name="ExtractCollapsible" HorizontalExpand="True">
+            <CollapsibleHeading Name="ExtractHeading" Margin="4 2 4 2"/>
+            <CollapsibleBody>
+                <BoxContainer Name="ReactionsContainer" Orientation="Vertical" Margin="8 0 8 8"/>
+            </CollapsibleBody>
+        </Collapsible>
+    </PanelContainer>
+</BoxContainer>

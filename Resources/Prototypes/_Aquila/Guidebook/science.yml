@@ -2,3 +2,4 @@
   id: XenobiologyExtracts
   name: guide-entry-xenobiology-extracts
   text: "/ServerInfo/_Aquila/Guidebook/Science/XenobiologyExtracts.xml"
+  filterEnabled: True
