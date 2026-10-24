@@ -1,0 +1,21 @@
+<PanelContainer xmlns="https://spacestation14.io"
+                xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                Margin="5 5 5 5">
+    <PanelContainer.PanelOverride>
+        <gfx:StyleBoxFlat BorderThickness="1" BorderColor="#777777"/>
+    </PanelContainer.PanelOverride>
+
+    <BoxContainer Orientation="Vertical">
+        <PanelContainer HorizontalExpand="True">
+            <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center">
+                <BoxContainer Name="IconContainer"/>
+                <RichTextLabel Name="ExtractName" VerticalAlignment="Center"/>
+            </BoxContainer>
+            <PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BackgroundColor="#393c3f"/>
+            </PanelContainer.PanelOverride>
+        </PanelContainer>
+
+        <BoxContainer Name="ReactionsContainer" Orientation="Vertical" Margin="8 4 8 8"/>
+    </BoxContainer>
+</PanelContainer>

@@ -1,0 +1,275 @@
+- type: xenobioExtractGuide
+  id: Grey
+  extract: GreySlimeExtract
+  tier: 0
+  reactions:
+  - reagent: Water
+    description: xenobio-extract-guide-grey-water
+  - reagent: Plasma
+    description: xenobio-extract-guide-grey-plasma
+  - reagent: Blood
+    description: xenobio-extract-guide-grey-blood
+
+- type: xenobioExtractGuide
+  id: Blue
+  extract: BlueSlimeExtract
+  tier: 1
+  reactions:
+  - reagent: Water
+    description: xenobio-extract-guide-blue-water
+  - reagent: Plasma
+    description: xenobio-extract-guide-blue-plasma
+  - reagent: Blood
+    description: xenobio-extract-guide-blue-blood
+
+- type: xenobioExtractGuide
+  id: Metal
+  extract: MetalSlimeExtract
+  tier: 1
+  reactions:
+  - reagent: Water
+    description: xenobio-extract-guide-metal-water
+  - reagent: Plasma
+    description: xenobio-extract-guide-metal-plasma
+  - reagent: Blood
+    description: xenobio-extract-guide-metal-blood
+
+- type: xenobioExtractGuide
+  id: Orange
+  extract: OrangeSlimeExtract
+  tier: 1
+  reactions:
+  - reagent: Water
+    description: xenobio-extract-guide-orange-water
+  - reagent: Plasma
+    description: xenobio-extract-guide-orange-plasma
+  - reagent: Blood
+    description: xenobio-extract-guide-orange-blood
+
+- type: xenobioExtractGuide
+  id: Purple
+  extract: PurpleSlimeExtract
+  tier: 1
+  reactions:
+  - reagent: Water
+    description: xenobio-extract-guide-purple-water
+  - reagent: Plasma
+    description: xenobio-extract-guide-purple-plasma
+  - reagent: Blood
+    description: xenobio-extract-guide-purple-blood
+
+- type: xenobioExtractGuide
+  id: Cerulean
+  extract: CeruleanSlimeExtract
+  tier: 2
+  reactions:
+  - reagent: Water
+    description: xenobio-extract-guide-cerulean-water
+  - reagent: Plasma
+    description: xenobio-extract-guide-cerulean-plasma
+  - reagent: Blood
+    description: xenobio-extract-guide-cerulean-blood
+
+- type: xenobioExtractGuide
+  id: DarkBlue
+  extract: DarkBlueSlimeExtract
+  tier: 2
+  reactions:
+  - reagent: Water
+    description: xenobio-extract-guide-darkblue-water
+  - reagent: Plasma
+    description: xenobio-extract-guide-darkblue-plasma
+  - reagent: Blood
+    description: xenobio-extract-guide-darkblue-blood
+
+- type: xenobioExtractGuide
+  id: DarkPurple
+  extract: DarkPurpleSlimeExtract
+  tier: 2
+  reactions:
+  - reagent: Water
+    description: xenobio-extract-guide-darkpurple-water
+  - reagent: Plasma
+    description: xenobio-extract-guide-darkpurple-plasma
+  - reagent: Blood
+    description: xenobio-extract-guide-darkpurple-blood
+
+- type: xenobioExtractGuide
+  id: Silver
+  extract: SilverSlimeExtract
+  tier: 2
+  reactions:
+  - reagent: Water
+    description: xenobio-extract-guide-silver-water
+  - reagent: Plasma
+    description: xenobio-extract-guide-silver-plasma
+  - reagent: Blood
+    description: xenobio-extract-guide-silver-blood
+
+- type: xenobioExtractGuide
+  id: Yellow
+  extract: YellowSlimeExtract
+  tier: 2
+  reactions:
+  - reagent: Water
+    description: xenobio-extract-guide-yellow-water
+  - reagent: Plasma
+    description: xenobio-extract-guide-yellow-plasma
+  - reagent: Blood
+    description: xenobio-extract-guide-yellow-blood
+
+- type: xenobioExtractGuide
+  id: Bluespace
+  extract: BluespaceSlimeExtract
+  tier: 3
+  reactions:
+  - reagent: Water
+    description: xenobio-extract-guide-bluespace-water
+  - reagent: Plasma
+    description: xenobio-extract-guide-bluespace-plasma
+  - reagent: Blood
+    description: xenobio-extract-guide-bluespace-blood
+
+- type: xenobioExtractGuide
+  id: Gold
+  extract: GoldSlimeExtract
+  tier: 3
+  reactions:
+  - reagent: Water
+    description: xenobio-extract-guide-gold-water
+  - reagent: Plasma
+    description: xenobio-extract-guide-gold-plasma
+  - reagent: Blood
+    description: xenobio-extract-guide-gold-blood
+
+- type: xenobioExtractGuide
+  id: Green
+  extract: GreenSlimeExtract
+  tier: 3
+  reactions:
+  - reagent: Water
+    description: xenobio-extract-guide-green-water
+  - reagent: Plasma
+    description: xenobio-extract-guide-green-plasma
+  - reagent: Blood
+    description: xenobio-extract-guide-green-blood
+
+- type: xenobioExtractGuide
+  id: Pink
+  extract: PinkSlimeExtract
+  tier: 3
+  reactions:
+  - reagent: Water
+    description: xenobio-extract-guide-pink-water
+  - reagent: Plasma
+    description: xenobio-extract-guide-pink-plasma
+  - reagent: Blood
+    description: xenobio-extract-guide-pink-blood
+
+- type: xenobioExtractGuide
+  id: Pyrite
+  extract: PyriteSlimeExtract
+  tier: 3
+  reactions:
+  - reagent: Water
+    description: xenobio-extract-guide-pyrite-water
+  - reagent: Plasma
+    description: xenobio-extract-guide-pyrite-plasma
+  - reagent: Blood
+    description: xenobio-extract-guide-pyrite-blood
+
+- type: xenobioExtractGuide
+  id: Red
+  extract: RedSlimeExtract
+  tier: 3
+  reactions:
+  - reagent: Water
+    description: xenobio-extract-guide-red-water
+  - reagent: Plasma
+    description: xenobio-extract-guide-red-plasma
+  - reagent: Blood
+    description: xenobio-extract-guide-red-blood
+
+- type: xenobioExtractGuide
+  id: Sepia
+  extract: SepiaSlimeExtract
+  tier: 3
+  reactions:
+  - reagent: Water
+    description: xenobio-extract-guide-sepia-water
+  - reagent: Plasma
+    description: xenobio-extract-guide-sepia-plasma
+  - reagent: Blood
+    description: xenobio-extract-guide-sepia-blood
+
+- type: xenobioExtractGuide
+  id: Adamantine
+  extract: AdamantineSlimeExtract
+  tier: 4
+  reactions:
+  - reagent: Water
+    description: xenobio-extract-guide-adamantine-water
+  - reagent: Plasma
+    description: xenobio-extract-guide-adamantine-plasma
+  - reagent: Blood
+    description: xenobio-extract-guide-adamantine-blood
+
+- type: xenobioExtractGuide
+  id: Black
+  extract: BlackSlimeExtract
+  tier: 4
+  reactions:
+  - reagent: Water
+    description: xenobio-extract-guide-black-water
+  - reagent: Plasma
+    description: xenobio-extract-guide-black-plasma
+  - reagent: Blood
+    description: xenobio-extract-guide-black-blood
+
+- type: xenobioExtractGuide
+  id: LightPink
+  extract: LightPinkSlimeExtract
+  tier: 4
+  reactions:
+  - reagent: Water
+    description: xenobio-extract-guide-lightpink-water
+  - reagent: Plasma
+    description: xenobio-extract-guide-lightpink-plasma
+  - reagent: Blood
+    description: xenobio-extract-guide-lightpink-blood
+
+- type: xenobioExtractGuide
+  id: Oil
+  extract: OilSlimeExtract
+  tier: 4
+  reactions:
+  - reagent: Water
+    description: xenobio-extract-guide-oil-water
+  - reagent: Plasma
+    description: xenobio-extract-guide-oil-plasma
+  - reagent: Blood
+    description: xenobio-extract-guide-oil-blood
+
+- type: xenobioExtractGuide
+  id: Rainbow
+  extract: RainbowSlimeExtract
+  tier: 5
+  reactions:
+  - reagent: Water
+    description: xenobio-extract-guide-rainbow-water
+  - reagent: Plasma
+    description: xenobio-extract-guide-rainbow-plasma
+  - reagent: Blood
+    description: xenobio-extract-guide-rainbow-blood
+
+- type: xenobioExtractGuide
+  id: Meat
+  extract: MeatSlimeExtract
+  tier: 5
+  reactions:
+  - reagent: Water
+    description: xenobio-extract-guide-meat-water
+  - reagent: Plasma
+    description: xenobio-extract-guide-meat-plasma
+  - reagent: Blood
+    description: xenobio-extract-guide-meat-blood

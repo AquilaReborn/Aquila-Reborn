@@ -2,3 +2,7 @@
   id: Xenobiology
   name: guide-entry-xenobiology # Aquila Change
   text: "/ServerInfo/_Goobstation/Guidebook/Science/Xenobiology.xml"
+  # Aquila Change start
+  children:
+  - XenobiologyExtracts
+  # Aquila Change end
