@@ -332,10 +332,12 @@
   - type: Sprite
     sprite: Objects/Fun/rubber_hammer.rsi
     state: icon
-  - type: WeaponRandom # 1 in 100,000 to "win" the "fight"
-    damageBonus:
-      types:
-        Blunt: 1000
+  # Aquila Change start
+  # - type: WeaponRandom # 1 in 100,000 to "win" the "fight"
+  #   damageBonus:
+  #     types:
+  #       Blunt: 1000
+  # Aquila Change end
   - type: Item
     size: Small
     sprite: Objects/Fun/rubber_hammer.rsi
