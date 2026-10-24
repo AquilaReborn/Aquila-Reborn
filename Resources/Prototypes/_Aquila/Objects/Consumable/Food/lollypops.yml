@@ -1,0 +1,49 @@
+- type: entity
+  parent: FoodSnackLollypopWrappedBase
+  id: FoodSnackLollypopWrappedBeer
+  name: wrapped beer lollypop
+  description: A lollypop made of beer. It's still in a wrapper.
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodSnackLollypopTrash
+    - id: FoodSnackLollypopBeer
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackLollypopBase
+  id: FoodSnackLollypopBeer
+  name: beer lollypop
+  description: A lollypop made of frozen beer. Smells like a bar.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - beer
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    layers:
+    - state: lollypop
+      map: [ "enum.AmmoVisualLayers.Base" ]
+    - state: color
+      map: [ "enum.AmmoVisualLayers.Tip" ]
+      color: "#e3e77b"
+  - type: Item
+    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    size: Tiny
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#e3e77b"
+      right:
+      - state: inhand-right
+        color: "#e3e77b"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+        - ReagentId: Beer
+          Quantity: 10

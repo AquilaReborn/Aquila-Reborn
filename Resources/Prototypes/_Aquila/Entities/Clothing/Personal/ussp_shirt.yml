@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBornInUssp
+  name: born in USSP t-shirt
+  suffix: Personal
+  description: A black t-shirt with a red print and a yellow star. It proudly tells everyone where its owner was born.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/Uniforms/ussp_shirt.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Uniforms/ussp_shirt.rsi

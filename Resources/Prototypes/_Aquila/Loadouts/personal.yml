@@ -120,6 +120,27 @@
     outerClothing: ClothingOuterCoatWardenWedge
 # McDonaldsObamaBurger
 
+# gleb_debrucho
+- type: loadout
+  id: PersonalLoadoutGlebDebruchoShirt
+  effects:
+  - !type:PersonalLoadoutEffect
+    users:
+    - 4a42b778-2199-415a-afa4-71360cbb9254
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitBornInUssp
+
+- type: loadout
+  id: PersonalLoadoutGlebDebruchoLollypop
+  effects:
+  - !type:PersonalLoadoutEffect
+    users:
+    - 4a42b778-2199-415a-afa4-71360cbb9254
+  storage:
+    back:
+    - FoodSnackLollypopWrappedBeer
+# gleb_debrucho
+
 # Ckey
 # something
 # Ckey
