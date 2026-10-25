@@ -1,0 +1,23 @@
+- type: entity
+  parent: ClothingBeltHolster
+  id: ClothingBeltDubstepHolster
+  name: cowboy holster
+  suffix: Ковбой
+  description: 'a cowboy-style gun holster that can easily accommodate several revolvers'
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/Belt/holster.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Belt/holster.rsi
+    slots:
+    - belt
+  - type: Storage
+    grid:
+    - 0,0,6,1
+    # Goobstation start
+    whitelist:
+      components:
+      - BallisticAmmoProvider
+      - CartridgeAmmo
+      tags:
+      - EnergySpeedloader

@@ -1,0 +1,32 @@
+- type: entity
+  id: ActionSummonVines
+  name: Summon Vines
+  description: Summons a vine within a certain radius that significantly slows down enemies. It can also slow you down, so use it with precision.
+  noSpawn: true
+  components:
+  - type: Action
+    icon:
+    useDelay: 10
+  - type: TargetAction
+    checkCanAccess: false
+    range: 15
+  - type: WorldTargetAction
+    event: !type:VineSummonActionEvent
+      vinePrototype: LifeCreatorVine
+      radius: 3
+
+- type: entity
+  id: LifeCreatorVine
+  parent: Kudzu
+  suffix: Weak
+  components:
+    - type: SpeedModifierContacts
+      walkSpeedModifier: 0.15
+      sprintSpeedModifier: 0.15
+      ignoreWhitelist:
+        components:
+        - IgnoreKudzu
+    - type: TimedDespawn
+      lifetime: 7
+    - type: Kudzu
+      spreadChance: 0.0

@@ -8,11 +8,11 @@
   },
   "states": [
     {
-      "name": "TaskOne",
+      "name": "TuskOne",
       "directions": 4
     },
     {
-      "name": "TaskOne-unshaded",
+      "name": "TuskOne-unshaded",
       "directions": 4
     }
     ]

@@ -1,0 +1,27 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingDubstepCowBoyBrownHat
+  name: cowboy brown hat
+  suffix: Ковбой
+  description: The cowboy brown hat for the wildest cowboys in the Wild West.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Aquila/Clothing/Head/DubstepCowBoyBrownHat.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Head/DubstepCowBoyBrownHat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingDubstepCowBoyGreyHat
+  name: cowboy grey hat
+  suffix: Ковбой
+  description: The cowboy grey hat for the wildest cowboys in the Wild West.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Aquila/Clothing/Head/DubstepCowBoyGreyHat.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Head/DubstepCowBoyGreyHat.rsi

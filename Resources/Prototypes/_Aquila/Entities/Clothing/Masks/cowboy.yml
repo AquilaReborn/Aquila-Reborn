@@ -1,0 +1,12 @@
+- type: entity
+  parent: ClothingMaskBase
+  id: ClothingDubstepNeckGaiter
+  name: neck gaiter
+  description: The stylish neck gaiter
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Aquila/Clothing/Mask/neckgaiter.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Mask/neckgaiter.rsi

@@ -1,0 +1,59 @@
+- type: entity
+  parent: ClothingOuterWinterCoatToggleable
+  id: DubstepCowBoyGreatcoat
+  name: black cowboy greatcoat
+  suffix: Ковбой
+  description: A black greatcoat for the toughest cowboy in the Wild West!
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/OuterClothing/DubstepCowBoyGreatcoat.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/OuterClothing/DubstepCowBoyGreatcoat.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoatToggleable
+  id: DubstepCowBoyTrenchcoat
+  name: cowboy trenchcoat
+  suffix: Ковбой
+  description: A trench coat for cowboys, made from the toughest leather!
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/OuterClothing/DubstepCowBoyTrenchcoat.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/OuterClothing/DubstepCowBoyTrenchcoat.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoatToggleable
+  id: DubstepCowBoyTrenchcoatGrey
+  name: cowboy grey trenchcoat
+  suffix: Ковбой
+  description: A grey trench coat for cowboys, made from the toughest leather!
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/OuterClothing/DubstepCowBoyTrenchcoatGrey.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/OuterClothing/DubstepCowBoyTrenchcoatGrey.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoatToggleable
+  id: DubstepCowBoyVest
+  name: cowboy vest
+  suffix: Ковбой
+  description: A cowboy vest that highlights the style of a true cowboy.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/OuterClothing/DubstepCowBoyVest.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/OuterClothing/DubstepCowBoyVest.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoatToggleable
+  id: DubstepCowBoyСoat
+  name: cowboy coat
+  suffix: Ковбой
+  description: a cowboy jacket that sets a real cowboy apart from the crowd.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/OuterClothing/DubstepCowBoyСoat.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/OuterClothing/DubstepCowBoyСoat.rsi

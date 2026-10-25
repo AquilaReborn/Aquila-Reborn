@@ -1,0 +1,36 @@
+- type: entity
+  id: ActionSpawnBarrier
+  name: Create a walls
+  description: Creates a wall segment at the click location. Middle mouse button — changes orientation (horizontal/vertical).
+  noSpawn: true
+  components:
+  - type: Action
+    useDelay: 3
+  - type: TargetAction
+    checkCanAccess: false
+    range: 15
+  - type: WorldTargetAction
+    event: !type:BarrierSpawnActionEvent
+      spawnedEntityPrototype: WallBarrierSegment
+  - type: BarrierOrientation
+
+- type: entity
+  id: WallBarrierSegment
+  parent: DesertCactus
+  name: cactus
+  description: A prickly desert plant. Better not to touch it.
+  components:
+  - type: TimedDespawn
+    lifetime: 8
+  - type: Barrier
+    barrierLength: 3
+    stepDistance: 1
+    spawnDelayPerStep: 0.15
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

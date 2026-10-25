@@ -67,7 +67,7 @@
     sprite: _Aquila/EventContent/KoQdiev/HolyCorpse.rsi
     state: HolyCorpseLeftHand
   - type: HolyCorpseCreator
-    guardianProto: MobGuardianTaskOne
+    guardianProto: MobGuardianTuskOne
     flashProto: HolyCorpseEffect
     delay: 1.9
     components: []
@@ -81,11 +81,11 @@
     sprite: _Aquila/EventContent/KoQdiev/HolyCorpse.rsi
     state: HolyCorpseRightFoot
   - type: HolyCorpseCreator
-    guardianProto: MobGuardianMandom
+    guardianProto: MobGuardianGoldExperience
     flashProto: HolyCorpseEffect
     delay: 1.9
     components:
-    - type: TimeRewind
+    - type: LifeCreator
 
 - type: entity
   name: holy corpse left foot

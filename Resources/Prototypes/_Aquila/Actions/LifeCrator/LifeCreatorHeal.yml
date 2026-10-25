@@ -1,0 +1,25 @@
+- type: entity
+  id: ActionSacrificeArm
+  name: Sacrifice Arm
+  description: Sacrifices one of the character’s limbs at random, creating in its place a creature brought to life by your own vital energy—a being that defends you and attacks everything around it.
+  noSpawn: true
+  components:
+  - type: Action
+    useDelay: 3
+  - type: InstantAction
+    event: !type:SacrificeArmActionEvent
+      mobPrototype: MobTreeStump
+
+- type: entity
+  id: ActionHealTarget
+  name: Heal Target
+  description: Heals the chosen target, restoring all limbs and organs. It is even capable of bringing the dead back to life.
+  noSpawn: true
+  components:
+  - type: Action
+    useDelay: 300
+  - type: TargetAction
+    checkCanAccess: false
+    range: 5
+  - type: EntityTargetAction
+    event: !type:HealTargetActionEvent

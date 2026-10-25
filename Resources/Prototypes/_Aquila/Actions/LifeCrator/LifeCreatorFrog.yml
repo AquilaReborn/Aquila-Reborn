@@ -1,0 +1,17 @@
+- type: entity
+  id: ActionVivifyItem
+  name: Vivify Item
+  description: Animates the object in your hands, turning it into a frog that reflects damage.
+  noSpawn: true
+  components:
+  - type: Action
+  - type: InstantAction
+    event: !type:VivifyItemActionEvent
+      creaturePrototype: LifeCreatorFrog
+
+- type: entity
+  parent: MobFrog
+  id: LifeCreatorFrog
+  components:
+  - type: ReflectMeleeDamage
+  - type: Item

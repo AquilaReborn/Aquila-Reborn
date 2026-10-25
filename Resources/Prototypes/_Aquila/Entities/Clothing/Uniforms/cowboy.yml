@@ -1,0 +1,27 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: DubstepCowBoy
+  name: cowboy uniform
+  suffix: Ковбой
+  description: A cool shirt for a real wild cowboy!
+  components:
+  - type: Item
+    size: Normal
+  - type: Sprite
+    sprite: _Aquila/Clothing/Uniforms/DubstepCowBoy.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Uniforms/DubstepCowBoy.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: DubstepCowBoyGrey
+  name: cowboy gray uniform
+  suffix: Ковбой
+  description: A gray shirt for those ready to take on the Wild West!
+  components:
+  - type: Item
+    size: Normal
+  - type: Sprite
+    sprite: _Aquila/Clothing/Uniforms/DubstepCowBoyGrey.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Uniforms/DubstepCowBoyGrey.rsi

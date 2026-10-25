@@ -1,0 +1,25 @@
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingDubstepCowBoyBoots
+  name: cowboy boots
+  suffix: Ковбой
+  description: A real cowboy’s sturdy boots.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/Shoes/DubstepCowBoyBoots.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Shoes/DubstepCowBoyBoots.rsi
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingDubstepCowBoyBootsGrey
+  name: cowboy grey boots
+  suffix: Ковбой
+  description: A real cowboy’s sturdy boots.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/Shoes/DubstepCowBoyBootsGrey.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Shoes/DubstepCowBoyBootsGrey.rsi
+
+

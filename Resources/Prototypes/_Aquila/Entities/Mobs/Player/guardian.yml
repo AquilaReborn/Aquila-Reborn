@@ -263,10 +263,10 @@
 
 # SBR
 
-# Task 1
+# Tusk 1
 - type: entity
-  name: Task One
-  id: MobGuardianTaskOne
+  name: Tusk One
+  id: MobGuardianTuskOne
   description: A small pink chick that shoots projectiles.
   parent: MobGuardianRangedBase
   components:
@@ -289,10 +289,10 @@
   - type: RandomSprite
     available: []
   - type: Sprite
-    sprite: _Aquila/Mobs/Aliens/Guardians/TaskOne.rsi
+    sprite: _Aquila/Mobs/Aliens/Guardians/TuskOne.rsi
     layers:
-      - state: TaskOne
-      - state: TaskOne-unshaded
+      - state: TuskOne
+      - state: TuskOne-unshaded
         shader: unshaded
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 1.25
@@ -432,4 +432,37 @@
     layers:
       - state: Mandom
       - state: Mandom-unshaded
+        shader: unshaded
+
+# Gold Experience
+- type: entity
+  name: Gold Experience
+  id: MobGuardianGoldExperience
+  description: A guardian capable of creating life with a touch!
+  parent: MobGuardianMeleeStaminaBase
+  components:
+  - type: TimeStopImmune
+  - type: StaminaDamageOnHit
+    damage: 10
+  - type: MeleeWeapon
+    hidden: false
+    altDisarm: false
+    animation: WeaponArcFist
+    attackRate: 2.25
+    autoAttack: true
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 0.12
+        Structural: 10
+  - type: Guardian
+    distanceAllowed: 3.75
+  - type: RandomSprite
+    available: []
+  - type: Sprite
+    sprite: _Aquila/Mobs/Aliens/Guardians/GoldExperience.rsi
+    layers:
+      - state: GoldExperience
+      - state: GoldExperience-unshaded
         shader: unshaded

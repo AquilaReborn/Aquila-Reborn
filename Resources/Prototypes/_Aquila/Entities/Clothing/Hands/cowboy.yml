@@ -1,0 +1,16 @@
+- type: entity
+  parent: ClothingHandsGlovesColorBlack
+  id: DubstepCowBoyGloves
+  name: cowboy gloves
+  suffix: Ковбой
+  description: The real cowboy's gloves!
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _Aquila/Clothing/Hands/DubstepCowBoyGloves.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Hands/DubstepCowBoyGloves.rsi
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-insulative
