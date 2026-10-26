@@ -1,0 +1,54 @@
+- type: entity
+  parent: BaseAction
+  id: ActionChangelingOfferHostControl
+  name: Awaken Persona
+  description: Let the absorbed persona whose form you wear surface and control the body while you watch from within.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 30
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Aquila/Interface/Actions/changeling_true_form.rsi
+      state: persona
+  - type: InstantAction
+    event: !type:ChangelingOfferHostControlActionEvent {}
+  - type: ChangelingAction
+
+- type: entity
+  parent: BaseAction
+  id: ActionChangelingReturnHostControl
+  name: Suppress Persona
+  description: Push the foreign persona back into the depths and take the body back.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Aquila/Interface/Actions/changeling_true_form.rsi
+      state: persona_suppress
+  - type: InstantAction
+    event: !type:ChangelingReturnHostControlActionEvent {}
+
+- type: entity
+  id: ChangelingPassenger
+  name: changeling consciousness
+  categories: [ HideSpawnMenu ]
+  save: false
+  components:
+  - type: MindContainer
+  - type: Eye
+  - type: ContentEye
+  - type: Examiner
+  - type: ActionGrant
+    actions:
+    - ActionChangelingReturnHostControl
+
+- type: collectiveMind
+  id: ChangelingInnerVoice
+  name: collective-mind-changeling-inner-voice
+  keycode: 'в'
+  color: "#C86464"
+  showNames: false

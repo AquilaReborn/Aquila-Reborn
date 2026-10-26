@@ -1,7 +1,7 @@
 - type: soundCollection
   id: ChangelingHorrorGrowl
   files:
-  - /Audio/_Goobstation/Misc/Hastur/growl.ogg
+  - /Audio/_Aquila/Changeling/Horror/growl_hastur.ogg
   - /Audio/_RMC14/Xeno/alien_echoroar_1.ogg
   - /Audio/_RMC14/Xeno/alien_echoroar_2.ogg
   - /Audio/_RMC14/Xeno/alien_echoroar_3.ogg
@@ -69,14 +69,14 @@
   whitelist:
     components:
     - Changeling
+  blacklist:
+    components:
+    - ChangelingHostControlled
   chatMessages: ["chat-emote-msg-changeling-growl"]
   chatTriggers:
   - рычит
   - рычит.
   - рычит!
-  - growls
-  - growls.
-  - growls!
 
 - type: emote
   id: ChangelingHiss
@@ -86,6 +86,9 @@
   whitelist:
     components:
     - Changeling
+  blacklist:
+    components:
+    - ChangelingHostControlled
   chatMessages: ["chat-emote-msg-changeling-hiss"]
   chatTriggers:
   - шипит
@@ -100,6 +103,9 @@
   whitelist:
     components:
     - Changeling
+  blacklist:
+    components:
+    - ChangelingHostControlled
   chatMessages: ["chat-emote-msg-changeling-bones"]
   chatTriggers:
   - хрустит костями
@@ -114,6 +120,9 @@
   whitelist:
     components:
     - Changeling
+  blacklist:
+    components:
+    - ChangelingHostControlled
   chatMessages: ["chat-emote-msg-changeling-groan"]
   chatTriggers:
   - стонет
@@ -128,6 +137,9 @@
   whitelist:
     components:
     - Changeling
+  blacklist:
+    components:
+    - ChangelingHostControlled
   chatMessages: ["chat-emote-msg-changeling-howl"]
   chatTriggers:
   - воет

@@ -1,4 +1,14 @@
 - files: ["hiss_1.ogg", "hiss_2.ogg", "hiss_3.ogg", "hiss_4.ogg", "bones_crack_1.ogg", "bones_crack_2.ogg", "bones_crack_bleed.ogg"]
   license: "CC-BY-SA-3.0"
-  copyright: "Taken from tgstation at the master branch (sound/mobs/non-humanoids/hiss and sound/effects/wounds), original file names differ"
+  copyright: "Taken from tgstation at the master branch (sound/mobs/non-humanoids/hiss and sound/effects/wounds), original file names differ, converted to mono"
   source: "https://github.com/tgstation/tgstation/tree/master/sound"
+
+- files: ["growl_hastur.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Goonstation, converted to mono."
+  source: "https://github.com/goonstation/goonstation/blob/7a09de03575c8158526c1dbdff4cb7fb8021d641/sound/misc/hastur/growl.ogg"
+
+- files: ["screech_strong.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Citadel Station 13 PR https://github.com/Citadel-Station-13/Citadel-Station-13/pull/8052, made mono by ketufaispikinut, taken from space-wizards/space-station-14 (Resources/Audio/Effects/Screech/changeling_screech_strong.ogg)"
+  source: "https://github.com/Citadel-Station-13/Citadel-Station-13/commit/1d2584f4764e9ff8d7764d8ceef718bd3dc3fed2"

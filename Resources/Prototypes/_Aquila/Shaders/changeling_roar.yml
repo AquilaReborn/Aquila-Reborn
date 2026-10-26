@@ -1,0 +1,5 @@
+# Шейдер взят из space-wizards/space-station-14 (Resources/Textures/Shaders/screech_shock_wave.swsl), MIT
+- type: shader
+  id: ChangelingRoarWave
+  kind: source
+  path: "/Textures/_Aquila/Shaders/Changeling/changeling_roar_wave.swsl"

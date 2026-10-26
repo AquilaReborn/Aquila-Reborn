@@ -1,0 +1,15 @@
+{
+    "version": 1,
+    "license": "CC-BY-3.0",
+    "copyright": "Made by ketufaispikinut (github), taken from space-wizards/space-station-14 (Resources/Textures/Mobs/Species/Horror/parts.rsi, torso state) https://github.com/space-wizards/space-station-14/pull/45167",
+    "size": {
+        "x": 48,
+        "y": 48
+    },
+    "states": [
+        {
+            "name": "true_form",
+            "directions": 4
+        }
+    ]
+}

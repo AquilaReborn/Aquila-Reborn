@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Server._Aquila.Changeling; // Aquila Change
 using Content.Goobstation.Common.Atmos;
 using Content.Goobstation.Common.Body.Components;
 using Content.Goobstation.Common.Changeling;
@@ -224,9 +225,13 @@ public sealed partial class ChangelingSystem
         {
             comp.TotalAbsorbedEntities++;
             comp.TotalChangelingsAbsorbed += bonusChangelingAbsorbs;
+            Dirty(uid, comp); // Aquila Change
         }
 
         TryStealDNA(uid, target, comp, objBool);
+
+        var absorbedEv = new ChangelingAbsorbedEvent(target); // Aquila Change
+        RaiseLocalEvent(uid, ref absorbedEv); // Aquila Change
 
         _popup.PopupEntity(popup, args.User, args.User);
 

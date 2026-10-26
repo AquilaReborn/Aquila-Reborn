@@ -1,0 +1,20 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from space-wizards/space-station-14 (Resources/Textures/Interface/Actions/changeling2.rsi) https://github.com/space-wizards/space-station-14/pull/45167. horror_shop by ketufaispikinut (github), based on TiniestShark's textures. persona (mindshield_on) and persona_suppress (mindshield_off) by ketufaispikinut (github), based on TiniestShark's textures.",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "horror_shop"
+        },
+        {
+            "name": "persona"
+        },
+        {
+            "name": "persona_suppress"
+        }
+    ]
+}

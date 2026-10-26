@@ -1,0 +1,163 @@
+- type: listing
+  id: EvolutionMenuCombatTrueForm
+  name: evolutionmenu-combat-trueform-name
+  description: evolutionmenu-combat-trueform-desc
+  icon: { sprite: _Aquila/Interface/Actions/changeling_true_form.rsi, state: horror_shop }
+  productAction: ActionChangelingTrueForm
+  cost:
+    EvolutionPoint: 5
+  categories:
+  - ChangelingAbilityCombat
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: entity
+  parent: BaseAction
+  id: ActionChangelingTrueForm
+  name: True Form
+  description: Shed your disguise and become a monster for 90 seconds. Costs 40 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 300
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Aquila/Interface/Actions/changeling_true_form.rsi
+      state: horror_shop
+  - type: ConfirmableAction
+    popup: changeling-trueform-confirm
+  - type: InstantAction
+    event: !type:ChangelingTrueFormActionEvent {}
+  - type: ChangelingAction
+    requireAbsorbed: 2
+  - type: InternalResourcesAction
+    resourceProto: ChangelingChemicals
+    useAmount: 40
+
+- type: entity
+  parent: BaseAction
+  id: ActionChangelingTrueFormRevert
+  name: Return to Disguise
+  description: Return to your human body ahead of time.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    checkCanInteract: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: transform
+  - type: InstantAction
+    event: !type:ChangelingTrueFormRevertActionEvent {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionChangelingTrueFormRoar
+  name: Roar
+  description: Let out a terrifying roar that knocks down and throws back everyone nearby.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 20
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: shriek_resonant
+  - type: InstantAction
+    event: !type:ChangelingTrueFormRoarActionEvent {}
+
+- type: entity
+  id: EffectChangelingRoarWave
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 3.2
+  - type: ChangelingRoarWave
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: soundCollection
+  id: ChangelingTrueFormRoar
+  files:
+  - /Audio/_Aquila/Changeling/Horror/screech_strong.ogg
+
+- type: polymorph
+  id: ChangelingTrueForm
+  configuration:
+    entity: MobChangelingTrueForm
+    duration: 90
+    forced: true
+    transferDamage: true
+    inventory: None
+    revertOnCrit: false
+    revertOnDeath: true
+    exitPolymorphSound:
+      collection: ChangelingHorrorBones
+
+- type: damageModifierSet
+  id: ChangelingTrueForm
+  coefficients:
+    Blunt: 0.8
+    Slash: 0.8
+    Piercing: 0.9
+    Heat: 2.0
+
+- type: autoEmote
+  id: ChangelingTrueFormGrowl
+  emote: ChangelingGrowl
+  interval: 20.0
+  chance: 0.6
+  withChat: true
+
+- type: entity
+  parent: SimpleMobBase
+  id: MobChangelingTrueForm
+  name: monster
+  description: A writhing mass of muscle, bone and claws. It is hungry.
+  suffix: Changeling
+  components:
+  - type: ChangelingTrueForm
+  - type: ActionGrant
+    actions:
+    - ActionChangelingTrueFormRevert
+    - ActionChangelingTrueFormRoar
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Aquila/Mobs/Changeling/true_form.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: true_form
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Critical
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      175: Critical
+      300: Dead
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: ChangelingTrueForm
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 5.2
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    angle: 0
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 25
+  - type: Emoting
+  - type: AutoEmote
+    emotes:
+    - ChangelingTrueFormGrowl
+  - type: Tag
+    tags:
+    - DoorBumpOpener

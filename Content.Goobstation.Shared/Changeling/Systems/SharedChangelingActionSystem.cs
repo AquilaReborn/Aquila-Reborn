@@ -1,3 +1,4 @@
+using Content.Goobstation.Shared._Aquila.Changeling; // Aquila Change
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Shared.Actions.Events;
 using Content.Shared.Atmos.Components;
@@ -8,6 +9,9 @@ namespace Content.Goobstation.Shared.Changeling.Systems;
 public abstract class SharedChanglingActionSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+
+    private static readonly LocId TrueFormPopup = "changeling-action-fail-trueform"; // Aquila Change
+    private static readonly LocId HostControlPopup = "changeling-action-fail-host-control"; // Aquila Change
 
     private EntityQuery<ChangelingIdentityComponent> _lingQuery;
 
@@ -32,6 +36,24 @@ public abstract class SharedChanglingActionSystem : EntitySystem
 
             return;
         }
+
+        // Aquila Change start
+        if (HasComp<ChangelingTrueFormComponent>(args.User))
+        {
+            DoPopup(args.User, TrueFormPopup);
+            args.Cancelled = true;
+
+            return;
+        }
+
+        if (HasComp<ChangelingHostControlledComponent>(args.User))
+        {
+            DoPopup(args.User, HostControlPopup);
+            args.Cancelled = true;
+
+            return;
+        }
+        // Aquila Change end
 
         if (ent.Comp.RequireAbsorbed > ling.TotalAbsorbedEntities)
         {

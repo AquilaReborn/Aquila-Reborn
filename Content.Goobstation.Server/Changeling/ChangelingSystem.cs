@@ -725,7 +725,13 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         // add actions
         foreach (var actionId in ent.Comp.BaseChangelingActions)
-            _actions.AddAction(ent, actionId);
+        {
+            // _actions.AddAction(ent, actionId); // Aquila Change
+            if (_actions.GetActions(ent).Any(action => Prototype(action)?.ID == actionId.Id)) // Aquila Change
+                continue; // Aquila Change
+
+            _actions.AddAction(ent, actionId); // Aquila Change
+        }
 
         // make sure its set to the default
         ent.Comp.TotalEvolutionPoints = _changelingRuleSystem.StartingCurrency;
