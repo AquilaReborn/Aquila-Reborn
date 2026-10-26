@@ -726,7 +726,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         // add actions
         foreach (var actionId in ent.Comp.BaseChangelingActions)
         {
-            // _actions.AddAction(ent, actionId); // Aquila Change
             if (_actions.GetActions(ent).Any(action => Prototype(action)?.ID == actionId.Id)) // Aquila Change
                 continue; // Aquila Change
 

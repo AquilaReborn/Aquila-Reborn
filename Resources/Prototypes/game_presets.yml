@@ -92,7 +92,6 @@
   - extended
   - shittersafari
   name: extended-title
-  # showInVote: false #2boring2vote # Aquila Change
   showInVote: true # Aquila Change
   description: extended-description
   rules:
@@ -136,7 +135,6 @@
     - secret
     - sekrit
   name: secret-title
-  # showInVote: true # НАДО # Aquila Change
   showInVote: false # Aquila Change
   description: secret-description
   rules:

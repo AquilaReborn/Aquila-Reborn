@@ -39,7 +39,6 @@ public sealed partial class ChangelingIdentityComponent : Component
         "ActionAbsorbDNA",
         "ActionStingExtractDNA",
         "ActionChangelingTransformCycle",
-        // "ActionChangelingTransform" // Aquila Change
         "ActionChangelingTransform", // Aquila Change
         "ActionChangelingOfferHostControl" // Aquila Change
     };
@@ -105,7 +104,6 @@ public sealed partial class ChangelingIdentityComponent : Component
     /// <summary>
     ///     Total absorbed DNA. Counts towards objectives.
     /// </summary>
-    // [DataField, ViewVariables(VVAccess.ReadWrite)] // Aquila Change
     [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)] // Aquila Change
     public int TotalAbsorbedEntities = 0;
 
