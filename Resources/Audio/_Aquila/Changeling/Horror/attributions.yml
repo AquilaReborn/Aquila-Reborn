@@ -1,0 +1,4 @@
+- files: ["hiss_1.ogg", "hiss_2.ogg", "hiss_3.ogg", "hiss_4.ogg", "bones_crack_1.ogg", "bones_crack_2.ogg", "bones_crack_bleed.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation at the master branch (sound/mobs/non-humanoids/hiss and sound/effects/wounds), original file names differ"
+  source: "https://github.com/tgstation/tgstation/tree/master/sound"

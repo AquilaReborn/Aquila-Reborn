@@ -2,8 +2,8 @@ using Content.Server.GameTicking;
 using Content.Server.Voting.Managers;
 using Content.Shared.CCVar;
 using Content.Shared.Voting;
+using Robust.Server.Player;
 using Robust.Shared.Configuration;
-using Robust.Shared.Player;
 
 namespace Content.Server._Aquila.Voting;
 

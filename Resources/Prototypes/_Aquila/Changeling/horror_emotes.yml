@@ -1,0 +1,135 @@
+- type: soundCollection
+  id: ChangelingHorrorGrowl
+  files:
+  - /Audio/_Goobstation/Misc/Hastur/growl.ogg
+  - /Audio/_RMC14/Xeno/alien_echoroar_1.ogg
+  - /Audio/_RMC14/Xeno/alien_echoroar_2.ogg
+  - /Audio/_RMC14/Xeno/alien_echoroar_3.ogg
+
+- type: soundCollection
+  id: ChangelingHorrorHiss
+  files:
+  - /Audio/_Aquila/Changeling/Horror/hiss_1.ogg
+  - /Audio/_Aquila/Changeling/Horror/hiss_2.ogg
+  - /Audio/_Aquila/Changeling/Horror/hiss_3.ogg
+  - /Audio/_Aquila/Changeling/Horror/hiss_4.ogg
+  - /Audio/Voice/Misc/lowHiss1.ogg
+  - /Audio/Voice/Misc/lowHiss2.ogg
+  - /Audio/Voice/Misc/lowHiss3.ogg
+  - /Audio/Voice/Misc/lowHiss4.ogg
+  - /Audio/Animals/snake_hiss.ogg
+
+- type: soundCollection
+  id: ChangelingHorrorBones
+  files:
+  - /Audio/_Aquila/Changeling/Horror/bones_crack_1.ogg
+  - /Audio/_Aquila/Changeling/Horror/bones_crack_2.ogg
+  - /Audio/_Aquila/Changeling/Horror/bones_crack_bleed.ogg
+  - /Audio/Effects/gib1.ogg
+  - /Audio/Effects/gib2.ogg
+  - /Audio/Effects/gib3.ogg
+
+- type: soundCollection
+  id: ChangelingHorrorGroan
+  files:
+  - /Audio/_Goobstation/Wraith/Mobs/hulk/Zgroan1.ogg
+  - /Audio/_Goobstation/Wraith/Mobs/hulk/Zgroan2.ogg
+  - /Audio/_Goobstation/Wraith/Mobs/hulk/Zgroan3.ogg
+  - /Audio/_Goobstation/Wraith/Mobs/hulk/Zgroan4.ogg
+
+- type: soundCollection
+  id: ChangelingHorrorHowl
+  files:
+  - /Audio/_Goobstation/Wraith/Mobs/brullbar/brullbar_scream.ogg
+  - /Audio/_Goobstation/SlaughterDemon/demon_scream.ogg
+  - /Audio/_Goobstation/Animals/Meatzone_Howl.ogg
+  - /Audio/Animals/space_dragon_roar.ogg
+
+- type: emoteSounds
+  id: ChangelingHorror
+  params:
+    variation: 0.1
+  sounds:
+    ChangelingGrowl:
+      collection: ChangelingHorrorGrowl
+    ChangelingHiss:
+      collection: ChangelingHorrorHiss
+    ChangelingBones:
+      collection: ChangelingHorrorBones
+    ChangelingGroan:
+      collection: ChangelingHorrorGroan
+    ChangelingHowl:
+      collection: ChangelingHorrorHowl
+
+- type: emote
+  id: ChangelingGrowl
+  name: chat-emote-name-changeling-growl
+  category: Vocal
+  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: armblade }
+  whitelist:
+    components:
+    - Changeling
+  chatMessages: ["chat-emote-msg-changeling-growl"]
+  chatTriggers:
+  - рычит
+  - рычит.
+  - рычит!
+  - growls
+  - growls.
+  - growls!
+
+- type: emote
+  id: ChangelingHiss
+  name: chat-emote-name-changeling-hiss
+  category: Vocal
+  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: armblade }
+  whitelist:
+    components:
+    - Changeling
+  chatMessages: ["chat-emote-msg-changeling-hiss"]
+  chatTriggers:
+  - шипит
+  - шипит.
+  - шипит!
+
+- type: emote
+  id: ChangelingBones
+  name: chat-emote-name-changeling-bones
+  category: Vocal
+  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: armblade }
+  whitelist:
+    components:
+    - Changeling
+  chatMessages: ["chat-emote-msg-changeling-bones"]
+  chatTriggers:
+  - хрустит костями
+  - хрустит костями.
+  - хрустит костями!
+
+- type: emote
+  id: ChangelingGroan
+  name: chat-emote-name-changeling-groan
+  category: Vocal
+  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: armblade }
+  whitelist:
+    components:
+    - Changeling
+  chatMessages: ["chat-emote-msg-changeling-groan"]
+  chatTriggers:
+  - стонет
+  - стонет.
+  - стонет!
+
+- type: emote
+  id: ChangelingHowl
+  name: chat-emote-name-changeling-howl
+  category: Vocal
+  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: armblade }
+  whitelist:
+    components:
+    - Changeling
+  chatMessages: ["chat-emote-msg-changeling-howl"]
+  chatTriggers:
+  - воет
+  - воет.
+  - воет!
