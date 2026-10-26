@@ -92,7 +92,8 @@
   - extended
   - shittersafari
   name: extended-title
-  showInVote: false #2boring2vote
+  # showInVote: false #2boring2vote # Aquila Change
+  showInVote: true # Aquila Change
   description: extended-description
   rules:
   - BasicStationEventScheduler
@@ -106,7 +107,8 @@
   - greenshift
   - shittersafarideluxeedition
   name: greenshift-title
-  showInVote: false #4boring4vote
+  # showInVote: false #4boring4vote # Aquila Change
+  showInVote: false # Aquila Change
   description: greenshift-description
   rules:
   - SpaceTrafficControlFriendlyEventScheduler
@@ -135,7 +137,8 @@
     - secret
     - sekrit
   name: secret-title
-  showInVote: true # НАДО
+  # showInVote: true # НАДО # Aquila Change
+  showInVote: false # Aquila Change
   description: secret-description
   rules:
     - Secret

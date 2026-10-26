@@ -155,7 +155,9 @@ public sealed partial class SleepingSystem : EntitySystem
 
     private void OnComponentRemoved(Entity<SleepingComponent> ent, ref ComponentRemove args)
     {
-        _actionsSystem.RemoveAction(ent.Owner, ent.Comp.WakeAction);
+        // _actionsSystem.RemoveAction(ent.Owner, ent.Comp.WakeAction); // Aquila Change
+        if (!TerminatingOrDeleted(ent)) // Aquila Change
+            _actionsSystem.RemoveAction(ent.Owner, ent.Comp.WakeAction); // Aquila Change
 
         var ev = new SleepStateChangedEvent(false);
         RaiseLocalEvent(ent, ref ev);
