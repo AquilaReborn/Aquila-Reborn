@@ -107,8 +107,7 @@
   - greenshift
   - shittersafarideluxeedition
   name: greenshift-title
-  # showInVote: false #4boring4vote # Aquila Change
-  showInVote: false # Aquila Change
+  showInVote: false #4boring4vote
   description: greenshift-description
   rules:
   - SpaceTrafficControlFriendlyEventScheduler
