@@ -18,6 +18,7 @@
   - type: GuideHelp
     guides:
     - Xenobiology
+    - XenobiologyExtracts
 
 - type: entity
   abstract: true

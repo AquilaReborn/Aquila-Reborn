@@ -23,4 +23,22 @@
 
   ## Особые экстракты
   <GuideXenobioExtractGroupEmbed Tier="5"/>
+
+  # Гибридные экстракты
+  Скормите слайму нужной породы несколько одинаковых экстрактов, и он превратит их в гибридный экстракт. У гибридных экстрактов нет реакций на реагенты, их действие описано ниже.
+
+  ## Регенеративные
+  <GuideXenobioCrossbreedEmbed Category="Regenerative"/>
+
+  ## Стабилизированные
+  <GuideXenobioCrossbreedEmbed Category="Stabilized"/>
+
+  ## Горящие
+  <GuideXenobioCrossbreedEmbed Category="Burning"/>
+
+  ## Промышленные
+  <GuideXenobioCrossbreedEmbed Category="Industrial"/>
+
+  ## Дублирующие
+  <GuideXenobioCrossbreedEmbed Category="Duplicating"/>
 </Document>

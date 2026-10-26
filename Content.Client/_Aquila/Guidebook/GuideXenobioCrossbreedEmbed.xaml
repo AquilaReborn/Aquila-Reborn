@@ -1,0 +1,20 @@
+<BoxContainer xmlns="https://spacestation14.io"
+              Orientation="Vertical"
+              HorizontalExpand="True"
+              Margin="5 2 5 2">
+    <PanelContainer StyleClasses="PanelBackgroundBaseDark" HorizontalExpand="True">
+        <Collapsible Name="CategoryCollapsible" HorizontalExpand="True">
+            <CollapsibleHeading Name="CategoryHeading" Margin="4 2 4 2"/>
+            <CollapsibleBody>
+                <BoxContainer Orientation="Vertical"
+                              HorizontalExpand="True"
+                              Margin="8 0 8 8">
+                    <RichTextLabel Name="CategoryDescription" HorizontalExpand="True"/>
+                    <BoxContainer Name="ExtractsContainer"
+                                  Orientation="Vertical"
+                                  HorizontalExpand="True"/>
+                </BoxContainer>
+            </CollapsibleBody>
+        </Collapsible>
+    </PanelContainer>
+</BoxContainer>

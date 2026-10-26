@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Client.Guidebook.Controls;
 using Content.Client.Guidebook.Richtext;
 using Content.Client.Message;
+using Content.Client.Stylesheets;
 using Content.Client.UserInterface.ControlExtensions;
 using Content.Goobstation.Shared._Aquila.Xenobiology;
 using Content.Goobstation.Shared._Aquila.Xenobiology.DataDefinitions;
@@ -24,9 +25,6 @@ public sealed partial class GuideXenobioExtractEmbed : BoxContainer, IDocumentTa
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
-
-    private const float ReactionBackgroundAlpha = 0.12f;
-    private const float ReactionStripeWidth = 3f;
 
     private readonly ISawmill _sawmill;
 
@@ -135,12 +133,7 @@ public sealed partial class GuideXenobioExtractEmbed : BoxContainer, IDocumentTa
         {
             HorizontalExpand = true,
             Margin = new Thickness(0, 4, 0, 0),
-            PanelOverride = new StyleBoxFlat
-            {
-                BackgroundColor = reagent.SubstanceColor.WithAlpha(ReactionBackgroundAlpha),
-                BorderColor = reagent.SubstanceColor,
-                BorderThickness = new Thickness(ReactionStripeWidth, 0, 0, 0),
-            },
+            StyleClasses = { StyleNano.StyleClassBackgroundBaseLight },
         };
         row.AddChild(content);
 

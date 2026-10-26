@@ -93,3 +93,7 @@ xenobio-extract-guide-rainbow-blood = Наделяет слаймов в рад�
 xenobio-extract-guide-meat-water = Создаёт 6 кусков сырого мяса.
 xenobio-extract-guide-meat-plasma = Порождает враждебную плоть.
 xenobio-extract-guide-meat-blood = Создаёт случайный орган для пересадки.
+
+guidebook-xenobio-crossbreed-category-display = { CAPITALIZE($category) } гибрид
+guidebook-xenobio-crossbreed-category-description = Получаются, если скормить слайму подходящей породы [color=yellow]{ $required }[/color] одинаковых экстрактов. Проверить прогресс можно сканером слаймов.
+guidebook-xenobio-crossbreed-extract-name-display = [bold]{ CAPITALIZE($extract) }[/bold]
