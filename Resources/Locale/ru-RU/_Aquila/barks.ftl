@@ -20,3 +20,5 @@ bark-voice-aviu2 = Сильный
 bark-voice-aviu3 = Инопланетный
 bark-voice-aviu4 = Эфирный
 bark-voice-mothsqueak = Писк ниана
+bark-voice-soft = Мягкий
+bark-voice-kitty = Котик

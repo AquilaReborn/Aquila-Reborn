@@ -70,6 +70,14 @@
     {
         "name": "tailHair2",
         "directions": 4
+    },
+    {
+        "name": "gloomy_even_longer",
+        "directions": 4
+    },
+    {
+        "name": "gloomy_longest",
+        "directions": 4
     }
   ]
 }
