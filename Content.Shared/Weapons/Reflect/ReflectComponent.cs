@@ -45,6 +45,14 @@ public sealed partial class ReflectComponent : Component
     [DataField, AutoNetworkedField]
     public float ReflectProb = 0.25f;
 
+    // Aquila Change start
+    /// <summary>
+    /// Шанс отразить пулю или энергетический заряд, если этого типа нет в <see cref="Reflects"/>.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float OtherTypeReflectProb;
+    // Aquila Change end
+
     /// <summary>
     /// Probability for a projectile to be reflected.
     /// </summary>

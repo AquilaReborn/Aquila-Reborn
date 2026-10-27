@@ -56,6 +56,7 @@
     sprite: _Goobstation/Objects/Weapons/Melee/phoron_sabre_inhands.rsi
   - type: Reflect
     reflectProb: 1
+    otherTypeReflectProb: 0.4 # Aquila Change
     reflects:
       - Energy
   - type: Tag

@@ -95,6 +95,7 @@
         shader: unshaded
   - type: Reflect # Goob edit
     reflectProb: .5
+    otherTypeReflectProb: .1 # Aquila Change
     reflects:
       - Energy
   - type: IgnitionSource

@@ -105,12 +105,25 @@ public sealed class ReflectSystem : EntitySystem
         }
     }
 
+    // Aquila Change start
+    /// <summary>
+    /// Возвращает шанс отражения снаряда указанного типа.
+    /// </summary>
+    public float GetReflectProb(ReflectComponent reflector, ReflectType type)
+    {
+        if ((reflector.Reflects & type) != 0x0)
+            return reflector.ReflectProb;
+
+        return (type & (ReflectType.Energy | ReflectType.NonEnergy)) != 0x0 ? reflector.OtherTypeReflectProb : 0f;
+    }
+    // Aquila Change end
+
     public bool TryReflectProjectile(Entity<ReflectComponent> reflector, EntityUid user, Entity<ProjectileComponent?> projectile)
     {
         if (!TryComp<ReflectiveComponent>(projectile, out var reflective) ||
-            (reflector.Comp.Reflects & reflective.Reflective) == 0x0 ||
+            // (reflector.Comp.Reflects & reflective.Reflective) == 0x0 || // Aquila Change
             !_toggle.IsActivated(reflector.Owner) ||
-            !_random.Prob(reflector.Comp.ReflectProb) ||
+            !_random.Prob(GetReflectProb(reflector.Comp, reflective.Reflective)) || // Aquila Change
             !TryComp<PhysicsComponent>(projectile, out var physics))
         {
             return false;
@@ -169,11 +182,8 @@ public sealed class ReflectSystem : EntitySystem
         DamageSpecifier? damage, // WD EDIT
         [NotNullWhen(true)] out Vector2? newDirection)
     {
-        if ((reflector.Comp.Reflects & hitscanReflectType) == 0x0 ||
-            !_toggle.IsActivated(reflector.Owner) ||
-            // Goob edit start
-            !((reflector.Comp.Reflects & hitscanReflectType) != 0x0 && _random.Prob(reflector.Comp.ReflectProb)))
-            // Goob edit end
+        if (!_toggle.IsActivated(reflector.Owner) || // Aquila Change
+            !_random.Prob(GetReflectProb(reflector.Comp, hitscanReflectType))) // Aquila Change
         {
             newDirection = null;
             return false;
@@ -235,12 +245,23 @@ public sealed class ReflectSystem : EntitySystem
         if (!ent.Comp.Examinable) return; // Goobstation
         // This isn't examine verb or something just because it looks too much bad.
         // Trust me, universal verb for the potential weapons, armor and walls looks awful.
-        var value = MathF.Round(ent.Comp.ReflectProb * 100, 1);
+        if (!_toggle.IsActivated(ent.Owner)) // Aquila Change
+            return; // Aquila Change
 
-        if (!_toggle.IsActivated(ent.Owner) || value == 0 || ent.Comp.Reflects == ReflectType.None)
+        PushReflectExamine(args, ent.Comp.ReflectProb, ent.Comp.Reflects); // Aquila Change
+        PushReflectExamine(args, ent.Comp.OtherTypeReflectProb, (ReflectType.Energy | ReflectType.NonEnergy) & ~ent.Comp.Reflects); // Aquila Change
+    }
+
+    // Aquila Change start
+    private void PushReflectExamine(ExaminedEvent args, float prob, ReflectType reflects)
+    {
+        var value = MathF.Round(prob * 100, 1);
+
+        if (value == 0 || reflects == ReflectType.None)
             return;
 
-        var compTypes = ent.Comp.Reflects.ToString().Split(", ");
+        var compTypes = reflects.ToString().Split(", ");
+        // Aquila Change end
 
         List<string> typeList = new(compTypes.Length);
 
