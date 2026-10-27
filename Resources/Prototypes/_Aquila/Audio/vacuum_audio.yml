@@ -1,0 +1,8 @@
+- type: vacuumAudio
+  id: Default
+  updateInterval: 0.25
+  listenerOcclusion: 4.5
+  sourceOcclusion: 3
+  pressureAlert: LowPressure
+  vacuumSeverity: 2
+  speechPressureThreshold: 20

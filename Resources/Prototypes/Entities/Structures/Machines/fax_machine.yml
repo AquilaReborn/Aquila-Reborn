@@ -43,7 +43,7 @@
   - type: Faxecute
     damage:
       types:
-        Blunt: 100
+        Blunt: 400 # Aquila Change
   - type: FaxMachine
     paperSlot:
       insertSound: /Audio/Machines/scanning.ogg

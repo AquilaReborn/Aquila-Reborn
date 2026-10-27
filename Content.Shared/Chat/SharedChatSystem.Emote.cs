@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Collections.Frozen;
+using Content.Shared._Aquila.Chat; // Aquila Change
 using Content.Goobstation.Common.MisandryBox;
 using Content.Shared._EinsteinEngines.Language.Components;
 using Content.Shared.Chat.Prototypes;
@@ -194,6 +195,11 @@ public abstract partial class SharedChatSystem
 
         param.Pitch += ev.Pitch;
         // Goobstation/MisandryBox
+
+        var soundAttempt = new EmoteSoundAttemptEvent(uid); // Aquila Change
+        RaiseLocalEvent(ref soundAttempt); // Aquila Change
+        if (soundAttempt.Cancelled) // Aquila Change
+            return true; // Aquila Change
 
         _audio.PlayPvs(sound, uid, param);
         return true;

@@ -1,8 +1,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._Aquila.CCVars; // Aquila Change
 using Content.Shared.Audio;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
+using Robust.Shared.Audio; // Aquila Change
+using Robust.Shared.Audio.Components; // Aquila Change
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
@@ -15,8 +18,10 @@ public sealed class ClientGlobalSoundSystem : SharedGlobalSoundSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     // Admin music
+    private const float MinAdminMusicGain = 0.0001f; // Aquila Change
     private bool _adminAudioEnabled = true;
     private List<EntityUid?> _adminAudio = new(1);
+    private float _adminVolumeOffset; // Aquila Change
 
     // Event sounds (e.g. nuke timer)
     private bool _eventAudioEnabled = true;
@@ -28,6 +33,7 @@ public sealed class ClientGlobalSoundSystem : SharedGlobalSoundSystem
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
         SubscribeNetworkEvent<AdminSoundEvent>(PlayAdminSound);
         Subs.CVar(_cfg, CCVars.AdminSoundsEnabled, ToggleAdminSound, true);
+        Subs.CVar(_cfg, AquilaCVars.AdminMusicVolume, OnAdminMusicVolumeChanged, true); // Aquila Change
 
         SubscribeNetworkEvent<StationEventMusicEvent>(PlayStationEventMusic);
         SubscribeNetworkEvent<StopStationEventMusic>(StopStationEventMusic);
@@ -67,9 +73,24 @@ public sealed class ClientGlobalSoundSystem : SharedGlobalSoundSystem
     {
         if(!_adminAudioEnabled) return;
 
-        var stream = _audio.PlayGlobal(soundEvent.Specifier, Filter.Local(), false, soundEvent.AudioParams);
+        var stream = _audio.PlayGlobal(soundEvent.Specifier, Filter.Local(), false, (soundEvent.AudioParams ?? AudioParams.Default).AddVolume(_adminVolumeOffset)); // Aquila Change
         _adminAudio.Add(stream?.Entity);
     }
+
+    // Aquila Change start
+    private void OnAdminMusicVolumeChanged(float value)
+    {
+        var offset = SharedAudioSystem.GainToVolume(Math.Max(value, MinAdminMusicGain));
+        var delta = offset - _adminVolumeOffset;
+        _adminVolumeOffset = offset;
+
+        foreach (var stream in _adminAudio)
+        {
+            if (TryComp<AudioComponent>(stream, out var audio))
+                _audio.SetVolume(stream, audio.Params.Volume + delta, audio);
+        }
+    }
+    // Aquila Change end
 
     private void PlayStationEventMusic(StationEventMusicEvent soundEvent)
     {

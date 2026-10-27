@@ -45,6 +45,7 @@ using Robust.Shared.Utility;
 using System.Collections.Immutable; // Goobstation - Starlight collective mind port
 using System.Collections.Immutable; // Goobstation - Starlight collective mind port
 using System.Globalization;
+using Content.Server._Aquila.Chat; // Aquila Change
 using System.Globalization;
 using System.Linq;
 using System.Linq;
@@ -87,6 +88,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly ScryingOrbSystem _scrying = default!; // Goobstation Change
     [Dependency] private readonly CollectiveMindUpdateSystem _collectiveMind = default!; // Goobstation - Starlight collective mind port
     [Dependency] private readonly LanguageSystem _language = default!; // Einstein Engines - Language
+    [Dependency] private readonly VacuumChatSystem _vacuumChat = default!; // Aquila Change
 
     public const int VoiceRange = 10; // how far voice goes in world units
     public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
@@ -747,6 +749,9 @@ public sealed partial class ChatSystem : SharedChatSystem
                 continue;
             listener = session.AttachedEntity.Value;
 
+            if (!_vacuumChat.CanHear(source, listener)) // Aquila Change
+                continue; // Aquila Change
+
             if (MessageRangeCheck(session, data, range) != MessageRangeCheckResult.Full)
                 continue; // Won't get logged to chat, and ghosts are too far away to see the pop-up, so we just won't send it to them.
 
@@ -1016,6 +1021,9 @@ public sealed partial class ChatSystem : SharedChatSystem
             if (checkLOS && !data.Observer && !data.InLOS)
                 continue; // Floofstation - Some things don't go through walls, but they can go through windows!
             EntityUid listener = session.AttachedEntity.Value;
+
+            if (channel == ChatChannel.Local && !_vacuumChat.CanHear(source, listener)) // Aquila Change
+                continue; // Aquila Change
 
             // Goob edit start
             // Raises a event for the deaf and blind component

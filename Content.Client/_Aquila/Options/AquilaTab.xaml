@@ -1,0 +1,23 @@
+<Control xmlns="https://spacestation14.io"
+         xmlns:ui="clr-namespace:Content.Client.Options.UI">
+    <BoxContainer Orientation="Vertical">
+        <BoxContainer Orientation="Vertical"
+                      Margin="8 8 8 8"
+                      VerticalExpand="True">
+            <Label Text="{Loc 'ui-options-aquila-audio-label'}"
+                   StyleClasses="LabelKeyText"/>
+            <BoxContainer Orientation="Vertical"
+                          Margin="0 3 0 0">
+                <ui:OptionSlider Name="SliderVolumeRadioMusic"
+                                 Title="{Loc 'ui-options-radio-music-volume'}"/>
+                <ui:OptionSlider Name="SliderVolumeAdminMusic"
+                                 Title="{Loc 'ui-options-admin-music-volume'}"
+                                 Margin="0 0 0 8"/>
+                <CheckBox Name="AudioEnvironmentCheckBox"
+                          Text="{Loc 'ui-options-audio-environment'}"/>
+            </BoxContainer>
+        </BoxContainer>
+        <ui:OptionsTabControlRow Name="Control"
+                                 Access="Public"/>
+    </BoxContainer>
+</Control>
