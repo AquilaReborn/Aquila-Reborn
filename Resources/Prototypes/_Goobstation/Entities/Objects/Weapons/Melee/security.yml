@@ -214,6 +214,8 @@
               storedRotation: -45
             - type: CounterattackWeapon
               setItemSwitch: off
+            - type: Reflect
+              reflectProb: 0 # Щиткод, чтобы он не складывался от бросков и выстрелов
           soundStateActivate:
             path: /Audio/_Goobstation/Misc/umbrella.ogg
 
