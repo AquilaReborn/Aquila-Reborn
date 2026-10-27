@@ -1340,3 +1340,103 @@
     radius: 1.5
     energy: 1.6
     color: "#00FF00"
+
+# Идентификационные жетоны ElysiumPrime
+- type: entity
+  abstract: true
+  parent: BaseCustomPDA
+  id: BaseElysiumPrimeIdTag
+  name: identification tag
+  suffix: ElysiumPrime, other
+  description: A device for identification and access to restricted areas.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Misc/id_tags.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+    # У жетона нет экрана и фонарика, поэтому слои подсветки пустые.
+    - map: [ "enum.PdaVisualLayers.Flashlight" ]
+      visible: false
+    - map: [ "enum.PdaVisualLayers.IdLight" ]
+      visible: false
+  # Без предустановленных программ.
+  - type: CartridgeLoader
+    preinstalled: []
+
+- type: entity
+  parent: BaseElysiumPrimeIdTag
+  id: ElysiumPrimeIdTag1
+  components:
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        tag1
+  - type: Icon
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Misc/id_tags.rsi
+    state: tag1
+
+- type: entity
+  parent: BaseElysiumPrimeIdTag
+  id: ElysiumPrimeIdTag2
+  components:
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        tag2
+  - type: Icon
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Misc/id_tags.rsi
+    state: tag2
+
+- type: entity
+  parent: BaseElysiumPrimeIdTag
+  id: ElysiumPrimeIdTag3
+  components:
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        tag3
+  - type: Icon
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Misc/id_tags.rsi
+    state: tag3
+
+- type: entity
+  parent: BaseElysiumPrimeIdTag
+  id: ElysiumPrimeIdTag4
+  components:
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        tag4
+  - type: Icon
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Misc/id_tags.rsi
+    state: tag4
+
+- type: entity
+  parent: BaseElysiumPrimeIdTag
+  id: ElysiumPrimeIdTag5
+  components:
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        tag5
+  - type: Icon
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Misc/id_tags.rsi
+    state: tag5
+
+- type: entity
+  parent: BaseElysiumPrimeIdTag
+  id: ElysiumPrimeIdTag6
+  components:
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        tag6
+  - type: Icon
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Misc/id_tags.rsi
+    state: tag6
