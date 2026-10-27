@@ -21,6 +21,8 @@ marking-JointLShoulderW = Шарнир андроида (левое плечо) 
 
 marking-HumanHairShortGloomy = Короткая мрачная чёлка [Акила]
 marking-HumanHairShortGloomyAlt = Короткая мрачная чёлка (Оттенки серого) [Акила]
+marking-HumanHairGloomyEvenLonger = Ещё длиннее мрачная чёлка [Акила]
+marking-HumanHairGloomyLongest = Очень длинная мрачная чёлка [Акила]
 marking-HumanHairCurlyNew = Кудрявая (Альт.) [Акила]
 marking-HumanHairAstolfoNew = Астольфо (Альт.) [Акила]
 marking-HumanHairFlowNew = Флоу (Альт.) [Акила]
