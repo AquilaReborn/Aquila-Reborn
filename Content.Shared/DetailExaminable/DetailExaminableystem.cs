@@ -32,7 +32,7 @@ public sealed class DetailExaminableSystem : EntitySystem
             Act = () =>
             {
                 var markup = new FormattedMessage();
-                markup.AddMarkupPermissive(Loc.GetString(ent.Comp.Content)); // CorvaxGoob-Fixes
+                markup.AddMarkupPermissive(Loc.TryGetString(ent.Comp.Content, out var content) ? content : ent.Comp.Content); // Aquila Change
                 _examine.SendExamineTooltip(user, ent, markup, false, false);
             },
             Text = Loc.GetString("detail-examinable-verb-text"),

@@ -3,9 +3,10 @@
 injector-draw-text = Забор
 injector-inject-text = Введение
 injector-invalid-injector-toggle-mode = Неверный режим
+# Aquila Change
 injector-volume-label =
     Объём: [color=white]{ $currentVolume }/{ $totalVolume }[/color]
-    Режим: [color=white]{ $modeString }[/color] ([color=white]{ $transferVolume } ед.[/color])
+    Режим: [color=white]{ $modeString }[/color]
 
 ## Entity
 

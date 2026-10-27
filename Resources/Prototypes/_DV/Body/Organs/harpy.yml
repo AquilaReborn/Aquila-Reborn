@@ -21,7 +21,7 @@
     metabolizerTypes: [ Human ]
     groups:
     - id: Gas
-      rateModifier: 200.0
+      rateModifier: 100.0 # Aquila Change
   - type: SolutionContainerManager
     solutions:
       organ:

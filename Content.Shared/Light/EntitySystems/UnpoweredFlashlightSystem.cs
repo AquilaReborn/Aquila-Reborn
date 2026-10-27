@@ -2,6 +2,7 @@
 
 using Content.Shared.Actions;
 using Content.Shared.Emag.Systems;
+using Content.Shared.Ghost; // Aquila Change
 using Content.Shared.Light.Components;
 using Content.Shared.Mind.Components;
 using Content.Shared.Storage.Components;
@@ -61,7 +62,7 @@ public sealed class UnpoweredFlashlightSystem : EntitySystem
 
     private void AddToggleLightVerbs(EntityUid uid, UnpoweredFlashlightComponent component, GetVerbsEvent<ActivationVerb> args)
     {
-        if (!args.CanAccess || !args.CanInteract)
+        if (!args.CanAccess || !args.CanInteract || HasComp<GhostComponent>(args.User)) // Aquila Change
             return;
 
         ActivationVerb verb = new()

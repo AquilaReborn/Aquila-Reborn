@@ -625,6 +625,10 @@ public sealed class PullingSystem : EntitySystem
         // joint state handling will manage its own state
         if (!_timing.ApplyingState)
         {
+            if (TryComp<JointComponent>(pullableUid, out var pullableJoints) // Aquila Change
+                && pullableJoints.GetJoints.ContainsKey(pullableComp.PullJointId)) // Aquila Change
+                _joints.RemoveJoint(pullableUid, pullableComp.PullJointId); // Aquila Change
+
             var joint = _joints.CreateDistanceJoint(pullableUid, pullerUid,
                     pullablePhysics.LocalCenter, pullerPhysics.LocalCenter,
                     id: pullableComp.PullJointId);
