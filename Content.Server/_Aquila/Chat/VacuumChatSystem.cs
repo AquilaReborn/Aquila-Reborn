@@ -1,7 +1,9 @@
-using Content.Server.Atmos.EntitySystems;
+using Content.Server._Aquila.Audio;
+using Content.Server.Atmos.Components;
 using Content.Shared._Aquila.Audio;
 using Content.Shared._Aquila.Chat;
 using Content.Shared.Ghost;
+using Content.Shared.Inventory;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Aquila.Chat;
@@ -10,8 +12,10 @@ public sealed class VacuumChatSystem : EntitySystem
 {
     private static readonly ProtoId<VacuumAudioPrototype> SettingsId = "Default";
 
-    [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly VacuumExposureSystem _vacuum = default!;
 
     public override void Initialize()
     {
@@ -21,27 +25,50 @@ public sealed class VacuumChatSystem : EntitySystem
     }
 
     /// <summary>
-    /// Проверяет, может ли слушатель услышать речь источника через воздух.
+    /// Проверяет, может ли слушатель услышать речь источника.
     /// </summary>
     public bool CanHear(EntityUid source, EntityUid listener)
     {
-        if (source == listener || HasComp<GhostComponent>(listener) || !_proto.TryIndex(SettingsId, out var settings))
-            return true;
+        return GetHearing(source, listener) != VacuumHearing.None;
+    }
 
-        return !IsInVacuum(source, settings) && !IsInVacuum(listener, settings);
+    /// <summary>
+    /// Определяет, как слушатель слышит речь источника с учётом вакуума.
+    /// </summary>
+    public VacuumHearing GetHearing(EntityUid source, EntityUid listener)
+    {
+        if (source == listener || HasComp<GhostComponent>(listener) || !_proto.TryIndex(SettingsId, out var settings))
+            return VacuumHearing.Air;
+
+        if (!_vacuum.IsInVacuum(source) && !_vacuum.IsInVacuum(listener))
+            return VacuumHearing.Air;
+
+        if (HasSealedHelmet(source)
+            && HasSealedHelmet(listener)
+            && _transform.InRange(source, listener, settings.SuitCommsRange))
+            return VacuumHearing.SuitComms;
+
+        return VacuumHearing.None;
+    }
+
+    /// <summary>
+    /// Оборачивает сообщение в чате пометкой локальной связи, если речь пришла по ней.
+    /// </summary>
+    public string WrapMessage(VacuumHearing hearing, string wrappedMessage)
+    {
+        return hearing == VacuumHearing.SuitComms
+            ? Loc.GetString("vacuum-chat-suit-comms-wrap", ("message", wrappedMessage))
+            : wrappedMessage;
     }
 
     private void OnEmoteSoundAttempt(ref EmoteSoundAttemptEvent args)
     {
-        if (args.Cancelled || !_proto.TryIndex(SettingsId, out var settings))
-            return;
-
-        args.Cancelled = IsInVacuum(args.Source, settings);
+        if (!args.Cancelled)
+            args.Cancelled = _vacuum.IsInVacuum(args.Source);
     }
 
-    private bool IsInVacuum(EntityUid uid, VacuumAudioPrototype settings)
+    private bool HasSealedHelmet(EntityUid uid)
     {
-        var mixture = _atmosphere.GetContainingMixture(uid);
-        return mixture == null || mixture.Pressure < settings.SpeechPressureThreshold;
+        return _inventory.TryGetSlotEntity(uid, "head", out var head) && HasComp<PressureProtectionComponent>(head);
     }
 }

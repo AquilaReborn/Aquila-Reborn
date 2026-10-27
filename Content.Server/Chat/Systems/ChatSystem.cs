@@ -749,7 +749,8 @@ public sealed partial class ChatSystem : SharedChatSystem
                 continue;
             listener = session.AttachedEntity.Value;
 
-            if (!_vacuumChat.CanHear(source, listener)) // Aquila Change
+            var vacuumHearing = _vacuumChat.GetHearing(source, listener); // Aquila Change
+            if (vacuumHearing == VacuumHearing.None) // Aquila Change
                 continue; // Aquila Change
 
             if (MessageRangeCheck(session, data, range) != MessageRangeCheckResult.Full)
@@ -794,7 +795,7 @@ public sealed partial class ChatSystem : SharedChatSystem
                 wrappedMessage = WrapWhisperMessage(source, "chat-manager-entity-whisper-unknown-wrap-message", string.Empty, result, language, colorOverride);
             }
 
-            _chatManager.ChatMessageToOne(ChatChannel.Whisper, result, wrappedMessage, source, false, session.Channel);
+            _chatManager.ChatMessageToOne(ChatChannel.Whisper, result, _vacuumChat.WrapMessage(vacuumHearing, wrappedMessage), source, false, session.Channel); // Aquila Change
         }
 
         var replayWrap = WrapWhisperMessage(source, "chat-manager-entity-whisper-wrap-message", name, message, language, colorOverride);
@@ -1022,7 +1023,8 @@ public sealed partial class ChatSystem : SharedChatSystem
                 continue; // Floofstation - Some things don't go through walls, but they can go through windows!
             EntityUid listener = session.AttachedEntity.Value;
 
-            if (channel == ChatChannel.Local && !_vacuumChat.CanHear(source, listener)) // Aquila Change
+            var vacuumHearing = channel == ChatChannel.Local ? _vacuumChat.GetHearing(source, listener) : VacuumHearing.Air; // Aquila Change
+            if (vacuumHearing == VacuumHearing.None) // Aquila Change
                 continue; // Aquila Change
 
             // Goob edit start
@@ -1036,9 +1038,9 @@ public sealed partial class ChatSystem : SharedChatSystem
 
             // If the channel does not support languages, or the entity can understand the message, send the original message, otherwise send the obfuscated version
             if (channel == ChatChannel.LOOC || channel == ChatChannel.Emotes || _language.CanUnderstand(listener, language.ID))
-                _chatManager.ChatMessageToOne(channel, message, wrappedMessage, source, entHideChat, session.Channel, author: author);
+                _chatManager.ChatMessageToOne(channel, message, _vacuumChat.WrapMessage(vacuumHearing, wrappedMessage), source, entHideChat, session.Channel, author: author); // Aquila Change
             else
-                _chatManager.ChatMessageToOne(channel, obfuscated, obfuscatedWrappedMessage, source, entHideChat, session.Channel, author: author);
+                _chatManager.ChatMessageToOne(channel, obfuscated, _vacuumChat.WrapMessage(vacuumHearing, obfuscatedWrappedMessage), source, entHideChat, session.Channel, author: author); // Aquila Change
             // Einstein Engines - Language end
         }
 

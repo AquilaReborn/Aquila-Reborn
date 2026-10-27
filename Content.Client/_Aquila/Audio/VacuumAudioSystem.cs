@@ -1,7 +1,6 @@
 using System.Numerics;
 using Content.Shared._Aquila.Audio;
 using Content.Shared._Aquila.CCVars;
-using Content.Shared.Alert;
 using Content.Shared.Maps;
 using Robust.Client.Audio;
 using Robust.Client.Player;
@@ -70,7 +69,7 @@ public sealed class VacuumAudioSystem : EntitySystem
             return;
 
         _updateTimer = settings.UpdateInterval;
-        _listenerInVacuum = IsListenerInVacuum(settings);
+        _listenerInVacuum = IsListenerInVacuum();
     }
 
     private float GetOcclusion(MapCoordinates listener, Vector2 delta, float distance, EntityUid? ignoredEnt)
@@ -90,27 +89,34 @@ public sealed class VacuumAudioSystem : EntitySystem
         if (_listenerInVacuum)
             return occlusion + settings.ListenerOcclusion;
 
-        if (distance > 0.1f && IsSpace(new MapCoordinates(listener.Position + delta, listener.MapId)))
+        if (IsSourceInVacuum(ignoredEnt) || distance > 0.1f && IsSpace(new MapCoordinates(listener.Position + delta, listener.MapId)))
             return occlusion + settings.SourceOcclusion;
 
         return occlusion;
     }
 
-    private bool IsListenerInVacuum(VacuumAudioPrototype settings)
+    private bool IsSourceInVacuum(EntityUid? source)
+    {
+        while (source is { } uid && TryComp(uid, out TransformComponent? xform))
+        {
+            if (HasComp<InVacuumComponent>(uid))
+                return true;
+
+            if (xform.GridUid == uid || xform.MapUid == uid)
+                return false;
+
+            source = xform.ParentUid;
+        }
+
+        return false;
+    }
+
+    private bool IsListenerInVacuum()
     {
         if (_player.LocalEntity is not { } player)
             return false;
 
-        if (TryComp<AlertsComponent>(player, out var alerts))
-        {
-            foreach (var state in alerts.Alerts.Values)
-            {
-                if (state.Type == settings.PressureAlert && state.Severity >= settings.VacuumSeverity)
-                    return true;
-            }
-        }
-
-        return IsSpace(_transform.GetMapCoordinates(player));
+        return HasComp<InVacuumComponent>(player) || IsSpace(_transform.GetMapCoordinates(player));
     }
 
     private bool IsSpace(MapCoordinates coordinates)

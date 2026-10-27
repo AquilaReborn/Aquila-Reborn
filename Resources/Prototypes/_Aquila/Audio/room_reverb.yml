@@ -4,7 +4,7 @@
   analyzeInterval: 0.5
   applyInterval: 0.1
   smoothRate: 4
-  wetness: 1.3
+  wetness: 1.1
   clutterDamping: 0.6
   clutterDensity: 0.5
   smallRoomTiles: 9
