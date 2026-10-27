@@ -37,14 +37,6 @@ public sealed class VacuumExposureSystem : EntitySystem
         }
     }
 
-    /// <summary>
-    /// Проверяет, находится ли сущность в вакууме.
-    /// </summary>
-    public bool IsInVacuum(EntityUid uid)
-    {
-        return _proto.TryIndex(SettingsId, out var settings) && IsInVacuum(uid, settings);
-    }
-
     private bool IsInVacuum(EntityUid uid, VacuumAudioPrototype settings)
     {
         var mixture = _atmosphere.GetContainingMixture(uid);

@@ -1,4 +1,3 @@
-using Content.Server._Aquila.Audio;
 using Content.Server.Atmos.Components;
 using Content.Shared._Aquila.Audio;
 using Content.Shared._Aquila.Chat;
@@ -15,13 +14,12 @@ public sealed class VacuumChatSystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly VacuumExposureSystem _vacuum = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<EmoteSoundAttemptEvent>(OnEmoteSoundAttempt);
+        SubscribeLocalEvent<InVacuumComponent, EmoteSoundAttemptEvent>(OnEmoteSoundAttempt);
     }
 
     /// <summary>
@@ -37,13 +35,14 @@ public sealed class VacuumChatSystem : EntitySystem
     /// </summary>
     public VacuumHearing GetHearing(EntityUid source, EntityUid listener)
     {
-        if (source == listener || HasComp<GhostComponent>(listener) || !_proto.TryIndex(SettingsId, out var settings))
+        if (source == listener || HasComp<GhostComponent>(listener))
             return VacuumHearing.Air;
 
-        if (!_vacuum.IsInVacuum(source) && !_vacuum.IsInVacuum(listener))
+        if (!HasComp<InVacuumComponent>(source) && !HasComp<InVacuumComponent>(listener))
             return VacuumHearing.Air;
 
-        if (HasSealedHelmet(source)
+        if (_proto.TryIndex(SettingsId, out var settings)
+            && HasSealedHelmet(source)
             && HasSealedHelmet(listener)
             && _transform.InRange(source, listener, settings.SuitCommsRange))
             return VacuumHearing.SuitComms;
@@ -61,10 +60,9 @@ public sealed class VacuumChatSystem : EntitySystem
             : wrappedMessage;
     }
 
-    private void OnEmoteSoundAttempt(ref EmoteSoundAttemptEvent args)
+    private void OnEmoteSoundAttempt(Entity<InVacuumComponent> ent, ref EmoteSoundAttemptEvent args)
     {
-        if (!args.Cancelled)
-            args.Cancelled = _vacuum.IsInVacuum(args.Source);
+        args.Cancelled = true;
     }
 
     private bool HasSealedHelmet(EntityUid uid)

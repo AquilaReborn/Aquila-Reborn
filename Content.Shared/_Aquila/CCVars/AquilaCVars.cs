@@ -33,9 +33,6 @@ public sealed class AquilaCVars
     public static readonly CVarDef<bool> AudioEnvironment =
         CVarDef.Create("aquila.audio_environment", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
-    public static readonly CVarDef<float> AudioReverbStrength =
-        CVarDef.Create("aquila.audio_reverb_strength", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
-
     public static readonly CVarDef<float> AdminMusicVolume =
         CVarDef.Create("aquila.admin_music_volume", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
 }

@@ -16,6 +16,7 @@ namespace Content.Client._Aquila.Audio;
 public sealed class VacuumAudioSystem : EntitySystem
 {
     private static readonly ProtoId<VacuumAudioPrototype> SettingsId = "Default";
+    private const float MinOcclusionDistance = 0.1f;
 
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
@@ -29,13 +30,12 @@ public sealed class VacuumAudioSystem : EntitySystem
 
     private bool _enabled;
     private float _maxRayLength;
-    private bool _listenerInVacuum;
     private float _updateTimer;
 
     /// <summary>
     /// Находится ли слушатель сейчас в вакууме.
     /// </summary>
-    public bool ListenerInVacuum => _listenerInVacuum;
+    public bool ListenerInVacuum { get; private set; }
 
     public override void Initialize()
     {
@@ -60,7 +60,7 @@ public sealed class VacuumAudioSystem : EntitySystem
 
         if (!_proto.TryIndex(SettingsId, out var settings))
         {
-            _listenerInVacuum = false;
+            ListenerInVacuum = false;
             return;
         }
 
@@ -69,14 +69,14 @@ public sealed class VacuumAudioSystem : EntitySystem
             return;
 
         _updateTimer = settings.UpdateInterval;
-        _listenerInVacuum = IsListenerInVacuum();
+        ListenerInVacuum = IsListenerInVacuum();
     }
 
     private float GetOcclusion(MapCoordinates listener, Vector2 delta, float distance, EntityUid? ignoredEnt)
     {
         var occlusion = 0f;
 
-        if (distance > 0.1f)
+        if (distance > MinOcclusionDistance)
         {
             var rayLength = MathF.Min(distance, _maxRayLength);
             var ray = new CollisionRay(listener.Position, delta / distance, _audio.OcclusionCollisionMask);
@@ -86,10 +86,10 @@ public sealed class VacuumAudioSystem : EntitySystem
         if (!_enabled || !_proto.TryIndex(SettingsId, out var settings))
             return occlusion;
 
-        if (_listenerInVacuum)
+        if (ListenerInVacuum)
             return occlusion + settings.ListenerOcclusion;
 
-        if (IsSourceInVacuum(ignoredEnt) || distance > 0.1f && IsSpace(new MapCoordinates(listener.Position + delta, listener.MapId)))
+        if (IsSourceInVacuum(ignoredEnt) || distance > MinOcclusionDistance && IsSpace(new MapCoordinates(listener.Position + delta, listener.MapId)))
             return occlusion + settings.SourceOcclusion;
 
         return occlusion;

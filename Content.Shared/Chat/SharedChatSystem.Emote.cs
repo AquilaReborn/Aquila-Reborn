@@ -196,8 +196,8 @@ public abstract partial class SharedChatSystem
         param.Pitch += ev.Pitch;
         // Goobstation/MisandryBox
 
-        var soundAttempt = new EmoteSoundAttemptEvent(uid); // Aquila Change
-        RaiseLocalEvent(ref soundAttempt); // Aquila Change
+        var soundAttempt = new EmoteSoundAttemptEvent(); // Aquila Change
+        RaiseLocalEvent(uid, ref soundAttempt); // Aquila Change
         if (soundAttempt.Cancelled) // Aquila Change
             return true; // Aquila Change
 

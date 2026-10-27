@@ -43,7 +43,6 @@ public sealed class RoomReverbSystem : EntitySystem
     private float _analyzeTimer;
     private float _applyTimer;
     private bool _enabled;
-    private float _strength;
 
     public override void Initialize()
     {
@@ -53,7 +52,6 @@ public sealed class RoomReverbSystem : EntitySystem
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
 
         Subs.CVar(_cfg, AquilaCVars.AudioEnvironment, OnReverbToggled, true);
-        Subs.CVar(_cfg, AquilaCVars.AudioReverbStrength, value => _strength = value, true);
     }
 
     public override void Shutdown()
@@ -75,8 +73,7 @@ public sealed class RoomReverbSystem : EntitySystem
             return;
 
         var dry = GetDry(settings);
-        if (!TryEnsureEffect(dry, out var effect, out var auxiliary))
-            return;
+        EnsureEffect(dry, out var effect, out var auxiliary);
 
         _analyzeTimer -= frameTime;
         if (_analyzeTimer <= 0f)
@@ -105,7 +102,7 @@ public sealed class RoomReverbSystem : EntitySystem
             DetachSources();
     }
 
-    private bool TryEnsureEffect(ReverbProperties dry, out Entity<AudioEffectComponent> effect, out Entity<AudioAuxiliaryComponent> auxiliary)
+    private void EnsureEffect(ReverbProperties dry, out Entity<AudioEffectComponent> effect, out Entity<AudioAuxiliaryComponent> auxiliary)
     {
         if (_effect is { } existingEffect
             && _auxiliary is { } existingAuxiliary
@@ -114,7 +111,7 @@ public sealed class RoomReverbSystem : EntitySystem
         {
             effect = existingEffect;
             auxiliary = existingAuxiliary;
-            return true;
+            return;
         }
 
         var createdEffect = _audio.CreateEffect();
@@ -128,7 +125,6 @@ public sealed class RoomReverbSystem : EntitySystem
         _target = dry;
 
         _audio.SetEffect(auxiliary, auxiliary.Comp, effect);
-        return true;
     }
 
     private void AttachSources(EntityUid auxiliary, float maxDistance)
@@ -221,7 +217,7 @@ public sealed class RoomReverbSystem : EntitySystem
         var corridor = Lerp(shortPassage, longPassage, passageFactor);
 
         var result = Lerp(room, corridor, corridorFactor);
-        result.Gain = Math.Clamp(result.Gain * settings.Wetness * _strength * (1f - settings.ClutterDamping * clutter), 0f, 1f);
+        result.Gain = Math.Clamp(result.Gain * settings.Wetness * (1f - settings.ClutterDamping * clutter), 0f, 1f);
         return result;
     }
 
