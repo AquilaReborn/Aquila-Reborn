@@ -141,6 +141,27 @@
     - FoodSnackLollypopWrappedBeer
 # gleb_debrucho
 
+# VergilAndDante
+- type: loadout
+  id: PersonalLoadoutVergilAndDanteJumpsuit
+  effects:
+  - !type:PersonalLoadoutEffect
+    users:
+    - fd44833f-5d75-462a-9883-8110a422f3ff
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBlack
+
+- type: loadout
+  id: PersonalLoadoutVergilAndDanteWatermelon
+  effects:
+  - !type:PersonalLoadoutEffect
+    users:
+    - fd44833f-5d75-462a-9883-8110a422f3ff
+  storage:
+    back:
+    - FoodWatermelon
+# VergilAndDante
+
 # Ckey
 # something
 # Ckey
