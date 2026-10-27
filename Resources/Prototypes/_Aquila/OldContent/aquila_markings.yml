@@ -485,8 +485,8 @@
 
 - type: marking
   id: BigEarrings
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: HeadTop
+  markingCategory: HeadTop
   speciesRestriction: [Human, Dwarf]
   sprites:
     - sprite: _Aquila/Customization/Markings/earrings.rsi
@@ -512,8 +512,8 @@
 
 - type: marking
   id: ManyEarrings
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: HeadTop
+  markingCategory: HeadTop
   speciesRestriction: [Human, Dwarf]
   sprites:
     - sprite: _Aquila/Customization/Markings/earrings.rsi
@@ -521,8 +521,8 @@
 
 - type: marking
   id: SmallEarrings
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: HeadTop
+  markingCategory: HeadTop
   speciesRestriction: [Human, Dwarf]
   sprites:
     - sprite: _Aquila/Customization/Markings/earrings.rsi
@@ -530,8 +530,8 @@
 
 - type: marking
   id: LongPointedHorns
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: HeadTop
+  markingCategory: HeadTop
   speciesRestriction: [Human, Dwarf]
   sprites:
     - sprite: _Aquila/Customization/Markings/horns.rsi
@@ -539,8 +539,8 @@
 
 - type: marking
   id: RamHorns
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: HeadTop
+  markingCategory: HeadTop
   speciesRestriction: [Human, Dwarf]
   sprites:
     - sprite: _Aquila/Customization/Markings/horns.rsi
@@ -548,8 +548,8 @@
 
 - type: marking
   id: ShortHorns
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: HeadTop
+  markingCategory: HeadTop
   speciesRestriction: [Human, Dwarf]
   sprites:
     - sprite: _Aquila/Customization/Markings/horns.rsi
@@ -557,8 +557,8 @@
 
 - type: marking
   id: ShortStraightHorns
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: HeadTop
+  markingCategory: HeadTop
   speciesRestriction: [Human, Dwarf]
   sprites:
     - sprite: _Aquila/Customization/Markings/horns.rsi
@@ -566,8 +566,8 @@
 
 - type: marking
   id: ShortTwistedHorns
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: HeadTop
+  markingCategory: HeadTop
   speciesRestriction: [Human, Dwarf]
   sprites:
     - sprite: _Aquila/Customization/Markings/horns.rsi
@@ -575,8 +575,8 @@
 
 - type: marking
   id: TwistedHorns
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: HeadTop
+  markingCategory: HeadTop
   speciesRestriction: [Human, Dwarf]
   sprites:
     - sprite: _Aquila/Customization/Markings/horns.rsi
@@ -584,8 +584,8 @@
 
 - type: marking
   id: TwistedHorns2
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: HeadTop
+  markingCategory: HeadTop
   speciesRestriction: [Human, Dwarf]
   sprites:
     - sprite: _Aquila/Customization/Markings/horns.rsi

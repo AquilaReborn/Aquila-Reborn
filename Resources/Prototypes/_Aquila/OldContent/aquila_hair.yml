@@ -113,3 +113,19 @@
       state: tailHair1
     - sprite: _Aquila/Customization/Markings/hair.rsi
       state: tailHair2
+
+- type: marking
+  id: HumanHairGloomyEvenLonger
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Aquila/Customization/Markings/hair.rsi
+      state: gloomy_even_longer
+
+- type: marking
+  id: HumanHairGloomyLongest
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Aquila/Customization/Markings/hair.rsi
+      state: gloomy_longest
