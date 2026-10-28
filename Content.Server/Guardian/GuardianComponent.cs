@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 
 using Robust.Shared.Audio;
+using Content.Shared.Aquila.Guardian; // Aquila
 
 namespace Content.Server.Guardian
 {
@@ -58,6 +59,12 @@ namespace Content.Server.Guardian
         /// </summary>
         [DataField]
         public bool IsBeginRepositioned;
+
+        /// <summary>
+        /// Current order given to this guardian by its host. Drives its HTN behaviour.
+        /// </summary>
+        [DataField]
+        public GuardianOrderType CurrentOrder = GuardianOrderType.Follow;
         // Aquila End
 
     }

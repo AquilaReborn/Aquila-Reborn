@@ -65,7 +65,12 @@ public sealed partial class GunOperator : HTNOperator, IHtnConditionalShutdown
     {
         base.Startup(blackboard);
 
+        // Aquila Start
+        if (!blackboard.TryGetValue<EntityUid>(TargetKey, out var target, _entManager) || !_entManager.EntityExists(target))
+            return;
+        // Aquila End
         var ranged = _entManager.EnsureComponent<NPCRangedCombatComponent>(blackboard.GetValue<EntityUid>(NPCBlackboard.Owner));
+        ranged.Target = target; // Aquila Change: use the value we already safely fetched above
         ranged.Target = blackboard.GetValue<EntityUid>(TargetKey);
         ranged.UseOpaqueForLOSChecks = UseOpaqueForLOSChecks;
 

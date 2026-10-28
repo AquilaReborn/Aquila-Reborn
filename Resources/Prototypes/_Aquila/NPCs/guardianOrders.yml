@@ -1,0 +1,71 @@
+- type: htnCompound
+  id: GuardianOrdersMeleeCompound
+  branches:
+  - preconditions:
+      - !type:HasOrdersPrecondition
+        orders: enum.GuardianOrderType.Follow
+    tasks:
+      - !type:HTNCompoundTask
+        task: FollowCompound
+  - preconditions:
+      - !type:HasOrdersPrecondition
+        orders: enum.GuardianOrderType.AttackTarget
+    tasks:
+      - !type:HTNCompoundTask
+        task: GuardianMeleeTargetAttackCompound
+  - preconditions:
+      - !type:HasOrdersPrecondition
+        orders: enum.GuardianOrderType.AttackAll
+    tasks:
+      - !type:HTNCompoundTask
+        task: SimpleHumanoidHostileCompound
+
+- type: htnCompound
+  id: GuardianOrdersRangedCompound
+  branches:
+  - preconditions:
+      - !type:HasOrdersPrecondition
+        orders: enum.GuardianOrderType.Follow
+    tasks:
+      - !type:HTNCompoundTask
+        task: FollowCompound
+  - preconditions:
+      - !type:HasOrdersPrecondition
+        orders: enum.GuardianOrderType.AttackTarget
+    tasks:
+      - !type:HTNCompoundTask
+        task: GuardianGunTargetAttackCompound
+  - preconditions:
+      - !type:HasOrdersPrecondition
+        orders: enum.GuardianOrderType.AttackAll
+    tasks:
+      - !type:HTNCompoundTask
+        task: SimpleRangedHostileCompound
+
+- type: htnCompound
+  id: GuardianGunTargetAttackCompound
+  branches:
+    - preconditions:
+        - !type:KeyExistsPrecondition
+          key: CurrentOrderedTarget
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:GunOperator
+            targetKey: CurrentOrderedTarget
+    - tasks:
+        - !type:HTNCompoundTask
+          task: FollowCompound
+
+- type: htnCompound
+  id: GuardianMeleeTargetAttackCompound
+  branches:
+    - preconditions:
+        - !type:KeyExistsPrecondition
+          key: CurrentOrderedTarget
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:MeleeOperator
+            targetKey: CurrentOrderedTarget
+    - tasks:
+        - !type:HTNCompoundTask
+          task: FollowCompound
