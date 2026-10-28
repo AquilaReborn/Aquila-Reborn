@@ -28,23 +28,11 @@ public sealed class VacuumAudioSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
 
-    private bool _enabled;
-    private float _maxRayLength;
-    private float _updateTimer;
-
-    /// <summary>
-    /// Находится ли слушатель сейчас в вакууме.
-    /// </summary>
-    public bool ListenerInVacuum { get; private set; }
-
     public override void Initialize()
     {
         base.Initialize();
 
         _audio.GetOcclusionOverride += GetOcclusion;
-
-        Subs.CVar(_cfg, AquilaCVars.AudioEnvironment, value => _enabled = value, true);
-        Subs.CVar(_cfg, CVars.AudioRaycastLength, value => _maxRayLength = value, true);
     }
 
     public override void Shutdown()
@@ -54,22 +42,12 @@ public sealed class VacuumAudioSystem : EntitySystem
         _audio.GetOcclusionOverride -= GetOcclusion;
     }
 
-    public override void Update(float frameTime)
+    /// <summary>
+    /// Проверяет, находится ли сущность в вакууме или в открытом космосе.
+    /// </summary>
+    public bool IsInVacuum(EntityUid uid)
     {
-        base.Update(frameTime);
-
-        if (!_proto.TryIndex(SettingsId, out var settings))
-        {
-            ListenerInVacuum = false;
-            return;
-        }
-
-        _updateTimer -= frameTime;
-        if (_updateTimer > 0f)
-            return;
-
-        _updateTimer = settings.UpdateInterval;
-        ListenerInVacuum = IsListenerInVacuum();
+        return HasComp<InVacuumComponent>(uid) || IsSpace(_transform.GetMapCoordinates(uid));
     }
 
     private float GetOcclusion(MapCoordinates listener, Vector2 delta, float distance, EntityUid? ignoredEnt)
@@ -78,15 +56,15 @@ public sealed class VacuumAudioSystem : EntitySystem
 
         if (distance > MinOcclusionDistance)
         {
-            var rayLength = MathF.Min(distance, _maxRayLength);
+            var rayLength = MathF.Min(distance, _cfg.GetCVar(CVars.AudioRaycastLength));
             var ray = new CollisionRay(listener.Position, delta / distance, _audio.OcclusionCollisionMask);
             occlusion = _physics.IntersectRayPenetration(listener.MapId, ray, rayLength, ignoredEnt);
         }
 
-        if (!_enabled || !_proto.TryIndex(SettingsId, out var settings))
+        if (!_cfg.GetCVar(AquilaCVars.AudioEnvironment) || !_proto.TryIndex(SettingsId, out var settings))
             return occlusion;
 
-        if (ListenerInVacuum)
+        if (_player.LocalEntity is { } player && IsInVacuum(player))
             return occlusion + settings.ListenerOcclusion;
 
         if (IsSourceInVacuum(ignoredEnt) || distance > MinOcclusionDistance && IsSpace(new MapCoordinates(listener.Position + delta, listener.MapId)))
@@ -109,14 +87,6 @@ public sealed class VacuumAudioSystem : EntitySystem
         }
 
         return false;
-    }
-
-    private bool IsListenerInVacuum()
-    {
-        if (_player.LocalEntity is not { } player)
-            return false;
-
-        return HasComp<InVacuumComponent>(player) || IsSpace(_transform.GetMapCoordinates(player));
     }
 
     private bool IsSpace(MapCoordinates coordinates)

@@ -4,6 +4,7 @@ using Content.Shared._Aquila.CCVars;
 using Content.Shared.Maps;
 using Robust.Client.Audio;
 using Robust.Client.Graphics;
+using Robust.Client.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Components;
 using Robust.Shared.Audio.Effects;
@@ -12,6 +13,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Client._Aquila.Audio;
 
@@ -23,106 +25,112 @@ public sealed class RoomReverbSystem : EntitySystem
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IEyeManager _eye = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly VacuumAudioSystem _vacuum = default!;
 
-    private EntityQuery<OccluderComponent> _occluderQuery;
-    private EntityQuery<PhysicsComponent> _physicsQuery;
-
-    private readonly Queue<Vector2i> _queue = new();
-    private readonly HashSet<Vector2i> _visited = new();
-
-    private Entity<AudioEffectComponent>? _effect;
-    private Entity<AudioAuxiliaryComponent>? _auxiliary;
-    private ReverbProperties _current;
-    private ReverbProperties _target;
-    private float _analyzeTimer;
-    private float _applyTimer;
-    private bool _enabled;
-
     public override void Initialize()
     {
         base.Initialize();
 
-        _occluderQuery = GetEntityQuery<OccluderComponent>();
-        _physicsQuery = GetEntityQuery<PhysicsComponent>();
-
-        Subs.CVar(_cfg, AquilaCVars.AudioEnvironment, OnReverbToggled, true);
+        Subs.CVar(_cfg, AquilaCVars.AudioEnvironment, OnAudioEnvironmentChanged);
     }
 
     public override void Shutdown()
     {
         base.Shutdown();
 
-        if (_effect is { } effect)
-            QueueDel(effect);
+        var query = EntityQueryEnumerator<RoomReverbStateComponent>();
+        while (query.MoveNext(out var uid, out var state))
+        {
+            if (state.Effect is { } effect)
+                QueueDel(effect);
 
-        if (_auxiliary is { } auxiliary)
-            QueueDel(auxiliary);
+            if (state.Auxiliary is { } auxiliary)
+                QueueDel(auxiliary);
+
+            QueueDel(uid);
+        }
     }
 
-    public override void Update(float frameTime)
+    public override void FrameUpdate(float frameTime)
     {
-        base.Update(frameTime);
+        base.FrameUpdate(frameTime);
 
-        if (!_enabled || !_proto.TryIndex(SettingsId, out var settings))
+        if (!_cfg.GetCVar(AquilaCVars.AudioEnvironment) || !_proto.TryIndex(SettingsId, out var settings))
             return;
 
         var dry = GetDry(settings);
-        EnsureEffect(dry, out var effect, out var auxiliary);
+        var state = EnsureState(dry);
+        EnsureEffect(state, out var effect, out var auxiliary);
 
-        _analyzeTimer -= frameTime;
-        if (_analyzeTimer <= 0f)
+        var now = _timing.RealTime;
+        if (state.Comp.NextAnalyze <= now)
         {
-            _analyzeTimer = settings.AnalyzeInterval;
-            _target = AnalyzeEnvironment(settings, dry);
+            state.Comp.NextAnalyze = now + TimeSpan.FromSeconds(settings.AnalyzeInterval);
+            state.Comp.Target = AnalyzeEnvironment(settings, dry);
         }
 
-        _applyTimer -= frameTime;
-        if (_applyTimer > 0f)
+        if (state.Comp.NextApply > now)
             return;
 
-        _applyTimer = settings.ApplyInterval;
-        _current = Lerp(_current, _target, 1f - MathF.Exp(-settings.SmoothRate * settings.ApplyInterval));
+        state.Comp.NextApply = now + TimeSpan.FromSeconds(settings.ApplyInterval);
+        state.Comp.Current = Lerp(state.Comp.Current, state.Comp.Target, 1f - MathF.Exp(-settings.SmoothRate * settings.ApplyInterval));
 
-        _audio.SetEffectPreset(effect, effect.Comp, _current);
+        _audio.SetEffectPreset(effect, effect.Comp, state.Comp.Current);
         _audio.SetEffect(auxiliary, auxiliary.Comp, effect);
         AttachSources(auxiliary, settings.MaxSourceDistance);
     }
 
-    private void OnReverbToggled(bool enabled)
+    private void OnAudioEnvironmentChanged(bool enabled)
     {
-        _enabled = enabled;
-
         if (!enabled)
             DetachSources();
     }
 
-    private void EnsureEffect(ReverbProperties dry, out Entity<AudioEffectComponent> effect, out Entity<AudioAuxiliaryComponent> auxiliary)
+    private Entity<RoomReverbStateComponent> EnsureState(ReverbProperties dry)
     {
-        if (_effect is { } existingEffect
-            && _auxiliary is { } existingAuxiliary
-            && !TerminatingOrDeleted(existingEffect)
-            && !TerminatingOrDeleted(existingAuxiliary))
+        var query = EntityQueryEnumerator<RoomReverbStateComponent>();
+        if (query.MoveNext(out var existing, out var existingState))
+            return (existing, existingState);
+
+        var uid = Spawn(null, MapCoordinates.Nullspace);
+        var state = AddComp<RoomReverbStateComponent>(uid);
+        state.Current = dry;
+        state.Target = dry;
+        return (uid, state);
+    }
+
+    private void EnsureEffect(Entity<RoomReverbStateComponent> state, out Entity<AudioEffectComponent> effect, out Entity<AudioAuxiliaryComponent> auxiliary)
+    {
+        if (TryComp(state.Comp.Effect, out AudioEffectComponent? effectComp)
+            && TryComp(state.Comp.Auxiliary, out AudioAuxiliaryComponent? auxiliaryComp)
+            && !TerminatingOrDeleted(state.Comp.Effect)
+            && !TerminatingOrDeleted(state.Comp.Auxiliary))
         {
-            effect = existingEffect;
-            auxiliary = existingAuxiliary;
+            effect = (state.Comp.Effect.Value, effectComp);
+            auxiliary = (state.Comp.Auxiliary.Value, auxiliaryComp);
             return;
         }
+
+        if (Exists(state.Comp.Effect))
+            QueueDel(state.Comp.Effect);
+
+        if (Exists(state.Comp.Auxiliary))
+            QueueDel(state.Comp.Auxiliary);
 
         var createdEffect = _audio.CreateEffect();
         var createdAuxiliary = _audio.CreateAuxiliary();
 
         effect = (createdEffect.Entity, createdEffect.Component);
         auxiliary = (createdAuxiliary.Entity, createdAuxiliary.Component);
-        _effect = effect;
-        _auxiliary = auxiliary;
-        _current = dry;
-        _target = dry;
+        state.Comp.Effect = effect.Owner;
+        state.Comp.Auxiliary = auxiliary.Owner;
 
         _audio.SetEffect(auxiliary, auxiliary.Comp, effect);
     }
@@ -147,21 +155,25 @@ public sealed class RoomReverbSystem : EntitySystem
 
     private void DetachSources()
     {
-        if (_auxiliary is not { } auxiliary)
-            return;
-
-        var query = AllEntityQuery<AudioComponent>();
-        while (query.MoveNext(out var uid, out var audio))
+        var states = EntityQueryEnumerator<RoomReverbStateComponent>();
+        while (states.MoveNext(out _, out var state))
         {
-            if (audio.Auxiliary == auxiliary.Owner)
-                _audio.SetAuxiliary(uid, audio, null);
+            if (state.Auxiliary is not { } auxiliary)
+                continue;
+
+            var query = AllEntityQuery<AudioComponent>();
+            while (query.MoveNext(out var uid, out var audio))
+            {
+                if (audio.Auxiliary == auxiliary)
+                    _audio.SetAuxiliary(uid, audio, null);
+            }
         }
     }
 
     private ReverbProperties AnalyzeEnvironment(RoomReverbPrototype settings, ReverbProperties dry)
     {
         var position = _eye.CurrentEye.Position;
-        if (_vacuum.ListenerInVacuum
+        if (_player.LocalEntity is { } player && _vacuum.IsInVacuum(player)
             || position.MapId == MapId.Nullspace
             || !_mapManager.TryFindGridAt(position, out var gridUid, out var grid))
             return dry;
@@ -170,24 +182,23 @@ public sealed class RoomReverbSystem : EntitySystem
         if (!IsOpenTile(gridUid, grid, start, out var objects))
             return dry;
 
-        _queue.Clear();
-        _visited.Clear();
-        _queue.Enqueue(start);
-        _visited.Add(start);
+        var queue = new Queue<Vector2i>();
+        var visited = new HashSet<Vector2i> { start };
+        queue.Enqueue(start);
 
         var tiles = 1;
         var min = start;
         var max = start;
 
-        while (_queue.TryDequeue(out var tile) && tiles < settings.MaxTiles)
+        while (queue.TryDequeue(out var tile) && tiles < settings.MaxTiles)
         {
             foreach (var direction in Directions)
             {
                 var neighbour = tile + direction;
-                if (!_visited.Add(neighbour) || !IsOpenTile(gridUid, grid, neighbour, out var neighbourObjects))
+                if (!visited.Add(neighbour) || !IsOpenTile(gridUid, grid, neighbour, out var neighbourObjects))
                     continue;
 
-                _queue.Enqueue(neighbour);
+                queue.Enqueue(neighbour);
                 tiles++;
                 objects += neighbourObjects;
                 min = Vector2i.ComponentMin(min, neighbour);
@@ -230,10 +241,10 @@ public sealed class RoomReverbSystem : EntitySystem
         var anchored = _map.GetAnchoredEntitiesEnumerator(gridUid, grid, indices);
         while (anchored.MoveNext(out var uid))
         {
-            if (_occluderQuery.TryComp(uid, out var occluder) && occluder.Enabled)
+            if (TryComp(uid, out OccluderComponent? occluder) && occluder.Enabled)
                 return false;
 
-            if (_physicsQuery.TryComp(uid, out var physics) && physics.CanCollide)
+            if (TryComp(uid, out PhysicsComponent? physics) && physics.CanCollide)
                 objects++;
         }
 

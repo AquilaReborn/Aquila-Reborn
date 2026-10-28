@@ -109,12 +109,15 @@ public sealed class ReflectSystem : EntitySystem
     /// <summary>
     /// Возвращает шанс отражения снаряда указанного типа.
     /// </summary>
-    public float GetReflectProb(ReflectComponent reflector, ReflectType type)
+    public float GetReflectProb(Entity<ReflectComponent?> reflector, ReflectType type)
     {
-        if ((reflector.Reflects & type) != 0x0)
-            return reflector.ReflectProb;
+        if (!Resolve(reflector, ref reflector.Comp, false))
+            return 0f;
 
-        return (type & (ReflectType.Energy | ReflectType.NonEnergy)) != 0x0 ? reflector.OtherTypeReflectProb : 0f;
+        if ((reflector.Comp.Reflects & type) != 0x0)
+            return reflector.Comp.ReflectProb;
+
+        return (type & (ReflectType.Energy | ReflectType.NonEnergy)) != 0x0 ? reflector.Comp.OtherTypeReflectProb : 0f;
     }
     // Aquila Change end
 
@@ -123,7 +126,7 @@ public sealed class ReflectSystem : EntitySystem
         if (!TryComp<ReflectiveComponent>(projectile, out var reflective) ||
             // (reflector.Comp.Reflects & reflective.Reflective) == 0x0 || // Aquila Change
             !_toggle.IsActivated(reflector.Owner) ||
-            !_random.Prob(GetReflectProb(reflector.Comp, reflective.Reflective)) || // Aquila Change
+            !_random.Prob(GetReflectProb(reflector.AsNullable(), reflective.Reflective)) || // Aquila Change
             !TryComp<PhysicsComponent>(projectile, out var physics))
         {
             return false;
@@ -183,7 +186,7 @@ public sealed class ReflectSystem : EntitySystem
         [NotNullWhen(true)] out Vector2? newDirection)
     {
         if (!_toggle.IsActivated(reflector.Owner) || // Aquila Change
-            !_random.Prob(GetReflectProb(reflector.Comp, hitscanReflectType))) // Aquila Change
+            !_random.Prob(GetReflectProb(reflector.AsNullable(), hitscanReflectType))) // Aquila Change
         {
             newDirection = null;
             return false;

@@ -1,0 +1,100 @@
+- type: entity
+  parent: ClothingHandsGlovesSyntheticBase
+  id: ClothingHandsGlovesBlackDivision
+  name: "\"Black Division\" gloves"
+  description: Gloves of someone dead...
+  suffix: ElysiumPrime, Clothing
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Goons/gloves.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Goons/gloves.rsi
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,2,2
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+  - type: ZombificationResistance
+    zombificationResistanceCoefficient: 0.8
+  - type: Armor
+    coverage:
+    - Hand
+    modifiers:
+      coefficients:
+        Caustic: 0.95
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBlackDivision
+  name: "\"Black Division\" uniform"
+  description: Uniform of someone dead...
+  suffix: ElysiumPrime, Clothing
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Goons/uniform.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Goons/uniform.rsi
+  - type: Item
+    size: Huge
+
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltBlackDivisionWebbing
+  name: "\"Black Division\" chest rig"
+  description: Chest rig of someone dead...
+  suffix: ElysiumPrime, Clothing
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Goons/webbing.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Goons/webbing.rsi
+  - type: Storage
+    grid:
+    - 0,0,6,2
+
+- type: entity
+  abstract: true
+  parent: ClothingHeadEVAHelmetBase
+  id: ClothingHeadHelmetBlackDivisionBase
+  components:
+  - type: Clothing
+    equipDelay: 3
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,2,2
+  - type: Armor
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
+        Shock: 0.8
+
+- type: entity
+  parent: ClothingHeadHelmetBlackDivisionBase
+  id: ClothingHeadHelmetDeimos
+  name: Deimos helmet
+  description: The mask of someone famous. Strikes fear when you wear it.
+  suffix: ElysiumPrime, Clothing
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Goons/deimos_helmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Goons/deimos_helmet.rsi
+
+- type: entity
+  parent: ClothingHeadHelmetBlackDivisionBase
+  id: ClothingHeadHelmetKnight
+  name: Knight helmet
+  description: The mask of someone famous. Strikes fear when you wear it.
+  suffix: ElysiumPrime, Clothing
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Goons/knight_helmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Goons/knight_helmet.rsi
