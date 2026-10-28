@@ -1,0 +1,27 @@
+- type: constructionGraph
+  id: BrassWall
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: brassWall
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - material: Brass
+        amount: 4
+        doAfter: 4
+
+  - node: brassWall
+    entity: WallBrass
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetBrass1
+        amount: 4
+      - !type:DeleteEntity {}
+      steps:
+      - tool: Welding
+        doAfter: 10
