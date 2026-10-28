@@ -12,7 +12,7 @@
 - type: bark
   id: Soft
   name: bark-voice-soft
-  volume: 1.5
+  volume: 3
   frequency: 0.9
   minPitch: 0.9
   maxPitch: 1.1
