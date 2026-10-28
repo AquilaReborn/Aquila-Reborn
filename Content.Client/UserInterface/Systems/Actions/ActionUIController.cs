@@ -276,11 +276,21 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         }
 
         // TODO: probably should have a clientside event raised for flexibility
+        TriggerAction(action); // Aquila Change
+    }
+
+    // Aquila Change start
+    /// <summary>
+    /// Активирует действие так же, как слот панели: у целевых действий переключается режим выбора цели.
+    /// </summary>
+    public void TriggerAction(Entity<ActionComponent> action)
+    {
         if (EntityManager.TryGetComponent<TargetActionComponent>(action, out var target))
             ToggleTargeting((action, action, target));
         else
             _actionsSystem?.TriggerAction(action);
     }
+    // Aquila Change end
 
     // Goobstation start
     private bool AltTargeting(in PointerInputCmdArgs args)
