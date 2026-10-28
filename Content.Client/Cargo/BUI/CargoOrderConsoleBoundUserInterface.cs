@@ -17,7 +17,7 @@ using static Robust.Client.UserInterface.Controls.BaseButton;
 
 namespace Content.Client.Cargo.BUI
 {
-    public sealed class CargoOrderConsoleBoundUserInterface : BoundUserInterface
+    public sealed partial class CargoOrderConsoleBoundUserInterface : BoundUserInterface // Aquila Change
     {
         [Dependency] private readonly IPrototypeManager _protoManager = default!; // CorvaxGoob-CargoFeatures
         [Dependency] private readonly IConfigurationManager _cfg = default!; // Aquila Change
@@ -160,23 +160,6 @@ namespace Content.Client.Cargo.BUI
             _orderMenu.PointCost.Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", cost));
         }
         // CorvaxGoob-CargoFeatures-End
-
-        // Aquila Change start
-        private void OnPersonalOrderToggled(ButtonToggledEventArgs args)
-        {
-            if (_product is null
-                || _orderMenu is null
-                || _menu is null
-                || !EntMan.TryGetComponent<CargoOrderConsoleComponent>(Owner, out var orderConsole))
-                return;
-
-            _orderMenu.ToggleDepartmentSecureCrate.Pressed = false;
-            _orderMenu.ToggleDepartmentSecureCrate.Disabled = args.Pressed
-                || !_protoManager.TryIndex<EntityPrototype>(_product.Product, out var product)
-                || !_cargoSystem.CanBeSecuredDelivery((Owner, orderConsole), product);
-            _orderMenu.PointCost.Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", _menu.GetProductCost(_product)));
-        }
-        // Aquila Change end
 
         private void Populate(List<CargoOrderData> orders)
         {

@@ -259,14 +259,8 @@ namespace Content.Server.Cargo.Systems
                 return;
             }
 
-            // Aquila Change start
-            if (order.PersonalAccount != null && !_personalOrders.CanAfford(station.Value, order, cost))
-            {
-                ConsolePopup(args.Actor, Loc.GetString("cargo-console-personal-insufficient-funds", ("cost", cost)));
-                PlayDenySound(uid, component);
-                return;
-            }
-            // Aquila Change end
+            if (!CanAffordPersonalOrder(uid, component, args.Actor, station.Value, order, cost)) // Aquila Change
+                return; // Aquila Change
 
             // GoobStation - cooldown on Cargo Orders (specifically gamba)
             if (order.Cooldown > 0)
@@ -337,12 +331,7 @@ namespace Content.Server.Cargo.Systems
                 $"{ToPrettyString(player):user} approved order [orderId:{order.OrderId}, quantity:{order.OrderQuantity}, product:{order.ProductId}, requester:{order.Requester}, deliveryDestination: {order.DeliveryDestination}, note:{order.Note}] on account {order.Account} with balance at {accountBalance}");
 
             orderDatabase.Orders[component.Account].Remove(order);
-            // Aquila Change start
-            if (order.PersonalAccount != null)
-                _personalOrders.Pay(station.Value, order, cost);
-            else
-                UpdateBankAccount((station.Value, bank), -cost, order.Account);
-            // Aquila Change end
+            PayForOrder((station.Value, bank), order, cost); // Aquila Change
             UpdateOrders(station.Value);
         }
 
@@ -502,15 +491,8 @@ namespace Content.Server.Cargo.Systems
                 requester = GenerateRequesterName((uid, component), args.Actor);
             // CorvaxGoob-CargoFeatures-End
 
-            // Aquila Change start
-            var personalAccount = args.Personal ? _personalOrders.GetPayerAccount(stationUid.Value, player) : null;
-            if (args.Personal && personalAccount == null)
-            {
-                ConsolePopup(player, Loc.GetString("cargo-console-personal-no-account"));
-                PlayDenySound(uid, component);
-                return;
-            }
-            // Aquila Change end
+            if (!TryGetPersonalAccount(uid, component, player, stationUid.Value, args.Personal, out var personalAccount)) // Aquila Change
+                return; // Aquila Change
 
             if (component.Mode == CargoOrderConsoleMode.PrintSlip)
             {

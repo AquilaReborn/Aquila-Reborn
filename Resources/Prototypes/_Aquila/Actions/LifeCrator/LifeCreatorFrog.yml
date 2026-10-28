@@ -2,7 +2,7 @@
   id: ActionVivifyItem
   name: Vivify Item
   description: Animates the object in your hands, turning it into a frog that reflects damage.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Action
   - type: InstantAction

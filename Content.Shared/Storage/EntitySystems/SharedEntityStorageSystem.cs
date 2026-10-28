@@ -31,7 +31,7 @@ using Content.Shared.Materials;
 
 namespace Content.Shared.Storage.EntitySystems;
 
-public abstract class SharedEntityStorageSystem : EntitySystem
+public abstract partial class SharedEntityStorageSystem : EntitySystem // Aquila Change
 {
     [Dependency] private   readonly IGameTiming _timing = default!;
     [Dependency] private   readonly INetManager _net = default!;
@@ -406,16 +406,6 @@ public abstract class SharedEntityStorageSystem : EntitySystem
         CloseStorage(target, user: user); // Aquila Change
         return true;
     }
-
-    // Aquila Change start
-    private void PlayStorageSound(Robust.Shared.Audio.SoundSpecifier sound, EntityUid uid, EntityUid? user)
-    {
-        if (user != null)
-            _audio.PlayPredicted(sound, uid, user);
-        else if (_net.IsServer)
-            _audio.PlayPvs(sound, uid);
-    }
-    // Aquila Change end
 
     public bool IsOpen(EntityUid target, EntityStorageComponent? component = null)
     {

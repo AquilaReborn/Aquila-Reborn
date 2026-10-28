@@ -9,11 +9,10 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
-using Content.Shared.Projectiles; // Aquila
 
 namespace Content.Goobstation.Client.ParallaxStargaze;
 
-public sealed class ParallaxStargazeSystem : EntitySystem
+public sealed partial class ParallaxStargazeSystem : EntitySystem // Aquila Change
 {
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IOverlayManager _overlay = default!;
@@ -98,17 +97,7 @@ public sealed class ParallaxStargazeSystem : EntitySystem
             if ((_transform.GetWorldPosition(uid) - firePos).LengthSquared() <= radiusSq)
                 Exempt.Add(uid);
         }
-        // Aquila Start
-        var projectileQuery = EntityQueryEnumerator<ProjectileComponent, TransformComponent>();
-        while (projectileQuery.MoveNext(out var uid, out _, out var xform))
-        {
-            if (xform.MapID != fireXform.MapID)
-                continue;
-
-            if ((_transform.GetWorldPosition(uid) - firePos).LengthSquared() <= radiusSq)
-                Exempt.Add(uid);
-        }
-        // Aquila End
+        ExemptNearbyProjectiles(fireXform.MapID, firePos, radiusSq); // Aquila Change
     }
 
     private Entity<ParallaxStargazeComponent>? ResolveCampfire()

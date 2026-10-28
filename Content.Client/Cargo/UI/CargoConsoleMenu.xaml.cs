@@ -3,7 +3,6 @@
 using Content.Client.Cargo.Systems;
 using Content.Client.Message;
 using Content.Client.UserInterface.Controls;
-using Content.Shared._Aquila.CCVars; // Aquila Change
 using Content.Shared._Aquila.Economy.Systems; // Aquila Change
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.Components;
@@ -73,12 +72,7 @@ namespace Content.Client.Cargo.UI
 
             Title = entMan.GetComponent<MetaDataComponent>(owner).EntityName;
 
-            // Aquila Change start
-            var economy = _cfg.GetCVar(AquilaCVars.Economy);
-            MarketInflationTitle.Visible = economy;
-            MarketInflationDivider.Visible = economy;
-            MarketInflationLabel.Visible = economy;
-            // Aquila Change end
+            UpdateMarketInflationVisibility(); // Aquila Change
 
             SearchBar.OnTextChanged += OnSearchBarTextChanged;
             Categories.OnItemSelected += OnCategoryItemSelected;
@@ -312,14 +306,7 @@ namespace Content.Client.Cargo.UI
                     // CorvaxGoob-CargoFeatures-End
                 };
 
-                // Aquila Change start
-                if (order.PersonalAccount is { } personalAccount)
-                {
-                    row.ProductName.Text = Loc.GetString("cargo-console-menu-order-row-personal",
-                        ("orderRequester", requester),
-                        ("number", personalAccount.ToString()));
-                }
-                // Aquila Change end
+                ApplyPersonalOrderName(row, order, requester); // Aquila Change
 
                 row.Cancel.OnPressed += (args) => { OnOrderCanceled?.Invoke(args); };
 
@@ -338,13 +325,7 @@ namespace Content.Client.Cargo.UI
 
             var i = 0;
             ActionOptions.Clear();
-            // Aquila Change start
-            if (!_cfg.GetCVar(AquilaCVars.Economy))
-            {
-                ActionOptions.AddItem(Loc.GetString("cargo-console-menu-account-action-option-withdraw"), i);
-                i++;
-            }
-            // Aquila Change end
+            AddWithdrawOption(ref i); // Aquila Change
             foreach (var account in bank.Accounts.Keys)
             {
                 if (account == console.Account)
@@ -452,18 +433,6 @@ namespace Content.Client.Cargo.UI
         {
             _station = station;
         }
-
-        // Aquila Change start
-        /// <summary>
-        /// Возвращает цену товара с учётом роста цен на рынке станции.
-        /// </summary>
-        public int GetProductCost(CargoProductPrototype product)
-        {
-            return _station is { } station
-                ? product.Cost + _market.GetMarkup(station, product.Cost)
-                : product.Cost;
-        }
-        // Aquila Change end
 
         protected override void FrameUpdate(FrameEventArgs args)
         {

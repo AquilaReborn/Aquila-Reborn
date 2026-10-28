@@ -28,7 +28,7 @@ namespace Content.Shared.Weapons.Reflect;
 /// <summary>
 /// This handles reflecting projectiles and hitscan shots.
 /// </summary>
-public sealed class ReflectSystem : EntitySystem
+public sealed partial class ReflectSystem : EntitySystem // Aquila Change
 {
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -104,22 +104,6 @@ public sealed class ReflectSystem : EntitySystem
             args.Reflected = true;
         }
     }
-
-    // Aquila Change start
-    /// <summary>
-    /// Возвращает шанс отражения снаряда указанного типа.
-    /// </summary>
-    public float GetReflectProb(Entity<ReflectComponent?> reflector, ReflectType type)
-    {
-        if (!Resolve(reflector, ref reflector.Comp, false))
-            return 0f;
-
-        if ((reflector.Comp.Reflects & type) != 0x0)
-            return reflector.Comp.ReflectProb;
-
-        return (type & (ReflectType.Energy | ReflectType.NonEnergy)) != 0x0 ? reflector.Comp.OtherTypeReflectProb : 0f;
-    }
-    // Aquila Change end
 
     public bool TryReflectProjectile(Entity<ReflectComponent> reflector, EntityUid user, Entity<ProjectileComponent?> projectile)
     {

@@ -9,8 +9,9 @@
     scale: 0.5, 0.5
     noRot: true
     sprite: _Aquila/Effects/Spin/SpinHitEffect.rsi
-    state: SpinHitEffect
-    shader: unshaded
+    layers:
+    - state: SpinHitEffect
+      shader: unshaded
     netsync: false
     drawdepth: Effects
 
@@ -23,8 +24,9 @@
     scale: 0.65, 0.65
     noRot: true
     sprite: _Aquila/Effects/Spin/SpinEmpowerEffect.rsi
-    state: spinEmpowerEffect
-    shader: unshaded
+    layers:
+    - state: spinEmpowerEffect
+      shader: unshaded
     netsync: false
     drawdepth: Effects
   - type: PointLight
@@ -43,8 +45,9 @@
     scale: 0.65, 0.65
     noRot: true
     sprite: _Aquila/Effects/Spin/SpinUserEmpowerEffect.rsi
-    state: spinUserEmpowerEffect
-    shader: unshaded
+    layers:
+    - state: spinUserEmpowerEffect
+      shader: unshaded
     netsync: false
     drawdepth: Effects
   - type: PointLight

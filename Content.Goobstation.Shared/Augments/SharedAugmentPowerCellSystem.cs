@@ -3,18 +3,14 @@ using Content.Shared.Body.Systems;
 using Content.Shared.PowerCell;
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.PowerCell.Components;
-using Content.Shared._Aquila.Power; // Aquila Change
-using Content.Shared.Power; // Aquila Change
-using Content.Shared.Power.EntitySystems; // Aquila Change
 
 namespace Content.Goobstation.Shared.Augments;
 
-public abstract class SharedAugmentPowerCellSystem : CommonAugmentPowerCellSystem
+public abstract partial class SharedAugmentPowerCellSystem : CommonAugmentPowerCellSystem // Aquila Change
 {
     [Dependency] protected readonly AugmentSystem Augment = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] protected readonly PowerCellSystem _powerCell = default!;
-    [Dependency] private readonly SharedBatterySystem _battery = default!; // Aquila Change
 
     public override void Initialize()
     {
@@ -24,12 +20,7 @@ public abstract class SharedAugmentPowerCellSystem : CommonAugmentPowerCellSyste
 
         SubscribeLocalEvent<AugmentPowerCellSlotComponent, OrganEnableChangedEvent>(OnEnableChanged);
         SubscribeLocalEvent<AugmentPowerCellSlotComponent, PowerCellSlotEmptyEvent>(OnCellEmpty);
-        // Aquila Change start
-        SubscribeLocalEvent<AugmentPowerCellSlotComponent, RefreshChargeRateEvent>(OnRefreshChargeRate);
-        SubscribeLocalEvent<HasAugmentPowerCellSlotComponent, FindDrinkerBatteryEvent>(OnFindDrinkerBattery);
-        SubscribeLocalEvent<AugmentPowerCellSlotComponent, BatteryStateChangedEvent>(OnBatteryStateChanged);
-        SubscribeLocalEvent<AugmentStationRechargeComponent, FindChargerBatteryEvent>(OnFindChargerBattery);
-        // Aquila Change end
+        InitializeAquila(); // Aquila Change
     }
 
     private EntityQuery<PowerCellDrawComponent> _drawQuery;
@@ -93,10 +84,7 @@ public abstract class SharedAugmentPowerCellSystem : CommonAugmentPowerCellSyste
         ent.Comp.DrawRate = rate;
         Dirty(ent, ent.Comp);
 
-        // Aquila Change start
-        if (_powerCell.TryGetBatteryFromSlot(ent.Owner, out var battery))
-            _battery.RefreshChargeRate(battery.Value.AsNullable());
-        // Aquila Change end
+        RefreshAugmentChargeRate(ent.Owner); // Aquila Change
     }
 
     /// <summary>
@@ -111,43 +99,4 @@ public abstract class SharedAugmentPowerCellSystem : CommonAugmentPowerCellSyste
 
         return null;
     }
-
-    // Aquila Change start
-    /// <summary>
-    /// Есть ли в слоте импланта батарея с ненулевым зарядом.
-    /// </summary>
-    public bool HasPower(EntityUid slot)
-    {
-        return _powerCell.TryGetBatteryFromSlot(slot, out var battery)
-            && _battery.GetCharge(battery.Value.AsNullable()) > 0f;
-    }
-
-    private void OnRefreshChargeRate(Entity<AugmentPowerCellSlotComponent> ent, ref RefreshChargeRateEvent args)
-    {
-        RelayToStationRechargeBody(ent, ref args);
-    }
-
-    private void OnBatteryStateChanged(Entity<AugmentPowerCellSlotComponent> ent, ref BatteryStateChangedEvent args)
-    {
-        RelayToStationRechargeBody(ent, ref args);
-    }
-
-    private void RelayToStationRechargeBody<T>(EntityUid slot, ref T args) where T : notnull
-    {
-        if (Augment.GetBody(slot) is { } body && HasComp<AugmentStationRechargeComponent>(body))
-            RaiseLocalEvent(body, ref args);
-    }
-
-    private void OnFindDrinkerBattery(Entity<HasAugmentPowerCellSlotComponent> ent, ref FindDrinkerBatteryEvent args)
-    {
-        if (GetBodyAugment(ent) is { } slot && _powerCell.TryGetBatteryFromSlot(slot.Owner, out var battery))
-            args.Battery = battery.Value.Owner;
-    }
-
-    private void OnFindChargerBattery(Entity<AugmentStationRechargeComponent> ent, ref FindChargerBatteryEvent args)
-    {
-        if (GetBodyAugment(ent) is { } slot && _powerCell.TryGetBatteryFromSlot(slot.Owner, out var battery))
-            args.Battery = battery;
-    }
-    // Aquila Change end
 }

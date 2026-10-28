@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq; // Aquila Change
 using Content.Server._CorvaxGoob.Events; // CorvaxGoob-GoLobby
 using Content.Corvax.Interfaces.Server;
 using Content.Shared.Administration;
@@ -140,14 +139,7 @@ namespace Content.Server.GameTicking
 
                     _userDb.ClientDisconnected(session);
 
-                    // Aquila Change start
-                    if (LobbyEnabled
-                        && RunLevel == GameRunLevel.PreRoundLobby
-                        && _playerManager.Sessions.All(s => s == session || s.Status == SessionStatus.Disconnected))
-                    {
-                        _roundStartCountdownHasNotStartedYetDueToNoPlayers = true;
-                    }
-                    // Aquila Change end
+                    ResetCountdownIfLobbyEmpty(session); // Aquila Change
 
                     _adminLogger.Add(LogType.Connection, LogImpact.Low, $"User {args.Session:Player} attached to {(args.Session.AttachedEntity != null ? ToPrettyString(args.Session.AttachedEntity) : "nothing"):entity} disconnected from the game.");
                     break;

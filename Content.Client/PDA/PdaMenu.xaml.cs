@@ -12,7 +12,6 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Timing;
 using Content.Client._Aquila.PDA; // Aquila Change
-using System.Text.RegularExpressions; // Aquila Change
 
 namespace Content.Client.PDA
 {
@@ -363,33 +362,6 @@ namespace Content.Client.PDA
                 view.Visible = false;
             }
         }
-
-        // Aquila Change start
-        protected override void FrameUpdate(FrameEventArgs args)
-        {
-            base.FrameUpdate(args);
-
-            if (!_entityManager.TryGetComponent<PdaComponent>(PdaEntity, out var pda))
-                return;
-
-            if (EjectIdButton.IsActive != pda.IdSlot.HasItem)
-                EjectIdButton.IsActive = pda.IdSlot.HasItem;
-
-            if (EjectPenButton.IsActive != pda.PenSlot.HasItem)
-                EjectPenButton.IsActive = pda.PenSlot.HasItem;
-
-            if (EjectPaiButton.IsActive != pda.PaiSlot.HasItem)
-                EjectPaiButton.IsActive = pda.PaiSlot.HasItem;
-        }
-
-        private static string GetStationIdentifier(string stationName)
-        {
-            var match = StationIdentifierRegex.Match(stationName);
-            return match.Success ? match.Value : stationName;
-        }
-
-        private static readonly Regex StationIdentifierRegex = new(@"\b[A-Z]{2,}-\d+\b", RegexOptions.RightToLeft);
-        // Aquila Change end
 
         protected override void Draw(DrawingHandleScreen handle)
         {

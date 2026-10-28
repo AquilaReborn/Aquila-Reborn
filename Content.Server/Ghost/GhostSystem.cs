@@ -4,8 +4,6 @@ using System.Linq;
 using System.Numerics;
 using Content.Server._Goobstation.Wizard.Systems;
 using Content.Server.Administration.Logs;
-using Content.Server.Administration.Managers; // Aquila Change
-using Content.Shared.Administration; // Aquila Change
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.Ghost.Components;
@@ -56,11 +54,10 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Ghost
 {
-    public sealed class GhostSystem : SharedGhostSystem
+    public sealed partial class GhostSystem : SharedGhostSystem // Aquila Change
     {
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly IAdminLogManager _adminLog = default!;
-        [Dependency] private readonly IAdminManager _adminManager = default!; // Aquila Change
         [Dependency] private readonly SharedEyeSystem _eye = default!;
         [Dependency] private readonly FollowerSystem _followerSystem = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
@@ -476,18 +473,6 @@ namespace Content.Server.Ghost
 
             return true;
         }
-
-        // Aquila Change start
-        public EntProtoId GetObserverPrototype(MindComponent mind)
-        {
-            if (mind.UserId is { } userId
-                && _player.TryGetSessionById(userId, out var session)
-                && _adminManager.HasAdminFlag(session, AdminFlags.Admin))
-                return GameTicker.AdminObserverPrototypeName;
-
-            return GameTicker.ObserverPrototypeName;
-        }
-        // Aquila Change end
 
         public EntityUid? SpawnGhost(Entity<MindComponent?> mind, EntityCoordinates? spawnPosition = null,
             bool canReturn = false)

@@ -9,8 +9,9 @@
     noRot: true
     scale: 0.5, 0.5
     sprite: _Aquila/Effects/HolyCorpse/HolyCorpseAuraEffect.rsi
-    state: HolyCorpseEffect
-    shader: unshaded
+    layers:
+    - state: HolyCorpseEffect
+      shader: unshaded
     netsync: false
     drawdepth: Effects
   - type: PointLight

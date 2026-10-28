@@ -1,12 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
-using Content.Client._Aquila.Actions; // Aquila Change
 using Content.Client.Actions;
 using Content.Client.Actions.UI;
 using Content.Client.Cooldown;
 using Content.Client.Stylesheets;
-using Content.Client.Stylesheets.Palette; // Aquila Change
 using Content.Shared.Actions.Components;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Examine;
@@ -24,7 +22,7 @@ using Direction = Robust.Shared.Maths.Direction;
 
 namespace Content.Client.UserInterface.Systems.Actions.Controls;
 
-public sealed class ActionButton : Control, IEntityControl
+public sealed partial class ActionButton : Control, IEntityControl // Aquila Change
 {
     public const string StyleClassActionHighlightRect = "ActionHighlightRect";
 
@@ -35,18 +33,6 @@ public sealed class ActionButton : Control, IEntityControl
     private bool _beingHovered;
     private bool _depressed;
     private bool _toggled;
-
-    // Aquila Change start
-    private static readonly Color CooldownModulate = Palettes.Red.Base;
-
-    [Dependency] private readonly IGameTiming _timing = default!;
-
-    private ActionCustomizationUIController? _customization;
-    private readonly Label _cooldownLabel;
-    private int? _shownCooldownSeconds;
-
-    public readonly Label CustomBindLabel;
-    // Aquila Change end
 
     public BoundKeyFunction? KeyBind
     {
@@ -162,29 +148,6 @@ public sealed class ActionButton : Control, IEntityControl
         });
         Cooldown = new CooldownGraphic {Visible = false};
 
-        // Aquila Change start
-        IoCManager.InjectDependencies(this);
-
-        _cooldownLabel = new Label
-        {
-            HorizontalAlignment = HAlignment.Center,
-            VerticalAlignment = VAlignment.Center,
-            StyleClasses = { StyleClass.LabelHeading },
-            FontColorShadowOverride = Color.Black,
-            Visible = false
-        };
-        CustomBindLabel = new Label
-        {
-            HorizontalAlignment = HAlignment.Stretch,
-            VerticalAlignment = VAlignment.Bottom,
-            Margin = new Thickness(5, 0, 5, 0),
-            ClipText = true,
-            StyleClasses = { StyleClass.LabelKeyText },
-            FontColorShadowOverride = Color.Black,
-            Visible = false
-        };
-        // Aquila Change end
-
         AddChild(Button);
         AddChild(_bigActionIcon);
         AddChild(_bigItemSpriteView);
@@ -192,8 +155,7 @@ public sealed class ActionButton : Control, IEntityControl
         AddChild(Label);
         AddChild(Cooldown);
         AddChild(paddingBoxItemIcon);
-        AddChild(_cooldownLabel); // Aquila Change
-        AddChild(CustomBindLabel); // Aquila Change
+        InitializeAquila(); // Aquila Change
 
         Button.Modulate = new Color(255, 255, 255, 150);
 
@@ -210,19 +172,13 @@ public sealed class ActionButton : Control, IEntityControl
         base.OnThemeUpdated();
         _buttonBackgroundTexture = Theme.ResolveTexture("SlotBackground");
         Label.FontColorOverride = Theme.ResolveColorOrSpecified("whiteText");
-        _cooldownLabel.FontColorOverride = Theme.ResolveColorOrSpecified("whiteText"); // Aquila Change
+        UpdateAquilaTheme(); // Aquila Change
     }
 
     private void OnPressed(GUIBoundKeyEventArgs args)
     {
-        // Aquila Change start
-        if (ActionCustomizationUIController.IsShiftClick(args.Function))
-        {
-            _customization ??= UserInterfaceManager.GetUIController<ActionCustomizationUIController>();
-            _customization.OnShiftPressed(args, this);
-            return;
-        }
-        // Aquila Change end
+        if (TryHandleAquilaPress(args)) // Aquila Change
+            return; // Aquila Change
 
         if (args.Function != EngineKeyFunctions.UIClick && args.Function != EngineKeyFunctions.UIRightClick)
             return;
@@ -390,11 +346,7 @@ public sealed class ActionButton : Control, IEntityControl
 
         Label.Visible = Action != null;
         UpdateIcons();
-
-        // Aquila Change start
-        _customization ??= UserInterfaceManager.GetUIController<ActionCustomizationUIController>();
-        _customization.UpdateBindLabel(this);
-        // Aquila Change end
+        UpdateAquilaData(); // Aquila Change
     }
 
     public void ClearData()
@@ -403,8 +355,8 @@ public sealed class ActionButton : Control, IEntityControl
         Cooldown.Visible = false;
         Cooldown.Progress = 1;
         Label.Visible = false;
-        CustomBindLabel.Visible = false; // Aquila Change
         UpdateIcons();
+        UpdateAquilaData(); // Aquila Change
     }
 
     protected override void FrameUpdate(FrameEventArgs args)
@@ -424,38 +376,6 @@ public sealed class ActionButton : Control, IEntityControl
         if (_toggled != action.Toggled)
             _toggled = action.Toggled;
     }
-
-    // Aquila Change start
-    private void UpdateCooldownDisplay()
-    {
-        var remaining = Action?.Comp.Cooldown is { } cooldown ? cooldown.End - _timing.CurTime : TimeSpan.Zero;
-        var onCooldown = remaining > TimeSpan.Zero;
-        var tint = onCooldown ? CooldownModulate : Color.White;
-        var iconColor = Action?.Comp.IconColor ?? Color.White;
-
-        _bigActionIcon.Modulate = iconColor * tint;
-        _smallActionIcon.Modulate = iconColor * tint;
-        _bigItemSpriteView.Modulate = tint;
-        _smallItemSpriteView.Modulate = tint;
-        _cooldownLabel.Visible = onCooldown;
-
-        if (!onCooldown)
-        {
-            _shownCooldownSeconds = null;
-            return;
-        }
-
-        var seconds = (int) Math.Ceiling(remaining.TotalSeconds);
-        if (_shownCooldownSeconds == seconds)
-            return;
-
-        _shownCooldownSeconds = seconds;
-        var shown = TimeSpan.FromSeconds(seconds);
-        _cooldownLabel.Text = shown < TimeSpan.FromMinutes(1)
-            ? seconds.ToString()
-            : $"{(int) shown.TotalMinutes}:{shown.Seconds:00}";
-    }
-    // Aquila Change end
 
     protected override void MouseEntered()
     {

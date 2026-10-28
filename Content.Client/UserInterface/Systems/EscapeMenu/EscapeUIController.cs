@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Client._Aquila.UserId; // Aquila Change
 using Content.Client.Gameplay;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.Guidebook;
@@ -34,7 +33,7 @@ using Content.Client.Players.PlayTimeTracking;
 namespace Content.Client.UserInterface.Systems.EscapeMenu;
 
 [UsedImplicitly]
-public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>
+public sealed partial class EscapeUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState> // Aquila Change
 {
     [Dependency] private readonly IClientConsoleHost _console = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
@@ -147,13 +146,7 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
             OpenCharacterSetup();
         };
 
-        // Aquila Change start
-        _escapeWindow.UserIdButton.OnPressed += _ =>
-        {
-            CloseEscapeWindow();
-            UIManager.GetUIController<UserIdUIController>().ToggleWindow();
-        };
-        // Aquila Change end
+        InitializeAquilaButtons(_escapeWindow); // Aquila Change
 
         _escapeWindow.QuitButton.OnPressed += _ =>
         {

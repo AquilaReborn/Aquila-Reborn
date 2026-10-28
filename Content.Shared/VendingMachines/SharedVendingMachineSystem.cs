@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Emag.Components;
-using Content.Shared._Aquila.Economy; // Aquila Change
 using Robust.Shared.Prototypes;
 using System.Linq;
 using Content.Shared.Access.Components;
@@ -185,12 +184,8 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         if (_accessReader.IsAllowed(sender, uid, accessReader) || HasComp<EmaggedComponent>(uid))
             return true;
 
-        // Aquila Change start
-        var authorize = new VendingMachineAuthorizeEvent(sender);
-        RaiseLocalEvent(uid, ref authorize);
-        if (authorize.Authorized)
-            return true;
-        // Aquila Change end
+        if (IsAuthorizedByEvent(uid, sender)) // Aquila Change
+            return true; // Aquila Change
 
         Popup.PopupClient(Loc.GetString("vending-machine-component-try-eject-access-denied"), uid, sender);
         Deny((uid, vendComponent), sender);
@@ -257,23 +252,8 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
             return;
         }
 
-        // Aquila Change start
-        if (user is { } buyer)
-        {
-            var purchase = new VendingMachinePurchaseAttemptEvent(buyer, entry.ID, type);
-            RaiseLocalEvent(uid, ref purchase);
-            if (purchase.Cancelled)
-            {
-                if (cleanedReturnedInventory)
-                {
-                    Dirty(uid, vendComponent);
-                    UpdateUI((uid, vendComponent));
-                }
-
-                return;
-            }
-        }
-        // Aquila Change end
+        if (IsPurchaseCancelled((uid, vendComponent), user, entry.ID, type, cleanedReturnedInventory)) // Aquila Change
+            return; // Aquila Change
 
         // Start Ejecting, and prevent users from ordering while anim playing
         vendComponent.EjectEnd = Timing.CurTime + vendComponent.EjectDelay;

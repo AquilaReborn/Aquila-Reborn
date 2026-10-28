@@ -8,11 +8,10 @@ using Content.Shared.Storage.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
-using Content.Shared._Aquila.Power; // Aquila Change
 
 namespace Content.Shared.Power.EntitySystems;
 
-public sealed class ChargerSystem : EntitySystem
+public sealed partial class ChargerSystem : EntitySystem // Aquila Change
 {
     [Dependency] private readonly SharedBatterySystem _battery = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _receiver = default!;
@@ -225,19 +224,6 @@ public sealed class ChargerSystem : EntitySystem
         }
         _appearance.SetData(ent.Owner, CellVisual.Light, status, appearance);
     }
-
-    // Aquila Change start
-    private bool TryGetChargeableBattery(EntityUid uid, [NotNullWhen(true)] out Entity<BatteryComponent>? battery)
-    {
-        if (_powerCell.TryGetBatteryFromEntityOrSlot(uid, out battery))
-            return true;
-
-        var ev = new FindChargerBatteryEvent();
-        RaiseLocalEvent(uid, ref ev);
-        battery = ev.Battery;
-        return battery != null;
-    }
-    // Aquila Change end
 
     private CellChargerStatus GetStatus(Entity<ChargerComponent> ent)
     {

@@ -15,24 +15,6 @@ public sealed partial class PdaProgramItem : ContainerButton
     public const string NormalBgColor = PdaStyle.BackgroundSecondaryHex; // Aquila Change
     public const string HoverColor = PdaStyle.HoverHex; // Aquila Change
 
-    // Aquila Change start
-    private readonly StyleBoxFlat _styleBox = PdaStyle.Box(PdaStyle.BackgroundSecondary);
-
-    public Color BackgroundColor
-    {
-        get => _styleBox.BackgroundColor;
-        set => _styleBox.BackgroundColor = value;
-    }
-
-    public PdaProgramItem()
-    {
-        RobustXamlLoader.Load(this);
-        Panel.PanelOverride = _styleBox;
-        IconBackground.PanelOverride = PdaStyle.Box(PdaStyle.Selected);
-        ProgramName.FontColorOverride = PdaStyle.TextHeader;
-    }
-    // Aquila Change end
-
     protected override void Draw(DrawingHandleScreen handle)
     {
         base.Draw(handle);

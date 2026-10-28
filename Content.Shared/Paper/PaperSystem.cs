@@ -23,7 +23,7 @@ using Content.Shared.Roles;
 
 namespace Content.Shared.Paper;
 
-public sealed class PaperSystem : EntitySystem
+public sealed partial class PaperSystem : EntitySystem // Aquila Change
 {
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
@@ -83,12 +83,7 @@ public sealed class PaperSystem : EntitySystem
         entity.Comp.Mode = PaperAction.Read;
         UpdateUserInterface(entity);
 
-        // Aquila Change start
-        foreach (var actor in _uiSystem.GetActors(entity.Owner, PaperUiKey.Key))
-        {
-            _typingIndicatorChannel.SetWriting(actor, false);
-        }
-        // Aquila Change end
+        StopTypingForReaders(entity.Owner); // Aquila Change
     }
 
     private void OnExamined(Entity<PaperComponent> entity, ref ExaminedEvent args)

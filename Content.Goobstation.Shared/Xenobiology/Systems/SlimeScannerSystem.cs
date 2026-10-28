@@ -13,7 +13,7 @@ using System.Text;
 
 namespace Content.Goobstation.Shared.Xenobiology.Systems;
 
-public sealed class SlimeScannerSystem : EntitySystem
+public sealed partial class SlimeScannerSystem : EntitySystem // Aquila Change
 {
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
@@ -106,23 +106,7 @@ public sealed class SlimeScannerSystem : EntitySystem
             return _sb.ToString();
         }
 
-        // Aquila Change start
-        var names = new List<string>();
-        foreach (var reaction in reactive.Reactions)
-        {
-            if (reaction.Reagents == null)
-                continue;
-
-            foreach (var reagent in reaction.Reagents)
-            {
-                if (_proto.TryIndex<ReagentPrototype>(reagent, out var rid))
-                    names.Add($"[color={rid.SubstanceColor.ToHex()}]{rid.LocalizedName}[/color]");
-            }
-        }
-
-        _sb.Append(string.Join(", ", names));
-        _sb.AppendLine(".");
-        // Aquila Change end
+        AppendReactionReagents(reactive); // Aquila Change
 
         return _sb.ToString();
     }

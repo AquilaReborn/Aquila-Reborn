@@ -2,7 +2,7 @@
   id: ActionSacrificeArm
   name: Sacrifice Arm
   description: Sacrifices one of the character’s limbs at random, creating in its place a creature brought to life by your own vital energy—a being that defends you and attacks everything around it.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Action
     useDelay: 3
@@ -14,7 +14,7 @@
   id: ActionHealTarget
   name: Heal Target
   description: Heals the chosen target, restoring all limbs and organs. It is even capable of bringing the dead back to life.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Action
     useDelay: 300
