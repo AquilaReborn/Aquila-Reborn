@@ -1,0 +1,92 @@
+- type: entity
+  name: telifon
+  parent:
+  - SimpleMobBase
+  id: MobTelifon
+  suffix: AI
+  description: Biting.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-telifon-name
+    description: ghost-role-information-telifon-description
+    rules: ghost-role-information-sentientanimal-rules # Goobstation Sentient Animal PR
+    mindRoles:
+    - MindRoleGhostRoleSentientAnimal
+  - type: GhostTakeoverAvailable
+  - type: Sprite
+    drawdepth: SmallMobs
+    sprite: _Aquila/Mobs/telifon.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: telifon
+  - type: Item
+    size: Tiny
+  - type: MobState
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+    blackboard:
+      NavSmash: !type:Bool
+        true
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2.5
+    baseSprintSpeed : 5
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: telifon
+      Critical:
+        Base: telifon_dead
+      Dead:
+        Base: telifon_dead
+  - type: Hunger
+    baseDecayRate: 0.25
+  - type: Thirst
+    baseDecayRate: 0.04
+  - type: StatusEffects
+    allowed:
+    - Electrocution
+    - TemporaryBlindness
+    - Pacified
+    - Flashed
+    - RadiationProtection
+    - Adrenaline
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 150
+  - type: MobPrice
+    price: 150
+  - type: CombatMode
+  - type: FloatingVisuals
+  - type: CombatPower # Goobstation
+    factor: 0.01 # As dangerous as half a crew-member
+  - type: Grabbable # Goobstation
+  - type: LanguageKnowledge # Einstein Engines - Languages
+    speaks:
+    - Hissing
+    understands:
+    - Hissing
+    - TauCetiBasic
+  - type: MeleeWeapon
+    altDisarm: false
+    soundHit:
+      path: /Audio/_Aquila/onionsenpai/ai.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 0
+  - type: Tag
+    tags:
+    - Trash
+    - VimPilot
+    - IgnorGrab # CorvaxGoob
