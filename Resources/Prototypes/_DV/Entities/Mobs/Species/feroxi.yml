@@ -13,7 +13,7 @@
   - type: Hunger
   # - type: Carriable # ShibaStation - disabled because broken, for now.
   - type: Thirst
-    baseDecayRate: 0.25 # Goobstation base rate changed, 2 times more than base
+    baseDecayRate: 0.2 # Aquila Change
   - type: Icon
     sprite: _Goobstation/Mobs/Species/Feroxi/parts.rsi #RedTerror Goob Resprite
     state: full
