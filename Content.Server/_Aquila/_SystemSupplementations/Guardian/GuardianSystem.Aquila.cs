@@ -1,24 +1,47 @@
 using System.Numerics;
-using Content.Shared._Goobstation.Wizard.Guardian;
-using Robust.Shared.Map;
-using Robust.Shared.Maths;
 using Content.Server.NPC;
+using Content.Server.NPC.Components;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
+using Content.Shared._Goobstation.Wizard.Guardian;
+using Content.Shared.Aquila.Guardian;
+using Content.Shared.CombatMode;
 using Content.Shared.Pointing;
 using Robust.Shared.Map;
-using Content.Shared.Aquila.Guardian;
-using Content.Server.NPC.Components;
-using Content.Shared.CombatMode; 
+using Robust.Shared.Maths;
 
 namespace Content.Server.Guardian;
 
 public sealed partial class GuardianSystem
 {
+    [Dependency] private readonly NPCSystem _npc = default!;
     [Dependency] private readonly HTNSystem _htn = default!;
     [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
 
     private const float MinRepositionDistanceSquared = 0.0001f;
+
+    private void InitializeAquila()
+    {
+        SubscribeNetworkEvent<GuardianSetOrderEvent>(OnSetOrder);
+        SubscribeLocalEvent<GuardianHostComponent, AfterPointedAtEvent>(OnHostPointedAt);
+    }
+
+    private void AddOrdersAction(EntityUid host, GuardianHostComponent component)
+    {
+        _actionSystem.AddAction(host, ref component.ActionOrdersEntity, component.ActionOrders);
+    }
+
+    private void RemoveOrdersAction(GuardianHostComponent component)
+    {
+        QueueDel(component.ActionOrdersEntity);
+        component.ActionOrdersEntity = null;
+    }
+
+    private void StartGuardianOrders(EntityUid guardian, EntityUid host, GuardianComponent component)
+    {
+        _npc.SetBlackboard(guardian, NPCBlackboard.FollowTarget, new EntityCoordinates(host, Vector2.Zero));
+        UpdateGuardianNpc(guardian, component);
+    }
 
     private void RepositionGuardian(EntityUid guardianUid, GuardianComponent guardian, TransformComponent guardianXform, EntityCoordinates coordinates)
     {
@@ -73,8 +96,7 @@ public sealed partial class GuardianSystem
         if (TryComp<GuardianComponent>(guardian, out var guardianComp))
         {
             guardianComp.Host = target;
-            _npc.SetBlackboard(guardian, NPCBlackboard.FollowTarget, new EntityCoordinates(target, Vector2.Zero));
-            UpdateGuardianNpc(guardian, guardianComp);
+            StartGuardianOrders(guardian, target, guardianComp);
             _audio.PlayPvs(guardianComp.InjectSound, target);
             _popupSystem.PopupEntity(Loc.GetString("guardian-created"), target, target);
             return guardian;

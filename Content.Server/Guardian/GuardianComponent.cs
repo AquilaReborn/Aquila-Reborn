@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: MIT
 
 using Robust.Shared.Audio;
-using Content.Shared.Aquila.Guardian; // Aquila
 
 namespace Content.Server.Guardian
 {
@@ -52,20 +51,6 @@ namespace Content.Server.Guardian
         /// </summary>
         [DataField]
         public SoundSpecifier DeathSound = new SoundPathSpecifier("/Audio/Voice/Human/malescream_guardian.ogg", AudioParams.Default.WithVariation(0.2f));
-
-        // Aquila Start
-        /// <summary>
-        /// Флаг для того чтобы сраные паразиты не крашили игру пока носитель сидит на транспорте.
-        /// </summary>
-        [DataField]
-        public bool IsBeginRepositioned;
-
-        /// <summary>
-        /// Current order given to this guardian by its host. Drives its HTN behaviour.
-        /// </summary>
-        [DataField]
-        public GuardianOrderType CurrentOrder = GuardianOrderType.Follow;
-        // Aquila End
 
     }
 }

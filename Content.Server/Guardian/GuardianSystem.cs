@@ -23,14 +23,6 @@ using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Maths; // Goobstation
 using Robust.Shared.Utility;
-using Content.Server.NPC; // Aquila
-using Content.Server.NPC.HTN; // Aquila
-using Content.Server.NPC.Systems; // Aquila
-using Content.Shared.Pointing; // Aquila
-using System.Numerics; // Aquila
-using Robust.Shared.Map; // Aquila
-using Content.Shared.Aquila.Guardian; // Aquila
-using Content.Server.NPC.Components; // Aquila
 
 namespace Content.Server.Guardian
 {
@@ -49,7 +41,6 @@ namespace Content.Server.Guardian
         [Dependency] private readonly SharedContainerSystem _container = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
         [Dependency] private readonly NpcFactionSystem _faction = default!; // Goobstation
-        [Dependency] private readonly NPCSystem _npc = default!; // Aquila
 
         public override void Initialize()
         {
@@ -75,11 +66,7 @@ namespace Content.Server.Guardian
             SubscribeLocalEvent<GuardianComponent, AttackAttemptEvent>(OnGuardianAttackAttempt);
 
             SubscribeLocalEvent<GuardianHostComponent, MechPilotRelayedEvent<GettingAttackedAttemptEvent>>(OnPilotAttackAttempt);
-
-            // Aquila Start
-            SubscribeNetworkEvent<GuardianSetOrderEvent>(OnSetOrder);
-            SubscribeLocalEvent<GuardianHostComponent, AfterPointedAtEvent>(OnHostPointedAt);
-            // Aquila End
+            InitializeAquila(); // Aquila Change
         }
 
         private void OnGuardianShutdown(EntityUid uid, GuardianComponent component, ComponentShutdown args)
@@ -145,9 +132,7 @@ namespace Content.Server.Guardian
         {
             component.GuardianContainer = _container.EnsureContainer<ContainerSlot>(uid, "GuardianContainer");
             _actionSystem.AddAction(uid, ref component.ActionEntity, component.Action);
-            // Aquila Start
-            _actionSystem.AddAction(uid, ref component.ActionOrdersEntity, component.ActionOrders);
-            // Aquila End
+            AddOrdersAction(uid, component); // Aquila Change
         }
 
         private void OnHostShutdown(EntityUid uid, GuardianHostComponent component, ComponentShutdown args)
@@ -162,10 +147,7 @@ namespace Content.Server.Guardian
             QueueDel(guardian);
             QueueDel(component.ActionEntity);
             component.ActionEntity = null;
-            // Aquila Start
-            QueueDel(component.ActionOrdersEntity);
-            component.ActionOrdersEntity = null;
-            // Aquila End
+            RemoveOrdersAction(component); // Aquila Change
         }
 
         private void OnGuardianAttackAttempt(EntityUid uid, GuardianComponent component, AttackAttemptEvent args)
@@ -272,10 +254,7 @@ namespace Content.Server.Guardian
             if (TryComp<GuardianComponent>(guardian, out var guardianComp))
             {
                 guardianComp.Host = args.Args.Target.Value;
-                // Aquila Start
-                _npc.SetBlackboard(guardian, NPCBlackboard.FollowTarget, new EntityCoordinates(args.Args.Target.Value, Vector2.Zero));
-                UpdateGuardianNpc(guardian, guardianComp);
-                // Aquila End
+                StartGuardianOrders(guardian, args.Args.Target.Value, guardianComp); // Aquila Change
                 _audio.PlayPvs(guardianComp.InjectSound, args.Args.Target.Value);
                 _popupSystem.PopupEntity(Loc.GetString("guardian-created"), args.Args.Target.Value, args.Args.Target.Value);
                 // Exhaust the activator
@@ -439,6 +418,6 @@ namespace Content.Server.Guardian
             DebugTools.Assert(hostComponent.GuardianContainer.Contains(guardian));
             _popupSystem.PopupEntity(Loc.GetString("guardian-entity-recall"), host);
             guardianComponent.GuardianLoose = false;
-        }    
+        }
     }
 }

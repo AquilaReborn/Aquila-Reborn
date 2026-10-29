@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server._Aquila.NPC; // Aquila Change
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.NPC.Components;
@@ -39,15 +40,11 @@ public sealed partial class MeleeOperator : HTNOperator, IHtnConditionalShutdown
     public override void Startup(NPCBlackboard blackboard)
     {
         base.Startup(blackboard);
-        // Aquila Start
-        // Guard against a race where the target was removed from the blackboard
-        if (!blackboard.TryGetValue<EntityUid>(TargetKey, out var target, _entManager) || !_entManager.EntityExists(target))
-            return;
-        // Aquila End
+        if (!HtnTargetHelper.TryGetExistingTarget(blackboard, TargetKey, _entManager, out var target)) // Aquila Change
+            return; // Aquila Change
         var melee = _entManager.EnsureComponent<NPCMeleeCombatComponent>(blackboard.GetValue<EntityUid>(NPCBlackboard.Owner));
         melee.MissChance = blackboard.GetValueOrDefault<float>(NPCBlackboard.MeleeMissChance, _entManager);
-        melee.Target = blackboard.GetValue<EntityUid>(TargetKey);
-        melee.Target = target; // Aquila Change: use the value we already safely fetched above
+        melee.Target = target; // Aquila Change
     }
 
     public override async Task<(bool Valid, Dictionary<string, object>? Effects)> Plan(NPCBlackboard blackboard,

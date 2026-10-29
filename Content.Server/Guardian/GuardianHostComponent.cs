@@ -29,15 +29,5 @@ namespace Content.Server.Guardian
         public EntProtoId Action = "ActionToggleGuardian";
 
         [DataField] public EntityUid? ActionEntity;
-
-        // Aquila Start
-        /// <summary>
-        /// Action that opens the orders radial menu for this host's guardian.
-        /// </summary>
-        [DataField]
-        public EntProtoId ActionOrders = "ActionGuardianOrders";
-
-        [DataField] public EntityUid? ActionOrdersEntity;
-        // Aquila End
     }
 }
