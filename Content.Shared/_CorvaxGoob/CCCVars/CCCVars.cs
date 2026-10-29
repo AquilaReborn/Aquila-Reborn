@@ -177,7 +177,7 @@ public sealed class CCCVars
     ///     Лимит по общему количеству наигранного времени для возвраждения.
     /// </summary>
     public static readonly CVarDef<float> GhostGoLobbyTimeHours =
-        CVarDef.Create("ghost.go_lobby.require_time", 25f, CVar.SERVERONLY);
+        CVarDef.Create("ghost.go_lobby.require_time", 0f, CVar.SERVERONLY); // Aquila Change
 
     /// <summary>
     ///     Длительность до возможность возврадиться.
