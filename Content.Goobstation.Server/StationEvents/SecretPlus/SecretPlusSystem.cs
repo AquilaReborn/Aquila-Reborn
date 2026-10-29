@@ -58,7 +58,7 @@ public sealed class PlayerCount
 ///   A scheduler which keeps track of a 'chaos score' which it tries to get closer to 0.
 /// </summary>
 [UsedImplicitly]
-public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
+public sealed partial class SecretPlusSystem : GameRuleSystem<SecretPlusComponent> // Aquila Change
 {
     [Dependency] private readonly AntagSelectionSystem _antagSelection = default!;
     [Dependency] private readonly EventManagerSystem _event = default!;
@@ -314,6 +314,7 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
     private void StartRule(Entity<SecretPlusComponent> scheduler, string rule, bool doStart = true, int? players = null)
     {
         var ruleUid = _ticker.AddGameRule(rule);
+        AllowSkipOnTooFewPlayers(ruleUid, doStart); // Aquila Change
 
         scheduler.Comp.ChaosScore += GetChaosScore(ruleUid, players)!.Value;
 
