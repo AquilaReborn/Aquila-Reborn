@@ -1,0 +1,30 @@
+- type: entity
+  name: Whip
+  parent: BaseItem
+  id: Whip
+  description: Burmalda.
+  components:
+  - type: Item
+    size: Normal
+    sprite: _Aquila/Objects/Weapons/Melee/whip.rsi
+  - type: Sprite
+    sprite: _Aquila/Objects/Weapons/Melee/whip.rsi
+    state: icon
+  - type: Clothing
+    slots:
+    - BELT
+    sprite: _Aquila/Objects/Weapons/Melee/whip.rsi
+  - type: MeleeWeapon
+    range: 2
+    attackRate: 1.5
+    animationRotation: -135
+    wideAnimationRotation: -135
+    angle: 20
+    damage:
+      types:
+        Slash: 7
+    soundHit:
+      path: /Audio/_Aquila/Weapons/Melee/whip.ogg
+  - type: StaminaDamageOnHit
+    damage: 10
+    overtime: 10
