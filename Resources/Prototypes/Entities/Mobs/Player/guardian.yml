@@ -152,7 +152,16 @@
         - Syndicate
     - type: HTN
       rootTask:
-        task: SimpleHumanoidHostileCompound
+        # Aquila Start
+        task: GuardianOrdersMeleeCompound
+      blackboard:
+        IdleRange: !type:Single
+          1.5
+        FollowCloseRange: !type:Single
+          0.75
+        FollowRange: !type:Single
+          1.0
+        # Aquila End
 
 # From Wizard deck of cards
 - type: entity
@@ -188,7 +197,16 @@
         - Wizard
     - type: HTN # Goobstation
       rootTask:
-        task: SimpleHumanoidHostileCompound
+        # Aquila Start
+        task: GuardianOrdersMeleeCompound
+      blackboard:
+        IdleRange: !type:Single
+          1.5
+        FollowCloseRange: !type:Single
+          0.75
+        FollowRange: !type:Single
+          1.0
+        # Aquila End
     - type: Tag # Goobstation
       tags:
         - CannotSuicide
@@ -279,7 +297,16 @@
         - Syndicate
     - type: HTN
       rootTask:
-        task: SimpleHumanoidHostileCompound
+        # Aquila Start
+        task: GuardianOrdersMeleeCompound
+      blackboard:
+        IdleRange: !type:Single
+          1.5
+        FollowCloseRange: !type:Single
+          0.75
+        FollowRange: !type:Single
+          1.0
+        # Aquila End
 
 - type: entity
   parent: BaseMentalAction

@@ -102,15 +102,7 @@ public sealed partial class MobGrowthSystem : EntitySystem
 
         _appearance.SetData(ent, GrowthStateVisuals.Sprite, sprite, appearance);
 
-        // Aquila Change start
-        if (!_net.IsServer)
-            return;
-
-        var name = string.IsNullOrEmpty(stageData.DisplayName)
-            ? ent.Comp.BaseEntityName
-            : Loc.GetString("mob-growth-stage-name", ("stage", Loc.GetString(stageData.DisplayName)), ("name", ent.Comp.BaseEntityName));
-        _metaData.SetEntityName(ent, name);
-        // Aquila Change end
+        UpdateGrowthName(ent, stageData); // Aquila Change
     }
 
     #endregion

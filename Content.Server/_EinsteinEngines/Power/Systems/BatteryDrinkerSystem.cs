@@ -27,7 +27,7 @@ using Content.Shared.Whitelist;
 namespace Content.Server._EinsteinEngines.Power;
 
 // Goobstation - Energycrit: Create SharedBatteryDrinkerSystem and Client BatteryDrinkerSystem so client can predict drink verbs
-public sealed class BatteryDrinkerSystem : SharedBatteryDrinkerSystem
+public sealed partial class BatteryDrinkerSystem : SharedBatteryDrinkerSystem // Aquila Change
 {
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -127,12 +127,7 @@ public sealed class BatteryDrinkerSystem : SharedBatteryDrinkerSystem
 
         var amountToDrink = drinkerComp.DrinkMultiplier * 1000;
 
-        // Aquila Change start
-        var sourceCharge = _battery.GetCharge((source, sourceBattery));
-        var drinkerCharge = _battery.GetCharge((drinkerBattery.Value, drinkerBatteryComponent));
-        amountToDrink = MathF.Min(amountToDrink, sourceCharge);
-        amountToDrink = MathF.Min(amountToDrink, drinkerBatteryComponent.MaxCharge - drinkerCharge);
-        // Aquila Change end
+        var sourceCharge = ClampDrinkAmount((source, sourceBattery), (drinkerBattery.Value, drinkerBatteryComponent), ref amountToDrink); // Aquila Change
 
         if (sourceComp != null && sourceComp.MaxAmount > 0)
             amountToDrink = MathF.Min(amountToDrink, (float) sourceComp.MaxAmount);
@@ -143,15 +138,7 @@ public sealed class BatteryDrinkerSystem : SharedBatteryDrinkerSystem
             return;
         }
 
-        // Aquila Change start
-        if (_battery.TryUseCharge(source, amountToDrink))
-            _battery.ChangeCharge(drinkerBattery.Value, amountToDrink);
-        else
-        {
-            _battery.ChangeCharge(drinkerBattery.Value, sourceCharge);
-            _battery.SetCharge(source, 0);
-        }
-        // Aquila Change end
+        TransferDrinkCharge(source, drinkerBattery.Value, amountToDrink, sourceCharge); // Aquila Change
 
         if (sourceComp != null && sourceComp.DrinkSound != null){
             _popup.PopupEntity(Loc.GetString("ipc-recharge-tip"), drinker, drinker, PopupType.SmallCaution);

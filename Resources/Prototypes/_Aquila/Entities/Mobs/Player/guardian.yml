@@ -23,7 +23,14 @@
       soundGunshot: /Audio/_Aquila/Weapons/Guns/Gunshots/shot_nail.ogg
     - type: HTN
       rootTask:
-        task: SimpleRangedHostileCompound
+        task: GuardianOrdersRangedCompound
+      blackboard:
+        IdleRange: !type:Single
+          1.5
+        FollowCloseRange: !type:Single
+          2.5
+        FollowRange: !type:Single
+          1.0
     - type: NpcFactionMember
       factions:
       - Syndicate
@@ -148,7 +155,14 @@
     - type: Hands
     - type: HTN
       rootTask:
-        task: SimpleHumanoidHostileCompound
+        task: GuardianOrdersMeleeCompound
+      blackboard:
+        IdleRange: !type:Single
+          1.5
+        FollowCloseRange: !type:Single
+          0.75
+        FollowRange: !type:Single
+          1.0
     - type: NpcFactionMember
       factions:
       - Syndicate
@@ -375,7 +389,6 @@
   description: The ability to travel between worlds is mine alone to command!
   parent: MobGuardianMeleeStaminaBase
   components:
-  - type: TimeStopImmune
   - type: StaminaDamageOnHit
     damage: 8
   - type: MeleeWeapon
@@ -408,7 +421,6 @@
   description: A guardian bound to its master, granting the ability to rewind time!
   parent: MobGuardianMeleeStaminaBase
   components:
-  - type: TimeStopImmune
   - type: StaminaDamageOnHit
     damage: 8
   - type: MeleeWeapon
@@ -441,7 +453,6 @@
   description: A guardian capable of creating life with a touch!
   parent: MobGuardianMeleeStaminaBase
   components:
-  - type: TimeStopImmune
   - type: StaminaDamageOnHit
     damage: 10
   - type: MeleeWeapon

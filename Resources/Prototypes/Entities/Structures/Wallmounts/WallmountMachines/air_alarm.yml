@@ -176,6 +176,14 @@
     layers:
     - state: alarm_b1
       map: [ "enum.ConstructionVisuals.Layer" ]
+  # Aquila Change start
+  - type: GenericVisualizer
+    visuals:
+      enum.ConstructionVisuals.Key:
+        enum.ConstructionVisuals.Layer:
+          assembly: { state: alarm_b1 }
+          electronics: { state: alarm_b1 }
+  # Aquila Change end
   - type: Construction
     # Aquila Change start
     thresholds:

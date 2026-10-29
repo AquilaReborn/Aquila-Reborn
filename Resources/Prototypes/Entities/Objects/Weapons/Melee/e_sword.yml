@@ -373,12 +373,12 @@
         variation: 0.250
     activatedDamage:
         types:
-          Slash: 15   #Goob Station rebalance, was originally 12
-          Heat: 15    #Goob Station rebalance, was originally 12
-          Structural: 40 # Goob edit
+          Slash: 17   # Aquila Change
+          Heat: 17    # Aquila Change
+          Structural: 50 # Aquila Change
         woundSeverityMultipliers: #Goob, Should be at least some reason to use this over eshield/base esword
-          Slash: 7
-          Heat: 7
+          Slash: 2 # Aquila Change
+          Heat: 2 # Aquila Change
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/ebladehum.ogg
@@ -413,16 +413,23 @@
   - type: Item
     size: Small
     sprite: Objects/Weapons/Melee/e_sword_double-inhands.rsi
-  - type: Reflect # Goob edit
-    reflectProb: .8
+  - type: Reflect 
+    reflectProb: .75 # Aquila Change
+    otherTypeReflectProb: .4 # Aquila Change
+    reflects:
+    - Energy
     spread: 75
-  - type: FlipOnHit # WD EDIT
+  # - type: FlipOnHit # WD EDIT
   - type: ThrowableBlocker # Goobstation
     blockSound:
       path: /Audio/Weapons/eblade1.ogg
       params:
         variation: 0.250
         volume: -2
+  - type: MeleeDash # Aquila Change
+    length: 1.5
+  - type: UseDelay # Aquila Change
+    delay: 1.5
 
 - type: entity # Goobstation
   parent: EnergySwordDoubleBase

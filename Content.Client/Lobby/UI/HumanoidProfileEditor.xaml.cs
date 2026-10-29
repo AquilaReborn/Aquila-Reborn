@@ -1,12 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Aquila.Settings; // AQUILA
 using Content.Client._CorvaxGoob.CharacterEditor.UI; // CorvaxGoob-TTS
 using Content.Client._CorvaxGoob.Chat;
-using Content.Client._Aquila.OocNotes; // Aquila Change
 using Content.Client._CorvaxGoob.TTS;
-using Content.Goobstation.Common.Barks; // Aquila Change
-using Content.Goobstation.Common.CCVar; // Aquila Change
 using Content.Shared._Aquila.CCVars; // Aquila Change
 using Content.Client.Humanoid;
 using Content.Client.Lobby.UI.Loadouts;
@@ -74,7 +70,6 @@ namespace Content.Client.Lobby.UI
 
         private FlavorText.FlavorText? _flavorText;
         private TextEdit? _flavorTextEdit;
-        private OocNotesEditor? _oocNotes; // Aquila Change
 
         // One at a time.
         private LoadoutWindow? _loadoutWindow;
@@ -247,13 +242,7 @@ namespace Content.Client.Lobby.UI
             // Goob Station
             #region Barks
 
-            // Aquila Change start
-            if (configurationManager.GetCVar(GoobCVars.BarksEnabled))
-            {
-                BarksContainer.Visible = true;
-                InitializeBarkVoice();
-            }
-            // Aquila Change end
+            InitializeAquilaBarks(configurationManager); // Aquila Change
 
             #endregion
 
@@ -1011,22 +1000,7 @@ namespace Content.Client.Lobby.UI
 
             departments.Sort(DepartmentUIComparer.Instance);
 
-            // Aquila Change start
-            var activeSetting = _cfgManager.GetCVar(AquilaCVars.Setting);
-            var filterSetting = _prototypeManager.HasIndex<AqSettingPrototype>(activeSetting);
-            departments.RemoveAll(department => filterSetting && department.Setting != activeSetting);
-
-            var settings = new List<AqSettingPrototype>();
-            foreach (var setting in _prototypeManager.EnumeratePrototypes<AqSettingPrototype>())
-            {
-                if (filterSetting && setting.ID != activeSetting)
-                    continue;
-
-                settings.Add(setting);
-            }
-
-            settings.Sort(SettingUIComparer.Instance);
-            // Aquila Change end
+            var settings = FilterDepartmentsBySetting(departments); // Aquila Change
 
 
             var items = new[]
@@ -1037,40 +1011,7 @@ namespace Content.Client.Lobby.UI
                 ("humanoid-profile-editor-job-priority-high-button", (int) JobPriority.High),
             };
 
-            // Aquila Change start
-            foreach (var setting in settings)
-            {
-                var settingName = Loc.GetString(setting.Name);
-
-                if (!_settingCategories.TryGetValue(setting.ID, out var settingCategory))
-                {
-                    settingCategory = new BoxContainer
-                    {
-                        Orientation = LayoutOrientation.Vertical,
-                        Name = setting.ID
-                    };
-
-                    settingCategory.AddChild(new PanelContainer
-                    {
-                        PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex("#464966") },
-                        Children =
-                        {
-                            new Label
-                            {
-                                Text = settingName, // Aquila Fix
-                                Margin = new Thickness(0, 12, 0, 0),
-                                FontColorOverride = Color.Red,
-                                StyleClasses = { StyleClass.LabelHeading }
-                            }
-                        }
-                    });
-
-                    _settingCategories[setting.ID] = settingCategory;
-                    JobList.AddChild(settingCategory);
-                }
-            }
-
-            // Aquila Change end
+            AddSettingCategories(settings); // Aquila Change
             foreach (var department in departments)
             {
                 var departmentName = Loc.GetString(department.Name);
@@ -1311,33 +1252,6 @@ namespace Content.Client.Lobby.UI
             UpdateJobPriorities();
         }
 
-        // Aquila Change start
-        private void RefreshOocNotes()
-        {
-            if (_oocNotes != null)
-                return;
-
-            _oocNotes = new OocNotesEditor();
-            TabContainer.AddChild(_oocNotes);
-            TabContainer.SetTabTitle(TabContainer.ChildCount - 1, Loc.GetString("ooc-notes-editor-tab"));
-            _oocNotes.OnNotesChanged += OnOocNotesChange;
-        }
-
-        private void OnOocNotesChange(string content)
-        {
-            if (Profile is null)
-                return;
-
-            Profile = Profile.WithOocNotes(content);
-            SetDirty();
-        }
-
-        private void UpdateOocNotesEdit()
-        {
-            _oocNotes?.SetNotes(Profile?.OocNotes ?? "");
-        }
-        // Aquila Change end
-
         private void OnFlavorTextChange(string content)
         {
             if (Profile is null)
@@ -1410,13 +1324,6 @@ namespace Content.Client.Lobby.UI
             _loadoutWindow = null;
             _cfgManager.UnsubValueChanged(AquilaCVars.Setting, OnSettingChanged); // Aquila Change
         }
-
-        // Aquila Change start
-        private void OnSettingChanged(string setting)
-        {
-            RefreshJobs();
-        }
-        // Aquila Change end
 
         protected override void EnteredTree()
         {
@@ -1523,13 +1430,6 @@ namespace Content.Client.Lobby.UI
             ReloadProfilePreview();
         }
         // end Goobstation: port EE height/width sliders
-        // Aquila Change start
-        private void SetBarkVoice(BarkPrototype newVoice)
-        {
-            Profile = Profile?.WithBarkVoice(newVoice);
-            IsDirty = true;
-        }
-        // Aquila Change end
         // Goob Station - End
 
         public bool IsDirty

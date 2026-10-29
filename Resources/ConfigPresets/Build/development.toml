@@ -77,7 +77,7 @@ hardware_ids = true
 patron_lobby_message_time_seconds = 10
 
 [lavaland]
-enabled = false
+enabled = true
 
 [queue]
 enabled = true

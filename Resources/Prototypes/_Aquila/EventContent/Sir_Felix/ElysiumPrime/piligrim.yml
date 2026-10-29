@@ -1,0 +1,165 @@
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltPiligrim
+  name: "\"Frostfighter\" chest rig"
+  description: A chest rig with a built-in flashlight. The webbing reads "Made for survival!"
+  suffix: ElysiumPrime, Clothing
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Piligrim/belt.rsi
+    layers:
+    - state: icon
+    - state: light-icon
+      visible: false
+      map: [ "light" ]
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Piligrim/belt.rsi
+  - type: Storage
+    grid:
+    - 0,0,5,2
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.85
+  - type: PointLight
+    enabled: false
+    radius: 6
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    netsync: false
+  - type: Appearance
+  - type: HandheldLight
+    addPrefix: false
+    blinkingBehaviourId: blinking
+    radiatingBehaviourId: radiating
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      id: radiating
+      interpolate: Linear
+      maxDuration: 2.0
+      startValue: 3.0
+      endValue: 2.0
+      isLooped: true
+      reverseWhenFinished: true
+    - !type:PulseBehaviour
+      id: blinking
+      interpolate: Nearest
+      maxDuration: 1.0
+      startValue: 0.1
+      endValue: 2.0
+      isLooped: true
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals:
+      belt:
+      - state: on-equipped-BELT
+  - type: ItemTogglePointLight
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      cell_slot: !type:ContainerSlot {}
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatPiligrim
+  name: "\"Frostfighter\" coat"
+  description: A custom-made leather coat. The label inside reads "Made for survival!"
+  suffix: ElysiumPrime, Clothing
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Piligrim/coat.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Piligrim/coat.rsi
+  - type: Storage
+    grid:
+    - 0,0,4,2
+  - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    modifiers:
+      coefficients:
+        Heat: 0.85
+
+- type: entity
+  parent: ClothingMaskBase
+  id: ClothingMaskGasPiligrim
+  name: "\"Frostfighter\" gas mask"
+  description: A gas mask for filtering gases. The label reads "Made for survival!"
+  suffix: ElysiumPrime, Clothing
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Piligrim/mask.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Piligrim/mask.rsi
+  - type: BreathMask
+  - type: IngestionBlocker
+  - type: IdentityBlocker
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - GasMask
+    - Mask
+  - type: HideLayerClothing
+    layers:
+      Snout: Mask
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckPiligrim
+  name: "\"Frostfighter\" wrap"
+  description: A belt with sewn-on cloth for warmth. The label reads "Made for survival!"
+  suffix: ElysiumPrime, Clothing
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Piligrim/neck.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Piligrim/neck.rsi
+  - type: Item
+    size: Ginormous
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,5,2
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: Armor
+    coverage:
+    - Chest
+    modifiers:
+      coefficients:
+        Heat: 0.85
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitPiligrim
+  name: "\"Frostfighter\" garb"
+  description: A pile of cloth skillfully hand-sewn. Inside, a label from something else is glued on - "Made for survival!"
+  suffix: ElysiumPrime, Clothing
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Piligrim/uniform.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Clothing/Piligrim/uniform.rsi

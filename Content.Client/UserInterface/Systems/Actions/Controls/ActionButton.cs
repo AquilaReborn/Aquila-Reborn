@@ -22,7 +22,7 @@ using Direction = Robust.Shared.Maths.Direction;
 
 namespace Content.Client.UserInterface.Systems.Actions.Controls;
 
-public sealed class ActionButton : Control, IEntityControl
+public sealed partial class ActionButton : Control, IEntityControl // Aquila Change
 {
     public const string StyleClassActionHighlightRect = "ActionHighlightRect";
 
@@ -155,6 +155,7 @@ public sealed class ActionButton : Control, IEntityControl
         AddChild(Label);
         AddChild(Cooldown);
         AddChild(paddingBoxItemIcon);
+        InitializeAquila(); // Aquila Change
 
         Button.Modulate = new Color(255, 255, 255, 150);
 
@@ -171,10 +172,14 @@ public sealed class ActionButton : Control, IEntityControl
         base.OnThemeUpdated();
         _buttonBackgroundTexture = Theme.ResolveTexture("SlotBackground");
         Label.FontColorOverride = Theme.ResolveColorOrSpecified("whiteText");
+        UpdateAquilaTheme(); // Aquila Change
     }
 
     private void OnPressed(GUIBoundKeyEventArgs args)
     {
+        if (TryHandleAquilaPress(args)) // Aquila Change
+            return; // Aquila Change
+
         if (args.Function != EngineKeyFunctions.UIClick && args.Function != EngineKeyFunctions.UIRightClick)
             return;
 
@@ -341,6 +346,7 @@ public sealed class ActionButton : Control, IEntityControl
 
         Label.Visible = Action != null;
         UpdateIcons();
+        UpdateAquilaData(); // Aquila Change
     }
 
     public void ClearData()
@@ -350,6 +356,7 @@ public sealed class ActionButton : Control, IEntityControl
         Cooldown.Progress = 1;
         Label.Visible = false;
         UpdateIcons();
+        UpdateAquilaData(); // Aquila Change
     }
 
     protected override void FrameUpdate(FrameEventArgs args)
@@ -359,6 +366,7 @@ public sealed class ActionButton : Control, IEntityControl
         UpdateBackground();
 
         Cooldown.Visible = Action?.Comp.Cooldown != null;
+        UpdateCooldownDisplay(); // Aquila Change
         if (Action?.Comp is not {} action)
             return;
 

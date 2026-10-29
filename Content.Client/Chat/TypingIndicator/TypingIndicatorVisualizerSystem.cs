@@ -4,11 +4,10 @@ using Content.Shared.Chat.TypingIndicator;
 using Robust.Client.GameObjects;
 using Robust.Shared.Prototypes;
 using Content.Shared.Inventory;
-using Content.Shared._Aquila.TypingIndicator; // Aquila Change
 
 namespace Content.Client.Chat.TypingIndicator;
 
-public sealed class TypingIndicatorVisualizerSystem : VisualizerSystem<TypingIndicatorComponent>
+public sealed partial class TypingIndicatorVisualizerSystem : VisualizerSystem<TypingIndicatorComponent> // Aquila Change
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
@@ -31,20 +30,7 @@ public sealed class TypingIndicatorVisualizerSystem : VisualizerSystem<TypingInd
         if (overrideIndicator != null)
             currentTypingIndicator = overrideIndicator.Value;
 
-        // Aquila Change start
-        var isWriting = false;
-        AppearanceSystem.TryGetData<TypingIndicatorState>(uid, TypingIndicatorVisuals.State, out var chatState, args.Component);
-        if (chatState == TypingIndicatorState.None
-            && AppearanceSystem.TryGetData<ProtoId<TypingIndicatorPrototype>>(uid, TypingIndicatorChannelVisuals.Writing, out var writingIndicator, args.Component))
-        {
-            currentTypingIndicator = writingIndicator;
-            isWriting = true;
-        }
-        else if (AppearanceSystem.TryGetData<ProtoId<TypingIndicatorPrototype>>(uid, TypingIndicatorChannelVisuals.Indicator, out var channelIndicator, args.Component))
-        {
-            currentTypingIndicator = channelIndicator;
-        }
-        // Aquila Change end
+        var isWriting = TryApplyChannelIndicator(uid, args.Component, ref currentTypingIndicator); // Aquila Change
 
         if (!_prototypeManager.Resolve(currentTypingIndicator, out var proto))
         {

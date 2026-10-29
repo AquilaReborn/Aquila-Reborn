@@ -65,13 +65,3 @@ public enum TurnstileVisualLayers : byte
 {
     Base
 }
-
-// Aquila Change start
-[Serializable, NetSerializable]
-public enum TurnstileStates : byte
-{
-    Idle,
-    Deny,
-    Spin,
-}
-// Aquila Change end

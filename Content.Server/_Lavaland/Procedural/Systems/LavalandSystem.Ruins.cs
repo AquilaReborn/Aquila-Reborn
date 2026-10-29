@@ -388,17 +388,7 @@ public sealed partial class LavalandSystem
         {
             EnsureComp<DecalGridComponent>(lavaland);
 
-            // Aquila Change start
-            foreach (var (_, decal) in _decals.GetDecalsIntersecting(grid.Owner, grid.Comp.LocalAABB, loadedDecals))
-            {
-                var position = decal.Coordinates + offset;
-
-                if (reservedTiles?.Contains(position.Floored()) == true)
-                    continue;
-
-                _decals.TryAddDecal(decal.WithCoordinates(position), new EntityCoordinates(lavaland.Owner, position), out _);
-            }
-            // Aquila Change end
+            CopyRuinDecals(grid, lavaland.Owner, offset, reservedTiles, loadedDecals); // Aquila Change
         }
 
         Del(grid);

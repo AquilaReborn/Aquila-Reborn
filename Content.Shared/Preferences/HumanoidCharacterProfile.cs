@@ -149,14 +149,6 @@ namespace Content.Shared.Preferences
         [DataField]
         public Gender Gender { get; private set; } = Gender.Male;
 
-        // Aquila Change start
-        [DataField]
-        public float Height { get; set; } = 1f;
-
-        [DataField]
-        public float Width { get; set; } = 1f;
-        // Aquila Change end
-
         /// <summary>
         /// <see cref="Appearance"/>
         /// </summary>
@@ -380,13 +372,6 @@ namespace Content.Shared.Preferences
             return new(this) { FlavorText = flavorText };
         }
 
-        // Aquila Change start
-        public HumanoidCharacterProfile WithOocNotes(string oocNotes)
-        {
-            return new(this) { OocNotes = oocNotes };
-        }
-        // Aquila Change end
-
         public HumanoidCharacterProfile WithAge(int age)
         {
             return new(this) { Age = age };
@@ -406,18 +391,6 @@ namespace Content.Shared.Preferences
         {
             return new(this) { Species = species };
         }
-
-        // Aquila Change start
-        public HumanoidCharacterProfile WithHeight(float height)
-        {
-            return new(this) { Height = height };
-        }
-
-        public HumanoidCharacterProfile WithWidth(float width)
-        {
-            return new(this) { Width = width };
-        }
-        // Aquila Change end
 
         // CorvaxGoob-TTS-Start
         public HumanoidCharacterProfile WithVoice(string voice)
@@ -705,23 +678,8 @@ namespace Content.Shared.Preferences
                 flavortext = FormattedMessage.RemoveMarkupOrThrow(FlavorText);
             }
 
-            // Aquila Change start
-            var maxOocNotesLength = configManager.GetCVar(CCVars.MaxFlavorTextLength);
-            var oocNotes = FormattedMessage.RemoveMarkupOrThrow(OocNotes);
-            if (oocNotes.Length > maxOocNotesLength)
-                oocNotes = oocNotes[..maxOocNotesLength];
-
-            var barkVoice = BarkVoice;
-            if (!prototypeManager.TryIndex(barkVoice, out var bark)
-                || !bark.RoundStart
-                || bark.SpeciesWhitelist != null && !bark.SpeciesWhitelist.Contains(Species))
-            {
-                barkVoice = prototypeManager.EnumeratePrototypes<BarkPrototype>()
-                    .Where(o => o.RoundStart && (o.SpeciesWhitelist is null || o.SpeciesWhitelist.Contains(Species)))
-                    .Select(o => (ProtoId<BarkPrototype>) o.ID)
-                    .FirstOrDefault(SharedHumanoidAppearanceSystem.DefaultBarkVoice);
-            }
-            // Aquila Change end
+            var oocNotes = GetValidOocNotes(configManager); // Aquila Change
+            var barkVoice = GetValidBarkVoice(prototypeManager); // Aquila Change
 
             // Aquila Change start
             var height = Math.Clamp(Height, speciesPrototype.MinHeight, speciesPrototype.MaxHeight);

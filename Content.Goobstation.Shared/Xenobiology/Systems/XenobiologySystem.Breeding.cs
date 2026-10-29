@@ -190,13 +190,7 @@ public partial class XenobiologySystem
             _appearance.SetData(newEntityUid, XenoSlimeVisuals.Shader, newSlime.Shader);
 
         _appearance.SetData(newEntityUid, XenoSlimeVisuals.Color, newSlime.SlimeColor);
-        // Aquila Change start
-        var breedName = Loc.GetString(newBreed.BreedName);
-        if (TryComp<MobGrowthComponent>(newEntityUid, out var growth))
-            growth.BaseEntityName = breedName;
-
-        _meta.SetEntityName(newEntityUid, breedName);
-        // Aquila Change end
+        ApplyBreedName(newEntityUid, newBreed); // Aquila Change
 
         return (newEntityUid, newSlime);
     }

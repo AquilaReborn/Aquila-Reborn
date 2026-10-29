@@ -42,8 +42,8 @@ public sealed class VacuumChatSystem : EntitySystem
             return VacuumHearing.Air;
 
         if (_proto.TryIndex(SettingsId, out var settings)
-            && HasSealedHelmet(source)
-            && HasSealedHelmet(listener)
+            && HasSealedHelmet(source, settings)
+            && HasSealedHelmet(listener, settings)
             && _transform.InRange(source, listener, settings.SuitCommsRange))
             return VacuumHearing.SuitComms;
 
@@ -65,8 +65,8 @@ public sealed class VacuumChatSystem : EntitySystem
         args.Cancelled = true;
     }
 
-    private bool HasSealedHelmet(EntityUid uid)
+    private bool HasSealedHelmet(EntityUid uid, VacuumAudioPrototype settings)
     {
-        return _inventory.TryGetSlotEntity(uid, "head", out var head) && HasComp<PressureProtectionComponent>(head);
+        return _inventory.TryGetSlotEntity(uid, settings.HelmetSlot, out var head) && HasComp<PressureProtectionComponent>(head);
     }
 }

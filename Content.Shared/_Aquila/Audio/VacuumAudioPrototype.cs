@@ -41,4 +41,10 @@ public sealed partial class VacuumAudioPrototype : IPrototype
     /// </summary>
     [DataField]
     public float SuitCommsRange = 7f;
+
+    /// <summary>
+    /// Слот, в котором должен быть герметичный шлем для локальной связи.
+    /// </summary>
+    [DataField]
+    public string HelmetSlot = "head";
 }

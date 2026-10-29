@@ -18,7 +18,6 @@ public sealed partial class MegafaunaSystem : EntitySystem
 
     private EntityQuery<AggressiveComponent> _aggressiveQuery;
 
-    private readonly List<(TimeSpan Time, MegafaunaSelector Action)> _dueActions = new(); // Aquila Change
 
     protected override string SawmillName => "megafauna";
 
@@ -47,14 +46,7 @@ public sealed partial class MegafaunaSystem : EntitySystem
                 continue;
 
             // TODO when there's more than just hierophant make this a CPU job or make it parallel idk whatever is faster
-            // Aquila Change start
-            _dueActions.Clear();
-            foreach (var (time, action) in ai.Schedule)
-            {
-                if (time <= curTime)
-                    _dueActions.Add((time, action));
-            }
-            // Aquila Change end
+            CollectDueActions(ai, curTime); // Aquila Change
 
             foreach (var (time, action) in _dueActions) // Aquila Change
             {

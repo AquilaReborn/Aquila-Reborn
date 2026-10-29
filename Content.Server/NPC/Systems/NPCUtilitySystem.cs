@@ -46,15 +46,13 @@ using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.EntityEffects.Effects.Body;
 using Content.Shared.EntityEffects.Effects.Solution; // Goobstation end
-using Content.Shared.Body.Organ; // Aquila Change
-using Content.Shared.Body.Prototypes; // Aquila Change
 
 namespace Content.Server.NPC.Systems;
 
 /// <summary>
 /// Handles utility queries for NPCs.
 /// </summary>
-public sealed class NPCUtilitySystem : EntitySystem
+public sealed partial class NPCUtilitySystem : EntitySystem // Aquila Change
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
@@ -87,13 +85,6 @@ public sealed class NPCUtilitySystem : EntitySystem
     private List<EntityUid> _entityList = new();
     private HashSet<Entity<IComponent>> _entitySet = new();
     private List<EntityPrototype.ComponentRegistryEntry> _compTypes = new();
-
-    // Aquila Change start
-    private readonly Queue<ReagentQuantity> _foodReagentQueue = new();
-    private readonly HashSet<ReagentPrototype> _foodCheckedReagents = new();
-    private EntityUid? _metabolizersOwner;
-    private List<Entity<MetabolizerComponent, OrganComponent>>? _metabolizers;
-    // Aquila Change end
 
     public override void Initialize()
     {
@@ -217,17 +208,8 @@ public sealed class NPCUtilitySystem : EntitySystem
                     return 0f;
 
                 // no mouse don't eat the uranium-235
-                // Aquila Change start
-                if (avoidBadFood && HasComp<BadFoodComponent>(targetUid))
-                    return 0f;
-
-                var foodUtility = TotalFoodUtilityConditioned(targetUid, owner);
-                if (avoidBadFood && foodUtility.IsToxic)
-                    return 0f;
-
-                if (foodUtility.TotalNutrition <= 0.0f)
-                    return 0f;
-                // Aquila Change end
+                if (!IsFoodWorthEating(targetUid, owner, avoidBadFood)) // Aquila Change
+                    return 0f; // Aquila Change
 
                 return 1f;
             }
@@ -243,20 +225,8 @@ public sealed class NPCUtilitySystem : EntitySystem
                     return 0f;
 
                 // no janicow don't drink the blood puddle
-                // Aquila Change start
-                if (HasComp<BadDrinkComponent>(targetUid))
-                    return 0f;
-
-                var drinkUtility = TotalFoodUtilityConditioned(targetUid, owner);
-                if (drinkUtility.IsToxic)
-                    return 0f;
-
-                // needs to have something that will satiate thirst, mice wont try to drink 100% pure mutagen.
-                // We don't check if the solution is metabolizable cause all drinks should be currently.
-                // If that changes then simply use the other overflow.
-                if (drinkUtility.TotalHydration <= 1.0f)
-                    return 0f;
-                // Aquila Change end
+                if (!IsDrinkWorthDrinking(targetUid, owner)) // Aquila Change
+                    return 0f; // Aquila Change
 
                 return 1f;
             }
@@ -671,12 +641,7 @@ public sealed class NPCUtilitySystem : EntitySystem
         if (!_solutions.TryGetSolution(ingestable.Owner, ingestable.Comp.Solution, out var solutionComp, out var solution))
             return utilityParams;
 
-        // Aquila Change start
-        var queue = _foodReagentQueue;
-        var alreadychecked = _foodCheckedReagents;
-        queue.Clear();
-        alreadychecked.Clear();
-        // Aquila Change end
+        var (queue, alreadychecked) = GetClearedFoodBuffers(); // Aquila Change
 
         foreach (var quantity in solution.Contents)
             queue.Enqueue(quantity);
@@ -693,20 +658,12 @@ public sealed class NPCUtilitySystem : EntitySystem
 
             foreach (var (metabolism, entry) in reagent.Metabolisms)
             {
-                // Aquila Change start
-                EntityUid? metabolizingOrgan = null;
-                var organResolved = false;
-                // Aquila Change end
+                EntityUid? metabolizingOrgan = null; // Aquila Change
+                var organResolved = false; // Aquila Change
 
                 foreach (var effect in entry.Effects)
                 {
-                    // Aquila Change start
-                    if (effect.Conditions != null && !organResolved)
-                    {
-                        metabolizingOrgan = GetMetabolizingOrgan(consumer, metabolism);
-                        organResolved = true;
-                    }
-                    // Aquila Change end
+                    ResolveMetabolizingOrgan(effect.Conditions != null, consumer, metabolism, ref organResolved, ref metabolizingOrgan); // Aquila Change
 
                     if (effect.Conditions != null
                         && metabolizingOrgan != null
@@ -738,37 +695,6 @@ public sealed class NPCUtilitySystem : EntitySystem
 
         return utilityParams;
     } // Goobstation end
-
-    // Aquila Change start
-    private EntityUid? GetMetabolizingOrgan(EntityUid consumer, ProtoId<MetabolismGroupPrototype> metabolism)
-    {
-        if (_metabolizersOwner != consumer)
-        {
-            _metabolizersOwner = consumer;
-            _metabolizers = null;
-
-            if (HasComp<BodyComponent>(consumer))
-                _body.TryGetBodyOrganEntityComps<MetabolizerComponent>(consumer, out _metabolizers);
-        }
-
-        if (_metabolizers == null)
-            return null;
-
-        foreach (var organ in _metabolizers)
-        {
-            if (organ.Comp1.MetabolismGroups == null)
-                continue;
-
-            foreach (var group in organ.Comp1.MetabolismGroups)
-            {
-                if (group.Id == metabolism)
-                    return organ.Owner;
-            }
-        }
-
-        return null;
-    }
-    // Aquila Change end
 }
 
 public readonly record struct UtilityResult(Dictionary<EntityUid, float> Entities)

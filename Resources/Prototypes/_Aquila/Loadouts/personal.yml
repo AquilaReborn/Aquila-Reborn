@@ -118,6 +118,15 @@
     - Warden
   equipment:
     outerClothing: ClothingOuterCoatWardenWedge
+
+- type: loadout
+  id: PersonalLoadoutMcDonaldsBlackDivisionUniform
+  effects:
+  - !type:PersonalLoadoutEffect
+    users:
+    - e6512798-ab5c-4e57-a411-bd9a8e4ffcf7
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitBlackDivision
 # McDonaldsObamaBurger
 
 # gleb_debrucho

@@ -27,7 +27,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Database
 {
-    public abstract class ServerDbBase
+    public abstract partial class ServerDbBase // Aquila Change
     {
         private readonly ISawmill _opsLog;
         public event Action<DatabaseNotification>? OnNotificationReceived;
@@ -83,29 +83,7 @@ namespace Content.Server.Database
             await db.DbContext.SaveChangesAsync();
         }
 
-        // Aquila Change start
-        public async Task SaveCharacterSlotAsync(NetUserId userId, ICharacterProfile? profile, int slot)
-        {
-            for (var attempt = 1; ; attempt++)
-            {
-                try
-                {
-                    await SaveCharacterSlotOnceAsync(userId, profile, slot);
-                    return;
-                }
-                catch (DbUpdateConcurrencyException e)
-                {
-                    if (attempt < 3)
-                        continue;
-
-                    _opsLog.Error($"Failed to save character slot {slot} for {userId} after {attempt} attempts: {e.Message}");
-                    return;
-                }
-            }
-        }
-
-        private async Task SaveCharacterSlotOnceAsync(NetUserId userId, ICharacterProfile? profile, int slot)
-        // Aquila Change end
+        private async Task SaveCharacterSlotOnceAsync(NetUserId userId, ICharacterProfile? profile, int slot) // Aquila Change
         {
             await using var db = await GetDb();
 
@@ -363,25 +341,7 @@ namespace Content.Server.Database
                     .Select(j => new Job { JobName = j.Key, Priority = (DbJobPriority) j.Value })
             );
 
-            // Aquila Change start
-            var newAntags = humanoid.AntagPreferences.Select(a => a.Id).ToHashSet();
-            profile.Antags.RemoveAll(a => !newAntags.Contains(a.AntagName));
-            var oldAntags = profile.Antags.Select(a => a.AntagName).ToHashSet();
-            profile.Antags.AddRange(
-                newAntags
-                    .Where(a => !oldAntags.Contains(a))
-                    .Select(a => new Antag { AntagName = a })
-            );
-
-            var newTraits = humanoid.TraitPreferences.Select(t => t.Id).ToHashSet();
-            profile.Traits.RemoveAll(t => !newTraits.Contains(t.TraitName));
-            var oldTraits = profile.Traits.Select(t => t.TraitName).ToHashSet();
-            profile.Traits.AddRange(
-                newTraits
-                    .Where(t => !oldTraits.Contains(t))
-                    .Select(t => new Trait { TraitName = t })
-            );
-            // Aquila Change end
+            SyncAntagsAndTraits(profile, humanoid); // Aquila Change
 
             profile.BarkVoice = humanoid.BarkVoice; // Goob Station - Barks // Aquila Change
 

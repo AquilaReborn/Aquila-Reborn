@@ -268,16 +268,8 @@ public partial class AirAlarmSystem : EntitySystem
         if (!this.IsPowered(uid, EntityManager))
             return;
 
-        // Aquila Change start
-        if (!args.Handled)
-        {
-            _ui.OpenUi(uid, SharedAirAlarmInterfaceKey.Key, args.User);
-            args.Handled = true;
-        }
-
-        if (!_ui.IsUiOpen(uid, SharedAirAlarmInterfaceKey.Key))
-            return;
-        // Aquila Change end
+        if (!TryOpenAirAlarmUi(uid, args)) // Aquila Change
+            return; // Aquila Change
 
         AddActiveInterface(uid);
         SyncAllDevices(uid);

@@ -3,12 +3,11 @@ using Content.Shared._EinsteinEngines.Silicon.Charge;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Weapons.Ranged;
-using Content.Shared._Aquila.Power; // Aquila Change
 
 namespace Content.Shared._EinsteinEngines.Power.Systems;
 
 // Goobstation - Energycrit: BatteryDrinkerSystem verb prediction
-public abstract class SharedBatteryDrinkerSystem : EntitySystem
+public abstract partial class SharedBatteryDrinkerSystem : EntitySystem // Aquila Change
 {
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
 
@@ -44,15 +43,8 @@ public abstract class SharedBatteryDrinkerSystem : EntitySystem
     {
         drinker = null;
 
-        // Aquila Change start
-        var findEv = new FindDrinkerBatteryEvent();
-        RaiseLocalEvent(ent, ref findEv);
-        if (findEv.Battery is { } found)
-        {
-            drinker = found;
-            return true;
-        }
-        // Aquila Change end
+        if (TryFindDrinkerBattery(ent, out drinker)) // Aquila Change
+            return true; // Aquila Change
 
         // Do we have a cell slot
         if (SearchForCellSlot(ent, out var slot)) {

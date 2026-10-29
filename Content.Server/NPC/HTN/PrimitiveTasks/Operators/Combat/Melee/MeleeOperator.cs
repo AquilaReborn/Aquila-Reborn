@@ -39,9 +39,15 @@ public sealed partial class MeleeOperator : HTNOperator, IHtnConditionalShutdown
     public override void Startup(NPCBlackboard blackboard)
     {
         base.Startup(blackboard);
+        // Aquila Start
+        // Guard against a race where the target was removed from the blackboard
+        if (!blackboard.TryGetValue<EntityUid>(TargetKey, out var target, _entManager) || !_entManager.EntityExists(target))
+            return;
+        // Aquila End
         var melee = _entManager.EnsureComponent<NPCMeleeCombatComponent>(blackboard.GetValue<EntityUid>(NPCBlackboard.Owner));
         melee.MissChance = blackboard.GetValueOrDefault<float>(NPCBlackboard.MeleeMissChance, _entManager);
         melee.Target = blackboard.GetValue<EntityUid>(TargetKey);
+        melee.Target = target; // Aquila Change: use the value we already safely fetched above
     }
 
     public override async Task<(bool Valid, Dictionary<string, object>? Effects)> Plan(NPCBlackboard blackboard,

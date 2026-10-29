@@ -30,29 +30,7 @@ public sealed partial class NanoChatLookupView : PanelContainer
         for (var idx = 0; idx < contacts.Count; idx++)
         {
             var contact = contacts[idx];
-            // Aquila Change start
-            var nameLabel = new Label()
-            {
-                Text = contact.Name,
-                HorizontalExpand = true,
-                ClipText = true,
-                VerticalAlignment = VAlignment.Center,
-                Margin = new Thickness(4, 0, 4, 0),
-            };
-            var numberLabel = new Label()
-            {
-                Text = $"#{contacts[idx].Number:D4}",
-                VerticalAlignment = VAlignment.Center,
-                Margin = new Thickness(0, 0, 4, 0),
-            };
-            var startChatButton = new Button()
-            {
-                Text = "+",
-                MinSize = new Vector2(32, 32),
-                MaxSize = new Vector2(32, 32),
-                ToolTip = Loc.GetString("nano-chat-new-chat"),
-            };
-            // Aquila Change end
+            var (nameLabel, numberLabel, startChatButton) = CreateContactControls(contact); // Aquila Change
             startChatButton.AddStyleClass("OpenBoth");
             if (contact.Number == state.OwnNumber || state.Recipients.ContainsKey(contact.Number) || state.MaxRecipients <= state.Recipients.Count)
             {
@@ -65,17 +43,7 @@ public sealed partial class NanoChatLookupView : PanelContainer
                 HorizontalExpand = true,
             };
 
-            // Aquila Change start
-            var row = new BoxContainer()
-            {
-                Orientation = BoxContainer.LayoutOrientation.Horizontal,
-                HorizontalExpand = true,
-            };
-            row.AddChild(nameLabel);
-            row.AddChild(numberLabel);
-            row.AddChild(startChatButton);
-            panel.AddChild(row);
-            // Aquila Change end
+            panel.AddChild(CreateContactRow(nameLabel, numberLabel, startChatButton)); // Aquila Change
 
             var styleClass = idx % 2 == 0 ? "PanelBackgroundBaseDark" : "PanelBackgroundLight";
             panel.StyleClasses.Add(styleClass);

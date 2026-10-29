@@ -7,7 +7,6 @@ using Content.Shared.Ghost;
 using Content.Shared.Mind.Components;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
-using Robust.Shared.Configuration; // Aquila Change
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
 
@@ -16,23 +15,16 @@ namespace Content.Server.Worldgen.Systems;
 /// <summary>
 ///     This handles putting together chunk entities and notifying them about important changes.
 /// </summary>
-public sealed class WorldControllerSystem : EntitySystem
+public sealed partial class WorldControllerSystem : EntitySystem // Aquila Change
 {
     [Dependency] private readonly TransformSystem _xformSys = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!; // Aquila Change
 
     private const int PlayerLoadRadius = 2;
 
     private ISawmill _sawmill = default!;
-
-    // Aquila Change start
-    private float _loadBudget;
-
-    private readonly List<(EntityUid Map, Vector2i Chunk, List<EntityUid> Loaders, int Priority)> _pendingChunks = new();
-    // Aquila Change end
 
     /// <inheritdoc />
     public override void Initialize()
@@ -191,87 +183,12 @@ public sealed class WorldControllerSystem : EntitySystem
             return;
 
         var startTime = _gameTiming.RealTime;
-        var count = 0;
+        // var count = 0; // Aquila Change
         var loadedQuery = GetEntityQuery<LoadedChunkComponent>();
         var controllerQuery = GetEntityQuery<WorldControllerComponent>();
 
-        // Aquila Change start
-        _pendingChunks.Clear();
-        foreach (var (map, chunks) in chunksToLoad)
-        {
-            var controller = controllerQuery.GetComponent(map);
-            var priorities = chunkPriority[map];
-            foreach (var (chunk, loaders) in chunks)
-            {
-                if (controller.Chunks.TryGetValue(chunk, out var existing)
-                    && loadedQuery.TryGetComponent(existing, out var loaded))
-                {
-                    loaded.Loaders = loaders;
-                    continue;
-                }
-
-                _pendingChunks.Add((map, chunk, loaders, priorities[chunk]));
-            }
-        }
-
-        if (_pendingChunks.Count == 0)
-            return;
-
-        _pendingChunks.Sort(static (a, b) => a.Priority.CompareTo(b.Priority));
-        var budget = _loadBudget > 0 ? TimeSpan.FromMilliseconds(_loadBudget) : TimeSpan.MaxValue;
-
-        foreach (var (map, chunk, loaders, priority) in _pendingChunks)
-        {
-            if (priority >= 0 && _gameTiming.RealTime - startTime > budget)
-                break;
-
-            var controller = controllerQuery.GetComponent(map);
-            var ent = GetOrCreateChunk(chunk, map, controller); // Ensure everything loads.
-            if (ent is null)
-                continue;
-
-            if (!loadedQuery.TryGetComponent(ent.Value, out var c))
-            {
-                c = AddComp<LoadedChunkComponent>(ent.Value);
-                count += 1;
-            }
-
-            c.Loaders = loaders;
-        }
-
-        if (count > 0)
-        {
-            var timeSpan = _gameTiming.RealTime - startTime;
-            var remaining = _pendingChunks.Count - count;
-            _sawmill.Debug(remaining > 0
-                ? $"Loaded {count} chunks in {timeSpan.TotalMilliseconds:N2}ms, {remaining} left for the next ticks."
-                : $"Loaded {count} chunks in {timeSpan.TotalMilliseconds:N2}ms.");
-        }
-        // Aquila Change end
+        LoadChunksByPriority(chunksToLoad, chunkPriority, startTime, loadedQuery, controllerQuery); // Aquila Change
     }
-
-    // Aquila Change start
-    private static void AddLoader(
-        Dictionary<Vector2i, List<EntityUid>> set,
-        Dictionary<Vector2i, int> priorities,
-        Vector2i chunk,
-        EntityUid loader,
-        int priority)
-    {
-        if (!set.TryGetValue(chunk, out var loaders))
-        {
-            loaders = new List<EntityUid>(4);
-            set[chunk] = loaders;
-            priorities[chunk] = priority;
-        }
-        else if (priority < priorities[chunk])
-        {
-            priorities[chunk] = priority;
-        }
-
-        loaders.Add(loader);
-    }
-    // Aquila Change end
 
     /// <summary>
     ///     Attempts to get a chunk, creating it if it doesn't exist.

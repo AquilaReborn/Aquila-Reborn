@@ -2,7 +2,7 @@
   id: ActionSummonVines
   name: Summon Vines
   description: Summons a vine within a certain radius that significantly slows down enemies. It can also slow you down, so use it with precision.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Action
     icon:

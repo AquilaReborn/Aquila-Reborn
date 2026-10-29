@@ -1,5 +1,4 @@
 using System.Numerics;
-using Content.Client._Aquila.PDA; // Aquila Change
 using Content.Client.Stylesheets.Palette;
 using Content.Client.Stylesheets.SheetletConfigs;
 using Content.Client.Stylesheets.Stylesheets;
@@ -11,7 +10,7 @@ using static Content.Client.Stylesheets.StylesheetHelpers;
 namespace Content.Client.Stylesheets.Sheetlets;
 
 [CommonSheetlet]
-public sealed class ButtonSheetlet<T> : Sheetlet<T> where T : PalettedStylesheet, IButtonConfig, IIconConfig
+public sealed partial class ButtonSheetlet<T> : Sheetlet<T> where T : PalettedStylesheet, IButtonConfig, IIconConfig // Aquila Change
 {
     public override StyleRule[] GetRules(T sheet, object config)
     {
@@ -75,22 +74,7 @@ public sealed class ButtonSheetlet<T> : Sheetlet<T> where T : PalettedStylesheet
         MakeButtonRules(rules, buttonCfg.PositiveButtonPalette, StyleClass.Positive);
         MakeButtonRules(rules, buttonCfg.NegativeButtonPalette, StyleClass.Negative);
 
-        // Aquila Change start
-        MakeButtonRules(rules, new ColorPalette(
-            Base: PdaStyle.Selected,
-            LightnessShift: 0f,
-            ChromaShift: 0f,
-            Background: PdaStyle.Selected,
-            BackgroundLight: PdaStyle.Hover,
-            BackgroundDark: PdaStyle.BackgroundSecondary,
-            Text: PdaStyle.TextHeader,
-            TextDark: PdaStyle.TextMuted,
-            Element: PdaStyle.Selected,
-            HoveredElement: PdaStyle.AccentDark,
-            PressedElement: PdaStyle.AccentDarker,
-            DisabledElement: PdaStyle.BackgroundSecondary
-            ), "GreenPDAPalette");
-        // Aquila Change end
+        AddAquilaButtonRules(rules); // Aquila Change
 
         return rules.ToArray();
     }

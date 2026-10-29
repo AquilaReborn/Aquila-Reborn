@@ -1,8 +1,8 @@
-[net]
-tickrate = 30
+# [net] # Aquila Change
+# tickrate = 30 # Aquila Change
 
-[netres]
-limit = 25.0
+# [netres] # Aquila Change
+# limit = 25.0 # Aquila Change
 
 [infolinks]
 discord = "https://discord.ss14.ru"
@@ -16,25 +16,25 @@ website = "https://ss14.ru"
 [viewport]
 maximum_width = 26
 
-[game]
-lobbyduration = 240
-map_pool = "CorvaxMapPool"
-round_restart_time = 120
-fallbackpreset = "secret"
-defaultpreset = "secret"
+# [game] # Aquila Change
+# lobbyduration = 240 # Aquila Change
+# map_pool = "CorvaxMapPool" # Aquila Change
+# round_restart_time = 120 # Aquila Change
+# fallbackpreset = "secret" # Aquila Change
+# defaultpreset = "secret" # Aquila Change
 
 [events]
 enabled = true
 
-[server]
-rules_file = "CorvaxRuleset"
+# [server] # Aquila Change
+# rules_file = "CorvaxRuleset" # Aquila Change
 
 [discord]
 rich_main_icon_id = "corvax"
 
-[admin]
-see_own_notes = true
-admins_count_in_playercount = true
+# [admin] # Aquila Change
+# see_own_notes = true # Aquila Change
+# admins_count_in_playercount = true # Aquila Change
 
 [contraband]
 icons_enabled = true
@@ -84,6 +84,7 @@ enabled = true
 # connectaddress = "udp://localhost:1212"
 
 [game]
+lobbyduration = 240 # Aquila Change
 role_loadout_timers = false
 hostname = "Акила Стейшен | Играем Метакомпашкой"
 desc = "яндекс верните 450 рублей!!1!"
@@ -177,6 +178,7 @@ emergency_early_launch_allowed = 1
 enabled = 0 # Aquila Change
 
 [admin]
+admins_count_in_playercount = true # Aquila Change
 see_own_notes = 1
 deadmin_on_join = 1
 bypass_max_players = 1

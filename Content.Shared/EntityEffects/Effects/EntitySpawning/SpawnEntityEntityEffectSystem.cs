@@ -1,9 +1,4 @@
-using Robust.Shared.Containers; // Aquila Change
-using Robust.Shared.Map; // Aquila Change
 using Robust.Shared.Network;
-using Robust.Shared.Physics.Components; // Aquila Change
-using Robust.Shared.Physics.Systems; // Aquila Change
-using Robust.Shared.Prototypes; // Aquila Change
 
 namespace Content.Shared.EntityEffects.Effects.EntitySpawning;
 
@@ -15,9 +10,6 @@ namespace Content.Shared.EntityEffects.Effects.EntitySpawning;
 public sealed partial class SpawnEntityEntityEffectSystem : EntityEffectSystem<TransformComponent, SpawnEntity>
 {
     [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!; // Aquila Change
-    [Dependency] private readonly SharedContainerSystem _container = default!; // Aquila Change
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!; // Aquila Change
 
     protected override void Effect(Entity<TransformComponent> entity, ref EntityEffectEvent<SpawnEntity> args)
     {
@@ -39,23 +31,6 @@ public sealed partial class SpawnEntityEntityEffectSystem : EntityEffectSystem<T
             }
         }
     }
-
-    // Aquila Change start
-    private void RestoreCollision(EntityUid uid, EntProtoId proto)
-    {
-        if (!TryComp<PhysicsComponent>(uid, out var body)
-            || body.CanCollide
-            || Transform(uid).MapID == MapId.Nullspace
-            || _container.IsEntityOrParentInContainer(uid))
-            return;
-
-        if (!_proto.Index(proto).TryGetComponent<PhysicsComponent>(out var protoBody, EntityManager.ComponentFactory)
-            || !protoBody.CanCollide)
-            return;
-
-        _physics.SetCanCollide(uid, true, body: body);
-    }
-    // Aquila Change end
 }
 
 /// <inheritdoc cref="BaseSpawnEntityEntityEffect{T}"/>

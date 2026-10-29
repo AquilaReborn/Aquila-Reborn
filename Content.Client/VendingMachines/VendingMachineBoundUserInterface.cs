@@ -1,18 +1,16 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Client._Aquila.Economy; // Aquila Change
 using Content.Client.UserInterface.Controls;
 using Content.Shared._Aquila.Economy.Components; // Aquila Change
 using Content.Client.VendingMachines.UI;
 using Content.Shared.VendingMachines;
 using Robust.Client.UserInterface;
 using Robust.Shared.Input;
-using Robust.Shared.Prototypes; // Aquila Change
 using System.Linq;
 
 namespace Content.Client.VendingMachines
 {
-    public sealed class VendingMachineBoundUserInterface : BoundUserInterface
+    public sealed partial class VendingMachineBoundUserInterface : BoundUserInterface // Aquila Change
     {
         [ViewVariables]
         private VendingMachineMenu? _menu;
@@ -75,18 +73,6 @@ namespace Content.Client.VendingMachines
 
             SendPredictedMessage(new VendingMachineEjectMessage(selectedItem.Type, selectedItem.ID));
         }
-
-        // Aquila Change start
-        private string? GetPriceLabel(EntityUid player, EntProtoId item, InventoryType type)
-        {
-            var paid = EntMan.System<PaidVendingMachineSystem>();
-            if (!paid.CanBuy(Owner, player, item, type))
-                return Loc.GetString("vending-paid-restricted-label");
-
-            var price = paid.GetPriceFor(Owner, player, item);
-            return price > 0 ? Loc.GetString("vending-paid-price", ("price", price)) : null;
-        }
-        // Aquila Change end
 
         protected override void Dispose(bool disposing)
         {

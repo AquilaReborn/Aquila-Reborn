@@ -29,6 +29,7 @@
     state: pda
   - type: Pda
   - type: PdaBorderColor
+    borderColor: "#717059"
 
 
 #Federation access

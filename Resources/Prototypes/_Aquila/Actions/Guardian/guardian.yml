@@ -1,0 +1,14 @@
+- type: entity
+  parent: BaseMentalAction
+  id: ActionGuardianOrders
+  name: Orders to the guardian
+  description: Opens the command selection wheel for the guardian.
+  components:
+  - type: Action
+    icon: Interface/Actions/manifest.png
+    useDelay: 0.5
+    checkCanInteract: false
+    checkConsciousness: false
+    clientExclusive: true
+  - type: InstantAction
+    event: !type:GuardianToggleOrdersActionEvent

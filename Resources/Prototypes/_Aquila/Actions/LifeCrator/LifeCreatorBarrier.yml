@@ -2,7 +2,7 @@
   id: ActionSpawnBarrier
   name: Create a walls
   description: Creates a wall segment at the click location. Middle mouse button — changes orientation (horizontal/vertical).
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Action
     useDelay: 3
