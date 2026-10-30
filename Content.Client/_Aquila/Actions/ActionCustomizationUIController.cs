@@ -4,13 +4,15 @@ using Content.Client._Aquila.Actions.DataDefinitions;
 using Content.Client.Actions;
 using Content.Client.Gameplay;
 using Content.Client.Interaction;
-using Content.Client.Popups;
+using Content.Client.Stylesheets.Palette;
+using Content.Client.UserInterface.Systems.Chat;
 using Content.Client.UserInterface.Systems.Actions;
 using Content.Client.UserInterface.Systems.Actions.Controls;
 using Content.Client.UserInterface.Systems.Actions.Widgets;
 using Content.Client.UserInterface.Systems.Gameplay;
 using Content.Shared.Actions.Components;
 using Content.Shared.Input;
+using Content.Shared.Chat;
 using Robust.Client.Input;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
@@ -38,11 +40,13 @@ public sealed class ActionCustomizationUIController : UIController, IOnStateChan
     [Dependency] private readonly ISerializationManager _serialization = default!;
 
     [UISystemDependency] private readonly ActionsSystem? _actionsSystem = default;
-    [UISystemDependency] private readonly PopupSystem? _popup = default;
 
     private static readonly ResPath SavePath = new("/aquila_action_customization.yml");
     private static readonly Vector2 ButtonSize = new(64, 64);
     private const string BindSeparator = "+";
+    private static readonly LocId BindWaitingLoc = "aquila-action-bind-waiting";
+    private static readonly LocId BindConflictLoc = "aquila-action-bind-conflict";
+    private const string KeyFunctionLocPrefix = "ui-options-function-";
 
     private readonly DragDropHelper<ActionButton> _dragHelper;
     private readonly Dictionary<EntProtoId, ActionButton> _floatingButtons = new();
@@ -50,6 +54,13 @@ public sealed class ActionCustomizationUIController : UIController, IOnStateChan
     private LayoutContainer? _floatingRoot;
     private ActionButton? _dragShadow;
     private EntProtoId? _capturingFor;
+
+    private ActionUIController ActionUI => UIManager.GetUIController<ActionUIController>();
+
+    /// <summary>
+    /// Вызывается, когда собственные бинды действий изменились.
+    /// </summary>
+    public event Action? BindsChanged;
 
     /// <summary>
     /// Создаёт контроллер и помощник перетаскивания кнопок.
@@ -168,7 +179,7 @@ public sealed class ActionCustomizationUIController : UIController, IOnStateChan
 
         if (_capturingFor == proto)
         {
-            button.CustomBindLabel.Text = Loc.GetString("aquila-action-bind-waiting");
+            button.CustomBindLabel.Text = Loc.GetString(BindWaitingLoc);
             button.CustomBindLabel.Visible = true;
             return;
         }
@@ -181,6 +192,46 @@ public sealed class ActionCustomizationUIController : UIController, IOnStateChan
 
         button.CustomBindLabel.Text = GetBindString(entry);
         button.CustomBindLabel.Visible = true;
+    }
+
+    /// <summary>
+    /// Собирает назначенные собственные бинды: прототип действия и строку бинда.
+    /// </summary>
+    public List<(EntProtoId Action, string Bind)> GetActionBinds()
+    {
+        var binds = new List<(EntProtoId Action, string Bind)>();
+        foreach (var (proto, entry) in _data.Actions)
+        {
+            if (entry.Key != null)
+                binds.Add((proto, GetBindString(entry)));
+        }
+
+        return binds;
+    }
+
+    /// <summary>
+    /// Сбрасывает собственный бинд действия.
+    /// </summary>
+    public void ClearBind(EntProtoId action)
+    {
+        if (!_data.Actions.TryGetValue(action, out var entry) || entry.Key == null)
+            return;
+
+        ResetEntryBind(entry);
+        OnBindsModified();
+    }
+
+    /// <summary>
+    /// Сбрасывает собственные бинды всех действий. Вынесенные на экран кнопки остаются на месте.
+    /// </summary>
+    public void ClearAllBinds()
+    {
+        foreach (var entry in _data.Actions.Values)
+        {
+            ResetEntryBind(entry);
+        }
+
+        OnBindsModified();
     }
 
     private void OnScreenLoad()
@@ -294,7 +345,7 @@ public sealed class ActionCustomizationUIController : UIController, IOnStateChan
             return;
 
         args.Handle();
-        UIManager.GetUIController<ActionUIController>().TriggerAction(action);
+        ActionUI.TriggerAction(action);
     }
 
     private void OnFirstChanceKeyEvent(KeyEventArgs keyEvent, KeyEventType type)
@@ -367,7 +418,6 @@ public sealed class ActionCustomizationUIController : UIController, IOnStateChan
     private void StartCapture(EntProtoId proto)
     {
         _capturingFor = proto;
-        _popup?.PopupCursor(Loc.GetString("aquila-action-bind-start"));
         RefreshBindLabels();
     }
 
@@ -413,7 +463,7 @@ public sealed class ActionCustomizationUIController : UIController, IOnStateChan
             foreach (var (otherProto, otherEntry) in _data.Actions)
             {
                 if (otherProto != proto && IsBindPressed(otherEntry, keyEvent))
-                    otherEntry.Key = null;
+                    ResetEntryBind(otherEntry);
             }
         }
 
@@ -423,13 +473,79 @@ public sealed class ActionCustomizationUIController : UIController, IOnStateChan
         entry.Control = keyEvent?.Control ?? false;
         entry.Alt = keyEvent?.Alt ?? false;
 
-        var message = keyEvent == null
-            ? Loc.GetString("aquila-action-bind-cleared")
-            : Loc.GetString("aquila-action-bind-set", ("key", GetBindString(entry)));
-        _popup?.PopupCursor(message);
+        if (keyEvent != null)
+        {
+            var conflicts = GetConflictingFunctions(entry);
+            if (conflicts.Count > 0)
+            {
+                ShowChatMessage(Loc.GetString(BindConflictLoc,
+                        ("key", GetBindString(entry)),
+                        ("functions", string.Join(", ", conflicts))),
+                    Palettes.Amber.Base);
+            }
+        }
 
+        _capturingFor = null;
+        OnBindsModified();
+    }
+
+    private void ShowChatMessage(string message, Color? color = null)
+    {
+        var chatMessage = new ChatMessage(ChatChannel.Server,
+            message,
+            FormattedMessage.EscapeText(message),
+            NetEntity.Invalid,
+            null,
+            colorOverride: color);
+
+        UIManager.GetUIController<ChatUIController>().ProcessChatMessage(chatMessage, speechBubble: false);
+    }
+
+    private void OnBindsModified()
+    {
         SaveData();
-        StopCapture();
+        RefreshBindLabels();
+        BindsChanged?.Invoke();
+    }
+
+    private static void ResetEntryBind(ActionCustomizationEntry entry)
+    {
+        entry.Key = null;
+        entry.Shift = false;
+        entry.Control = false;
+        entry.Alt = false;
+    }
+
+    private List<string> GetConflictingFunctions(ActionCustomizationEntry entry)
+    {
+        var functions = new List<string>();
+        foreach (var binding in _input.AllBindings)
+        {
+            if (binding.BaseKey != entry.Key || !HasSameModifiers(binding, entry))
+                continue;
+
+            var function = binding.Function.FunctionName;
+            var name = Loc.TryGetString(KeyFunctionLocPrefix + CaseConversion.PascalToKebab(function), out var locName)
+                ? locName
+                : function;
+
+            if (!functions.Contains(name))
+                functions.Add(name);
+        }
+
+        return functions;
+    }
+
+    private static bool HasSameModifiers(IKeyBinding binding, ActionCustomizationEntry entry)
+    {
+        return HasModifier(binding, Keyboard.Key.Control) == entry.Control &&
+               HasModifier(binding, Keyboard.Key.Shift) == entry.Shift &&
+               HasModifier(binding, Keyboard.Key.Alt) == entry.Alt;
+    }
+
+    private static bool HasModifier(IKeyBinding binding, Keyboard.Key modifier)
+    {
+        return binding.Mod1 == modifier || binding.Mod2 == modifier || binding.Mod3 == modifier;
     }
 
     private void TryTriggerBind(KeyEventArgs keyEvent, KeyEventType type)
@@ -449,7 +565,7 @@ public sealed class ActionCustomizationUIController : UIController, IOnStateChan
             keyEvent.Handle();
 
             if (type == KeyEventType.Down)
-                UIManager.GetUIController<ActionUIController>().TriggerAction(action);
+                ActionUI.TriggerAction(action);
 
             return;
         }
@@ -470,7 +586,7 @@ public sealed class ActionCustomizationUIController : UIController, IOnStateChan
             UpdateBindLabel(button);
         }
 
-        UIManager.GetUIController<ActionUIController>().QueueWindowUpdate();
+        ActionUI.QueueWindowUpdate();
     }
 
     private bool OnBeginDrag()

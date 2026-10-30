@@ -1,3 +1,4 @@
+using System.Globalization;
 using Content.Client._Aquila.Actions;
 using Content.Client.Stylesheets;
 using Content.Client.Stylesheets.Palette;
@@ -11,11 +12,12 @@ public sealed partial class ActionButton
 {
     private const string WhiteTextColor = "whiteText";
     private static readonly Color CooldownModulate = Palettes.Red.Base;
+    private static readonly TimeSpan TenthsThreshold = TimeSpan.FromSeconds(2.9);
 
     [Dependency] private readonly IGameTiming _timing = default!;
 
     private ActionCustomizationUIController? _customization;
-    private int? _shownCooldownSeconds;
+    private int? _shownCooldownTenths;
 
     private readonly Label _cooldownLabel = new()
     {
@@ -82,18 +84,29 @@ public sealed partial class ActionButton
 
         if (!onCooldown)
         {
-            _shownCooldownSeconds = null;
+            _shownCooldownTenths = null;
             return;
         }
 
-        var seconds = (int) Math.Ceiling(remaining.TotalSeconds);
-        if (_shownCooldownSeconds == seconds)
+        var showTenths = remaining <= TenthsThreshold;
+        var tenths = showTenths
+            ? (int) Math.Ceiling(remaining.TotalSeconds * 10)
+            : (int) Math.Ceiling(remaining.TotalSeconds) * 10;
+
+        if (_shownCooldownTenths == tenths)
             return;
 
-        _shownCooldownSeconds = seconds;
-        var shown = TimeSpan.FromSeconds(seconds);
+        _shownCooldownTenths = tenths;
+
+        if (showTenths)
+        {
+            _cooldownLabel.Text = (tenths / 10f).ToString("0.0", CultureInfo.InvariantCulture);
+            return;
+        }
+
+        var shown = TimeSpan.FromSeconds(tenths / 10);
         _cooldownLabel.Text = shown < TimeSpan.FromMinutes(1)
-            ? seconds.ToString()
+            ? (tenths / 10).ToString()
             : $"{(int) shown.TotalMinutes}:{shown.Seconds:00}";
     }
 }

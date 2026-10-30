@@ -1,4 +1,8 @@
 aquila-action-bind-waiting = ...
-aquila-action-bind-start = Press a key for this action. Esc - cancel, Backspace - clear the bind
-aquila-action-bind-set = Action bind: {$key}
-aquila-action-bind-cleared = Action bind cleared
+aquila-action-bind-conflict = Action bind set: {$key}. It now overrides: {$functions}
+
+ui-options-aquila-action-binds = Action binds
+ui-options-aquila-action-binds-hint = Shift+LMB an action button to set a bind. Esc - cancel, Backspace - clear
+ui-options-aquila-action-binds-empty = No binds set
+ui-options-aquila-action-binds-reset = Reset
+ui-options-aquila-action-binds-reset-all = Reset all action binds
