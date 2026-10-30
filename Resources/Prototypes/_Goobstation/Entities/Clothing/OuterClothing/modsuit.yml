@@ -13,7 +13,7 @@
   - type: Appearance
   - type: AllowSuitStorage
   - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Modsuits/standard.rsi
+    sprite: _Aquila/Clothing/OuterClothing/Modsuits/standard.rsi # Aquila Change
     layers:
     - state: chestplate
     - state: chestplate-sealed
@@ -42,7 +42,7 @@
   - type: Appearance
   - type: AllowSuitStorage
   - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Modsuits/standard.rsi
+    sprite: _Aquila/Clothing/OuterClothing/Modsuits/standard.rsi # Aquila Change
     layers:
     - state: chestplate
     - state: chestplate-sealed
@@ -115,7 +115,7 @@
   - type: Appearance
   - type: AllowSuitStorage
   - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Modsuits/security.rsi
+    sprite: _Aquila/Clothing/OuterClothing/Modsuits/security.rsi # Aquila Change
     layers:
     - state: chestplate
     - state: chestplate-sealed
@@ -197,7 +197,7 @@
   - type: Appearance
   - type: AllowSuitStorage
   - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Modsuits/headofsecurity.rsi
+    sprite: _Aquila/Clothing/OuterClothing/Modsuits/headofsecurity.rsi # Aquila Change
     layers:
     - state: chestplate
     - state: chestplate-sealed
@@ -286,7 +286,7 @@
   - type: Appearance
   - type: AllowSuitStorage
   - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Modsuits/paramedic.rsi
+    sprite: _Aquila/Clothing/OuterClothing/Modsuits/paramedic.rsi # Aquila Change
     layers:
     - state: chestplate
     - state: chestplate-sealed
@@ -369,7 +369,7 @@
   - type: Appearance
   - type: AllowSuitStorage
   - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Modsuits/engineer.rsi
+    sprite: _Aquila/Clothing/OuterClothing/Modsuits/engineer.rsi # Aquila Change
     layers:
     - state: chestplate
     - state: chestplate-sealed

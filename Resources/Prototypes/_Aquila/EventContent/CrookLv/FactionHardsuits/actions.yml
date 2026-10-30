@@ -1,0 +1,11 @@
+- type: entity
+  parent: BaseAction
+  id: ActionToggleFactionStealthSuit
+  name: Toggle cloak
+  description: Toggles the suit's optical camouflage. You stay barely visible while standing still, but moving gives you away.
+  components:
+  - type: Action
+    useDelay: 10
+    priority: -9
+  - type: InstantAction
+    event: !type:ToggleActionEvent

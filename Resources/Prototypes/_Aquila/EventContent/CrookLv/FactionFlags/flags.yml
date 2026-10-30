@@ -1,0 +1,133 @@
+# Настенные флаги
+
+- type: entity
+  parent: BaseFlag
+  id: FactionFlagPGF
+  name: flag of the Gezenan Federation
+  suffix: CrookLv, Decor, Gezena
+  description: The green banner of the Gezenan Federation, proudly hung on the wall.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionFlags/wall_flags.rsi
+    state: pgf
+    snapCardinals: false
+
+- type: entity
+  parent: BaseFlag
+  id: FactionFlagNGR
+  name: flag of the Gorlex Republic
+  suffix: CrookLv, Decor, Gorlex Republic
+  description: The red banner of the Gorlex Republic. Smells faintly of gunpowder.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionFlags/wall_flags.rsi
+    state: ngr
+    snapCardinals: false
+
+- type: entity
+  parent: BaseFlag
+  id: FactionFlagSUNS
+  name: flag of the Student-Union of Naturalistic Sciences
+  suffix: CrookLv, Decor, SUNS
+  description: The purple and gold banner of the Student-Union of Naturalistic Sciences.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionFlags/wall_flags.rsi
+    state: suns
+
+# Сложенные флаги
+
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseFactionFlagFolded
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionFlags/folded_flags.rsi
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - ClothMade
+
+- type: entity
+  parent: BaseFactionFlagFolded
+  id: FactionFlagFoldedPGF
+  name: folded flag of the Gezenan Federation
+  suffix: CrookLv, Decor, Gezena
+  description: A neatly folded flag of the Gezenan Federation.
+  components:
+  - type: Sprite
+    state: pgf
+
+- type: entity
+  parent: BaseFactionFlagFolded
+  id: FactionFlagFoldedNGR
+  name: folded flag of the Gorlex Republic
+  suffix: CrookLv, Decor, Gorlex Republic
+  description: A neatly folded flag of the Gorlex Republic.
+  components:
+  - type: Sprite
+    state: ngr
+
+- type: entity
+  parent: BaseFactionFlagFolded
+  id: FactionFlagFoldedSUNS
+  name: folded flag of the Student-Union of Naturalistic Sciences
+  suffix: CrookLv, Decor, SUNS
+  description: A neatly folded flag of the Student-Union of Naturalistic Sciences.
+  components:
+  - type: Sprite
+    state: suns
+
+# Настольные флажки
+
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseFactionDeskFlag
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionFlags/desk_flags.rsi
+  - type: Item
+    size: Small
+
+- type: entity
+  parent: BaseFactionDeskFlag
+  id: FactionDeskFlagPGF
+  name: desk flag of the Gezenan Federation
+  suffix: CrookLv, Decor, Gezena
+  description: A small flag of the Gezenan Federation on a brass stand.
+  components:
+  - type: Sprite
+    state: pgf
+
+- type: entity
+  parent: BaseFactionDeskFlag
+  id: FactionDeskFlagSolGov
+  name: desk flag of the United Earth Government
+  suffix: CrookLv, Decor, UEG
+  description: A small flag of the United Earth Government on a brass stand.
+  components:
+  - type: Sprite
+    state: solgov
+
+- type: entity
+  parent: BaseFactionDeskFlag
+  id: FactionDeskFlagSUNS
+  name: desk flag of the Student-Union of Naturalistic Sciences
+  suffix: CrookLv, Decor, SUNS
+  description: A small flag of the Student-Union of Naturalistic Sciences on a brass stand.
+  components:
+  - type: Sprite
+    state: suns
+
+- type: entity
+  parent: BaseFactionDeskFlag
+  id: FactionDeskFlagNGR
+  name: desk flag of the Gorlex Republic
+  suffix: CrookLv, Decor, Gorlex Republic
+  description: A small flag of the Gorlex Republic on a brass stand.
+  components:
+  - type: Sprite
+    state: ngr

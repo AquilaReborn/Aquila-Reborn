@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Main sprites (icon, icon-flash, off-equipped-HELMET, on-equipped-HELMET, white parts recolored to the security hardsuit reds for Aquila) taken from Shiptest at https://github.com/shiptest-ss13/Shiptest/blob/3adaaf8b0ff4bf4f08502eeadb27ce12e39f86ef/icons/obj/clothing/head/spacesuits.dmi, https://github.com/shiptest-ss13/Shiptest/blob/3adaaf8b0ff4bf4f08502eeadb27ce12e39f86ef/icons/mob/clothing/head/spacesuits.dmi. Species variants and inhands: Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/97ec5ed1a0fc8263df5df5a5afbb653d4684992e \\\\u0026 light version made by github:Morb0. Vox states by Flareguy for Space Station 14. Blueified by JoeHammad, vulp sprites taken from https://github.com/DeltaV-Station/Delta-v/pull/517, feroxi by RedTerror. hydrakin sprites by Zethine",
+  "copyright": "Main sprites (icon, icon-flash, off-equipped-HELMET, on-equipped-HELMET, white parts recolored to the security hardsuit reds for Aquila) taken from Shiptest at https://github.com/shiptest-ss13/Shiptest/blob/3adaaf8b0ff4bf4f08502eeadb27ce12e39f86ef/icons/obj/clothing/head/spacesuits.dmi, https://github.com/shiptest-ss13/Shiptest/blob/3adaaf8b0ff4bf4f08502eeadb27ce12e39f86ef/icons/mob/clothing/head/spacesuits.dmi. Species variants and inhands: Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/97ec5ed1a0fc8263df5df5a5afbb653d4684992e \\\\u0026 light version made by github:Morb0. Vox states by Flareguy for Space Station 14. Blueified by JoeHammad, vulp sprites taken from https://github.com/DeltaV-Station/Delta-v/pull/517, feroxi by RedTerror. hydrakin sprites by Zethine",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "icon-flash"
+    },
+    {
+      "name": "off-equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "on-equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "off-equipped-HELMET-vox",
+      "directions": 4
+    },
+    {
+      "name": "on-equipped-HELMET-vox",
+      "directions": 4
+    },
+    {
+      "name": "on-equipped-HELMET-vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "off-equipped-HELMET-vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "off-equipped-HELMET-feroxi",
+      "directions": 4
+    },
+    {
+      "name": "on-equipped-HELMET-feroxi",
+      "directions": 4
+    },
+    {
+      "name": "on-equipped-HELMET-hydrakin",
+      "directions": 4
+    },
+    {
+      "name": "off-equipped-HELMET-hydrakin",
+      "directions": 4
+    }
+  ]
+}

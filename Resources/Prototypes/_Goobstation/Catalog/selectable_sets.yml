@@ -473,7 +473,7 @@
   name: selectable-set-paramedic-modsuit-name
   description: selectable-set-paramedic-modsuit-desc
   sprite:
-    sprite: _Goobstation/Clothing/Back/Modsuits/paramedic.rsi
+    sprite: _Aquila/Clothing/Back/Modsuits/paramedic.rsi # Aquila Change
     state: control
   content:
   - ClothingModsuitParamedicPowerCell
@@ -494,7 +494,7 @@
   name: selectable-set-security-modsuit-name
   description: selectable-set-security-modsuit-desc
   sprite:
-    sprite: _Goobstation/Clothing/Back/Modsuits/security.rsi
+    sprite: _Aquila/Clothing/Back/Modsuits/security.rsi # Aquila Change
     state: control
   content:
   - ClothingModsuitSecurityPowerCell
@@ -505,7 +505,7 @@
   name: selectable-set-headofsecurity-voidsuit-name
   description: selectable-set-headofsecurity-voidsuit-desc
   sprite:
-    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
+    sprite: _Aquila/Clothing/OuterClothing/Hardsuits/security-red.rsi # Aquila Change
     state: icon
   content:
   - ClothingOuterHardsuitSecurityRed
@@ -515,7 +515,7 @@
   name: selectable-set-headofsecurity-modsuit-name
   description: selectable-set-headofsecurity-modsuit-desc
   sprite:
-    sprite: _Goobstation/Clothing/Back/Modsuits/headofsecurity.rsi
+    sprite: _Aquila/Clothing/Back/Modsuits/headofsecurity.rsi # Aquila Change
     state: control
   content:
   - ClothingModsuitHeadOfSecurityPowerCell
@@ -527,7 +527,7 @@
   name: selectable-set-engineering-voidsuit-name
   description: selectable-set-engineering-voidsuit-desc
   sprite:
-    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
+    sprite: _Aquila/Clothing/OuterClothing/Hardsuits/engineering.rsi # Aquila Change
     state: icon
   content:
   - ClothingOuterHardsuitEngineering
@@ -537,7 +537,7 @@
   name: selectable-set-engineering-modsuit-name
   description: selectable-set-engineering-modsuit-desc
   sprite:
-    sprite: _Goobstation/Clothing/Back/Modsuits/engineer.rsi
+    sprite: _Aquila/Clothing/Back/Modsuits/engineer.rsi # Aquila Change
     state: control
   content:
   - ClothingModsuitEngineerPowerCell

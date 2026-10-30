@@ -1,0 +1,578 @@
+# LFC
+- type: entity
+  parent: [ BaseWeaponPistol, BaseMajorContraband ]
+  id: WeaponPistolLfcCm23
+  name: CM-23 pistol
+  suffix: CrookLv, Weapons, LFC
+  description: A reliable sidearm of the League of Free Colonies militia.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/CLIP/cm23.rsi
+  - type: Gun
+    selectedMode: SemiAuto
+    availableModes: SemiAuto
+    soundGunshot:
+      path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Firearms/40.ogg
+  - type: Item
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/CLIP/cm23.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/CLIP/cm23.rsi
+
+- type: entity
+  parent: [ BaseWeaponSubMachineGun, BaseMajorContraband ]
+  id: WeaponSubMachineGunLfcCm5
+  name: CM-5 submachine gun
+  suffix: CrookLv, Weapons, LFC
+  description: A compact submachine gun for LFC (League of Free Colonies) patrols.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/CLIP/cm5.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Firearms/16.ogg
+  - type: Item
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/CLIP/cm5.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/CLIP/cm5.rsi
+
+- type: entity
+  parent: [ BaseWeaponRifle, BaseMajorContraband ]
+  id: WeaponRifleLfcF4
+  name: F4 battle rifle
+  suffix: CrookLv, Weapons, LFC
+  description: The main service rifle of the League of Free Colonies militia.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/CLIP/f4.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Firearms/15.ogg
+  - type: Item
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/CLIP/f4.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/CLIP/f4.rsi
+
+# Cybersun
+- type: entity
+  parent: [ BaseWeaponBatterySmall, BaseSyndicateContraband ]
+  id: WeaponPistolCybersunTroubleshooter
+  name: Troubleshooter laser pistol
+  suffix: CrookLv, Weapons, Cybersun
+  description: A corporate security laser pistol made by Cybersun Industries.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Cybersun/troubleshooter.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Gun
+    fireRate: 1.5
+    selectedMode: SemiAuto
+    availableModes: SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+  - type: BatteryAmmoProvider
+    proto: RedLightLaser
+    fireCost: 62.5
+  - type: Appearance
+  - type: Item
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Cybersun/troubleshooter.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Cybersun/troubleshooter.rsi
+
+- type: entity
+  parent: [ BaseLaserRifle, BaseSyndicateContraband ]
+  id: WeaponRifleCybersunCatalyzer
+  name: Catalyzer laser carbine
+  suffix: CrookLv, Weapons, Cybersun
+  description: A fast-firing laser carbine made by Cybersun Industries.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Cybersun/catalyzer.rsi
+  - type: Gun
+    fireRate: 2
+  - type: BatteryAmmoProvider
+    proto: RedLaser
+    fireCost: 62.5
+  - type: Item
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Cybersun/catalyzer.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Cybersun/catalyzer.rsi
+
+- type: entity
+  parent: [ BaseLaserRifle, BaseSyndicateContraband ]
+  id: WeaponRifleCybersunVector
+  name: Vector heavy laser rifle
+  suffix: CrookLv, Weapons, Cybersun
+  description: A powerful laser rifle issued to elite Cybersun squads.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Cybersun/vector.rsi
+  - type: Gun
+    fireRate: 0.75
+  - type: BatteryAmmoProvider
+    proto: RedHeavyLaser
+    fireCost: 200
+  - type: Item
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Cybersun/vector.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Cybersun/vector.rsi
+
+# Gezena
+- type: entity
+  parent: [ BaseWeaponBatterySmall, BaseMajorContraband ]
+  id: WeaponPistolGezenaKalix
+  name: Kalix laser pistol
+  suffix: CrookLv, Weapons, Gezena
+  description: A laser pistol carried by officers of the Gezenan navy.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Gezena/kalixpistol.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Gun
+    fireRate: 1.5
+    selectedMode: SemiAuto
+    availableModes: SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+  - type: BatteryAmmoProvider
+    proto: RedLightLaser
+    fireCost: 62.5
+  - type: Appearance
+  - type: Item
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Gezena/kalixpistol.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Gezena/kalixpistol.rsi
+
+- type: entity
+  parent: [ BaseLaserRifle, BaseMajorContraband ]
+  id: WeaponRifleGezenaEtherbor
+  name: Etherbor laser rifle
+  suffix: CrookLv, Weapons, Gezena
+  description: The standard laser rifle of the Gezenan marines.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Gezena/pgfgun.rsi
+  - type: Gun
+    fireRate: 2
+  - type: BatteryAmmoProvider
+    proto: RedLaser
+    fireCost: 62.5
+  - type: Item
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Gezena/pgfgun.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Gezena/pgfgun.rsi
+
+- type: entity
+  parent: [ BaseLaserRifle, BaseMajorContraband ]
+  id: WeaponSniperGezenaEtherborHeavy
+  name: Etherbor heavy laser marksman rifle
+  suffix: CrookLv, Weapons, Gezena
+  description: A long-range laser rifle of the Gezenan navy marksmen.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Gezena/pgfheavy_sniper.rsi
+  - type: Gun
+    fireRate: 0.75
+  - type: BatteryAmmoProvider
+    proto: RedHeavyLaser
+    fireCost: 200
+  - type: Item
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Gezena/pgfheavy_sniper.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Gezena/pgfheavy_sniper.rsi
+
+# Blood Vanguard
+- type: entity
+  parent: [ BaseWeaponSubMachineGun, BaseSyndicateContraband ]
+  id: WeaponSubMachineGunVanguardSidewinder
+  name: Sidewinder submachine gun
+  suffix: CrookLv, Weapons, Blood Vanguard
+  description: A compact submachine gun for sabotage and raids.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Hardliners/sidewinder.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Firearms/4.ogg
+  - type: Item
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Hardliners/sidewinder.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Hardliners/sidewinder.rsi
+
+- type: entity
+  parent: [ BaseWeaponRifle, BaseSyndicateContraband ]
+  id: WeaponRifleVanguardHydra
+  name: Hydra assault rifle
+  suffix: CrookLv, Weapons, Blood Vanguard
+  description: The main assault rifle of the Blood Vanguard fighters.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Hardliners/hydra.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Firearms/14.ogg
+  - type: Item
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Hardliners/hydra.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Hardliners/hydra.rsi
+
+- type: entity
+  parent: [ BaseWeaponSniper, BaseGunWieldable, BaseSyndicateContraband ]
+  id: WeaponSniperVanguardBoomslang
+  name: Boomslang sniper rifle
+  suffix: CrookLv, Weapons, Blood Vanguard
+  description: A sniper rifle the Blood Vanguard favors for public executions.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Hardliners/boomslang.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Firearms/38.ogg
+  - type: Item
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Hardliners/boomslang.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Hardliners/boomslang.rsi
+
+# Gorlex Republic
+- type: entity
+  parent: [ BaseWeaponPistol, BaseSyndicateContraband ]
+  id: WeaponPistolGorlexRingneck
+  name: Ringneck pistol
+  suffix: CrookLv, Weapons, Gorlex Republic
+  description: The service pistol of Gorlex Republic officers.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/NGR/ringneck.rsi
+  - type: Gun
+    selectedMode: SemiAuto
+    availableModes: SemiAuto
+    soundGunshot:
+      path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Firearms/20.ogg
+  - type: Item
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/NGR/ringneck.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/NGR/ringneck.rsi
+
+- type: entity
+  parent: [ BaseWeaponSubMachineGun, BaseSyndicateContraband ]
+  id: WeaponSubMachineGunGorlexRattlesnake
+  name: Rattlesnake submachine gun
+  suffix: CrookLv, Weapons, Gorlex Republic
+  description: A submachine gun for Gorlex Republic crews and outriders.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/NGR/rattlesnake.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Firearms/18.ogg
+  - type: Item
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/NGR/rattlesnake.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/NGR/rattlesnake.rsi
+
+- type: entity
+  parent: [ BaseWeaponRifle, BaseSyndicateContraband ]
+  id: WeaponRifleGorlexGaboon
+  name: Gaboon rifle
+  suffix: CrookLv, Weapons, Gorlex Republic
+  description: The main rifle of the Gorlex Republic army.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/NGR/gaboon.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Firearms/15.ogg
+  - type: Item
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/NGR/gaboon.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/NGR/gaboon.rsi
+
+# Rust Clique
+- type: entity
+  parent: [ BaseWeaponPistol, BaseSyndicateContraband ]
+  id: WeaponPistolRustViper
+  name: rusty Viper pistol
+  suffix: CrookLv, Weapons, Rust Clique
+  description: A battered pistol held together with tape. It shoots. Usually.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Ramzi/viper23_trash.rsi
+  - type: Gun
+    selectedMode: SemiAuto
+    availableModes: SemiAuto
+    soundGunshot:
+      path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Firearms/2.ogg
+  - type: Item
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Ramzi/viper23_trash.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Ramzi/viper23_trash.rsi
+
+- type: entity
+  parent: [ BaseWeaponShotgun, BaseGunWieldable, BaseSyndicateContraband ]
+  id: WeaponShotgunRustCottonmouth
+  name: Cottonmouth shotgun
+  suffix: CrookLv, Weapons, Rust Clique
+  description: A crude boarding shotgun.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Ramzi/cottonmouth.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Firearms/31.ogg
+  - type: Item
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Ramzi/cottonmouth.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Ramzi/cottonmouth.rsi
+
+# Inteq
+- type: entity
+  parent: [ BaseWeaponPistol, BaseMajorContraband ]
+  id: WeaponPistolInteqCommander
+  name: Commander pistol
+  suffix: CrookLv, Weapons, Inteq
+  description: A dependable pistol of Inteq PMC contractors.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/InteQ/commander_inteq.rsi
+  - type: Gun
+    selectedMode: SemiAuto
+    availableModes: SemiAuto
+    soundGunshot:
+      path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Firearms/3.ogg
+  - type: Item
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/InteQ/commander_inteq.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/InteQ/commander_inteq.rsi
+
+- type: entity
+  parent: [ BaseWeaponSubMachineGun, BaseMajorContraband ]
+  id: WeaponSubMachineGunInteqSkm
+  name: SKM submachine gun
+  suffix: CrookLv, Weapons, Inteq
+  description: A shortened SKM for close quarters contracts.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/InteQ/skm_inteqsmg.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Firearms/6.ogg
+  - type: Item
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/InteQ/skm_inteqsmg.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/InteQ/skm_inteqsmg.rsi
+
+- type: entity
+  parent: [ BaseWeaponRifle, BaseMajorContraband ]
+  id: WeaponRifleInteqSkm
+  name: SKM rifle
+  suffix: CrookLv, Weapons, Inteq
+  description: The nearly indestructible rifle of Inteq PMC mercenaries.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/InteQ/skm_inteq.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Firearms/15.ogg
+  - type: Item
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/InteQ/skm_inteq.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/InteQ/skm_inteq.rsi
+
+# UEG
+- type: entity
+  parent: [ BaseWeaponPistol, BaseMajorContraband ]
+  id: WeaponPistolUegPistoleC
+  name: Pistole-C
+  suffix: CrookLv, Weapons, UEG
+  description: The service pistol of United Earth Government officers.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/SolGov/pistole-c.rsi
+  - type: Gun
+    selectedMode: SemiAuto
+    availableModes: SemiAuto
+    soundGunshot:
+      path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Firearms/12.ogg
+  - type: Item
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/SolGov/pistole-c.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/SolGov/pistole-c.rsi
+
+- type: entity
+  parent: [ BaseWeaponRifle, BaseMajorContraband ]
+  id: WeaponRifleUegGar
+  name: Gar rifle
+  suffix: CrookLv, Weapons, UEG
+  description: The standard rifle of the UEG (United Earth Government) army, built for xenomorph purges.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/SolGov/gar.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Firearms/14.ogg
+  - type: Item
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/SolGov/gar.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/SolGov/gar.rsi
+
+- type: entity
+  parent: [ BaseWeaponSniper, BaseGunWieldable, BaseMajorContraband ]
+  id: WeaponSniperUegSsg669
+  name: SSG-669 sniper rifle
+  suffix: CrookLv, Weapons, UEG
+  description: A precise sniper rifle of the UEG (United Earth Government) army.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/SolGov/ssg669c.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Firearms/34.ogg
+  - type: Item
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/SolGov/ssg669c.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/SolGov/ssg669c.rsi
+
+# Hunters' Order
+- type: entity
+  parent: [ BaseWeaponRevolver, BaseMajorContraband ]
+  id: WeaponRevolverHuntersShadow
+  name: Shadow revolver
+  suffix: CrookLv, Weapons, Hunters' Order
+  description: A heavy revolver of a Hunters' Order hunter.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/SRM/shadow.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Firearms/5.ogg
+  - type: Item
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/SRM/shadow.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/SRM/shadow.rsi
+
+- type: entity
+  parent: [ BaseWeaponSniper, BaseGunWieldable, BaseMajorContraband ]
+  id: WeaponSniperHuntersFlamingArrow
+  name: Flaming Arrow lever-action rifle
+  suffix: CrookLv, Weapons, Hunters' Order
+  description: A lever-action rifle favored by the hunters of the Order.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/SRM/flamingarrow.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Firearms/34.ogg
+  - type: Item
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/SRM/flamingarrow.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/SRM/flamingarrow.rsi
+
+- type: entity
+  parent: [ BaseWeaponShotgun, BaseGunWieldable, BaseMajorContraband ]
+  id: WeaponShotgunHuntersDouble
+  name: hunter's double-barreled shotgun
+  suffix: CrookLv, Weapons, Hunters' Order
+  description: A hunting shotgun blessed by the flame of the Order.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/SRM/dshotgun_srm.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Firearms/22.ogg
+  - type: Item
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/SRM/dshotgun_srm.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionWeapons/SRM/dshotgun_srm.rsi

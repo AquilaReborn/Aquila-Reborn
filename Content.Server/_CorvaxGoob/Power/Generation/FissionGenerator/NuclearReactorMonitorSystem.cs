@@ -139,6 +139,9 @@ public sealed partial class NuclearReactorMonitorSystem : EntitySystem
 
     private void OnControlRodMessage(EntityUid uid, NuclearReactorMonitorComponent comp, ref ReactorControlRodModifyMessage args)
     {
+        if (!_actionBlocker.CanComplexInteract(args.Actor)) // Aquila Change
+            return; // Aquila Change
+
         if (!TryGetReactorComp(comp, out var reactor))
             return;
 

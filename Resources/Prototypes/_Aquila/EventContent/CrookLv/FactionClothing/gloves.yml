@@ -1,0 +1,188 @@
+# LFC
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesCLIPNitrile
+  name: LFC nitrile gloves
+  suffix: CrookLv, Clothing, LFC
+  description: White nitrile gloves of LFC (League of Free Colonies) medics.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionGloves/CLIP/nitrile_clip.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionGloves/CLIP/nitrile_clip.rsi
+  - type: Fiber
+    fiberMaterial: fibers-nitrile
+  - type: FingerprintMask
+
+# Gezena
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesGezenaMarinegloves
+  name: Gezenan marine gloves
+  suffix: CrookLv, Clothing, Gezena
+  description: Padded gloves of the Gezenan marines.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionGloves/Gezena/marinegloves.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionGloves/Gezena/marinegloves.rsi
+  - type: FingerprintMask
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.95
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesGezenaNavalgloves
+  name: Gezenan navy gloves
+  suffix: CrookLv, Clothing, Gezena
+  description: Gloves of the Gezenan navy.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionGloves/Gezena/navalgloves.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionGloves/Gezena/navalgloves.rsi
+  - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesGezenaEngigloves
+  name: Gezenan engineer gloves
+  suffix: CrookLv, Clothing, Gezena
+  description: Insulated gloves of Gezenan engineers.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionGloves/Gezena/engigloves.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionGloves/Gezena/engigloves.rsi
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+  - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesGezenaCaptaingloves
+  name: Gezenan captain gloves
+  suffix: CrookLv, Clothing, Gezena
+  description: Fine gloves of a Gezenan captain.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionGloves/Gezena/captaingloves.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionGloves/Gezena/captaingloves.rsi
+  - type: FingerprintMask
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.95
+
+# Inteq
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesInteQNitrile
+  name: Inteq nitrile gloves
+  suffix: CrookLv, Clothing, Inteq
+  description: Green nitrile gloves of Inteq PMC corpsmen.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionGloves/InteQ/nitrile_inteq.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionGloves/InteQ/nitrile_inteq.rsi
+  - type: Fiber
+    fiberMaterial: fibers-nitrile
+  - type: FingerprintMask
+
+# SUNS
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesSUNSInsulated
+  name: SUNS insulated gloves
+  suffix: CrookLv, Clothing, SUNS
+  description: Insulated gloves for SUNS (Student-Union of Naturalistic Sciences) workers.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionGloves/SUNS/suns_insulated.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionGloves/SUNS/suns_insulated.rsi
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+  - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesSUNSLatexgloves
+  name: SUNS latex gloves
+  suffix: CrookLv, Clothing, SUNS
+  description: Latex gloves of SUNS (Student-Union of Naturalistic Sciences) doctors.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionGloves/SUNS/suns_latexgloves.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionGloves/SUNS/suns_latexgloves.rsi
+  - type: Fiber
+    fiberMaterial: fibers-latex
+  - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesSUNSLongglovesblack
+  name: SUNS long black gloves
+  suffix: CrookLv, Clothing, SUNS
+  description: Elegant long black gloves.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionGloves/SUNS/suns_longglovesblack.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionGloves/SUNS/suns_longglovesblack.rsi
+  - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesSUNSGlovesfingerless
+  name: SUNS fingerless gloves
+  suffix: CrookLv, Clothing, SUNS
+  description: Black fingerless gloves.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionGloves/SUNS/suns_glovesfingerless.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionGloves/SUNS/suns_glovesfingerless.rsi
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesSUNSXogloves
+  name: SUNS executive officer gloves
+  suffix: CrookLv, Clothing, SUNS
+  description: White gloves of a SUNS (Student-Union of Naturalistic Sciences) executive officer.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionGloves/SUNS/suns_xogloves.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionGloves/SUNS/suns_xogloves.rsi
+  - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesSUNSCaptaingloves
+  name: SUNS captain gloves
+  suffix: CrookLv, Clothing, SUNS
+  description: Black gloves with gold trim of a SUNS (Student-Union of Naturalistic Sciences) captain.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionGloves/SUNS/suns_captaingloves.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionGloves/SUNS/suns_captaingloves.rsi
+  - type: FingerprintMask
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.95

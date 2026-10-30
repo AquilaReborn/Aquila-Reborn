@@ -1,0 +1,498 @@
+- type: entity
+  abstract: true
+  parent: Paper
+  id: BaseFactionLeaflet
+  components:
+  - type: Paper
+    editingDisabled: true
+    stampState: paper_stamp-generic
+
+# CrookLv, Decor, LFC
+- type: entity
+  parent: BaseFactionLeaflet
+  id: FactionLeafletClipMinutemen
+  name: LFC militia recruitment leaflet
+  suffix: CrookLv, Decor, LFC
+  description: A call to join the militia of the League of Free Colonies.
+  components:
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#cfd8f0"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      color: "#2b4a9c"
+      visible: false
+  - type: Paper
+    content: leaflet-clip-minutemen
+    stampedBy:
+    - stampedName: stamp-faction-clip
+      stampedColor: "#2b4a9c"
+
+- type: entity
+  parent: BaseFactionLeaflet
+  id: FactionLeafletClipBard
+  name: LFC BARD biohazard warning
+  suffix: CrookLv, Decor, LFC
+  description: A warning issued by the Biohazard Assessment and Response Division of the League of Free Colonies.
+  components:
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#cfd8f0"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      color: "#2b4a9c"
+      visible: false
+  - type: Paper
+    content: leaflet-clip-bard
+    stampedBy:
+    - stampedName: stamp-faction-clip
+      stampedColor: "#2b4a9c"
+
+# CrookLv, Decor, Cybersun
+- type: entity
+  parent: BaseFactionLeaflet
+  id: FactionLeafletCybersunImplants
+  name: Cybersun implants advertisement
+  suffix: CrookLv, Decor, Cybersun
+  description: A glossy advertisement for Cybersun Industries cybernetics.
+  components:
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#f2d9e6"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      color: "#8c1a4a"
+      visible: false
+  - type: Paper
+    content: leaflet-cybersun-implants
+    stampedBy:
+    - stampedName: stamp-faction-cybersun
+      stampedColor: "#8c1a4a"
+
+- type: entity
+  parent: BaseFactionLeaflet
+  id: FactionLeafletCybersunTrauma
+  name: Cybersun Trauma Team advertisement
+  suffix: CrookLv, Decor, Cybersun
+  description: An advertisement for a Cybersun Trauma Team subscription.
+  components:
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#f2d9e6"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      color: "#8c1a4a"
+      visible: false
+  - type: Paper
+    content: leaflet-cybersun-trauma
+    stampedBy:
+    - stampedName: stamp-faction-cybersun
+      stampedColor: "#8c1a4a"
+
+# CrookLv, Decor, Gezena
+- type: entity
+  parent: BaseFactionLeaflet
+  id: FactionLeafletPgfNavy
+  name: Gezenan navy recruitment leaflet
+  suffix: CrookLv, Decor, Gezena
+  description: A call to serve in the navy of the Gezenan Federation.
+  components:
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#d3efdd"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      color: "#1f7a4a"
+      visible: false
+  - type: Paper
+    content: leaflet-pgf-navy
+    stampedBy:
+    - stampedName: stamp-faction-pgf
+      stampedColor: "#1f7a4a"
+
+- type: entity
+  parent: BaseFactionLeaflet
+  id: FactionLeafletPgfPiracy
+  name: Gezenan anti-piracy notice
+  suffix: CrookLv, Decor, Gezena
+  description: A Gezenan navy notice offering rewards for information on Rust Clique pirates.
+  components:
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#d3efdd"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      color: "#1f7a4a"
+      visible: false
+  - type: Paper
+    content: leaflet-pgf-piracy
+    stampedBy:
+    - stampedName: stamp-faction-pgf
+      stampedColor: "#1f7a4a"
+
+# CrookLv, Decor, Blood Vanguard
+- type: entity
+  parent: BaseFactionLeaflet
+  id: FactionLeafletHardlinersWar
+  name: Blood Vanguard propaganda leaflet
+  suffix: CrookLv, Decor, Blood Vanguard
+  description: A crumpled, blood-stained leaflet insisting that the war is not over.
+  components:
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#e8c9c9"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      color: "#8c1a34"
+      visible: false
+  - type: Paper
+    content: leaflet-hardliners-war
+    stampedBy:
+    - stampedName: stamp-faction-hardliners
+      stampedColor: "#8c1a34"
+
+- type: entity
+  parent: BaseFactionLeaflet
+  id: FactionLeafletHardlinersTraitors
+  name: Blood Vanguard death list
+  suffix: CrookLv, Decor, Blood Vanguard
+  description: A leaflet condemning the Gorlex Republic and Inteq PMC as traitors.
+  components:
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#e8c9c9"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      color: "#8c1a34"
+      visible: false
+  - type: Paper
+    content: leaflet-hardliners-traitors
+    stampedBy:
+    - stampedName: stamp-faction-hardliners
+      stampedColor: "#8c1a34"
+
+# CrookLv, Decor, Inteq
+- type: entity
+  parent: BaseFactionLeaflet
+  id: FactionLeafletInteqRecruitment
+  name: Inteq PMC recruitment leaflet
+  suffix: CrookLv, Decor, Inteq
+  description: A recruitment leaflet of the Inteq private military company.
+  components:
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#ecd9c2"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      color: "#b35a1f"
+      visible: false
+  - type: Paper
+    content: leaflet-inteq-recruitment
+    stampedBy:
+    - stampedName: stamp-faction-inteq
+      stampedColor: "#b35a1f"
+
+- type: entity
+  parent: BaseFactionLeaflet
+  id: FactionLeafletInteqServices
+  name: Inteq PMC client brochure
+  suffix: CrookLv, Decor, Inteq
+  description: A brochure listing the services of the Inteq private military company.
+  components:
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#ecd9c2"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      color: "#b35a1f"
+      visible: false
+  - type: Paper
+    content: leaflet-inteq-services
+    stampedBy:
+    - stampedName: stamp-faction-inteq
+      stampedColor: "#b35a1f"
+
+# CrookLv, Decor, Gorlex Republic
+- type: entity
+  parent: BaseFactionLeaflet
+  id: FactionLeafletNgrService
+  name: Gorlex Republic conscription leaflet
+  suffix: CrookLv, Decor, Gorlex Republic
+  description: A call to serve the Gorlex Republic.
+  components:
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#efd2c4"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      color: "#a8321e"
+      visible: false
+  - type: Paper
+    content: leaflet-ngr-service
+    stampedBy:
+    - stampedName: stamp-faction-ngr
+      stampedColor: "#a8321e"
+
+- type: entity
+  parent: BaseFactionLeaflet
+  id: FactionLeafletNgrOutriders
+  name: Gorlex Republic patrol orders
+  suffix: CrookLv, Decor, Gorlex Republic
+  description: Standing orders for the outrider patrols of the Gorlex Republic.
+  components:
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#efd2c4"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      color: "#a8321e"
+      visible: false
+  - type: Paper
+    content: leaflet-ngr-outriders
+    stampedBy:
+    - stampedName: stamp-faction-ngr
+      stampedColor: "#a8321e"
+
+# CrookLv, Decor, Rust Clique
+- type: entity
+  parent: BaseFactionLeaflet
+  id: FactionLeafletRamziMark
+  name: Rust Clique black mark
+  suffix: CrookLv, Decor, Rust Clique
+  description: A threatening note from the Rust Clique pirates.
+  components:
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#d9cbb8"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      color: "#3a2a1e"
+      visible: false
+  - type: Paper
+    content: leaflet-ramzi-mark
+    stampedBy:
+    - stampedName: stamp-faction-ramzi
+      stampedColor: "#3a2a1e"
+
+- type: entity
+  parent: BaseFactionLeaflet
+  id: FactionLeafletRamziRecruitment
+  name: Rust Clique recruitment leaflet
+  suffix: CrookLv, Decor, Rust Clique
+  description: A suspicious leaflet inviting you to join the Rust Clique.
+  components:
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#d9cbb8"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      color: "#3a2a1e"
+      visible: false
+  - type: Paper
+    content: leaflet-ramzi-recruitment
+    stampedBy:
+    - stampedName: stamp-faction-ramzi
+      stampedColor: "#3a2a1e"
+
+# CrookLv, Decor, UEG
+- type: entity
+  parent: BaseFactionLeaflet
+  id: FactionLeafletSolgovProclamation
+  name: UEG proclamation
+  suffix: CrookLv, Decor, UEG
+  description: An official proclamation of the United Earth Government.
+  components:
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#d6dcef"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      color: "#c79a1f"
+      visible: false
+  - type: Paper
+    content: leaflet-solgov-proclamation
+    stampedBy:
+    - stampedName: stamp-faction-solgov
+      stampedColor: "#c79a1f"
+
+- type: entity
+  parent: BaseFactionLeaflet
+  id: FactionLeafletSolgovSonnensoldner
+  name: Sonnensoldner recruitment leaflet
+  suffix: CrookLv, Decor, UEG
+  description: A call to join the Sonnensoldner mercenaries in service of the United Earth Government.
+  components:
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#d6dcef"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      color: "#c79a1f"
+      visible: false
+  - type: Paper
+    content: leaflet-solgov-sonnensoldner
+    stampedBy:
+    - stampedName: stamp-faction-solgov
+      stampedColor: "#c79a1f"
+
+# CrookLv, Decor, Hunters' Order
+- type: entity
+  parent: BaseFactionLeaflet
+  id: FactionLeafletSrmCreed
+  name: Hunters' Order creed
+  suffix: CrookLv, Decor, Hunters' Order
+  description: The creed of the Hunters' Order.
+  components:
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#ece6d6"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      color: "#7a2a1a"
+      visible: false
+  - type: Paper
+    content: leaflet-srm-creed
+    stampedBy:
+    - stampedName: stamp-faction-srm
+      stampedColor: "#7a2a1a"
+
+- type: entity
+  parent: BaseFactionLeaflet
+  id: FactionLeafletSrmBounty
+  name: Hunters' Order bounty board notice
+  suffix: CrookLv, Decor, Hunters' Order
+  description: A list of monster bounties posted by a Hunters' Order lodge.
+  components:
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#ece6d6"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      color: "#7a2a1a"
+      visible: false
+  - type: Paper
+    content: leaflet-srm-bounty
+    stampedBy:
+    - stampedName: stamp-faction-srm
+      stampedColor: "#7a2a1a"
+
+# CrookLv, Decor, SUNS
+- type: entity
+  parent: BaseFactionLeaflet
+  id: FactionLeafletSunsAdmission
+  name: SUNS admission leaflet
+  suffix: CrookLv, Decor, SUNS
+  description: An admission leaflet of the Student-Union of Naturalistic Sciences.
+  components:
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#e2d6ef"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      color: "#5a2a8c"
+      visible: false
+  - type: Paper
+    content: leaflet-suns-admission
+    stampedBy:
+    - stampedName: stamp-faction-suns
+      stampedColor: "#5a2a8c"
+
+- type: entity
+  parent: BaseFactionLeaflet
+  id: FactionLeafletSunsCampus
+  name: SUNS campus rules
+  suffix: CrookLv, Decor, SUNS
+  description: Campus rules posted by the SUNS peacekeepers.
+  components:
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#e2d6ef"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      color: "#5a2a8c"
+      visible: false
+  - type: Paper
+    content: leaflet-suns-campus
+    stampedBy:
+    - stampedName: stamp-faction-suns
+      stampedColor: "#5a2a8c"

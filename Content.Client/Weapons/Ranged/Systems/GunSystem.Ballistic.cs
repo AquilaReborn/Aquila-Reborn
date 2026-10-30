@@ -35,8 +35,7 @@ public sealed partial class GunSystem
             var existing = ent.Comp.Entities[^1];
             ent.Comp.Entities.RemoveAt(ent.Comp.Entities.Count - 1);
 
-            Containers.Remove(existing, ent.Comp.Container);
-            EnsureShootable(existing);
+            CycleExisting(existing, ent.Comp.Container); // Aquila Change
         }
         else if (ent.Comp.UnspawnedCount > 0)
         {

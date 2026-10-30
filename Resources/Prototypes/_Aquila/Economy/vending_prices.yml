@@ -10,34 +10,34 @@
 
 - type: vendingPriceCategory
   id: VendingPriceGun
-  price: 180
+  price: 400
   priority: 200
   components: [ Gun ]
 
 - type: vendingPriceCategory
   id: VendingPriceClothing
-  price: 14
+  price: 55
   priority: 100
   slots: [ head, eyes, ears, mask, outerclothing, innerclothing, neck, back, belt, gloves, feet ]
 
 - type: vendingPriceCategory
   id: VendingPriceSnack
-  price: 6
+  price: 25
   priority: 60
   tags: [ FoodSnack ]
 
 - type: vendingPriceCategory
   id: VendingPriceDrink
-  price: 6
+  price: 25
   priority: 55
   components: [ Edible, Spillable ]
 
 - type: vendingPriceCategory
   id: VendingPriceFood
-  price: 6
+  price: 25
   priority: 50
   components: [ Edible ]
 
 - type: vendingPriceCategory
   id: VendingPriceDefault
-  price: 12
+  price: 50

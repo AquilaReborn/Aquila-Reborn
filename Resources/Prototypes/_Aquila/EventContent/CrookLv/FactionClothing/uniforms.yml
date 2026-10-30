@@ -1,0 +1,1175 @@
+# LFC
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCLIPDeck
+  name: LFC deckhand uniform
+  suffix: CrookLv, Clothing, LFC
+  description: A sturdy blue uniform worn by LFC (League of Free Colonies) ship crews.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/CLIP/clip_deck.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/CLIP/clip_deck.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#323B64"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#323B64"
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCLIPMinuteman
+  name: LFC militiaman uniform
+  suffix: CrookLv, Clothing, LFC
+  description: The service uniform of the LFC (League of Free Colonies) militia.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/CLIP/clip_minuteman.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/CLIP/clip_minuteman.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#484D77"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#484D77"
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCLIPFormal
+  name: LFC formal uniform
+  suffix: CrookLv, Clothing, LFC
+  description: A crisp white dress uniform for LFC (League of Free Colonies) ceremonies.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/CLIP/clip_formal.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/CLIP/clip_formal.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#9291A3"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#9291A3"
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCLIPMedic
+  name: LFC medic uniform
+  suffix: CrookLv, Clothing, LFC
+  description: An LFC (League of Free Colonies) uniform with medical markings.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/CLIP/clip_medic.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/CLIP/clip_medic.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#595F85"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#595F85"
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCLIPOfficer
+  name: LFC officer uniform
+  suffix: CrookLv, Clothing, LFC
+  description: A khaki uniform worn by LFC (League of Free Colonies) officers.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/CLIP/clip_officer.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/CLIP/clip_officer.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#8F7C5E"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#8F7C5E"
+
+# Cybersun
+- type: entity
+  parent: [ ClothingUniformBase, BaseSyndicateContraband ]
+  id: ClothingUniformJumpsuitCybersunAgent
+  name: Cybersun agent uniform
+  suffix: CrookLv, Clothing, Cybersun
+  description: A clean white uniform of a Cybersun field agent.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Cybersun/cybersun_agent.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Cybersun/cybersun_agent.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#9C9295"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#9C9295"
+
+- type: entity
+  parent: [ ClothingUniformBase, BaseSyndicateContraband ]
+  id: ClothingUniformJumpsuitCybersunStandard
+  name: Cybersun uniform
+  suffix: CrookLv, Clothing, Cybersun
+  description: The standard corporate uniform of Cybersun Industries.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Cybersun/cybersun.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Cybersun/cybersun.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#78636A"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#78636A"
+
+- type: entity
+  parent: [ ClothingUniformBase, BaseSyndicateContraband ]
+  id: ClothingUniformJumpsuitCybersunMed
+  name: Cybersun medical scrubs
+  suffix: CrookLv, Clothing, Cybersun
+  description: Teal scrubs worn by Cybersun medical staff.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Cybersun/cybersun_med.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Cybersun/cybersun_med.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#508281"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#508281"
+
+- type: entity
+  parent: [ ClothingUniformBase, BaseSyndicateContraband ]
+  id: ClothingUniformJumpsuitCybersunMd
+  name: Cybersun medical director uniform
+  suffix: CrookLv, Clothing, Cybersun
+  description: A uniform for the head of a Cybersun medical team.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Cybersun/cybersun_md.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Cybersun/cybersun_md.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#563140"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#563140"
+
+- type: entity
+  parent: [ ClothingUniformBase, BaseSyndicateContraband ]
+  id: ClothingUniformJumpsuitCybersunOveralls
+  name: Cybersun technician overalls
+  suffix: CrookLv, Clothing, Cybersun
+  description: Work overalls for Cybersun technicians.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Cybersun/cybersun_overalls.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Cybersun/cybersun_overalls.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#31262D"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#31262D"
+
+- type: entity
+  parent: [ ClothingUniformBase, BaseSyndicateContraband ]
+  id: ClothingUniformJumpsuitCybersunSuit
+  name: Cybersun business suit
+  suffix: CrookLv, Clothing, Cybersun
+  description: A tailored business suit with the Cybersun logo.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Cybersun/cybersun_suit.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Cybersun/cybersun_suit.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#7B787A"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#7B787A"
+
+- type: entity
+  parent: [ ClothingUniformBase, BaseSyndicateContraband ]
+  id: ClothingUniformJumpsuitCybersunOfficer
+  name: Cybersun officer uniform
+  suffix: CrookLv, Clothing, Cybersun
+  description: A maroon uniform worn by Cybersun officers.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Cybersun/cybersun_officer.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Cybersun/cybersun_officer.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#451E2C"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#451E2C"
+
+- type: entity
+  parent: [ ClothingUniformBase, BaseSyndicateContraband ]
+  id: ClothingUniformJumpsuitCybersunSneaksuit
+  name: Cybersun sneaksuit
+  suffix: CrookLv, Clothing, Cybersun
+  description: A black, form-fitting suit for discreet work.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Cybersun/cybersun_sneaksuit.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Cybersun/cybersun_sneaksuit.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#39393D"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#39393D"
+
+# Gezena
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitGezenaNavywear
+  name: Gezenan navy uniform
+  suffix: CrookLv, Clothing, Gezena
+  description: The service uniform of the Gezenan navy.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Gezena/navywear.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Gezena/navywear.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#2D3347"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#2D3347"
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitGezenaOfficerwear
+  name: Gezenan officer uniform
+  suffix: CrookLv, Clothing, Gezena
+  description: A uniform worn by Gezenan navy officers.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Gezena/officerwear.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Gezena/officerwear.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#2D3F48"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#2D3F48"
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitGezenaCaptainwear
+  name: Gezenan captain uniform
+  suffix: CrookLv, Clothing, Gezena
+  description: A decorated uniform of a Gezenan ship captain.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Gezena/captainwear.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Gezena/captainwear.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#494961"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#494961"
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitGezenaMarinewear
+  name: Gezenan marine uniform
+  suffix: CrookLv, Clothing, Gezena
+  description: Olive fatigues of the Gezenan marines.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Gezena/marinewear.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Gezena/marinewear.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#384130"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#384130"
+
+# Blood Vanguard
+- type: entity
+  parent: [ ClothingUniformBase, BaseSyndicateContraband ]
+  id: ClothingUniformJumpsuitHardlinersStandard
+  name: Blood Vanguard uniform
+  suffix: CrookLv, Clothing, Blood Vanguard
+  description: The uniform of the Blood Vanguard.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Hardliners/hardliners.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Hardliners/hardliners.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#441A28"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#441A28"
+
+- type: entity
+  parent: [ ClothingUniformBase, BaseSyndicateContraband ]
+  id: ClothingUniformJumpsuitHardlinersJumpsuit
+  name: Blood Vanguard work jumpsuit
+  suffix: CrookLv, Clothing, Blood Vanguard
+  description: A white work jumpsuit used by Blood Vanguard technicians.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Hardliners/hl_jumpsuit.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Hardliners/hl_jumpsuit.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#706D6F"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#706D6F"
+
+- type: entity
+  parent: [ ClothingUniformBase, BaseSyndicateContraband ]
+  id: ClothingUniformJumpsuitHardlinersOfficer
+  name: Blood Vanguard officer uniform
+  suffix: CrookLv, Clothing, Blood Vanguard
+  description: A dark uniform of a Blood Vanguard officer.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Hardliners/hl_officer.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Hardliners/hl_officer.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#3D2C34"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#3D2C34"
+
+- type: entity
+  parent: [ ClothingUniformEnvirosuitBase, BaseSyndicateContraband ]
+  id: ClothingUniformJumpsuitHardlinersEnvirosuit
+  name: Blood Vanguard envirosuit
+  suffix: CrookLv, Clothing, Blood Vanguard
+  description: An airtight suit for plasma-based Blood Vanguard members.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Hardliners/hl_envirosuit.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Hardliners/hl_envirosuit.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#4A1E2C"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#4A1E2C"
+
+# Inteq
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitInteQStandard
+  name: Inteq uniform
+  suffix: CrookLv, Clothing, Inteq
+  description: The standard uniform of Inteq PMC contractors.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/InteQ/inteq.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/InteQ/inteq.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#3B2220"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#3B2220"
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitInteQInteqeng
+  name: Inteq engineer uniform
+  suffix: CrookLv, Clothing, Inteq
+  description: An Inteq PMC uniform for artificers and engineers.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/InteQ/inteqeng.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/InteQ/inteqeng.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#332524"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#332524"
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitInteQInteqmed
+  name: Inteq corpsman uniform
+  suffix: CrookLv, Clothing, Inteq
+  description: An Inteq PMC uniform for field corpsmen.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/InteQ/inteqmed.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/InteQ/inteqmed.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#7E7B85"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#7E7B85"
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitInteQHonorable
+  name: Inteq honorable uniform
+  suffix: CrookLv, Clothing, Inteq
+  description: A black uniform worn by honored Inteq PMC veterans.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/InteQ/inteq_honorable.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/InteQ/inteq_honorable.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#201D22"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#201D22"
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitInteQSneak
+  name: Inteq infiltrator suit
+  suffix: CrookLv, Clothing, Inteq
+  description: A dark suit for Inteq PMC infiltration contracts.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/InteQ/inteq_sneak.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/InteQ/inteq_sneak.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#1F1B1F"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#1F1B1F"
+
+# Gorlex Republic
+- type: entity
+  parent: [ ClothingUniformBase, BaseSyndicateContraband ]
+  id: ClothingUniformJumpsuitNGRFatigues
+  name: Gorlex Republic fatigues
+  suffix: CrookLv, Clothing, Gorlex Republic
+  description: Sand-colored field fatigues of the Gorlex Republic.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/NGR/ngr_fatigues.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/NGR/ngr_fatigues.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#986A4E"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#986A4E"
+
+- type: entity
+  parent: [ ClothingUniformBase, BaseSyndicateContraband ]
+  id: ClothingUniformJumpsuitNGRStandard
+  name: Gorlex Republic uniform
+  suffix: CrookLv, Clothing, Gorlex Republic
+  description: The standard uniform of the Gorlex Republic military.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/NGR/ngr.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/NGR/ngr.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#7B5140"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#7B5140"
+
+- type: entity
+  parent: [ ClothingUniformBase, BaseSyndicateContraband ]
+  id: ClothingUniformJumpsuitNGROfficer
+  name: Gorlex Republic officer uniform
+  suffix: CrookLv, Clothing, Gorlex Republic
+  description: A dark uniform worn by Gorlex Republic officers.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/NGR/ngr_officer.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/NGR/ngr_officer.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#56403B"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#56403B"
+
+- type: entity
+  parent: [ ClothingUniformBase, BaseSyndicateContraband ]
+  id: ClothingUniformJumpsuitNGRJumpsuit
+  name: Gorlex Republic work jumpsuit
+  suffix: CrookLv, Clothing, Gorlex Republic
+  description: A work jumpsuit for Gorlex Republic technicians.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/NGR/ngr_jumpsuit.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/NGR/ngr_jumpsuit.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#4F4039"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#4F4039"
+
+- type: entity
+  parent: [ ClothingUniformEnvirosuitBase, BaseSyndicateContraband ]
+  id: ClothingUniformJumpsuitNGREnvirosuit
+  name: Gorlex Republic envirosuit
+  suffix: CrookLv, Clothing, Gorlex Republic
+  description: An airtight suit for plasma-based Gorlex Republic personnel.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/NGR/ngr_envirosuit.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/NGR/ngr_envirosuit.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#724A3D"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#724A3D"
+
+# Rust Clique
+- type: entity
+  parent: [ ClothingUniformBase, BaseSyndicateContraband ]
+  id: ClothingUniformJumpsuitRamziStandard
+  name: Rust Clique outfit
+  suffix: CrookLv, Clothing, Rust Clique
+  description: A worn-out outfit of a Rust Clique pirate.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Ramzi/ramzi.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Ramzi/ramzi.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#402122"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#402122"
+
+- type: entity
+  parent: [ ClothingUniformBase, BaseSyndicateContraband ]
+  id: ClothingUniformJumpsuitRamziOveralls
+  name: Rust Clique overalls
+  suffix: CrookLv, Clothing, Rust Clique
+  description: Grease-stained overalls of a Rust Clique mechanic.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Ramzi/ramzi_overalls.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Ramzi/ramzi_overalls.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#49342E"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#49342E"
+
+- type: entity
+  parent: [ ClothingUniformBase, BaseSyndicateContraband ]
+  id: ClothingUniformJumpsuitRamziOfficer
+  name: Rust Clique officer outfit
+  suffix: CrookLv, Clothing, Rust Clique
+  description: A slightly less worn-out outfit of a Rust Clique lieutenant.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Ramzi/ramzi_officer.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Ramzi/ramzi_officer.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#3F2122"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#3F2122"
+
+# UEG
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSolGovTunic
+  name: UEG tunic
+  suffix: CrookLv, Clothing, UEG
+  description: A navy tunic of the United Earth Government service.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SolGov/solgov_tunic.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SolGov/solgov_tunic.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#645C63"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#645C63"
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSolGovTerragovTunic
+  name: Terran Confederation tunic
+  suffix: CrookLv, Clothing, UEG
+  description: An olive tunic in the old Terran Confederation style.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SolGov/terragov_tunic.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SolGov/terragov_tunic.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#766D53"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#766D53"
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSolGovFormal
+  name: UEG formal uniform
+  suffix: CrookLv, Clothing, UEG
+  description: A white formal uniform of the United Earth Government.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SolGov/formal_solgov.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SolGov/formal_solgov.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#8E8B98"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#8E8B98"
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSolGovFormalTerragov
+  name: Terran Confederation formal uniform
+  suffix: CrookLv, Clothing, UEG
+  description: A formal uniform in the old Terran Confederation style.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SolGov/formal_terragov.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SolGov/formal_terragov.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#929194"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#929194"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformJumpsuitSolGovPlasma
+  name: UEG envirosuit
+  suffix: CrookLv, Clothing, UEG
+  description: An airtight suit for plasma-based UEG (United Earth Government) personnel.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SolGov/plasma_solgov.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SolGov/plasma_solgov.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#97979C"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#97979C"
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSolGovCaptain
+  name: UEG captain uniform
+  suffix: CrookLv, Clothing, UEG
+  description: A uniform with gold epaulettes for UEG (United Earth Government) captains.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SolGov/solgov_captain.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SolGov/solgov_captain.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#64504D"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#64504D"
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSolGovDress
+  name: UEG dress
+  suffix: CrookLv, Clothing, UEG
+  description: An elegant white dress of the United Earth Government.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SolGov/solgov_dress.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SolGov/solgov_dress.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#9E99A0"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#9E99A0"
+
+# Hunters' Order
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSRMWork
+  name: Hunters' Order work clothes
+  suffix: CrookLv, Clothing, Hunters' Order
+  description: Simple work clothes of the Hunters' Order settlers.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SRM/rouma_work.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SRM/rouma_work.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#9296A3"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#9296A3"
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSRMAlt
+  name: Hunters' Order hunter clothes
+  suffix: CrookLv, Clothing, Hunters' Order
+  description: Grey travel clothes of a Hunters' Order hunter.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SRM/rouma_alt.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SRM/rouma_alt.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#545254"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#545254"
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSRMMon
+  name: Hunters' Order Montagne clothes
+  suffix: CrookLv, Clothing, Hunters' Order
+  description: The bright red clothes of a Hunters' Order Montagne.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SRM/rouma_mon.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SRM/rouma_mon.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#6B292D"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#6B292D"
+
+# SUNS
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSUNSUniform3
+  name: SUNS purple uniform
+  suffix: CrookLv, Clothing, SUNS
+  description: A purple SUNS (Student-Union of Naturalistic Sciences) student uniform.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SUNS/suns_uniform3.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SUNS/suns_uniform3.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#43314C"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#43314C"
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSUNSUniform2
+  name: SUNS white uniform
+  suffix: CrookLv, Clothing, SUNS
+  description: A white SUNS (Student-Union of Naturalistic Sciences) student uniform.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SUNS/suns_uniform2.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SUNS/suns_uniform2.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#7E7C87"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#7E7C87"
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSUNSUniform1
+  name: SUNS classic uniform
+  suffix: CrookLv, Clothing, SUNS
+  description: A classic SUNS (Student-Union of Naturalistic Sciences) uniform with purple trousers.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SUNS/suns_uniform1.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SUNS/suns_uniform1.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#807B8C"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#807B8C"
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSUNSPkuniform
+  name: SUNS peacekeeper uniform
+  suffix: CrookLv, Clothing, SUNS
+  description: A black uniform of the SUNS (Student-Union of Naturalistic Sciences) peacekeepers.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SUNS/suns_pkuniform.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SUNS/suns_pkuniform.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#1D1D2B"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#1D1D2B"
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSUNSWorkerjumpsuit
+  name: SUNS worker jumpsuit
+  suffix: CrookLv, Clothing, SUNS
+  description: A purple jumpsuit for SUNS (Student-Union of Naturalistic Sciences) maintenance workers.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SUNS/suns_workerjumpsuit.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SUNS/suns_workerjumpsuit.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#53405F"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#53405F"
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSUNSDoctorscrubs
+  name: SUNS doctor scrubs
+  suffix: CrookLv, Clothing, SUNS
+  description: Purple scrubs of the SUNS (Student-Union of Naturalistic Sciences) medical faculty.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SUNS/suns_doctorscrubs.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SUNS/suns_doctorscrubs.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#563D62"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#563D62"
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSUNSSciencejumpsuit
+  name: SUNS science jumpsuit
+  suffix: CrookLv, Clothing, SUNS
+  description: A white jumpsuit for SUNS (Student-Union of Naturalistic Sciences) researchers.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SUNS/suns_sciencejumpsuit.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SUNS/suns_sciencejumpsuit.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#878392"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#878392"
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSUNSXo
+  name: SUNS executive officer uniform
+  suffix: CrookLv, Clothing, SUNS
+  description: A sharp uniform of a SUNS (Student-Union of Naturalistic Sciences) executive officer.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SUNS/suns_xo.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SUNS/suns_xo.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#403F4E"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#403F4E"
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSUNSCaptain
+  name: SUNS captain uniform
+  suffix: CrookLv, Clothing, SUNS
+  description: A decorated uniform of a SUNS (Student-Union of Naturalistic Sciences) captain.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SUNS/suns_captain.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SUNS/suns_captain.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-left
+        color: "#28252E"
+      right:
+      - sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/color/color.rsi
+        state: inhand-right
+        color: "#28252E"

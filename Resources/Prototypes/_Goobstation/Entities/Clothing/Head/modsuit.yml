@@ -84,7 +84,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Modsuits/standard.rsi
+    sprite: _Aquila/Clothing/Head/Modsuits/standard.rsi # Aquila Change
     layers:
     - state: helmet
     - state: helmet-sealed
@@ -201,7 +201,7 @@
       head-hydrakin:
       - state: equipped-HEAD-hydrakin
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Modsuits/security.rsi
+    sprite: _Aquila/Clothing/Head/Modsuits/security.rsi # Aquila Change
     layers:
     - state: helmet
     - state: helmet-sealed
@@ -316,7 +316,7 @@
       head-hydrakin:
       - state: equipped-HEAD-hydrakin
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Modsuits/headofsecurity.rsi
+    sprite: _Aquila/Clothing/Head/Modsuits/headofsecurity.rsi # Aquila Change
     layers:
     - state: helmet
     - state: helmet-sealed
@@ -410,7 +410,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Modsuits/paramedic.rsi
+    sprite: _Aquila/Clothing/Head/Modsuits/paramedic.rsi # Aquila Change
     layers:
     - state: helmet
     - state: helmet-sealed
@@ -498,7 +498,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Modsuits/engineer.rsi
+    sprite: _Aquila/Clothing/Head/Modsuits/engineer.rsi # Aquila Change
     layers:
     - state: helmet
     - state: helmet-sealed

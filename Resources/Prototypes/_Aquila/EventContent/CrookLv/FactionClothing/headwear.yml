@@ -1,0 +1,1667 @@
+# LFC
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
+  id: ClothingHeadCLIPM10
+  name: LFC M10 helmet
+  suffix: CrookLv, Clothing, LFC
+  description: A standard M10 combat helmet in LFC (League of Free Colonies) colors.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_m10.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_m10.rsi
+
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
+  id: ClothingHeadCLIPX11
+  name: LFC X11 helmet
+  suffix: CrookLv, Clothing, LFC
+  description: A heavier X11 combat helmet in LFC (League of Free Colonies) colors.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_x11.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_x11.rsi
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.8
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadCLIPSlouchHat
+  name: LFC slouch hat
+  suffix: CrookLv, Clothing, LFC
+  description: A wide-brimmed slouch hat of the LFC (League of Free Colonies) militia.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_slouch_hat.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_slouch_hat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadCLIPOfficerHat
+  name: LFC officer hat
+  suffix: CrookLv, Clothing, LFC
+  description: A peaked hat worn by LFC (League of Free Colonies) officers.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_officer_hat.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_officer_hat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadCLIPGeneralHat
+  name: LFC general hat
+  suffix: CrookLv, Clothing, LFC
+  description: An imposing hat reserved for LFC (League of Free Colonies) generals.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_general_hat.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_general_hat.rsi
+
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
+  id: ClothingHeadCLIPRiot
+  name: LFC riot helmet
+  suffix: CrookLv, Clothing, LFC
+  description: A riot helmet with a face shield, in LFC (League of Free Colonies) colors.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/riot_clip.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/riot_clip.rsi
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.25
+      OrganDamage: 0.25
+      BoneDamage: 0.25
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.85
+        Heat: 0.85
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadCLIPFedora
+  name: LFC fedora
+  suffix: CrookLv, Clothing, LFC
+  description: A blue fedora with an LFC (League of Free Colonies) band.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_fedora.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_fedora.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadCLIPFlatcap
+  name: LFC flat cap
+  suffix: CrookLv, Clothing, LFC
+  description: A blue flat cap.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/flatcap_clip.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/flatcap_clip.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadCLIPCap
+  name: LFC cap
+  suffix: CrookLv, Clothing, LFC
+  description: A soft cap of the LFC (League of Free Colonies) militia.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_cap.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_cap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadCLIPMediccap
+  name: LFC medic cap
+  suffix: CrookLv, Clothing, LFC
+  description: A white cap with a medical cross.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_mediccap.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_mediccap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadCLIPBoonie
+  name: LFC boonie hat
+  suffix: CrookLv, Clothing, LFC
+  description: A blue boonie hat for field duty.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_boonie.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_boonie.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadCLIPBardBio
+  name: LFC biohazard hood
+  suffix: CrookLv, Clothing, LFC
+  description: A sealed biohazard hood used by LFC (League of Free Colonies) BARD (Biohazard Assessment and Response Division) units.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_bard_bio.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_bard_bio.rsi
+  - type: Armor
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Caustic: 0.6
+
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
+  id: ClothingHeadCLIPBardBioArmored
+  name: LFC armored biohazard hood
+  suffix: CrookLv, Clothing, LFC
+  description: An armored biohazard hood for LFC (League of Free Colonies) BARD (Biohazard Assessment and Response Division) combat teams.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_bard_bio_armored.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_bard_bio_armored.rsi
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.8
+        Caustic: 0.6
+
+# Cybersun
+- type: entity
+  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
+  id: ClothingHeadCybersunAgentsoft
+  name: Cybersun agent cap
+  suffix: CrookLv, Clothing, Cybersun
+  description: A black cap of a Cybersun agent.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/agentsoft.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/agentsoft.rsi
+
+- type: entity
+  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
+  id: ClothingHeadCybersunCybersunsoft
+  name: Cybersun cap
+  suffix: CrookLv, Clothing, Cybersun
+  description: A teal Cybersun cap.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/cybersunsoft.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/cybersunsoft.rsi
+
+- type: entity
+  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
+  id: ClothingHeadCybersunSurgicalWhite
+  name: Cybersun white surgical cap
+  suffix: CrookLv, Clothing, Cybersun
+  description: A white surgical cap of Cybersun medics.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/surgical_white.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/surgical_white.rsi
+
+- type: entity
+  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
+  id: ClothingHeadCybersunSurgicalMaroon
+  name: Cybersun maroon surgical cap
+  suffix: CrookLv, Clothing, Cybersun
+  description: A maroon surgical cap of Cybersun medics.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/surgical_maroon.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/surgical_maroon.rsi
+
+- type: entity
+  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
+  id: ClothingHeadCybersunCybersunhat
+  name: Cybersun officer hat
+  suffix: CrookLv, Clothing, Cybersun
+  description: A maroon peaked hat of Cybersun officers.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/cybersunhat.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/cybersunhat.rsi
+
+- type: entity
+  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
+  id: ClothingHeadCybersunMeddirectorberet
+  name: Cybersun medical director beret
+  suffix: CrookLv, Clothing, Cybersun
+  description: A beret worn by Cybersun medical directors.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/meddirectorberet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/meddirectorberet.rsi
+
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, BaseSyndicateContraband ]
+  id: ClothingHeadCybersunM10helm
+  name: Cybersun M10 helmet
+  suffix: CrookLv, Clothing, Cybersun
+  description: An M10 combat helmet in Cybersun maroon.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/cybersun_m10helm.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/cybersun_m10helm.rsi
+
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, BaseSyndicateContraband ]
+  id: ClothingHeadCybersunX11helm
+  name: Cybersun X11 helmet
+  suffix: CrookLv, Clothing, Cybersun
+  description: An X11 combat helmet in Cybersun maroon.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/cybersun_x11helm.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/cybersun_x11helm.rsi
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.8
+
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, BaseSyndicateContraband ]
+  id: ClothingHeadCybersunRiot
+  name: Cybersun riot helmet
+  suffix: CrookLv, Clothing, Cybersun
+  description: A Cybersun riot helmet with a face shield.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/riot_cybersun.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/riot_cybersun.rsi
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.25
+      OrganDamage: 0.25
+      BoneDamage: 0.25
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.85
+        Heat: 0.85
+
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, BaseSyndicateContraband ]
+  id: ClothingHeadCybersunTraumaM10helm
+  name: Cybersun Trauma Team M10 helmet
+  suffix: CrookLv, Clothing, Cybersun
+  description: A white M10 helmet of the Cybersun Trauma Team.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/trauma_m10helm.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/trauma_m10helm.rsi
+
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, BaseSyndicateContraband ]
+  id: ClothingHeadCybersunTraumaX11helm
+  name: Cybersun Trauma Team X11 helmet
+  suffix: CrookLv, Clothing, Cybersun
+  description: A white X11 helmet of the Cybersun Trauma Team.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/trauma_x11helm.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/trauma_x11helm.rsi
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.8
+
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, BaseSyndicateContraband ]
+  id: ClothingHeadCybersunRiotTrauma
+  name: Cybersun Trauma Team riot helmet
+  suffix: CrookLv, Clothing, Cybersun
+  description: A white riot helmet of the Cybersun Trauma Team.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/riot_trauma.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/riot_trauma.rsi
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.25
+      OrganDamage: 0.25
+      BoneDamage: 0.25
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.85
+        Heat: 0.85
+
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, BaseSyndicateContraband ]
+  id: ClothingHeadCybersunTraumaTealM10helm
+  name: Cybersun teal M10 helmet
+  suffix: CrookLv, Clothing, Cybersun
+  description: A teal M10 helmet of Cybersun medics.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/trauma_teal_m10helm.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/trauma_teal_m10helm.rsi
+
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, BaseSyndicateContraband ]
+  id: ClothingHeadCybersunTraumaTealX11helm
+  name: Cybersun teal X11 helmet
+  suffix: CrookLv, Clothing, Cybersun
+  description: A teal X11 helmet of Cybersun medics.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/trauma_teal_x11helm.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/trauma_teal_x11helm.rsi
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.8
+
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, BaseSyndicateContraband ]
+  id: ClothingHeadCybersunRiotTraumaTeal
+  name: Cybersun teal riot helmet
+  suffix: CrookLv, Clothing, Cybersun
+  description: A teal riot helmet of Cybersun medics.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/riot_trauma_teal.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/riot_trauma_teal.rsi
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.25
+      OrganDamage: 0.25
+      BoneDamage: 0.25
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.85
+        Heat: 0.85
+
+# Gezena
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadGezenaCaptainhat
+  name: Gezenan captain hat
+  suffix: CrookLv, Clothing, Gezena
+  description: A peaked hat of a Gezenan captain.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/captainhat.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/captainhat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadGezenaCaptainflap
+  name: Gezenan captain flap cap
+  suffix: CrookLv, Clothing, Gezena
+  description: A flap cap of a Gezenan captain.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/captainflap.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/captainflap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadGezenaNavyhat
+  name: Gezenan navy hat
+  suffix: CrookLv, Clothing, Gezena
+  description: A peaked hat of the Gezenan navy.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/navyhat.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/navyhat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadGezenaNavyflap
+  name: Gezenan navy flap cap
+  suffix: CrookLv, Clothing, Gezena
+  description: A flap cap of the Gezenan navy.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/navyflap.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/navyflap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadGezenaEngihat
+  name: Gezenan engineer hat
+  suffix: CrookLv, Clothing, Gezena
+  description: A peaked hat of a Gezenan engineer.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/engihat.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/engihat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadGezenaEngiflap
+  name: Gezenan engineer flap cap
+  suffix: CrookLv, Clothing, Gezena
+  description: A flap cap of a Gezenan engineer.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/engiflap.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/engiflap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadGezenaMedichat
+  name: Gezenan medic hat
+  suffix: CrookLv, Clothing, Gezena
+  description: A peaked hat of a Gezenan medic.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/medichat.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/medichat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadGezenaMedicflap
+  name: Gezenan medic flap cap
+  suffix: CrookLv, Clothing, Gezena
+  description: A flap cap of a Gezenan medic.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/medicflap.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/medicflap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadGezenaMarinehat
+  name: Gezenan marine hat
+  suffix: CrookLv, Clothing, Gezena
+  description: A peaked hat of the Gezenan marines.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/marinehat.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/marinehat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadGezenaMarineflap
+  name: Gezenan marine flap cap
+  suffix: CrookLv, Clothing, Gezena
+  description: A flap cap of the Gezenan marines.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/marineflap.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/marineflap.rsi
+
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
+  id: ClothingHeadGezenaMarinehelmet
+  name: Gezenan marine helmet
+  suffix: CrookLv, Clothing, Gezena
+  description: The standard combat helmet of the Gezenan marines.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/marinehelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/marinehelmet.rsi
+
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
+  id: ClothingHeadGezenaMarinehelmetMedic
+  name: Gezenan marine medic helmet
+  suffix: CrookLv, Clothing, Gezena
+  description: A marine helmet with medical markings.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/marinehelmet_medic.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/marinehelmet_medic.rsi
+
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
+  id: ClothingHeadGezenaNavyhelmet
+  name: Gezenan navy helmet
+  suffix: CrookLv, Clothing, Gezena
+  description: A combat helmet of the Gezenan navy.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/navyhelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/navyhelmet.rsi
+
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
+  id: ClothingHeadGezenaNavyhelmetMedic
+  name: Gezenan navy medic helmet
+  suffix: CrookLv, Clothing, Gezena
+  description: A navy helmet with medical markings.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/navyhelmet_medic.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/navyhelmet_medic.rsi
+
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
+  id: ClothingHeadGezenaMarineraiderhelmet
+  name: Gezenan raider helmet
+  suffix: CrookLv, Clothing, Gezena
+  description: A sleek helmet of the Gezenan marine raiders.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/marineraiderhelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/marineraiderhelmet.rsi
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.25
+      OrganDamage: 0.25
+      BoneDamage: 0.25
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Heat: 0.75
+
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
+  id: ClothingHeadGezenaMarineraiderhelmetMedic
+  name: Gezenan raider medic helmet
+  suffix: CrookLv, Clothing, Gezena
+  description: A raider helmet with medical markings.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/marineraiderhelmet_medic.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/marineraiderhelmet_medic.rsi
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.25
+      OrganDamage: 0.25
+      BoneDamage: 0.25
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Heat: 0.75
+
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
+  id: ClothingHeadGezenaMarinejuggernauthelmet
+  name: Gezenan juggernaut helmet
+  suffix: CrookLv, Clothing, Gezena
+  description: A massive helmet of the Gezenan marine juggernauts.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/marinejuggernauthelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/marinejuggernauthelmet.rsi
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.7
+
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
+  id: ClothingHeadGezenaMarinejuggernauthelmetMedic
+  name: Gezenan juggernaut medic helmet
+  suffix: CrookLv, Clothing, Gezena
+  description: A juggernaut helmet with medical markings.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/marinejuggernauthelmet_medic.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/marinejuggernauthelmet_medic.rsi
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.7
+
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
+  id: ClothingHeadGezenaNavyjuggernauthelmet
+  name: Gezenan navy juggernaut helmet
+  suffix: CrookLv, Clothing, Gezena
+  description: A massive helmet of Gezenan navy boarding teams.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/navyjuggernauthelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/navyjuggernauthelmet.rsi
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.7
+
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
+  id: ClothingHeadGezenaNavyjuggernauthelmetMedic
+  name: Gezenan navy juggernaut medic helmet
+  suffix: CrookLv, Clothing, Gezena
+  description: A navy juggernaut helmet with medical markings.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/navyjuggernauthelmet_medic.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/navyjuggernauthelmet_medic.rsi
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.7
+
+# Blood Vanguard
+- type: entity
+  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
+  id: ClothingHeadHardlinersSurgery
+  name: Blood Vanguard surgical cap
+  suffix: CrookLv, Clothing, Blood Vanguard
+  description: A surgical cap of Blood Vanguard medics.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Hardliners/hl_surgery.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Hardliners/hl_surgery.rsi
+
+- type: entity
+  parent: [ ClothingHeadHelmetBase, BaseSyndicateContraband ]
+  id: ClothingHeadHardlinersHardhat
+  name: Blood Vanguard hard hat
+  suffix: CrookLv, Clothing, Blood Vanguard
+  description: A hard hat of Blood Vanguard technicians.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Hardliners/hl_hardhat.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Hardliners/hl_hardhat.rsi
+  - type: Armor
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.9
+        Piercing: 0.9
+
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, BaseSyndicateContraband ]
+  id: ClothingHeadHardlinersX11
+  name: Blood Vanguard X11 helmet
+  suffix: CrookLv, Clothing, Blood Vanguard
+  description: An X11 combat helmet in Blood Vanguard colors.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Hardliners/hl_x11.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Hardliners/hl_x11.rsi
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.8
+
+- type: entity
+  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
+  id: ClothingHeadHardlinersPilot
+  name: Blood Vanguard pilot helmet
+  suffix: CrookLv, Clothing, Blood Vanguard
+  description: A light flight helmet of Blood Vanguard pilots.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Hardliners/hl_pilot.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Hardliners/hl_pilot.rsi
+
+- type: entity
+  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
+  id: ClothingHeadHardlinersOfficer
+  name: Blood Vanguard officer cap
+  suffix: CrookLv, Clothing, Blood Vanguard
+  description: A peaked cap of Blood Vanguard officers.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Hardliners/hl_officer.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Hardliners/hl_officer.rsi
+
+- type: entity
+  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
+  id: ClothingHeadHardlinersHood
+  name: Blood Vanguard hood
+  suffix: CrookLv, Clothing, Blood Vanguard
+  description: A dark hood in Blood Vanguard colors.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Hardliners/hood_hl.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Hardliners/hood_hl.rsi
+
+# Inteq
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadInteQPeaked
+  name: Inteq peaked cap
+  suffix: CrookLv, Clothing, Inteq
+  description: A peaked cap of Inteq PMC officers.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/InteQ/inteq_peaked.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/InteQ/inteq_peaked.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadInteQHonorableBeret
+  name: Inteq honorable beret
+  suffix: CrookLv, Clothing, Inteq
+  description: A white beret awarded to honored Inteq PMC veterans.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/InteQ/inteq_honorable_beret.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/InteQ/inteq_honorable_beret.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadInteQBeret
+  name: Inteq beret
+  suffix: CrookLv, Clothing, Inteq
+  description: A brown beret of Inteq PMC contractors.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/InteQ/inteq_beret.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/InteQ/inteq_beret.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadInteQMaahat
+  name: Inteq Master at Arms hat
+  suffix: CrookLv, Clothing, Inteq
+  description: A wide-brimmed hat of an Inteq PMC Master at Arms.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/InteQ/maahat.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/InteQ/maahat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadInteQInteqsoft
+  name: Inteq cap
+  suffix: CrookLv, Clothing, Inteq
+  description: A brown Inteq PMC cap.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/InteQ/inteqsoft.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/InteQ/inteqsoft.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadInteQInteqmedsoft
+  name: Inteq corpsman cap
+  suffix: CrookLv, Clothing, Inteq
+  description: A white Inteq PMC cap with a medical cross.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/InteQ/inteqmedsoft.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/InteQ/inteqmedsoft.rsi
+
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
+  id: ClothingHeadInteQM10helm
+  name: Inteq M10 helmet
+  suffix: CrookLv, Clothing, Inteq
+  description: An M10 combat helmet in Inteq PMC colors.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/InteQ/inteq_m10helm.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/InteQ/inteq_m10helm.rsi
+
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
+  id: ClothingHeadInteQX11helm
+  name: Inteq X11 helmet
+  suffix: CrookLv, Clothing, Inteq
+  description: An X11 combat helmet in Inteq PMC colors.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/InteQ/inteq_x11helm.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/InteQ/inteq_x11helm.rsi
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.8
+
+# Gorlex Republic
+- type: entity
+  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
+  id: ClothingHeadNGRGarrison
+  name: Gorlex Republic garrison cap
+  suffix: CrookLv, Clothing, Gorlex Republic
+  description: A garrison cap of the Gorlex Republic.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/NGR/ngr_garrison.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/NGR/ngr_garrison.rsi
+
+- type: entity
+  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
+  id: ClothingHeadNGRSurgery
+  name: Gorlex Republic surgical cap
+  suffix: CrookLv, Clothing, Gorlex Republic
+  description: A surgical cap of Gorlex Republic medics.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/NGR/ngr_surgery.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/NGR/ngr_surgery.rsi
+
+- type: entity
+  parent: [ ClothingHeadHelmetBase, BaseSyndicateContraband ]
+  id: ClothingHeadNGRHardhat
+  name: Gorlex Republic hard hat
+  suffix: CrookLv, Clothing, Gorlex Republic
+  description: A hard hat of Gorlex Republic technicians.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/NGR/ngr_hardhat.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/NGR/ngr_hardhat.rsi
+  - type: Armor
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.9
+        Piercing: 0.9
+
+- type: entity
+  parent: [ ClothingHeadHelmetBase, BaseSyndicateContraband ]
+  id: ClothingHeadNGRForeman
+  name: Gorlex Republic foreman hard hat
+  suffix: CrookLv, Clothing, Gorlex Republic
+  description: A hard hat of a Gorlex Republic foreman.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/NGR/ngr_foreman.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/NGR/ngr_foreman.rsi
+  - type: Armor
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.9
+        Piercing: 0.9
+
+- type: entity
+  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
+  id: ClothingHeadNGRFlap
+  name: Gorlex Republic flap cap
+  suffix: CrookLv, Clothing, Gorlex Republic
+  description: A flap cap of the Gorlex Republic.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/NGR/ngr_flap.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/NGR/ngr_flap.rsi
+
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, BaseSyndicateContraband ]
+  id: ClothingHeadNGRX11
+  name: Gorlex Republic X11 helmet
+  suffix: CrookLv, Clothing, Gorlex Republic
+  description: An X11 combat helmet in Gorlex Republic colors.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/NGR/ngr_x11.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/NGR/ngr_x11.rsi
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.8
+
+- type: entity
+  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
+  id: ClothingHeadNGRPilot
+  name: Gorlex Republic pilot helmet
+  suffix: CrookLv, Clothing, Gorlex Republic
+  description: A light flight helmet of Gorlex Republic pilots.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/NGR/ngr_pilot.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/NGR/ngr_pilot.rsi
+
+- type: entity
+  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
+  id: ClothingHeadNGROfficer
+  name: Gorlex Republic officer cap
+  suffix: CrookLv, Clothing, Gorlex Republic
+  description: A peaked cap of Gorlex Republic officers.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/NGR/ngr_officer.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/NGR/ngr_officer.rsi
+
+- type: entity
+  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
+  id: ClothingHeadNGRHood
+  name: Gorlex Republic hood
+  suffix: CrookLv, Clothing, Gorlex Republic
+  description: A hood in Gorlex Republic colors.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/NGR/hood_ngr.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/NGR/hood_ngr.rsi
+
+# Rust Clique
+- type: entity
+  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
+  id: ClothingHeadRamziMinor
+  name: Rust Clique bandana
+  suffix: CrookLv, Clothing, Rust Clique
+  description: A worn bandana of a Rust Clique pirate.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Ramzi/ramzi_minor.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Ramzi/ramzi_minor.rsi
+
+- type: entity
+  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
+  id: ClothingHeadRamziMajor
+  name: Rust Clique lieutenant hat
+  suffix: CrookLv, Clothing, Rust Clique
+  description: A hat of a Rust Clique lieutenant.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Ramzi/ramzi_major.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Ramzi/ramzi_major.rsi
+
+- type: entity
+  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
+  id: ClothingHeadRamziPeak
+  name: Rust Clique peaked cap
+  suffix: CrookLv, Clothing, Rust Clique
+  description: A peaked cap taken from someone who no longer needs it.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Ramzi/ramzi_peak.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Ramzi/ramzi_peak.rsi
+
+- type: entity
+  parent: [ ClothingHeadHelmetBase, BaseSyndicateContraband ]
+  id: ClothingHeadRamziHardhat
+  name: Rust Clique hard hat
+  suffix: CrookLv, Clothing, Rust Clique
+  description: A dented hard hat of a Rust Clique mechanic.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Ramzi/ramzi_hardhat.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Ramzi/ramzi_hardhat.rsi
+  - type: Armor
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.9
+        Piercing: 0.9
+
+- type: entity
+  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
+  id: ClothingHeadRamziFlap
+  name: Rust Clique flap cap
+  suffix: CrookLv, Clothing, Rust Clique
+  description: A flap cap of the Rust Clique.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Ramzi/ramzi_flap.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Ramzi/ramzi_flap.rsi
+
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, BaseSyndicateContraband ]
+  id: ClothingHeadRamziM10
+  name: Rust Clique M10 helmet
+  suffix: CrookLv, Clothing, Rust Clique
+  description: A stolen M10 helmet repainted in Rust Clique colors.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Ramzi/ramzi_m10.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Ramzi/ramzi_m10.rsi
+
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, BaseSyndicateContraband ]
+  id: ClothingHeadRamziX11
+  name: Rust Clique X11 helmet
+  suffix: CrookLv, Clothing, Rust Clique
+  description: A stolen X11 helmet repainted in Rust Clique colors.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Ramzi/ramzi_x11.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Ramzi/ramzi_x11.rsi
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.8
+
+- type: entity
+  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
+  id: ClothingHeadRamziSurgery
+  name: Rust Clique surgical cap
+  suffix: CrookLv, Clothing, Rust Clique
+  description: A surgical cap of a Rust Clique sawbones.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Ramzi/ramzi_surgery.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Ramzi/ramzi_surgery.rsi
+
+- type: entity
+  parent: [ WeldingMaskBase, BaseSyndicateContraband ]
+  id: ClothingHeadRamziWelder
+  name: Rust Clique welding helmet
+  suffix: CrookLv, Clothing, Rust Clique
+  description: A welding helmet with a Rust Clique paint job.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Ramzi/ramzi_welder.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Ramzi/ramzi_welder.rsi
+
+# UEG
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadSolGovBicorne
+  name: UEG bicorne
+  suffix: CrookLv, Clothing, UEG
+  description: A ceremonial bicorne of UEG (United Earth Government) envoys.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/solgov_bicorne.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/solgov_bicorne.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadSolGovSonnensoldnerHat
+  name: Sonnensoldner hat
+  suffix: CrookLv, Clothing, UEG
+  description: A plumed hat of the Sonnensoldner mercenaries.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/sonnensoldner_hat.rsi
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.125"
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/sonnensoldner_hat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadSolGovCap
+  name: UEG cap
+  suffix: CrookLv, Clothing, UEG
+  description: A navy cap of UEG (United Earth Government) service.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/cap_solgov.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/cap_solgov.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadSolGovCapTerragov
+  name: Terran Confederation cap
+  suffix: CrookLv, Clothing, UEG
+  description: An olive cap in the old Terran Confederation style.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/cap_terragov.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/cap_terragov.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadSolGovSurgery
+  name: UEG surgical cap
+  suffix: CrookLv, Clothing, UEG
+  description: A surgical cap of UEG (United Earth Government) medics.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/solgov_surgery.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/solgov_surgery.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadSolGovBeret
+  name: UEG beret
+  suffix: CrookLv, Clothing, UEG
+  description: A navy beret with the UEG (United Earth Government) badge.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/beret_solgov.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/beret_solgov.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadSolGovBeretTerragov
+  name: Terran Confederation beret
+  suffix: CrookLv, Clothing, UEG
+  description: An olive beret with the Terran Confederation badge.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/beret_terragov.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/beret_terragov.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadSolGovBeretSolgovplain
+  name: UEG plain beret
+  suffix: CrookLv, Clothing, UEG
+  description: A plain navy beret.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/beret_solgovplain.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/beret_solgovplain.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadSolGovBeretTerragovplain
+  name: Terran Confederation plain beret
+  suffix: CrookLv, Clothing, UEG
+  description: A plain olive beret.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/beret_terragovplain.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/beret_terragovplain.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadSolGovHat
+  name: UEG hat
+  suffix: CrookLv, Clothing, UEG
+  description: A navy dress hat of UEG (United Earth Government).
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/hat_solgov.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/hat_solgov.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadSolGovFlatcap
+  name: UEG flat cap
+  suffix: CrookLv, Clothing, UEG
+  description: A navy flat cap.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/flatcap_solgov.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/flatcap_solgov.rsi
+
+- type: entity
+  parent: ClothingHeadHelmetBase
+  id: ClothingHeadSolGovHardhat
+  name: UEG hard hat
+  suffix: CrookLv, Clothing, UEG
+  description: A hard hat of UEG (United Earth Government) engineers.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/hardhat_solgov.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/hardhat_solgov.rsi
+  - type: Armor
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.9
+        Piercing: 0.9
+
+# Hunters' Order
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadSRMShadowHat
+  name: Hunters' Order shadow hat
+  suffix: CrookLv, Clothing, Hunters' Order
+  description: A pale hat of the Hunters' Order shadows.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SRM/rouma_shadow_hat.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SRM/rouma_shadow_hat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadSRMHat
+  name: Hunters' Order hunter hat
+  suffix: CrookLv, Clothing, Hunters' Order
+  description: A wide-brimmed hunter hat of the Hunters' Order.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SRM/rouma_hat.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SRM/rouma_hat.rsi
+
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
+  id: ClothingHeadSRMHelm
+  name: Hunters' Order helm
+  suffix: CrookLv, Clothing, Hunters' Order
+  description: A steel helm of the Hunters' Order.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SRM/rouma_helm.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SRM/rouma_helm.rsi
+
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
+  id: ClothingHeadSRMHeavy
+  name: Hunters' Order heavy helm
+  suffix: CrookLv, Clothing, Hunters' Order
+  description: A heavy steel helm of the Hunters' Order.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SRM/rouma_heavy.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SRM/rouma_heavy.rsi
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.8
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadSRMMachinistHat
+  name: Hunters' Order machinist hat
+  suffix: CrookLv, Clothing, Hunters' Order
+  description: A hat of a Hunters' Order machinist.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SRM/rouma_machinist_hat.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SRM/rouma_machinist_hat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadSRMMedHat
+  name: Hunters' Order medic hat
+  suffix: CrookLv, Clothing, Hunters' Order
+  description: A hat of a Hunters' Order medic.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SRM/rouma_med_hat.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SRM/rouma_med_hat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadSRMFlamebearerHat
+  name: Hunters' Order flamebearer hat
+  suffix: CrookLv, Clothing, Hunters' Order
+  description: The pointed hat of a Hunters' Order flamebearer.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SRM/rouma_flamebearer_hat.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SRM/rouma_flamebearer_hat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadSRMColligneHat
+  name: Hunters' Order colligne hat
+  suffix: CrookLv, Clothing, Hunters' Order
+  description: A broad hat worn by a Hunters' Order colligne.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SRM/rouma_colligne_hat.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SRM/rouma_colligne_hat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadSRMMontagneHat
+  name: Hunters' Order Montagne hat
+  suffix: CrookLv, Clothing, Hunters' Order
+  description: The plumed red hat of a Hunters' Order Montagne.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SRM/rouma_montagne_hat.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SRM/rouma_montagne_hat.rsi
+
+# SUNS
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadSUNSCaptainbicorne
+  name: SUNS captain bicorne
+  suffix: CrookLv, Clothing, SUNS
+  description: A bicorne of a SUNS (Student-Union of Naturalistic Sciences) captain.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SUNS/suns_captainbicorne.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SUNS/suns_captainbicorne.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadSUNSXoberet
+  name: SUNS executive officer beret
+  suffix: CrookLv, Clothing, SUNS
+  description: A beret of a SUNS (Student-Union of Naturalistic Sciences) executive officer.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SUNS/suns_xoberet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SUNS/suns_xoberet.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadSUNSLabcoathood
+  name: SUNS lab hood
+  suffix: CrookLv, Clothing, SUNS
+  description: A sealed hood worn with a SUNS (Student-Union of Naturalistic Sciences) labcoat.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SUNS/suns_labcoathood.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SUNS/suns_labcoathood.rsi
+  - type: Armor
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Caustic: 0.6
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadSUNSDoctorcap
+  name: SUNS doctor cap
+  suffix: CrookLv, Clothing, SUNS
+  description: A purple surgical cap of SUNS (Student-Union of Naturalistic Sciences) doctors.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SUNS/suns_doctorcap.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SUNS/suns_doctorcap.rsi
+
+- type: entity
+  parent: ClothingHeadHelmetBase
+  id: ClothingHeadSUNSWorkerhelmet
+  name: SUNS worker helmet
+  suffix: CrookLv, Clothing, SUNS
+  description: A hard hat of SUNS (Student-Union of Naturalistic Sciences) maintenance workers.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SUNS/suns_workerhelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SUNS/suns_workerhelmet.rsi
+  - type: Armor
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.9
+        Piercing: 0.9
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadSUNSPkcap
+  name: SUNS peacekeeper cap
+  suffix: CrookLv, Clothing, SUNS
+  description: A peaked cap of the SUNS (Student-Union of Naturalistic Sciences) peacekeepers.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SUNS/suns_pkcap.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SUNS/suns_pkcap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadSUNSDoctorhat
+  name: SUNS doctor hat
+  suffix: CrookLv, Clothing, SUNS
+  description: A purple hat of SUNS (Student-Union of Naturalistic Sciences) medical faculty.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SUNS/suns_doctorhat.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SUNS/suns_doctorhat.rsi
+
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
+  id: ClothingHeadSUNSSunsvisor
+  name: SUNS visor helmet
+  suffix: CrookLv, Clothing, SUNS
+  description: A visored helmet of the SUNS (Student-Union of Naturalistic Sciences) peacekeepers.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SUNS/sunsvisor.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SUNS/sunsvisor.rsi
+
+- type: entity
+  parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
+  id: ClothingHeadSUNSSunslpkvisor
+  name: SUNS lead peacekeeper helmet
+  suffix: CrookLv, Clothing, SUNS
+  description: A visored helmet of a SUNS (Student-Union of Naturalistic Sciences) lead peacekeeper.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SUNS/sunslpkvisor.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SUNS/sunslpkvisor.rsi
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.8

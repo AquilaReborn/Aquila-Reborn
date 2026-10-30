@@ -8,7 +8,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Shoes/Modsuits/standard.rsi
+    sprite: _Aquila/Clothing/Shoes/Modsuits/standard.rsi # Aquila Change
     layers:
     - state: boots
     - state: boots-sealed
@@ -31,7 +31,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Shoes/Modsuits/standard.rsi
+    sprite: _Aquila/Clothing/Shoes/Modsuits/standard.rsi # Aquila Change
     layers:
     - state: boots
     - state: boots-sealed
@@ -61,7 +61,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Shoes/Modsuits/security.rsi
+    sprite: _Aquila/Clothing/Shoes/Modsuits/security.rsi # Aquila Change
     layers:
     - state: boots
     - state: boots-sealed
@@ -111,7 +111,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Shoes/Modsuits/headofsecurity.rsi
+    sprite: _Aquila/Clothing/Shoes/Modsuits/headofsecurity.rsi # Aquila Change
     layers:
     - state: boots
     - state: boots-sealed
@@ -161,7 +161,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Shoes/Modsuits/paramedic.rsi
+    sprite: _Aquila/Clothing/Shoes/Modsuits/paramedic.rsi # Aquila Change
     layers:
     - state: boots
     - state: boots-sealed
@@ -194,7 +194,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Shoes/Modsuits/engineer.rsi
+    sprite: _Aquila/Clothing/Shoes/Modsuits/engineer.rsi # Aquila Change
     layers:
     - state: boots
     - state: boots-sealed

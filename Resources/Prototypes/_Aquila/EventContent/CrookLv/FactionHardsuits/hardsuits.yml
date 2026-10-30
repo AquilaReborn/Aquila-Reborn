@@ -1,0 +1,1973 @@
+# LFC
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
+  id: ClothingOuterHardsuitCLIPPatrol
+  name: LFC patrol hardsuit
+  suffix: CrookLv, Clothing, LFC
+  description: Standard-issue hardsuit of the LFC (League of Free Colonies) militia patrol squads. Reliable armor and decent mobility for long shifts on the frontier.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/Patrol.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/Patrol.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.1
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.45
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.75
+        Radiation: 0.7
+        Caustic: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.55
+  - type: ModifyDelayedKnockdown
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitCLIPPatrol
+  - type: StaticPrice
+    price: 3000
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
+  id: ClothingOuterHardsuitCLIPEod
+  name: LFC EOD hardsuit
+  suffix: CrookLv, Clothing, LFC
+  description: A bulky bomb disposal hardsuit used by LFC (League of Free Colonies) sappers. Shrugs off blasts, but slows its wearer to a crawl.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/Eod.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/Eod.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.6
+        Piercing: 0.7
+        Heat: 0.5
+        Radiation: 0.6
+        Caustic: 0.6
+  - type: ClothingSpeedModifier
+    walkModifier: 0.65
+    sprintModifier: 0.65
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.6
+  - type: ModifyDelayedKnockdown
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitCLIPEod
+  - type: StaticPrice
+    price: 2000
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
+  id: ClothingOuterHardsuitCLIPSpacesuit
+  name: LFC spacesuit
+  suffix: CrookLv, Clothing, LFC
+  description: A lightweight vacuum suit issued to LFC (League of Free Colonies) crews. Keeps you alive in space and little else.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/Spacesuit.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/Spacesuit.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.1
+      OrganDamage: 0.1
+      BoneDamage: 0.1
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.95
+        Heat: 0.9
+        Radiation: 0.8
+        Caustic: 0.9
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitCLIPSpacesuit
+  - type: StaticPrice
+    price: 500
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
+  id: ClothingOuterHardsuitCLIPArmoredSpacesuit
+  name: LFC armored spacesuit
+  suffix: CrookLv, Clothing, LFC
+  description: An LFC (League of Free Colonies) vacuum suit reinforced with light armor plates for boarding actions.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/ArmoredSpacesuit.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/ArmoredSpacesuit.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.4
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.7
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.8
+        Heat: 0.85
+        Radiation: 0.8
+        Caustic: 0.85
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.8
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitCLIPArmoredSpacesuit
+  - type: StaticPrice
+    price: 1000
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
+  id: ClothingOuterHardsuitCLIPIndustrial
+  name: LFC industrial hardsuit
+  suffix: CrookLv, Clothing, LFC
+  description: A sturdy work hardsuit for LFC (League of Free Colonies) colonial engineers and miners. Protects well from debris and radiation.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/Industrial.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/Industrial.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.2
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.8
+        Heat: 0.7
+        Radiation: 0.5
+        Caustic: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.7
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitCLIPIndustrial
+  - type: StaticPrice
+    price: 1500
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+# Cybersun
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
+  id: ClothingOuterHardsuitCybersunStandard
+  name: Cybersun hardsuit
+  suffix: CrookLv, Clothing, Cybersun
+  description: A sleek corporate security hardsuit produced by Cybersun Industries. Balanced protection in a stylish package.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Cybersun/Standard.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Cybersun/Standard.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.1
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.45
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.75
+        Radiation: 0.7
+        Caustic: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.55
+  - type: ModifyDelayedKnockdown
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitCybersunStandard
+  - type: StaticPrice
+    price: 3000
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
+  id: ClothingOuterHardsuitCybersunParamedic
+  name: Cybersun paramedic hardsuit
+  suffix: CrookLv, Clothing, Cybersun
+  description: A light Cybersun hardsuit for field medics. Sealed against toxins and chemicals, built for running, not fighting.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Cybersun/Paramedic.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Cybersun/Paramedic.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.7
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.8
+        Heat: 0.8
+        Radiation: 0.6
+        Caustic: 0.4
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.75
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitCybersunParamedic
+  - type: StaticPrice
+    price: 1500
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
+  id: ClothingOuterHardsuitCybersunCollapsar
+  name: Cybersun Collapsar hardsuit
+  suffix: CrookLv, Clothing, Cybersun
+  description: The pride of Cybersun engineering. An elite hardsuit that combines heavy protection with surprising agility.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Cybersun/Collapsar.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Cybersun/Collapsar.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.35
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
+        Radiation: 0.5
+        Caustic: 0.5
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.45
+  - type: ModifyDelayedKnockdown
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitCybersunCollapsar
+  - type: StaticPrice
+    price: 5000
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
+  id: ClothingOuterHardsuitCybersunCollapsarMedic
+  name: Cybersun Collapsar medic hardsuit
+  suffix: CrookLv, Clothing, Cybersun
+  description: A medical variant of the Collapsar hardsuit for elite combat medics. Excellent chemical sealing and solid armor.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Cybersun/CollapsarMedic.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Cybersun/CollapsarMedic.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.65
+        Heat: 0.6
+        Radiation: 0.4
+        Caustic: 0.3
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.55
+  - type: ModifyDelayedKnockdown
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitCybersunCollapsarMedic
+  - type: StaticPrice
+    price: 4000
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseToggleClothing, BaseSyndicateContraband ]
+  id: ClothingOuterHardsuitCybersunCovert
+  name: Cybersun stealth hardsuit
+  suffix: CrookLv, Clothing, Cybersun
+  description: A dark, low-profile Cybersun hardsuit for covert operations. Light armor, nearly unhindered movement.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Cybersun/Covert.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Cybersun/Covert.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.6
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.8
+        Radiation: 0.7
+        Caustic: 0.8
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.7
+  - type: ToggleClothing
+    action: ActionToggleFactionStealthSuit
+    disableOnUnequip: true
+  - type: ComponentToggler
+    parent: true
+    components:
+    - type: Stealth
+      maxVisibility: 0.25
+      hadOutline: true
+    - type: StealthOnMove
+      invisibilityPenalty: 2
+      maxInvisibilityPenalty: 1.2
+      passiveVisibilityRate: -0.5
+      movementVisibilityRate: 0.25
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitCybersunCovert
+  - type: StaticPrice
+    price: 2500
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+# Gezena
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
+  id: ClothingOuterHardsuitGezenaNavy
+  name: Gezenan navy spacesuit
+  suffix: CrookLv, Clothing, Gezena
+  description: A vacuum suit worn by the crews of the Gezenan Federation navy.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Gezena/Navy.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Gezena/Navy.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.1
+      OrganDamage: 0.1
+      BoneDamage: 0.1
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.95
+        Heat: 0.9
+        Radiation: 0.8
+        Caustic: 0.9
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitGezenaNavy
+  - type: StaticPrice
+    price: 500
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
+  id: ClothingOuterHardsuitGezenaMarine
+  name: Gezenan marine spacesuit
+  suffix: CrookLv, Clothing, Gezena
+  description: An armored vacuum suit of the Gezenan marines, made for ship-to-ship boarding.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Gezena/Marine.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Gezena/Marine.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.4
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.7
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.8
+        Heat: 0.85
+        Radiation: 0.8
+        Caustic: 0.85
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.8
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitGezenaMarine
+  - type: StaticPrice
+    price: 1000
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+# Blood Vanguard
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
+  id: ClothingOuterHardsuitHardlinersStandard
+  name: Blood Vanguard hardsuit
+  suffix: CrookLv, Clothing, Blood Vanguard
+  description: A combat hardsuit of the Blood Vanguard, who never accepted the end of the war.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Hardliners/Standard.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Hardliners/Standard.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.1
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.45
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.75
+        Radiation: 0.7
+        Caustic: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.55
+  - type: ModifyDelayedKnockdown
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitHardlinersStandard
+  - type: StaticPrice
+    price: 3000
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
+  id: ClothingOuterHardsuitHardlinersElite
+  name: Blood Vanguard elite hardsuit
+  suffix: CrookLv, Clothing, Blood Vanguard
+  description: An elite hardsuit reserved for Blood Vanguard officers and veterans.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Hardliners/Elite.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Hardliners/Elite.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.35
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
+        Radiation: 0.5
+        Caustic: 0.5
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.45
+  - type: ModifyDelayedKnockdown
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitHardlinersElite
+  - type: StaticPrice
+    price: 5000
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseToggleClothing, BaseSyndicateContraband ]
+  id: ClothingOuterHardsuitHardlinersStealth
+  name: Blood Vanguard stealth hardsuit
+  suffix: CrookLv, Clothing, Blood Vanguard
+  description: A low-profile Blood Vanguard hardsuit for saboteurs and scouts.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Hardliners/Stealth.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Hardliners/Stealth.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.6
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.8
+        Radiation: 0.7
+        Caustic: 0.8
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.7
+  - type: ToggleClothing
+    action: ActionToggleFactionStealthSuit
+    disableOnUnequip: true
+  - type: ComponentToggler
+    parent: true
+    components:
+    - type: Stealth
+      maxVisibility: 0.25
+      hadOutline: true
+    - type: StealthOnMove
+      invisibilityPenalty: 2
+      maxInvisibilityPenalty: 1.2
+      passiveVisibilityRate: -0.5
+      movementVisibilityRate: 0.25
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitHardlinersStealth
+  - type: StaticPrice
+    price: 2500
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
+  id: ClothingOuterHardsuitHardlinersMiner
+  name: Blood Vanguard mining hardsuit
+  suffix: CrookLv, Clothing, Blood Vanguard
+  description: A rugged Blood Vanguard mining hardsuit. Even their miners dress for war.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Hardliners/Miner.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Hardliners/Miner.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.2
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.8
+        Heat: 0.7
+        Radiation: 0.5
+        Caustic: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.7
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitHardlinersMiner
+  - type: StaticPrice
+    price: 1500
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+# Inteq
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
+  id: ClothingOuterHardsuitInteQSpacesuit
+  name: Inteq spacesuit
+  suffix: CrookLv, Clothing, Inteq
+  description: A basic vacuum suit issued to Inteq PMC contractors.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/Spacesuit.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/Spacesuit.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.1
+      OrganDamage: 0.1
+      BoneDamage: 0.1
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.95
+        Heat: 0.9
+        Radiation: 0.8
+        Caustic: 0.9
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitInteQSpacesuit
+  - type: StaticPrice
+    price: 500
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
+  id: ClothingOuterHardsuitInteQStandard
+  name: Inteq hardsuit
+  suffix: CrookLv, Clothing, Inteq
+  description: The workhorse hardsuit of Inteq PMC mercenaries. Nothing fancy, everything you need.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/Standard.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/Standard.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.1
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.45
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.75
+        Radiation: 0.7
+        Caustic: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.55
+  - type: ModifyDelayedKnockdown
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitInteQStandard
+  - type: StaticPrice
+    price: 3000
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
+  id: ClothingOuterHardsuitInteQPointman
+  name: Inteq pointman hardsuit
+  suffix: CrookLv, Clothing, Inteq
+  description: A reinforced hardsuit for Inteq PMC squad leaders who go through the door first.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/Pointman.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/Pointman.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.4
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.55
+        Heat: 0.7
+        Radiation: 0.6
+        Caustic: 0.6
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.5
+  - type: ModifyDelayedKnockdown
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitInteQPointman
+  - type: StaticPrice
+    price: 4000
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
+  id: ClothingOuterHardsuitInteQEod
+  name: Inteq EOD hardsuit
+  suffix: CrookLv, Clothing, Inteq
+  description: A heavy Inteq PMC bomb disposal hardsuit. Built to survive the explosion it failed to prevent.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/Eod.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/Eod.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.6
+        Piercing: 0.7
+        Heat: 0.5
+        Radiation: 0.6
+        Caustic: 0.6
+  - type: ClothingSpeedModifier
+    walkModifier: 0.65
+    sprintModifier: 0.65
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.6
+  - type: ModifyDelayedKnockdown
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitInteQEod
+  - type: StaticPrice
+    price: 2000
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
+  id: ClothingOuterHardsuitInteQBoulder
+  name: Inteq Boulder hardsuit
+  suffix: CrookLv, Clothing, Inteq
+  description: An Inteq PMC industrial hardsuit for engineering and mining contracts.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/Boulder.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/Boulder.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.2
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.8
+        Heat: 0.7
+        Radiation: 0.5
+        Caustic: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.7
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitInteQBoulder
+  - type: StaticPrice
+    price: 1500
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
+  id: ClothingOuterHardsuitInteQPilot
+  name: Inteq pilot spacesuit
+  suffix: CrookLv, Clothing, Inteq
+  description: A light vacuum suit for Inteq PMC pilots, comfortable enough for long flights.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/Pilot.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/Pilot.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.1
+      OrganDamage: 0.1
+      BoneDamage: 0.1
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.95
+        Heat: 0.9
+        Radiation: 0.8
+        Caustic: 0.9
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitInteQPilot
+  - type: StaticPrice
+    price: 500
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
+  id: ClothingOuterHardsuitInteQRampart
+  name: Inteq Rampart hardsuit
+  suffix: CrookLv, Clothing, Inteq
+  description: A walking wall. The heaviest hardsuit in the Inteq PMC arsenal, slow but almost impenetrable.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/Rampart.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/Rampart.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.25
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.6
+      OrganDamage: 0.6
+      BoneDamage: 0.6
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.6
+        Radiation: 0.6
+        Caustic: 0.6
+  - type: ClothingSpeedModifier
+    walkModifier: 0.65
+    sprintModifier: 0.65
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.35
+  - type: ModifyDelayedKnockdown
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitInteQRampart
+  - type: StaticPrice
+    price: 5000
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
+  id: ClothingOuterHardsuitInteQRanger
+  name: Inteq Ranger hardsuit
+  suffix: CrookLv, Clothing, Inteq
+  description: A light Inteq PMC hardsuit for reconnaissance and long-range patrols.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/Ranger.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/Ranger.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.6
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.8
+        Radiation: 0.7
+        Caustic: 0.8
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.7
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitInteQRanger
+  - type: StaticPrice
+    price: 2500
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+# Gorlex Republic
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
+  id: ClothingOuterHardsuitNGRStandard
+  name: Gorlex Republic hardsuit
+  suffix: CrookLv, Clothing, Gorlex Republic
+  description: The standard combat hardsuit of the Gorlex Republic military.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/NGR/Standard.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/NGR/Standard.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.1
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.45
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.75
+        Radiation: 0.7
+        Caustic: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.55
+  - type: ModifyDelayedKnockdown
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitNGRStandard
+  - type: StaticPrice
+    price: 3000
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
+  id: ClothingOuterHardsuitNGRElite
+  name: Gorlex Republic elite hardsuit
+  suffix: CrookLv, Clothing, Gorlex Republic
+  description: An elite hardsuit of the Gorlex Republic, decorated in the colors of its officer corps.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/NGR/Elite.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/NGR/Elite.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.35
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
+        Radiation: 0.5
+        Caustic: 0.5
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.45
+  - type: ModifyDelayedKnockdown
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitNGRElite
+  - type: StaticPrice
+    price: 5000
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
+  id: ClothingOuterHardsuitNGREod
+  name: Gorlex Republic EOD hardsuit
+  suffix: CrookLv, Clothing, Gorlex Republic
+  description: A heavy bomb disposal hardsuit of the Gorlex Republic.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/NGR/Eod.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/NGR/Eod.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.6
+        Piercing: 0.7
+        Heat: 0.5
+        Radiation: 0.6
+        Caustic: 0.6
+  - type: ClothingSpeedModifier
+    walkModifier: 0.65
+    sprintModifier: 0.65
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.6
+  - type: ModifyDelayedKnockdown
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitNGREod
+  - type: StaticPrice
+    price: 2000
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
+  id: ClothingOuterHardsuitNGRMiner
+  name: Gorlex Republic mining hardsuit
+  suffix: CrookLv, Clothing, Gorlex Republic
+  description: A durable mining hardsuit used in the asteroid fields of the Gorlex Republic.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/NGR/Miner.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/NGR/Miner.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.2
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.8
+        Heat: 0.7
+        Radiation: 0.5
+        Caustic: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.7
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitNGRMiner
+  - type: StaticPrice
+    price: 1500
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
+  id: ClothingOuterHardsuitNGROutrider
+  name: Gorlex Republic outrider hardsuit
+  suffix: CrookLv, Clothing, Gorlex Republic
+  description: A light hardsuit of Gorlex Republic outriders, fast scouts that range far ahead of the main force.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/NGR/Outrider.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/NGR/Outrider.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.6
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.8
+        Radiation: 0.7
+        Caustic: 0.8
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.7
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitNGROutrider
+  - type: StaticPrice
+    price: 2500
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+# Rust Clique
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
+  id: ClothingOuterHardsuitRamziStandard
+  name: Rust Clique hardsuit
+  suffix: CrookLv, Clothing, Rust Clique
+  description: A battered hardsuit of the Rust Clique pirates, patched together from stolen military gear.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Ramzi/Standard.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Ramzi/Standard.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.1
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.45
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.75
+        Radiation: 0.7
+        Caustic: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.55
+  - type: ModifyDelayedKnockdown
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitRamziStandard
+  - type: StaticPrice
+    price: 3000
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
+  id: ClothingOuterHardsuitRamziElite
+  name: Rust Clique elite hardsuit
+  suffix: CrookLv, Clothing, Rust Clique
+  description: A well-kept hardsuit of a Rust Clique captain. Clearly taken from someone important.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Ramzi/Elite.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Ramzi/Elite.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.35
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
+        Radiation: 0.5
+        Caustic: 0.5
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.45
+  - type: ModifyDelayedKnockdown
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitRamziElite
+  - type: StaticPrice
+    price: 5000
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
+  id: ClothingOuterHardsuitRamziRamsee
+  name: Rust Clique raider hardsuit
+  suffix: CrookLv, Clothing, Rust Clique
+  description: A stripped-down Rust Clique hardsuit for fast raids. Less armor, more loot.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Ramzi/Ramsee.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Ramzi/Ramsee.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.6
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.8
+        Radiation: 0.7
+        Caustic: 0.8
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.7
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitRamziRamsee
+  - type: StaticPrice
+    price: 2500
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+# UEG
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
+  id: ClothingOuterHardsuitSolGovStandard
+  name: UEG hardsuit
+  suffix: CrookLv, Clothing, UEG
+  description: A ceremonial yet fully functional hardsuit of the United Earth Government, worn by its officers and envoys.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SolGov/Standard.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SolGov/Standard.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.4
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.55
+        Heat: 0.7
+        Radiation: 0.6
+        Caustic: 0.6
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.5
+  - type: ModifyDelayedKnockdown
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitSolGovStandard
+  - type: StaticPrice
+    price: 4000
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+# Hunters' Order
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
+  id: ClothingOuterHardsuitSRMHunter
+  name: Hunters' Order hunter hardsuit
+  suffix: CrookLv, Clothing, Hunters' Order
+  description: The armor of a Hunters' Order hunter. Its plating is shaped to turn aside claws and blades.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SRM/Hunter.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SRM/Hunter.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.15
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.45
+        Piercing: 0.6
+        Heat: 0.6
+        Radiation: 0.7
+        Caustic: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.5
+  - type: ModifyDelayedKnockdown
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitSRMHunter
+  - type: StaticPrice
+    price: 3500
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
+  id: ClothingOuterHardsuitSRMRouma
+  name: Hunters' Order militia hardsuit
+  suffix: CrookLv, Clothing, Hunters' Order
+  description: A standard hardsuit of the Hunters' Order, worn by its rank-and-file hunters.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SRM/Rouma.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SRM/Rouma.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.1
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.45
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.75
+        Radiation: 0.7
+        Caustic: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.55
+  - type: ModifyDelayedKnockdown
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitSRMRouma
+  - type: StaticPrice
+    price: 3000
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
+  id: ClothingOuterHardsuitSRMMontagne
+  name: Hunters' Order Montagne hardsuit
+  suffix: CrookLv, Clothing, Hunters' Order
+  description: The armor of a Montagne, a veteran hunter of the Hunters' Order. Few have earned it.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SRM/Montagne.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SRM/Montagne.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.35
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
+        Radiation: 0.5
+        Caustic: 0.5
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.45
+  - type: ModifyDelayedKnockdown
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitSRMMontagne
+  - type: StaticPrice
+    price: 5000
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+# SUNS
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
+  id: ClothingOuterHardsuitSUNSVacuum
+  name: SUNS vacuum suit
+  suffix: CrookLv, Clothing, SUNS
+  description: A light vacuum suit issued to students and staff of SUNS (Student-Union of Naturalistic Sciences) for fieldwork.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SUNS/Vacuum.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SUNS/Vacuum.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.1
+      OrganDamage: 0.1
+      BoneDamage: 0.1
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.95
+        Heat: 0.9
+        Radiation: 0.8
+        Caustic: 0.9
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitSUNSVacuum
+  - type: StaticPrice
+    price: 500
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
+  id: ClothingOuterHardsuitSUNSMining
+  name: SUNS mining hardsuit
+  suffix: CrookLv, Clothing, SUNS
+  description: A SUNS (Student-Union of Naturalistic Sciences) research hardsuit for geological expeditions and mining.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SUNS/Mining.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SUNS/Mining.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.2
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.8
+        Heat: 0.7
+        Radiation: 0.5
+        Caustic: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.7
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitSUNSMining
+  - type: StaticPrice
+    price: 1500
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
+  id: ClothingOuterHardsuitSUNSCommand
+  name: SUNS command hardsuit
+  suffix: CrookLv, Clothing, SUNS
+  description: A refined hardsuit worn by SUNS (Student-Union of Naturalistic Sciences) faculty heads and expedition leaders.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SUNS/Command.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SUNS/Command.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.4
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.55
+        Heat: 0.7
+        Radiation: 0.6
+        Caustic: 0.6
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.5
+  - type: ModifyDelayedKnockdown
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitSUNSCommand
+  - type: StaticPrice
+    price: 4000
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
+  id: ClothingOuterHardsuitSUNSPeacekeeper
+  name: SUNS peacekeeper hardsuit
+  suffix: CrookLv, Clothing, SUNS
+  description: A combat hardsuit of the SUNS (Student-Union of Naturalistic Sciences) peacekeepers, who keep order on campus and beyond.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SUNS/Peacekeeper.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SUNS/Peacekeeper.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.1
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.45
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.75
+        Radiation: 0.7
+        Caustic: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+  - type: StaminaResistance
+    damageCoefficient: 0.55
+  - type: ModifyDelayedKnockdown
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitSUNSPeacekeeper
+  - type: StaticPrice
+    price: 3000
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon

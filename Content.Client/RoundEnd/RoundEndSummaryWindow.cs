@@ -24,6 +24,7 @@ namespace Content.Client.RoundEnd
         public RoundEndSummaryWindow(string gm, string roundEnd, TimeSpan roundTimeSpan, int roundId,
             RoundEndMessageEvent.RoundEndPlayerInfo[] info, IEntityManager entityManager, IFileDialogManager fileDialogManager) // CorvaxGoob-PhotoCamera
         {
+            IoCManager.InjectDependencies(this); // Aquila Change
             _entityManager = entityManager;
             _fileDialogManager = fileDialogManager; // CorvaxGoob-PhotoCamera
 
@@ -245,30 +246,12 @@ namespace Content.Client.RoundEnd
                     && playerInfo.DamagePerGroup.Values.Any(v => v > 0))
                 {
                     var totalDamage = playerInfo.DamagePerGroup.Values.Sum(static v => (decimal) v);
-                    var severityAdj = totalDamage switch
-                    {
-                        >= 1000 => "catastrophic",
-                        >= 750 => "devastating",
-                        >= 500 => "agonizing",
-                        >= 300 => "painful",
-                        >= 200 => "brutal",
-                        _ => "tragic"
-                    };
+                    var severityAdj = GetDeathSeverity(totalDamage); // Aquila Change
 
                     var highestDamage = playerInfo.DamagePerGroup
                         .OrderByDescending(kvp => kvp.Value)
                         .First();
-                    var typeAdj = highestDamage.Key switch
-                    {
-                        "Burn" => "fiery",
-                        "Brute" => "crushing",
-                        "Toxin" => "poisonous",
-                        "Airloss" => "suffocating",
-                        "Genetic" => "twisted",
-                        "Metaphysical" => "otherworldly",
-                        "Electronic" => "shocking",
-                        _ => "mysterious",
-                    };
+                    var typeAdj = GetDeathType(highestDamage.Key); // Aquila Change
 
                     deathLabel.SetMarkup(
                         Loc.GetString("round-end-summary-window-death",
@@ -315,7 +298,7 @@ namespace Content.Client.RoundEnd
                         };
                         var headerLabel = new Label
                         {
-                            Text = damage.Key,
+                            Text = GetDamageGroupName(damage.Key), // Aquila Change
                             FontColorOverride = Color.Gray,
                             HorizontalAlignment = HAlignment.Center,
                             VerticalAlignment = VAlignment.Center,

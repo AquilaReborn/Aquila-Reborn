@@ -15,7 +15,7 @@ namespace Content.Shared._CorvaxGoob.Power.Generation.FissionGenerator;
 // CC-BY-NC-SA-3.0
 // https://github.com/goonstation/goonstation/blob/ff86b044/code/obj/nuclearreactor/nuclearreactor.dm
 
-public abstract class SharedNuclearReactorSystem : EntitySystem
+public abstract partial class SharedNuclearReactorSystem : EntitySystem // Aquila Change
 {
     [Dependency] private readonly ItemSlotsSystem _slotsSystem = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
@@ -33,6 +33,9 @@ public abstract class SharedNuclearReactorSystem : EntitySystem
 
     private void OnEjectItemMessage(EntityUid uid, NuclearReactorComponent component, ReactorEjectItemMessage args)
     {
+        if (!CanOperateReactor(args.Actor)) // Aquila Change
+            return; // Aquila Change
+
         if (component.PartSlot.Item == null)
             return;
 

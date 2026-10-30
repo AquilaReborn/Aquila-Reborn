@@ -154,9 +154,9 @@
   description: A special suit that protects against hazardous, low pressure environments. Has thermal shielding.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/atmospherics.rsi
+    sprite: _Aquila/Clothing/OuterClothing/Hardsuits/atmospherics.rsi # Aquila Change
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/atmospherics.rsi
+    sprite: _Aquila/Clothing/OuterClothing/Hardsuits/atmospherics.rsi # Aquila Change
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
@@ -196,9 +196,9 @@
   description: A special hardsuit that protects against hazardous, low pressure environments. Has radiation shielding.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
+    sprite: _Aquila/Clothing/OuterClothing/Hardsuits/engineering.rsi # Aquila Change
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
+    sprite: _Aquila/Clothing/OuterClothing/Hardsuits/engineering.rsi # Aquila Change
   - type: PressureProtection
     highPressureMultiplier: 0.04
     lowPressureMultiplier: 1000
@@ -410,9 +410,9 @@
   description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/security.rsi
+    sprite: _Aquila/Clothing/OuterClothing/Hardsuits/security.rsi # Aquila Change
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/security.rsi
+    sprite: _Aquila/Clothing/OuterClothing/Hardsuits/security.rsi # Aquila Change
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -636,9 +636,9 @@
   description: A special suit that protects against hazardous, low pressure environments. Built with lightweight materials for easier movement. # Goob edit
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/medical.rsi
+    sprite: _Aquila/Clothing/OuterClothing/Hardsuits/medical.rsi # Aquila Change
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/medical.rsi
+    sprite: _Aquila/Clothing/OuterClothing/Hardsuits/medical.rsi # Aquila Change
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
@@ -730,9 +730,9 @@
   description: Lighter and more protective than the standard security hardsuit, but not by much.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
+    sprite: _Aquila/Clothing/OuterClothing/Hardsuits/security-red.rsi # Aquila Change
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
+    sprite: _Aquila/Clothing/OuterClothing/Hardsuits/security-red.rsi # Aquila Change
   - type: PressureProtection
     highPressureMultiplier: 0.45
     lowPressureMultiplier: 1000

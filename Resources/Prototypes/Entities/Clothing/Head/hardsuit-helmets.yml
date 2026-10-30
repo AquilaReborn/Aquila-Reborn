@@ -11,7 +11,7 @@
   description: A special hardsuit helmet designed for working in low-pressure and high-temperature environments. # Goob edit
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/atmospherics.rsi
+    sprite: _Aquila/Clothing/Head/Hardsuits/atmospherics.rsi # Aquila Change
     layers:
     - state: icon
     - state: icon-unshaded
@@ -80,9 +80,9 @@
   description: An engineering hardsuit helmet designed for working in low-pressure, highly radioactive environments. # Goob edit
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/engineering.rsi
+    sprite: _Aquila/Clothing/Head/Hardsuits/engineering.rsi # Aquila Change
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/engineering.rsi
+    sprite: _Aquila/Clothing/Head/Hardsuits/engineering.rsi # Aquila Change
   - type: PointLight
     color: "#ffdbad"
   - type: PressureProtection
@@ -312,9 +312,9 @@
   description: Armored hardsuit helmet for security needs.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/security.rsi
+    sprite: _Aquila/Clothing/Head/Hardsuits/security.rsi # Aquila Change
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/security.rsi
+    sprite: _Aquila/Clothing/Head/Hardsuits/security.rsi # Aquila Change
   - type: PointLight
     color: "#ffeead"
   - type: PressureProtection
@@ -489,9 +489,9 @@
   description: Lightweight medical hardsuit helmet that doesn't restrict your head movements. # Goob edit
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/medical.rsi
+    sprite: _Aquila/Clothing/Head/Hardsuits/medical.rsi # Aquila Change
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/medical.rsi
+    sprite: _Aquila/Clothing/Head/Hardsuits/medical.rsi # Aquila Change
   - type: PointLight
     color: "#adf1ff"
   - type: PressureProtection
@@ -548,9 +548,9 @@
   description: Security hardsuit helmet with the latest top secret NT-HUD software. Belongs to the HoS. # Goob edit
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/security-red.rsi
+    sprite: _Aquila/Clothing/Head/Hardsuits/security-red.rsi # Aquila Change
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/security-red.rsi
+    sprite: _Aquila/Clothing/Head/Hardsuits/security-red.rsi # Aquila Change
   - type: PointLight
     color: "#b7d4de"
   - type: PressureProtection

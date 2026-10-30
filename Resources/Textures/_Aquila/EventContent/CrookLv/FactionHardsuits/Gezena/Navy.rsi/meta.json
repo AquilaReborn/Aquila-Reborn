@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "icon and equipped-OUTERCLOTHING taken from Shiptest at https://github.com/shiptest-ss13/Shiptest/blob/3adaaf8b0ff4bf4f08502eeadb27ce12e39f86ef/icons/obj/clothing/faction/gezena/suits.dmi and https://github.com/shiptest-ss13/Shiptest/blob/3adaaf8b0ff4bf4f08502eeadb27ce12e39f86ef/icons/mob/clothing/faction/gezena/suits.dmi. Inhands from Clothing/OuterClothing/Hardsuits/salvage.rsi: Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e. Vox state made by Flareguy for SS14. equipped-OUTERCLOTHING-dog modified from equipped-OUTERCLOTHING by Sparlight (GitHub). Harpy made by VMSolidus, equipped-OUTERCLOTHING-resomi made by svarshiksatanist (Discord). hydrakin sprite by Zethine / @synthetic_086 (discord).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-OUTERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    }
+  ]
+}

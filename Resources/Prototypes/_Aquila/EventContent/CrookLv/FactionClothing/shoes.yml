@@ -1,0 +1,85 @@
+# Gezena
+- type: entity
+  parent: ClothingShoesMilitaryBase
+  id: ClothingShoesGezenaPgfnboots
+  name: Gezenan navy boots
+  suffix: CrookLv, Clothing, Gezena
+  description: Sturdy boots of the Gezenan navy.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionShoes/Gezena/pgfnboots.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionShoes/Gezena/pgfnboots.rsi
+
+- type: entity
+  parent: ClothingShoesMilitaryBase
+  id: ClothingShoesGezenaPgfmcboots
+  name: Gezenan marine boots
+  suffix: CrookLv, Clothing, Gezena
+  description: Combat boots of the Gezenan marines.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionShoes/Gezena/pgfmcboots.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionShoes/Gezena/pgfmcboots.rsi
+
+# SUNS
+- type: entity
+  parent: ClothingShoesMilitaryBase
+  id: ClothingShoesSUNSCaptainboots
+  name: SUNS captain boots
+  suffix: CrookLv, Clothing, SUNS
+  description: Tall boots of a SUNS (Student-Union of Naturalistic Sciences) captain.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionShoes/SUNS/suns_captainboots.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionShoes/SUNS/suns_captainboots.rsi
+
+- type: entity
+  parent: ClothingShoesMilitaryBase
+  id: ClothingShoesSUNSLongboots
+  name: SUNS long boots
+  suffix: CrookLv, Clothing, SUNS
+  description: Tall black boots.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionShoes/SUNS/suns_longboots.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionShoes/SUNS/suns_longboots.rsi
+
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingShoesSUNSLaceups
+  name: SUNS laceup shoes
+  suffix: CrookLv, Clothing, SUNS
+  description: Polished black laceup shoes.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionShoes/SUNS/suns_laceups.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionShoes/SUNS/suns_laceups.rsi
+
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingShoesSUNSDoctorclogs
+  name: SUNS doctor clogs
+  suffix: CrookLv, Clothing, SUNS
+  description: White clogs of SUNS (Student-Union of Naturalistic Sciences) doctors.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionShoes/SUNS/suns_doctorclogs.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionShoes/SUNS/suns_doctorclogs.rsi
+
+- type: entity
+  parent: ClothingShoesMilitaryBase
+  id: ClothingShoesSUNSJackboots
+  name: SUNS jackboots
+  suffix: CrookLv, Clothing, SUNS
+  description: Black jackboots of the SUNS (Student-Union of Naturalistic Sciences) peacekeepers.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionShoes/SUNS/suns_jackboots.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionShoes/SUNS/suns_jackboots.rsi

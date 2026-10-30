@@ -8,7 +8,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Hands/Modsuits/standard.rsi
+    sprite: _Aquila/Clothing/Hands/Modsuits/standard.rsi # Aquila Change
     layers:
     - state: gauntlets
     - state: gauntlets-sealed
@@ -32,7 +32,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Hands/Modsuits/standard.rsi
+    sprite: _Aquila/Clothing/Hands/Modsuits/standard.rsi # Aquila Change
     layers:
     - state: gauntlets
     - state: gauntlets-sealed
@@ -68,7 +68,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Hands/Modsuits/security.rsi
+    sprite: _Aquila/Clothing/Hands/Modsuits/security.rsi # Aquila Change
     layers:
     - state: gauntlets
     - state: gauntlets-sealed
@@ -107,7 +107,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Hands/Modsuits/paramedic.rsi
+    sprite: _Aquila/Clothing/Hands/Modsuits/paramedic.rsi # Aquila Change
     layers:
     - state: gauntlets
     - state: gauntlets-sealed
@@ -153,7 +153,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Hands/Modsuits/headofsecurity.rsi
+    sprite: _Aquila/Clothing/Hands/Modsuits/headofsecurity.rsi # Aquila Change
     layers:
     - state: gauntlets
     - state: gauntlets-sealed
@@ -201,7 +201,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Hands/Modsuits/engineer.rsi
+    sprite: _Aquila/Clothing/Hands/Modsuits/engineer.rsi # Aquila Change
     layers:
     - state: gauntlets
     - state: gauntlets-sealed

@@ -816,6 +816,9 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
 
     private void OnItemActionMessage(Entity<NuclearReactorComponent> ent, ref ReactorItemActionMessage args)
     {
+        if (!CanOperateReactor(args.Actor)) // Aquila Change
+            return; // Aquila Change
+
         var comp = ent.Comp;
         var pos = args.Position;
         var x = (int) pos.X;
@@ -864,6 +867,9 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
 
     private void OnControlRodMessage(Entity<NuclearReactorComponent> ent, ref ReactorControlRodModifyMessage args)
     {
+        if (!CanOperateReactor(args.Actor)) // Aquila Change
+            return; // Aquila Change
+
         if(AdjustControlRods(ent.Comp, args.Change))
             // Data is sent to a log queue to avoid spamming the admin log when adjusting values rapidly
             if(!_logQueue.TryGetValue(new(args.Actor, ent.Owner), out var value))

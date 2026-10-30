@@ -1,0 +1,1373 @@
+# LFC
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitCLIPPatrol
+  name: LFC patrol hardsuit helmet
+  suffix: CrookLv, Clothing, LFC
+  description: A sealed helmet of the LFC (League of Free Colonies) patrol hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/PatrolHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/PatrolHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.125
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Heat: 0.8
+        Radiation: 0.75
+        Caustic: 0.75
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitCLIPEod
+  name: LFC EOD hardsuit helmet
+  suffix: CrookLv, Clothing, LFC
+  description: A sealed helmet of the LFC (League of Free Colonies) EOD hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/EodHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/EodHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.325
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.55
+        Slash: 0.65
+        Piercing: 0.75
+        Heat: 0.55
+        Radiation: 0.65
+        Caustic: 0.65
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitCLIPSpacesuit
+  name: LFC spacesuit helmet
+  suffix: CrookLv, Clothing, LFC
+  description: A sealed helmet of the LFC (League of Free Colonies) spacesuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/SpacesuitHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/SpacesuitHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.525
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.1
+      OrganDamage: 0.1
+      BoneDamage: 0.1
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 1
+        Heat: 0.95
+        Radiation: 0.85
+        Caustic: 0.95
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitCLIPArmoredSpacesuit
+  name: LFC armored spacesuit helmet
+  suffix: CrookLv, Clothing, LFC
+  description: A sealed helmet of the LFC (League of Free Colonies) armored spacesuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/ArmoredSpacesuitHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/ArmoredSpacesuitHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.425
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.85
+        Heat: 0.9
+        Radiation: 0.85
+        Caustic: 0.9
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitCLIPIndustrial
+  name: LFC industrial hardsuit helmet
+  suffix: CrookLv, Clothing, LFC
+  description: A sealed helmet of the LFC (League of Free Colonies) industrial hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/IndustrialHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/IndustrialHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.225
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.85
+        Heat: 0.75
+        Radiation: 0.55
+        Caustic: 0.75
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+# Cybersun
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitCybersunStandard
+  name: Cybersun hardsuit helmet
+  suffix: CrookLv, Clothing, Cybersun
+  description: A sealed helmet of the Cybersun hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Cybersun/StandardHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Cybersun/StandardHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.125
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Heat: 0.8
+        Radiation: 0.75
+        Caustic: 0.75
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitCybersunParamedic
+  name: Cybersun paramedic hardsuit helmet
+  suffix: CrookLv, Clothing, Cybersun
+  description: A sealed helmet of the Cybersun paramedic hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Cybersun/ParamedicHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Cybersun/ParamedicHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.325
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.85
+        Heat: 0.85
+        Radiation: 0.65
+        Caustic: 0.45
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitCybersunCollapsar
+  name: Cybersun Collapsar hardsuit helmet
+  suffix: CrookLv, Clothing, Cybersun
+  description: A sealed helmet of the Cybersun Collapsar hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Cybersun/CollapsarHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Cybersun/CollapsarHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.075
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.55
+        Heat: 0.55
+        Radiation: 0.55
+        Caustic: 0.55
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitCybersunCollapsarMedic
+  name: Cybersun Collapsar medic hardsuit helmet
+  suffix: CrookLv, Clothing, Cybersun
+  description: A sealed helmet of the Cybersun Collapsar medic hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Cybersun/CollapsarMedicHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Cybersun/CollapsarMedicHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.105
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.7
+        Heat: 0.65
+        Radiation: 0.45
+        Caustic: 0.35
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitCybersunCovert
+  name: Cybersun stealth hardsuit helmet
+  suffix: CrookLv, Clothing, Cybersun
+  description: A sealed helmet of the Cybersun stealth hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Cybersun/CovertHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Cybersun/CovertHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.325
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.75
+        Heat: 0.85
+        Radiation: 0.75
+        Caustic: 0.85
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+# Gezena
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitGezenaNavy
+  name: Gezenan navy spacesuit helmet
+  suffix: CrookLv, Clothing, Gezena
+  description: A sealed helmet of the Gezenan navy spacesuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Gezena/NavyHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Gezena/NavyHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.525
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.1
+      OrganDamage: 0.1
+      BoneDamage: 0.1
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 1
+        Heat: 0.95
+        Radiation: 0.85
+        Caustic: 0.95
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitGezenaMarine
+  name: Gezenan marine spacesuit helmet
+  suffix: CrookLv, Clothing, Gezena
+  description: A sealed helmet of the Gezenan marine spacesuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Gezena/MarineHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Gezena/MarineHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.425
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.85
+        Heat: 0.9
+        Radiation: 0.85
+        Caustic: 0.9
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+# Blood Vanguard
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitHardlinersStandard
+  name: Blood Vanguard hardsuit helmet
+  suffix: CrookLv, Clothing, Blood Vanguard
+  description: A sealed helmet of the Blood Vanguard hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Hardliners/StandardHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Hardliners/StandardHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.125
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Heat: 0.8
+        Radiation: 0.75
+        Caustic: 0.75
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitHardlinersElite
+  name: Blood Vanguard elite hardsuit helmet
+  suffix: CrookLv, Clothing, Blood Vanguard
+  description: A sealed helmet of the Blood Vanguard elite hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Hardliners/EliteHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Hardliners/EliteHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.075
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.55
+        Heat: 0.55
+        Radiation: 0.55
+        Caustic: 0.55
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitHardlinersStealth
+  name: Blood Vanguard stealth hardsuit helmet
+  suffix: CrookLv, Clothing, Blood Vanguard
+  description: A sealed helmet of the Blood Vanguard stealth hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Hardliners/StealthHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Hardliners/StealthHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.325
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.75
+        Heat: 0.85
+        Radiation: 0.75
+        Caustic: 0.85
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitHardlinersMiner
+  name: Blood Vanguard mining hardsuit helmet
+  suffix: CrookLv, Clothing, Blood Vanguard
+  description: A sealed helmet of the Blood Vanguard mining hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Hardliners/MinerHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Hardliners/MinerHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.225
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.85
+        Heat: 0.75
+        Radiation: 0.55
+        Caustic: 0.75
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+# Inteq
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitInteQSpacesuit
+  name: Inteq spacesuit helmet
+  suffix: CrookLv, Clothing, Inteq
+  description: A sealed helmet of the Inteq PMC spacesuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/SpacesuitHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/SpacesuitHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.525
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.1
+      OrganDamage: 0.1
+      BoneDamage: 0.1
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 1
+        Heat: 0.95
+        Radiation: 0.85
+        Caustic: 0.95
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitInteQStandard
+  name: Inteq hardsuit helmet
+  suffix: CrookLv, Clothing, Inteq
+  description: A sealed helmet of the Inteq PMC hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/StandardHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/StandardHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.125
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Heat: 0.8
+        Radiation: 0.75
+        Caustic: 0.75
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitInteQPointman
+  name: Inteq pointman hardsuit helmet
+  suffix: CrookLv, Clothing, Inteq
+  description: A sealed helmet of the Inteq PMC pointman hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/PointmanHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/PointmanHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.105
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.75
+        Radiation: 0.65
+        Caustic: 0.65
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitInteQEod
+  name: Inteq EOD hardsuit helmet
+  suffix: CrookLv, Clothing, Inteq
+  description: A sealed helmet of the Inteq PMC EOD hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/EodHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/EodHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.325
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.55
+        Slash: 0.65
+        Piercing: 0.75
+        Heat: 0.55
+        Radiation: 0.65
+        Caustic: 0.65
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitInteQBoulder
+  name: Inteq Boulder hardsuit helmet
+  suffix: CrookLv, Clothing, Inteq
+  description: A sealed helmet of the Inteq PMC Boulder hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/BoulderHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/BoulderHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.225
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.85
+        Heat: 0.75
+        Radiation: 0.55
+        Caustic: 0.75
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitInteQPilot
+  name: Inteq pilot spacesuit helmet
+  suffix: CrookLv, Clothing, Inteq
+  description: A sealed helmet of the Inteq PMC pilot spacesuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/PilotHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/PilotHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.525
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.1
+      OrganDamage: 0.1
+      BoneDamage: 0.1
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 1
+        Heat: 0.95
+        Radiation: 0.85
+        Caustic: 0.95
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitInteQRampart
+  name: Inteq Rampart hardsuit helmet
+  suffix: CrookLv, Clothing, Inteq
+  description: A sealed helmet of the Inteq PMC Rampart hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/RampartHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/RampartHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.075
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.6
+      OrganDamage: 0.6
+      BoneDamage: 0.6
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.45
+        Slash: 0.45
+        Piercing: 0.45
+        Heat: 0.65
+        Radiation: 0.65
+        Caustic: 0.65
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitInteQRanger
+  name: Inteq Ranger hardsuit helmet
+  suffix: CrookLv, Clothing, Inteq
+  description: A sealed helmet of the Inteq PMC Ranger hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/RangerHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/RangerHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.325
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.75
+        Heat: 0.85
+        Radiation: 0.75
+        Caustic: 0.85
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+# Gorlex Republic
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitNGRStandard
+  name: Gorlex Republic hardsuit helmet
+  suffix: CrookLv, Clothing, Gorlex Republic
+  description: A sealed helmet of the Gorlex Republic hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/NGR/StandardHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/NGR/StandardHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.125
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Heat: 0.8
+        Radiation: 0.75
+        Caustic: 0.75
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitNGRElite
+  name: Gorlex Republic elite hardsuit helmet
+  suffix: CrookLv, Clothing, Gorlex Republic
+  description: A sealed helmet of the Gorlex Republic elite hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/NGR/EliteHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/NGR/EliteHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.075
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.55
+        Heat: 0.55
+        Radiation: 0.55
+        Caustic: 0.55
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitNGREod
+  name: Gorlex Republic EOD hardsuit helmet
+  suffix: CrookLv, Clothing, Gorlex Republic
+  description: A sealed helmet of the Gorlex Republic EOD hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/NGR/EodHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/NGR/EodHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.325
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.55
+        Slash: 0.65
+        Piercing: 0.75
+        Heat: 0.55
+        Radiation: 0.65
+        Caustic: 0.65
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitNGRMiner
+  name: Gorlex Republic mining hardsuit helmet
+  suffix: CrookLv, Clothing, Gorlex Republic
+  description: A sealed helmet of the Gorlex Republic mining hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/NGR/MinerHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/NGR/MinerHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.225
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.85
+        Heat: 0.75
+        Radiation: 0.55
+        Caustic: 0.75
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitNGROutrider
+  name: Gorlex Republic outrider hardsuit helmet
+  suffix: CrookLv, Clothing, Gorlex Republic
+  description: A sealed helmet of the Gorlex Republic outrider hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/NGR/OutriderHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/NGR/OutriderHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.325
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.75
+        Heat: 0.85
+        Radiation: 0.75
+        Caustic: 0.85
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+# Rust Clique
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitRamziStandard
+  name: Rust Clique hardsuit helmet
+  suffix: CrookLv, Clothing, Rust Clique
+  description: A sealed helmet of the Rust Clique hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Ramzi/StandardHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Ramzi/StandardHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.125
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Heat: 0.8
+        Radiation: 0.75
+        Caustic: 0.75
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitRamziElite
+  name: Rust Clique elite hardsuit helmet
+  suffix: CrookLv, Clothing, Rust Clique
+  description: A sealed helmet of the Rust Clique elite hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Ramzi/EliteHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Ramzi/EliteHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.075
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.55
+        Heat: 0.55
+        Radiation: 0.55
+        Caustic: 0.55
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitRamziRamsee
+  name: Rust Clique raider hardsuit helmet
+  suffix: CrookLv, Clothing, Rust Clique
+  description: A sealed helmet of the Rust Clique raider hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Ramzi/RamseeHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Ramzi/RamseeHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.325
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.75
+        Heat: 0.85
+        Radiation: 0.75
+        Caustic: 0.85
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+# UEG
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitSolGovStandard
+  name: UEG hardsuit helmet
+  suffix: CrookLv, Clothing, UEG
+  description: A sealed helmet of the UEG (United Earth Government) hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SolGov/StandardHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SolGov/StandardHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.105
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.75
+        Radiation: 0.65
+        Caustic: 0.65
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+# Hunters' Order
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitSRMHunter
+  name: Hunters' Order hunter hardsuit helmet
+  suffix: CrookLv, Clothing, Hunters' Order
+  description: A sealed helmet of the Hunters' Order hunter hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SRM/HunterHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SRM/HunterHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.175
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.5
+        Piercing: 0.65
+        Heat: 0.65
+        Radiation: 0.75
+        Caustic: 0.75
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitSRMRouma
+  name: Hunters' Order militia hardsuit helmet
+  suffix: CrookLv, Clothing, Hunters' Order
+  description: A sealed helmet of the Hunters' Order militia hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SRM/RoumaHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SRM/RoumaHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.125
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Heat: 0.8
+        Radiation: 0.75
+        Caustic: 0.75
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitSRMMontagne
+  name: Hunters' Order Montagne hardsuit helmet
+  suffix: CrookLv, Clothing, Hunters' Order
+  description: A sealed helmet of the Hunters' Order Montagne hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SRM/MontagneHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SRM/MontagneHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.075
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.55
+        Heat: 0.55
+        Radiation: 0.55
+        Caustic: 0.55
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+# SUNS
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitSUNSVacuum
+  name: SUNS vacuum suit helmet
+  suffix: CrookLv, Clothing, SUNS
+  description: A sealed helmet of the SUNS (Student-Union of Naturalistic Sciences) vacuum suit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SUNS/VacuumHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SUNS/VacuumHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.525
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.1
+      OrganDamage: 0.1
+      BoneDamage: 0.1
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 1
+        Heat: 0.95
+        Radiation: 0.85
+        Caustic: 0.95
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitSUNSMining
+  name: SUNS mining hardsuit helmet
+  suffix: CrookLv, Clothing, SUNS
+  description: A sealed helmet of the SUNS (Student-Union of Naturalistic Sciences) mining hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SUNS/MiningHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SUNS/MiningHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.225
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.85
+        Heat: 0.75
+        Radiation: 0.55
+        Caustic: 0.75
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitSUNSCommand
+  name: SUNS command hardsuit helmet
+  suffix: CrookLv, Clothing, SUNS
+  description: A sealed helmet of the SUNS (Student-Union of Naturalistic Sciences) command hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SUNS/CommandHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SUNS/CommandHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.105
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.75
+        Radiation: 0.65
+        Caustic: 0.65
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitSUNSPeacekeeper
+  name: SUNS peacekeeper hardsuit helmet
+  suffix: CrookLv, Clothing, SUNS
+  description: A sealed helmet of the SUNS (Student-Union of Naturalistic Sciences) peacekeeper hardsuit.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SUNS/PeacekeeperHelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SUNS/PeacekeeperHelmet.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.125
+    lowPressureMultiplier: 1000
+  - type: Armor
+    traumaDeductions:
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
+      VeinsDamage: 0
+      NerveDamage: 0
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Heat: 0.8
+        Radiation: 0.75
+        Caustic: 0.75
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
+  - type: Tag
+    tags:
+    - WhitelistChameleon
