@@ -22,7 +22,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Weapons.Multishot;
 
-public sealed class SharedMultishotSystem : EntitySystem
+public sealed partial class SharedMultishotSystem : EntitySystem // Aquila Change
 {
     [Dependency] private readonly SharedBodySystem _bodySystem = default!;
     [Dependency] private readonly SharedCombatModeSystem _combatSystem = default!;
@@ -44,6 +44,7 @@ public sealed class SharedMultishotSystem : EntitySystem
         SubscribeLocalEvent<MultishotComponent, AmmoShotEvent>(OnAmmoShot);
         SubscribeLocalEvent<MultishotComponent, ExaminedEvent>(OnExamined);
         SubscribeAllEvent<RequestShootEvent>(OnRequestShoot);
+        SubscribeAllEvent<RequestStopShootEvent>(OnRequestStopShoot); // Aquila Change
     }
 
     private void OnRequestShoot(RequestShootEvent msg, EntitySessionEventArgs args)
@@ -68,7 +69,7 @@ public sealed class SharedMultishotSystem : EntitySystem
             if (gunComp.Target == null || !gunComp.BurstActivated || !gunComp.LockOnTargetBurst)
                 gunComp.Target = target;
 
-            _gunSystem.AttemptShoot(user.Value, (gunEnt, gunComp), shootCoords, target);
+            _gunSystem.AttemptShootHeld(user.Value, (gunEnt, gunComp), shootCoords, target); // Aquila Change
         }
     }
 

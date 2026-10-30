@@ -54,8 +54,8 @@ ent-WeaponRifleGorlexGaboon = винтовка "Габун"
     .suffix = CrookLv, Оружие, Горлекская Республика
 
 ## Ржавая Клика
-ent-WeaponPistolRustViper = ржавая "Гадюка"
-    .desc = Видавший виды пистолет, перемотанный изолентой. Стреляет. Обычно.
+ent-WeaponRevolverRustViper = ржавый револьвер "Гадюка"
+    .desc = Видавший виды револьвер, перемотанный изолентой, который всё ещё стреляет, хотя и не каждый раз.
     .suffix = CrookLv, Оружие, Ржавая Клика
 ent-WeaponShotgunRustCottonmouth = дробовик "Щитомордник"
     .desc = Грубый дробовик для абордажа.

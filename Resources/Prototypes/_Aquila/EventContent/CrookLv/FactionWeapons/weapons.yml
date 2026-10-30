@@ -352,17 +352,15 @@
 
 # Rust Clique
 - type: entity
-  parent: [ BaseWeaponPistol, BaseSyndicateContraband ]
-  id: WeaponPistolRustViper
-  name: rusty Viper pistol
+  parent: [ BaseWeaponRevolver, BaseSyndicateContraband ]
+  id: WeaponRevolverRustViper
+  name: rusty Viper revolver
   suffix: CrookLv, Weapons, Rust Clique
-  description: A battered pistol held together with tape. It shoots. Usually.
+  description: A battered revolver held together with tape that still fires, although not every time.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Ramzi/viper23_trash.rsi
   - type: Gun
-    selectedMode: SemiAuto
-    availableModes: SemiAuto
     soundGunshot:
       path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Firearms/2.ogg
   - type: Item
