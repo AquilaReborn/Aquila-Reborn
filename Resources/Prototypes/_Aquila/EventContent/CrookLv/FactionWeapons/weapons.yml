@@ -23,7 +23,7 @@
   id: WeaponSubMachineGunLfcCm5
   name: CM-5 submachine gun
   suffix: CrookLv, Weapons, LFC
-  description: A compact submachine gun for LFC (League of Free Colonies) patrols.
+  description: A compact submachine gun for League of Free Colonies patrols.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionWeapons/CLIP/cm5.rsi
@@ -484,7 +484,7 @@
   id: WeaponRifleUegGar
   name: Gar rifle
   suffix: CrookLv, Weapons, UEG
-  description: The standard rifle of the UEG (United Earth Government) army, built for xenomorph purges.
+  description: The standard rifle of the United Earth Government army, built for xenomorph purges.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionWeapons/SolGov/gar.rsi
@@ -511,7 +511,7 @@
   id: WeaponSniperUegSsg669
   name: SSG-669 sniper rifle
   suffix: CrookLv, Weapons, UEG
-  description: A precise sniper rifle of the UEG (United Earth Government) army.
+  description: A precise sniper rifle of the United Earth Government army.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionWeapons/SolGov/ssg669c.rsi

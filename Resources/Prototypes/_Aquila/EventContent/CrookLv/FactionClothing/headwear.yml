@@ -2,9 +2,9 @@
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
   id: ClothingHeadCLIPM10
-  name: LFC M10 helmet
+  name: M10 helmet
   suffix: CrookLv, Clothing, LFC
-  description: A standard M10 combat helmet in LFC (League of Free Colonies) colors.
+  description: A standard M10 combat helmet in League of Free Colonies colors.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_m10.rsi
@@ -14,9 +14,9 @@
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
   id: ClothingHeadCLIPX11
-  name: LFC X11 helmet
+  name: X11 helmet
   suffix: CrookLv, Clothing, LFC
-  description: A heavier X11 combat helmet in LFC (League of Free Colonies) colors.
+  description: A heavier X11 combat helmet in League of Free Colonies colors.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_x11.rsi
@@ -39,9 +39,9 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadCLIPSlouchHat
-  name: LFC slouch hat
+  name: slouch hat
   suffix: CrookLv, Clothing, LFC
-  description: A wide-brimmed slouch hat of the LFC (League of Free Colonies) militia.
+  description: A wide-brimmed slouch hat of the League of Free Colonies militia.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_slouch_hat.rsi
@@ -51,9 +51,9 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadCLIPOfficerHat
-  name: LFC officer hat
+  name: officer hat
   suffix: CrookLv, Clothing, LFC
-  description: A peaked hat worn by LFC (League of Free Colonies) officers.
+  description: A peaked hat worn by League of Free Colonies officers.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_officer_hat.rsi
@@ -63,9 +63,9 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadCLIPGeneralHat
-  name: LFC general hat
+  name: general hat
   suffix: CrookLv, Clothing, LFC
-  description: An imposing hat reserved for LFC (League of Free Colonies) generals.
+  description: An imposing hat reserved for League of Free Colonies generals.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_general_hat.rsi
@@ -75,9 +75,9 @@
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
   id: ClothingHeadCLIPRiot
-  name: LFC riot helmet
+  name: riot helmet
   suffix: CrookLv, Clothing, LFC
-  description: A riot helmet with a face shield, in LFC (League of Free Colonies) colors.
+  description: A riot helmet with a face shield, in League of Free Colonies colors.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/riot_clip.rsi
@@ -100,9 +100,9 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadCLIPFedora
-  name: LFC fedora
+  name: fedora
   suffix: CrookLv, Clothing, LFC
-  description: A blue fedora with an LFC (League of Free Colonies) band.
+  description: A blue fedora with an League of Free Colonies band.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_fedora.rsi
@@ -112,9 +112,9 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadCLIPFlatcap
-  name: LFC flat cap
+  name: flat cap
   suffix: CrookLv, Clothing, LFC
-  description: A blue flat cap.
+  description: A blue flat cap. Part of the League of Free Colonies equipment.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/flatcap_clip.rsi
@@ -124,9 +124,9 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadCLIPCap
-  name: LFC cap
+  name: cap
   suffix: CrookLv, Clothing, LFC
-  description: A soft cap of the LFC (League of Free Colonies) militia.
+  description: A soft cap of the League of Free Colonies militia.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_cap.rsi
@@ -136,9 +136,9 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadCLIPMediccap
-  name: LFC medic cap
+  name: medic cap
   suffix: CrookLv, Clothing, LFC
-  description: A white cap with a medical cross.
+  description: A white cap with a medical cross. Part of the League of Free Colonies equipment.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_mediccap.rsi
@@ -148,9 +148,9 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadCLIPBoonie
-  name: LFC boonie hat
+  name: boonie hat
   suffix: CrookLv, Clothing, LFC
-  description: A blue boonie hat for field duty.
+  description: A blue boonie hat for field duty. Part of the League of Free Colonies equipment.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_boonie.rsi
@@ -160,9 +160,9 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadCLIPBardBio
-  name: LFC biohazard hood
+  name: biohazard hood
   suffix: CrookLv, Clothing, LFC
-  description: A sealed biohazard hood used by LFC (League of Free Colonies) BARD (Biohazard Assessment and Response Division) units.
+  description: A sealed biohazard hood used by League of Free Colonies Biohazard Assessment and Response Division units.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_bard_bio.rsi
@@ -178,9 +178,9 @@
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
   id: ClothingHeadCLIPBardBioArmored
-  name: LFC armored biohazard hood
+  name: armored biohazard hood
   suffix: CrookLv, Clothing, LFC
-  description: An armored biohazard hood for LFC (League of Free Colonies) BARD (Biohazard Assessment and Response Division) combat teams.
+  description: An armored biohazard hood for League of Free Colonies Biohazard Assessment and Response Division combat teams.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_bard_bio_armored.rsi
@@ -205,7 +205,7 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
   id: ClothingHeadCybersunAgentsoft
-  name: Cybersun agent cap
+  name: agent cap
   suffix: CrookLv, Clothing, Cybersun
   description: A black cap of a Cybersun agent.
   components:
@@ -217,7 +217,7 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
   id: ClothingHeadCybersunCybersunsoft
-  name: Cybersun cap
+  name: cap
   suffix: CrookLv, Clothing, Cybersun
   description: A teal Cybersun cap.
   components:
@@ -229,7 +229,7 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
   id: ClothingHeadCybersunSurgicalWhite
-  name: Cybersun white surgical cap
+  name: white surgical cap
   suffix: CrookLv, Clothing, Cybersun
   description: A white surgical cap of Cybersun medics.
   components:
@@ -241,7 +241,7 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
   id: ClothingHeadCybersunSurgicalMaroon
-  name: Cybersun maroon surgical cap
+  name: maroon surgical cap
   suffix: CrookLv, Clothing, Cybersun
   description: A maroon surgical cap of Cybersun medics.
   components:
@@ -253,7 +253,7 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
   id: ClothingHeadCybersunCybersunhat
-  name: Cybersun officer hat
+  name: officer hat
   suffix: CrookLv, Clothing, Cybersun
   description: A maroon peaked hat of Cybersun officers.
   components:
@@ -265,7 +265,7 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
   id: ClothingHeadCybersunMeddirectorberet
-  name: Cybersun medical director beret
+  name: medical director beret
   suffix: CrookLv, Clothing, Cybersun
   description: A beret worn by Cybersun medical directors.
   components:
@@ -277,7 +277,7 @@
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseSyndicateContraband ]
   id: ClothingHeadCybersunM10helm
-  name: Cybersun M10 helmet
+  name: M10 helmet
   suffix: CrookLv, Clothing, Cybersun
   description: An M10 combat helmet in Cybersun maroon.
   components:
@@ -289,7 +289,7 @@
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseSyndicateContraband ]
   id: ClothingHeadCybersunX11helm
-  name: Cybersun X11 helmet
+  name: X11 helmet
   suffix: CrookLv, Clothing, Cybersun
   description: An X11 combat helmet in Cybersun maroon.
   components:
@@ -314,7 +314,7 @@
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseSyndicateContraband ]
   id: ClothingHeadCybersunRiot
-  name: Cybersun riot helmet
+  name: riot helmet
   suffix: CrookLv, Clothing, Cybersun
   description: A Cybersun riot helmet with a face shield.
   components:
@@ -339,7 +339,7 @@
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseSyndicateContraband ]
   id: ClothingHeadCybersunTraumaM10helm
-  name: Cybersun Trauma Team M10 helmet
+  name: Trauma Team M10 helmet
   suffix: CrookLv, Clothing, Cybersun
   description: A white M10 helmet of the Cybersun Trauma Team.
   components:
@@ -351,7 +351,7 @@
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseSyndicateContraband ]
   id: ClothingHeadCybersunTraumaX11helm
-  name: Cybersun Trauma Team X11 helmet
+  name: Trauma Team X11 helmet
   suffix: CrookLv, Clothing, Cybersun
   description: A white X11 helmet of the Cybersun Trauma Team.
   components:
@@ -376,7 +376,7 @@
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseSyndicateContraband ]
   id: ClothingHeadCybersunRiotTrauma
-  name: Cybersun Trauma Team riot helmet
+  name: Trauma Team riot helmet
   suffix: CrookLv, Clothing, Cybersun
   description: A white riot helmet of the Cybersun Trauma Team.
   components:
@@ -401,7 +401,7 @@
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseSyndicateContraband ]
   id: ClothingHeadCybersunTraumaTealM10helm
-  name: Cybersun teal M10 helmet
+  name: teal M10 helmet
   suffix: CrookLv, Clothing, Cybersun
   description: A teal M10 helmet of Cybersun medics.
   components:
@@ -413,7 +413,7 @@
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseSyndicateContraband ]
   id: ClothingHeadCybersunTraumaTealX11helm
-  name: Cybersun teal X11 helmet
+  name: teal X11 helmet
   suffix: CrookLv, Clothing, Cybersun
   description: A teal X11 helmet of Cybersun medics.
   components:
@@ -438,7 +438,7 @@
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseSyndicateContraband ]
   id: ClothingHeadCybersunRiotTraumaTeal
-  name: Cybersun teal riot helmet
+  name: teal riot helmet
   suffix: CrookLv, Clothing, Cybersun
   description: A teal riot helmet of Cybersun medics.
   components:
@@ -464,7 +464,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadGezenaCaptainhat
-  name: Gezenan captain hat
+  name: captain hat
   suffix: CrookLv, Clothing, Gezena
   description: A peaked hat of a Gezenan captain.
   components:
@@ -476,7 +476,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadGezenaCaptainflap
-  name: Gezenan captain flap cap
+  name: captain flap cap
   suffix: CrookLv, Clothing, Gezena
   description: A flap cap of a Gezenan captain.
   components:
@@ -488,7 +488,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadGezenaNavyhat
-  name: Gezenan navy hat
+  name: navy hat
   suffix: CrookLv, Clothing, Gezena
   description: A peaked hat of the Gezenan navy.
   components:
@@ -500,7 +500,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadGezenaNavyflap
-  name: Gezenan navy flap cap
+  name: navy flap cap
   suffix: CrookLv, Clothing, Gezena
   description: A flap cap of the Gezenan navy.
   components:
@@ -512,7 +512,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadGezenaEngihat
-  name: Gezenan engineer hat
+  name: engineer hat
   suffix: CrookLv, Clothing, Gezena
   description: A peaked hat of a Gezenan engineer.
   components:
@@ -524,7 +524,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadGezenaEngiflap
-  name: Gezenan engineer flap cap
+  name: engineer flap cap
   suffix: CrookLv, Clothing, Gezena
   description: A flap cap of a Gezenan engineer.
   components:
@@ -536,7 +536,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadGezenaMedichat
-  name: Gezenan medic hat
+  name: medic hat
   suffix: CrookLv, Clothing, Gezena
   description: A peaked hat of a Gezenan medic.
   components:
@@ -548,7 +548,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadGezenaMedicflap
-  name: Gezenan medic flap cap
+  name: medic flap cap
   suffix: CrookLv, Clothing, Gezena
   description: A flap cap of a Gezenan medic.
   components:
@@ -560,7 +560,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadGezenaMarinehat
-  name: Gezenan marine hat
+  name: marine hat
   suffix: CrookLv, Clothing, Gezena
   description: A peaked hat of the Gezenan marines.
   components:
@@ -572,7 +572,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadGezenaMarineflap
-  name: Gezenan marine flap cap
+  name: marine flap cap
   suffix: CrookLv, Clothing, Gezena
   description: A flap cap of the Gezenan marines.
   components:
@@ -584,7 +584,7 @@
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
   id: ClothingHeadGezenaMarinehelmet
-  name: Gezenan marine helmet
+  name: marine helmet
   suffix: CrookLv, Clothing, Gezena
   description: The standard combat helmet of the Gezenan marines.
   components:
@@ -596,9 +596,9 @@
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
   id: ClothingHeadGezenaMarinehelmetMedic
-  name: Gezenan marine medic helmet
+  name: marine medic helmet
   suffix: CrookLv, Clothing, Gezena
-  description: A marine helmet with medical markings.
+  description: A marine helmet with medical markings. Part of the Gezenan Federation equipment.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/marinehelmet_medic.rsi
@@ -608,7 +608,7 @@
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
   id: ClothingHeadGezenaNavyhelmet
-  name: Gezenan navy helmet
+  name: navy helmet
   suffix: CrookLv, Clothing, Gezena
   description: A combat helmet of the Gezenan navy.
   components:
@@ -620,9 +620,9 @@
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
   id: ClothingHeadGezenaNavyhelmetMedic
-  name: Gezenan navy medic helmet
+  name: navy medic helmet
   suffix: CrookLv, Clothing, Gezena
-  description: A navy helmet with medical markings.
+  description: A navy helmet with medical markings. Part of the Gezenan Federation equipment.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/navyhelmet_medic.rsi
@@ -632,7 +632,7 @@
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
   id: ClothingHeadGezenaMarineraiderhelmet
-  name: Gezenan raider helmet
+  name: raider helmet
   suffix: CrookLv, Clothing, Gezena
   description: A sleek helmet of the Gezenan marine raiders.
   components:
@@ -657,9 +657,9 @@
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
   id: ClothingHeadGezenaMarineraiderhelmetMedic
-  name: Gezenan raider medic helmet
+  name: raider medic helmet
   suffix: CrookLv, Clothing, Gezena
-  description: A raider helmet with medical markings.
+  description: A raider helmet with medical markings. Part of the Gezenan Federation equipment.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/marineraiderhelmet_medic.rsi
@@ -682,7 +682,7 @@
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
   id: ClothingHeadGezenaMarinejuggernauthelmet
-  name: Gezenan juggernaut helmet
+  name: juggernaut helmet
   suffix: CrookLv, Clothing, Gezena
   description: A massive helmet of the Gezenan marine juggernauts.
   components:
@@ -707,9 +707,9 @@
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
   id: ClothingHeadGezenaMarinejuggernauthelmetMedic
-  name: Gezenan juggernaut medic helmet
+  name: juggernaut medic helmet
   suffix: CrookLv, Clothing, Gezena
-  description: A juggernaut helmet with medical markings.
+  description: A juggernaut helmet with medical markings. Part of the Gezenan Federation equipment.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/marinejuggernauthelmet_medic.rsi
@@ -732,7 +732,7 @@
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
   id: ClothingHeadGezenaNavyjuggernauthelmet
-  name: Gezenan navy juggernaut helmet
+  name: navy juggernaut helmet
   suffix: CrookLv, Clothing, Gezena
   description: A massive helmet of Gezenan navy boarding teams.
   components:
@@ -757,9 +757,9 @@
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
   id: ClothingHeadGezenaNavyjuggernauthelmetMedic
-  name: Gezenan navy juggernaut medic helmet
+  name: navy juggernaut medic helmet
   suffix: CrookLv, Clothing, Gezena
-  description: A navy juggernaut helmet with medical markings.
+  description: A navy juggernaut helmet with medical markings. Part of the Gezenan Federation equipment.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/navyjuggernauthelmet_medic.rsi
@@ -783,7 +783,7 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
   id: ClothingHeadHardlinersSurgery
-  name: Blood Vanguard surgical cap
+  name: surgical cap
   suffix: CrookLv, Clothing, Blood Vanguard
   description: A surgical cap of Blood Vanguard medics.
   components:
@@ -795,7 +795,7 @@
 - type: entity
   parent: [ ClothingHeadHelmetBase, BaseSyndicateContraband ]
   id: ClothingHeadHardlinersHardhat
-  name: Blood Vanguard hard hat
+  name: hard hat
   suffix: CrookLv, Clothing, Blood Vanguard
   description: A hard hat of Blood Vanguard technicians.
   components:
@@ -815,7 +815,7 @@
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseSyndicateContraband ]
   id: ClothingHeadHardlinersX11
-  name: Blood Vanguard X11 helmet
+  name: X11 helmet
   suffix: CrookLv, Clothing, Blood Vanguard
   description: An X11 combat helmet in Blood Vanguard colors.
   components:
@@ -840,7 +840,7 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
   id: ClothingHeadHardlinersPilot
-  name: Blood Vanguard pilot helmet
+  name: pilot helmet
   suffix: CrookLv, Clothing, Blood Vanguard
   description: A light flight helmet of Blood Vanguard pilots.
   components:
@@ -852,7 +852,7 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
   id: ClothingHeadHardlinersOfficer
-  name: Blood Vanguard officer cap
+  name: officer cap
   suffix: CrookLv, Clothing, Blood Vanguard
   description: A peaked cap of Blood Vanguard officers.
   components:
@@ -865,7 +865,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadInteQPeaked
-  name: Inteq peaked cap
+  name: peaked cap
   suffix: CrookLv, Clothing, Inteq
   description: A peaked cap of Inteq PMC officers.
   components:
@@ -877,7 +877,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadInteQHonorableBeret
-  name: Inteq honorable beret
+  name: honorable beret
   suffix: CrookLv, Clothing, Inteq
   description: A white beret awarded to honored Inteq PMC veterans.
   components:
@@ -889,7 +889,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadInteQBeret
-  name: Inteq beret
+  name: beret
   suffix: CrookLv, Clothing, Inteq
   description: A brown beret of Inteq PMC contractors.
   components:
@@ -901,7 +901,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadInteQMaahat
-  name: Inteq Master at Arms hat
+  name: Master at Arms hat
   suffix: CrookLv, Clothing, Inteq
   description: A wide-brimmed hat of an Inteq PMC Master at Arms.
   components:
@@ -913,7 +913,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadInteQInteqsoft
-  name: Inteq cap
+  name: cap
   suffix: CrookLv, Clothing, Inteq
   description: A brown Inteq PMC cap.
   components:
@@ -925,7 +925,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadInteQInteqmedsoft
-  name: Inteq corpsman cap
+  name: corpsman cap
   suffix: CrookLv, Clothing, Inteq
   description: A white Inteq PMC cap with a medical cross.
   components:
@@ -937,7 +937,7 @@
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
   id: ClothingHeadInteQM10helm
-  name: Inteq M10 helmet
+  name: M10 helmet
   suffix: CrookLv, Clothing, Inteq
   description: An M10 combat helmet in Inteq PMC colors.
   components:
@@ -949,7 +949,7 @@
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
   id: ClothingHeadInteQX11helm
-  name: Inteq X11 helmet
+  name: X11 helmet
   suffix: CrookLv, Clothing, Inteq
   description: An X11 combat helmet in Inteq PMC colors.
   components:
@@ -975,7 +975,7 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
   id: ClothingHeadNGRGarrison
-  name: Gorlex Republic garrison cap
+  name: garrison cap
   suffix: CrookLv, Clothing, Gorlex Republic
   description: A garrison cap of the Gorlex Republic.
   components:
@@ -987,7 +987,7 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
   id: ClothingHeadNGRSurgery
-  name: Gorlex Republic surgical cap
+  name: surgical cap
   suffix: CrookLv, Clothing, Gorlex Republic
   description: A surgical cap of Gorlex Republic medics.
   components:
@@ -999,7 +999,7 @@
 - type: entity
   parent: [ ClothingHeadHelmetBase, BaseSyndicateContraband ]
   id: ClothingHeadNGRHardhat
-  name: Gorlex Republic hard hat
+  name: hard hat
   suffix: CrookLv, Clothing, Gorlex Republic
   description: A hard hat of Gorlex Republic technicians.
   components:
@@ -1019,7 +1019,7 @@
 - type: entity
   parent: [ ClothingHeadHelmetBase, BaseSyndicateContraband ]
   id: ClothingHeadNGRForeman
-  name: Gorlex Republic foreman hard hat
+  name: foreman hard hat
   suffix: CrookLv, Clothing, Gorlex Republic
   description: A hard hat of a Gorlex Republic foreman.
   components:
@@ -1039,7 +1039,7 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
   id: ClothingHeadNGRFlap
-  name: Gorlex Republic flap cap
+  name: flap cap
   suffix: CrookLv, Clothing, Gorlex Republic
   description: A flap cap of the Gorlex Republic.
   components:
@@ -1051,7 +1051,7 @@
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseSyndicateContraband ]
   id: ClothingHeadNGRX11
-  name: Gorlex Republic X11 helmet
+  name: X11 helmet
   suffix: CrookLv, Clothing, Gorlex Republic
   description: An X11 combat helmet in Gorlex Republic colors.
   components:
@@ -1076,7 +1076,7 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
   id: ClothingHeadNGRPilot
-  name: Gorlex Republic pilot helmet
+  name: pilot helmet
   suffix: CrookLv, Clothing, Gorlex Republic
   description: A light flight helmet of Gorlex Republic pilots.
   components:
@@ -1088,7 +1088,7 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
   id: ClothingHeadNGROfficer
-  name: Gorlex Republic officer cap
+  name: officer cap
   suffix: CrookLv, Clothing, Gorlex Republic
   description: A peaked cap of Gorlex Republic officers.
   components:
@@ -1101,7 +1101,7 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
   id: ClothingHeadRamziMinor
-  name: Rust Clique bandana
+  name: bandana
   suffix: CrookLv, Clothing, Rust Clique
   description: A worn bandana of a Rust Clique pirate.
   components:
@@ -1113,7 +1113,7 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
   id: ClothingHeadRamziMajor
-  name: Rust Clique lieutenant hat
+  name: lieutenant hat
   suffix: CrookLv, Clothing, Rust Clique
   description: A hat of a Rust Clique lieutenant.
   components:
@@ -1125,9 +1125,9 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
   id: ClothingHeadRamziPeak
-  name: Rust Clique peaked cap
+  name: peaked cap
   suffix: CrookLv, Clothing, Rust Clique
-  description: A peaked cap taken from someone who no longer needs it.
+  description: A peaked cap taken from someone who no longer needs it. Part of the Rust Clique equipment.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Ramzi/ramzi_peak.rsi
@@ -1137,7 +1137,7 @@
 - type: entity
   parent: [ ClothingHeadHelmetBase, BaseSyndicateContraband ]
   id: ClothingHeadRamziHardhat
-  name: Rust Clique hard hat
+  name: hard hat
   suffix: CrookLv, Clothing, Rust Clique
   description: A dented hard hat of a Rust Clique mechanic.
   components:
@@ -1157,7 +1157,7 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
   id: ClothingHeadRamziFlap
-  name: Rust Clique flap cap
+  name: flap cap
   suffix: CrookLv, Clothing, Rust Clique
   description: A flap cap of the Rust Clique.
   components:
@@ -1169,7 +1169,7 @@
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseSyndicateContraband ]
   id: ClothingHeadRamziM10
-  name: Rust Clique M10 helmet
+  name: M10 helmet
   suffix: CrookLv, Clothing, Rust Clique
   description: A stolen M10 helmet repainted in Rust Clique colors.
   components:
@@ -1181,7 +1181,7 @@
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseSyndicateContraband ]
   id: ClothingHeadRamziX11
-  name: Rust Clique X11 helmet
+  name: X11 helmet
   suffix: CrookLv, Clothing, Rust Clique
   description: A stolen X11 helmet repainted in Rust Clique colors.
   components:
@@ -1206,7 +1206,7 @@
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
   id: ClothingHeadRamziSurgery
-  name: Rust Clique surgical cap
+  name: surgical cap
   suffix: CrookLv, Clothing, Rust Clique
   description: A surgical cap of a Rust Clique sawbones.
   components:
@@ -1218,7 +1218,7 @@
 - type: entity
   parent: [ WeldingMaskBase, BaseSyndicateContraband ]
   id: ClothingHeadRamziWelder
-  name: Rust Clique welding helmet
+  name: welding helmet
   suffix: CrookLv, Clothing, Rust Clique
   description: A welding helmet with a Rust Clique paint job.
   components:
@@ -1231,9 +1231,9 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadSolGovBicorne
-  name: UEG bicorne
+  name: bicorne
   suffix: CrookLv, Clothing, UEG
-  description: A ceremonial bicorne of UEG (United Earth Government) envoys.
+  description: A ceremonial bicorne of United Earth Government envoys.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/solgov_bicorne.rsi
@@ -1259,9 +1259,9 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadSolGovCap
-  name: UEG cap
+  name: cap
   suffix: CrookLv, Clothing, UEG
-  description: A navy cap of UEG (United Earth Government) service.
+  description: A navy cap of United Earth Government service.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/cap_solgov.rsi
@@ -1283,9 +1283,9 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadSolGovSurgery
-  name: UEG surgical cap
+  name: surgical cap
   suffix: CrookLv, Clothing, UEG
-  description: A surgical cap of UEG (United Earth Government) medics.
+  description: A surgical cap of United Earth Government medics.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/solgov_surgery.rsi
@@ -1295,9 +1295,9 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadSolGovBeret
-  name: UEG beret
+  name: beret
   suffix: CrookLv, Clothing, UEG
-  description: A navy beret with the UEG (United Earth Government) badge.
+  description: A navy beret with the United Earth Government badge.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/beret_solgov.rsi
@@ -1319,9 +1319,9 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadSolGovBeretSolgovplain
-  name: UEG plain beret
+  name: plain beret
   suffix: CrookLv, Clothing, UEG
-  description: A plain navy beret.
+  description: A plain navy beret. Part of the United Earth Government equipment.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/beret_solgovplain.rsi
@@ -1343,9 +1343,9 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadSolGovHat
-  name: UEG hat
+  name: hat
   suffix: CrookLv, Clothing, UEG
-  description: A navy dress hat of UEG (United Earth Government).
+  description: A navy dress hat of United Earth Government.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/hat_solgov.rsi
@@ -1355,9 +1355,9 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadSolGovFlatcap
-  name: UEG flat cap
+  name: flat cap
   suffix: CrookLv, Clothing, UEG
-  description: A navy flat cap.
+  description: A navy flat cap. Part of the United Earth Government equipment.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/flatcap_solgov.rsi
@@ -1367,9 +1367,9 @@
 - type: entity
   parent: ClothingHeadHelmetBase
   id: ClothingHeadSolGovHardhat
-  name: UEG hard hat
+  name: hard hat
   suffix: CrookLv, Clothing, UEG
-  description: A hard hat of UEG (United Earth Government) engineers.
+  description: A hard hat of United Earth Government engineers.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/hardhat_solgov.rsi
@@ -1388,7 +1388,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadSRMShadowHat
-  name: Hunters' Order shadow hat
+  name: shadow hat
   suffix: CrookLv, Clothing, Hunters' Order
   description: A pale hat of the Hunters' Order shadows.
   components:
@@ -1400,7 +1400,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadSRMHat
-  name: Hunters' Order hunter hat
+  name: hunter hat
   suffix: CrookLv, Clothing, Hunters' Order
   description: A wide-brimmed hunter hat of the Hunters' Order.
   components:
@@ -1412,7 +1412,7 @@
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
   id: ClothingHeadSRMHelm
-  name: Hunters' Order helm
+  name: helm
   suffix: CrookLv, Clothing, Hunters' Order
   description: A steel helm of the Hunters' Order.
   components:
@@ -1424,7 +1424,7 @@
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
   id: ClothingHeadSRMHeavy
-  name: Hunters' Order heavy helm
+  name: heavy helm
   suffix: CrookLv, Clothing, Hunters' Order
   description: A heavy steel helm of the Hunters' Order.
   components:
@@ -1449,7 +1449,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadSRMMachinistHat
-  name: Hunters' Order machinist hat
+  name: machinist hat
   suffix: CrookLv, Clothing, Hunters' Order
   description: A hat of a Hunters' Order machinist.
   components:
@@ -1461,7 +1461,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadSRMMedHat
-  name: Hunters' Order medic hat
+  name: medic hat
   suffix: CrookLv, Clothing, Hunters' Order
   description: A hat of a Hunters' Order medic.
   components:
@@ -1473,7 +1473,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadSRMFlamebearerHat
-  name: Hunters' Order flamebearer hat
+  name: flamebearer hat
   suffix: CrookLv, Clothing, Hunters' Order
   description: The pointed hat of a Hunters' Order flamebearer.
   components:
@@ -1485,7 +1485,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadSRMColligneHat
-  name: Hunters' Order colligne hat
+  name: colligne hat
   suffix: CrookLv, Clothing, Hunters' Order
   description: A broad hat worn by a Hunters' Order colligne.
   components:
@@ -1497,7 +1497,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadSRMMontagneHat
-  name: Hunters' Order Montagne hat
+  name: Montagne hat
   suffix: CrookLv, Clothing, Hunters' Order
   description: The plumed red hat of a Hunters' Order Montagne.
   components:
@@ -1510,9 +1510,9 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadSUNSCaptainbicorne
-  name: SUNS captain bicorne
+  name: captain bicorne
   suffix: CrookLv, Clothing, SUNS
-  description: A bicorne of a SUNS (Student-Union of Naturalistic Sciences) captain.
+  description: A bicorne of a Student-Union of Naturalistic Sciences captain.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SUNS/suns_captainbicorne.rsi
@@ -1522,9 +1522,9 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadSUNSXoberet
-  name: SUNS executive officer beret
+  name: executive officer beret
   suffix: CrookLv, Clothing, SUNS
-  description: A beret of a SUNS (Student-Union of Naturalistic Sciences) executive officer.
+  description: A beret of a Student-Union of Naturalistic Sciences executive officer.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SUNS/suns_xoberet.rsi
@@ -1534,9 +1534,9 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadSUNSDoctorcap
-  name: SUNS doctor cap
+  name: doctor cap
   suffix: CrookLv, Clothing, SUNS
-  description: A purple surgical cap of SUNS (Student-Union of Naturalistic Sciences) doctors.
+  description: A purple surgical cap of Student-Union of Naturalistic Sciences doctors.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SUNS/suns_doctorcap.rsi
@@ -1546,9 +1546,9 @@
 - type: entity
   parent: ClothingHeadHelmetBase
   id: ClothingHeadSUNSWorkerhelmet
-  name: SUNS worker helmet
+  name: worker helmet
   suffix: CrookLv, Clothing, SUNS
-  description: A hard hat of SUNS (Student-Union of Naturalistic Sciences) maintenance workers.
+  description: A hard hat of Student-Union of Naturalistic Sciences maintenance workers.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SUNS/suns_workerhelmet.rsi
@@ -1566,9 +1566,9 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadSUNSPkcap
-  name: SUNS peacekeeper cap
+  name: peacekeeper cap
   suffix: CrookLv, Clothing, SUNS
-  description: A peaked cap of the SUNS (Student-Union of Naturalistic Sciences) peacekeepers.
+  description: A peaked cap of the Student-Union of Naturalistic Sciences peacekeepers.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SUNS/suns_pkcap.rsi
@@ -1578,9 +1578,9 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadSUNSDoctorhat
-  name: SUNS doctor hat
+  name: doctor hat
   suffix: CrookLv, Clothing, SUNS
-  description: A purple hat of SUNS (Student-Union of Naturalistic Sciences) medical faculty.
+  description: A purple hat of Student-Union of Naturalistic Sciences medical faculty.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SUNS/suns_doctorhat.rsi
@@ -1590,9 +1590,9 @@
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
   id: ClothingHeadSUNSSunsvisor
-  name: SUNS visor helmet
+  name: visor helmet
   suffix: CrookLv, Clothing, SUNS
-  description: A visored helmet of the SUNS (Student-Union of Naturalistic Sciences) peacekeepers.
+  description: A visored helmet of the Student-Union of Naturalistic Sciences peacekeepers.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SUNS/sunsvisor.rsi
@@ -1602,9 +1602,9 @@
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
   id: ClothingHeadSUNSSunslpkvisor
-  name: SUNS lead peacekeeper helmet
+  name: lead peacekeeper helmet
   suffix: CrookLv, Clothing, SUNS
-  description: A visored helmet of a SUNS (Student-Union of Naturalistic Sciences) lead peacekeeper.
+  description: A visored helmet of a Student-Union of Naturalistic Sciences lead peacekeeper.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SUNS/sunslpkvisor.rsi

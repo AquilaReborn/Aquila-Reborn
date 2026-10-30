@@ -2,9 +2,9 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesCLIPNitrile
-  name: LFC nitrile gloves
+  name: nitrile gloves
   suffix: CrookLv, Clothing, LFC
-  description: White nitrile gloves of LFC (League of Free Colonies) medics.
+  description: White nitrile gloves of League of Free Colonies medics.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionGloves/CLIP/nitrile_clip.rsi
@@ -18,7 +18,7 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesGezenaMarinegloves
-  name: Gezenan marine gloves
+  name: marine gloves
   suffix: CrookLv, Clothing, Gezena
   description: Padded gloves of the Gezenan marines.
   components:
@@ -37,7 +37,7 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesGezenaNavalgloves
-  name: Gezenan navy gloves
+  name: navy gloves
   suffix: CrookLv, Clothing, Gezena
   description: Gloves of the Gezenan navy.
   components:
@@ -50,7 +50,7 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesGezenaEngigloves
-  name: Gezenan engineer gloves
+  name: engineer gloves
   suffix: CrookLv, Clothing, Gezena
   description: Insulated gloves of Gezenan engineers.
   components:
@@ -66,7 +66,7 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesGezenaCaptaingloves
-  name: Gezenan captain gloves
+  name: captain gloves
   suffix: CrookLv, Clothing, Gezena
   description: Fine gloves of a Gezenan captain.
   components:
@@ -86,7 +86,7 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesInteQNitrile
-  name: Inteq nitrile gloves
+  name: nitrile gloves
   suffix: CrookLv, Clothing, Inteq
   description: Green nitrile gloves of Inteq PMC corpsmen.
   components:
@@ -102,9 +102,9 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesSUNSInsulated
-  name: SUNS insulated gloves
+  name: insulated gloves
   suffix: CrookLv, Clothing, SUNS
-  description: Insulated gloves for SUNS (Student-Union of Naturalistic Sciences) workers.
+  description: Insulated gloves for Student-Union of Naturalistic Sciences workers.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionGloves/SUNS/suns_insulated.rsi
@@ -118,9 +118,9 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesSUNSLatexgloves
-  name: SUNS latex gloves
+  name: latex gloves
   suffix: CrookLv, Clothing, SUNS
-  description: Latex gloves of SUNS (Student-Union of Naturalistic Sciences) doctors.
+  description: Latex gloves of Student-Union of Naturalistic Sciences doctors.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionGloves/SUNS/suns_latexgloves.rsi
@@ -133,9 +133,9 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesSUNSLongglovesblack
-  name: SUNS long black gloves
+  name: long black gloves
   suffix: CrookLv, Clothing, SUNS
-  description: Elegant long black gloves.
+  description: Elegant long black gloves. Part of the Student-Union of Naturalistic Sciences equipment.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionGloves/SUNS/suns_longglovesblack.rsi
@@ -146,9 +146,9 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesSUNSGlovesfingerless
-  name: SUNS fingerless gloves
+  name: fingerless gloves
   suffix: CrookLv, Clothing, SUNS
-  description: Black fingerless gloves.
+  description: Black fingerless gloves. Part of the Student-Union of Naturalistic Sciences equipment.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionGloves/SUNS/suns_glovesfingerless.rsi
@@ -158,9 +158,9 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesSUNSXogloves
-  name: SUNS executive officer gloves
+  name: executive officer gloves
   suffix: CrookLv, Clothing, SUNS
-  description: White gloves of a SUNS (Student-Union of Naturalistic Sciences) executive officer.
+  description: White gloves of a Student-Union of Naturalistic Sciences executive officer.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionGloves/SUNS/suns_xogloves.rsi
@@ -171,9 +171,9 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesSUNSCaptaingloves
-  name: SUNS captain gloves
+  name: captain gloves
   suffix: CrookLv, Clothing, SUNS
-  description: Black gloves with gold trim of a SUNS (Student-Union of Naturalistic Sciences) captain.
+  description: Black gloves with gold trim of a Student-Union of Naturalistic Sciences captain.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionGloves/SUNS/suns_captaingloves.rsi

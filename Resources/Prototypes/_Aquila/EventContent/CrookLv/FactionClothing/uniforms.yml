@@ -2,9 +2,9 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCLIPDeck
-  name: LFC deckhand uniform
+  name: deckhand uniform
   suffix: CrookLv, Clothing, LFC
-  description: A sturdy blue uniform worn by LFC (League of Free Colonies) ship crews.
+  description: A sturdy blue uniform worn by League of Free Colonies ship crews.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionUniforms/CLIP/clip_deck.rsi
@@ -24,9 +24,9 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCLIPMinuteman
-  name: LFC militiaman uniform
+  name: militiaman uniform
   suffix: CrookLv, Clothing, LFC
-  description: The service uniform of the LFC (League of Free Colonies) militia.
+  description: The service uniform of the League of Free Colonies militia.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionUniforms/CLIP/clip_minuteman.rsi
@@ -46,9 +46,9 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCLIPFormal
-  name: LFC formal uniform
+  name: formal uniform
   suffix: CrookLv, Clothing, LFC
-  description: A crisp white dress uniform for LFC (League of Free Colonies) ceremonies.
+  description: A crisp white dress uniform for League of Free Colonies ceremonies.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionUniforms/CLIP/clip_formal.rsi
@@ -68,9 +68,9 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCLIPMedic
-  name: LFC medic uniform
+  name: medic uniform
   suffix: CrookLv, Clothing, LFC
-  description: An LFC (League of Free Colonies) uniform with medical markings.
+  description: An League of Free Colonies uniform with medical markings.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionUniforms/CLIP/clip_medic.rsi
@@ -90,9 +90,9 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCLIPOfficer
-  name: LFC officer uniform
+  name: officer uniform
   suffix: CrookLv, Clothing, LFC
-  description: A khaki uniform worn by LFC (League of Free Colonies) officers.
+  description: A khaki uniform worn by League of Free Colonies officers.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionUniforms/CLIP/clip_officer.rsi
@@ -113,7 +113,7 @@
 - type: entity
   parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformJumpsuitCybersunAgent
-  name: Cybersun agent uniform
+  name: agent uniform
   suffix: CrookLv, Clothing, Cybersun
   description: A clean white uniform of a Cybersun field agent.
   components:
@@ -135,7 +135,7 @@
 - type: entity
   parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformJumpsuitCybersunStandard
-  name: Cybersun uniform
+  name: uniform
   suffix: CrookLv, Clothing, Cybersun
   description: The standard corporate uniform of Cybersun Industries.
   components:
@@ -157,7 +157,7 @@
 - type: entity
   parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformJumpsuitCybersunMed
-  name: Cybersun medical scrubs
+  name: medical scrubs
   suffix: CrookLv, Clothing, Cybersun
   description: Teal scrubs worn by Cybersun medical staff.
   components:
@@ -179,7 +179,7 @@
 - type: entity
   parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformJumpsuitCybersunMd
-  name: Cybersun medical director uniform
+  name: medical director uniform
   suffix: CrookLv, Clothing, Cybersun
   description: A uniform for the head of a Cybersun medical team.
   components:
@@ -201,7 +201,7 @@
 - type: entity
   parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformJumpsuitCybersunOveralls
-  name: Cybersun technician overalls
+  name: technician overalls
   suffix: CrookLv, Clothing, Cybersun
   description: Work overalls for Cybersun technicians.
   components:
@@ -223,7 +223,7 @@
 - type: entity
   parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformJumpsuitCybersunSuit
-  name: Cybersun business suit
+  name: business suit
   suffix: CrookLv, Clothing, Cybersun
   description: A tailored business suit with the Cybersun logo.
   components:
@@ -245,7 +245,7 @@
 - type: entity
   parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformJumpsuitCybersunOfficer
-  name: Cybersun officer uniform
+  name: officer uniform
   suffix: CrookLv, Clothing, Cybersun
   description: A maroon uniform worn by Cybersun officers.
   components:
@@ -267,9 +267,9 @@
 - type: entity
   parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformJumpsuitCybersunSneaksuit
-  name: Cybersun sneaksuit
+  name: tactical jumpsuit
   suffix: CrookLv, Clothing, Cybersun
-  description: A black, form-fitting suit for discreet work.
+  description: A black, form-fitting tactical jumpsuit for discreet work. Part of the Cybersun equipment.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionUniforms/Cybersun/cybersun_sneaksuit.rsi
@@ -290,7 +290,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitGezenaNavywear
-  name: Gezenan navy uniform
+  name: navy uniform
   suffix: CrookLv, Clothing, Gezena
   description: The service uniform of the Gezenan navy.
   components:
@@ -312,7 +312,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitGezenaOfficerwear
-  name: Gezenan officer uniform
+  name: officer uniform
   suffix: CrookLv, Clothing, Gezena
   description: A uniform worn by Gezenan navy officers.
   components:
@@ -334,7 +334,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitGezenaCaptainwear
-  name: Gezenan captain uniform
+  name: captain uniform
   suffix: CrookLv, Clothing, Gezena
   description: A decorated uniform of a Gezenan ship captain.
   components:
@@ -356,7 +356,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitGezenaMarinewear
-  name: Gezenan marine uniform
+  name: marine uniform
   suffix: CrookLv, Clothing, Gezena
   description: Olive fatigues of the Gezenan marines.
   components:
@@ -379,7 +379,7 @@
 - type: entity
   parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformJumpsuitHardlinersStandard
-  name: Blood Vanguard uniform
+  name: uniform
   suffix: CrookLv, Clothing, Blood Vanguard
   description: The uniform of the Blood Vanguard.
   components:
@@ -401,7 +401,7 @@
 - type: entity
   parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformJumpsuitHardlinersJumpsuit
-  name: Blood Vanguard work jumpsuit
+  name: work jumpsuit
   suffix: CrookLv, Clothing, Blood Vanguard
   description: A white work jumpsuit used by Blood Vanguard technicians.
   components:
@@ -423,7 +423,7 @@
 - type: entity
   parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformJumpsuitHardlinersOfficer
-  name: Blood Vanguard officer uniform
+  name: officer uniform
   suffix: CrookLv, Clothing, Blood Vanguard
   description: A dark uniform of a Blood Vanguard officer.
   components:
@@ -445,7 +445,7 @@
 - type: entity
   parent: [ ClothingUniformEnvirosuitBase, BaseSyndicateContraband ]
   id: ClothingUniformJumpsuitHardlinersEnvirosuit
-  name: Blood Vanguard envirosuit
+  name: envirosuit
   suffix: CrookLv, Clothing, Blood Vanguard
   description: An airtight suit for plasma-based Blood Vanguard members.
   components:
@@ -468,7 +468,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitInteQStandard
-  name: Inteq uniform
+  name: uniform
   suffix: CrookLv, Clothing, Inteq
   description: The standard uniform of Inteq PMC contractors.
   components:
@@ -490,7 +490,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitInteQInteqeng
-  name: Inteq engineer uniform
+  name: engineer uniform
   suffix: CrookLv, Clothing, Inteq
   description: An Inteq PMC uniform for artificers and engineers.
   components:
@@ -512,7 +512,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitInteQInteqmed
-  name: Inteq corpsman uniform
+  name: corpsman uniform
   suffix: CrookLv, Clothing, Inteq
   description: An Inteq PMC uniform for field corpsmen.
   components:
@@ -534,7 +534,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitInteQHonorable
-  name: Inteq honorable uniform
+  name: honorable uniform
   suffix: CrookLv, Clothing, Inteq
   description: A black uniform worn by honored Inteq PMC veterans.
   components:
@@ -556,7 +556,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitInteQSneak
-  name: Inteq infiltrator suit
+  name: infiltrator suit
   suffix: CrookLv, Clothing, Inteq
   description: A dark suit for Inteq PMC infiltration contracts.
   components:
@@ -579,7 +579,7 @@
 - type: entity
   parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformJumpsuitNGRFatigues
-  name: Gorlex Republic fatigues
+  name: fatigues
   suffix: CrookLv, Clothing, Gorlex Republic
   description: Sand-colored field fatigues of the Gorlex Republic.
   components:
@@ -601,7 +601,7 @@
 - type: entity
   parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformJumpsuitNGRStandard
-  name: Gorlex Republic uniform
+  name: uniform
   suffix: CrookLv, Clothing, Gorlex Republic
   description: The standard uniform of the Gorlex Republic military.
   components:
@@ -623,7 +623,7 @@
 - type: entity
   parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformJumpsuitNGROfficer
-  name: Gorlex Republic officer uniform
+  name: officer uniform
   suffix: CrookLv, Clothing, Gorlex Republic
   description: A dark uniform worn by Gorlex Republic officers.
   components:
@@ -645,7 +645,7 @@
 - type: entity
   parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformJumpsuitNGRJumpsuit
-  name: Gorlex Republic work jumpsuit
+  name: work jumpsuit
   suffix: CrookLv, Clothing, Gorlex Republic
   description: A work jumpsuit for Gorlex Republic technicians.
   components:
@@ -667,7 +667,7 @@
 - type: entity
   parent: [ ClothingUniformEnvirosuitBase, BaseSyndicateContraband ]
   id: ClothingUniformJumpsuitNGREnvirosuit
-  name: Gorlex Republic envirosuit
+  name: envirosuit
   suffix: CrookLv, Clothing, Gorlex Republic
   description: An airtight suit for plasma-based Gorlex Republic personnel.
   components:
@@ -690,7 +690,7 @@
 - type: entity
   parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformJumpsuitRamziStandard
-  name: Rust Clique outfit
+  name: outfit
   suffix: CrookLv, Clothing, Rust Clique
   description: A worn-out outfit of a Rust Clique pirate.
   components:
@@ -712,7 +712,7 @@
 - type: entity
   parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformJumpsuitRamziOveralls
-  name: Rust Clique overalls
+  name: overalls
   suffix: CrookLv, Clothing, Rust Clique
   description: Grease-stained overalls of a Rust Clique mechanic.
   components:
@@ -734,7 +734,7 @@
 - type: entity
   parent: [ ClothingUniformBase, BaseSyndicateContraband ]
   id: ClothingUniformJumpsuitRamziOfficer
-  name: Rust Clique officer outfit
+  name: officer outfit
   suffix: CrookLv, Clothing, Rust Clique
   description: A slightly less worn-out outfit of a Rust Clique lieutenant.
   components:
@@ -757,7 +757,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSolGovTunic
-  name: UEG tunic
+  name: tunic
   suffix: CrookLv, Clothing, UEG
   description: A navy tunic of the United Earth Government service.
   components:
@@ -801,7 +801,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSolGovFormal
-  name: UEG formal uniform
+  name: formal uniform
   suffix: CrookLv, Clothing, UEG
   description: A white formal uniform of the United Earth Government.
   components:
@@ -845,9 +845,9 @@
 - type: entity
   parent: ClothingUniformEnvirosuitBase
   id: ClothingUniformJumpsuitSolGovPlasma
-  name: UEG envirosuit
+  name: envirosuit
   suffix: CrookLv, Clothing, UEG
-  description: An airtight suit for plasma-based UEG (United Earth Government) personnel.
+  description: An airtight suit for plasma-based United Earth Government personnel.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SolGov/plasma_solgov.rsi
@@ -867,9 +867,9 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSolGovCaptain
-  name: UEG captain uniform
+  name: captain uniform
   suffix: CrookLv, Clothing, UEG
-  description: A uniform with gold epaulettes for UEG (United Earth Government) captains.
+  description: A uniform with gold epaulettes for United Earth Government captains.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SolGov/solgov_captain.rsi
@@ -889,7 +889,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSolGovDress
-  name: UEG dress
+  name: dress
   suffix: CrookLv, Clothing, UEG
   description: An elegant white dress of the United Earth Government.
   components:
@@ -912,7 +912,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSRMWork
-  name: Hunters' Order work clothes
+  name: work clothes
   suffix: CrookLv, Clothing, Hunters' Order
   description: Simple work clothes of the Hunters' Order settlers.
   components:
@@ -934,7 +934,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSRMAlt
-  name: Hunters' Order hunter clothes
+  name: hunter clothes
   suffix: CrookLv, Clothing, Hunters' Order
   description: Grey travel clothes of a Hunters' Order hunter.
   components:
@@ -956,7 +956,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSRMMon
-  name: Hunters' Order Montagne clothes
+  name: Montagne clothes
   suffix: CrookLv, Clothing, Hunters' Order
   description: The bright red clothes of a Hunters' Order Montagne.
   components:
@@ -979,9 +979,9 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSUNSUniform3
-  name: SUNS purple uniform
+  name: purple uniform
   suffix: CrookLv, Clothing, SUNS
-  description: A purple SUNS (Student-Union of Naturalistic Sciences) student uniform.
+  description: A purple Student-Union of Naturalistic Sciences student uniform.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SUNS/suns_uniform3.rsi
@@ -1001,9 +1001,9 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSUNSUniform2
-  name: SUNS white uniform
+  name: white uniform
   suffix: CrookLv, Clothing, SUNS
-  description: A white SUNS (Student-Union of Naturalistic Sciences) student uniform.
+  description: A white Student-Union of Naturalistic Sciences student uniform.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SUNS/suns_uniform2.rsi
@@ -1023,9 +1023,9 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSUNSUniform1
-  name: SUNS classic uniform
+  name: classic uniform
   suffix: CrookLv, Clothing, SUNS
-  description: A classic SUNS (Student-Union of Naturalistic Sciences) uniform with purple trousers.
+  description: A classic Student-Union of Naturalistic Sciences uniform with purple trousers.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SUNS/suns_uniform1.rsi
@@ -1045,9 +1045,9 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSUNSPkuniform
-  name: SUNS peacekeeper uniform
+  name: peacekeeper uniform
   suffix: CrookLv, Clothing, SUNS
-  description: A black uniform of the SUNS (Student-Union of Naturalistic Sciences) peacekeepers.
+  description: A black uniform of the Student-Union of Naturalistic Sciences peacekeepers.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SUNS/suns_pkuniform.rsi
@@ -1067,9 +1067,9 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSUNSWorkerjumpsuit
-  name: SUNS worker jumpsuit
+  name: worker jumpsuit
   suffix: CrookLv, Clothing, SUNS
-  description: A purple jumpsuit for SUNS (Student-Union of Naturalistic Sciences) maintenance workers.
+  description: A purple jumpsuit for Student-Union of Naturalistic Sciences maintenance workers.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SUNS/suns_workerjumpsuit.rsi
@@ -1089,9 +1089,9 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSUNSDoctorscrubs
-  name: SUNS doctor scrubs
+  name: doctor scrubs
   suffix: CrookLv, Clothing, SUNS
-  description: Purple scrubs of the SUNS (Student-Union of Naturalistic Sciences) medical faculty.
+  description: Purple scrubs of the Student-Union of Naturalistic Sciences medical faculty.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SUNS/suns_doctorscrubs.rsi
@@ -1111,9 +1111,9 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSUNSSciencejumpsuit
-  name: SUNS science jumpsuit
+  name: science jumpsuit
   suffix: CrookLv, Clothing, SUNS
-  description: A white jumpsuit for SUNS (Student-Union of Naturalistic Sciences) researchers.
+  description: A white jumpsuit for Student-Union of Naturalistic Sciences researchers.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SUNS/suns_sciencejumpsuit.rsi
@@ -1133,9 +1133,9 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSUNSXo
-  name: SUNS executive officer uniform
+  name: executive officer uniform
   suffix: CrookLv, Clothing, SUNS
-  description: A sharp uniform of a SUNS (Student-Union of Naturalistic Sciences) executive officer.
+  description: A sharp uniform of a Student-Union of Naturalistic Sciences executive officer.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SUNS/suns_xo.rsi
@@ -1155,9 +1155,9 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSUNSCaptain
-  name: SUNS captain uniform
+  name: captain uniform
   suffix: CrookLv, Clothing, SUNS
-  description: A decorated uniform of a SUNS (Student-Union of Naturalistic Sciences) captain.
+  description: A decorated uniform of a Student-Union of Naturalistic Sciences captain.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionUniforms/SUNS/suns_captain.rsi

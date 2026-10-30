@@ -1,7 +1,7 @@
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadHardlinersHood
-  name: Blood Vanguard winter hood
+  name: winter hood
   suffix: CrookLv, Clothing, Blood Vanguard
   description: A white winter hood in Blood Vanguard colors.
   categories: [ HideSpawnMenu ]
@@ -14,7 +14,7 @@
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadInteQHood
-  name: Inteq winter hood
+  name: winter hood
   suffix: CrookLv, Clothing, Inteq
   description: A winter hood in Inteq PMC colors.
   categories: [ HideSpawnMenu ]
@@ -27,7 +27,7 @@
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadInteQHoodAlt
-  name: Inteq fur hood
+  name: fur hood
   suffix: CrookLv, Clothing, Inteq
   description: A hood with fur trim from an Inteq PMC coat.
   categories: [ HideSpawnMenu ]
@@ -40,7 +40,7 @@
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadNGRHood
-  name: Gorlex Republic winter hood
+  name: winter hood
   suffix: CrookLv, Clothing, Gorlex Republic
   description: A beige winter hood in Gorlex Republic colors.
   categories: [ HideSpawnMenu ]
@@ -53,9 +53,9 @@
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadSolGovHood
-  name: UEG winter hood
+  name: winter hood
   suffix: CrookLv, Clothing, UEG
-  description: A winter hood in UEG (United Earth Government) colors.
+  description: A winter hood in United Earth Government colors.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -66,9 +66,9 @@
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
   id: ClothingHeadSUNSLabcoathood
-  name: SUNS labcoat hood
+  name: labcoat hood
   suffix: CrookLv, Clothing, SUNS
-  description: A hood that comes with a SUNS (Student-Union of Naturalistic Sciences) labcoat.
+  description: A hood that comes with a Student-Union of Naturalistic Sciences labcoat.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

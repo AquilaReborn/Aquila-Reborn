@@ -67,6 +67,42 @@
   storage:
     back:
     - PlushieCrookie
+
+- type: loadout
+  id: PersonalLoadoutCrookLvScienceJumpsuit # научный комбинезон SUNS
+  effects:
+  - !type:PersonalLoadoutEffect
+    users:
+    - 2efe22d0-4ff1-4d5b-9cc7-324bf9452cff
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSUNSSciencejumpsuit
+
+- type: loadout
+  id: PersonalLoadoutCrookLvLongGloves # длинные чёрные перчатки SUNS
+  effects:
+  - !type:PersonalLoadoutEffect
+    users:
+    - 2efe22d0-4ff1-4d5b-9cc7-324bf9452cff
+  equipment:
+    gloves: ClothingHandsGlovesSUNSLongglovesblack
+
+- type: loadout
+  id: PersonalLoadoutCrookLvLaceups # туфли SUNS
+  effects:
+  - !type:PersonalLoadoutEffect
+    users:
+    - 2efe22d0-4ff1-4d5b-9cc7-324bf9452cff
+  equipment:
+    shoes: ClothingShoesSUNSLaceups
+
+- type: loadout
+  id: PersonalLoadoutCrookLvShoulderCape # короткий плащ SUNS
+  effects:
+  - !type:PersonalLoadoutEffect
+    users:
+    - 2efe22d0-4ff1-4d5b-9cc7-324bf9452cff
+  equipment:
+    neck: ClothingNeckSUNSShouldercape
 # CrookLv
 
 # KEEYN

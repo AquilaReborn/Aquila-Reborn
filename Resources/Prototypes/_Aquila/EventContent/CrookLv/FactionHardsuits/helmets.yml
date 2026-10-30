@@ -2,9 +2,9 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitCLIPPatrol
-  name: LFC patrol hardsuit helmet
+  name: patrol hardsuit helmet
   suffix: CrookLv, Clothing, LFC
-  description: A sealed helmet of the LFC (League of Free Colonies) patrol hardsuit.
+  description: A sealed helmet of the League of Free Colonies patrol hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/PatrolHelmet.rsi
@@ -37,9 +37,9 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitCLIPEod
-  name: LFC EOD hardsuit helmet
+  name: EOD hardsuit helmet
   suffix: CrookLv, Clothing, LFC
-  description: A sealed helmet of the LFC (League of Free Colonies) EOD hardsuit.
+  description: A sealed helmet of the League of Free Colonies EOD hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/EodHelmet.rsi
@@ -72,9 +72,9 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitCLIPSpacesuit
-  name: LFC spacesuit helmet
+  name: spacesuit helmet
   suffix: CrookLv, Clothing, LFC
-  description: A sealed helmet of the LFC (League of Free Colonies) spacesuit.
+  description: A sealed helmet of the League of Free Colonies spacesuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/SpacesuitHelmet.rsi
@@ -105,9 +105,9 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitCLIPArmoredSpacesuit
-  name: LFC armored spacesuit helmet
+  name: armored spacesuit helmet
   suffix: CrookLv, Clothing, LFC
-  description: A sealed helmet of the LFC (League of Free Colonies) armored spacesuit.
+  description: A sealed helmet of the League of Free Colonies armored spacesuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/ArmoredSpacesuitHelmet.rsi
@@ -138,9 +138,9 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitCLIPIndustrial
-  name: LFC industrial hardsuit helmet
+  name: industrial hardsuit helmet
   suffix: CrookLv, Clothing, LFC
-  description: A sealed helmet of the LFC (League of Free Colonies) industrial hardsuit.
+  description: A sealed helmet of the League of Free Colonies industrial hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/IndustrialHelmet.rsi
@@ -172,7 +172,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitCybersunStandard
-  name: Cybersun hardsuit helmet
+  name: hardsuit helmet
   suffix: CrookLv, Clothing, Cybersun
   description: A sealed helmet of the Cybersun hardsuit.
   components:
@@ -207,7 +207,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitCybersunParamedic
-  name: Cybersun paramedic hardsuit helmet
+  name: paramedic hardsuit helmet
   suffix: CrookLv, Clothing, Cybersun
   description: A sealed helmet of the Cybersun paramedic hardsuit.
   components:
@@ -240,7 +240,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitCybersunCollapsar
-  name: Cybersun Collapsar hardsuit helmet
+  name: Collapsar hardsuit helmet
   suffix: CrookLv, Clothing, Cybersun
   description: A sealed helmet of the Cybersun Collapsar hardsuit.
   components:
@@ -275,7 +275,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitCybersunCollapsarMedic
-  name: Cybersun Collapsar medic hardsuit helmet
+  name: Collapsar medic hardsuit helmet
   suffix: CrookLv, Clothing, Cybersun
   description: A sealed helmet of the Cybersun Collapsar medic hardsuit.
   components:
@@ -310,7 +310,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitCybersunCovert
-  name: Cybersun stealth hardsuit helmet
+  name: stealth hardsuit helmet
   suffix: CrookLv, Clothing, Cybersun
   description: A sealed helmet of the Cybersun stealth hardsuit.
   components:
@@ -344,7 +344,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitGezenaNavy
-  name: Gezenan navy spacesuit helmet
+  name: navy spacesuit helmet
   suffix: CrookLv, Clothing, Gezena
   description: A sealed helmet of the Gezenan navy spacesuit.
   components:
@@ -377,7 +377,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitGezenaMarine
-  name: Gezenan marine spacesuit helmet
+  name: marine spacesuit helmet
   suffix: CrookLv, Clothing, Gezena
   description: A sealed helmet of the Gezenan marine spacesuit.
   components:
@@ -411,7 +411,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitHardlinersStandard
-  name: Blood Vanguard hardsuit helmet
+  name: hardsuit helmet
   suffix: CrookLv, Clothing, Blood Vanguard
   description: A sealed helmet of the Blood Vanguard hardsuit.
   components:
@@ -446,7 +446,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitHardlinersElite
-  name: Blood Vanguard elite hardsuit helmet
+  name: elite hardsuit helmet
   suffix: CrookLv, Clothing, Blood Vanguard
   description: A sealed helmet of the Blood Vanguard elite hardsuit.
   components:
@@ -481,7 +481,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitHardlinersStealth
-  name: Blood Vanguard stealth hardsuit helmet
+  name: stealth hardsuit helmet
   suffix: CrookLv, Clothing, Blood Vanguard
   description: A sealed helmet of the Blood Vanguard stealth hardsuit.
   components:
@@ -514,7 +514,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitHardlinersMiner
-  name: Blood Vanguard mining hardsuit helmet
+  name: mining hardsuit helmet
   suffix: CrookLv, Clothing, Blood Vanguard
   description: A sealed helmet of the Blood Vanguard mining hardsuit.
   components:
@@ -548,7 +548,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitInteQSpacesuit
-  name: Inteq spacesuit helmet
+  name: spacesuit helmet
   suffix: CrookLv, Clothing, Inteq
   description: A sealed helmet of the Inteq PMC spacesuit.
   components:
@@ -581,7 +581,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitInteQStandard
-  name: Inteq hardsuit helmet
+  name: hardsuit helmet
   suffix: CrookLv, Clothing, Inteq
   description: A sealed helmet of the Inteq PMC hardsuit.
   components:
@@ -616,7 +616,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitInteQPointman
-  name: Inteq pointman hardsuit helmet
+  name: pointman hardsuit helmet
   suffix: CrookLv, Clothing, Inteq
   description: A sealed helmet of the Inteq PMC pointman hardsuit.
   components:
@@ -651,7 +651,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitInteQEod
-  name: Inteq EOD hardsuit helmet
+  name: EOD hardsuit helmet
   suffix: CrookLv, Clothing, Inteq
   description: A sealed helmet of the Inteq PMC EOD hardsuit.
   components:
@@ -686,7 +686,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitInteQBoulder
-  name: Inteq Boulder hardsuit helmet
+  name: Boulder hardsuit helmet
   suffix: CrookLv, Clothing, Inteq
   description: A sealed helmet of the Inteq PMC Boulder hardsuit.
   components:
@@ -719,7 +719,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitInteQPilot
-  name: Inteq pilot spacesuit helmet
+  name: pilot spacesuit helmet
   suffix: CrookLv, Clothing, Inteq
   description: A sealed helmet of the Inteq PMC pilot spacesuit.
   components:
@@ -752,7 +752,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitInteQRampart
-  name: Inteq Rampart hardsuit helmet
+  name: Rampart hardsuit helmet
   suffix: CrookLv, Clothing, Inteq
   description: A sealed helmet of the Inteq PMC Rampart hardsuit.
   components:
@@ -787,7 +787,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitInteQRanger
-  name: Inteq Ranger hardsuit helmet
+  name: Ranger hardsuit helmet
   suffix: CrookLv, Clothing, Inteq
   description: A sealed helmet of the Inteq PMC Ranger hardsuit.
   components:
@@ -821,7 +821,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitNGRStandard
-  name: Gorlex Republic hardsuit helmet
+  name: hardsuit helmet
   suffix: CrookLv, Clothing, Gorlex Republic
   description: A sealed helmet of the Gorlex Republic hardsuit.
   components:
@@ -856,7 +856,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitNGRElite
-  name: Gorlex Republic elite hardsuit helmet
+  name: elite hardsuit helmet
   suffix: CrookLv, Clothing, Gorlex Republic
   description: A sealed helmet of the Gorlex Republic elite hardsuit.
   components:
@@ -891,7 +891,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitNGREod
-  name: Gorlex Republic EOD hardsuit helmet
+  name: EOD hardsuit helmet
   suffix: CrookLv, Clothing, Gorlex Republic
   description: A sealed helmet of the Gorlex Republic EOD hardsuit.
   components:
@@ -926,7 +926,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitNGRMiner
-  name: Gorlex Republic mining hardsuit helmet
+  name: mining hardsuit helmet
   suffix: CrookLv, Clothing, Gorlex Republic
   description: A sealed helmet of the Gorlex Republic mining hardsuit.
   components:
@@ -959,7 +959,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitNGROutrider
-  name: Gorlex Republic outrider hardsuit helmet
+  name: outrider hardsuit helmet
   suffix: CrookLv, Clothing, Gorlex Republic
   description: A sealed helmet of the Gorlex Republic outrider hardsuit.
   components:
@@ -993,7 +993,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitRamziStandard
-  name: Rust Clique hardsuit helmet
+  name: hardsuit helmet
   suffix: CrookLv, Clothing, Rust Clique
   description: A sealed helmet of the Rust Clique hardsuit.
   components:
@@ -1028,7 +1028,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitRamziElite
-  name: Rust Clique elite hardsuit helmet
+  name: elite hardsuit helmet
   suffix: CrookLv, Clothing, Rust Clique
   description: A sealed helmet of the Rust Clique elite hardsuit.
   components:
@@ -1063,7 +1063,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitRamziRamsee
-  name: Rust Clique raider hardsuit helmet
+  name: raider hardsuit helmet
   suffix: CrookLv, Clothing, Rust Clique
   description: A sealed helmet of the Rust Clique raider hardsuit.
   components:
@@ -1097,9 +1097,9 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSolGovStandard
-  name: UEG hardsuit helmet
+  name: hardsuit helmet
   suffix: CrookLv, Clothing, UEG
-  description: A sealed helmet of the UEG (United Earth Government) hardsuit.
+  description: A sealed helmet of the United Earth Government hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SolGov/StandardHelmet.rsi
@@ -1133,7 +1133,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSRMHunter
-  name: Hunters' Order hunter hardsuit helmet
+  name: hunter hardsuit helmet
   suffix: CrookLv, Clothing, Hunters' Order
   description: A sealed helmet of the Hunters' Order hunter hardsuit.
   components:
@@ -1168,7 +1168,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSRMRouma
-  name: Hunters' Order militia hardsuit helmet
+  name: militia hardsuit helmet
   suffix: CrookLv, Clothing, Hunters' Order
   description: A sealed helmet of the Hunters' Order militia hardsuit.
   components:
@@ -1203,7 +1203,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSRMMontagne
-  name: Hunters' Order Montagne hardsuit helmet
+  name: Montagne hardsuit helmet
   suffix: CrookLv, Clothing, Hunters' Order
   description: A sealed helmet of the Hunters' Order Montagne hardsuit.
   components:
@@ -1239,9 +1239,9 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSUNSVacuum
-  name: SUNS vacuum suit helmet
+  name: vacuum suit helmet
   suffix: CrookLv, Clothing, SUNS
-  description: A sealed helmet of the SUNS (Student-Union of Naturalistic Sciences) vacuum suit.
+  description: A sealed helmet of the Student-Union of Naturalistic Sciences vacuum suit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SUNS/VacuumHelmet.rsi
@@ -1272,9 +1272,9 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSUNSMining
-  name: SUNS mining hardsuit helmet
+  name: mining hardsuit helmet
   suffix: CrookLv, Clothing, SUNS
-  description: A sealed helmet of the SUNS (Student-Union of Naturalistic Sciences) mining hardsuit.
+  description: A sealed helmet of the Student-Union of Naturalistic Sciences mining hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SUNS/MiningHelmet.rsi
@@ -1305,9 +1305,9 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSUNSCommand
-  name: SUNS command hardsuit helmet
+  name: command hardsuit helmet
   suffix: CrookLv, Clothing, SUNS
-  description: A sealed helmet of the SUNS (Student-Union of Naturalistic Sciences) command hardsuit.
+  description: A sealed helmet of the Student-Union of Naturalistic Sciences command hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SUNS/CommandHelmet.rsi
@@ -1340,9 +1340,9 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSUNSPeacekeeper
-  name: SUNS peacekeeper hardsuit helmet
+  name: peacekeeper hardsuit helmet
   suffix: CrookLv, Clothing, SUNS
-  description: A sealed helmet of the SUNS (Student-Union of Naturalistic Sciences) peacekeeper hardsuit.
+  description: A sealed helmet of the Student-Union of Naturalistic Sciences peacekeeper hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SUNS/PeacekeeperHelmet.rsi
