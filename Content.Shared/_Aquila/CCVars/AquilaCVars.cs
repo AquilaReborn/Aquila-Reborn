@@ -35,4 +35,16 @@ public sealed class AquilaCVars
 
     public static readonly CVarDef<float> AdminMusicVolume =
         CVarDef.Create("aquila.admin_music_volume", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Рисовать ли декоративное свечение светильников.
+    /// </summary>
+    public static readonly CVarDef<bool> LightGlow =
+        CVarDef.Create("aquila.light_glow", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Яркость декоративного свечения светильников, от 0 до 1.
+    /// </summary>
+    public static readonly CVarDef<float> LightGlowIntensity =
+        CVarDef.Create("aquila.light_glow_intensity", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
 }

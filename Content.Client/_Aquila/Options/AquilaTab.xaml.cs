@@ -31,6 +31,8 @@ public sealed partial class AquilaTab : Control
         Control.AddOptionPercentSlider(AquilaCVars.RadioMusicVolume, SliderVolumeRadioMusic);
         Control.AddOptionPercentSlider(AquilaCVars.AdminMusicVolume, SliderVolumeAdminMusic);
         Control.AddOptionCheckBox(AquilaCVars.AudioEnvironment, AudioEnvironmentCheckBox);
+        Control.AddOptionCheckBox(AquilaCVars.LightGlow, LightGlowCheckBox);
+        Control.AddOptionPercentSlider(AquilaCVars.LightGlowIntensity, SliderLightGlowIntensity);
 
         Control.Initialize();
     }

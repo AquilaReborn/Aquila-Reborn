@@ -17,6 +17,16 @@
                     <CheckBox Name="AudioEnvironmentCheckBox"
                               Text="{Loc 'ui-options-audio-environment'}"/>
                 </BoxContainer>
+                <Label Text="{Loc 'ui-options-aquila-graphics-label'}"
+                       StyleClasses="LabelKeyText"
+                       Margin="0 8 0 0"/>
+                <BoxContainer Orientation="Vertical"
+                              Margin="0 3 0 0">
+                    <CheckBox Name="LightGlowCheckBox"
+                              Text="{Loc 'ui-options-light-glow'}"/>
+                    <ui:OptionSlider Name="SliderLightGlowIntensity"
+                                     Title="{Loc 'ui-options-light-glow-intensity'}"/>
+                </BoxContainer>
                 <Label Text="{Loc 'ui-options-aquila-action-binds'}"
                        StyleClasses="LabelKeyText"
                        Margin="0 8 0 0"/>
