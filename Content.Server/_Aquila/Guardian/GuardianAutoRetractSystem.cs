@@ -1,5 +1,5 @@
-using Content.Shared.Stunnable;
 using Content.Server.Guardian;
+using Content.Shared.Stunnable;
 
 namespace Content.Server.Aquila.Guardian;
 
@@ -10,17 +10,18 @@ public sealed class GuardianAutoRetractSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<GuardianHostComponent, StunnedEvent>(OnHostStunned);
+
+        SubscribeLocalEvent<GuardianHostComponent, StunnedEvent>(OnStunned);
     }
 
-    private void OnHostStunned(EntityUid uid, GuardianHostComponent hostComponent, ref StunnedEvent args)
+    private void OnStunned(Entity<GuardianHostComponent> ent, ref StunnedEvent args)
     {
-        if (hostComponent.HostedGuardian is not { } guardian)
+        if (ent.Comp.HostedGuardian is not { } guardian)
             return;
 
         if (!TryComp<GuardianAutoRetractComponent>(guardian, out var autoRetract) || !autoRetract.RetractOnStun)
             return;
 
-        _guardian.TryForceRetractGuardian(uid);
+        _guardian.TryForceRetractGuardian(ent.AsNullable());
     }
 }

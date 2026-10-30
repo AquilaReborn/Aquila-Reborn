@@ -1,21 +1,29 @@
-using Content.Shared.Aquila.HolyCorpse;
+using Content.Shared.Aquila.HolyCorpse.DataDefinitions;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Aquila.HolyCorpse;
 
 /// <summary>
-/// Implantable limb. Stores potential sets (guardian + components);
-/// one set is chosen at random upon initial implantation into a host.
+/// Конечность святого трупа, которую можно вживить в существо.
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, Access(typeof(HolyCorpseSystem))]
 public sealed partial class HolyCorpseLimbComponent : Component
 {
+    /// <summary>
+    /// Возможные наборы, из которых при первом вживлении случайно выбирается один.
+    /// </summary>
     [DataField(required: true)]
     public List<HolyCorpseSet> Sets = new();
 
+    /// <summary>
+    /// Эффект, который висит на цели во время вживления.
+    /// </summary>
     [DataField(required: true)]
-    public EntProtoId FlashProto = default!;
+    public EntProtoId FlashProto;
 
+    /// <summary>
+    /// Время вживления конечности.
+    /// </summary>
     [DataField]
-    public float ImplantDelay = 3f;
+    public TimeSpan ImplantDelay = TimeSpan.FromSeconds(3);
 }

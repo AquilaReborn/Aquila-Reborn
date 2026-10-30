@@ -290,9 +290,7 @@ namespace Content.Server.Guardian
             {
                 if (guardianComp != null)
                     _audio.PlayPvs(guardianComp.DeathSound, uid);
-                TryForceRetractGuardian(uid); // Aquila Change
-                if (!ShouldPersistGuardianOnDeath(component.HostedGuardian.Value)) // Aquila Change
-                    RemComp<GuardianHostComponent>(uid);
+                HandleHostDeath(uid, component); // Aquila Change
             }
         }
 

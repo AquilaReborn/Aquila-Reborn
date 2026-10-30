@@ -1,12 +1,14 @@
 namespace Content.Server.Aquila.Guardian;
 
 /// <summary>
-/// Marks a guardian that should be automatically retracted into its host
-/// when the host gets stunned.
+/// Страж, который автоматически возвращается в носителя, когда того оглушают.
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, Access(typeof(GuardianAutoRetractSystem))]
 public sealed partial class GuardianAutoRetractComponent : Component
 {
+    /// <summary>
+    /// Возвращать ли стража при оглушении носителя.
+    /// </summary>
     [DataField]
     public bool RetractOnStun = true;
 }

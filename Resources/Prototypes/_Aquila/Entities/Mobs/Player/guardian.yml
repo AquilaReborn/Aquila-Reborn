@@ -1,9 +1,9 @@
 - type: entity
+  abstract: true
   name: GuardianBase
   id: MobGuardianRangedBase
   description: guardian
   save: false
-  abstract: true
   components:
     - type: StaminaDamageOnHit
       damage: 5
@@ -145,10 +145,10 @@
 
 
 - type: entity
+  abstract: true
   name: GuardianBase
   id: MobGuardianMeleeStaminaBase
   description: guardian
-  abstract: true
   save: false
   components:
     - type: StaminaDamageOnHit

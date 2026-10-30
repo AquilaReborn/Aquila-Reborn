@@ -4,8 +4,8 @@ using Content.Server.NPC.Components;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Shared._Goobstation.Wizard.Guardian;
-using Content.Shared.Aquila.Guardian;
 using Content.Server.Aquila.Guardian;
+using Content.Shared.Aquila.Guardian;
 using Content.Shared.CombatMode;
 using Content.Shared.Pointing;
 using Robust.Shared.Map;
@@ -160,22 +160,27 @@ public sealed partial class GuardianSystem
     /// <summary>
     /// Возвращает стража обратно в носителя, если активен.
     /// </summary>
-    public bool TryForceRetractGuardian(EntityUid host)
+    public bool TryForceRetractGuardian(Entity<GuardianHostComponent?> host)
     {
-        if (!TryComp<GuardianHostComponent>(host, out var hostComponent) ||
-            hostComponent.HostedGuardian is not { } guardian ||
+        if (!Resolve(host, ref host.Comp, false) ||
+            host.Comp.HostedGuardian is not { } guardian ||
             !TryComp<GuardianComponent>(guardian, out var guardianComponent) ||
             !guardianComponent.GuardianLoose)
         {
             return false;
         }
 
-        RetractGuardian(host, hostComponent, guardian, guardianComponent);
+        RetractGuardian(host, host.Comp, guardian, guardianComponent);
         return true;
     }
 
-    private bool ShouldPersistGuardianOnDeath(EntityUid guardian)
+    private void HandleHostDeath(EntityUid host, GuardianHostComponent component)
     {
-        return HasComp<GuardianPersistOnDeathComponent>(guardian);
+        TryForceRetractGuardian((host, component));
+
+        if (component.HostedGuardian is { } guardian && HasComp<GuardianPersistOnDeathComponent>(guardian))
+            return;
+
+        RemComp<GuardianHostComponent>(host);
     }
 }
