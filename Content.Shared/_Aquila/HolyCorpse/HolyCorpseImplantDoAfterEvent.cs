@@ -4,17 +4,17 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Aquila.HolyCorpse;
 
 [Serializable, NetSerializable]
-public sealed partial class HolyCorpseCreatorDoAfterEvent : DoAfterEvent
+public sealed partial class HolyCorpseImplantDoAfterEvent : DoAfterEvent
 {
     [DataField]
     public NetEntity? FlashEntity;
 
-    public HolyCorpseCreatorDoAfterEvent(NetEntity? flashEntity)
+    public HolyCorpseImplantDoAfterEvent(NetEntity? flashEntity)
     {
         FlashEntity = flashEntity;
     }
 
-    private HolyCorpseCreatorDoAfterEvent() { }
+    private HolyCorpseImplantDoAfterEvent() { }
 
     public override DoAfterEvent Clone() => this;
 }

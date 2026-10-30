@@ -5,6 +5,7 @@ using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Shared._Goobstation.Wizard.Guardian;
 using Content.Shared.Aquila.Guardian;
+using Content.Server.Aquila.Guardian;
 using Content.Shared.CombatMode;
 using Content.Shared.Pointing;
 using Robust.Shared.Map;
@@ -154,5 +155,27 @@ public sealed partial class GuardianSystem
             _htn.ShutdownPlan(htn);
 
         _htn.Replan(htn);
+    }
+
+    /// <summary>
+    /// Возвращает стража обратно в носителя, если активен.
+    /// </summary>
+    public bool TryForceRetractGuardian(EntityUid host)
+    {
+        if (!TryComp<GuardianHostComponent>(host, out var hostComponent) ||
+            hostComponent.HostedGuardian is not { } guardian ||
+            !TryComp<GuardianComponent>(guardian, out var guardianComponent) ||
+            !guardianComponent.GuardianLoose)
+        {
+            return false;
+        }
+
+        RetractGuardian(host, hostComponent, guardian, guardianComponent);
+        return true;
+    }
+
+    private bool ShouldPersistGuardianOnDeath(EntityUid guardian)
+    {
+        return HasComp<GuardianPersistOnDeathComponent>(guardian);
     }
 }

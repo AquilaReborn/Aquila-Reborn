@@ -3,10 +3,10 @@
   id: MobGuardianRangedBase
   description: guardian
   save: false
+  abstract: true
   components:
     - type: StaminaDamageOnHit
       damage: 5
-    - type: Hands
     - type: SmartGun
     - type: RechargeBasicEntityAmmo
       rechargeCooldown: 1.5
@@ -148,11 +148,11 @@
   name: GuardianBase
   id: MobGuardianMeleeStaminaBase
   description: guardian
+  abstract: true
   save: false
   components:
     - type: StaminaDamageOnHit
       damage: 5
-    - type: Hands
     - type: HTN
       rootTask:
         task: GuardianOrdersMeleeCompound
@@ -284,13 +284,14 @@
   description: A small pink chick that shoots projectiles.
   parent: MobGuardianRangedBase
   components:
+  - type: GuardianAutoRetract
   - type: StaminaDamageOnHit
-    damage: 5
+    damage: 8
   - type: MeleeWeapon
     hidden: false
     altDisarm: false
     animation: WeaponArcFist
-    attackRate: 1.0
+    attackRate: 1.25
     autoAttack: true
     soundHit:
       collection: Punch
@@ -324,8 +325,9 @@
   description: The Crimson King, with a very displeased look on his face and powerful fists!
   parent: MobGuardianMeleeStaminaBase
   components:
+  - type: GuardianAutoRetract
   - type: StaminaDamageOnHit
-    damage: 14
+    damage: 10
   - type: MeleeWeapon
     hidden: false
     altDisarm: false
@@ -356,9 +358,10 @@
   description: A majestic guardian capable of halting the flow of time!
   parent: MobGuardianMeleeStaminaBase
   components:
+  - type: GuardianAutoRetract
   - type: TimeStopImmune
   - type: StaminaDamageOnHit
-    damage: 17
+    damage: 12
   - type: MeleeWeapon
     hidden: false
     altDisarm: false
@@ -389,13 +392,14 @@
   description: The ability to travel between worlds is mine alone to command!
   parent: MobGuardianMeleeStaminaBase
   components:
+  - type: GuardianAutoRetract
   - type: StaminaDamageOnHit
     damage: 8
   - type: MeleeWeapon
     hidden: false
     altDisarm: false
     animation: WeaponArcFist
-    attackRate: 3.5
+    attackRate: 2.7
     autoAttack: true
     soundHit:
       collection: Punch
@@ -421,13 +425,14 @@
   description: A guardian bound to its master, granting the ability to rewind time!
   parent: MobGuardianMeleeStaminaBase
   components:
+  - type: GuardianAutoRetract
   - type: StaminaDamageOnHit
-    damage: 8
+    damage: 5
   - type: MeleeWeapon
     hidden: false
     altDisarm: false
     animation: WeaponArcFist
-    attackRate: 1.25
+    attackRate: 1.0
     autoAttack: true
     soundHit:
       collection: Punch
@@ -453,6 +458,7 @@
   description: A guardian capable of creating life with a touch!
   parent: MobGuardianMeleeStaminaBase
   components:
+  - type: GuardianAutoRetract
   - type: StaminaDamageOnHit
     damage: 10
   - type: MeleeWeapon

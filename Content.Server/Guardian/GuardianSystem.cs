@@ -84,6 +84,7 @@ namespace Content.Server.Guardian
             hostComponent.HostedGuardian = null;
             QueueDel(hostComponent.ActionEntity);
             hostComponent.ActionEntity = null;
+            RemoveOrdersAction(hostComponent); // Aquila Change
         }
 
         private void OnPerformAction(EntityUid uid, GuardianHostComponent component, GuardianToggleActionEvent args)
@@ -289,7 +290,9 @@ namespace Content.Server.Guardian
             {
                 if (guardianComp != null)
                     _audio.PlayPvs(guardianComp.DeathSound, uid);
-                RemComp<GuardianHostComponent>(uid);
+                TryForceRetractGuardian(uid); // Aquila Change
+                if (!ShouldPersistGuardianOnDeath(component.HostedGuardian.Value)) // Aquila Change
+                    RemComp<GuardianHostComponent>(uid);
             }
         }
 

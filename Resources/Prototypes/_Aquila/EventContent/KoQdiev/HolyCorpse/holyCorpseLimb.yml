@@ -7,12 +7,13 @@
   - type: Sprite
     sprite: _Aquila/EventContent/KoQdiev/HolyCorpse.rsi
     state: HolyCorpseSkull
-  - type: HolyCorpseCreator
-    guardianProto: MobGuardianKingCrimson
+  - type: HolyCorpseLimb
     flashProto: HolyCorpseEffect
-    delay: 1.9
-    components:
-    - type: ErasureTime
+    implantDelay: 1.9
+    sets:
+    - guardianProto: MobGuardianKingCrimson
+      components:
+      - type: ErasureTime
 
 - type: entity
   name: holy corpse heart
@@ -22,12 +23,13 @@
   - type: Sprite
     sprite: _Aquila/EventContent/KoQdiev/HolyCorpse.rsi
     state: HolyCorpseHeart
-  - type: HolyCorpseCreator
-    guardianProto: MobGuardianD4C
+  - type: HolyCorpseLimb
     flashProto: HolyCorpseEffect
-    delay: 1.9
-    components:
-    - type: CloneSummonerAction
+    implantDelay: 1.9
+    sets:
+    - guardianProto: MobGuardianD4C
+      components:
+      - type: CloneSummonerAction
 
 - type: entity
   name: holy corpse chest
@@ -37,12 +39,13 @@
   - type: Sprite
     sprite: _Aquila/EventContent/KoQdiev/HolyCorpse.rsi
     state: HolyCorpseChest
-  - type: HolyCorpseCreator
-    guardianProto: MobGuardianTheWorld
+  - type: HolyCorpseLimb
     flashProto: HolyCorpseEffect
-    delay: 1.9
-    components:
-    - type: TimeStop
+    implantDelay: 1.9
+    sets:
+    - guardianProto: MobGuardianTheWorld
+      components:
+      - type: TimeStop
 
 - type: entity
   name: holy corpse right hand
@@ -52,11 +55,12 @@
   - type: Sprite
     sprite: _Aquila/EventContent/KoQdiev/HolyCorpse.rsi
     state: HolyCorpseRightHand
-  - type: HolyCorpseCreator
-    guardianProto: MobGuardianTuskOne
+  - type: HolyCorpseLimb
     flashProto: HolyCorpseEffect
-    delay: 1.9
-    components: []
+    implantDelay: 1.9
+    sets:
+    - guardianProto: MobGuardianTuskOne
+      components: []
 
 - type: entity
   name: holy corpse left hand
@@ -66,11 +70,12 @@
   - type: Sprite
     sprite: _Aquila/EventContent/KoQdiev/HolyCorpse.rsi
     state: HolyCorpseLeftHand
-  - type: HolyCorpseCreator
-    guardianProto: MobGuardianTuskOne
+  - type: HolyCorpseLimb
     flashProto: HolyCorpseEffect
-    delay: 1.9
-    components: []
+    implantDelay: 1.9
+    sets:
+    - guardianProto: MobGuardianTuskOne
+      components: []
 
 - type: entity
   name: holy corpse right foot
@@ -80,12 +85,13 @@
   - type: Sprite
     sprite: _Aquila/EventContent/KoQdiev/HolyCorpse.rsi
     state: HolyCorpseRightFoot
-  - type: HolyCorpseCreator
-    guardianProto: MobGuardianGoldExperience
+  - type: HolyCorpseLimb
     flashProto: HolyCorpseEffect
-    delay: 1.9
-    components:
-    - type: LifeCreator
+    implantDelay: 1.9
+    sets:
+    - guardianProto: MobGuardianGoldExperience
+      components:
+      - type: LifeCreator
 
 - type: entity
   name: holy corpse left foot
@@ -95,12 +101,13 @@
   - type: Sprite
     sprite: _Aquila/EventContent/KoQdiev/HolyCorpse.rsi
     state: HolyCorpseLeftFoot
-  - type: HolyCorpseCreator
-    guardianProto: MobGuardianMandom
+  - type: HolyCorpseLimb
     flashProto: HolyCorpseEffect
-    delay: 1.9
-    components:
-    - type: TimeRewind
+    implantDelay: 1.9
+    sets:
+    - guardianProto: MobGuardianMandom
+      components:
+      - type: TimeRewind
 
 - type: entity
   name: holy corpse left eye
@@ -110,12 +117,13 @@
   - type: Sprite
     sprite: _Aquila/EventContent/KoQdiev/HolyCorpse.rsi
     state: HolyCorpseLeftEye
-  - type: HolyCorpseCreator
-    guardianProto: MobGuardianMandom
+  - type: HolyCorpseLimb
     flashProto: HolyCorpseEffect
-    delay: 1.9
-    components:
-    - type: TimeRewind
+    implantDelay: 1.9
+    sets:
+    - guardianProto: MobGuardianMandom
+      components:
+      - type: TimeRewind
 
 - type: entity
   name: holy corpse right eye
@@ -125,9 +133,10 @@
   - type: Sprite
     sprite: _Aquila/EventContent/KoQdiev/HolyCorpse.rsi
     state: HolyCorpseRightEye
-  - type: HolyCorpseCreator
-    guardianProto: MobGuardianMandom
+  - type: HolyCorpseLimb
     flashProto: HolyCorpseEffect
-    delay: 1.9
-    components:
-    - type: TimeRewind
+    implantDelay: 1.9
+    sets:
+    - guardianProto: MobGuardianMandom
+      components:
+      - type: TimeRewind

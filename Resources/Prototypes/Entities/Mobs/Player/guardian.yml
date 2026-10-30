@@ -317,7 +317,7 @@
   - type: Action
     icon: Interface/Actions/manifest.png
     useDelay: 2
-    checkCanInteract: false
+    checkCanInteract: true # Aquila Change
     checkConsciousness: false
   - type: InstantAction
     event: !type:GuardianToggleActionEvent

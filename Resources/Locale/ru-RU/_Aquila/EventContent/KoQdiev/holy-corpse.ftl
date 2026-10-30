@@ -25,3 +25,6 @@ ent-HolyCorpseRightEye = правый глаз святого трупа
 ent-HolyCorpseLeftEye = левый глаз святого трупа
     .desc = { ent-HolyCorpseSkull.desc }
     .suffix = SBR , Mandom
+
+holy-corpse-already-has-limb = У существа уже вживлена такая конечность.
+holy-corpse-extract-verb = Извлечь конечности святого трупа
