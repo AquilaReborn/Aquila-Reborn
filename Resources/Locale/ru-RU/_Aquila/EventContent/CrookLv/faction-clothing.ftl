@@ -343,9 +343,6 @@ ent-ClothingHeadHardlinersPilot = лётный шлем Кровавого Ав�
 ent-ClothingHeadHardlinersOfficer = фуражка офицера Кровавого Авангарда
     .desc = Фуражка офицеров Кровавого Авангарда.
     .suffix = CrookLv, Одежда, Кровавый Авангард
-ent-ClothingHeadHardlinersHood = капюшон Кровавого Авангарда
-    .desc = Тёмный капюшон в цветах Кровавого Авангарда.
-    .suffix = CrookLv, Одежда, Кровавый Авангард
 
 ## Inteq
 ent-ClothingHeadInteQPeaked = фуражка Интек
@@ -397,9 +394,6 @@ ent-ClothingHeadNGRPilot = лётный шлем Горлекской Респу
     .suffix = CrookLv, Одежда, Горлекская Республика
 ent-ClothingHeadNGROfficer = фуражка офицера Горлекской Республики
     .desc = Фуражка офицеров Горлекской Республики.
-    .suffix = CrookLv, Одежда, Горлекская Республика
-ent-ClothingHeadNGRHood = капюшон Горлекской Республики
-    .desc = Капюшон в цветах Горлекской Республики.
     .suffix = CrookLv, Одежда, Горлекская Республика
 
 ## Rust Clique
@@ -504,9 +498,6 @@ ent-ClothingHeadSUNSCaptainbicorne = двууголка капитана SUNS
     .suffix = CrookLv, Одежда, SUNS
 ent-ClothingHeadSUNSXoberet = берет старпома SUNS
     .desc = Берет старшего помощника Студенческого союза естественных наук (SUNS).
-    .suffix = CrookLv, Одежда, SUNS
-ent-ClothingHeadSUNSLabcoathood = лабораторный капюшон SUNS
-    .desc = Герметичный капюшон к лабораторному халату Студенческого союза естественных наук (SUNS).
     .suffix = CrookLv, Одежда, SUNS
 ent-ClothingHeadSUNSDoctorcap = шапочка врача SUNS
     .desc = Фиолетовая хирургическая шапочка врачей Студенческого союза естественных наук (SUNS).

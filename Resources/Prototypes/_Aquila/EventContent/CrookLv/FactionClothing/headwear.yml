@@ -861,18 +861,6 @@
   - type: Clothing
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Hardliners/hl_officer.rsi
 
-- type: entity
-  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
-  id: ClothingHeadHardlinersHood
-  name: Blood Vanguard hood
-  suffix: CrookLv, Clothing, Blood Vanguard
-  description: A dark hood in Blood Vanguard colors.
-  components:
-  - type: Sprite
-    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Hardliners/hood_hl.rsi
-  - type: Clothing
-    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Hardliners/hood_hl.rsi
-
 # Inteq
 - type: entity
   parent: ClothingHeadBase
@@ -1108,18 +1096,6 @@
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/NGR/ngr_officer.rsi
   - type: Clothing
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/NGR/ngr_officer.rsi
-
-- type: entity
-  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
-  id: ClothingHeadNGRHood
-  name: Gorlex Republic hood
-  suffix: CrookLv, Clothing, Gorlex Republic
-  description: A hood in Gorlex Republic colors.
-  components:
-  - type: Sprite
-    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/NGR/hood_ngr.rsi
-  - type: Clothing
-    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/NGR/hood_ngr.rsi
 
 # Rust Clique
 - type: entity
@@ -1554,24 +1530,6 @@
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SUNS/suns_xoberet.rsi
   - type: Clothing
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SUNS/suns_xoberet.rsi
-
-- type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadSUNSLabcoathood
-  name: SUNS lab hood
-  suffix: CrookLv, Clothing, SUNS
-  description: A sealed hood worn with a SUNS (Student-Union of Naturalistic Sciences) labcoat.
-  components:
-  - type: Sprite
-    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SUNS/suns_labcoathood.rsi
-  - type: Clothing
-    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SUNS/suns_labcoathood.rsi
-  - type: Armor
-    coverage:
-    - Head
-    modifiers:
-      coefficients:
-        Caustic: 0.6
 
 - type: entity
   parent: ClothingHeadBase

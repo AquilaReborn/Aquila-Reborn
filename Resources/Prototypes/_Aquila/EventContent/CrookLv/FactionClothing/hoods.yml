@@ -1,0 +1,77 @@
+- type: entity
+  parent: ClothingHeadHatHoodWinterBase
+  id: ClothingHeadHardlinersHood
+  name: Blood Vanguard winter hood
+  suffix: CrookLv, Clothing, Blood Vanguard
+  description: A white winter hood in Blood Vanguard colors.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Hardliners/hood_hl.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Hardliners/hood_hl.rsi
+
+- type: entity
+  parent: ClothingHeadHatHoodWinterBase
+  id: ClothingHeadInteQHood
+  name: Inteq winter hood
+  suffix: CrookLv, Clothing, Inteq
+  description: A winter hood in Inteq PMC colors.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/InteQ/hood_inteq.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/InteQ/hood_inteq.rsi
+
+- type: entity
+  parent: ClothingHeadHatHoodWinterBase
+  id: ClothingHeadInteQHoodAlt
+  name: Inteq fur hood
+  suffix: CrookLv, Clothing, Inteq
+  description: A hood with fur trim from an Inteq PMC coat.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/InteQ/hood_inteq_alt.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/InteQ/hood_inteq_alt.rsi
+
+- type: entity
+  parent: ClothingHeadHatHoodWinterBase
+  id: ClothingHeadNGRHood
+  name: Gorlex Republic winter hood
+  suffix: CrookLv, Clothing, Gorlex Republic
+  description: A beige winter hood in Gorlex Republic colors.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/NGR/hood_ngr.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/NGR/hood_ngr.rsi
+
+- type: entity
+  parent: ClothingHeadHatHoodWinterBase
+  id: ClothingHeadSolGovHood
+  name: UEG winter hood
+  suffix: CrookLv, Clothing, UEG
+  description: A winter hood in UEG (United Earth Government) colors.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/hood_solgov.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SolGov/hood_solgov.rsi
+
+- type: entity
+  parent: ClothingHeadHatHoodWinterBase
+  id: ClothingHeadSUNSLabcoathood
+  name: SUNS labcoat hood
+  suffix: CrookLv, Clothing, SUNS
+  description: A hood that comes with a SUNS (Student-Union of Naturalistic Sciences) labcoat.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SUNS/suns_labcoathood.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SUNS/suns_labcoathood.rsi

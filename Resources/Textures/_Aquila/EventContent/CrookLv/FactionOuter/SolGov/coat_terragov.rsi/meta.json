@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Shiptest at https://github.com/shiptest-ss13/Shiptest/blob/3adaaf8b0ff4bf4f08502eeadb27ce12e39f86ef/icons/obj/clothing/faction/solgov/suits.dmi and https://github.com/shiptest-ss13/Shiptest/blob/3adaaf8b0ff4bf4f08502eeadb27ce12e39f86ef/icons/mob/clothing/faction/solgov/suits.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-OUTERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "icon-open"
+    },
+    {
+      "name": "open-equipped-OUTERCLOTHING",
+      "directions": 4
+    }
+  ]
+}
