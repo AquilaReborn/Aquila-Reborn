@@ -1040,6 +1040,11 @@
   id: FloorLamp
   suffix: Sir_Felix
   components:
+  - type: LightGlow
+    texture: /Textures/_Aquila/Effects/LightGlow/round.png
+    size: 5
+    offset: 0
+    opacity: 0.5
   - type: Sprite
     sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/floorlamps.rsi
     state: base
@@ -1058,6 +1063,11 @@
   id: FloorLampEmpty
   suffix: Пустая, Sir_Felix
   components:
+  - type: LightGlow
+    texture: /Textures/_Aquila/Effects/LightGlow/round.png
+    size: 5
+    offset: 0
+    opacity: 0.5
   - type: Sprite
     sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/floorlamps.rsi
     state: empty

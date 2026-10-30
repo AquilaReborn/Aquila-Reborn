@@ -1,0 +1,121 @@
+- type: entity
+  parent: ClothingModsuitSecurity
+  id: ClothingModsuitWarden
+  name: warden sentinel modsuit control unit
+  description: A robust modular hardsuit control module unit for the warden.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/Back/Modsuits/warden.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingModsuitHelmetWarden
+      gloves: ClothingModsuitGauntletsWarden
+      outerClothing: ClothingModsuitChestplateWarden
+      shoes: ClothingModsuitBootsWarden
+
+- type: entity
+  parent: ClothingModsuitWarden
+  id: ClothingModsuitWardenPowerCell
+  suffix: High-Capacity Battery
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHigh
+        whitelist:
+          components:
+          - PowerCell
+
+- type: entity
+  parent: ClothingModsuitHelmetSecurity
+  id: ClothingModsuitHelmetWarden
+  name: sentinel modsuit helmet
+  description: A robust helmet for the one who keeps the keys to the armory.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/Head/Modsuits/warden.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.6
+        Radiation: 0.55
+
+- type: entity
+  parent: ClothingModsuitGauntletsSecurity
+  id: ClothingModsuitGauntletsWarden
+  name: sentinel modsuit gauntlets
+  description: Robust modular suit gloves for keeping a firm grip on prisoners.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/Hands/Modsuits/warden.rsi
+
+- type: entity
+  parent: ClothingModsuitChestplateSecurity
+  id: ClothingModsuitChestplateWarden
+  name: sentinel modsuit chestplate
+  description: A robust modular suit cover with reinforced ceramic inserts.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/OuterClothing/Modsuits/warden.rsi
+  - type: ModifyDelayedKnockdown
+    delayDelta: 2.75
+    knockdownTimeDelta: -2.75
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.525
+        Heat: 0.55
+        Radiation: 0.55
+
+- type: entity
+  parent: ClothingModsuitBootsSecurity
+  id: ClothingModsuitBootsWarden
+  name: sentinel modsuit boots
+  description: Heavy boots for walking the cellblock.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/Shoes/Modsuits/warden.rsi
+
+- type: entity
+  parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
+  id: UndeterminedVoidsuitWarden
+  name: warden hardsuit selector
+  description: A small remote utilizing bluespace technology to drop in a hardsuit or modsuit of your choosing.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
+    state: standard
+  - type: SetSelector
+    possibleSets:
+    - VoidsuitSelectorWardenVoidsuit
+    - VoidsuitSelectorWardenHardsuit
+
+- type: selectableSet
+  id: VoidsuitSelectorWardenVoidsuit
+  name: selectable-set-warden-voidsuit-name
+  description: selectable-set-warden-voidsuit-desc
+  sprite:
+    sprite: _Aquila/Clothing/OuterClothing/Hardsuits/warden.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitWarden
+
+- type: selectableSet
+  id: VoidsuitSelectorWardenHardsuit
+  name: selectable-set-warden-modsuit-name
+  description: selectable-set-warden-modsuit-desc
+  sprite:
+    sprite: _Aquila/Clothing/Back/Modsuits/warden.rsi
+    state: control
+  content:
+  - ClothingModsuitWardenPowerCell

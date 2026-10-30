@@ -381,9 +381,9 @@
   description: A modified riot helmet. Oddly comfortable.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/security-warden.rsi
+    sprite: _Aquila/Clothing/Head/Hardsuits/warden.rsi # Aquila Change
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/security-warden.rsi
+    sprite: _Aquila/Clothing/Head/Hardsuits/warden.rsi # Aquila Change
   - type: PointLight
     color: "#ffeead"
   - type: PressureProtection

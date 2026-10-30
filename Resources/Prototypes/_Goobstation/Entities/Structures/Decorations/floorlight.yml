@@ -7,6 +7,13 @@
   placement:
     mode: SnapgridCenter
   components:
+  # Aquila Change start
+  - type: LightGlow
+    texture: /Textures/_Aquila/Effects/LightGlow/round.png
+    size: 5
+    offset: 0
+    opacity: 0.5
+  # Aquila Change end
   - type: Sprite
     sprite: _Goobstation/Structures/Decoration/floorlight.rsi
     offset: 0, 0 # Aquila Change
@@ -38,6 +45,13 @@
   placement:
     mode: SnapgridCenter
   components:
+  # Aquila Change start
+  - type: LightGlow
+    texture: /Textures/_Aquila/Effects/LightGlow/round.png
+    size: 5
+    offset: 0
+    opacity: 0.5
+  # Aquila Change end
   - type: Sprite
     sprite: _Goobstation/Structures/Decoration/floorlight.rsi
     offset: 0, 0 # Aquila Change
@@ -65,6 +79,13 @@
   placement:
     mode: SnapgridCenter
   components:
+  # Aquila Change start
+  - type: LightGlow
+    texture: /Textures/_Aquila/Effects/LightGlow/round.png
+    size: 5
+    offset: 0
+    opacity: 0.5
+  # Aquila Change end
   - type: Sprite
     sprite: _Goobstation/Structures/Decoration/floorlight.rsi
     offset: 0, 0 # Aquila Change

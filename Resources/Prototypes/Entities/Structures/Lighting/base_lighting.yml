@@ -36,6 +36,11 @@
     energy: 0.8
     radius: 10
     softness: 1
+  - type: LightGlow
+    texture: /Textures/_Aquila/Effects/LightGlow/tube.png
+    size: 7
+    offset: 0.7
+    opacity: 0.5
 # Aquila Change end
 #    offset: "0, 0.25"
   # Aquila Change start
@@ -120,6 +125,13 @@
     radius: 10
     softness: 1
     offset: "0, -0.5"
+  # Aquila Change start
+  - type: LightGlow
+    texture: /Textures/_Aquila/Effects/LightGlow/tube.png
+    size: 7
+    offset: 0.7
+    opacity: 0.5
+  # Aquila Change end
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
@@ -355,6 +367,13 @@
       radius: 6
       softness: 1.1
       enabled: true
+    # Aquila Change start
+    - type: LightGlow
+      texture: /Textures/_Aquila/Effects/LightGlow/bulb.png
+      size: 5
+      offset: 0.62
+      opacity: 0.5
+    # Aquila Change end
     - type: Physics
       bodyType: Static
     - type: Fixtures
