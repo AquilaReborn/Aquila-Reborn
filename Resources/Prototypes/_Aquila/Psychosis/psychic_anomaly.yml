@@ -1,0 +1,13 @@
+- type: entity
+  parent: BaseGameRule
+  id: PsychicAnomaly
+  components:
+  - type: StationEvent
+    weight: 5
+    earliestStart: 20
+    reoccurrenceDelay: 40
+    minimumPlayers: 15
+    eventType: Chaotic
+  - type: GameRule
+    chaosScore: 20
+  - type: PsychicAnomalyRule

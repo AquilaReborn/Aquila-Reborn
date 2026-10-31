@@ -1,0 +1,88 @@
+- type: entity
+  parent: BaseAction
+  id: ActionSplitPersonalitySwap
+  name: Switch Personas
+  description: Ask your other persona to switch places with you.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    useDelay: 60
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Aquila/Interface/Actions/changeling_true_form.rsi
+      state: persona
+  - type: InstantAction
+    event: !type:SplitPersonalitySwapActionEvent {}
+
+- type: entity
+  id: SplitPersonalityPassenger
+  name: inner persona
+  categories: [ HideSpawnMenu ]
+  save: false
+  components:
+  - type: MindContainer
+  - type: Eye
+  - type: ContentEye
+  - type: Examiner
+  - type: ActionGrant
+    actions:
+    - ActionSplitPersonalitySwap
+
+- type: entity
+  parent: SplitPersonalityPassenger
+  id: SplitPersonalityAlter
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: GhostRole
+    name: ghost-role-information-split-personality-name
+    description: ghost-role-information-split-personality-description
+    rules: ghost-role-information-split-personality-rules
+    mindRoles:
+    - MindRoleGhostRoleNeutral
+  - type: GhostTakeoverAvailable
+
+- type: collectiveMind
+  id: SplitPersonalityInnerVoice
+  name: collective-mind-split-personality-inner-voice
+  keycode: 'з'
+  color: "#9B7FD1"
+  showNames: false
+
+- type: entity
+  parent: [ Incorporeal, BaseMob ]
+  id: ImaginaryFriend
+  name: imaginary friend
+  description: Someone who is definitely here. Probably.
+  categories: [ HideSpawnMenu ]
+  save: false
+  components:
+  - type: Sprite
+    sprite: Mobs/Ghosts/ghost_human.rsi
+    color: "#ffffff88"
+    layers:
+    - state: animated
+      shader: unshaded
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 6
+  - type: MindContainer
+  - type: ContentEye
+  - type: Eye
+  - type: Input
+    context: "ghost"
+  - type: Examiner
+  - type: Speech
+  - type: Emoting
+  - type: LanguageSpeaker
+  - type: UniversalLanguageSpeaker
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    name: ghost-role-information-imaginary-friend-name
+    description: ghost-role-information-imaginary-friend-description
+    rules: ghost-role-information-imaginary-friend-rules
+    mindRoles:
+    - MindRoleGhostRoleNeutral
+  - type: GhostTakeoverAvailable

@@ -1,0 +1,27 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="using:Content.Client.UserInterface.Controls"
+                      Title="{Loc 'split-personality-request-title'}"
+                      SetWidth="380">
+    <BoxContainer Orientation="Vertical"
+                  HorizontalExpand="True"
+                  VerticalExpand="True"
+                  Margin="10">
+        <RichTextLabel Name="RequestText"
+                       HorizontalExpand="True"
+                       VerticalExpand="True"/>
+        <BoxContainer Orientation="Horizontal"
+                      HorizontalExpand="True"
+                      Margin="0 10 0 0">
+            <Button Name="AcceptButton"
+                    Access="Public"
+                    Text="{Loc 'split-personality-request-accept'}"
+                    HorizontalExpand="True"
+                    StyleClasses="OpenRight"/>
+            <Button Name="DenyButton"
+                    Access="Public"
+                    Text="{Loc 'split-personality-request-deny'}"
+                    HorizontalExpand="True"
+                    StyleClasses="OpenLeft"/>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

@@ -17,6 +17,7 @@
     - id: JobDistributionError
     - id: KudzuGrowth
     - id: MassHallucinations
+    - id: PsychicAnomaly # Aquila Change
     - id: MimicVendorRule
     - id: MouseMigration
     - id: PowerGridCheck
