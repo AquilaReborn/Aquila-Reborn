@@ -140,3 +140,34 @@
     - guardianProto: MobGuardianMandom
       components:
       - type: TimeRewind
+
+- type: entity
+  name: meteorite arrowhead
+  id: MeteoriteArrowhead
+  parent: HolyCorpseSkull
+  description: 'An ancient artifact forged from the fragments of an otherworldly meteorite that crashed to Earth millennia ago. It harbors a dormant cosmic virus that tests the very fabric of ones soul. Piercing oneself with it will either manifest an incredible embodiment of your spiritual power, or bring absolute demise.'
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/KoQdiev/MeteoriteArrowhead.rsi
+    state: icon
+  - type: HolyCorpseLimb
+    flashProto: HolyCorpseEffect
+    implantDelay: 1.9
+    sets:
+    - guardianProto: MobGuardianMandom
+      components:
+      - type: TimeRewind
+    - guardianProto: MobGuardianD4C
+      components:
+      - type: CloneSummonerAction
+    - guardianProto: MobGuardianGoldExperience
+      components:
+      - type: LifeCreator
+    - guardianProto: MobGuardianTuskOne
+      components: []
+    - guardianProto: MobGuardianTheWorld
+      components:
+      - type: TimeStop
+    - guardianProto: MobGuardianKingCrimson
+      components:
+      - type: ErasureTime

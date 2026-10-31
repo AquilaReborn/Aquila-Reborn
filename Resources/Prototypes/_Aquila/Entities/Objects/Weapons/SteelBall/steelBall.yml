@@ -14,10 +14,16 @@
     damage:
       types:
         Blunt: 0
-  - type: SpawnEntitiesOnHit
-    spawnOnlyIfHitMob: true
-    proto: SpinHitEffect
-    amount: 1
+  - type: MeleeWeapon
+    resistanceBypass: true
+    angle: 90
+    attackRate: 1.25
+    clickDamageModifier: 1.1
+    damage:
+      types:
+        Blunt: 2
+  - type: StaminaDamageOnHit
+    damage: 4
   - type: Trail
     color: "#80c828"
     scale: 0.08
@@ -31,7 +37,7 @@
     damage: 15 
   - type: Item
     size: Small
-  - type: Boomerang # Goobstation
+  - type: Boomerang
     maxHops: 1000
     returnSpeed: 20
-    pickupDistance: 2.5
+    pickupDistance: 2.0

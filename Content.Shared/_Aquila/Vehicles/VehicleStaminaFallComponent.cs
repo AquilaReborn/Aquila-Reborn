@@ -7,7 +7,7 @@ namespace Content.Shared.Aquila.Vehicles;
 public sealed partial class VehicleStaminaFallComponent : Component
 {
     [DataField]
-    public float StunDuration = 4f;
+    public float StunDuration = 6f;
 
     [ViewVariables]
     public bool WasCritical;

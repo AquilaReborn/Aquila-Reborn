@@ -19,6 +19,7 @@ using Content.Shared.Popups;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Shared.Aquila.Spin;
 

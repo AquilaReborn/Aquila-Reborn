@@ -48,4 +48,10 @@ public sealed partial class SpinUserComponent : Component
 
     [DataField]
     public EntProtoId EmpowerUserEffectProto = "SpinUserEmpowerEffect";
+
+    [DataField]
+    public float GaugeVerticalOffset = 0.75f;
+
+    [DataField]
+    public float GaugeScreenScale = 1f;
 }

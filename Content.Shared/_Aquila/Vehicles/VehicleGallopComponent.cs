@@ -4,6 +4,8 @@ using Content.Shared.DoAfter;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using System.Numerics;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Aquila.Vehicles;
 
@@ -15,7 +17,7 @@ public enum GallopState : byte
     Slowed,
 }
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 public sealed partial class VehicleGallopComponent : Component
 {
     [ViewVariables, AutoNetworkedField]
@@ -24,53 +26,29 @@ public sealed partial class VehicleGallopComponent : Component
     [ViewVariables, AutoNetworkedField]
     public EntityUid? Rider;
 
-    [ViewVariables]
-    public DoAfterId? ActiveDoAfter;
-
     [DataField]
-    public float Interval = 3f;
-
-    [DataField]
-    public float WindowLength = 1f;
-
-    [DataField]
-    public float IntervalStepPerStreak = 0.3f;
-
-    [DataField]
-    public float WindowLengthStepPerStreak = 0.1f;
-
-    [DataField]
-    public float MinInterval = 1f;
-
-    [DataField]
-    public float MinWindowLength = 0.4f;
-
-    [DataField]
-    public float SlowdownDuration = 3f;
-
-    [DataField]
-    public float SlowdownMultiplier = 0.7f;
+    public int MaxStreak = 5;
 
     [DataField]
     public float MaxMultiplier = 1.5f;
 
     [DataField]
-    public int MaxStreak = 5;
+    public float StaminaCost = 30f;
 
-    [ViewVariables, DataField, AutoNetworkedField]
+    [DataField]
+    public TimeSpan FirstDecayDelay = TimeSpan.FromSeconds(5);
+
+    [DataField]
+    public TimeSpan NextDecayDelay = TimeSpan.FromSeconds(2);
+
+    [ViewVariables, AutoNetworkedField]
     public int Streak;
 
-    [ViewVariables, DataField, AutoNetworkedField]
+    [ViewVariables, AutoNetworkedField]
     public float CurrentMultiplier = 1f;
 
     [ViewVariables, AutoNetworkedField]
-    public GallopState State = GallopState.Idle;
-
-    [ViewVariables, AutoNetworkedField]
-    public TimeSpan WindowEnd;
-
-    [ViewVariables, AutoNetworkedField]
-    public TimeSpan SlowEnd;
+    public TimeSpan NextDecayTime;
 
     [DataField]
     public SoundSpecifier? GallopSuccessSound;
@@ -86,14 +64,42 @@ public sealed partial class VehicleGallopComponent : Component
 
     [ViewVariables]
     public TimeSpan LastStep;
+
+    [DataField]
+    public float GaugeHorizontalOffset = -1f;
+
+    [DataField]
+    public float GaugeVerticalOffset = 0f;
+
+    [DataField]
+    public float GaugeScreenScale = 1f;
+
+    [DataField]
+    public float StaminaGaugeSpacing = 0.5f;
+
+    [DataField]
+    public Vector2 CloudOffset = new(0f, -0.55f);
+
+    [DataField]
+    public EntProtoId GallopActionProto = "ActionGallop";
+
+    [DataField]
+    public ResPath StreakGaugeRsi = new("/Textures/_Aquila/Other/Gallop/gallop_gauge.rsi");
+
+    [DataField]
+    public string StreakGaugeStatePrefix = "gallop_";
+
+    [DataField]
+    public ResPath StaminaGaugeRsi = new("/Textures/_Aquila/Other/Gallop/stamina_gauge.rsi");
+
+    [DataField]
+    public string StaminaGaugeStatePrefix = "stamina_";
+
+    [DataField]
+    public int StaminaDivisions = 10;
 }
 
 public sealed partial class GallopActionEvent : InstantActionEvent;
-
-[Serializable, NetSerializable]
-public sealed partial class GallopDoAfterEvent : SimpleDoAfterEvent
-{
-}
 
 public sealed class VehicleGallopSuccessEvent : EntityEventArgs
 {
