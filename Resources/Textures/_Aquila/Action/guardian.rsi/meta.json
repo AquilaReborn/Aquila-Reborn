@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Aquila",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "action_cloning"
+    },
+    {
+      "name": "action_tp"
+    },
+    {
+      "name": "action_hand"
+    },
+    {
+      "name": "action_heal"
+    },
+    {
+      "name": "action_kudzu"
+    },
+    {
+      "name": "action_live"
+    },
+    {
+      "name": "action_wall"
+    },
+    {
+      "name": "action_mandom"
+    },
+    {
+      "name": "action_timeskip"
+    },
+    {
+      "name": "action_timestop"
+    },
+    {
+      "name": "action_timestop_pt"
+    }
+  ]
+}

@@ -48,6 +48,9 @@ public abstract class SharedSpinSystem : EntitySystem
         SubscribeLocalEvent<SpinComponent, ThrowDoHitEvent>(OnSpinThrowHit);
         SubscribeLocalEvent<SpinEmpowerEvent>(OnSpinEmpower);
         SubscribeLocalEvent<SpinEmpowerCastingComponent, SpinEmpowerDoAfterEvent>(OnSpinEmpowerDoAfter);
+        SubscribeLocalEvent<SpinStunBlowEvent>(OnStunBlow);
+        SubscribeLocalEvent<SpinMarkingEvent>(OnMarking);
+        SubscribeLocalEvent<SpinMarkingCastingComponent, SpinMarkingDoAfterEvent>(OnMarkingDoAfter);
     }
 
     private static readonly TimeSpan EmpowerBaseDelay = TimeSpan.FromSeconds(1.5);
@@ -75,6 +78,8 @@ public abstract class SharedSpinSystem : EntitySystem
             return;
 
         Actions.AddAction(ent, ref ent.Comp.Action, ent.Comp.ActionProto);
+        UpdateStunBlowAction(ent, ent.Comp);
+        UpdateMarkingAction(ent, ent.Comp);
         Dirty(ent, ent.Comp);
     }
 
@@ -82,6 +87,10 @@ public abstract class SharedSpinSystem : EntitySystem
     {
         if (ent.Comp.Action != null)
             Actions.RemoveAction(ent.Owner, ent.Comp.Action);
+        if (ent.Comp.StunBlowAction != null)
+            Actions.RemoveAction(ent.Owner, ent.Comp.StunBlowAction);
+        if (ent.Comp.MarkingAction != null)
+            Actions.RemoveAction(ent.Owner, ent.Comp.MarkingAction);
     }
 
     private void OnSpinSummon(SpinSummonEvent ev)
@@ -154,7 +163,7 @@ public abstract class SharedSpinSystem : EntitySystem
             return;
 
         if (!HasComp<MobStateComponent>(args.Target))
-           return;
+            return;
 
         var thrower = args.Component.Thrower;
         if (thrower == null || !TryComp(thrower.Value, out SpinUserComponent? spinUser))
@@ -163,15 +172,20 @@ public abstract class SharedSpinSystem : EntitySystem
         if (spinUser.BoundEntity != uid)
             return;
 
+        ApplyStunIfActive(thrower.Value, args.Target);
+        ApplyMarkIfActive(thrower.Value, args.Target, uid);
+
         if (spinUser.Charges >= spinUser.MaxCharges)
             return;
 
-        if (Timing.CurTime<spinUser.NextChargeTime)
+        if (Timing.CurTime < spinUser.NextChargeTime)
             return;
 
         spinUser.Charges++;
         spinUser.NextChargeTime = Timing.CurTime + TimeSpan.FromSeconds(1);
         UpdateEmpowerAction(thrower.Value, spinUser);
+        UpdateStunBlowAction(thrower.Value, spinUser);
+        UpdateMarkingAction(thrower.Value, spinUser);
         Dirty(thrower.Value, spinUser);
 
         if (spinUser.ChargeSound != null &&
@@ -217,7 +231,7 @@ public abstract class SharedSpinSystem : EntitySystem
         var newCasting = EnsureComp<SpinEmpowerCastingComponent>(performer);
         newCasting.Step = step;
 
-        var delay = EmpowerBaseDelay * MathF.Pow(1.6f, step - 1);
+        var delay = EmpowerBaseDelay * MathF.Pow(1.15f, step - 1);
 
         var args = new DoAfterArgs(EntityManager,
     performer,
@@ -291,33 +305,34 @@ NeedHand = false,
 
         spinUser.Charges = Math.Max(0, spinUser.Charges - penalty);
         UpdateEmpowerAction(performer, spinUser);
+        UpdateStunBlowAction(performer, spinUser);
+        UpdateMarkingAction(performer, spinUser);
         Dirty(performer, spinUser);
     }
 
     private void FinishEmpower(EntityUid performer)
     {
-            if (!TryComp(performer, out SpinUserComponent? spinUser))
-                    return;
-    
-            if (spinUser.BoundEntity == null || !Exists(spinUser.BoundEntity))
-                    return;
-    
-    var item = spinUser.BoundEntity.Value;
-    
-    spinUser.Charges = 0;
-    UpdateEmpowerAction(performer, spinUser);
-    Dirty(performer, spinUser);
-    
-            if (_net.IsClient)
-                    return;
-    
-    var empowered = EnsureComp<SpinEmpoweredComponent>(item);
-    var stamina = EnsureComp<StaminaDamageOnCollideComponent>(item);
-    var hit = EnsureComp<DamageOtherOnHitComponent>(item);
-    
-    empowered.OriginalStaminaDamage = stamina.Damage;
-    empowered.OriginalHitDamage = hit.Damage;
-    empowered.EndTime = Timing.CurTime + spinUser.EmpowerDuration;
+        if (!TryComp(performer, out SpinUserComponent? spinUser))
+            return;
+
+        if (spinUser.BoundEntity == null || !Exists(spinUser.BoundEntity))
+            return;
+
+        var item = spinUser.BoundEntity.Value;
+        spinUser.Charges = 0;
+        UpdateEmpowerAction(performer, spinUser);
+        UpdateStunBlowAction(performer, spinUser);
+        UpdateMarkingAction(performer, spinUser);
+        Dirty(performer, spinUser);
+        if (_net.IsClient)
+            return;
+        var empowered = EnsureComp<SpinEmpoweredComponent>(item);
+        var stamina = EnsureComp<StaminaDamageOnCollideComponent>(item);
+        var hit = EnsureComp<DamageOtherOnHitComponent>(item);
+
+        empowered.OriginalStaminaDamage = stamina.Damage;
+        empowered.OriginalHitDamage = hit.Damage;
+        empowered.EndTime = Timing.CurTime + spinUser.EmpowerDuration;
     
     stamina.Damage = 200f;
     
@@ -368,5 +383,147 @@ NeedHand = false,
     {
         container = null;
         return false;
+    }
+
+    private void OnStunBlow(SpinStunBlowEvent ev)
+    {
+        if (ev.Handled)
+            return;
+
+        if (!TryComp(ev.Performer, out SpinUserComponent? spinUser))
+            return;
+
+        if (spinUser.Charges < spinUser.StunBlowCost)
+            return;
+
+        ev.Handled = true;
+
+        spinUser.Charges -= spinUser.StunBlowCost;
+        UpdateEmpowerAction(ev.Performer, spinUser);
+        UpdateStunBlowAction(ev.Performer, spinUser);
+        UpdateMarkingAction(ev.Performer, spinUser);
+        Dirty(ev.Performer, spinUser);
+
+        var stun = EnsureComp<SpinStunActiveComponent>(ev.Performer);
+        stun.EndTime = Timing.CurTime + spinUser.StunBlowDuration;
+        Dirty(ev.Performer, stun);
+
+        _popup.PopupClient(Loc.GetString("spin-stunblow-activated"), ev.Performer, ev.Performer, PopupType.Medium);
+    }
+
+    private void OnMarking(SpinMarkingEvent ev)
+    {
+        if (ev.Handled)
+            return;
+
+        if (!TryComp(ev.Performer, out SpinUserComponent? spinUser))
+            return;
+
+        if (spinUser.Charges < spinUser.MarkingCost)
+            return;
+
+        if (HasComp<SpinMarkingCastingComponent>(ev.Performer))
+            return;
+
+        ev.Handled = true;
+
+        spinUser.Charges -= spinUser.MarkingCost;
+        UpdateEmpowerAction(ev.Performer, spinUser);
+        UpdateStunBlowAction(ev.Performer, spinUser);
+        UpdateMarkingAction(ev.Performer, spinUser);
+        Dirty(ev.Performer, spinUser);
+
+        var args = new DoAfterArgs(EntityManager,
+            ev.Performer,
+            spinUser.MarkingDoAfterDelay,
+            new SpinMarkingDoAfterEvent(),
+            ev.Performer)
+        {
+            BreakOnMove = false,
+            BreakOnDamage = true,
+            NeedHand = false,
+        };
+
+        EnsureComp<SpinMarkingCastingComponent>(ev.Performer);
+
+        if (!DoAfterSystem.TryStartDoAfter(args))
+            RemCompDeferred<SpinMarkingCastingComponent>(ev.Performer);
+    }
+
+    private void OnMarkingDoAfter(Entity<SpinMarkingCastingComponent> ent, ref SpinMarkingDoAfterEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        args.Handled = true;
+        RemCompDeferred<SpinMarkingCastingComponent>(ent);
+
+        if (args.Cancelled)
+            return;
+
+        if (!TryComp(ent, out SpinUserComponent? spinUser))
+            return;
+
+        var marking = EnsureComp<SpinMarkingActiveComponent>(ent);
+        marking.EndTime = Timing.CurTime + spinUser.MarkingDuration;
+        Dirty(ent, marking);
+
+        _popup.PopupClient(Loc.GetString("spin-marking-activated"), ent, ent, PopupType.Medium);
+    }
+
+    private void ApplyStunIfActive(EntityUid performer, EntityUid target)
+    {
+        if (!TryComp(performer, out SpinStunActiveComponent? stun) || stun == null)
+            return;
+
+        if (Timing.CurTime > stun.EndTime)
+        {
+            RemCompDeferred<SpinStunActiveComponent>(performer);
+            return;
+        }
+
+        RaiseLocalEvent(performer, new SpinStunHitEvent(target));
+    }
+
+    private void ApplyMarkIfActive(EntityUid performer, EntityUid target, EntityUid spinItem)
+    {
+        if (!TryComp(performer, out SpinMarkingActiveComponent? marking) || marking == null)
+            return;
+
+        if (Timing.CurTime > marking.EndTime)
+        {
+            RemCompDeferred<SpinMarkingActiveComponent>(performer);
+            return;
+        }
+
+        RaiseLocalEvent(performer, new SpinMarkHitEvent(target, performer));
+    }
+
+    private void UpdateStunBlowAction(EntityUid uid, SpinUserComponent comp)
+    {
+        if (comp.Charges >= comp.StunBlowCost)
+        {
+            if (comp.StunBlowAction == null)
+                Actions.AddAction(uid, ref comp.StunBlowAction, comp.StunBlowActionProto);
+        }
+        else if (comp.StunBlowAction != null)
+        {
+            Actions.RemoveAction(uid, comp.StunBlowAction);
+            comp.StunBlowAction = null;
+        }
+    }
+
+    private void UpdateMarkingAction(EntityUid uid, SpinUserComponent comp)
+    {
+        if (comp.Charges >= comp.MarkingCost)
+        {
+            if (comp.MarkingAction == null)
+                Actions.AddAction(uid, ref comp.MarkingAction, comp.MarkingActionProto);
+        }
+        else if (comp.MarkingAction != null)
+        {
+            Actions.RemoveAction(uid, comp.MarkingAction);
+            comp.MarkingAction = null;
+        }
     }
 }

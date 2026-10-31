@@ -5,6 +5,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
+    icon: { sprite: _Aquila/Action/guardian.rsi, state: action_wall }
     useDelay: 3
   - type: TargetAction
     checkCanAccess: false
@@ -19,6 +20,7 @@
   parent: DesertCactus
   name: cactus
   description: A prickly desert plant. Better not to touch it.
+  categories: [ HideSpawnMenu ]
   components:
   - type: TimedDespawn
     lifetime: 8
@@ -30,7 +32,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 15
+        damage: 10
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]

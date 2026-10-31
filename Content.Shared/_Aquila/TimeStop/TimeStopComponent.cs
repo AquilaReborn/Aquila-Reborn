@@ -12,7 +12,7 @@ public sealed partial class TimeStopComponent : Component
     public float Radius = 12.5f;
 
     [DataField]
-    public float Duration = 10f;
+    public float Duration = 6f;
 
     [DataField]
     public EntProtoId ActionId = "ActionAquilaTimeStop";
@@ -33,13 +33,13 @@ public sealed partial class TimeStopComponent : Component
     public float FlashDuration = 1.0f;
 
     [DataField]
-    public SoundSpecifier? StartSound = new SoundPathSpecifier("/Audio/_Goobstation/Misc/sande_start.ogg");
+    public SoundSpecifier? StartSound = new SoundPathSpecifier("/Audio/_Aquila/TimeStop/TimeStopStart.ogg");
 
     [DataField]
-    public SoundSpecifier? EndSound = new SoundPathSpecifier("/Audio/_Goobstation/Misc/sande_end.ogg");
+    public SoundSpecifier? EndSound = new SoundPathSpecifier("/Audio/_Aquila/TimeStop/TimeStopEnd.ogg");
 
     [DataField]
-    public SoundSpecifier? TickSound = new SoundPathSpecifier("/Audio/_Goobstation/Misc/sande_loop.ogg");
+    public SoundSpecifier? TickSound = new SoundPathSpecifier("/Audio/_Aquila/TimeStop/TimeStopLoop.ogg");
 
     [DataField]
     public float TickInterval = 1f;

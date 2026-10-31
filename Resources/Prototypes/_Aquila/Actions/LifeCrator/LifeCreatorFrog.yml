@@ -5,6 +5,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
+    icon: { sprite: _Aquila/Action/guardian.rsi, state: action_live }
   - type: InstantAction
     event: !type:VivifyItemActionEvent
       creaturePrototype: LifeCreatorFrog
@@ -12,6 +13,7 @@
 - type: entity
   parent: MobFrog
   id: LifeCreatorFrog
+  categories: [ HideSpawnMenu ]
   components:
   - type: ReflectMeleeDamage
   - type: Item

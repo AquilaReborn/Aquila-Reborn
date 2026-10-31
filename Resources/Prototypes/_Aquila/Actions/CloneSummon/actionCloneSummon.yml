@@ -4,7 +4,7 @@
   description: Summoning a clone from another dimension. A clone lives for only 30 seconds.
   components:
   - type: Action
-    icon: { sprite: Mobs/Customization/reptilian_parts.rsi, state: tail_smooth }
+    icon: { sprite: _Aquila/Action/guardian.rsi, state: action_cloning }
     itemIconStyle: BigItem
     useDelay: 7.5
   - type: TargetAction
@@ -27,6 +27,6 @@
   - type: InstantAction
     event: !type:TeleportToCloneActionEvent
   - type: Action
-    icon: { sprite: Mobs/Customization/reptilian_parts.rsi, state: tail_smooth }
+    icon: { sprite: _Aquila/Action/guardian.rsi, state: action_tp }
     itemIconStyle: BigItem
     useDelay: 0.5

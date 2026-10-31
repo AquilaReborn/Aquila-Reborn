@@ -39,7 +39,8 @@ public sealed class ErasureTimeSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<ErasureTimeComponent, MapInitEvent>(OnCasterMapInit);
+        SubscribeLocalEvent<ErasureTimeComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ErasureTimeComponent, ComponentShutdown>(OnShutdown);
 
         SubscribeLocalEvent<ErasureTimeComponent, ErasureTimeActionEvent>(OnErasureTimeAction);
         SubscribeLocalEvent<ErasureTimeComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
@@ -79,9 +80,14 @@ public sealed class ErasureTimeSystem : EntitySystem
         }
     }
 
-    private void OnCasterMapInit(Entity<ErasureTimeComponent> ent, ref MapInitEvent args)
+    private void OnStartup(EntityUid uid, ErasureTimeComponent component, ComponentStartup args)
     {
-        _actions.AddAction(ent.Owner, ref ent.Comp.ActionEntity, ent.Comp.ActionId);
+        _actions.AddAction(uid, ref component.ActionEntity, component.ActionId);
+    }
+
+    private void OnShutdown(EntityUid uid, ErasureTimeComponent component, ComponentShutdown args)
+    {
+        _actions.RemoveAction(uid, component.ActionEntity);
     }
 
     private void OnErasureTimeAction(Entity<ErasureTimeComponent> ent, ref ErasureTimeActionEvent args)

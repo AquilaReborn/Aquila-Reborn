@@ -6,7 +6,7 @@ using Content.Shared.Popups;
 using Content.Server.Popups;
 using Content.Server.DoAfter;
 using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared.Rejuvenate;
+using Content.Shared.Mobs.Systems;
 
 namespace Content.Server.Aquila.LifeCreator;
 
@@ -16,6 +16,7 @@ public sealed class HealTargetSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
 
     public override void Initialize()
     {
@@ -65,6 +66,11 @@ public sealed class HealTargetSystem : EntitySystem
         if (args.Args.Target is not { } target || !Exists(target))
             return;
 
-        RaiseLocalEvent(target, new RejuvenateEvent());
+        if (!TryComp<DamageableComponent>(target, out var damageable))
+            return;
+
+        _mobThreshold.SetAllowRevives(target, true);
+        _damageable.SetAllDamage(target, damageable, FixedPoint2.Zero);
+        _mobThreshold.SetAllowRevives(target, false);
     }
 }
