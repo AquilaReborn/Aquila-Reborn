@@ -834,7 +834,7 @@
         Caustic: 0.85
 
 - type: entity
-  parent: ClothingOuterVestHazard
+  parent: ClothingOuterStorageBase
   id: ClothingOuterHardlinersHazard
   name: hazard vest
   suffix: CrookLv, Clothing, Blood Vanguard
@@ -1161,7 +1161,7 @@
         Caustic: 0.85
 
 - type: entity
-  parent: ClothingOuterVestHazard
+  parent: ClothingOuterStorageBase
   id: ClothingOuterNGRHazard
   name: hazard vest
   suffix: CrookLv, Clothing, Gorlex Republic
@@ -1547,7 +1547,7 @@
     damageCoefficient: 0.85
 
 - type: entity
-  parent: ClothingOuterVestHazard
+  parent: ClothingOuterStorageBase
   id: ClothingOuterSolGovHazard
   name: hazard vest
   suffix: CrookLv, Clothing, UEG

@@ -59,7 +59,7 @@
 
 # CrookLv
 - type: loadout
-  id: PersonalLoadoutCrookLvPlushie # плюшевый Круки-Лим
+  id: PersonalLoadoutCrookLvPlushie
   effects:
   - !type:PersonalLoadoutEffect
     users:
@@ -69,7 +69,7 @@
     - PlushieCrookie
 
 - type: loadout
-  id: PersonalLoadoutCrookLvScienceJumpsuit # научный комбинезон SUNS
+  id: PersonalLoadoutCrookLvScienceJumpsuit
   effects:
   - !type:PersonalLoadoutEffect
     users:
@@ -78,7 +78,7 @@
     jumpsuit: ClothingUniformJumpsuitSUNSSciencejumpsuit
 
 - type: loadout
-  id: PersonalLoadoutCrookLvLongGloves # длинные чёрные перчатки SUNS
+  id: PersonalLoadoutCrookLvLongGloves
   effects:
   - !type:PersonalLoadoutEffect
     users:
@@ -87,7 +87,7 @@
     gloves: ClothingHandsGlovesSUNSLongglovesblack
 
 - type: loadout
-  id: PersonalLoadoutCrookLvLaceups # туфли SUNS
+  id: PersonalLoadoutCrookLvLaceups
   effects:
   - !type:PersonalLoadoutEffect
     users:
@@ -96,7 +96,7 @@
     shoes: ClothingShoesSUNSLaceups
 
 - type: loadout
-  id: PersonalLoadoutCrookLvShoulderCape # короткий плащ SUNS
+  id: PersonalLoadoutCrookLvShoulderCape
   effects:
   - !type:PersonalLoadoutEffect
     users:

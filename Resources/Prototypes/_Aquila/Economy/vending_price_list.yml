@@ -117,11 +117,11 @@
     BaseKnife: 75
     BaseHandheldGrinder: 50
     # Курево
-    CigPackBase: 75
-    BaseCigar: 40
-    BaseSmokable: 15
-    Lighter: 25
-    BaseBrandedLighter: 50
+    CigPackBase: 35
+    BaseCigar: 20
+    BaseSmokable: 8
+    Lighter: 12
+    BaseBrandedLighter: 25
     # Семена
     SeedBase: 15
 
@@ -265,7 +265,7 @@
     DrinkTeapot: 40
     Pitcher: 25
     # Курево
-    CigarCase: 150
+    CigarCase: 70
     GroundTobacco: 25
     PackPaperRollingFilters: 25
     Matchbox: 8
@@ -307,7 +307,7 @@
     FoodSnackMooncakeWrapped: 25
     FoodSnackMREBrownie: 25
     FoodSnackNutribrick: 25
-    CigPackMixed: 75
+    CigPackMixed: 35
     DrinkFitnessShakerBlack: 40
     DrinkFitnessShakerBlue: 40
     DrinkFitnessShakerRed: 40
