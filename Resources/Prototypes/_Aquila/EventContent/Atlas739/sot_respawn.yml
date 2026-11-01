@@ -42,6 +42,8 @@
     side: Athena            # привязаться могут только игроки Афины (убрать строку - любой)
     maxBound: 1             # сколько игроков можно привязать
     delay: 5                # секунд от смерти до воскрешения
+  - type: PointLight
+    color: "#48BB9AFF"
 
 - type: entity
   parent: SotRespawnPadBase
@@ -64,3 +66,5 @@
     side: Reapers
     maxBound: 1
     delay: 5
+  - type: PointLight
+    color: "#C80F0FFF"
