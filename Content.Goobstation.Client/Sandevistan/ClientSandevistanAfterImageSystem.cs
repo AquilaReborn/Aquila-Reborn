@@ -7,7 +7,7 @@ using DrawDepthEnum = Content.Shared.DrawDepth.DrawDepth;
 
 namespace Content.Goobstation.Client.Sandevistan;
 
-public sealed class ClientSandevistanAfterimageSystem : EntitySystem
+public sealed partial class ClientSandevistanAfterimageSystem : EntitySystem // Aquila Change
 {
     [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;

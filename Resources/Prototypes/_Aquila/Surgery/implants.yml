@@ -1,0 +1,73 @@
+- type: entity
+  parent: SurgeryOpenCavityBase
+  id: SurgeryOpenArmAugmentSecondary
+  name: Open Second Cavity For Arm Augments
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision
+  - type: SurgeryPartCondition
+    parts: [ Arm ]
+  - type: SurgeryOrganSlotCondition
+    organSlot: armImplantSecondary
+
+- type: entity
+  parent: SurgeryInstallAugmentBase
+  id: SurgeryInsertArmAugmentSecondary
+  name: Insert Second Arm Augment
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision
+    steps:
+    - SurgeryStepSawBones
+    - SurgeryStepInsertAugmentArm
+    - SurgeryStepSealOrganWound
+  - type: SurgeryPartCondition
+    parts: [ Arm ]
+  - type: SurgeryOrganCondition
+    organ:
+    - type: AugmentArm
+  - type: SurgeryOrganSlotCondition
+    organSlot: armImplantSecondary
+  - type: SurgeryAugmentSlot
+    slot: armImplantSecondary
+
+- type: entity
+  parent: SurgeryRemoveAugmentBase
+  id: SurgeryRemoveArmAugmentSecondary
+  name: Remove Second Arm Augment
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision
+  - type: SurgeryPartCondition
+    parts: [ Arm ]
+  - type: SurgeryOrganCondition
+    organ:
+    - type: AugmentArm
+  - type: SurgeryAugmentSlot
+    slot: armImplantSecondary
+
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepExtractImplants
+  name: Extract identified implants
+  components:
+  - type: SurgeryStep
+    tool:
+    - type: Hemostat
+    duration: 10
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
+    state: hemostat
+  - type: SurgeryExtractImplantsStep
+
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryExtractImplants
+  name: Extract Subdermal Implants
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision
+    steps:
+    - SurgeryStepExtractImplants
+  - type: SurgeryPartCondition
+    parts: [ Chest ]

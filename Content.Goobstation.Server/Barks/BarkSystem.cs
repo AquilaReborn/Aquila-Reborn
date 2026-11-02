@@ -1,4 +1,5 @@
 using Content.Server._Aquila.Chat; // Aquila Change
+using Content.Server._Aquila.Psychosis; // Aquila Change
 using Content.Goobstation.Common.Barks;
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Common.Speech;
@@ -12,6 +13,7 @@ public sealed class BarkSystem : EntitySystem
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly VacuumChatSystem _vacuumChat = default!; // Aquila Change
+    [Dependency] private readonly ImaginaryFriendSystem _imaginaryFriend = default!; // Aquila Change
 
     private bool _enabled;
 
@@ -41,7 +43,7 @@ public sealed class BarkSystem : EntitySystem
             return;
 
         var sourceEntity = GetNetEntity(ent);
-        var filter = Filter.Pvs(ent).RemoveWhere(session => session.AttachedEntity is { } listener && !_vacuumChat.CanHear(ent, listener)); // Aquila Change
+        var filter = Filter.Pvs(ent).RemoveWhere(session => session.AttachedEntity is { } listener && (!_vacuumChat.CanHear(ent, listener) || !_imaginaryFriend.CanHear(ent, listener))); // Aquila Change
         RaiseNetworkEvent(new PlayBarkEvent(sourceEntity, args.Message, args.IsWhisper), filter); // Aquila Change
     }
 }

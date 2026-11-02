@@ -11,6 +11,7 @@
     RemoteSignaller: 3
     Igniter: 3 # its more ordnance but yeah
     HandheldHealthAnalyzer: 3
+    CyberwareScanner: 2 # Aquila Change
     Scalpel: 2
     SawElectric: 2
     Bonesetter: 2

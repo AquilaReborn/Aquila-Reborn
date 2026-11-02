@@ -1,0 +1,33 @@
+- type: entity
+  parent: BaseItem
+  id: CyberwareScanner
+  name: cyberware scanner
+  description: A handheld scanner that detects implants under the skin and estimates how much strain they put on the body.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/zedscanner.rsi
+    state: icon
+    color: "#9fdcff"
+  - type: Item
+    size: Small
+  - type: CyberwareScanner
+    concealed:
+    - StorageImplant
+    - FreedomImplant
+    - UplinkImplant
+    - EmpImplant
+    - ScramImplant
+    - DnaScramblerImplant
+    - ChameleonControllerImplant
+    - VoiceMaskImplant
+    - MicroBombImplant
+    - MacroBombImplant
+    - DeathAcidifierImplant
+    - FakeMindShieldImplant
+    - MindcontrolImplant
+    - SmokeImplant
+    - KravMagaImplant
+    - BinaryImplant
+    - CyberHackImplant
+  - type: StaticPrice
+    price: 60

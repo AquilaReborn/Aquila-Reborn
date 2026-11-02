@@ -1,16 +1,16 @@
 namespace Content.Server._Aquila.Psychosis.Components;
 
 /// <summary>
-/// Тот, кому мерещится воображаемый друг.
+/// Тот, кому мерещатся воображаемые друзья или кто носит в себе энграммы.
 /// </summary>
-[RegisterComponent, AutoGenerateComponentPause]
+[RegisterComponent, AutoGenerateComponentPause, Access(typeof(ImaginaryFriendSystem))]
 public sealed partial class ImaginaryFriendOwnerComponent : Component
 {
     /// <summary>
-    /// Воображаемый друг.
+    /// Все спутники этого существа. Они видят и слышат друг друга, потому что смотрят его глазами.
     /// </summary>
     [ViewVariables]
-    public EntityUid? Friend;
+    public HashSet<EntityUid> Friends = new();
 
     /// <summary>
     /// Сколько секунд лечения уже прошло.
@@ -23,12 +23,6 @@ public sealed partial class ImaginaryFriendOwnerComponent : Component
     /// </summary>
     [DataField]
     public float CureTime = 60f;
-
-    /// <summary>
-    /// До какого момента роль друга должен занять призрак, иначе друг исчезает сам.
-    /// </summary>
-    [DataField, AutoPausedField]
-    public TimeSpan ClaimDeadline;
 
     /// <summary>
     /// Когда в следующий раз проверять лекарства и расстояние.

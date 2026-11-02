@@ -7,6 +7,8 @@
   abstract: true
   components:
   - type: SubdermalImplant
+  - type: Cyberware # Aquila Change
+    load: 3 # Aquila Change
   - type: Tag
     tags:
     - SubdermalImplant

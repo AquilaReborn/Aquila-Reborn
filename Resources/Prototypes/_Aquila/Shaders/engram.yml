@@ -1,0 +1,4 @@
+- type: shader
+  id: EngramHologram
+  kind: source
+  path: "/Textures/_Aquila/Shaders/engram_hologram.swsl"

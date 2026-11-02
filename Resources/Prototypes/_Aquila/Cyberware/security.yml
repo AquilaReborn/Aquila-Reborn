@@ -1,0 +1,76 @@
+- type: entity
+  parent: BaseBulletTrigger
+  id: BulletEmpBolt
+  categories: [ HideSpawnMenu ]
+  name: EMP bolt
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser_greyscale
+      shader: unshaded
+      color: "#6fc3ff"
+  - type: PointLight
+    radius: 1.5
+    color: "#6fc3ff"
+    energy: 0.6
+  - type: Ammo
+    muzzleFlash: null
+  - type: Projectile
+    impactEffect: BulletImpactEffectBlueDisabler
+    damage:
+      types:
+        Ion: 5
+  - type: EmpOnTrigger
+    range: 0.3
+    energyConsumption: 100
+    disableDuration: 5
+
+- type: entity
+  parent: WeaponDisabler
+  id: WeaponEmpPistol
+  name: EMP pistol
+  description: A security sidearm that fires tight EMP bolts. The first hit breaks through the shielding of a target's implants, and a second one in quick succession shuts them down for a short time.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/disabler.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+      color: "#9fd6ff"
+    - state: mag-unshaded-0
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: BatteryAmmoProvider
+    proto: BulletEmpBolt
+    fireCost: 125
+  - type: Tag
+    tags:
+    - Sidearm
+
+- type: entity
+  parent: [ ClothingNeckBase, BaseSecurityContraband ]
+  id: ClothingNeckCyberwareBlocker
+  name: implant inhibitor collar
+  description: A heavy collar that floods the wearer's nervous system with interference, shutting down every implant in their body. The wearer cannot take it off on their own.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _Trauma/Clothing/Neck/bombcollar.rsi
+    color: "#8fbfff"
+  - type: Clothing
+    sprite: _Trauma/Clothing/Neck/bombcollar.rsi
+    stripDelay: 10
+    equipDelay: 3
+  - type: SelfUnremovableClothing
+  - type: CyberwareBlocker
+    loadMultiplier: 0.5

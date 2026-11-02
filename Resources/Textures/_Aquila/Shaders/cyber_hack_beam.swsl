@@ -1,0 +1,41 @@
+light_mode unshaded;
+
+uniform highp float beamLength;
+
+highp float hash(highp vec2 p)
+{
+    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+}
+
+void fragment()
+{
+    highp vec2 uv = UV;
+    highp float t = TIME;
+
+    highp float across = abs(uv.x - 0.5) * 2.0;
+    highp float edge = 1.0 - smoothstep(0.55, 1.0, across);
+    highp float ends = smoothstep(0.0, 0.06, uv.y) * smoothstep(1.0, 0.94, uv.y);
+
+    highp float columns = 7.0;
+    highp float columnPos = uv.x * columns;
+    highp float column = floor(columnPos);
+    highp float speed = 3.0 + hash(vec2(column, 3.7)) * 5.0;
+
+    highp float rows = max(beamLength, 0.5) * 9.0;
+    highp float rowPos = uv.y * rows - t * speed;
+    highp float row = floor(rowPos);
+
+    highp float bit = step(0.5, hash(vec2(column, row)));
+    highp float flicker = 0.55 + 0.45 * hash(vec2(row, floor(t * 14.0) + column));
+    highp float glyph = step(0.18, fract(rowPos)) * step(fract(rowPos), 0.82)
+        * step(0.15, fract(columnPos)) * step(fract(columnPos), 0.85);
+    highp float digits = bit * glyph * flicker;
+
+    highp float scan = pow(0.5 + 0.5 * sin(uv.y * max(beamLength, 0.5) * 4.0 - t * 8.0), 6.0);
+    highp float rim = smoothstep(0.75, 0.95, across) * (1.0 - smoothstep(0.95, 1.0, across));
+
+    highp float alpha = (0.08 + digits * 0.6 + scan * 0.25 + rim * 0.35) * edge * ends;
+    highp vec3 color = mix(vec3(0.15, 1.0, 0.45), vec3(0.8, 1.0, 0.88), digits * 0.5 + scan * 0.3);
+
+    COLOR = vec4(color, clamp(alpha, 0.0, 0.85));
+}

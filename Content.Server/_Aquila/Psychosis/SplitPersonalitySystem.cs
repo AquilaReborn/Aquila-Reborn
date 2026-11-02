@@ -23,6 +23,18 @@ namespace Content.Server._Aquila.Psychosis;
 /// </summary>
 public sealed class SplitPersonalitySystem : EntitySystem
 {
+    private static readonly LocId SplitPersonalityCured = "split-personality-cured";
+    private static readonly LocId SplitPersonalitySwapDenied = "split-personality-swap-denied";
+    private static readonly LocId SplitPersonalitySwapUnavailable = "split-personality-swap-unavailable";
+    private static readonly LocId SplitPersonalitySwapNoAlter = "split-personality-swap-no-alter";
+    private static readonly LocId SplitPersonalitySwapSuppressed = "split-personality-swap-suppressed";
+    private static readonly LocId SplitPersonalitySwapPending = "split-personality-swap-pending";
+    private static readonly LocId SplitPersonalitySwapRequested = "split-personality-swap-requested";
+    private static readonly LocId SplitPersonalitySwapSurfaced = "split-personality-swap-surfaced";
+    private static readonly LocId SplitPersonalitySwapReceded = "split-personality-swap-receded";
+    private static readonly LocId SplitPersonalityFaded = "split-personality-faded";
+    private static readonly LocId SplitPersonalityAlterAwakened = "split-personality-alter-awakened";
+
     private static readonly EntProtoId AlterPrototype = "SplitPersonalityAlter";
     private static readonly EntProtoId PassengerPrototype = "SplitPersonalityPassenger";
     private static readonly EntProtoId SwapAction = "ActionSplitPersonalitySwap";
@@ -84,7 +96,7 @@ public sealed class SplitPersonalitySystem : EntitySystem
             if (comp.CureProgress < comp.CureTime)
                 continue;
 
-            _popup.PopupEntity(Loc.GetString("split-personality-cured"), uid, uid, PopupType.Medium);
+            _popup.PopupEntity(Loc.GetString(SplitPersonalityCured), uid, uid, PopupType.Medium);
             RemCompDeferred<SplitPersonalityComponent>(uid);
         }
     }
@@ -131,7 +143,7 @@ public sealed class SplitPersonalitySystem : EntitySystem
         if (!accepted)
         {
             if (requester != null && !TerminatingOrDeleted(requester.Value))
-                _popup.PopupEntity(Loc.GetString("split-personality-swap-denied"), requester.Value, requester.Value);
+                _popup.PopupEntity(Loc.GetString(SplitPersonalitySwapDenied), requester.Value, requester.Value);
             return;
         }
 
@@ -139,7 +151,7 @@ public sealed class SplitPersonalitySystem : EntitySystem
         if (suppressed || !TrySwap(host, comp))
         {
             if (requester != null && !TerminatingOrDeleted(requester.Value))
-                _popup.PopupEntity(Loc.GetString("split-personality-swap-unavailable"), requester.Value, requester.Value);
+                _popup.PopupEntity(Loc.GetString(SplitPersonalitySwapUnavailable), requester.Value, requester.Value);
         }
     }
 
@@ -165,33 +177,33 @@ public sealed class SplitPersonalitySystem : EntitySystem
     {
         if (comp.AlterMind == null)
         {
-            _popup.PopupEntity(Loc.GetString("split-personality-swap-no-alter"), requester, requester);
+            _popup.PopupEntity(Loc.GetString(SplitPersonalitySwapNoAlter), requester, requester);
             return;
         }
 
         _medicine.Check(host, out var suppressed, out _);
         if (suppressed)
         {
-            _popup.PopupEntity(Loc.GetString("split-personality-swap-suppressed"), requester, requester);
+            _popup.PopupEntity(Loc.GetString(SplitPersonalitySwapSuppressed), requester, requester);
             return;
         }
 
         if (comp.PendingRequester != null)
         {
-            _popup.PopupEntity(Loc.GetString("split-personality-swap-pending"), requester, requester);
+            _popup.PopupEntity(Loc.GetString(SplitPersonalitySwapPending), requester, requester);
             return;
         }
 
         var other = requester == host ? comp.Passenger : host;
         if (other == null || !TryGetSession(other.Value, out var session))
         {
-            _popup.PopupEntity(Loc.GetString("split-personality-swap-unavailable"), requester, requester);
+            _popup.PopupEntity(Loc.GetString(SplitPersonalitySwapUnavailable), requester, requester);
             return;
         }
 
         comp.PendingRequester = requester;
         _eui.OpenEui(new SplitPersonalitySwapEui(this, host), session);
-        _popup.PopupEntity(Loc.GetString("split-personality-swap-requested"), requester, requester);
+        _popup.PopupEntity(Loc.GetString(SplitPersonalitySwapRequested), requester, requester);
     }
 
     private bool TrySwap(EntityUid host, SplitPersonalityComponent comp)
@@ -209,14 +221,11 @@ public sealed class SplitPersonalitySystem : EntitySystem
         comp.Passenger = newPassenger;
         QueueDel(oldPassenger);
 
-        _popup.PopupEntity(Loc.GetString("split-personality-swap-surfaced"), host, host, PopupType.LargeCaution);
-        _popup.PopupEntity(Loc.GetString("split-personality-swap-receded"), newPassenger, newPassenger);
+        _popup.PopupEntity(Loc.GetString(SplitPersonalitySwapSurfaced), host, host, PopupType.LargeCaution);
+        _popup.PopupEntity(Loc.GetString(SplitPersonalitySwapReceded), newPassenger, newPassenger);
         return true;
     }
 
-    /// <summary>
-    /// Возвращает тело изначальной личности без её согласия: при лечении, подавлении лекарством или смерти.
-    /// </summary>
     private void ReturnControl(EntityUid host, SplitPersonalityComponent comp)
     {
         if (comp.OriginalMind is not { } original
@@ -246,7 +255,7 @@ public sealed class SplitPersonalitySystem : EntitySystem
             if (_mind.TryGetMind(passenger, out var mind, out var mindComp))
             {
                 _ghost.SpawnGhost((mind, mindComp), ent.Owner);
-                _popup.PopupEntity(Loc.GetString("split-personality-faded"), ent, ent, PopupType.Medium);
+                _popup.PopupEntity(Loc.GetString(SplitPersonalityFaded), ent, ent, PopupType.Medium);
             }
 
             QueueDel(passenger);
@@ -275,7 +284,7 @@ public sealed class SplitPersonalitySystem : EntitySystem
             return;
 
         comp.AlterMind = args.Mind.Owner;
-        _popup.PopupEntity(Loc.GetString("split-personality-alter-awakened"), ent.Comp.Host, ent.Comp.Host, PopupType.LargeCaution);
+        _popup.PopupEntity(Loc.GetString(SplitPersonalityAlterAwakened), ent.Comp.Host, ent.Comp.Host, PopupType.LargeCaution);
     }
 
     private void OnPassengerSpeakAttempt(Entity<SplitPersonalityPassengerComponent> ent, ref SpeakAttemptEvent args)

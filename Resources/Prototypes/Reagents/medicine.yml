@@ -1923,6 +1923,8 @@
         reagent: Aranesp
         amount: -3.0
       #CorvaxGoob end
+      - !type:SuppressCyberpsychosis # Aquila Change
+        time: 5 # Aquila Change
 
 - type: reagent
   id: Warfarin

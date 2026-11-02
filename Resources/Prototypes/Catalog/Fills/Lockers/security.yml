@@ -386,3 +386,7 @@
       amount: 2
     - id: WeaponEnergyIonRifle # Goobstation
       amount: 2
+    - id: WeaponEmpPistol # Aquila Change
+      amount: 2 # Aquila Change
+    - id: ClothingNeckCyberwareBlocker # Aquila Change
+      amount: 2 # Aquila Change

@@ -25,7 +25,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Sandevistan;
 
-public sealed class SandevistanSystem : EntitySystem
+public sealed partial class SandevistanSystem : EntitySystem // Aquila Change
 {
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -287,6 +287,7 @@ public sealed class SandevistanSystem : EntitySystem
         afterimageComp.SourceEntity = uid;
         afterimageComp.Hue = comp.ColorAccumulator % 100f / 100f;
         afterimageComp.DirectionOverride = xform.LocalRotation.GetCardinalDir();
+        SetupAfterimageFade(afterimage, afterimageComp, comp); // Aquila Change
         Dirty(afterimage, afterimageComp);
     }
 
@@ -303,6 +304,9 @@ public sealed class SandevistanSystem : EntitySystem
             {
                 if (afterimageComp.SourceEntity != sourceUid)
                     continue;
+
+                if (HasComp<TimedDespawnComponent>(afterimageUid)) // Aquila Change
+                    continue; // Aquila Change
 
                 var despawn = EnsureComp<TimedDespawnComponent>(afterimageUid);
                 despawn.Lifetime = 3f;

@@ -1,0 +1,6 @@
+- type: shader
+  id: CyberHackBeam
+  kind: source
+  path: "/Textures/_Aquila/Shaders/cyber_hack_beam.swsl"
+  params:
+    beamLength: 1.0

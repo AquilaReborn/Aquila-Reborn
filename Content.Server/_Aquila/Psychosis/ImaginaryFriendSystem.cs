@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server._Aquila.Psychosis.Components;
 using Content.Server.Chat.Systems;
 using Content.Server.Ghost;
@@ -16,18 +17,20 @@ using Robust.Shared.Timing;
 namespace Content.Server._Aquila.Psychosis;
 
 /// <summary>
-/// Воображаемый друг: призрачный спутник, которого видит и слышит только его хозяин.
+/// Воображаемые друзья и энграммы: призрачные спутники, которых видит и слышит только их хозяин.
+/// Спутники одного хозяина смотрят его глазами, поэтому видят и слышат друг друга.
 /// </summary>
 public sealed class ImaginaryFriendSystem : EntitySystem
 {
     private static readonly EntProtoId FriendPrototype = "ImaginaryFriend";
     private static readonly TimeSpan CheckInterval = TimeSpan.FromSeconds(1);
     private static readonly TimeSpan ClaimTime = TimeSpan.FromMinutes(5);
+    private static readonly LocId CuredMessage = "imaginary-friend-cured";
 
+    [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly GhostSystem _ghost = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly PsychosisMedicineSystem _medicine = default!;
-    [Dependency] private readonly PvsOverrideSystem _pvs = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -42,7 +45,10 @@ public sealed class ImaginaryFriendSystem : EntitySystem
         SubscribeLocalEvent<ImaginaryFriendComponent, EmoteAttemptEvent>(OnFriendEmoteAttempt);
         SubscribeLocalEvent<ImaginaryFriendComponent, MindAddedMessage>(OnFriendMindAdded);
         SubscribeLocalEvent<ImaginaryFriendComponent, ComponentShutdown>(OnFriendShutdown);
+        SubscribeLocalEvent<ImaginaryFriendComponent, GetVisMaskEvent>(OnFriendGetVisMask);
+        SubscribeLocalEvent<ImaginaryFriendComponent, ExpandPvsEvent>(OnFriendExpandPvs);
         SubscribeLocalEvent<ImaginaryFriendOwnerComponent, ComponentShutdown>(OnOwnerShutdown);
+        SubscribeLocalEvent<ImaginaryFriendOwnerComponent, ExpandPvsEvent>(OnOwnerExpandPvs);
     }
 
     public override void Update(float frameTime)
@@ -58,68 +64,153 @@ public sealed class ImaginaryFriendSystem : EntitySystem
 
             owner.NextCheck = now + CheckInterval;
 
-            if (owner.Friend is not { } friend || !TryComp<ImaginaryFriendComponent>(friend, out var friendComp))
-            {
-                RemCompDeferred<ImaginaryFriendOwnerComponent>(uid);
-                continue;
-            }
-
-            var claimed = _mind.TryGetMind(friend, out _, out _);
-            if (!claimed && now > owner.ClaimDeadline)
-            {
-                RemCompDeferred<ImaginaryFriendOwnerComponent>(uid);
-                continue;
-            }
-
             _medicine.Check(uid, out var suppressed, out var curing);
-            friendComp.Suppressed = suppressed;
-            UpdateShownTo((friend, friendComp), claimed && !suppressed ? GetSession(uid) : null);
-            KeepNearOwner(uid, (friend, friendComp));
+            var session = GetSession(uid);
+            var hasTreatable = false;
 
-            if (!curing)
+            foreach (var friend in owner.Friends.ToArray())
+            {
+                if (!TryComp<ImaginaryFriendComponent>(friend, out var friendComp))
+                {
+                    owner.Friends.Remove(friend);
+                    continue;
+                }
+
+                var claimed = _mind.TryGetMind(friend, out _, out _);
+                if (!claimed && now > friendComp.ClaimDeadline)
+                {
+                    RemoveFriend((uid, owner), friend);
+                    continue;
+                }
+
+                hasTreatable |= friendComp.AffectedByMedicine;
+
+                var friendSuppressed = friendComp.AffectedByMedicine && suppressed;
+                friendComp.Suppressed = friendSuppressed;
+                friendComp.ShownTo = claimed && !friendSuppressed ? session : null;
+                KeepNearOwner(uid, (friend, friendComp));
+                SyncVision(uid, friend);
+            }
+
+            if (owner.Friends.Count == 0)
+            {
+                RemCompDeferred<ImaginaryFriendOwnerComponent>(uid);
+                continue;
+            }
+
+            if (!curing || !hasTreatable)
                 continue;
 
             owner.CureProgress += (float) CheckInterval.TotalSeconds;
             if (owner.CureProgress < owner.CureTime)
                 continue;
 
-            _popup.PopupEntity(Loc.GetString("imaginary-friend-cured"), uid, uid, PopupType.Medium);
-            RemCompDeferred<ImaginaryFriendOwnerComponent>(uid);
+            owner.CureProgress = 0f;
+            _popup.PopupEntity(Loc.GetString(CuredMessage), uid, uid, PopupType.Medium);
+            RemoveTreatable((uid, owner));
         }
     }
 
     /// <summary>
-    /// Даёт существу воображаемого друга. Друга займёт призрак.
+    /// Даёт существу воображаемого друга, если его ещё нет. Друга займёт призрак.
     /// </summary>
     public bool TryAfflict(EntityUid owner)
     {
-        if (HasComp<ImaginaryFriendOwnerComponent>(owner))
+        if (HasImaginaryFriend(owner))
             return false;
 
         var friend = Spawn(FriendPrototype, Transform(owner).Coordinates);
-        var friendComp = EnsureComp<ImaginaryFriendComponent>(friend);
-        friendComp.Owner = owner;
+        Attach(owner, friend, true);
+        return true;
+    }
 
+    /// <summary>
+    /// Есть ли у существа воображаемый друг, которого лечат лекарства. Энграммы не считаются.
+    /// </summary>
+    public bool HasImaginaryFriend(EntityUid owner)
+    {
+        if (!TryComp<ImaginaryFriendOwnerComponent>(owner, out var ownerComp))
+            return false;
+
+        foreach (var friend in ownerComp.Friends)
+        {
+            if (CompOrNull<ImaginaryFriendComponent>(friend)?.AffectedByMedicine == true)
+                return true;
+        }
+
+        return false;
+    }
+
+    /// <summary>
+    /// Убирает у существа всех воображаемых друзей, которых лечат лекарства. Энграммы остаются.
+    /// </summary>
+    public void Cure(EntityUid owner)
+    {
+        if (TryComp<ImaginaryFriendOwnerComponent>(owner, out var ownerComp))
+            RemoveTreatable((owner, ownerComp));
+    }
+
+    /// <summary>
+    /// Делает сущность невидимой для всех, кроме того, кому её потом покажут.
+    /// </summary>
+    public void HideFromOthers(EntityUid friend)
+    {
         var visibility = EnsureComp<VisibilityComponent>(friend);
         _visibility.SetLayer((friend, visibility), (ushort) VisibilityFlags.ImaginaryFriend);
+    }
 
-        var ownerComp = AddComp<ImaginaryFriendOwnerComponent>(owner);
-        ownerComp.Friend = friend;
-        ownerComp.ClaimDeadline = _timing.CurTime + ClaimTime;
+    /// <summary>
+    /// Привязывает готовую сущность к хозяину как спутника: её видит и слышит только хозяин и другие его спутники,
+    /// она держится рядом и смотрит его глазами. Если в сущности уже есть разум, она сразу появляется.
+    /// </summary>
+    public void Attach(EntityUid owner, EntityUid friend, bool affectedByMedicine, LocId? appearedMessage = null)
+    {
+        var friendComp = EnsureComp<ImaginaryFriendComponent>(friend);
+        friendComp.Owner = owner;
+        friendComp.AffectedByMedicine = affectedByMedicine;
+        friendComp.ClaimDeadline = _timing.CurTime + ClaimTime;
+        if (appearedMessage is { } message)
+            friendComp.AppearedMessage = message;
+
+        HideFromOthers(friend);
+        _eye.SetDrawFov(friend, true);
+        SyncVision(owner, friend);
+
+        var ownerComp = EnsureComp<ImaginaryFriendOwnerComponent>(owner);
+        ownerComp.Friends.Add(friend);
         ownerComp.NextCheck = _timing.CurTime + CheckInterval;
-        return true;
+
+        if (_mind.TryGetMind(friend, out _, out _))
+            Reveal((friend, friendComp));
+    }
+
+    /// <summary>
+    /// Слышит ли слушатель речь говорящего. Спутника слышат только он сам, его хозяин и другие спутники того же хозяина.
+    /// </summary>
+    public bool CanHear(EntityUid speaker, EntityUid listener)
+    {
+        if (listener == speaker || !TryComp<ImaginaryFriendComponent>(speaker, out var friend))
+            return true;
+
+        if (friend.Suppressed || friend.Owner is not { } owner)
+            return false;
+
+        return listener == owner
+            || TryComp<ImaginaryFriendComponent>(listener, out var listenerFriend)
+            && listenerFriend.Owner == owner
+            && !listenerFriend.Suppressed;
     }
 
     private void OnExpandRecipients(ExpandICChatRecipientsEvent ev)
     {
-        if (!TryComp<ImaginaryFriendComponent>(ev.Source, out var friend))
+        if (!HasComp<ImaginaryFriendComponent>(ev.Source))
             return;
 
         var remove = new List<ICommonSession>();
         foreach (var session in ev.Recipients.Keys)
         {
             if (session.AttachedEntity is not { } attached
-                || attached != ev.Source && (attached != friend.Owner || friend.Suppressed))
+                || !CanHear(ev.Source, attached))
                 remove.Add(session);
         }
 
@@ -143,24 +234,73 @@ public sealed class ImaginaryFriendSystem : EntitySystem
 
     private void OnFriendMindAdded(Entity<ImaginaryFriendComponent> ent, ref MindAddedMessage args)
     {
-        if (TerminatingOrDeleted(ent.Comp.Owner))
+        if (ent.Comp.Owner is not { } ownerUid
+            || TerminatingOrDeleted(ownerUid)
+            || !TryComp<ImaginaryFriendOwnerComponent>(ownerUid, out var owner)
+            || !owner.Friends.Contains(ent))
             return;
 
-        _transform.SetCoordinates(ent, Transform(ent.Comp.Owner).Coordinates);
-        _medicine.Check(ent.Comp.Owner, out var suppressed, out _);
+        Reveal(ent);
+    }
+
+    private void Reveal(Entity<ImaginaryFriendComponent> ent)
+    {
+        if (ent.Comp.Owner is not { } owner)
+            return;
+
+        _transform.SetCoordinates(ent, Transform(owner).Coordinates);
+
+        var suppressed = false;
+        if (ent.Comp.AffectedByMedicine)
+            _medicine.Check(owner, out suppressed, out _);
+
         ent.Comp.Suppressed = suppressed;
-        UpdateShownTo(ent, suppressed ? null : GetSession(ent.Comp.Owner));
-        _popup.PopupEntity(Loc.GetString("imaginary-friend-appeared"), ent.Comp.Owner, ent.Comp.Owner, PopupType.Medium);
+        ent.Comp.ShownTo = suppressed ? null : GetSession(owner);
+        _popup.PopupEntity(Loc.GetString(ent.Comp.AppearedMessage), owner, owner, PopupType.Medium);
     }
 
     private void OnFriendShutdown(Entity<ImaginaryFriendComponent> ent, ref ComponentShutdown args)
     {
-        UpdateShownTo(ent, null);
+        ent.Comp.ShownTo = null;
+
+        if (TryComp<ImaginaryFriendOwnerComponent>(ent.Comp.Owner, out var owner))
+            owner.Friends.Remove(ent);
+    }
+
+    private void OnFriendGetVisMask(Entity<ImaginaryFriendComponent> ent, ref GetVisMaskEvent args)
+    {
+        if (TryComp<EyeComponent>(ent.Comp.Owner, out var ownerEye))
+            args.VisibilityMask |= ownerEye.VisibilityMask;
     }
 
     private void OnOwnerShutdown(Entity<ImaginaryFriendOwnerComponent> ent, ref ComponentShutdown args)
     {
-        if (ent.Comp.Friend is not { } friend || TerminatingOrDeleted(friend))
+        foreach (var friend in ent.Comp.Friends.ToArray())
+        {
+            DeleteFriend(friend);
+        }
+
+        ent.Comp.Friends.Clear();
+    }
+
+    private void RemoveTreatable(Entity<ImaginaryFriendOwnerComponent> owner)
+    {
+        foreach (var friend in owner.Comp.Friends.ToArray())
+        {
+            if (CompOrNull<ImaginaryFriendComponent>(friend)?.AffectedByMedicine == true)
+                RemoveFriend(owner, friend);
+        }
+    }
+
+    private void RemoveFriend(Entity<ImaginaryFriendOwnerComponent> owner, EntityUid friend)
+    {
+        owner.Comp.Friends.Remove(friend);
+        DeleteFriend(friend);
+    }
+
+    private void DeleteFriend(EntityUid friend)
+    {
+        if (TerminatingOrDeleted(friend))
             return;
 
         if (_mind.TryGetMind(friend, out var mind, out var mindComp))
@@ -169,21 +309,33 @@ public sealed class ImaginaryFriendSystem : EntitySystem
         QueueDel(friend);
     }
 
-    /// <summary>
-    /// Отправляет друга только сессии хозяина: остальным игрокам он не приходит вовсе.
-    /// </summary>
-    private void UpdateShownTo(Entity<ImaginaryFriendComponent> friend, ICommonSession? session)
+    private void OnOwnerExpandPvs(Entity<ImaginaryFriendOwnerComponent> ent, ref ExpandPvsEvent args)
     {
-        if (friend.Comp.ShownTo == session)
+        foreach (var friend in ent.Comp.Friends)
+        {
+            if (CompOrNull<ImaginaryFriendComponent>(friend)?.ShownTo != args.Session)
+                continue;
+
+            args.RecursiveEntities ??= new List<EntityUid>();
+            args.RecursiveEntities.Add(friend);
+            args.VisMask |= (int) VisibilityFlags.ImaginaryFriend;
+        }
+    }
+
+    private void OnFriendExpandPvs(Entity<ImaginaryFriendComponent> ent, ref ExpandPvsEvent args)
+    {
+        args.RecursiveEntities ??= new List<EntityUid>();
+        args.RecursiveEntities.Add(ent);
+        args.VisMask |= (int) VisibilityFlags.ImaginaryFriend;
+
+        if (!TryComp<ImaginaryFriendOwnerComponent>(ent.Comp.Owner, out var owner))
             return;
 
-        if (friend.Comp.ShownTo != null)
-            _pvs.RemoveForceSend(friend, friend.Comp.ShownTo);
-
-        friend.Comp.ShownTo = session;
-
-        if (session != null)
-            _pvs.AddForceSend(friend, session);
+        foreach (var other in owner.Friends)
+        {
+            if (other != ent.Owner && CompOrNull<ImaginaryFriendComponent>(other)?.ShownTo != null)
+                args.RecursiveEntities.Add(other);
+        }
     }
 
     private void KeepNearOwner(EntityUid owner, Entity<ImaginaryFriendComponent> friend)
@@ -197,6 +349,22 @@ public sealed class ImaginaryFriendSystem : EntitySystem
             return;
 
         _transform.SetCoordinates(friend, ownerXform.Coordinates);
+    }
+
+    private void SyncVision(EntityUid owner, EntityUid friend)
+    {
+        if (!TryComp<EyeComponent>(friend, out var friendEye))
+            return;
+
+        if (friendEye.Target != owner)
+            _eye.SetTarget(friend, owner, friendEye);
+
+        var ownerMask = TryComp<EyeComponent>(owner, out var ownerEye)
+            ? ownerEye.VisibilityMask
+            : EyeComponent.DefaultVisibilityMask;
+
+        if (friendEye.VisibilityMask != ownerMask)
+            _eye.RefreshVisibilityMask((friend, friendEye));
     }
 
     private ICommonSession? GetSession(EntityUid uid)

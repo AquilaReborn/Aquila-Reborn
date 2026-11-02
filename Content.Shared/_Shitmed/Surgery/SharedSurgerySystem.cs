@@ -312,6 +312,9 @@ public abstract partial class SharedSurgerySystem : EntitySystem
             return;
         }
 
+        if (TryValidateAugmentSlot(ent, ref args)) // Aquila Change
+            return; // Aquila Change
+
         foreach (var reg in ent.Comp.Organ.Values)
         {
             if (_body.TryGetBodyPartOrgans(args.Part, reg.Component.GetType(), out var organs)

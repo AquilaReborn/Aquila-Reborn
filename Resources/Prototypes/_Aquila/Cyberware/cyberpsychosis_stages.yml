@@ -1,0 +1,195 @@
+- type: cyberpsychosisStage
+  id: CyberpsychosisInstability
+  name: cyberpsychosis-stage-instability
+  minRisk: 60
+  chance: 0.15
+  enterMessage: cyberpsychosis-instability-enter
+  exitMessage: cyberpsychosis-instability-exit
+  minEpisodeDelay: 60
+  maxEpisodeDelay: 120
+  minGlitchDelay: 25
+  maxGlitchDelay: 50
+  glitchDuration: 0.35
+  glitchIntensity: 0.6
+  episodes:
+  - weight: 3
+    effects:
+    - !type:PopupMessage
+      messages:
+      - cyberpsychosis-instability-message-1
+      - cyberpsychosis-instability-message-2
+      - cyberpsychosis-instability-message-3
+      - cyberpsychosis-instability-message-4
+      - cyberpsychosis-instability-message-5
+      visualType: Medium
+    - !type:Jitter
+      amplitude: 5
+      time: 3
+  - weight: 2
+    effects:
+    - !type:PopupMessage
+      messages:
+      - cyberpsychosis-instability-message-1
+      - cyberpsychosis-instability-message-2
+      - cyberpsychosis-instability-message-3
+      - cyberpsychosis-instability-message-4
+      - cyberpsychosis-instability-message-5
+      visualType: Medium
+  - weight: 1
+    effects:
+    - !type:PopupMessage
+      messages:
+      - cyberpsychosis-instability-tremor
+      visualType: MediumCaution
+    - !type:Jitter
+      amplitude: 8
+      time: 5
+
+- type: cyberpsychosisStage
+  id: CyberpsychosisRejection
+  name: cyberpsychosis-stage-rejection
+  minRisk: 100
+  chance: 0.1
+  enterMessage: cyberpsychosis-rejection-enter
+  exitMessage: cyberpsychosis-rejection-exit
+  minEpisodeDelay: 40
+  maxEpisodeDelay: 80
+  minGlitchDelay: 8
+  maxGlitchDelay: 20
+  glitchDuration: 0.6
+  glitchIntensity: 0.95
+  components:
+  - type: Paracusia
+    minTimeBetweenIncidents: 20
+    maxTimeBetweenIncidents: 90
+    maxSoundDistance: 7
+    sounds:
+      collection: Paracusia
+  episodes:
+  - weight: 3
+    effects:
+    - !type:Emote
+      emote: Cough
+      showInChat: true
+      force: true
+    - !type:BleedOut
+      amount: 8
+    - !type:PopupMessage
+      messages:
+      - cyberpsychosis-rejection-cough
+      visualType: MediumCaution
+  - weight: 2
+    effects:
+    - !type:ModifyKnockdown
+      time: 2
+      drop: true
+    - !type:Jitter
+      amplitude: 12
+      time: 4
+    - !type:PopupMessage
+      messages:
+      - cyberpsychosis-rejection-spasm
+      visualType: LargeCaution
+  - weight: 2
+    effects:
+    - !type:PopupMessage
+      messages:
+      - cyberpsychosis-rejection-message-1
+      - cyberpsychosis-rejection-message-2
+      - cyberpsychosis-rejection-message-3
+      - cyberpsychosis-rejection-message-4
+      - cyberpsychosis-rejection-message-5
+      visualType: MediumCaution
+    - !type:Jitter
+      amplitude: 6
+      time: 3
+
+- type: cyberpsychosisStage
+  id: CyberpsychosisBreakdown
+  name: cyberpsychosis-stage-breakdown
+  minRisk: 110
+  chance: 0.06
+  reversible: false
+  enterMessage: cyberpsychosis-breakdown-enter
+  examineMessage: cyberpsychosis-breakdown-examine
+  minEpisodeDelay: 45
+  maxEpisodeDelay: 90
+  minGlitchDelay: 6
+  maxGlitchDelay: 15
+  glitchDuration: 0.7
+  glitchIntensity: 1.0
+  baseGlitchIntensity: 0.35
+  redness: 0.35
+  disguises:
+  - CyberpsychosisDisguiseOperative
+  - CyberpsychosisDisguiseHereticRust
+  - CyberpsychosisDisguiseHereticVoid
+  components:
+  - type: Paracusia
+    minTimeBetweenIncidents: 15
+    maxTimeBetweenIncidents: 60
+    maxSoundDistance: 7
+    sounds:
+      collection: Paracusia
+  episodes:
+  - weight: 3
+    effects:
+    - !type:ForceSay
+      messages:
+      - cyberpsychosis-breakdown-warcry-1
+      - cyberpsychosis-breakdown-warcry-2
+      - cyberpsychosis-breakdown-warcry-3
+      - cyberpsychosis-breakdown-warcry-4
+    - !type:PopupMessage
+      messages:
+      - cyberpsychosis-breakdown-rampage
+      visualType: LargeCaution
+    - !type:CyberpsychosisRampage
+      duration: 15
+      components:
+      - type: HTN
+        rootTask:
+          task: SimpleHumanoidHostileCompound
+  - weight: 2
+    effects:
+    - !type:ForceSay
+      messages:
+      - cyberpsychosis-breakdown-paranoia-1
+      - cyberpsychosis-breakdown-paranoia-2
+      - cyberpsychosis-breakdown-paranoia-3
+      - cyberpsychosis-breakdown-paranoia-4
+    - !type:Jitter
+      amplitude: 6
+      time: 3
+  - weight: 2
+    effects:
+    - !type:ForceSay
+      messages:
+      - cyberpsychosis-breakdown-machine-1
+      - cyberpsychosis-breakdown-machine-2
+      - cyberpsychosis-breakdown-machine-3
+      - cyberpsychosis-breakdown-machine-4
+  - weight: 1
+    effects:
+    - !type:Emote
+      emote: Cough
+      showInChat: true
+      force: true
+    - !type:BleedOut
+      amount: 10
+    - !type:PopupMessage
+      messages:
+      - cyberpsychosis-rejection-cough
+      visualType: MediumCaution
+  - weight: 1
+    effects:
+    - !type:ModifyKnockdown
+      time: 2
+      drop: true
+    - !type:Jitter
+      amplitude: 12
+      time: 4
+    - !type:PopupMessage
+      messages:
+      - cyberpsychosis-rejection-spasm
+      visualType: LargeCaution

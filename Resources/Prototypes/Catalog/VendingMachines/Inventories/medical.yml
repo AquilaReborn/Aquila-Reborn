@@ -35,6 +35,7 @@
   id: NanoMedPlusInventory
   startingInventory:
     HandheldHealthAnalyzer: 3
+    CyberwareScanner: 2 # Aquila Change
     Gauze: 5
     Brutepack: 5
     Ointment: 5

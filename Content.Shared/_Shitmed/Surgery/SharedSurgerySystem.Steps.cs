@@ -351,11 +351,15 @@ public abstract partial class SharedSurgerySystem
         if (firstOrgan == default)
             return;
 
+        if (IsDuplicateAugment(args.Surgery, args.Part, args.Tool, args.User)) // Aquila Change
+            return; // Aquila Change
+
         if (!HasComp(args.Tool, firstOrgan.Component.GetType())
             || !TryComp<OrganComponent>(args.Tool, out var insertedOrgan)
-            || !_body.InsertOrgan(args.Part, args.Tool, insertedOrgan.SlotId, partComp, insertedOrgan))
+            || !_body.InsertOrgan(args.Part, args.Tool, GetInsertSlot(args.Surgery, insertedOrgan), partComp, insertedOrgan)) // Aquila Change
             return;
 
+        insertedOrgan.SlotId = GetInsertSlot(args.Surgery, insertedOrgan); // Aquila Change
         EnsureComp<OrganReattachedComponent>(args.Tool);
 
         if (insertedOrgan.OriginalBody == args.Body)
@@ -368,6 +372,9 @@ public abstract partial class SharedSurgerySystem
 
     private void OnAddOrganCheck(Entity<SurgeryAddOrganStepComponent> ent, ref SurgeryStepCompleteCheckEvent args)
     {
+        if (TryCheckAugmentSlotFilled(args.Surgery, args.Part, ref args)) // Aquila Change
+            return; // Aquila Change
+
         if (!TryComp<SurgeryOrganConditionComponent>(args.Surgery, out var organComp)
             || organComp.Organ is null
             || !_partQuery.TryComp(args.Part, out var partComp)
@@ -421,6 +428,9 @@ public abstract partial class SharedSurgerySystem
 
     private void OnRemoveOrganStep(Entity<SurgeryRemoveOrganStepComponent> ent, ref SurgeryStepEvent args)
     {
+        if (TryRemoveAugmentFromSlot(args.Surgery, args.Part, args.User)) // Aquila Change
+            return; // Aquila Change
+
         if (!TryComp<SurgeryOrganConditionComponent>(args.Surgery, out var organComp)
             || organComp.Organ == null)
             return;
@@ -440,6 +450,9 @@ public abstract partial class SharedSurgerySystem
 
     private void OnRemoveOrganCheck(Entity<SurgeryRemoveOrganStepComponent> ent, ref SurgeryStepCompleteCheckEvent args)
     {
+        if (TryCheckAugmentSlotEmptied(args.Surgery, args.Part, ref args)) // Aquila Change
+            return; // Aquila Change
+
         if (!TryComp<SurgeryOrganConditionComponent>(args.Surgery, out var organComp)
             || organComp.Organ == null
             || !_partQuery.TryComp(args.Part, out var partComp)
