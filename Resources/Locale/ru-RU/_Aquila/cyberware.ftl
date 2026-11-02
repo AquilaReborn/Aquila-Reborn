@@ -1,8 +1,21 @@
 ## Сканер имплантов
 
 cyberware-scanner-being-scanned = {CAPITALIZE($user)} водит над вами сканером.
-cyberware-scanner-result = Обнаружено имплантов: {$count}. Кибернагрузка: {$level}.
 cyberware-scanner-adapting = Организм ещё привыкает к недавно установленным имплантам.
+
+cyberware-scanner-ui-title = Сканер имплантов
+cyberware-scanner-ui-empty = Проведите сканером по человеку, чтобы увидеть результат.
+cyberware-scanner-ui-scan-quick = Быстрое сканирование
+cyberware-scanner-ui-scan-deep = Глубокое сканирование
+cyberware-scanner-ui-load = Кибернагрузка
+cyberware-scanner-ui-percent = {$percent}%
+cyberware-scanner-ui-count = Имплантов:
+cyberware-scanner-ui-level = Нагрузка:
+cyberware-scanner-ui-implants = Импланты
+cyberware-scanner-ui-no-implants = Опознанных подкожных имплантов нет.
+cyberware-scanner-ui-psychosis = Киберпсихоз
+cyberware-scanner-ui-stage = Стадия: {$stage}
+cyberware-scanner-ui-cure = Лечение: {$percent}%
 
 cyberware-scanner-level-none = отсутствует
 cyberware-scanner-level-low = низкая
@@ -97,9 +110,6 @@ cyberpsychosis-suppression-ended = Лекарство отпускает, и ш�
 cyberpsychosis-therapy-blocked = Лекарство не справляется: железа в теле слишком много.
 cyberpsychosis-cured = Помехи гаснут одна за другой. Вы снова чувствуете себя собой, а импланты просто часть тела.
 
-cyberware-scanner-psychosis = Признаки киберпсихоза: {$stage}.
-cyberware-scanner-cure-progress = Курс лечения пройден на {$percent}%.
-
 reagent-name-cybersynaptin = киберсинаптин
 reagent-desc-cybersynaptin = Восстанавливает связь между нервной системой и имплантами. Если продержать его в крови пару минут без перерыва, излечивает киберпсихоз, но только когда кибернагрузка ниже критической. Вызывает сонливость, при передозировке токсичен.
 
@@ -149,9 +159,7 @@ ent-ClothingNeckCyberwareBlocker = ошейник-блокиратор импл�
 
 cyberware-scanner-deep-started = Цель обездвижена, запускаете глубокое сканирование.
 cyberware-scanner-deep-cooldown = Глубокое сканирование этого человека пока недоступно, сканер не успел откалибровать сигнатуры. Выполняется обычное.
-cyberware-scanner-implants = Опознанные импланты: {$implants}.
-cyberware-scanner-concealed = Неизвестных сигнатур: {$count}.
-cyberware-scanner-deep-complete = Глубокое сканирование завершено.
+cyberware-scanner-concealed = Неизвестных сигнатур: {$count}
 
 surgery-popup-implants-extracted = Извлечены и разрушены импланты: {$implants}.
 surgery-popup-implants-nothing = Опознанных имплантов не найдено. Остальное без данных сканера не нащупать.

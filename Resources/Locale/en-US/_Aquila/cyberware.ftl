@@ -1,8 +1,21 @@
 ## Cyberware scanner
 
 cyberware-scanner-being-scanned = {CAPITALIZE(THE($user))} runs a scanner over you.
-cyberware-scanner-result = Implants found: {$count}. Cyber strain: {$level}.
 cyberware-scanner-adapting = The body is still adapting to recently installed implants.
+
+cyberware-scanner-ui-title = Cyberware scanner
+cyberware-scanner-ui-empty = Run the scanner over someone to see the results.
+cyberware-scanner-ui-scan-quick = Quick scan
+cyberware-scanner-ui-scan-deep = Deep scan
+cyberware-scanner-ui-load = Cyber strain
+cyberware-scanner-ui-percent = {$percent}%
+cyberware-scanner-ui-count = Implants:
+cyberware-scanner-ui-level = Strain:
+cyberware-scanner-ui-implants = Implants
+cyberware-scanner-ui-no-implants = No subdermal implants identified.
+cyberware-scanner-ui-psychosis = Cyberpsychosis
+cyberware-scanner-ui-stage = Stage: {$stage}
+cyberware-scanner-ui-cure = Treatment: {$percent}%
 
 cyberware-scanner-level-none = none
 cyberware-scanner-level-low = low
@@ -86,9 +99,6 @@ cyberpsychosis-suppression-ended = The medicine wears off and the noise in your 
 cyberpsychosis-therapy-blocked = The medicine cannot cope: there is too much hardware in your body.
 cyberpsychosis-cured = The static fades out bit by bit. You feel like yourself again, and the implants are just part of your body.
 
-cyberware-scanner-psychosis = Signs of cyberpsychosis: {$stage}.
-cyberware-scanner-cure-progress = Treatment course: {$percent}% complete.
-
 reagent-name-cybersynaptin = cybersynaptin
 reagent-desc-cybersynaptin = Restores the link between the nervous system and implants. Kept in the blood for a couple of minutes without a break, it cures cyberpsychosis, but only while the cyber strain is below critical. Causes drowsiness and is toxic in overdose.
 
@@ -124,9 +134,7 @@ cyberware-unblocked = The collar comes off and your implants come back to life o
 
 cyberware-scanner-deep-started = The target is immobilized, starting a deep scan.
 cyberware-scanner-deep-cooldown = A deep scan of this person is not available yet, the scanner has not recalibrated. Running a normal scan.
-cyberware-scanner-implants = Identified implants: {$implants}.
-cyberware-scanner-concealed = Unknown signatures: {$count}.
-cyberware-scanner-deep-complete = Deep scan complete.
+cyberware-scanner-concealed = Unknown signatures: {$count}
 
 surgery-popup-implants-extracted = Extracted and destroyed implants: {$implants}.
 surgery-popup-implants-nothing = No identified implants found. Without scanner data the rest cannot be located.

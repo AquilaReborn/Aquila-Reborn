@@ -25,13 +25,6 @@ public sealed class CyberwareScannerSystem : EntitySystem
     private static readonly LocId CyberwareScannerDeepCooldown = "cyberware-scanner-deep-cooldown";
     private static readonly LocId CyberwareScannerBeingScanned = "cyberware-scanner-being-scanned";
     private static readonly LocId CyberwareScannerDeepStarted = "cyberware-scanner-deep-started";
-    private static readonly LocId CyberwareScannerResult = "cyberware-scanner-result";
-    private static readonly LocId CyberwareScannerAdapting = "cyberware-scanner-adapting";
-    private static readonly LocId CyberwareScannerPsychosis = "cyberware-scanner-psychosis";
-    private static readonly LocId CyberwareScannerCureProgress = "cyberware-scanner-cure-progress";
-    private static readonly LocId CyberwareScannerImplants = "cyberware-scanner-implants";
-    private static readonly LocId CyberwareScannerConcealed = "cyberware-scanner-concealed";
-    private static readonly LocId CyberwareScannerDeepComplete = "cyberware-scanner-deep-complete";
 
     private static readonly LocId LevelNone = "cyberware-scanner-level-none";
     private static readonly LocId LevelLow = "cyberware-scanner-level-low";
@@ -47,6 +40,7 @@ public sealed class CyberwareScannerSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
 
     public override void Initialize()
     {
@@ -128,31 +122,41 @@ public sealed class CyberwareScannerSystem : EntitySystem
         if (!_cyberLoad.TryGetLoad(target, out var load))
             return;
 
-        var level = Loc.GetString(GetLevel((target, load)));
-        var report = Loc.GetString(CyberwareScannerResult, ("count", load.ImplantCount), ("level", level));
+        var names = new List<string>();
+        var concealed = CollectImplants(ent, target, args.Deep, names);
 
-        if (load.Strain > 0f)
-            report += "\n" + Loc.GetString(CyberwareScannerAdapting);
-
-        report += GetImplantReport(ent, target, args.Deep);
-
+        LocId? stageName = null;
+        float? cureProgress = null;
         if (TryComp<CyberpsychosisComponent>(target, out var psychosis)
             && !string.IsNullOrEmpty(psychosis.Stage.Id)
             && _proto.TryIndex(psychosis.Stage, out var stage))
         {
-            report += "\n" + Loc.GetString(CyberwareScannerPsychosis, ("stage", Loc.GetString(stage.Name)));
-
+            stageName = stage.Name;
             if (psychosis.CureProgress > 0f)
-                report += "\n" + Loc.GetString(CyberwareScannerCureProgress, ("percent", (int) (psychosis.CureProgress / psychosis.CureTime * 100f)));
+                cureProgress = Math.Clamp(psychosis.CureProgress / psychosis.CureTime, 0f, 1f);
         }
 
-        _popup.PopupEntity(report, target, args.User, PopupType.Medium);
+        var state = new CyberwareScannerUiState(
+            Identity.Name(target, EntityManager, args.User),
+            args.Deep,
+            load.ImplantCount,
+            _cyberLoad.GetRisk((target, load)),
+            load.CriticalLevel,
+            GetLevel((target, load)),
+            load.Strain > 0f,
+            names,
+            concealed,
+            stageName,
+            cureProgress);
+
+        _ui.SetUiState(ent.Owner, CyberwareScannerUiKey.Key, state);
+        _ui.OpenUi(ent.Owner, CyberwareScannerUiKey.Key, args.User);
     }
 
-    private string GetImplantReport(Entity<CyberwareScannerComponent> scanner, EntityUid target, bool deep)
+    private int CollectImplants(Entity<CyberwareScannerComponent> scanner, EntityUid target, bool deep, List<string> names)
     {
         if (!_container.TryGetContainer(target, ImplanterComponent.ImplantSlotId, out var implants))
-            return string.Empty;
+            return 0;
 
         ImplantsIdentifiedComponent? identified = null;
         if (deep)
@@ -165,7 +169,6 @@ public sealed class CyberwareScannerSystem : EntitySystem
             TryComp(target, out identified);
         }
 
-        var names = new List<string>();
         var concealed = 0;
         foreach (var implant in implants.ContainedEntities)
         {
@@ -188,17 +191,7 @@ public sealed class CyberwareScannerSystem : EntitySystem
             names.Add(Name(implant));
         }
 
-        var report = string.Empty;
-        if (names.Count > 0)
-            report += "\n" + Loc.GetString(CyberwareScannerImplants, ("implants", string.Join(", ", names)));
-
-        if (concealed > 0)
-            report += "\n" + Loc.GetString(CyberwareScannerConcealed, ("count", concealed));
-
-        if (deep)
-            report += "\n" + Loc.GetString(CyberwareScannerDeepComplete);
-
-        return report;
+        return concealed;
     }
 
     private bool IsConcealed(CyberwareScannerComponent scanner, EntityUid implant)

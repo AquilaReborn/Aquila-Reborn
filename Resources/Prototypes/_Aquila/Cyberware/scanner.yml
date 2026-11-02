@@ -29,5 +29,13 @@
     - KravMagaImplant
     - BinaryImplant
     - CyberHackImplant
+  - type: ActivatableUI
+    key: enum.CyberwareScannerUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+  - type: UserInterface
+    interfaces:
+      enum.CyberwareScannerUiKey.Key:
+        type: CyberwareScannerBoundUserInterface
   - type: StaticPrice
     price: 60
