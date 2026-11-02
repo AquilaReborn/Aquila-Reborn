@@ -1157,7 +1157,7 @@
   icon: { sprite: _Goobstation/Objects/Misc/berserker_heart.rsi, state: icon }
   productEntity: AutosurgeonBerserker
   cost:
-    Telecrystal: 66
+    Telecrystal: 40 # Aquila Change
   categories:
   - UplinkImplants
   conditions:
@@ -1173,7 +1173,7 @@
   icon: { sprite: _Goobstation/Objects/Misc/jumpstarter_heart.rsi, state: icon }
   productEntity: AutosurgeonJumpstarter
   cost:
-    Telecrystal: 60
+    Telecrystal: 30 # Aquila Change
   categories:
   - UplinkImplants
   conditions:
