@@ -5,6 +5,8 @@
   description: An implant giving the ability to understand animals.
   categories: [ HideSpawnMenu ]
   components:
+  - type: Cyberware # Aquila Change
+    load: 0 # Aquila Change
   - type: TranslatorImplant
     understood:
       - Cat
@@ -34,6 +36,8 @@
   description: A translator implant giving the ability to speak with Hydrakin.
   categories: [ HideSpawnMenu ]
   components:
+  - type: Cyberware # Aquila Change
+    load: 0 # Aquila Change
   - type: TranslatorImplant
     understood:
     - Hydraspeak

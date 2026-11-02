@@ -8,7 +8,7 @@
   components:
   - type: SubdermalImplant
   - type: Cyberware # Aquila Change
-    load: 3 # Aquila Change
+    load: 2 # Aquila Change
   - type: Tag
     tags:
     - SubdermalImplant

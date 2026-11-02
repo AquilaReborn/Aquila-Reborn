@@ -315,7 +315,7 @@
     onActivate: false
   - type: AugmentStrength
   - type: Cyberware # Aquila Change
-    load: 20 # Aquila Change
+    load: 8 # Aquila Change
   - type: AugmentPowerDraw
     draw: 30
   - type: AugmentAction

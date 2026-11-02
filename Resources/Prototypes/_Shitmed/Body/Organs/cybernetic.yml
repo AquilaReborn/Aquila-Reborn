@@ -7,7 +7,7 @@
   components:
   - type: Cybernetics
   - type: Cyberware # Aquila Change
-    load: 5 # Aquila Change
+    load: 3 # Aquila Change
   - type: Sprite
     sprite: _Shitmed/Mobs/Species/Misc/Cybernetics/organs.rsi
   - type: Tag

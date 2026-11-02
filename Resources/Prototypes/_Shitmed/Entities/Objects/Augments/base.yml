@@ -5,7 +5,7 @@
   components:
   - type: Augment
   - type: Cyberware # Aquila Change
-    load: 12 # Aquila Change
+    load: 4 # Aquila Change
   - type: SurgeryTool
     ignoreToggle: true # ItemToggle is used for augment logic not surgical tool usability
   - type: Organ
