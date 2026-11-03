@@ -15,16 +15,16 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared._Aquila.Xenobiology.Systems;
 
-public sealed class SlimeCrossbreedingSystem : EntitySystem
+public sealed partial class SlimeCrossbreedingSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SlimeLatchSystem _latch = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SlimeLatchSystem _latch = default!;
 
     public override void Initialize()
     {

@@ -54,7 +54,6 @@ public sealed class MansusRealmSystem : EntitySystem
 
     [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -112,7 +111,7 @@ public sealed class MansusRealmSystem : EntitySystem
         parallax.Parallax = realm.Parallax;
         Dirty(mapUid, parallax);
 
-        var grid = _mapManager.CreateGridEntity(mapId);
+        var grid = _map.CreateGridEntity(mapId);
         RemComp<ImplicitRoofComponent>(grid);
 
         var gravity = EnsureComp<GravityComponent>(grid);

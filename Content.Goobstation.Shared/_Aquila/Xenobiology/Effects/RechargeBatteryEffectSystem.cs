@@ -7,7 +7,7 @@ namespace Content.Goobstation.Shared._Aquila.Xenobiology.Effects;
 
 public sealed partial class RechargeBatteryEffectSystem : EntityEffectSystem<BatteryComponent, RechargeBattery>
 {
-    [Dependency] private readonly SharedBatterySystem _battery = default!;
+    [Dependency] private SharedBatterySystem _battery = default!;
 
     protected override void Effect(Entity<BatteryComponent> entity, ref EntityEffectEvent<RechargeBattery> args)
     {

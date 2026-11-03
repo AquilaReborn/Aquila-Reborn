@@ -3,9 +3,9 @@ using Robust.Client.Graphics;
 
 namespace Content.Goobstation.Client._Aquila.Changeling;
 
-public sealed class ChangelingRoarWaveSystem : EntitySystem
+public sealed partial class ChangelingRoarWaveSystem : EntitySystem
 {
-    [Dependency] private readonly IOverlayManager _overlayManager = default!;
+    [Dependency] private IOverlayManager _overlayManager = default!;
 
     private ChangelingRoarWaveOverlay _overlay = default!;
 

@@ -10,9 +10,9 @@ namespace Content.Goobstation.Shared._Aquila.Xenobiology.Effects;
 
 public sealed partial class AddSlimeTraitEffectSystem : EntityEffectSystem<SlimeGenesComponent, AddSlimeTrait>
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SlimeGeneticsSystem _genetics = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SlimeGeneticsSystem _genetics = default!;
 
     protected override void Effect(Entity<SlimeGenesComponent> entity, ref EntityEffectEvent<AddSlimeTrait> args)
     {

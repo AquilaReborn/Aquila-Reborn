@@ -16,10 +16,7 @@ SPDX-License-Identifier: MIT
             <Label Name="ProgramName" Access="Public" VerticalExpand="True" ClipText="True"/>
             <BoxContainer HorizontalExpand="True" SetHeight="24">
                 <BoxContainer HorizontalExpand="True"/>
-                <Button Name="InstallButton" Access="Public" Visible="False" SetWidth="90" HorizontalAlignment="Right" VerticalExpand="True">
-                    <Button.StyleClasses>
-                        <sys:String>GreenPDAPalette</sys:String>
-                    </Button.StyleClasses>
+                <Button Name="InstallButton" Access="Public" Visible="False" SetWidth="90" HorizontalAlignment="Right" VerticalExpand="True" StyleClasses="GreenPDAPalette">
                 </Button>
             </BoxContainer>
         </BoxContainer>

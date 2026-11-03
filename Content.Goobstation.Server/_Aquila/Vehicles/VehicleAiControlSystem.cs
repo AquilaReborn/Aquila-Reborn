@@ -5,9 +5,9 @@ using Content.Shared.Mobs.Systems;
 
 namespace Content.Goobstation.Server.Aquila.Vehicles;
 
-public sealed class VehicleAiControlSystem : EntitySystem
+public sealed partial class VehicleAiControlSystem : EntitySystem
 {
-    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {

@@ -4,6 +4,7 @@ using Content.Shared._Aquila.Cyberware;
 using Content.Shared._Aquila.Cyberware.Components;
 using Content.Shared.Body.Part;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Emp;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;

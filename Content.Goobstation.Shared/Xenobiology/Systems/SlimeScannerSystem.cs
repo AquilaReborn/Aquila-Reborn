@@ -15,9 +15,9 @@ namespace Content.Goobstation.Shared.Xenobiology.Systems;
 
 public sealed partial class SlimeScannerSystem : EntitySystem // Aquila Change
 {
-    [Dependency] private readonly ExamineSystemShared _examine = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly SlimeGeneticsSystem _genetics = default!; // Aquila Change
+    [Dependency] private ExamineSystemShared _examine = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private SlimeGeneticsSystem _genetics = default!; // Aquila Change
 
     private StringBuilder _sb = new();
 
@@ -76,9 +76,8 @@ public sealed partial class SlimeScannerSystem : EntitySystem // Aquila Change
             var info = _proto.Index(mutations[i]);
 
             var color = "white";
-            // todo make the colors work
-            if (info.Components.TryGetComponent(Factory.GetComponentName<SlimeComponent>(), out var sc)) // Aquila Change
-                color = ((SlimeComponent) sc).SlimeColor.ToHex();
+            if (info.Components.TryGetComponent<SlimeComponent>(Factory, out var sc))
+                color = sc.SlimeColor.ToHex();
 
             sb.Append($"[color={color}]{Loc.GetString(info.BreedName)}[/color]"); // Aquila Change
 

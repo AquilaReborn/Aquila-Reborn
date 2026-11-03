@@ -7,9 +7,9 @@ namespace Content.Goobstation.Shared._Aquila.Cyberware;
 /// <summary>
 /// Не даёт выдвигать богомольи клинки, пока они отключены ЭМИ или заглушены блокиратором.
 /// </summary>
-public sealed class MantisBladeBlockSystem : EntitySystem
+public sealed partial class MantisBladeBlockSystem : EntitySystem
 {
-    [Dependency] private readonly CyberwareBlockSystem _block = default!;
+    [Dependency] private CyberwareBlockSystem _block = default!;
 
     public override void Initialize()
     {

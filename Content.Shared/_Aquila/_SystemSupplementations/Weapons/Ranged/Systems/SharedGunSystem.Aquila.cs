@@ -1,4 +1,5 @@
 using Content.Shared.Weapons.Ranged.Components;
+using Robust.Shared.Containers;
 using Robust.Shared.Map;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
@@ -21,5 +22,14 @@ public abstract partial class SharedGunSystem
     public void StopShootingHeld(Entity<GunComponent> gun)
     {
         StopShooting(gun);
+    }
+
+    private void CycleExisting(EntityUid existing, BaseContainer container)
+    {
+        if (TerminatingOrDeleted(existing))
+            return;
+
+        Containers.Remove(existing, container);
+        EnsureShootable(existing);
     }
 }

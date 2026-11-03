@@ -2,7 +2,6 @@ using Content.Shared.Storage;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Content.Shared.Inventory;
 namespace Content.Server._Aquila.EventContent.Sir_Felix.PullableHelmet.Components;
 
@@ -10,12 +9,12 @@ namespace Content.Server._Aquila.EventContent.Sir_Felix.PullableHelmet.Component
 [RegisterComponent]
 public sealed partial class PullableHelmetComponent : Component
 {
-    [DataField("toggledPrototype", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string ToggledPrototype = string.Empty;
+    [DataField("toggledPrototype", required: true)]
+    public EntProtoId ToggledPrototype;
 
-    [DataField("untoggledPrototype", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    [DataField("untoggledPrototype", required: true)]
     [AutoNetworkedField]
-    public string UntoggledPrototype = string.Empty;
+    public EntProtoId UntoggledPrototype;
 
     [DataField("toggled"), AutoNetworkedField]
     public bool Toggled = false;

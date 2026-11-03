@@ -11,12 +11,12 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server._Aquila.Xenobiology.Systems;
 
-public sealed class SlimeDiscoverySystem : EntitySystem
+public sealed partial class SlimeDiscoverySystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly ResearchSystem _research = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private ResearchSystem _research = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private StationSystem _station = default!;
 
     public override void Initialize()
     {

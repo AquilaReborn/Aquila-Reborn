@@ -23,21 +23,21 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server._Aquila.Changeling;
 
-public sealed class ChangelingHostControlSystem : EntitySystem
+public sealed partial class ChangelingHostControlSystem : EntitySystem
 {
     private static readonly EntProtoId PassengerPrototype = "ChangelingPassenger";
     private static readonly ProtoId<CollectiveMindPrototype> InnerVoiceChannel = "ChangelingInnerVoice";
 
-    [Dependency] private readonly CollectiveMindUpdateSystem _collectiveMind = default!;
-    [Dependency] private readonly EuiManager _euiManager = default!;
-    [Dependency] private readonly GhostSystem _ghost = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private CollectiveMindUpdateSystem _collectiveMind = default!;
+    [Dependency] private EuiManager _euiManager = default!;
+    [Dependency] private GhostSystem _ghost = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private PolymorphSystem _polymorph = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private readonly HashSet<EntityUid> _pendingRequests = new();
 

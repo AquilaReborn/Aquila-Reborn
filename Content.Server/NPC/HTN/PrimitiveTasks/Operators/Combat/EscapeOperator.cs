@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Content.Server.NPC.Components;
 using Content.Server.Storage.EntitySystems;
 using Content.Shared.CombatMode;
-using Content.Shared.Storage.Components; // Aquila Change
+using Content.Shared.Storage.Components; // Goob - Fix (non-storage containers)
 using Robust.Server.Containers;
 
 namespace Content.Server.NPC.HTN.PrimitiveTasks.Operators.Combat.Melee;
@@ -35,7 +35,9 @@ public sealed partial class EscapeOperator : HTNOperator, IHtnConditionalShutdow
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
         var target = blackboard.GetValue<EntityUid>(TargetKey);
 
-        if (_entManager.HasComponent<EntityStorageComponent>(target) && _entityStorage.TryOpenStorage(owner, target)) // Aquila Change
+        // Goob - Fix (non-storage containers)
+        if (!_entManager.HasComponent<EntityStorageComponent>(target)
+            || _entityStorage.TryOpenStorage(owner, target))
         {
             TaskShutdown(blackboard, HTNOperatorStatus.Finished);
             return;
@@ -60,7 +62,13 @@ public sealed partial class EscapeOperator : HTNOperator, IHtnConditionalShutdow
             return (false, null);
         }
 
-        if (_entManager.HasComponent<EntityStorageComponent>(target) && _entityStorage.TryOpenStorage(owner, target)) // Aquila Change
+        // Goob - Fix (non-storage containers)
+        if (!_entManager.HasComponent<EntityStorageComponent>(target))
+        {
+            return (false, null);
+        }
+
+        if (_entityStorage.TryOpenStorage(owner, target))
         {
             return (false, null);
         }
@@ -105,6 +113,10 @@ public sealed partial class EscapeOperator : HTNOperator, IHtnConditionalShutdow
             if (!_container.IsEntityInContainer(owner))
             {
                 status = HTNOperatorStatus.Finished;
+            }
+            else if (!_entManager.HasComponent<EntityStorageComponent>(target)) // Goob - Fix (non-storage containers)
+            {
+                status = HTNOperatorStatus.Failed;
             }
             else
             {

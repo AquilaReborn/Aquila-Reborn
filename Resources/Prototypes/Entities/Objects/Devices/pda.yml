@@ -75,7 +75,7 @@
     falloff: 3
     softness: 5
     autoRot: true
-    mask: /Textures/_Aquila/Effects/LightMasks/pda_cone.png # Aquila Change
+    lightMask: PdaCone # Aquila Change
   - type: Ringer
   - type: RingerUplink
   - type: DeviceNetwork

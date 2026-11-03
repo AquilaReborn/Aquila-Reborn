@@ -22,11 +22,11 @@ namespace Content.Goobstation.Shared.Xenobiology.Systems;
 // This handles slime breeding and mutation.
 public partial class XenobiologySystem
 {
-    [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly StomachSystem _stomach = default!;
-    [Dependency] private readonly SlimeLatchSystem _latch = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly SlimeGeneticsSystem _genetics = default!; // Aquila Change
+    [Dependency] private SharedBodySystem _body = default!;
+    [Dependency] private StomachSystem _stomach = default!;
+    [Dependency] private SlimeLatchSystem _latch = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private SlimeGeneticsSystem _genetics = default!; // Aquila Change
 
     private List<EntityUid> _slimes = new();
     private EntityQuery<BloodstreamComponent> _bloodQuery;

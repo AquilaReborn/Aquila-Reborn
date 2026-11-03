@@ -26,7 +26,6 @@ public sealed class RoomReverbSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IEyeManager _eye = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
@@ -175,7 +174,7 @@ public sealed class RoomReverbSystem : EntitySystem
         var position = _eye.CurrentEye.Position;
         if (_player.LocalEntity is { } player && _vacuum.IsInVacuum(player)
             || position.MapId == MapId.Nullspace
-            || !_mapManager.TryFindGridAt(position, out var gridUid, out var grid))
+            || !_map.TryFindGridAt(position, out var gridUid, out var grid))
             return dry;
 
         var start = _map.TileIndicesFor(gridUid, grid, position);

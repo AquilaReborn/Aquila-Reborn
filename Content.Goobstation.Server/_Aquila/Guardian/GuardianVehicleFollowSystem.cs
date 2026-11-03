@@ -3,9 +3,9 @@ using Content.Server.Guardian;
 
 namespace Content.Goobstation.Server.Aquila.Guardian;
 
-public sealed class GuardianVehicleFollowSystem : EntitySystem
+public sealed partial class GuardianVehicleFollowSystem : EntitySystem
 {
-    [Dependency] private readonly GuardianSystem _guardian = default!;
+    [Dependency] private GuardianSystem _guardian = default!;
 
     public override void Initialize()
     {

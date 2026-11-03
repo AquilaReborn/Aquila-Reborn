@@ -9,7 +9,6 @@ using Content.Shared.Aquila.Guardian;
 using Content.Shared.CombatMode;
 using Content.Shared.Pointing;
 using Robust.Shared.Map;
-using Robust.Shared.Maths;
 
 namespace Content.Server.Guardian;
 
@@ -18,8 +17,6 @@ public sealed partial class GuardianSystem
     [Dependency] private readonly NPCSystem _npc = default!;
     [Dependency] private readonly HTNSystem _htn = default!;
     [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
-
-    private const float MinRepositionDistanceSquared = 0.0001f;
 
     private void InitializeAquila()
     {
@@ -42,36 +39,6 @@ public sealed partial class GuardianSystem
     {
         _npc.SetBlackboard(guardian, NPCBlackboard.FollowTarget, new EntityCoordinates(host, Vector2.Zero));
         UpdateGuardianNpc(guardian, component);
-    }
-
-    private void RepositionGuardian(EntityUid guardianUid, GuardianComponent guardian, TransformComponent guardianXform, EntityCoordinates coordinates)
-    {
-        guardian.IsBeginRepositioned = true;
-        try
-        {
-            _transform.SetCoordinates(guardianUid, guardianXform, coordinates);
-        }
-        finally
-        {
-            guardian.IsBeginRepositioned = false;
-        }
-    }
-
-    private void PullGuardianToHost(EntityUid guardianUid, GuardianComponent guardian, TransformComponent guardianXform, Vector2 hostPos, Vector2 diff)
-    {
-        if (diff.LengthSquared() < MinRepositionDistanceSquared)
-            return;
-
-        var newDiff = diff.Normalized() * guardian.DistanceAllowed;
-        guardian.IsBeginRepositioned = true;
-        try
-        {
-            _transform.SetLocalPosition(guardianUid, hostPos + newDiff, guardianXform);
-        }
-        finally
-        {
-            guardian.IsBeginRepositioned = false;
-        }
     }
 
     /// <summary>

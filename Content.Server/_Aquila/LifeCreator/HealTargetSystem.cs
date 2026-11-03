@@ -1,6 +1,8 @@
 using Content.Shared.Aquila.LifeCreator;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Popups;
 using Content.Server.Popups;
@@ -70,7 +72,7 @@ public sealed class HealTargetSystem : EntitySystem
             return;
 
         _mobThreshold.SetAllowRevives(target, true);
-        _damageable.SetAllDamage(target, damageable, FixedPoint2.Zero);
+        _damageable.SetAllDamage((target, damageable), FixedPoint2.Zero);
         _mobThreshold.SetAllowRevives(target, false);
     }
 }

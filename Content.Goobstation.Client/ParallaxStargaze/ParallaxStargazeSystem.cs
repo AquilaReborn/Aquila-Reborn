@@ -14,10 +14,10 @@ namespace Content.Goobstation.Client.ParallaxStargaze;
 
 public sealed partial class ParallaxStargazeSystem : EntitySystem // Aquila Change
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IOverlayManager _overlay = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IOverlayManager _overlay = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     public EntityUid? ActiveCampfire { get; private set; }
     public float Progress { get; private set; }

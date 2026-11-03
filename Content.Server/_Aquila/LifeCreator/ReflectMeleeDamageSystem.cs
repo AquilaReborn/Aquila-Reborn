@@ -1,5 +1,6 @@
 using Content.Server.Aquila.LifeCreator;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Server.Aquila.LifeCreator;

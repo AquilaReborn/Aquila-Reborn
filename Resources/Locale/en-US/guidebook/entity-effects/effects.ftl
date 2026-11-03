@@ -159,19 +159,19 @@ entity-effect-guidebook-status-effect =
     [update]{ $chance ->
     [1] Causes
     *[other] cause
-                     } { $key } for at least {NATURALFIXED($time, 3)} {MANY("second", $time)} without accumulation
+                     } {$key} for at least {NATURALFIXED($time, 3)} {MANY("second", $time)} without accumulation
     [add]   { $chance ->
     [1] Causes
     *[other] cause
-                    } { $key } for at least {NATURALFIXED($time, 3)} {MANY("second", $time)} with accumulation
+                    } {$key} for at least {NATURALFIXED($time, 3)} {MANY("second", $time)} with accumulation
     [set]  { $chance ->
     [1] Causes
     *[other] cause
-                    } { $key } for at least {NATURALFIXED($time, 3)} {MANY("second", $time)} without accumulation
+                    } {$key} for at least {NATURALFIXED($time, 3)} {MANY("second", $time)} without accumulation
     *[remove]{ $chance ->
     [1] Removes
     *[other] remove
-                    } {NATURALFIXED($time, 3)} {MANY("second", $time)} of { $key }
+                    } {NATURALFIXED($time, 3)} {MANY("second", $time)} of {$key}
         } { $delay ->
     [0] immediately
     *[other] after a {NATURALFIXED($delay, 3)} second delay
@@ -199,39 +199,43 @@ entity-effect-guidebook-status-effect-indef =
     [update]{ $chance ->
     [1] Causes
     *[other] cause
-                     } permanent { $key }
+                     } permanent {$key}
     [add]   { $chance ->
     [1] Causes
     *[other] cause
-                    } permanent { $key }
+                    } permanent {$key}
     [set]  { $chance ->
     [1] Causes
     *[other] cause
-                    } permanent { $key }
+                    } permanent {$key}
     *[remove]{ $chance ->
     [1] Removes
     *[other] remove
-                    } { $key }
+                    } {$key}
         } { $delay ->
     [0] immediately
     *[other] after a {NATURALFIXED($delay, 3)} second delay
         }
 
-reagent-effect-guidebook-knockdown =
+entity-effect-guidebook-knockdown =
     { $type ->
+        [update]{ $chance ->
+                    [1] Causes
+                    *[other] cause
+                } knockdown for at least {NATURALFIXED($time, 3)} {MANY("second", $time)} without accumulation
         [add]   { $chance ->
                     [1] Causes
                     *[other] cause
-                } {LOC($key)} for at least {NATURALFIXED($time, 3)} {MANY("second", $time)} with accumulation
+                } knockdown for at least {NATURALFIXED($time, 3)} {MANY("second", $time)} with accumulation
         *[set]  { $chance ->
                     [1] Causes
                     *[other] cause
-                } {LOC($key)} for at least {NATURALFIXED($time, 3)} {MANY("second", $time)} without accumulation
+                } knockdown for at least {NATURALFIXED($time, 3)} {MANY("second", $time)} without accumulation
         [remove]{ $chance ->
                     [1] Removes
                     *[other] remove
-                } {NATURALFIXED($time, 3)} {MANY("second", $time)} of {LOC($key)}
-    } after a {NATURALFIXED($delay, 3)} second delay
+                } {NATURALFIXED($time, 3)} {MANY("second", $time)} of knockdown
+    }
 
 entity-effect-guidebook-set-solution-temperature-effect =
     { $chance ->
