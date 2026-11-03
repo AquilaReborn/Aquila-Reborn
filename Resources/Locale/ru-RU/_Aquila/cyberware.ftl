@@ -98,6 +98,14 @@ ent-CyberpsychosisDisguiseHereticRust = враждебный еретик
     .desc = { "" }
 ent-CyberpsychosisDisguiseHereticVoid = { ent-CyberpsychosisDisguiseHereticRust }
     .desc = { "" }
+ent-CyberpsychosisDisguiseRevenant = враждебный ревенант
+    .desc = { "" }
+ent-CyberpsychosisDisguiseNinja = враждебный ниндзя
+    .desc = { "" }
+ent-CyberpsychosisDisguiseWizard = враждебный волшебник
+    .desc = { "" }
+ent-CyberpsychosisDisguiseZombie = враждебный зомби
+    .desc = { "" }
 
 ## Лечение киберпсихоза
 

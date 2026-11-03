@@ -124,6 +124,10 @@
   - CyberpsychosisDisguiseOperative
   - CyberpsychosisDisguiseHereticRust
   - CyberpsychosisDisguiseHereticVoid
+  - CyberpsychosisDisguiseRevenant
+  - CyberpsychosisDisguiseNinja
+  - CyberpsychosisDisguiseWizard
+  - CyberpsychosisDisguiseZombie
   components:
   - type: Paracusia
     minTimeBetweenIncidents: 15

@@ -153,3 +153,172 @@
       state: equipped-OUTERCLOTHING
     - sprite: _CorvaxGoob/Clothing/Head/HereticHoods/void_hood.rsi
       state: equipped-HELMET
+
+- type: entity
+  id: CyberpsychosisDisguiseRevenant
+  categories: [ HideSpawnMenu ]
+  name: hostile revenant
+  save: false
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    layers:
+    - sprite: Mobs/Ghosts/revenant.rsi
+      state: active
+
+- type: entity
+  id: CyberpsychosisDisguiseNinja
+  categories: [ HideSpawnMenu ]
+  name: hostile ninja
+  save: false
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    layers:
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: groin_m
+      color: "#c79b7f"
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: chest_m
+      color: "#c79b7f"
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: head_m
+      color: "#c79b7f"
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: l_arm
+      color: "#c79b7f"
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: r_arm
+      color: "#c79b7f"
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: l_hand
+      color: "#c79b7f"
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: r_hand
+      color: "#c79b7f"
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: l_leg
+      color: "#c79b7f"
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: r_leg
+      color: "#c79b7f"
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: l_foot
+      color: "#c79b7f"
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: r_foot
+      color: "#c79b7f"
+    - sprite: Clothing/Uniforms/Jumpsuit/ninja.rsi
+      state: equipped-INNERCLOTHING
+    - sprite: Clothing/Shoes/Specific/spaceninja.rsi
+      state: equipped-FEET
+    - sprite: Clothing/Hands/Gloves/spaceninja.rsi
+      state: equipped-HAND
+    - sprite: Clothing/OuterClothing/Suits/spaceninja.rsi
+      state: equipped-OUTERCLOTHING
+    - sprite: Clothing/Mask/ninja.rsi
+      state: equipped-MASK
+    - sprite: Clothing/Head/Helmets/spaceninja.rsi
+      state: equipped-HELMET
+
+- type: entity
+  id: CyberpsychosisDisguiseWizard
+  categories: [ HideSpawnMenu ]
+  name: hostile wizard
+  save: false
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    layers:
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: groin_m
+      color: "#e0c0a8"
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: chest_m
+      color: "#e0c0a8"
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: head_m
+      color: "#e0c0a8"
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: l_arm
+      color: "#e0c0a8"
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: r_arm
+      color: "#e0c0a8"
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: l_hand
+      color: "#e0c0a8"
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: r_hand
+      color: "#e0c0a8"
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: l_leg
+      color: "#e0c0a8"
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: r_leg
+      color: "#e0c0a8"
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: l_foot
+      color: "#e0c0a8"
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: r_foot
+      color: "#e0c0a8"
+    - sprite: Clothing/Shoes/Specific/wizard.rsi
+      state: equipped-FEET
+    - sprite: Clothing/OuterClothing/Misc/wizard.rsi
+      state: equipped-OUTERCLOTHING
+    - sprite: Clothing/Head/Hats/wizardhat.rsi
+      state: equipped-HELMET
+
+- type: entity
+  id: CyberpsychosisDisguiseZombie
+  categories: [ HideSpawnMenu ]
+  name: hostile zombie
+  save: false
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    layers:
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: groin_m
+      color: "#73824a"
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: chest_m
+      color: "#73824a"
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: head_m
+      color: "#73824a"
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: l_arm
+      color: "#73824a"
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: r_arm
+      color: "#73824a"
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: l_hand
+      color: "#73824a"
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: r_hand
+      color: "#73824a"
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: l_leg
+      color: "#73824a"
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: r_leg
+      color: "#73824a"
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: l_foot
+      color: "#73824a"
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: r_foot
+      color: "#73824a"
+    - sprite: Mobs/Customization/eyes.rsi
+      state: eyes
+      color: "#f5213d"
+    - sprite: Clothing/Uniforms/Jumpsuit/color.rsi
+      state: equipped-INNERCLOTHING
+      color: "#5a5048"

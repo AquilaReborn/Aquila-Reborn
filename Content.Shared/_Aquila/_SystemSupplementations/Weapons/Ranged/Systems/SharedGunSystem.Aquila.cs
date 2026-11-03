@@ -1,3 +1,4 @@
+using Content.Shared.NPC;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -31,5 +32,10 @@ public abstract partial class SharedGunSystem
 
         Containers.Remove(existing, container);
         EnsureShootable(existing);
+    }
+
+    private EntityUid? GetPredictingUser(EntityUid? user)
+    {
+        return user is { } uid && HasComp<ActiveNPCComponent>(uid) ? null : user;
     }
 }

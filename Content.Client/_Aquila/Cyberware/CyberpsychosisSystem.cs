@@ -3,6 +3,7 @@ using Content.Shared._Aquila.Cyberware;
 using Content.Shared._Aquila.Cyberware.Components;
 using Content.Shared._Aquila.Cyberware.Prototypes;
 using Content.Shared.Humanoid;
+using Content.Shared.Mobs.Systems;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
@@ -25,12 +26,15 @@ public sealed class CyberpsychosisSystem : SharedCyberpsychosisSystem
 
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly IEyeManager _eye = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly IOverlayManager _overlay = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     private CyberpsychosisGlitchOverlay _glitchOverlay = default!;
 
@@ -88,6 +92,8 @@ public sealed class CyberpsychosisSystem : SharedCyberpsychosisSystem
             StopMusic(comp);
         else
             UpdateMusic(comp, stage);
+
+        SyncDisguises();
 
         if (now < comp.NextDisguiseUpdate)
             return;
@@ -163,11 +169,22 @@ public sealed class CyberpsychosisSystem : SharedCyberpsychosisSystem
         }
 
         var targets = new List<Entity<SpriteComponent>>();
+        var revealed = new List<Entity<CyberpsychosisDisguisedComponent>>();
         var query = EntityQueryEnumerator<HumanoidAppearanceComponent, SpriteComponent>();
         while (query.MoveNext(out var uid, out _, out var sprite))
         {
-            if (uid != local && !_container.IsEntityOrParentInContainer(uid))
+            if (uid == local || _container.IsEntityOrParentInContainer(uid))
+                continue;
+
+            if (!_mobState.IsDead(uid))
                 targets.Add((uid, sprite));
+            else if (TryComp<CyberpsychosisDisguisedComponent>(uid, out var disguisedDead))
+                revealed.Add((uid, disguisedDead));
+        }
+
+        foreach (var dead in revealed)
+        {
+            RemoveDisguise(dead);
         }
 
         foreach (var target in targets)
@@ -199,13 +216,34 @@ public sealed class CyberpsychosisSystem : SharedCyberpsychosisSystem
 
         foreach (var ent in disguised)
         {
-            if (ent.Comp.Disguise is { } disguise && !TerminatingOrDeleted(disguise))
-                QueueDel(disguise);
+            RemoveDisguise(ent);
+        }
+    }
 
-            if (ent.Comp.OriginalColor is { } color && TryComp<SpriteComponent>(ent, out var sprite))
-                _sprite.SetColor((ent.Owner, sprite), color);
+    private void RemoveDisguise(Entity<CyberpsychosisDisguisedComponent> ent)
+    {
+        if (ent.Comp.Disguise is { } disguise && !TerminatingOrDeleted(disguise))
+            QueueDel(disguise);
 
-            RemComp<CyberpsychosisDisguisedComponent>(ent);
+        if (ent.Comp.OriginalColor is { } color && TryComp<SpriteComponent>(ent, out var sprite))
+            _sprite.SetColor((ent.Owner, sprite), color);
+
+        RemComp<CyberpsychosisDisguisedComponent>(ent);
+    }
+
+    private void SyncDisguises()
+    {
+        var eyeRotation = _eye.CurrentEye.Rotation;
+        var query = EntityQueryEnumerator<CyberpsychosisDisguisedComponent, SpriteComponent, TransformComponent>();
+        while (query.MoveNext(out _, out var disguised, out var sprite, out var xform))
+        {
+            if (disguised.Disguise is not { } disguise
+                || !TryComp<SpriteComponent>(disguise, out var disguiseSprite))
+                continue;
+
+            _sprite.SetRotation((disguise, disguiseSprite), sprite.Rotation);
+            disguiseSprite.EnableDirectionOverride = true;
+            disguiseSprite.DirectionOverride = (_transform.GetWorldRotation(xform) + eyeRotation).GetCardinalDir();
         }
     }
 }

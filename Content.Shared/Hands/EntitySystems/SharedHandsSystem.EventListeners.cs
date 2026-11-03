@@ -40,6 +40,6 @@ public abstract partial class SharedHandsSystem
         if (totalHands == 0)
             args.SpeedModifier = 0f;
         else
-            args.SpeedModifier *= (float)freeHands / totalHands;
+            args.SpeedModifier *= GetCrawlHandsModifier(freeHands, totalHands); // Aquila Change
     }
 }

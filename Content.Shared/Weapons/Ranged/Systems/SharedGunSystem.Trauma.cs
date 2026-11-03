@@ -43,6 +43,9 @@ public abstract partial class SharedGunSystem
     /// </summary>
     private void SetPredictedShooter(EntityUid uid, EntityUid shooter)
     {
+        if (GetPredictingUser(shooter) == null) // Aquila Change
+            return; // Aquila Change
+
         var comp = EnsureComp<PredictedShooterComponent>(uid);
         comp.Shooter = shooter;
         Dirty(uid, comp);
@@ -193,7 +196,7 @@ public abstract partial class SharedGunSystem
 
                     PredictedDel(ent.Value);
 
-                    Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun, user);
+                    Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun, GetPredictingUser(user)); // Aquila Change
                     Recoil(user, recoilDirection, gun.Comp.CameraRecoilScalarModified);
                     break;
                 default:
@@ -251,8 +254,8 @@ public abstract partial class SharedGunSystem
                 shotProjectiles.Add(ammoEnt);
             }
 
-            MuzzleFlash(gun, ammoComp, mapDirection.ToAngle(), user);
-            Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun, user);
+            MuzzleFlash(gun, ammoComp, mapDirection.ToAngle(), GetPredictingUser(user)); // Aquila Change
+            Audio.PlayPredicted(gun.Comp.SoundGunshotModified, gun, GetPredictingUser(user)); // Aquila Change
         }
     }
 
