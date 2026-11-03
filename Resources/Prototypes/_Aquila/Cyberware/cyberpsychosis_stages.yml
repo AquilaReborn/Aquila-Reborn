@@ -112,14 +112,14 @@
   reversible: false
   enterMessage: cyberpsychosis-breakdown-enter
   examineMessage: cyberpsychosis-breakdown-examine
-  minEpisodeDelay: 45
-  maxEpisodeDelay: 90
+  minEpisodeDelay: 30
+  maxEpisodeDelay: 60
   minGlitchDelay: 6
   maxGlitchDelay: 15
   glitchDuration: 0.7
   glitchIntensity: 1.0
   baseGlitchIntensity: 0.35
-  redness: 0.35
+  redness: 0.42
   disguises:
   - CyberpsychosisDisguiseOperative
   - CyberpsychosisDisguiseHereticRust
@@ -132,7 +132,7 @@
     sounds:
       collection: Paracusia
   episodes:
-  - weight: 3
+  - weight: 5
     effects:
     - !type:ForceSay
       messages:
@@ -145,7 +145,7 @@
       - cyberpsychosis-breakdown-rampage
       visualType: LargeCaution
     - !type:CyberpsychosisRampage
-      duration: 15
+      duration: 20
       components:
       - type: HTN
         rootTask:
@@ -161,7 +161,7 @@
     - !type:Jitter
       amplitude: 6
       time: 3
-  - weight: 2
+  - weight: 1
     effects:
     - !type:ForceSay
       messages:

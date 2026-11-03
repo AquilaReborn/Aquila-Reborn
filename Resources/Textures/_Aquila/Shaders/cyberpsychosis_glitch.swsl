@@ -18,7 +18,8 @@ void fragment()
     highp float t = TIME;
 
     highp vec2 centered = (uv - vec2(0.5)) * vec2(1.6, 1.0);
-    highp float edge = smoothstep(0.18, 0.65, length(centered));
+    highp float edge = smoothstep(0.0, 0.75, length(centered));
+    highp float fade = smoothstep(0.0, 0.45, edge);
     highp float i = intensity * edge;
 
     highp vec3 base = texture2D(SCREEN_TEXTURE, uv).rgb;
@@ -37,7 +38,9 @@ void fragment()
     highp float tearStr = abs(totalTear);
 
     highp vec2 bG = floor(uv * vec2(16.0, 10.0));
-    highp float bActive = step(0.84, hash2(bG + floor(t * 6.0))) * step(0.2, edge);
+    highp vec2 bCenter = ((bG + vec2(0.5)) / vec2(16.0, 10.0) - vec2(0.5)) * vec2(1.6, 1.0);
+    highp float bEdge = smoothstep(0.0, 0.75, length(bCenter));
+    highp float bActive = step(1.0 - 0.16 * bEdge * bEdge, hash2(bG + floor(t * 6.0)));
     highp float bShift = bActive * (hash2(bG * 2.0) - 0.5) * 0.05 * i;
 
     highp vec2 uvD = uv + vec2(totalTear + bShift, 0.0);
@@ -60,13 +63,13 @@ void fragment()
     }
 
     highp float corruption = clamp(smoothstep(0.0, 0.012, tearStr) + bActive * 0.8, 0.0, 1.0);
-    highp float alpha = clamp(corruption * 0.85 + i * 0.35, 0.0, 1.0) * step(0.001, i);
+    highp float alpha = clamp((corruption * 0.85 + i * 0.35) * fade, 0.0, 1.0) * step(0.001, intensity);
 
     highp vec3 color = mix(base, corrupt, alpha);
 
     highp float pulse = 0.85 + 0.15 * sin(t * 2.5);
-    highp vec3 tinted = vec3(color.r * 1.25 + 0.06, color.g * 0.55, color.b * 0.55);
-    highp float redMask = redness * pulse * (0.55 + 0.45 * smoothstep(0.2, 0.9, length(centered)));
+    highp vec3 tinted = vec3(color.r * 1.35 + 0.08, color.g * 0.45, color.b * 0.45);
+    highp float redMask = redness * pulse * (0.65 + 0.35 * smoothstep(0.0, 0.9, length(centered)));
     color = mix(color, tinted, clamp(redMask, 0.0, 1.0));
 
     COLOR = vec4(color, 1.0);
