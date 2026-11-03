@@ -23,7 +23,7 @@ using Content.Shared.Roles;
 
 namespace Content.Shared.Paper;
 
-public sealed partial class PaperSystem : EntitySystem // Aquila Change
+public sealed partial class PaperSystem : EntitySystem // Goob
 {
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
@@ -176,6 +176,7 @@ public sealed partial class PaperSystem : EntitySystem // Aquila Change
             _popupSystem.PopupClient(stampPaperSelfMessage, args.User, args.User);
 
             _audio.PlayPredicted(stampComp.Sound, entity, args.User);
+            GoobRaiseStamped(entity, args.User); // Goob
 
             UpdateUserInterface(entity);
         }

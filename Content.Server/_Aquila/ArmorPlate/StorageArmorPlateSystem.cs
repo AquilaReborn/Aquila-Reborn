@@ -4,6 +4,8 @@ using Content.Shared._Aquila.ArmorPlate;
 using Content.Shared.Armor;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Hands.EntitySystems;

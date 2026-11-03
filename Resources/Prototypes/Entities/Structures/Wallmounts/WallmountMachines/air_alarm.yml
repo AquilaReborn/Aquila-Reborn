@@ -185,15 +185,3 @@
           electronics: { state: alarm_b1 }
   # Aquila Change end
   - type: Construction
-    # Aquila Change start
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 50
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalGlassBreak
-          params:
-            volume: -4
-    # Aquila Change end

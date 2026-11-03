@@ -6,7 +6,7 @@ namespace Content.Goobstation.Client.Sandevistan;
 
 public sealed partial class ClientSandevistanAfterimageSystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private const float AfterimageAlpha = 0.7f;
 

@@ -35,7 +35,7 @@ public sealed partial class AutoCookerSystem
     private readonly List<FoodRecipePrototype> _meals = new();
     private readonly HashSet<EntProtoId> _usedSolids = new();
     private readonly HashSet<ProtoId<ReagentPrototype>> _usedReagents = new();
-    private readonly Dictionary<string, bool> _restrictedReagents = new();
+    private readonly Dictionary<ProtoId<ReagentPrototype>, bool> _restrictedReagents = new();
     private readonly Dictionary<string, bool> _edibleSolids = new();
     private readonly Dictionary<string, List<AutoCookRecipeEntry>> _reagentEntries = new();
     private readonly Dictionary<EntityUid, BufferEntries> _bufferEntries = new();
@@ -211,7 +211,7 @@ public sealed partial class AutoCookerSystem
     /// <summary>
     /// Контрабандные, ведомственные и наркотические реагенты машины не готовят никогда.
     /// </summary>
-    private bool IsRestrictedReagent(string id)
+    private bool IsRestrictedReagent(ProtoId<ReagentPrototype> id)
     {
         if (_restrictedReagents.TryGetValue(id, out var cached))
             return cached;

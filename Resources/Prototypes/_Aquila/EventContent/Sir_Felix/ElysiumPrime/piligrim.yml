@@ -30,7 +30,7 @@
   - type: PointLight
     enabled: false
     radius: 6
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true
     netsync: false
   - type: Appearance

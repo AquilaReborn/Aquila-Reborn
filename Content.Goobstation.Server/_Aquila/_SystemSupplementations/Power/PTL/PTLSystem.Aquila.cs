@@ -10,9 +10,9 @@ namespace Content.Goobstation.Server.Power.PTL;
 
 public sealed partial class PTLSystem
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly CargoSystem _cargo = default!;
-    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private CargoSystem _cargo = default!;
+    [Dependency] private StationSystem _station = default!;
 
     private bool TryDepositToStationBudget(Entity<PTLComponent> ent, AfterInteractUsingEvent args)
     {

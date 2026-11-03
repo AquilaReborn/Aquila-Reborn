@@ -10,6 +10,7 @@ using Content.Server.GameTicking.Rules;
 using Content.Server.RoundEnd;
 using Content.Shared._Aquila.EventContent.Atlas739;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Destructible;
 using Content.Shared.GameTicking.Components;
 

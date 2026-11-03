@@ -16,6 +16,8 @@ using Robust.Shared.Prototypes;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Hands.Components;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Components;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Points;
 

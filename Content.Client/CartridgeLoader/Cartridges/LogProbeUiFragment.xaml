@@ -47,11 +47,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         <BoxContainer Orientation="Vertical" Name="ProbedDeviceContainer"/>
     </ScrollContainer>
     <BoxContainer Orientation="Horizontal" Margin="4 8">
-        <Button Name="PrintButton" HorizontalAlignment="Left" Text="{Loc 'log-probe-print-button'}" Disabled="True">
-            <Button.StyleClasses>
-                <sys:String>ButtonBig</sys:String>
-                <sys:String>GreenPDAPalette</sys:String>
-            </Button.StyleClasses>
+        <Button Name="PrintButton" HorizontalAlignment="Left" Text="{Loc 'log-probe-print-button'}" Disabled="True" StyleClasses="ButtonBig GreenPDAPalette">
         </Button>
         <BoxContainer HorizontalExpand="True"/>
         <Label Name="EntityName" Align="Right"/>

@@ -392,7 +392,7 @@
   - type: PointLight
     color: "#f80000"
     enabled: false
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     energy: 0.4
     radius: 12
     softness: 20

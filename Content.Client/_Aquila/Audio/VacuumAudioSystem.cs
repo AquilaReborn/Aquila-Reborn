@@ -20,7 +20,6 @@ public sealed class VacuumAudioSystem : EntitySystem
 
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
@@ -94,7 +93,7 @@ public sealed class VacuumAudioSystem : EntitySystem
         if (coordinates.MapId == MapId.Nullspace)
             return false;
 
-        if (!_mapManager.TryFindGridAt(coordinates, out var gridUid, out var grid))
+        if (!_map.TryFindGridAt(coordinates, out var gridUid, out var grid))
             return true;
 
         var indices = _map.TileIndicesFor(gridUid, grid, coordinates);

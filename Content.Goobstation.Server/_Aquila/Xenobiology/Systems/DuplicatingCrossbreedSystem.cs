@@ -9,12 +9,12 @@ using Robust.Shared.Audio.Systems;
 
 namespace Content.Goobstation.Server._Aquila.Xenobiology.Systems;
 
-public sealed class DuplicatingCrossbreedSystem : EntitySystem
+public sealed partial class DuplicatingCrossbreedSystem : EntitySystem
 {
-    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private ISharedAdminLogManager _adminLog = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {

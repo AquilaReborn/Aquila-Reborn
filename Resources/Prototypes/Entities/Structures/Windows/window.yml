@@ -163,6 +163,7 @@
   - type: Tag
     tags:
     - Window # Aquila Change
+    - DirectionalWindow # Goob
   - type: MeleeSound
     soundGroups:
       Brute:
