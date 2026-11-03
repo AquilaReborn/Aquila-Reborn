@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Shared._Aquila.Surgery;
 using Content.Shared._Shitmed.Medical.Surgery.Conditions;
 using Content.Shared._Shitmed.Medical.Surgery.Steps;
+using Content.Shared._Shitmed.Medical.Surgery.Steps.Parts;
 using Content.Shared.Body.Organ;
 using Content.Shared.Body.Systems;
 using Robust.Shared.Containers;
@@ -88,6 +89,14 @@ public abstract partial class SharedSurgerySystem
             args.Cancelled = true;
 
         return true;
+    }
+
+    private void ClearOrganReattached(List<(EntityUid Id, OrganComponent Organ)> organs)
+    {
+        foreach (var (organ, _) in organs)
+        {
+            RemComp<OrganReattachedComponent>(organ);
+        }
     }
 
     private EntityUid? GetOrganInSlot(EntityUid part, string slot)

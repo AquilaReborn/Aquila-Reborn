@@ -404,7 +404,7 @@ public abstract partial class SharedSurgerySystem
         {
             _body.TryGetBodyPartOrgans(args.Part, reg.Component.GetType(), out var organs);
             if (organs != null && organs.Count > 0)
-                RemComp<OrganReattachedComponent>(organs[0].Id);
+                ClearOrganReattached(organs); // Aquila Change
         }
 
     }
