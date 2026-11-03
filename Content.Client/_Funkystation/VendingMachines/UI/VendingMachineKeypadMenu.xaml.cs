@@ -130,6 +130,7 @@ public sealed partial class VendingMachineKeypadMenu : FancyWindow
 
             var slot = new VendingMachineGridSlot();
             slot.SetItem(entry.ID, code, entry.Amount, entry.Amount == 0);
+            ApplyPrice(slot, entry); // Aquila Change
 
             ItemGrid.AddChild(slot);
             _slots.Add(slot);

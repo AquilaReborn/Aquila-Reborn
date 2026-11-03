@@ -11,7 +11,7 @@ using Content.Shared._Funkystation.VendingMachines;
 namespace Content.Client._Funkystation.VendingMachines;
 
 [UsedImplicitly]
-public sealed class VendingMachineKeypadBoundUserInterface(EntityUid owner, Enum uiKey)
+public sealed partial class VendingMachineKeypadBoundUserInterface(EntityUid owner, Enum uiKey) // Aquila Change
     : BoundUserInterface(owner, uiKey), IVendingMachineBoundUi
 {
     [ViewVariables]
@@ -30,6 +30,7 @@ public sealed class VendingMachineKeypadBoundUserInterface(EntityUid owner, Enum
         _menu.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName;
         _menu.OnCodeEntered += OnCodeEntered;
         _menu.OnAudioPlayed += OnAudioPlayed;
+        SetupPaidVending(_menu); // Aquila Change
         Refresh();
     }
 
@@ -69,10 +70,13 @@ public sealed class VendingMachineKeypadBoundUserInterface(EntityUid owner, Enum
         if (playerManager.LocalSession?.AttachedEntity is { } player)
         {
             var accessSystem = EntMan.System<AccessReaderSystem>();
-            if (!accessSystem.IsAllowed(player, Owner))
+            if (!accessSystem.IsAllowed(player, Owner) && !IsAuthorizedByEvent(player)) // Aquila Change
             {
                 return false;
             }
+
+            if (!CanBuy(player, selectedItem)) // Aquila Change
+                return false; // Aquila Change
         }
 
         // optimistic
