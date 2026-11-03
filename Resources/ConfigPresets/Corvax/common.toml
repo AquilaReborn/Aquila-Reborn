@@ -56,7 +56,7 @@ enabled = false
 [net]
 tickrate = 20
 port = 1212
-bindto = "193.233.221.246"
+# bindto = "193.233.221.246" # Aquila Change
 max_connections = 40
 mtu = 700
 pvs_range = 18.0

@@ -6,8 +6,8 @@ concurrency:
 
 on:
   workflow_dispatch:
-  schedule:
-  - cron: '0 10 * * *'
+#  schedule: # Aquila Change
+#  - cron: '0 10 * * *' # Aquila Change
 
 jobs:
   build:
