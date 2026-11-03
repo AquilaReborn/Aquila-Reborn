@@ -132,7 +132,6 @@ entity-effect-guidebook-cyberpsychosis-therapy =
         *[other] лечить
     } киберпсихоз, если кибернагрузка ниже критической
 
-cyberpsychosis-admin-verb-stage = Киберпсихоз: {$stage}
 cyberpsychosis-admin-verb-cure = Вылечить киберпсихоз
 
 ## Второй слот руки и ЭМИ

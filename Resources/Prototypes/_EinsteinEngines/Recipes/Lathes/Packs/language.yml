@@ -26,6 +26,7 @@
 - type: latheRecipePack
   id: TranslatorImplanters
   recipes:
+  - TranslatorChipImplanter # Aquila Change
   - BasicGalaticCommonTranslatorImplanter
   - AdvancedGalaticCommonTranslatorImplanter
   - CanilunztTranslatorImplanter

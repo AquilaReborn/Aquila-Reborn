@@ -1,0 +1,289 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseTranslatorChip
+  name: translator chip
+  description: A chip with a language database. Insert it into a translator implant to learn the language.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/encryption_keys.rsi
+    state: crypt_blue
+  - type: Item
+    size: Tiny
+  - type: StaticPrice
+    price: 30
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: TranslatorChipImplant
+  categories: [ HideSpawnMenu ]
+  name: translator implant
+  description: An implant with slots for translator chips. Every inserted chip gives its owner knowledge of a language.
+  components:
+  - type: TranslatorChipHolder
+
+- type: entity
+  parent: BaseImplantOnlyImplanter
+  id: TranslatorChipImplanter
+  name: translator implanter
+  components:
+  - type: Implanter
+    implant: TranslatorChipImplant
+
+- type: latheRecipe
+  parent: BaseTranslatorImplanter
+  id: TranslatorChipImplanter
+  name: lathe-recipe-TranslatorChipImplanter-name
+  result: TranslatorChipImplanter
+
+- type: entity
+  parent: BaseTranslatorChip
+  id: BasicTauCetiBasicTranslatorChip
+  name: basic common translator chip
+  components:
+  - type: TranslatorChip
+    understood:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseTranslatorChip
+  id: TauCetiBasicTranslatorChip
+  name: advanced common translator chip
+  components:
+  - type: TranslatorChip
+    understood:
+    - TauCetiBasic
+    spoken:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseTranslatorChip
+  id: BubblishTranslatorChip
+  name: bubblish translator chip
+  components:
+  - type: TranslatorChip
+    understood:
+    - Bubblish
+    spoken:
+    - Bubblish
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseTranslatorChip
+  id: NekomimeticTranslatorChip
+  name: nekomimetic translator chip
+  components:
+  - type: TranslatorChip
+    understood:
+    - Nekomimetic
+    spoken:
+    - Nekomimetic
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseTranslatorChip
+  id: DraconicTranslatorChip
+  name: draconic translator chip
+  components:
+  - type: TranslatorChip
+    understood:
+    - Draconic
+    spoken:
+    - Draconic
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseTranslatorChip
+  id: CanilunztTranslatorChip
+  name: canilunzt translator chip
+  components:
+  - type: TranslatorChip
+    understood:
+    - Canilunzt
+    spoken:
+    - Canilunzt
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseTranslatorChip
+  id: SolCommonTranslatorChip
+  name: sol-common translator chip
+  components:
+  - type: TranslatorChip
+    understood:
+    - SolCommon
+    spoken:
+    - SolCommon
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseTranslatorChip
+  id: RootSpeakTranslatorChip
+  name: root-speak translator chip
+  components:
+  - type: TranslatorChip
+    understood:
+    - RootSpeak
+    spoken:
+    - RootSpeak
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseTranslatorChip
+  id: MofficTranslatorChip
+  name: moffic translator chip
+  components:
+  - type: TranslatorChip
+    understood:
+    - Moffic
+    spoken:
+    - Moffic
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseTranslatorChip
+  id: ValyrianStandardTranslatorChip
+  name: valyrian standard translator chip
+  components:
+  - type: TranslatorChip
+    understood:
+    - ValyrianStandard
+    spoken:
+    - ValyrianStandard
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseTranslatorChip
+  id: ChittinTranslatorChip
+  name: chittin translator chip
+  components:
+  - type: TranslatorChip
+    understood:
+    - Chittin
+    spoken:
+    - Chittin
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseTranslatorChip
+  id: SiikMaasTranslatorChip
+  name: siik'maas translator chip
+  components:
+  - type: TranslatorChip
+    understood:
+    - SiikMaas
+    spoken:
+    - SiikMaas
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseTranslatorChip
+  id: MarishTranslatorChip
+  name: marish translator chip
+  components:
+  - type: TranslatorChip
+    understood:
+    - Marish
+    spoken:
+    - Marish
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseTranslatorChip
+  id: SchechiTranslatorChip
+  name: schechi translator chip
+  components:
+  - type: TranslatorChip
+    understood:
+    - Schechi
+    spoken:
+    - Schechi
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseTranslatorChip
+  id: NewKinPidginTranslatorChip
+  name: ka'rakk translator chip
+  components:
+  - type: TranslatorChip
+    understood:
+    - NewKinPidgin
+    spoken:
+    - NewKinPidgin
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseTranslatorChip
+  id: GruntishTranslatorChip
+  name: Gruntish translator chip
+  components:
+  - type: TranslatorChip
+    understood:
+    - Gruntish
+    spoken:
+    - Gruntish
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseTranslatorChip
+  id: ChevalTranslatorChip
+  name: cheval translator chip
+  components:
+  - type: TranslatorChip
+    spoken:
+     - Cheval
+    understood:
+     - Cheval
+
+- type: entity
+  parent: BaseTranslatorChip
+  id: YowKriolTranslatorChip
+  name: Yow Kriol translator chip
+  components:
+  - type: TranslatorChip
+    understood:
+    - YowKriol
+    spoken:
+    - YowKriol
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseTranslatorChip
+  id: SignTranslatorChip
+  name: sign translator chip
+  components:
+  - type: TranslatorChip
+    understood:
+    - Sign
+    spoken:
+    - Sign
+    requires:
+    - TauCetiBasic
+
+- type: entity
+  parent: BaseTranslatorChip
+  id: HydraspeakTranslatorChip
+  name: hydraspeak translator chip
+  components:
+  - type: TranslatorChip
+    understood:
+    - Hydraspeak
+    spoken:
+    - Hydraspeak
+    requires:
+    - TauCetiBasic

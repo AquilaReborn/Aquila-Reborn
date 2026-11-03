@@ -80,20 +80,6 @@ public sealed class CyberpsychosisSystem : SharedCyberpsychosisSystem
     }
 
     /// <summary>
-    /// Ставит существу стадию киберпсихоза по её номеру, начиная с 1. Ноль снимает киберпсихоз.
-    /// </summary>
-    public bool TrySetStage(EntityUid uid, int level)
-    {
-        if (!_cyberLoad.TryGetLoad(uid, out var load)
-            || level < 0
-            || level > load.Stages.Count)
-            return false;
-
-        SetLevel((uid, load), level);
-        return true;
-    }
-
-    /// <summary>
     /// Глушит приступы на время и обрывает начавшийся приступ ярости.
     /// </summary>
     public void Suppress(Entity<CyberpsychosisComponent?> ent, TimeSpan time)

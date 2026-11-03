@@ -113,7 +113,6 @@ entity-effect-guidebook-cyberpsychosis-therapy =
         *[other] treat
     } cyberpsychosis while the cyber strain is below critical
 
-cyberpsychosis-admin-verb-stage = Cyberpsychosis: {$stage}
 cyberpsychosis-admin-verb-cure = Cure cyberpsychosis
 
 ## Second arm slot and EMP
