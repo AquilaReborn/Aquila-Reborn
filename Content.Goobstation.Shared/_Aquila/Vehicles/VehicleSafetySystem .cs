@@ -16,11 +16,11 @@ public sealed partial class VehicleSafetyComponent : Component
 {
 }
 
-public sealed class VehicleSafetySystem : EntitySystem
+public sealed partial class VehicleSafetySystem : EntitySystem
 {
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedBuckleSystem _buckle = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedBuckleSystem _buckle = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
 
     public override void Initialize()
     {

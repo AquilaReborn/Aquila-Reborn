@@ -29,11 +29,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
             Disabled="True"
             HorizontalAlignment="Right"
             Text="{Loc 'news-read-ui-next-text'}"
-            ToolTip="{Loc 'news-read-ui-next-tooltip'}">
-            <Button.StyleClasses>
-                <sys:String>ButtonBig</sys:String>
-                <sys:String>GreenPDAPalette</sys:String>
-            </Button.StyleClasses>
+            ToolTip="{Loc 'news-read-ui-next-tooltip'}" StyleClasses="ButtonBig GreenPDAPalette">
         </Button>
     </BoxContainer>
     <controls:StripeBack Name="ArticleNameContainer"  StyleClasses = "GreenStripeStyle">
@@ -67,11 +63,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         <Button
             Name="NotificationSwitch"
             ToolTip="{Loc news-reader-ui-mute-tooltip}"
-            MinWidth="20">
-            <Button.StyleClasses>
-                <sys:String>ButtonBig</sys:String>
-                <sys:String>GreenPDAPalette</sys:String>
-            </Button.StyleClasses>
+            MinWidth="20" StyleClasses="ButtonBig GreenPDAPalette">
         </Button>
         <RichTextLabel Margin="5,2,2,2" Name="ShareTime" VerticalAlignment="Top"/>
         <PanelContainer StyleClasses="PdaSeparator" MinWidth="2" Margin="2 0"/>

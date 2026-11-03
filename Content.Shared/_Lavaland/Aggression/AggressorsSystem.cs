@@ -3,6 +3,7 @@
 using System.Linq;
 using Content.Shared._Lavaland.Audio;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Player;
@@ -92,7 +93,12 @@ public sealed class AggressorsSystem : EntitySystem
         => RemoveAllAggressors(ent);
 
     private void OnStateChange(Entity<AggressiveComponent> ent, ref MobStateChangedEvent args)
-        => RemoveAllAggressors(ent);
+    {
+        if (args.NewMobState == MobState.Dead)
+            RaiseLocalEvent(ent, new AggressiveKilledEvent(ent.Comp.Aggressors.ToList()));
+
+        RemoveAllAggressors(ent);
+    }
 
     private void OnAggressorAdded(Entity<AggressorComponent> ent, ref AggressiveAddedEvent args)
     {

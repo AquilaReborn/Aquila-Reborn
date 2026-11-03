@@ -1,3 +1,4 @@
+using Content.Client.Graphics;
 using Content.Shared._Aquila.Engram;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -7,36 +8,36 @@ namespace Content.Client._Aquila.Engram;
 
 /// <summary>
 /// Рисует энграмму мерцающей голограммой с помехами.
-/// Шейдер восстанавливается каждый кадр, потому что подсветка при наведении сбрасывает его.
 /// </summary>
 public sealed class EngramVisualsSystem : EntitySystem
 {
+    private const string PostShaderId = "engram-hologram";
     private static readonly ProtoId<ShaderPrototype> Shader = "EngramHologram";
 
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
+        SubscribeLocalEvent<EngramComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<EngramComponent, ComponentShutdown>(OnShutdown);
     }
 
-    public override void FrameUpdate(float frameTime)
+    private void OnInit(Entity<EngramComponent> ent, ref ComponentInit args)
     {
-        base.FrameUpdate(frameTime);
+        if (!TryComp<SpriteComponent>(ent, out var sprite))
+            return;
 
-        var query = EntityQueryEnumerator<EngramComponent, SpriteComponent>();
-        while (query.MoveNext(out _, out _, out var sprite))
+        _sprite.SetPostShader((ent.Owner, sprite), new SpriteComponent.PostShaderArgs(PostShaderId, _proto.Index(Shader).Instance())
         {
-            if (sprite.PostShader == null)
-                sprite.PostShader = _proto.Index(Shader).Instance();
-        }
+            Before = ContentPostShaderIds.BeforeOutlines,
+        });
     }
 
     private void OnShutdown(Entity<EngramComponent> ent, ref ComponentShutdown args)
     {
-        if (TryComp<SpriteComponent>(ent, out var sprite))
-            sprite.PostShader = null;
+        _sprite.RemovePostShader(ent.Owner, PostShaderId);
     }
 }

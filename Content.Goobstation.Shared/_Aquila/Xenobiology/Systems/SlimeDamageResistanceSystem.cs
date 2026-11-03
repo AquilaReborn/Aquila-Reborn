@@ -1,12 +1,13 @@
 using Content.Goobstation.Shared._Aquila.Xenobiology.Components;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared._Aquila.Xenobiology.Systems;
 
-public sealed class SlimeDamageResistanceSystem : EntitySystem
+public sealed partial class SlimeDamageResistanceSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     public override void Initialize()
     {

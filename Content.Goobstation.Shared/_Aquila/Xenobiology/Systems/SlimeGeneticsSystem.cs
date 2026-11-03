@@ -9,11 +9,11 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared._Aquila.Xenobiology.Systems;
 
-public sealed class SlimeGeneticsSystem : EntitySystem
+public sealed partial class SlimeGeneticsSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedPointLightSystem _light = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedPointLightSystem _light = default!;
 
     public override void Initialize()
     {

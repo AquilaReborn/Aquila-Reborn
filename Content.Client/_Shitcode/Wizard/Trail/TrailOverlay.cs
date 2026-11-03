@@ -45,7 +45,6 @@ public sealed class TrailOverlay : Overlay
         var handle = args.WorldHandle;
         var bounds = args.WorldAABB;
 
-        var xformQuery = _entManager.GetEntityQuery<TransformComponent>();
         var spriteQuery = _entManager.GetEntityQuery<SpriteComponent>();
         var container = _entManager.System<SharedContainerSystem>(); // Aquila
 
@@ -55,7 +54,7 @@ public sealed class TrailOverlay : Overlay
             if (trail.TrailData.Count == 0)
                 continue;
 
-            var (position, rotation) = _transform.GetWorldPositionRotation(xform, xformQuery);
+            var (position, rotation) = _transform.GetWorldPositionRotation(xform);
 
             if (trail.Shader != null && _protoMan.TryIndex<ShaderPrototype>(trail.Shader, out var shaderProto))
             {

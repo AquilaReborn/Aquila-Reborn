@@ -10,11 +10,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <Button Name="ChatButton"
             HorizontalExpand="True"
             MaxSize="137 64"
-            Margin="0 1">
-        <Button.StyleClasses>
-            <sys:String>ButtonSquare</sys:String>
-            <sys:String>PdaListEntry</sys:String>
-        </Button.StyleClasses>
+            Margin="0 1" StyleClasses="ButtonSquare PdaListEntry">
         <BoxContainer Orientation="Horizontal"
                       HorizontalExpand="True"
                       VerticalExpand="True"

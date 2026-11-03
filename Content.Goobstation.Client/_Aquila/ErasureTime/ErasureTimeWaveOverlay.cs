@@ -5,9 +5,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Client.Aquila.ErasureTime;
 
-public sealed class ErasureTimeWaveOverlay : Overlay
+public sealed partial class ErasureTimeWaveOverlay : Overlay
 {
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
+    [Dependency] private IPrototypeManager _protoManager = default!;
 
     public override OverlaySpace Space => OverlaySpace.ScreenSpace;
 

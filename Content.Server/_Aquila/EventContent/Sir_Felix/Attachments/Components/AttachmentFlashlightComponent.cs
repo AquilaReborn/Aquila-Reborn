@@ -1,5 +1,4 @@
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 namespace Content.Server._Aquila.EventContent.Sir_Felix.Attachments.Components;
 
 [RegisterComponent]
@@ -13,8 +12,8 @@ public sealed partial class AttachmentFlashlightComponent : Component
     [DataField("radius")]
     public float Radius { get; set; } = 6f;
 
-    [DataField("toggleAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string ToggleAction = "ActionToggleAttachmentFlashlight";
+    [DataField("toggleAction")]
+    public EntProtoId ToggleAction = "ActionToggleAttachmentFlashlight";
 
     [DataField("toggleActionEntity")]
     public EntityUid? ToggleActionEntity;

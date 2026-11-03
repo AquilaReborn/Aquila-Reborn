@@ -23,16 +23,16 @@ using Robust.Shared.Network;
 
 namespace Content.Goobstation.Shared.Aquila.ErasureTime;
 
-public sealed class ErasureTimeSystem : EntitySystem
+public sealed partial class ErasureTimeSystem : EntitySystem
 {
-    [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly FixtureSystem _fixtures = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
+    [Dependency] private MovementSpeedModifierSystem _speed = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private FixtureSystem _fixtures = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedEyeSystem _eye = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private INetManager _netManager = default!;
 
     private const string SlowfieldFixtureId = "erasure-time-slowfield";
 

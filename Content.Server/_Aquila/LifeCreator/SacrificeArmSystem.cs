@@ -13,6 +13,7 @@ using Content.Server.Popups;
 using Robust.Shared.Prototypes;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Goobstation.Maths.FixedPoint;
 
 namespace Content.Server.Aquila.LifeCreator;

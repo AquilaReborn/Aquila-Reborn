@@ -57,11 +57,7 @@
                                Access="Public"
                                Columns="2" />
 
-                <Button Name="NewTaskButton" Text="{Loc 'nano-task-ui-new-task'}" HorizontalAlignment="Right">
-                    <Button.StyleClasses>
-                        <sys:String>ButtonBig</sys:String>
-                        <sys:String>GreenPDAPalette</sys:String>
-                    </Button.StyleClasses>
+                <Button Name="NewTaskButton" Text="{Loc 'nano-task-ui-new-task'}" HorizontalAlignment="Right" StyleClasses="ButtonBig GreenPDAPalette">
                 </Button>
             </BoxContainer>
         </ScrollContainer>

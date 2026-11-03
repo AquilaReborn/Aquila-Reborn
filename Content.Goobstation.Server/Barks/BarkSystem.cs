@@ -9,11 +9,11 @@ using Robust.Shared.Player;
 
 namespace Content.Goobstation.Server.Barks;
 
-public sealed class BarkSystem : EntitySystem
+public sealed partial class BarkSystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly VacuumChatSystem _vacuumChat = default!; // Aquila Change
-    [Dependency] private readonly ImaginaryFriendSystem _imaginaryFriend = default!; // Aquila Change
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private VacuumChatSystem _vacuumChat = default!; // Aquila Change
+    [Dependency] private ImaginaryFriendSystem _imaginaryFriend = default!; // Aquila Change
 
     private bool _enabled;
 

@@ -234,3 +234,6 @@ preload = false
 limit = 10.0
 [ghost.go_lobby]
 enabled = true
+
+[res]
+validate_prototype_upload = false

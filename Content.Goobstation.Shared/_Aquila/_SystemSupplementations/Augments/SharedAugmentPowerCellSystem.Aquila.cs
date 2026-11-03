@@ -6,8 +6,6 @@ namespace Content.Goobstation.Shared.Augments;
 
 public abstract partial class SharedAugmentPowerCellSystem
 {
-    [Dependency] private readonly SharedBatterySystem _battery = default!;
-
     private void InitializeAquila()
     {
         SubscribeLocalEvent<AugmentPowerCellSlotComponent, RefreshChargeRateEvent>(OnRefreshChargeRate);
@@ -16,19 +14,13 @@ public abstract partial class SharedAugmentPowerCellSystem
         SubscribeLocalEvent<AugmentStationRechargeComponent, FindChargerBatteryEvent>(OnFindChargerBattery);
     }
 
-    private void RefreshAugmentChargeRate(EntityUid slot)
-    {
-        if (_powerCell.TryGetBatteryFromSlot(slot, out var battery))
-            _battery.RefreshChargeRate(battery.Value.AsNullable());
-    }
-
     /// <summary>
     /// Есть ли в слоте импланта батарея с ненулевым зарядом.
     /// </summary>
     public bool HasPower(EntityUid slot)
     {
         return _powerCell.TryGetBatteryFromSlot(slot, out var battery)
-            && _battery.GetCharge(battery.Value.AsNullable()) > 0f;
+            && _sharedBattery.GetCharge(battery.Value.AsNullable()) > 0f;
     }
 
     private void OnRefreshChargeRate(Entity<AugmentPowerCellSlotComponent> ent, ref RefreshChargeRateEvent args)
