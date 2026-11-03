@@ -120,7 +120,7 @@ namespace Content.Goobstation.Shared.SlotMachine
                     || slot.Item is not { } item
                     || _stackSystem.GetCount(item) < ent.Comp.SpinCost)
                 {
-                    _popupSystem.PopupPredicted(Loc.GetString("slotmachine-no-money"), ent.Owner, args.User); // No Money
+                    _popupSystem.PopupPredicted(GetNoMoneyMessage(ent, slot), ent.Owner, args.User); // Aquila Change
                     return;
                 }
 

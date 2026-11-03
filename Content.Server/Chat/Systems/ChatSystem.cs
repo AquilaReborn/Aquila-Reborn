@@ -522,7 +522,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             if (_mobStateSystem.IsDead(uid))
                 continue;
 
-            if (collectMindComp.Minds.ContainsKey(collectiveMind.ID) || collectMindComp.HearAll)
+            if (collectMindComp.Minds.ContainsKey(collectiveMind.ID) && CanReceiveCollectiveMind(source, uid, collectiveMind) || collectMindComp.HearAll) // Aquila Change
             {
                 if (collectMindComp.SeeAllNames)
                     clientsSeeNames.AddPlayer(actorComp.PlayerSession);

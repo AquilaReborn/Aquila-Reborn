@@ -167,6 +167,7 @@ ent-ClothingNeckCyberwareBlocker = ошейник-блокиратор импл�
 cyberware-scanner-deep-started = Цель обездвижена, запускаете глубокое сканирование.
 cyberware-scanner-deep-cooldown = Глубокое сканирование этого человека пока недоступно, сканер не успел откалибровать сигнатуры. Выполняется обычное.
 cyberware-scanner-concealed = Неизвестных сигнатур: {$count}
+cyberware-scanner-mantis-blade = клинок богомола ({$arm})
 
 surgery-popup-implants-extracted = Извлечены и разрушены импланты: {$implants}.
 surgery-popup-implants-nothing = Опознанных имплантов не найдено. Остальное без данных сканера не нащупать.
@@ -174,6 +175,10 @@ surgery-popup-implants-nothing = Опознанных имплантов не н
 ent-SurgeryStepExtractImplants = Извлечь опознанные импланты
     .desc = { "" }
 ent-SurgeryExtractImplants = Извлечение подкожных имплантов
+    .desc = { ent-SurgeryBase.desc }
+ent-SurgeryStepRemoveMantisBlade = Извлечь клинок богомола
+    .desc = { "" }
+ent-SurgeryRemoveMantisBlade = Извлечение клинка богомола
     .desc = { ent-SurgeryBase.desc }
 
 ## Имплант взлома

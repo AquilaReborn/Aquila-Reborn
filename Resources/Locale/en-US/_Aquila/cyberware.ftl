@@ -134,6 +134,7 @@ cyberware-unblocked = The collar comes off and your implants come back to life o
 cyberware-scanner-deep-started = The target is immobilized, starting a deep scan.
 cyberware-scanner-deep-cooldown = A deep scan of this person is not available yet, the scanner has not recalibrated. Running a normal scan.
 cyberware-scanner-concealed = Unknown signatures: {$count}
+cyberware-scanner-mantis-blade = mantis blade ({$arm})
 
 surgery-popup-implants-extracted = Extracted and destroyed implants: {$implants}.
 surgery-popup-implants-nothing = No identified implants found. Without scanner data the rest cannot be located.

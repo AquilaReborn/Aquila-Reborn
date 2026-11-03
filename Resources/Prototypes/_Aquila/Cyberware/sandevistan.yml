@@ -1,0 +1,44 @@
+- type: entity
+  parent: OrganHumanHeart
+  id: OrganHeartCivilianSandevistan
+  name: civilian sandevistan
+  description: A licensed civilian version of the Sandevistan. It speeds the user up a little less, leaves no afterimages and does not slow down their perception of time. A safety cutoff shuts it down before the body starts to break.
+  components:
+  - type: Cyberware
+    load: 10
+  - type: Cybernetics
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/sandevistan.rsi
+    state: icon
+    color: "#8fd8ff"
+    scale: 0.5, 0.5
+  - type: OrganActions
+    actions:
+    - ActionToggleSandevistan
+  - type: Organ
+    onAdd:
+    - type: SandevistanUser
+      movementSpeedModifier: 1.5
+      attackSpeedModifier: 1
+      doAfterModifier: 1.25
+      afterimages: false
+      timeVision: false
+      loopSound: null
+      thresholds:
+        Warning: 15
+        Shaking: 25
+        Stamina: 35
+        Disable: 45
+
+- type: latheRecipe
+  id: OrganHeartCivilianSandevistan
+  result: OrganHeartCivilianSandevistan
+  categories:
+  - Robotics
+  completetime: 15
+  materials:
+    Steel: 3000
+    Glass: 1500
+    Plastic: 1500
+    Gold: 1500
+    Silver: 1000

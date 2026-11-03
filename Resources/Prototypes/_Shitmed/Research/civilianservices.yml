@@ -139,6 +139,7 @@
   - DiagnosticCyberneticEyes
   - SecurityCyberneticEyes
   - MedicalCyberneticEyes
+  - OrganHeartCivilianSandevistan # Aquila Change
   position: -1,7
   technologyPrerequisites:
   - Autodoc

@@ -32,7 +32,6 @@
   - type: Speech
   - type: Emoting
   - type: LanguageSpeaker
-  - type: UniversalLanguageSpeaker
 
 - type: entity
   parent: [ BaseItem, BaseSyndicateContraband ]

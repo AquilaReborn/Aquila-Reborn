@@ -2,13 +2,16 @@ using System.Linq;
 using Content.Server._Aquila.Psychosis;
 using Content.Server._Aquila.Psychosis.Components;
 using Content.Server.Administration.Logs;
+using Content.Server._EinsteinEngines.Language;
 using Content.Shared.ActionBlocker;
 using Content.Shared._Aquila.Engram;
+using Content.Shared._EinsteinEngines.Language.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.Components;
 using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Interaction.Events;
@@ -46,6 +49,7 @@ public sealed class EngramSystem : EntitySystem
     [Dependency] private readonly ImaginaryFriendSystem _friend = default!;
     [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly LanguageSystem _language = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
@@ -142,7 +146,29 @@ public sealed class EngramSystem : EntitySystem
 
         _meta.SetEntityName(engram, Name(victim));
         CopyClothing(soulkiller, victim, engram);
+        CopyLanguages(victim, engram, species);
         return engram;
+    }
+
+    private void CopyLanguages(EntityUid victim, EntityUid engram, SpeciesPrototype species)
+    {
+        var knowledge = CompOrNull<LanguageKnowledgeComponent>(victim);
+        if (knowledge == null)
+            _proto.Index(species.Prototype).TryGetComponent(out knowledge, Factory);
+
+        if (knowledge == null)
+        {
+            EnsureComp<UniversalLanguageSpeakerComponent>(engram);
+            return;
+        }
+
+        var engramKnowledge = EnsureComp<LanguageKnowledgeComponent>(engram);
+        engramKnowledge.SpokenLanguages = new(knowledge.SpokenLanguages);
+        engramKnowledge.UnderstoodLanguages = new(knowledge.UnderstoodLanguages);
+        _language.UpdateEntityLanguages(engram);
+
+        if (TryComp<LanguageSpeakerComponent>(victim, out var speaker))
+            _language.SetLanguage(engram, speaker.CurrentLanguage);
     }
 
     private void CopyClothing(SoulkillerComponent soulkiller, EntityUid victim, EntityUid engram)

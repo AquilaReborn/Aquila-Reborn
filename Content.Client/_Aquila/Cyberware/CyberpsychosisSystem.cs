@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Client.Graphics;
 using Content.Shared._Aquila.Cyberware;
 using Content.Shared._Aquila.Cyberware.Components;
 using Content.Shared._Aquila.Cyberware.Prototypes;
@@ -23,6 +24,8 @@ namespace Content.Client._Aquila.Cyberware;
 public sealed class CyberpsychosisSystem : SharedCyberpsychosisSystem
 {
     private static readonly TimeSpan DisguiseUpdateInterval = TimeSpan.FromSeconds(0.5);
+    private static readonly ProtoId<ShaderPrototype> HiddenShader = "CyberpsychosisHidden";
+    private const string HiddenPostShaderId = "cyberpsychosis-hidden";
 
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
@@ -37,12 +40,14 @@ public sealed class CyberpsychosisSystem : SharedCyberpsychosisSystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     private CyberpsychosisGlitchOverlay _glitchOverlay = default!;
+    private ShaderInstance _hiddenShader = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         _glitchOverlay = new CyberpsychosisGlitchOverlay();
+        _hiddenShader = _proto.Index(HiddenShader).Instance();
 
         SubscribeLocalEvent<CyberpsychosisComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<CyberpsychosisComponent, ComponentShutdown>(OnShutdown);
@@ -68,6 +73,7 @@ public sealed class CyberpsychosisSystem : SharedCyberpsychosisSystem
         {
             _glitchOverlay.Intensity = 0f;
             _glitchOverlay.Redness = 0f;
+            ClearDisguises();
             return;
         }
 
@@ -190,29 +196,30 @@ public sealed class CyberpsychosisSystem : SharedCyberpsychosisSystem
         foreach (var target in targets)
         {
             var disguised = EnsureComp<CyberpsychosisDisguisedComponent>(target);
-            if (disguised.Disguise is not { } existing || TerminatingOrDeleted(existing))
-            {
-                var proto = stage.Disguises[target.Owner.Id % stage.Disguises.Count];
-                disguised.Disguise = Spawn(proto, new EntityCoordinates(target, Vector2.Zero));
-            }
-
-            var color = target.Comp.Color;
-            if (color.A <= 0f)
+            if (disguised.Disguise is { } existing && !TerminatingOrDeleted(existing))
                 continue;
 
-            disguised.OriginalColor = color;
-            _sprite.SetColor(target.AsNullable(), color.WithAlpha(0f));
+            var proto = stage.Disguises[target.Owner.Id % stage.Disguises.Count];
+            disguised.Disguise = Spawn(proto, new EntityCoordinates(target, Vector2.Zero));
+            _sprite.SetPostShader(target.AsNullable(), new SpriteComponent.PostShaderArgs(HiddenPostShaderId, _hiddenShader)
+            {
+                After = ContentPostShaderIds.BeforeOutlines,
+            });
         }
     }
 
     private void ClearDisguises()
     {
-        var disguised = new List<Entity<CyberpsychosisDisguisedComponent>>();
+        List<Entity<CyberpsychosisDisguisedComponent>>? disguised = null;
         var query = EntityQueryEnumerator<CyberpsychosisDisguisedComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
+            disguised ??= new();
             disguised.Add((uid, comp));
         }
+
+        if (disguised == null)
+            return;
 
         foreach (var ent in disguised)
         {
@@ -225,9 +232,7 @@ public sealed class CyberpsychosisSystem : SharedCyberpsychosisSystem
         if (ent.Comp.Disguise is { } disguise && !TerminatingOrDeleted(disguise))
             QueueDel(disguise);
 
-        if (ent.Comp.OriginalColor is { } color && TryComp<SpriteComponent>(ent, out var sprite))
-            _sprite.SetColor((ent.Owner, sprite), color);
-
+        _sprite.RemovePostShader(ent.Owner, HiddenPostShaderId);
         RemComp<CyberpsychosisDisguisedComponent>(ent);
     }
 

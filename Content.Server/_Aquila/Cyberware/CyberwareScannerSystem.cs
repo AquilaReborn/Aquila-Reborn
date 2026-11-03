@@ -1,8 +1,11 @@
 using System.Linq;
+using Content.Goobstation.Shared.MantisBlades;
 using Content.Server._Aquila.Cyberware.Components;
 using Content.Shared._Aquila.Cyberware;
 using Content.Shared._Aquila.Cyberware.Components;
 using Content.Shared.Body.Components;
+using Content.Shared.Body.Part;
+using Content.Shared.Body.Systems;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
@@ -25,6 +28,7 @@ public sealed class CyberwareScannerSystem : EntitySystem
     private static readonly LocId CyberwareScannerDeepCooldown = "cyberware-scanner-deep-cooldown";
     private static readonly LocId CyberwareScannerBeingScanned = "cyberware-scanner-being-scanned";
     private static readonly LocId CyberwareScannerDeepStarted = "cyberware-scanner-deep-started";
+    private static readonly LocId MantisBladeName = "cyberware-scanner-mantis-blade";
 
     private static readonly LocId LevelNone = "cyberware-scanner-level-none";
     private static readonly LocId LevelLow = "cyberware-scanner-level-low";
@@ -32,6 +36,7 @@ public sealed class CyberwareScannerSystem : EntitySystem
     private static readonly LocId LevelHigh = "cyberware-scanner-level-high";
     private static readonly LocId LevelCritical = "cyberware-scanner-level-critical";
 
+    [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly CyberLoadSystem _cyberLoad = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
@@ -124,6 +129,7 @@ public sealed class CyberwareScannerSystem : EntitySystem
 
         var names = new List<string>();
         var concealed = CollectImplants(ent, target, args.Deep, names);
+        CollectArmBlades(target, names);
 
         LocId? stageName = null;
         float? cureProgress = null;
@@ -192,6 +198,14 @@ public sealed class CyberwareScannerSystem : EntitySystem
         }
 
         return concealed;
+    }
+
+    private void CollectArmBlades(EntityUid target, List<string> names)
+    {
+        foreach (var (arm, _, _) in _body.GetBodyChildrenOfTypeWithComponent<MantisBladeArmComponent>(target, BodyPartType.Arm))
+        {
+            names.Add(Loc.GetString(MantisBladeName, ("arm", Name(arm))));
+        }
     }
 
     private bool IsConcealed(CyberwareScannerComponent scanner, EntityUid implant)
