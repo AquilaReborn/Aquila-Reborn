@@ -5,6 +5,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
+    icon: { sprite: _Aquila/Action/guardian.rsi, state: action_hand }
     useDelay: 3
   - type: InstantAction
     event: !type:SacrificeArmActionEvent
@@ -17,6 +18,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
+    icon: { sprite: _Aquila/Action/guardian.rsi, state: action_heal }
     useDelay: 300
   - type: TargetAction
     checkCanAccess: false

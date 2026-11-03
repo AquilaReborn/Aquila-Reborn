@@ -54,4 +54,45 @@ public sealed partial class SpinUserComponent : Component
 
     [DataField]
     public float GaugeScreenScale = 1f;
+
+    // Stunblow
+    [DataField]
+    public EntProtoId StunBlowActionProto = "ActionSpinStunBlow";
+
+    [DataField, AutoNetworkedField]
+    public EntityUid? StunBlowAction;
+
+    [DataField]
+    public TimeSpan StunBlowDuration = TimeSpan.FromSeconds(5);
+
+    [DataField]
+    public TimeSpan StunBlowStunTime = TimeSpan.FromSeconds(2);
+
+    [DataField]
+    public int StunBlowCost = 2;
+
+    // Marking
+    [DataField]
+    public EntProtoId MarkingActionProto = "ActionSpinMarking";
+
+    [DataField, AutoNetworkedField]
+    public EntityUid? MarkingAction;
+
+    [DataField]
+    public TimeSpan MarkingDuration = TimeSpan.FromSeconds(7);
+
+    [DataField]
+    public TimeSpan MarkingDoAfterDelay = TimeSpan.FromSeconds(2);
+
+    [DataField]
+    public int MarkingCost = 4;
+
+    [DataField]
+    public EntProtoId MarkProto = "SpinMark";
+
+    [DataField]
+    public TimeSpan MarkBaseDuration = TimeSpan.FromSeconds(6.5);
+
+    [DataField]
+    public TimeSpan MarkStackBonus = TimeSpan.FromSeconds(2.5);
 }

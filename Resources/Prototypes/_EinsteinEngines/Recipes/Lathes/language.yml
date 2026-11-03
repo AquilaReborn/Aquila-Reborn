@@ -168,7 +168,7 @@
 - type: latheRecipe
   abstract: true
   id: BaseTranslatorImplanter
-  name: lathe-recipe-BaseTranslatorImplanter-name
+  name: lathe-recipe-BaseTranslatorChip-name # Aquila Change
   completetime: 2
   materials:
     Steel: 500
@@ -181,91 +181,91 @@
   parent: BaseTranslatorImplanter
   id: BasicGalaticCommonTranslatorImplanter
   subname: lathe-recipe-BasicGalaticCommonTranslatorImplanter-subname
-  result: BasicGalaticCommonTranslatorImplanter
+  result: BasicTauCetiBasicTranslatorChip # Aquila Change
 
 - type: latheRecipe
   parent: BaseTranslatorImplanter
   id: AdvancedGalaticCommonTranslatorImplanter
   subname: lathe-recipe-AdvancedGalaticCommonTranslatorImplanter-subname
-  result: AdvancedGalaticCommonTranslatorImplanter
+  result: TauCetiBasicTranslatorChip # Aquila Change
 
 - type: latheRecipe
   parent: BaseTranslatorImplanter
   id: BubblishTranslatorImplanter
   subname: lathe-recipe-BubblishTranslatorImplanter-subname
-  result: BubblishTranslatorImplanter
+  result: BubblishTranslatorChip # Aquila Change
 
 - type: latheRecipe
   parent: BaseTranslatorImplanter
   id: NekomimeticTranslatorImplanter
   subname: lathe-recipe-NekomimeticTranslatorImplanter-subname
-  result: NekomimeticTranslatorImplanter
+  result: NekomimeticTranslatorChip # Aquila Change
 
 - type: latheRecipe
   parent: BaseTranslatorImplanter
   id: DraconicTranslatorImplanter
   subname: lathe-recipe-DraconicTranslatorImplanter-subname
-  result: DraconicTranslatorImplanter
+  result: DraconicTranslatorChip # Aquila Change
 
 - type: latheRecipe
   parent: BaseTranslatorImplanter
   id: CanilunztTranslatorImplanter
   subname: lathe-recipe-CanilunztTranslatorImplanter-subname
-  result: CanilunztTranslatorImplanter
+  result: CanilunztTranslatorChip # Aquila Change
 
 - type: latheRecipe
   parent: BaseTranslatorImplanter
   id: SolCommonTranslatorImplanter
   subname: lathe-recipe-SolCommonTranslatorImplanter-subname
-  result: SolCommonTranslatorImplanter
+  result: SolCommonTranslatorChip # Aquila Change
 
 - type: latheRecipe
   parent: BaseTranslatorImplanter
   id: RootSpeakTranslatorImplanter
   subname: lathe-recipe-RootSpeakTranslatorImplanter-subname
-  result: RootSpeakTranslatorImplanter
+  result: RootSpeakTranslatorChip # Aquila Change
 
 - type: latheRecipe
   parent: BaseTranslatorImplanter
   id: MofficTranslatorImplanter
   subname: lathe-recipe-MofficTranslatorImplanter-subname
-  result: MofficTranslatorImplanter
+  result: MofficTranslatorChip # Aquila Change
 
 - type: latheRecipe
   parent: BaseTranslatorImplanter
   id: ValyrianStandardTranslatorImplanter
   subname: lathe-recipe-ValyrianStandardTranslatorImplanter-subname
-  result: ValyrianStandardTranslatorImplanter
+  result: ValyrianStandardTranslatorChip # Aquila Change
 
 - type: latheRecipe
   parent: BaseTranslatorImplanter
   id: ChittinTranslatorImplanter
   subname: lathe-recipe-ChittinTranslatorImplanter-subname
-  result: ChittinTranslatorImplanter
+  result: ChittinTranslatorChip # Aquila Change
 
 - type: latheRecipe
   parent: BaseTranslatorImplanter
   id: SiikMaasTranslatorImplanter
   subname: lathe-recipe-SiikMaasTranslatorImplanter-subname
-  result: SiikMaasTranslatorImplanter
+  result: SiikMaasTranslatorChip # Aquila Change
 
 - type: latheRecipe
   parent: BaseTranslatorImplanter
   id: MarishTranslatorImplanter
   subname: lathe-recipe-MarishTranslatorImplanter-subname
-  result: MarishTranslatorImplanter
+  result: MarishTranslatorChip # Aquila Change
 
 - type: latheRecipe
   parent: BaseTranslatorImplanter
   id: SchechiTranslatorImplanter
   subname: lathe-recipe-SchechiTranslatorImplanter-subname
-  result: SchechiTranslatorImplanter
+  result: SchechiTranslatorChip # Aquila Change
 
 - type: latheRecipe
   parent: BaseTranslatorImplanter
   id: NewKinPidginTranslatorImplanter
   subname: lathe-recipe-NewKinPidginTranslatorImplanter-subname
-  result: NewKinPidginTranslatorImplanter
+  result: NewKinPidginTranslatorChip # Aquila Change
   completetime: 2
   materials:
     Steel: 500
@@ -278,7 +278,7 @@
   parent: BaseTranslatorImplanter #CorvaxGoob edit
   id: GruntishTranslatorImplanter
   subname: lathe-recipe-GruntishTranslatorImplanter-subname #CorvaxGoob edit
-  result: GruntishTranslatorImplanter
+  result: GruntishTranslatorChip # Aquila Change
   completetime: 2
   materials:
     Steel: 500

@@ -8,9 +8,11 @@ namespace Content.Client._Aquila.Psychosis;
 [GenerateTypedNameReferences]
 public sealed partial class SplitPersonalitySwapWindow : FancyWindow
 {
+    private static readonly LocId SplitPersonalityRequestText = "split-personality-request-text";
+
     public SplitPersonalitySwapWindow()
     {
         RobustXamlLoader.Load(this);
-        RequestText.SetMessage(FormattedMessage.FromMarkupOrThrow(Loc.GetString("split-personality-request-text")));
+        RequestText.SetMessage(FormattedMessage.FromMarkupOrThrow(Loc.GetString(SplitPersonalityRequestText)));
     }
 }

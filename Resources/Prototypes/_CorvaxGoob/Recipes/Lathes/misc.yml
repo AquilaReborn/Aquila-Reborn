@@ -49,4 +49,4 @@
   parent: BaseTranslatorImplanter
   id: HydraspeakTranslatorImplanter
   subname: lathe-recipe-HydraspeakTranslatorImplanter-subname
-  result: HydraspeakTranslatorImplanter
+  result: HydraspeakTranslatorChip # Aquila Change

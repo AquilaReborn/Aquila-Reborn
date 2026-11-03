@@ -1,6 +1,7 @@
 using Content.Goobstation.Server._Aquila.Xenobiology.Components;
 using Content.Shared._Aquila.Nutrition;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
@@ -10,11 +11,11 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server._Aquila.Xenobiology.Systems;
 
-public sealed class SlimeVoiceSystem : EntitySystem
+public sealed partial class SlimeVoiceSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {

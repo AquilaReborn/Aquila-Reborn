@@ -42,9 +42,9 @@ public sealed class TimeStopSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<TimeStopComponent, MapInitEvent>(OnCasterMapInit);
+        SubscribeLocalEvent<TimeStopComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<TimeStopComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<TimeStopComponent, TimeStopActionEvent>(OnTimeStopAction);
-        SubscribeLocalEvent<TimeStopComponent, ComponentShutdown>(OnCasterShutdown);
 
         SubscribeLocalEvent<TimeStopSlowedComponent, RefreshMovementSpeedModifiersEvent>(OnSlowedRefreshSpeed);
 
@@ -198,9 +198,14 @@ public sealed class TimeStopSystem : EntitySystem
         Dirty(uid, thrown);
     }
 
-    private void OnCasterMapInit(Entity<TimeStopComponent> ent, ref MapInitEvent args)
+    private void OnStartup(EntityUid uid, TimeStopComponent component, ComponentStartup args)
     {
-        _actions.AddAction(ent.Owner, ref ent.Comp.ActionEntity, ent.Comp.ActionId);
+        _actions.AddAction(uid, ref component.ActionEntity, component.ActionId);
+    }
+
+    private void OnShutdown(EntityUid uid, TimeStopComponent component, ComponentShutdown args)
+    {
+        _actions.RemoveAction(uid, component.ActionEntity);
     }
 
     private void OnTimeStopAction(Entity<TimeStopComponent> ent, ref TimeStopActionEvent args)
@@ -238,12 +243,7 @@ public sealed class TimeStopSystem : EntitySystem
 
         comp.InRange.Add(ent.Owner);
         ApplyVisualsOnly(ent.Owner, comp);
-    }
-
-    private void OnCasterShutdown(Entity<TimeStopComponent> ent, ref ComponentShutdown args)
-    {
-        Disable(ent.Owner, ent.Comp);
-    }
+    } 
 
     public void Disable(EntityUid uid, TimeStopComponent comp)
     {

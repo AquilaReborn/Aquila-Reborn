@@ -6,15 +6,15 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Client._Aquila.Changeling;
 
-public sealed class ChangelingRoarWaveOverlay : Overlay
+public sealed partial class ChangelingRoarWaveOverlay : Overlay
 {
     private const int MaximumInstances = 10;
 
     private static readonly ProtoId<ShaderPrototype> WavePrototype = "ChangelingRoarWave";
 
-    [Dependency] private readonly IEntityManager _entMan = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IEntityManager _entMan = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
     public override bool RequestScreenTexture => true;

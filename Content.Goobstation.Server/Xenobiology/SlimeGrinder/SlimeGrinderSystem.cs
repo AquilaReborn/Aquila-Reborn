@@ -26,14 +26,14 @@ namespace Content.Goobstation.Server.Xenobiology.SlimeGrinder;
 // -js
 public sealed partial class SlimeGrinderSystem : EntitySystem
 {
-    [Dependency] private readonly XenobiologySystem _xenobio = default!;
-    [Dependency] private readonly SharedJitteringSystem _jitteringSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _sharedAudioSystem = default!;
-    [Dependency] private readonly SharedAmbientSoundSystem _ambientSoundSystem = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
-    [Dependency] private readonly IRobustRandom _robustRandom = default!;
-    [Dependency] private readonly ContainerSystem _container = default!;
-    [Dependency] private readonly SlimeGeneticsSystem _genetics = default!; // Aquila Change
+    [Dependency] private XenobiologySystem _xenobio = default!;
+    [Dependency] private SharedJitteringSystem _jitteringSystem = default!;
+    [Dependency] private SharedAudioSystem _sharedAudioSystem = default!;
+    [Dependency] private SharedAmbientSoundSystem _ambientSoundSystem = default!;
+    [Dependency] private ThrowingSystem _throwing = default!;
+    [Dependency] private IRobustRandom _robustRandom = default!;
+    [Dependency] private ContainerSystem _container = default!;
+    [Dependency] private SlimeGeneticsSystem _genetics = default!; // Aquila Change
 
     public override void Initialize()
     {
@@ -136,7 +136,8 @@ public sealed partial class SlimeGrinderSystem : EntitySystem
         foreach (var ent in _container.EmptyContainer(slime.Stomach)) // spew everything out jic
         {
             _container.TryRemoveFromContainer(ent, true);
-            _throwing.TryThrow(ent, _robustRandom.NextVector2() * 5);
+            _throwing.TryThrow(ent, _robustRandom.NextVector2() * 5,
+                predicted: false); // Trauma
         }
         QueueDel(toProcess);
     }

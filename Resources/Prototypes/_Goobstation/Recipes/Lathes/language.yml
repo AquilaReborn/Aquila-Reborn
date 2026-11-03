@@ -2,7 +2,7 @@
   parent: BaseTranslatorImplanter
   id: ChevalTranslatorImplanter
   subname: lathe-recipe-ChevalTranslatorImplanter-subname
-  result: ChevalTranslatorImplanter
+  result: ChevalTranslatorChip # Aquila Change
 
 - type: latheRecipe
   id: YowKriolTranslator
@@ -18,10 +18,10 @@
   parent: BaseTranslatorImplanter
   id: YowKriolTranslatorImplanter
   subname: lathe-recipe-YowKriolTranslatorImplanter-subname
-  result: YowKriolTranslatorImplanter
+  result: YowKriolTranslatorChip # Aquila Change
 
 - type: latheRecipe
   parent: BaseTranslatorImplanter
   id: SignTranslatorImplanter
   subname: lathe-recipe-SignTranslatorImplanter-subname
-  result: SignTranslatorImplanter
+  result: SignTranslatorChip # Aquila Change

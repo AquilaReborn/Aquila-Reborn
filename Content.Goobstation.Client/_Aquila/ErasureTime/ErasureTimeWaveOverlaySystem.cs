@@ -5,12 +5,12 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Client.Aquila.ErasureTime;
 
-public sealed class ErasureTimeWaveOverlaySystem : EntitySystem
+public sealed partial class ErasureTimeWaveOverlaySystem : EntitySystem
 {
-    [Dependency] private readonly IOverlayManager _overlay = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IOverlayManager _overlay = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IEntityManager _entManager = default!;
 
     private ErasureTimeWaveOverlay? _overlayInstance;
 

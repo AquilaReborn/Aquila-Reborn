@@ -15,7 +15,7 @@ using Content.Shared.Chat; // Einstein Engines - Languages
 
 namespace Content.Server.Weapons.Melee;
 
-public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
+public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem // Aquila Change
 {
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly LagCompensationSystem _lag = default!;
@@ -73,7 +73,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
     protected override void DoDamageEffect(List<EntityUid> targets, EntityUid? user, TransformComponent targetXform)
     {
-        var filter = Filter.Pvs(targetXform.Coordinates, entityMan: EntityManager).RemoveWhereAttachedEntity(o => o == user);
+        var filter = Filter.Pvs(targetXform.Coordinates, entityMan: EntityManager).RemoveWhereAttachedEntity(o => o == user && !IsDrivenByNpc(o)); // Aquila Change
         _color.RaiseEffect(Color.Red, targets, filter);
     }
 
@@ -81,7 +81,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
     {
         Filter filter;
 
-        if (predicted)
+        if (predicted && !IsDrivenByNpc(user)) // Aquila Change
         {
             filter = Filter.PvsExcept(user, entityManager: EntityManager);
         }

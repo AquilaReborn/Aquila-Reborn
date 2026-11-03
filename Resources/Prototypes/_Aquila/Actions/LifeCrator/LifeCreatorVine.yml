@@ -5,7 +5,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon:
+    icon: { sprite: _Aquila/Action/guardian.rsi, state: action_kudzu }
     useDelay: 10
   - type: TargetAction
     checkCanAccess: false

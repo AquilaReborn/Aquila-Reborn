@@ -1,0 +1,59 @@
+- type: entity
+  parent: BaseAction
+  id: ActionCyberHack
+  name: Hack
+  description: Stretch a digital link to a device and break into it in two seconds, both its access and its hidden functions. Every hack burns your body and strains your implants.
+  components:
+  - type: Action
+    useDelay: 3
+    itemIconStyle: NoItem
+    icon: { sprite: Objects/Tools/emag.rsi, state: icon }
+  - type: TargetAction
+    range: 3
+    interactOnMiss: false
+  - type: EntityTargetAction
+    canTargetSelf: false
+    event: !type:CyberHackActionEvent
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: CyberHackImplant
+  categories: [ HideSpawnMenu ]
+  name: hacking implant
+  description: Illegal cyberware that turns its owner into a walking emag. It has no charges, but every hack costs the owner some health.
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionCyberHack
+  - type: Cyberware
+    load: 20
+  - type: Emag
+    emagType: All
+  - type: CyberHackImplant
+    damage:
+      types:
+        Shock: 6
+        Heat: 4
+    strain: 8
+    startSound:
+      path: /Audio/Machines/Nuke/angry_beep.ogg
+      params:
+        volume: -4
+
+- type: entity
+  parent: BaseImplantOnlyImplanterSyndi
+  id: CyberHackImplanter
+  name: hacking implanter
+  components:
+  - type: Implanter
+    implant: CyberHackImplant
+
+- type: listing
+  id: UplinkCyberHackImplanter
+  name: uplink-cyber-hack-implanter-name
+  description: uplink-cyber-hack-implanter-desc
+  icon: { sprite: Objects/Tools/emag.rsi, state: icon }
+  productEntity: CyberHackImplanter
+  cost:
+    Telecrystal: 12
+  categories:
+  - UplinkImplants

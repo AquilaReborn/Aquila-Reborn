@@ -1016,6 +1016,8 @@
     - type: AugmentArm
   - type: SurgeryOrganSlotCondition
     organSlot: armImplant
+  - type: SurgeryAugmentSlot # Aquila Change
+    slot: armImplant # Aquila Change
 
 - type: entity
   parent: SurgeryRemoveAugmentBase
@@ -1029,6 +1031,8 @@
   - type: SurgeryOrganCondition
     organ:
     - type: AugmentArm
+  - type: SurgeryAugmentSlot # Aquila Change
+    slot: armImplant # Aquila Change
 
 # Lobotomy
 - type: entity

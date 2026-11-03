@@ -50,8 +50,8 @@ public sealed partial class ErasureTimeComponent : Component
     public TimeSpan EndTime;
 
     [DataField]
-    public SoundSpecifier? ActivationSound = new SoundPathSpecifier("/Audio/_Goobstation/Misc/sande_start.ogg");
+    public SoundSpecifier? ActivationSound = new SoundPathSpecifier("/Audio/_Aquila/TimeSkip/TimeSkipStart.ogg");
 
     [DataField]
-    public SoundSpecifier? DeactivationSound = new SoundPathSpecifier("/Audio/_Goobstation/Misc/sande_end.ogg");
+    public SoundSpecifier? DeactivationSound = new SoundPathSpecifier("/Audio/_Aquila/TimeSkip/TimeSkipEnd.ogg");
 }

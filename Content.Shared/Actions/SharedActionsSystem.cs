@@ -328,6 +328,9 @@ public abstract partial class SharedActionsSystem : EntitySystem
         if (attemptEv.Cancelled)
             return false;
 
+        if (IsActionProviderBlocked(action, user)) // Aquila Change
+            return false; // Aquila Change
+
         // Validate request by checking action blockers and the like
         var provider = action.Comp.Container ?? user;
         var validateEv = new ActionValidateEvent()
@@ -698,6 +701,9 @@ public abstract partial class SharedActionsSystem : EntitySystem
         RaiseLocalEvent(action, ref attemptEv);
         if (attemptEv.Cancelled)
             return false;
+
+        if (IsActionProviderBlocked(action, user)) // Aquila Change
+            return false; // Aquila Change
 
         // Validate request by checking action blockers and the like
         var provider = action.Comp.Container ?? user;

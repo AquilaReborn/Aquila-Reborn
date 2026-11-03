@@ -7,6 +7,8 @@
   description: Provides your illiterate friends the ability to understand the common galactic tongue.
   categories: [ HideSpawnMenu ]
   components:
+  - type: Cyberware # Aquila Change
+    load: 0 # Aquila Change
   - type: TranslatorImplant
     understood:
     - TauCetiBasic
@@ -18,6 +20,8 @@
   description: A more advanced version of the translator implant, teaches your illiterate friends the ability to both speak and understand the galactic tongue!
   categories: [ HideSpawnMenu ]
   components:
+  - type: Cyberware # Aquila Change
+    load: 0 # Aquila Change
   - type: TranslatorImplant
     understood:
     - TauCetiBasic
@@ -31,6 +35,8 @@
   description: An implant that helps you speak and understand the language of slimes! Special vocal chords not included.
   categories: [ HideSpawnMenu ]
   components:
+  - type: Cyberware # Aquila Change
+    load: 0 # Aquila Change
   - type: TranslatorImplant
     understood:
     - Bubblish
@@ -46,6 +52,8 @@
   description: A translator implant intially designed to help domestic cat owners understand their pets, now granting the ability to understand and speak to Felinids!
   categories: [ HideSpawnMenu ]
   components:
+  - type: Cyberware # Aquila Change
+    load: 0 # Aquila Change
   - type: TranslatorImplant
     understood:
     - Nekomimetic
@@ -61,6 +69,8 @@
   description: A translator implant giving the ability to speak to dragons! Subsequently, also allows to communicate with the Unathi.
   categories: [ HideSpawnMenu ]
   components:
+  - type: Cyberware # Aquila Change
+    load: 0 # Aquila Change
   - type: TranslatorImplant
     understood:
     - Draconic
@@ -76,6 +86,8 @@
   description: A translator implant that helps you communicate with your local yeepers. Yeep!
   categories: [ HideSpawnMenu ]
   components:
+  - type: Cyberware # Aquila Change
+    load: 0 # Aquila Change
   - type: TranslatorImplant
     understood:
     - Canilunzt
@@ -91,6 +103,8 @@
   description: An implant giving the ability to understand and speak SolCommon. Raaagh!
   categories: [ HideSpawnMenu ]
   components:
+  - type: Cyberware # Aquila Change
+    load: 0 # Aquila Change
   - type: TranslatorImplant
     understood:
     - SolCommon
@@ -106,6 +120,8 @@
   description: An implant giving the ability to understand and speak Novu-Nederic. Hoezee!
   categories: [ HideSpawnMenu ]
   components:
+  - type: Cyberware # Aquila Change
+    load: 0 # Aquila Change
   - type: TranslatorImplant
     understood:
     - NovuNederic
@@ -121,6 +137,8 @@
   description: An implant that lets you speak for the trees. Or to the trees.
   categories: [ HideSpawnMenu ]
   components:
+  - type: Cyberware # Aquila Change
+    load: 0 # Aquila Change
   - type: TranslatorImplant
     understood:
     - RootSpeak
@@ -136,6 +154,8 @@
   description: An implant designed to help domesticate mothroaches. Subsequently, allows you to communicate with the moth people.
   categories: [ HideSpawnMenu ]
   components:
+  - type: Cyberware # Aquila Change
+    load: 0 # Aquila Change
   - type: TranslatorImplant
     understood:
     - Moffic
@@ -151,6 +171,8 @@
   description: An implant giving the ability to understand and speak Valyrian Standard. Chirp!
   categories: [ HideSpawnMenu ]
   components:
+  - type: Cyberware # Aquila Change
+    load: 0 # Aquila Change
   - type: TranslatorImplant
     understood:
     - ValyrianStandard
@@ -166,6 +188,8 @@
   description: An implant giving the ability to understand and speak Azaziba. # Intended for Admins Only, this item is for lore reasons not obtainable.
   categories: [ HideSpawnMenu ]
   components:
+  - type: Cyberware # Aquila Change
+    load: 0 # Aquila Change
   - type: TranslatorImplant
     understood:
     - Azaziba
@@ -181,6 +205,8 @@
   description: An implant giving the ability to understand and speak Chittin.
   categories: [ HideSpawnMenu ]
   components:
+  - type: Cyberware # Aquila Change
+    load: 0 # Aquila Change
   - type: TranslatorImplant
     understood:
     - Chittin
@@ -196,6 +222,8 @@
   description: An implant giving the ability to understand and speak Siik'maas.
   categories: [ HideSpawnMenu ]
   components:
+  - type: Cyberware # Aquila Change
+    load: 0 # Aquila Change
   - type: TranslatorImplant
     understood:
     - SiikMaas
@@ -211,6 +239,8 @@
   description: An implant giving the ability to understand and speak Marish.
   categories: [ HideSpawnMenu ]
   components:
+  - type: Cyberware # Aquila Change
+    load: 0 # Aquila Change
   - type: TranslatorImplant
     understood:
     - Marish
@@ -226,6 +256,8 @@
   description: An implant giving the ability to understand and speak Schechi.
   categories: [ HideSpawnMenu ]
   components:
+  - type: Cyberware # Aquila Change
+    load: 0 # Aquila Change
   - type: TranslatorImplant
     understood:
     - Schechi
@@ -241,6 +273,8 @@
   description: An implant giving the ability to understand and speak Ka'rakk.
   categories: [ HideSpawnMenu ]
   components:
+  - type: Cyberware # Aquila Change
+    load: 0 # Aquila Change
   - type: TranslatorImplant
     understood:
     - NewKinPidgin
@@ -256,6 +290,8 @@
   description: An implant giving the ability to understand and speak Gruntish.
   categories: [ HideSpawnMenu ]
   components:
+  - type: Cyberware # Aquila Change
+    load: 0 # Aquila Change
   - type: TranslatorImplant
     understood:
     - Gruntish

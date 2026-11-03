@@ -9,10 +9,10 @@ using Robust.Shared.Player;
 namespace Content.Goobstation.Server.Administration.Commands;
 
 [AdminCommand(AdminFlags.Host)]
-internal sealed class ListPatronTiersCommand : LocalizedCommands
+internal sealed partial class ListPatronTiersCommand : LocalizedCommands // Aquila Change
 {
-    [Dependency] private readonly LinkAccountManager _linkAccount = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
+    [Dependency] private LinkAccountManager _linkAccount = default!; // Aquila Change
+    [Dependency] private ISharedPlayerManager _playerManager = default!; // Aquila Change
 
     public override string Command => "listpatrontiers";
 

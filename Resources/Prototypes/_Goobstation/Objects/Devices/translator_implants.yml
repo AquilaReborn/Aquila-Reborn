@@ -7,6 +7,8 @@
   description: An implant giving the ability to understand and speak most languages.
   categories: [ HideSpawnMenu ]
   components:
+  - type: Cyberware # Aquila Change
+    load: 0 # Aquila Change
   - type: TranslatorImplant
     spoken:
       - TauCetiBasic # Common Languages -
@@ -90,6 +92,8 @@
   description: An implant giving the ability to understand and speak Cheval.
   categories: [ HideSpawnMenu ]
   components:
+  - type: Cyberware # Aquila Change
+    load: 0 # Aquila Change
   - type: TranslatorImplant
     spoken:
      - Cheval
@@ -103,6 +107,8 @@
   description: Provides you the ability to understand the residents of the kitchen.
   categories: [ HideSpawnMenu ]
   components:
+  - type: Cyberware # Aquila Change
+    load: 0 # Aquila Change
   - type: TranslatorImplant
     understood:
     - SpaceItalian
@@ -114,6 +120,8 @@
   description: Provides you the ability to speak the language of the kitchen.
   categories: [ HideSpawnMenu ]
   components:
+  - type: Cyberware # Aquila Change
+    load: 0 # Aquila Change
   - type: TranslatorImplant
     understood:
     - SpaceItalian
@@ -127,6 +135,8 @@
   description: An implant giving the ability to understand and speak Yow Kriol.
   categories: [ HideSpawnMenu ]
   components:
+  - type: Cyberware # Aquila Change
+    load: 0 # Aquila Change
   - type: TranslatorImplant
     understood:
     - YowKriol
@@ -142,6 +152,8 @@
   description: An implant giving the ability to understand and speak Sign Language.
   categories: [ HideSpawnMenu ]
   components:
+  - type: Cyberware # Aquila Change
+    load: 0 # Aquila Change
   - type: TranslatorImplant
     understood:
     - Sign

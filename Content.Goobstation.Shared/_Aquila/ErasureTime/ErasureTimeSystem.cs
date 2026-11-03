@@ -23,23 +23,24 @@ using Robust.Shared.Network;
 
 namespace Content.Goobstation.Shared.Aquila.ErasureTime;
 
-public sealed class ErasureTimeSystem : EntitySystem
+public sealed partial class ErasureTimeSystem : EntitySystem
 {
-    [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly FixtureSystem _fixtures = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
+    [Dependency] private MovementSpeedModifierSystem _speed = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private FixtureSystem _fixtures = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedEyeSystem _eye = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private INetManager _netManager = default!;
 
     private const string SlowfieldFixtureId = "erasure-time-slowfield";
 
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<ErasureTimeComponent, MapInitEvent>(OnCasterMapInit);
+        SubscribeLocalEvent<ErasureTimeComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ErasureTimeComponent, ComponentShutdown>(OnShutdown);
 
         SubscribeLocalEvent<ErasureTimeComponent, ErasureTimeActionEvent>(OnErasureTimeAction);
         SubscribeLocalEvent<ErasureTimeComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
@@ -79,9 +80,14 @@ public sealed class ErasureTimeSystem : EntitySystem
         }
     }
 
-    private void OnCasterMapInit(Entity<ErasureTimeComponent> ent, ref MapInitEvent args)
+    private void OnStartup(EntityUid uid, ErasureTimeComponent component, ComponentStartup args)
     {
-        _actions.AddAction(ent.Owner, ref ent.Comp.ActionEntity, ent.Comp.ActionId);
+        _actions.AddAction(uid, ref component.ActionEntity, component.ActionId);
+    }
+
+    private void OnShutdown(EntityUid uid, ErasureTimeComponent component, ComponentShutdown args)
+    {
+        _actions.RemoveAction(uid, component.ActionEntity);
     }
 
     private void OnErasureTimeAction(Entity<ErasureTimeComponent> ent, ref ErasureTimeActionEvent args)

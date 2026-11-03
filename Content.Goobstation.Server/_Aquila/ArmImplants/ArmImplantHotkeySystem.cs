@@ -12,13 +12,13 @@ using Robust.Shared.Player;
 
 namespace Content.Goobstation.Server._Aquila.ArmImplants;
 
-public sealed class ArmImplantHotkeySystem : EntitySystem
+public sealed partial class ArmImplantHotkeySystem : EntitySystem
 {
-    [Dependency] private readonly AugmentPowerCellSystem _augmentPowerCell = default!;
-    [Dependency] private readonly AugmentToolPanelSystem _toolPanel = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private AugmentPowerCellSystem _augmentPowerCell = default!;
+    [Dependency] private AugmentToolPanelSystem _toolPanel = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedBodySystem _body = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
 
     public override void Initialize()
     {

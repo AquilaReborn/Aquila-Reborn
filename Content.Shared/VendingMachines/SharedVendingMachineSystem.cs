@@ -22,6 +22,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared._CorvaxGoob.OverTemperature;
 
 namespace Content.Shared.VendingMachines;
 
@@ -399,7 +400,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         return GetAllInventory(uid, component).Where(_ => _.Amount > 0).ToList();
     }
 
-    private void AddInventoryFromPrototype(EntityUid uid, Dictionary<string, uint>? entries,
+    private void AddInventoryFromPrototype(EntityUid uid, Dictionary<EntProtoId, uint>? entries,
         InventoryType type,
         VendingMachineComponent? component = null, float restockQuality = 1.0f)
     {
@@ -461,6 +462,9 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
     {
         vendComponent.Broken = true;
         Dirty(uid, vendComponent);
+
+        RaiseLocalEvent(uid, new VendingMachineStateChangeEvent(true)); // CorvaxGoob
+
         TryUpdateVisualState((uid, vendComponent));
 
         UISystem.CloseUi(uid, VendingMachineUiKey.Key);

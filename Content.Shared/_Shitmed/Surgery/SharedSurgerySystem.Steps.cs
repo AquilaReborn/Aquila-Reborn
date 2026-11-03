@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Surgery;
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
@@ -348,18 +349,25 @@ public abstract partial class SharedSurgerySystem
 
         // Adding organs is generally done for a single one at a time, so we only need to check for the first.
         var firstOrgan = organComp.Organ.Values.FirstOrDefault();
-        if (firstOrgan == default)
+        if (firstOrgan.Component == null)
             return;
+
+        if (IsDuplicateAugment(args.Surgery, args.Part, args.Tool, args.User)) // Aquila Change
+            return; // Aquila Change
 
         if (!HasComp(args.Tool, firstOrgan.Component.GetType())
             || !TryComp<OrganComponent>(args.Tool, out var insertedOrgan)
-            || !_body.InsertOrgan(args.Part, args.Tool, insertedOrgan.SlotId, partComp, insertedOrgan))
+            || !_body.InsertOrgan(args.Part, args.Tool, GetInsertSlot(args.Surgery, insertedOrgan), partComp, insertedOrgan)) // Aquila Change
             return;
 
+        insertedOrgan.SlotId = GetInsertSlot(args.Surgery, insertedOrgan); // Aquila Change
         EnsureComp<OrganReattachedComponent>(args.Tool);
 
         if (insertedOrgan.OriginalBody == args.Body)
             return;
+
+        var transplantEv = new OrganTransplantedEvent(args.Body, args.Tool);
+        RaiseLocalEvent(args.User, ref transplantEv);
 
         var ev = new SurgeryStepDamageChangeEvent(args.User, args.Body, args.Part, ent);
             RaiseLocalEvent(ent, ref ev);
@@ -368,6 +376,9 @@ public abstract partial class SharedSurgerySystem
 
     private void OnAddOrganCheck(Entity<SurgeryAddOrganStepComponent> ent, ref SurgeryStepCompleteCheckEvent args)
     {
+        if (TryCheckAugmentSlotFilled(args.Surgery, args.Part, ref args)) // Aquila Change
+            return; // Aquila Change
+
         if (!TryComp<SurgeryOrganConditionComponent>(args.Surgery, out var organComp)
             || organComp.Organ is null
             || !_partQuery.TryComp(args.Part, out var partComp)
@@ -397,7 +408,7 @@ public abstract partial class SharedSurgerySystem
         {
             _body.TryGetBodyPartOrgans(args.Part, reg.Component.GetType(), out var organs);
             if (organs != null && organs.Count > 0)
-                RemComp<OrganReattachedComponent>(organs[0].Id);
+                ClearOrganReattached(organs); // Aquila Change
         }
 
     }
@@ -421,6 +432,9 @@ public abstract partial class SharedSurgerySystem
 
     private void OnRemoveOrganStep(Entity<SurgeryRemoveOrganStepComponent> ent, ref SurgeryStepEvent args)
     {
+        if (TryRemoveAugmentFromSlot(args.Surgery, args.Part, args.User)) // Aquila Change
+            return; // Aquila Change
+
         if (!TryComp<SurgeryOrganConditionComponent>(args.Surgery, out var organComp)
             || organComp.Organ == null)
             return;
@@ -440,6 +454,9 @@ public abstract partial class SharedSurgerySystem
 
     private void OnRemoveOrganCheck(Entity<SurgeryRemoveOrganStepComponent> ent, ref SurgeryStepCompleteCheckEvent args)
     {
+        if (TryCheckAugmentSlotEmptied(args.Surgery, args.Part, ref args)) // Aquila Change
+            return; // Aquila Change
+
         if (!TryComp<SurgeryOrganConditionComponent>(args.Surgery, out var organComp)
             || organComp.Organ == null
             || !_partQuery.TryComp(args.Part, out var partComp)
@@ -465,7 +482,7 @@ public abstract partial class SharedSurgerySystem
             return;
 
         var organType = ent.Comp.Organ.Values.FirstOrDefault();
-        if (organType == default)
+        if (organType.Component == null)
             return;
 
         var markingCategory = MarkingCategoriesConversion.FromHumanoidVisualLayers(ent.Comp.MarkingCategory);

@@ -1,0 +1,76 @@
+- type: entity
+  id: EngramTemplate
+  categories: [ HideSpawnMenu ]
+  name: engram
+  save: false
+  components:
+  - type: Engram
+  - type: Physics
+    bodyType: KinematicController
+    bodyStatus: OnGround
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 15
+        layer:
+        - GhostImpassable
+  - type: CanMoveInAir
+  - type: MovementIgnoreGravity
+  - type: InputMover
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 6
+  - type: MindContainer
+  - type: ContentEye
+  - type: Eye
+  - type: Input
+    context: "ghost"
+  - type: Examiner
+  - type: Speech
+  - type: Emoting
+  - type: LanguageSpeaker
+  - type: UniversalLanguageSpeaker
+
+- type: entity
+  parent: [ BaseItem, BaseSyndicateContraband ]
+  id: Soulkiller
+  name: soulkiller
+  description: An illegal device that rips the personality out of a dying or dead brain and writes it onto an engram chip. The body is left an empty shell.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/forensic_scanner.rsi
+    state: forensicnew
+    color: "#ff5f6d"
+  - type: Item
+    size: Small
+  - type: Soulkiller
+
+- type: entity
+  parent: [ BaseItem, BaseSyndicateContraband ]
+  id: EngramChip
+  name: engram chip
+  description: A chip with a recorded personality. Install it into your own head to bring the engram out.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Objects/Economy/holochip.rsi
+    state: holochip
+  - type: Item
+    size: Tiny
+  - type: EngramChip
+  - type: ContainerContainer
+    containers:
+      engram: !type:ContainerSlot
+
+- type: listing
+  id: UplinkSoulkiller
+  name: uplink-soulkiller-name
+  description: uplink-soulkiller-desc
+  icon: { sprite: Objects/Devices/forensic_scanner.rsi, state: forensicnew }
+  productEntity: Soulkiller
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkDisruption

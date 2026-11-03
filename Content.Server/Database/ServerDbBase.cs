@@ -27,7 +27,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Database
 {
-    public abstract partial class ServerDbBase // Aquila Change
+    public abstract partial class ServerDbBase // Goob // Aquila Change
     {
         private readonly ISawmill _opsLog;
         public event Action<DatabaseNotification>? OnNotificationReceived;

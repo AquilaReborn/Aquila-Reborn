@@ -8,7 +8,7 @@ using Robust.Shared.Containers;
 
 namespace Content.Server._EinsteinEngines.Language;
 
-public sealed class TranslatorImplantSystem : EntitySystem
+public sealed partial class TranslatorImplantSystem : EntitySystem // Aquila Change
 {
     [Dependency] private readonly LanguageSystem _language = default!;
 
@@ -54,6 +54,8 @@ public sealed class TranslatorImplantSystem : EntitySystem
         // TODO: might wanna find a better solution, i just can't come up with something viable
         foreach (var implant in component.ImplantContainer.ContainedEntities)
         {
+            AddChipLanguages(uid, implant, ref args); // Aquila Change
+
             if (!TryComp<TranslatorImplantComponent>(implant, out var translator) || !translator.Enabled)
                 continue;
 

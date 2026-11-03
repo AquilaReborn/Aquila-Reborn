@@ -10,7 +10,7 @@ namespace Content.Shared.Weapons.Melee;
 /// <summary>
 /// This handles <see cref="MeleeSoundComponent"/>
 /// </summary>
-public sealed class MeleeSoundSystem : EntitySystem
+public sealed partial class MeleeSoundSystem : EntitySystem // Aquila Change
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
@@ -23,7 +23,7 @@ public sealed class MeleeSoundSystem : EntitySystem
     /// </summary>
     public void PlaySwingSound(EntityUid userUid, EntityUid weaponUid, MeleeWeaponComponent weaponComponent)
     {
-        _audio.PlayPredicted(weaponComponent.SwingSound, weaponUid, userUid);
+        _audio.PlayPredicted(weaponComponent.SwingSound, weaponUid, GetPredictingUser(userUid)); // Aquila Change
     }
 
     /// <summary>
@@ -35,6 +35,7 @@ public sealed class MeleeSoundSystem : EntitySystem
     /// <param name="hitSoundOverride"> A sound can be supplied by the <see cref="MeleeHitEvent"/> itself to override everything else </param>
     public void PlayHitSound(EntityUid targetUid, EntityUid? userUid, string? damageType, SoundSpecifier? hitSoundOverride, MeleeWeaponComponent weaponComponent)
     {
+        userUid = GetPredictingUser(userUid); // Aquila Change
         var hitSound      = weaponComponent.HitSound;
         var noDamageSound = weaponComponent.NoDamageSound;
 

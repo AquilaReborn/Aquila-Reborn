@@ -7,6 +7,8 @@
   abstract: true
   components:
   - type: SubdermalImplant
+  - type: Cyberware # Aquila Change
+    load: 2 # Aquila Change
   - type: Tag
     tags:
     - SubdermalImplant
@@ -47,7 +49,7 @@
     enabled: false
     radius: 2.5
     softness: 5
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true
   - type: Tag
     tags:
@@ -285,8 +287,9 @@
   - type: GibOnTrigger
     targetUser: true
     deleteItems: true
+  - type: ExplosionEffect # Goob
   - type: Explosive
-    explosionType: MicroBomb
+    explosionType: TransparentMicroBomb # Goob
     totalIntensity: 120
     intensitySlope: 5
     maxIntensity: 30

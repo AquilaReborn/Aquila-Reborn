@@ -16,6 +16,10 @@ namespace Content.Server._Aquila.Psychosis;
 /// </summary>
 public sealed class PsychosisAdminSystem : EntitySystem
 {
+    private static readonly LocId PsychosisAdminVerbSplit = "psychosis-admin-verb-split";
+    private static readonly LocId PsychosisAdminVerbFriend = "psychosis-admin-verb-friend";
+    private static readonly LocId PsychosisAdminVerbCure = "psychosis-admin-verb-cure";
+
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly IAdminManager _admin = default!;
     [Dependency] private readonly ImaginaryFriendSystem _friend = default!;
@@ -40,13 +44,13 @@ public sealed class PsychosisAdminSystem : EntitySystem
         var admin = actor.PlayerSession;
         var target = args.Target;
         var split = HasComp<SplitPersonalityComponent>(target);
-        var friend = HasComp<ImaginaryFriendOwnerComponent>(target);
+        var friend = _friend.HasImaginaryFriend(target);
 
         if (!split)
         {
             args.Verbs.Add(new Verb
             {
-                Text = Loc.GetString("psychosis-admin-verb-split"),
+                Text = Loc.GetString(PsychosisAdminVerbSplit),
                 Category = VerbCategory.Admin,
                 Impact = LogImpact.Medium,
                 Act = () =>
@@ -64,7 +68,7 @@ public sealed class PsychosisAdminSystem : EntitySystem
         {
             args.Verbs.Add(new Verb
             {
-                Text = Loc.GetString("psychosis-admin-verb-friend"),
+                Text = Loc.GetString(PsychosisAdminVerbFriend),
                 Category = VerbCategory.Admin,
                 Impact = LogImpact.Medium,
                 Act = () =>
@@ -83,13 +87,13 @@ public sealed class PsychosisAdminSystem : EntitySystem
 
         args.Verbs.Add(new Verb
         {
-            Text = Loc.GetString("psychosis-admin-verb-cure"),
+            Text = Loc.GetString(PsychosisAdminVerbCure),
             Category = VerbCategory.Admin,
             Impact = LogImpact.Medium,
             Act = () =>
             {
                 RemCompDeferred<SplitPersonalityComponent>(target);
-                RemCompDeferred<ImaginaryFriendOwnerComponent>(target);
+                _friend.Cure(target);
                 _adminLog.Add(LogType.Action, LogImpact.Medium, $"{admin.Name} cured the psychosis of {ToPrettyString(target)}");
             },
         });

@@ -5,10 +5,10 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server._Aquila.Xenobiology.Systems;
 
-public sealed class IndustrialCrossbreedSystem : EntitySystem
+public sealed partial class IndustrialCrossbreedSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

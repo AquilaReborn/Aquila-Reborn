@@ -30,7 +30,7 @@ public sealed class PsychicAnomalyRule : StationEventSystem<PsychicAnomalyRuleCo
         {
             if (!_mobState.IsAlive(ent)
                 || HasComp<SplitPersonalityComponent>(ent)
-                || HasComp<ImaginaryFriendOwnerComponent>(ent))
+                || _friend.HasImaginaryFriend(ent))
                 continue;
 
             candidates.Add(ent);

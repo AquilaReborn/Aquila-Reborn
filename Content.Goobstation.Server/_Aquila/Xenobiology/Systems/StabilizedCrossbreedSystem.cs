@@ -7,12 +7,12 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server._Aquila.Xenobiology.Systems;
 
-public sealed class StabilizedCrossbreedSystem : EntitySystem
+public sealed partial class StabilizedCrossbreedSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedEntityEffectsSystem _effects = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedEntityEffectsSystem _effects = default!;
 
     public override void Update(float frameTime)
     {

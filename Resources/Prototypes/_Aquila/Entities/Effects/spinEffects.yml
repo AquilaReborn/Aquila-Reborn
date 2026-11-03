@@ -56,3 +56,41 @@
     energy: 3
   - type: LightFade
     duration: 0.6
+
+- type: entity
+  id: SpinMark
+  components:
+  - type: TimedDespawn
+    lifetime: 10
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    noRot: true
+    sprite: _Aquila/Effects/Spin/SpinMarkEffect.rsi
+    layers:
+    - state: spinMark
+      shader: unshaded
+    netsync: false
+    drawdepth: Effects
+
+- type: entity
+  id: SpinMarkTickEffect
+  components:
+  - type: TimedDespawn
+    lifetime: 0.6
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    noRot: true
+    sprite: _Aquila/Effects/Spin/SpinMarkTickEffect.rsi
+    layers:
+    - state: spinMarkTick
+      shader: unshaded
+    netsync: false
+    drawdepth: Effects
+  - type: PointLight
+    color: "#6ecd56"
+    radius: 1.5
+    energy: 4
+  - type: LightFade
+    duration: 0.4

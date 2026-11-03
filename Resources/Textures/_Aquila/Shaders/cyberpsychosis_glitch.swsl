@@ -1,0 +1,76 @@
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp float intensity;
+uniform highp float redness;
+
+highp float hash(highp float n)
+{
+    return fract(sin(n) * 43758.5453);
+}
+
+highp float hash2(highp vec2 p)
+{
+    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+}
+
+void fragment()
+{
+    highp vec2 uv = UV;
+    highp float t = TIME;
+
+    highp vec2 centered = (uv - vec2(0.5)) * vec2(1.6, 1.0);
+    highp float edge = smoothstep(0.0, 0.75, length(centered));
+    highp float fade = smoothstep(0.0, 0.45, edge);
+    highp float i = intensity * edge;
+
+    highp vec3 base = texture2D(SCREEN_TEXTURE, uv).rgb;
+
+    highp float tClock = floor(t * 10.0);
+
+    highp float wBand = floor(uv.y * 14.0);
+    highp float wH = hash(wBand + tClock * 3.1);
+    highp float wTear = step(0.78, wH) * (wH - 0.5) * 0.15 * i;
+
+    highp float mBand = floor(uv.y * 45.0);
+    highp float mH = hash(mBand + tClock * 4.7);
+    highp float mTear = step(0.88, mH) * (mH - 0.5) * 0.06 * i;
+
+    highp float totalTear = wTear + mTear;
+    highp float tearStr = abs(totalTear);
+
+    highp vec2 bG = floor(uv * vec2(16.0, 10.0));
+    highp vec2 bCenter = ((bG + vec2(0.5)) / vec2(16.0, 10.0) - vec2(0.5)) * vec2(1.6, 1.0);
+    highp float bEdge = smoothstep(0.0, 0.75, length(bCenter));
+    highp float bActive = step(1.0 - 0.16 * bEdge * bEdge, hash2(bG + floor(t * 6.0)));
+    highp float bShift = bActive * (hash2(bG * 2.0) - 0.5) * 0.05 * i;
+
+    highp vec2 uvD = uv + vec2(totalTear + bShift, 0.0);
+    highp float ab = (0.005 + tearStr * 0.04) * i;
+
+    highp vec3 corrupt = vec3(
+        texture2D(SCREEN_TEXTURE, vec2(uvD.x + ab, uvD.y)).r,
+        texture2D(SCREEN_TEXTURE, uvD).g,
+        texture2D(SCREEN_TEXTURE, vec2(uvD.x - ab, uvD.y)).b);
+
+    if (bActive > 0.5)
+    {
+        highp float ch = hash(bG.x * 7.0 + bG.y * 11.0 + floor(t * 6.0));
+        if (ch < 0.4)
+            corrupt = vec3(corrupt.r * 1.8, corrupt.g * 0.2, corrupt.b * 0.6);
+        else if (ch < 0.7)
+            corrupt = vec3(corrupt.r * 0.2, corrupt.g * 1.6, corrupt.b * 1.8);
+        else
+            corrupt = corrupt.gbr * 1.4;
+    }
+
+    highp float corruption = clamp(smoothstep(0.0, 0.012, tearStr) + bActive * 0.8, 0.0, 1.0);
+    highp float alpha = clamp((corruption * 0.85 + i * 0.35) * fade, 0.0, 1.0) * step(0.001, intensity);
+
+    highp vec3 color = mix(base, corrupt, alpha);
+
+    highp float pulse = 0.85 + 0.15 * sin(t * 2.5);
+    highp vec3 tinted = vec3(color.r * 1.35 + 0.08, color.g * 0.45, color.b * 0.45);
+    highp float redMask = redness * pulse * (0.65 + 0.35 * smoothstep(0.0, 0.9, length(centered)));
+    color = mix(color, tinted, clamp(redMask, 0.0, 1.0));
+
+    COLOR = vec4(color, 1.0);
+}
