@@ -36,6 +36,8 @@
     state: borg_l_arm
   - type: Icon
     state: borg_l_arm
+  - type: BodyPart # Aquila Change
+    baseLayerId: CyborgLArm # Aquila Change
   - type: Tag
     tags:
     - Trash
@@ -53,6 +55,8 @@
     state: borg_r_arm
   - type: Icon
     state: borg_r_arm
+  - type: BodyPart # Aquila Change
+    baseLayerId: CyborgRArm # Aquila Change
   - type: Tag
     tags:
     - Trash
@@ -70,6 +74,8 @@
     state: borg_l_leg
   - type: Icon
     state: borg_l_leg
+  - type: BodyPart # Aquila Change
+    baseLayerId: CyborgLLeg # Aquila Change
   - type: Tag
     tags:
     - Trash
@@ -87,6 +93,8 @@
     state: borg_r_leg
   - type: Icon
     state: borg_r_leg
+  - type: BodyPart # Aquila Change
+    baseLayerId: CyborgRLeg # Aquila Change
   - type: Tag
     tags:
     - Trash

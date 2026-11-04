@@ -51,6 +51,7 @@
       attackSpeedModifier: 1
       doAfterModifier: 1
       slowfieldEnabled: true
+      slowfieldRadius: 12 # Aquila Change
       thresholds:
         Warning: 6
         Shaking: 10

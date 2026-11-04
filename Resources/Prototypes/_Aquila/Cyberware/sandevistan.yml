@@ -19,7 +19,7 @@
   - type: Organ
     onAdd:
     - type: SandevistanUser
-      movementSpeedModifier: 1.5
+      movementSpeedModifier: 1.2
       attackSpeedModifier: 1
       doAfterModifier: 1.25
       afterimages: false

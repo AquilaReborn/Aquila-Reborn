@@ -49,7 +49,7 @@ public sealed partial class SandevistanSystem : EntitySystem // Aquila Change
         SubscribeLocalEvent<SandevistanUserComponent, MeleeAttackEvent>(OnMeleeAttack);
         SubscribeLocalEvent<SandevistanUserComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<SandevistanUserComponent, GetDoAfterDelayMultiplierEvent>(OnModifyDoAfterDelay);
-        SubscribeLocalEvent<SandevistanUserComponent, BeforeStaminaDamageEvent>(OnBeforeStaminaDamage);
+        // SubscribeLocalEvent<SandevistanUserComponent, BeforeStaminaDamageEvent>(OnBeforeStaminaDamage); // Aquila Change
 
         SubscribeLocalEvent<SandevistanSlowedComponent, RemoveSandevistanSlowdownEvent>(OnRemoveSlowdown);
         SubscribeLocalEvent<SandevistanSlowedComponent, RefreshMovementSpeedModifiersEvent>(OnSlowedRefreshSpeed);
@@ -205,12 +205,14 @@ public sealed partial class SandevistanSystem : EntitySystem // Aquila Change
             args.Multiplier *= ent.Comp.DoAfterModifier;
     }
 
-    private void OnBeforeStaminaDamage(Entity<SandevistanUserComponent> ent, ref BeforeStaminaDamageEvent args)
-    {
-        if (ent.Comp.Active
-            && args.Source == ent.Owner)
-            args.Cancelled = true;
-    }
+    // Aquila Change start
+    // private void OnBeforeStaminaDamage(Entity<SandevistanUserComponent> ent, ref BeforeStaminaDamageEvent args)
+    // {
+    //     if (ent.Comp.Active
+    //         && args.Source == ent.Owner)
+    //         args.Cancelled = true;
+    // }
+    // Aquila Change end
 
     private void OnMobStateChanged(Entity<SandevistanUserComponent> ent, ref MobStateChangedEvent args) =>
         Disable(ent, ent.Comp);
