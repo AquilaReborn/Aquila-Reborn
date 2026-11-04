@@ -9,7 +9,7 @@ using Robust.Shared.Timing;
 namespace Content.Client.PDA.Ringer
 {
     [UsedImplicitly]
-    public sealed class RingerBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
+    public sealed partial class RingerBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey) // Aquila Change
     {
         [ViewVariables]
         private RingtoneMenu? _menu;
@@ -22,6 +22,7 @@ namespace Content.Client.PDA.Ringer
 
             _menu.TestRingtoneButtonPressed += OnTestRingtoneButtonPressed;
             _menu.SetRingtoneButtonPressed += OnSetRingtoneButtonPressed;
+            _menu.SilentCheckBox.OnToggled += OnSilentToggled; // Aquila Change
 
             Update();
         }
@@ -68,6 +69,7 @@ namespace Content.Client.PDA.Ringer
             }
 
             _menu.TestRingerButton.Disabled = ringer.Active;
+            _menu.SilentCheckBox.Pressed = ringer.Silent; // Aquila Change
         }
 
         private void OnTestRingtoneButtonPressed()
