@@ -201,7 +201,10 @@ public sealed class CyberpsychosisSystem : SharedCyberpsychosisSystem
             return;
 
         var chance = next.MinRisk > 0f ? next.Chance * risk / next.MinRisk : next.Chance;
-        if (_random.Prob(Math.Clamp(chance, 0f, 1f)))
+        var ev = new GetCyberpsychosisChanceEvent(1f);
+        RaiseLocalEvent(ent, ref ev);
+
+        if (_random.Prob(Math.Clamp(chance * ev.Multiplier, 0f, 1f)))
             SetLevel(ent, level + 1);
     }
 
