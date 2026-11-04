@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/cf45322c7ee16f9d7e43d5260daf24ceb77c1b25, limb sprites edited into inhands by mubururu_ (github)",
+    "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/cf45322c7ee16f9d7e43d5260daf24ceb77c1b25, limb sprites edited into inhands by mubururu_ (github). States body_l_arm, body_r_arm, body_l_leg, body_r_leg made by mcdonaldsobamaburger",
     "size": {
         "x": 32,
         "y": 32
@@ -26,6 +26,22 @@
         },
         {
             "name": "borg_r_leg"
+        },
+        {
+            "name": "body_l_arm",
+            "directions": 4
+        },
+        {
+            "name": "body_r_arm",
+            "directions": 4
+        },
+        {
+            "name": "body_l_leg",
+            "directions": 4
+        },
+        {
+            "name": "body_r_leg",
+            "directions": 4
         },
         {
             "name": "borg-leg-inhand-left",
