@@ -738,7 +738,7 @@ public sealed partial class GoobCVars
         CVarDef.Create("particles.global_budget", 8000, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     public static readonly CVarDef<bool> InteractionParticlesEnabled =
-        CVarDef.Create("particles.interaction_enabled", true, CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("particles.interaction_enabled", false, CVar.SERVER | CVar.REPLICATED); // Aquila Change
 
     public static readonly CVarDef<float> InHandInteractionParticleScale =
         CVarDef.Create("particles.inhand_interaction_scale", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
@@ -751,7 +751,7 @@ public sealed partial class GoobCVars
     /// Whether speech bubbles are drawn SS13 runechat style
     /// </summary>
     public static readonly CVarDef<bool> ChatRunechat =
-        CVarDef.Create("chat.runechat", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+        CVarDef.Create("chat.runechat", false, CVar.CLIENTONLY | CVar.ARCHIVE); // Aquila Change
 
     /// <summary>
     /// Point size of normal runechat text.

@@ -39,22 +39,22 @@
   id: CyborgLLeg
   baseSprite:
     sprite: Objects/Specific/Robotics/cyborg_parts.rsi
-    state: borg_l_leg
+    state: body_l_leg # Aquila Change
 
 - type: humanoidBaseSprite
   id: CyborgLArm
   baseSprite:
     sprite: Objects/Specific/Robotics/cyborg_parts.rsi
-    state: borg_l_arm
+    state: body_l_arm # Aquila Change
 
 - type: humanoidBaseSprite
   id: CyborgRLeg
   baseSprite:
     sprite: Objects/Specific/Robotics/cyborg_parts.rsi
-    state: borg_r_leg
+    state: body_r_leg # Aquila Change
 
 - type: humanoidBaseSprite
   id: CyborgRArm
   baseSprite:
     sprite: Objects/Specific/Robotics/cyborg_parts.rsi
-    state: borg_r_arm
+    state: body_r_arm # Aquila Change

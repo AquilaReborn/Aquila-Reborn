@@ -209,7 +209,7 @@ public sealed class CyberwareScannerSystem : EntitySystem
         var concealed = 0;
         foreach (var (organ, _, _) in _body.GetBodyOrganEntityComps<IdentificationRequiredComponent>(target))
         {
-            if (!TryIdentify(scanner, target, organ, IsConcealed(scanner.Comp, organ), deep, ref identified))
+            if (!IdentifyImplant(scanner, target, organ, IsConcealed(scanner.Comp, organ), deep, ref identified))
             {
                 concealed++;
                 continue;
@@ -226,7 +226,7 @@ public sealed class CyberwareScannerSystem : EntitySystem
         var concealed = 0;
         foreach (var (arm, _, _) in _body.GetBodyChildrenOfTypeWithComponent<MantisBladeArmComponent>(target, BodyPartType.Arm))
         {
-            if (!TryIdentify(scanner, target, arm, scanner.Comp.ConcealMantisBlades, deep, ref identified))
+            if (!IdentifyImplant(scanner, target, arm, scanner.Comp.ConcealMantisBlades, deep, ref identified))
             {
                 concealed++;
                 continue;
@@ -238,7 +238,7 @@ public sealed class CyberwareScannerSystem : EntitySystem
         return concealed;
     }
 
-    private bool TryIdentify(Entity<CyberwareScannerComponent> scanner, EntityUid target, EntityUid implant, bool isConcealed, bool deep, ref ImplantsIdentifiedComponent? identified)
+    private bool IdentifyImplant(Entity<CyberwareScannerComponent> scanner, EntityUid target, EntityUid implant, bool isConcealed, bool deep, ref ImplantsIdentifiedComponent? identified)
     {
         if (identified != null && identified.Identified.Contains(implant))
             return true;

@@ -4,7 +4,7 @@ namespace Content.Shared._Aquila.Surgery;
 /// Операция доступна, только если сканер имплантов опознал имплант, с которым она работает.
 /// На себе владелец может делать её и без опознания.
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, Access(typeof(SurgeryIdentifiedConditionSystem))]
 public sealed partial class SurgeryIdentifiedConditionComponent : Component
 {
     /// <summary>

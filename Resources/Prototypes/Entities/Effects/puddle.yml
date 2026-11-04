@@ -167,9 +167,10 @@
     anchored: true
   - type: Sprite
     drawdepth: Puddles
+    color: "#FFFFFF80" # Aquila Change
     layers:
-    - sprite: _ES/Effects/puddle.rsi # Goob
-      state: large-2 # Goob
+    - sprite: Fluids/puddle.rsi # Aquila Change
+      state: splat0 # Aquila Change
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -183,6 +184,14 @@
         layer:
         - SlipLayer
         hard: false
+  # Aquila Change start
+  - type: IconSmooth
+    key: puddles
+    additionalKeys:
+    - walls
+    base: splat
+    mode: CardinalFlags
+  # Aquila Change end
   - type: SolutionContainerManager
     solutions:
       puddle:

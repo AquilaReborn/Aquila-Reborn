@@ -31,7 +31,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem // Goob
             volume = (float)volumeObj;
         }
 
-        UpdatePuddleSprite((uid, args.Sprite), volume, args.AppearanceData); // Goob
+        UpdateClassicPuddleSprite((uid, args.Sprite), volume, args.AppearanceData); // Aquila Change
     }
 
     #region Spill
