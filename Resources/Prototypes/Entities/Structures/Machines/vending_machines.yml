@@ -134,6 +134,7 @@
   name: vending machine
   abstract: true
   components:
+  - type: PaidVendingMachine # Aquila Change
   - type: StationAiWhitelist
   - type: AmbientOnPowered
   - type: AmbientSound
