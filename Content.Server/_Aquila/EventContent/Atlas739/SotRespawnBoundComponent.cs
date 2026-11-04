@@ -16,7 +16,19 @@ public sealed partial class SotRespawnBoundComponent : Component
     [ViewVariables]
     public EntityUid Pad;
 
-    /// <summary>Когда сработает воскрешение. null - игрок жив (или воскрешение не запланировано).</summary>
+    /// <summary>Когда сработает автоматическое воскрешение (только при AutoRespawn платформы). null - не запланировано.</summary>
     [ViewVariables]
     public TimeSpan? RespawnAt;
+
+    /// <summary>Время смерти (CurTime сервера). null - игрок жив. От него считается задержка действия призрака.</summary>
+    [ViewVariables]
+    public TimeSpan? DiedAt;
+
+    /// <summary>Призрак игрока, получивший действие воскрешения.</summary>
+    [ViewVariables]
+    public EntityUid? Ghost;
+
+    /// <summary>Действие воскрешения, выданное призраку.</summary>
+    [ViewVariables]
+    public EntityUid? GhostAction;
 }

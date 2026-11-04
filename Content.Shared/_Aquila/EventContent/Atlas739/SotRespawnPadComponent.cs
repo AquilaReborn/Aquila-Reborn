@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._Aquila.EventContent.Atlas739;
@@ -24,9 +25,24 @@ public sealed partial class SotRespawnPadComponent : Component
     [DataField]
     public int MaxBound = 1;
 
-    /// <summary>Через сколько после смерти игрока сработает воскрешение.</summary>
+    /// <summary>
+    ///     Воскрешать ли автоматически через Delay после смерти. false (по умолчанию): игрок, ставший призраком,
+    ///     получает действие "Воскреснуть на платформе" (доступно через ActionDelay после смерти).
+    /// </summary>
+    [DataField]
+    public bool AutoRespawn;
+
+    /// <summary>Через сколько после смерти воскрешение сработает само (только при AutoRespawn).</summary>
     [DataField]
     public TimeSpan Delay = TimeSpan.FromSeconds(5);
+
+    /// <summary>Через сколько после смерти призрак сможет воскреснуть действием.</summary>
+    [DataField]
+    public TimeSpan ActionDelay = TimeSpan.FromSeconds(10);
+
+    /// <summary>Действие, которое получает призрак привязанного игрока.</summary>
+    [DataField]
+    public EntProtoId ActionPrototype = "ActionSotRespawn";
 
     [DataField]
     public SoundSpecifier ArrivalSound = new SoundPathSpecifier("/Audio/Effects/teleport_arrival.ogg");
