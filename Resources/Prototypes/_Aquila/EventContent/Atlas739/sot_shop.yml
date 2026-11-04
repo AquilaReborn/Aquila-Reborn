@@ -1,0 +1,160 @@
+# Работа выполнена Claude (Anthropic).
+# ==========================================================
+# Магазин закупок SoT для станций фракций (Афина и Жнецы).
+#
+# Как это работает (кратко):
+#   1) Каждый корабль - отдельная станция (грид с BecomesStation + stationProto ниже),
+#      у неё свой счёт в кредитах (StationBankAccount) и свой список рынков (Markets).
+#   2) Консоль закупок (SotShopConsole*) показывает товары рынка своей фракции и списывает кредиты
+#      со счёта станции. Деньги можно пополнить, вставив в консоль кредиты (стопку Credit).
+#   3) Одобренный заказ появляется на телепаде закупок (SotShopTelepad*) своего корабля.
+#      Консоль и телепады одного грида связываются сами (SotShopLinkSystem).
+#   4) Список товаров лежит в sot_shop_products.yml (там же инструкция, как добавлять).
+#
+# Кладите в Resources/Prototypes/_Aquila/SoT/
+# ==========================================================
+
+# ---------- Рынки (каталоги): у каждой фракции свой ----------
+- type: cargoMarket
+  id: SotAthenaMarket
+
+- type: cargoMarket
+  id: SotReapersMarket
+
+# ---------- Станции ----------
+# stationProto для gameMap: счёт в кредитах + заказы + (по желанию) должности.
+# В gameMap.stations.<ID из BecomesStation> укажите stationProto: SotStationAthena (или Reapers).
+
+- type: entity
+  id: SotStationAthena
+  parent: [ BaseStation, BaseStationCargo, BaseStationJobsSpawning ]
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StationBankAccount
+    primaryAccount: Cargo
+    accounts:
+      Cargo: 3000           # стартовый баланс в кредитах
+    revenueDistribution:
+      Cargo: 1.0
+    increasePerSecond: 0    # без пассивного дохода (в обычной станции деньги капают сами)
+  - type: StationCargoOrderDatabase
+    capacity: 20            # сколько заказов может ждать одновременно
+    markets:
+    - SotAthenaMarket
+
+- type: entity
+  id: SotStationReapers
+  parent: [ BaseStation, BaseStationCargo, BaseStationJobsSpawning ]
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StationBankAccount
+    primaryAccount: Cargo
+    accounts:
+      Cargo: 3000
+    revenueDistribution:
+      Cargo: 1.0
+    increasePerSecond: 0
+  - type: StationCargoOrderDatabase
+    capacity: 20
+    markets:
+    - SotReapersMarket
+
+# ---------- Консоли закупок ----------
+# Спрайт: корпус и экран свои (sot_shop_console.rsi), клавиатура, клавиши и панель - стандартные.
+
+- type: entity
+  id: SotShopConsoleAthena
+  parent: ComputerCargoOrders
+  name: консоль закупок Афины
+  description: Здесь Афина закупает снаряжение перед боем. Оплата - кредиты со счёта корабля.
+  suffix: SoT, Афина
+  components:
+  - type: SotShopConsole
+  - type: Sprite
+    layers:
+    - map: [ "computerLayerBody" ]
+      sprite: _Aquila/EventContent/Atlas739/sot_shop_console.rsi
+      state: athena_computer
+    - map: [ "computerLayerKeyboard" ]
+      state: generic_keyboard
+    - map: [ "computerLayerScreen" ]
+      sprite: _Aquila/EventContent/Atlas739/sot_shop_console.rsi
+      state: athena_screen
+    - map: [ "computerLayerKeys" ]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: CargoOrderConsole
+    account: Cargo                      # счёт станции, с которого идёт оплата
+    allowedGroups: [ SotAthenaMarket ]  # какие рынки видны на этой консоли
+    baseTransferLimit: 0                # 0 - нельзя снимать наличные со счёта (только закупки)
+    removeLimitAccess: []
+  - type: AccessReader
+    access: []                          # без доступа: пользоваться может любой на корабле
+  - type: ApcPowerReceiver
+    needsPower: false                   # работает без питания (true - как обычная консоль)
+  - type: PointLight
+    color: "#4060ff"
+
+- type: entity
+  id: SotShopConsoleReapers
+  parent: ComputerCargoOrders
+  name: консоль закупок Жнецов
+  description: Здесь Жнецы закупают снаряжение перед боем. Оплата - кредиты со счёта корабля.
+  suffix: SoT, Жнецы
+  components:
+  - type: SotShopConsole
+  - type: Sprite
+    layers:
+    - map: [ "computerLayerBody" ]
+      sprite: _Aquila/EventContent/Atlas739/sot_shop_console.rsi
+      state: reapers_computer
+    - map: [ "computerLayerKeyboard" ]
+      state: generic_keyboard
+    - map: [ "computerLayerScreen" ]
+      sprite: _Aquila/EventContent/Atlas739/sot_shop_console.rsi
+      state: reapers_screen
+    - map: [ "computerLayerKeys" ]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: CargoOrderConsole
+    account: Cargo
+    allowedGroups: [ SotReapersMarket ]
+    baseTransferLimit: 0
+    removeLimitAccess: []
+  - type: AccessReader
+    access: []
+  - type: ApcPowerReceiver
+    needsPower: false
+  - type: PointLight
+    color: "#ff3a20"
+
+# ---------- Телепады закупок ("мостики", куда приходят заказы) ----------
+# Нужны состояния offline, idle и beam: код телепада обращается к ним по именам.
+
+- type: entity
+  id: SotShopTelepadAthena
+  parent: CargoTelepad
+  name: телепад закупок Афины
+  description: Сюда телепортируются заказы Афины.
+  suffix: SoT, Афина
+  components:
+  - type: SotShopTelepad
+  - type: Sprite
+    sprite: _Aquila/EventContent/Atlas739/sot_shop_telepad_athena.rsi
+  - type: ApcPowerReceiver
+    needsPower: false                   # true - телепаду нужно питание
+
+- type: entity
+  id: SotShopTelepadReapers
+  parent: CargoTelepad
+  name: телепад закупок Жнецов
+  description: Сюда телепортируются заказы Жнецов.
+  suffix: SoT, Жнецы
+  components:
+  - type: SotShopTelepad
+  - type: Sprite
+    sprite: _Aquila/EventContent/Atlas739/sot_shop_telepad_reapers.rsi
+  - type: ApcPowerReceiver
+    needsPower: false

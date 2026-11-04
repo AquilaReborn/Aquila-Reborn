@@ -1,0 +1,88 @@
+# Работа выполнена Claude (Anthropic).
+# ==========================================================
+# Платформы воскрешения на базах (Афина и Жнецы).
+# Клик по платформе привязывает игрока (повторный клик отвязывает). Когда привязанный игрок умирает и становится
+# призраком, он получает действие "Воскреснуть на платформе": оно доступно через actionDelay секунд после смерти
+# и МГНОВЕННО переносит тело на платформу, полностью лечит его и возвращает душу.
+# (autoRespawn: true - воскрешение само через delay секунд, без действия.)
+# Ставятся на базе. Платформа не блокирует проход (на неё можно ставить ногу) и неразрушима.
+# ==========================================================
+
+- type: entity
+  abstract: true
+  parent: BaseStructure
+  id: SotRespawnPadBase
+  suffix: SoT
+  components:
+  - type: Physics
+    bodyType: Static
+    canCollide: false        # плитка на полу: не мешает ходить, тело воскрешённого не застрянет
+  - type: InteractionOutline
+  - type: Appearance
+  - type: Sprite
+    sprite: _Aquila/EventContent/Atlas739/sot_respawn_pad.rsi
+    drawdepth: FloorObjects
+
+- type: entity
+  parent: SotRespawnPadBase
+  id: SotRespawnPadAthena
+  name: платформа воскрешения Афины
+  description: "Привяжитесь к ней: после смерти вас вернёт сюда целым и невредимым."
+  suffix: SoT, Афина
+  components:
+  - type: Sprite
+    layers:
+    - state: athena
+      map: [ "enum.SotRespawnPadVisualLayers.Base" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.SotRespawnPadVisuals.Bound:
+        enum.SotRespawnPadVisualLayers.Base:
+          True: { state: athena_bound }
+          False: { state: athena }
+  - type: SotRespawnPad
+    side: Athena            # привязаться могут только игроки Афины (убрать строку - любой)
+    maxBound: 2           # сколько игроков можно привязать
+    actionDelay: 10         # через сколько секунд после смерти призрак может воскреснуть действием
+    autoRespawn: true     # true - воскрешать само через delay секунд, без действия
+    delay: 60                # секунд до авто-воскрешения (только при autoRespawn: true)
+
+- type: entity
+  parent: SotRespawnPadBase
+  id: SotRespawnPadReapers
+  name: платформа воскрешения Жнецов
+  description: "Привяжитесь к ней: после смерти вас вернёт сюда целым и невредимым."
+  suffix: SoT, Жнецы
+  components:
+  - type: Sprite
+    layers:
+    - state: reapers
+      map: [ "enum.SotRespawnPadVisualLayers.Base" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.SotRespawnPadVisuals.Bound:
+        enum.SotRespawnPadVisualLayers.Base:
+          True: { state: reapers_bound }
+          False: { state: reapers }
+  - type: SotRespawnPad
+    side: Reapers
+    maxBound: 2           # сколько игроков можно привязать
+    actionDelay: 10         # через сколько секунд после смерти призрак может воскреснуть действием
+    autoRespawn: true     # true - воскрешать само через delay секунд, без действия
+    delay: 60                # секунд до авто-воскрешения (только при autoRespawn: true)
+
+# ---------- Действие призрака ----------
+# Выдаётся призраку привязанного игрока (система SotRespawnSystem), а не игроку напрямую.
+- type: entity
+  parent: BaseMentalAction
+  id: ActionSotRespawn
+  name: Воскреснуть на платформе
+  description: "Мгновенно вернуться к жизни на платформе воскрешения, к которой вы привязаны."
+  components:
+  - type: Action
+    icon:
+      sprite: _Aquila/EventContent/Atlas739/sot_respawn_pad.rsi
+      state: action_icon
+    raiseOnUser: true
+  - type: InstantAction
+    event: !type:SotRespawnActionEvent

@@ -6,6 +6,7 @@
 using Content.Shared._Aquila.EventContent.Atlas739;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
+using Robust.Server.GameStates;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
@@ -13,12 +14,15 @@ using Robust.Shared.Timing;
 namespace Content.Server._Aquila.EventContent.Atlas739;
 
 /// <summary>
-///     Колонка SoT. Включается и выключается взаимодействием. В начале битвы корабля, на котором она стоит,
-///     включается сама, а если уже играла - перезапускает трек с начала.
+///     Колонка SoT, серверная часть. Сервер не проигрывает звук сам: он хранит состояние колонки
+///     (играет ли, когда запущен трек), а клиенты игроков, стоящих на том же шаттле, проигрывают музыку
+///     локально и равномерно (см. клиентскую SotSpeakerClientSystem).
+///     Включается по взаимодействию, а в начале битвы своего корабля включается сама (с начала трека).
 /// </summary>
 public sealed class SotSpeakerSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly PvsOverrideSystem _pvs = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -31,12 +35,27 @@ public sealed class SotSpeakerSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SotSpeakerComponent, ActivateInWorldEvent>(OnActivate);
+        SubscribeLocalEvent<SotSpeakerComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SotSpeakerComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<SotSpeakerComponent, ActivateInWorldEvent>(OnActivate);
         SubscribeLocalEvent<SotBattleStartedEvent>(OnBattleStarted);
     }
 
-    /// <summary>Трек без зацикливания заканчивается сам: гасим индикатор.</summary>
+    /// <summary>
+    ///     Колонка должна быть известна клиентам, даже если она далеко от игрока (большой корабль),
+    ///     иначе клиент не узнает, что музыку нужно играть.
+    /// </summary>
+    private void OnMapInit(Entity<SotSpeakerComponent> ent, ref MapInitEvent args)
+    {
+        _pvs.AddGlobalOverride(ent);
+    }
+
+    private void OnShutdown(Entity<SotSpeakerComponent> ent, ref ComponentShutdown args)
+    {
+        _pvs.RemoveGlobalOverride(ent);
+    }
+
+    /// <summary>Трек без зацикливания играет один раз: по окончании колонка выключается.</summary>
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -49,11 +68,8 @@ public sealed class SotSpeakerSystem : EntitySystem
         var query = EntityQueryEnumerator<SotSpeakerComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (comp.AudioStream == null || _audio.IsPlaying(comp.AudioStream))
-                continue;
-
-            comp.AudioStream = null;
-            SetPlaying(uid, false);
+            if (comp.Playing && comp.EndsAt is { } endsAt && _timing.CurTime >= endsAt)
+                Stop((uid, comp));
         }
     }
 
@@ -64,7 +80,7 @@ public sealed class SotSpeakerSystem : EntitySystem
 
         args.Handled = true;
 
-        if (ent.Comp.AudioStream != null && _audio.IsPlaying(ent.Comp.AudioStream))
+        if (ent.Comp.Playing)
         {
             Stop(ent);
             _popup.PopupEntity(Loc.GetString("sot-speaker-popup-off"), ent, args.User);
@@ -74,11 +90,6 @@ public sealed class SotSpeakerSystem : EntitySystem
             Play(ent);
             _popup.PopupEntity(Loc.GetString("sot-speaker-popup-on"), ent, args.User);
         }
-    }
-
-    private void OnShutdown(Entity<SotSpeakerComponent> ent, ref ComponentShutdown args)
-    {
-        ent.Comp.AudioStream = _audio.Stop(ent.Comp.AudioStream);
     }
 
     /// <summary>Битва началась: колонки на кораблях-участниках включаются, играющие перезапускаются.</summary>
@@ -103,23 +114,51 @@ public sealed class SotSpeakerSystem : EntitySystem
         }
     }
 
-    /// <summary>Запускает трек с начала. Если колонка уже играла, прежний поток останавливается.</summary>
+    /// <summary>
+    ///     Запускает трек с начала. Если колонка уже играла, StartTime обновляется,
+    ///     и клиенты перезапускают трек.
+    /// </summary>
     private void Play(Entity<SotSpeakerComponent> ent)
     {
-        ent.Comp.AudioStream = _audio.Stop(ent.Comp.AudioStream);
+        var comp = ent.Comp;
 
-        var audioParams = AudioParams.Default
-            .WithLoop(ent.Comp.Loop)
-            .WithVolume(ent.Comp.Volume)
-            .WithMaxDistance(ent.Comp.MaxDistance);
+        if (comp.Sound is not SoundPathSpecifier path)
+        {
+            Log.Error($"Колонка {ToPrettyString(ent)}: поддерживается только путь к файлу (sound.path), не набор звуков.");
+            return;
+        }
 
-        ent.Comp.AudioStream = _audio.PlayPvs(ent.Comp.Sound, ent, audioParams)?.Entity;
-        SetPlaying(ent, ent.Comp.AudioStream != null);
+        if (!path.Path.ToString().StartsWith('/'))
+        {
+            Log.Error($"Колонка {ToPrettyString(ent)}: путь к треку должен начинаться с / (например, /Audio/...), сейчас: {path.Path}");
+            return;
+        }
+
+        comp.EndsAt = null;
+        if (!comp.Loop)
+        {
+            try
+            {
+                comp.EndsAt = _timing.CurTime + _audio.GetAudioLength(path.Path.ToString());
+            }
+            catch (Exception e)
+            {
+                // Нет файла или не удалось прочитать длину: выключится вручную.
+                Log.Error($"Колонка {ToPrettyString(ent)}: не удалось получить длину трека {path.Path}: {e.Message}");
+            }
+        }
+
+        comp.Playing = true;
+        comp.StartTime = _timing.CurTime;
+        Dirty(ent);
+        SetPlaying(ent, true);
     }
 
     private void Stop(Entity<SotSpeakerComponent> ent)
     {
-        ent.Comp.AudioStream = _audio.Stop(ent.Comp.AudioStream);
+        ent.Comp.Playing = false;
+        ent.Comp.EndsAt = null;
+        Dirty(ent);
         SetPlaying(ent, false);
     }
 

@@ -21,6 +21,32 @@ public sealed partial class SotRuleComponent : Component
     [DataField]
     public bool RequireDifferentSides = true;
 
+    // ---- Выплаты на личные счета (экономика Aquila) ----
+
+    /// <summary>Платить ли участникам по итогам битвы.</summary>
+    [DataField]
+    public bool PayoutEnabled = true;
+
+    /// <summary>Сколько получает каждый игрок фракции-победителя, кредитов.</summary>
+    [DataField]
+    public int WinnerPayout = 10000;
+
+    /// <summary>Сколько получает каждый игрок проигравшей фракции, кредитов.</summary>
+    [DataField]
+    public int LoserPayout = 1000;
+
+    /// <summary>Сколько получает каждый игрок обеих фракций при ничьей, кредитов (0 - без выплат).</summary>
+    [DataField]
+    public int DrawPayout = 0;
+
+    /// <summary>Коэффициент к выплате победителям (итог = WinnerPayout * коэффициент). Меняется командой sotpayout.</summary>
+    [DataField]
+    public float WinnerCoefficient = 1f;
+
+    /// <summary>Коэффициент к выплате проигравшим. Меняется командой sotpayout.</summary>
+    [DataField]
+    public float LoserCoefficient = 1f;
+
     /// <summary>Журнал всех битв раунда (по порядку).</summary>
     [ViewVariables]
     public List<SotBattle> Battles = new();

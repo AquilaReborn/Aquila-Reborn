@@ -25,6 +25,7 @@ public sealed class SotRuleSystem : GameRuleSystem<SotRuleComponent>
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly DestructibleSystem _destructible = default!;
     [Dependency] private readonly RoundEndSystem _roundEnd = default!;
+    [Dependency] private readonly SotPayoutSystem _payout = default!;
 
     public override void Initialize()
     {
@@ -236,6 +237,9 @@ public sealed class SotRuleSystem : GameRuleSystem<SotRuleComponent>
         battle.WinnerSide = winnerId == null ? null : (winnerId == battle.IdA ? battle.SideA : battle.SideB);
         battle.EndTime = GameTicker.RoundDuration();
 
+        // Выплаты на личные счета участников (победители и проигравшие, суммы с коэффициентами).
+        PayBattle(rule.Comp, battle);
+
         var sender = Loc.GetString("sot-announcement-sender");
         var reasonText = Loc.GetString(ReasonKey(reason));
 
@@ -291,6 +295,66 @@ public sealed class SotRuleSystem : GameRuleSystem<SotRuleComponent>
             return 1f;
 
         return 1f - Math.Clamp(damageable.TotalDamage.Float() / threshold, 0f, 1f);
+    }
+
+    #endregion
+
+    #region Выплаты
+
+    private void PayBattle(SotRuleComponent rule, SotBattle battle)
+    {
+        if (!rule.PayoutEnabled)
+            return;
+
+        _payout.PayBattle(
+            battle,
+            Scale(rule.WinnerPayout, rule.WinnerCoefficient),
+            Scale(rule.LoserPayout, rule.LoserCoefficient),
+            rule.DrawPayout);
+    }
+
+    private static int Scale(int amount, float coefficient)
+    {
+        return (int) Math.Round(amount * Math.Max(0f, coefficient), MidpointRounding.AwayFromZero);
+    }
+
+    /// <summary>Текущие настройки выплат активного правила SoT.</summary>
+    public bool TryGetPayoutSettings(out SotPayoutSettings settings)
+    {
+        if (!TryGetActiveRule(out var rule))
+        {
+            settings = default;
+            return false;
+        }
+
+        var c = rule.Comp;
+        settings = new SotPayoutSettings(c.PayoutEnabled, c.WinnerPayout, c.LoserPayout, c.DrawPayout,
+            c.WinnerCoefficient, c.LoserCoefficient);
+        return true;
+    }
+
+    /// <summary>Меняет коэффициенты выплат на оставшиеся битвы раунда. loser == null - не менять.</summary>
+    public bool TrySetPayoutCoefficients(float winner, float? loser, out string error)
+    {
+        error = string.Empty;
+
+        if (!TryGetActiveRule(out var rule))
+        {
+            error = "Правило пресета SoT не активно.";
+            return false;
+        }
+
+        if (winner < 0f || loser < 0f)
+        {
+            error = "Коэффициенты не могут быть отрицательными.";
+            return false;
+        }
+
+        rule.Comp.WinnerCoefficient = winner;
+        if (loser is { } l)
+            rule.Comp.LoserCoefficient = l;
+
+        return true;
     }
 
     #endregion
