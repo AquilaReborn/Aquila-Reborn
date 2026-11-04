@@ -1,0 +1,32 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "taken from other place",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "base"
+        },
+        {
+            "name": "piercing"
+        },
+        {
+            "name": "lethal"
+        },
+        {
+            "name": "slug"
+        },
+        {
+            "name": "e_cutlass"
+        },
+        {
+            "name": "jumpsuit-red"
+        },
+        {
+            "name": "jumpsuit-teal"
+        }
+    ]
+}

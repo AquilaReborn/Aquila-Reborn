@@ -9,7 +9,7 @@ namespace Content.Shared._Aquila.EventContent.Atlas739;
 
 /// <summary>
 ///     Фракция игрока в SoT (Афина или Жнецы). Выдаётся ролям через AddComponentSpecial
-///     (см. Roles/athena.yml и reapers.yml) или вручную админом: addcomp &lt;uid&gt; SotFaction.
+///     (см. Roles/SoT/athena.yml и reapers.yml) или вручную админом: addcomp &lt;uid&gt; SotFaction.
 ///     Песочными часами могут пользоваться только игроки своей фракции.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
@@ -17,4 +17,11 @@ public sealed partial class SotFactionComponent : Component
 {
     [DataField(required: true), AutoNetworkedField]
     public SotSide Side;
+
+    /// <summary>
+    ///     Запретить разрыв тела (гиб) владельца: при старте компонента с его порога разрушения убираются
+    ///     поведения GibBehavior (SotFactionSystem). Тело остаётся целым, и его можно воскресить.
+    /// </summary>
+    [DataField]
+    public bool PreventGib = true;
 }

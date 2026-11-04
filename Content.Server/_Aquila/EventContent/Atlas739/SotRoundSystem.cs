@@ -135,7 +135,7 @@ public sealed class SotRoundSystem : EntitySystem
     #region Preset check
 
     /// <summary>
-    ///     Проверяет, разрешено ли использование команд при текущем пресете (CVar aquila.sot_allowed_presets).
+    ///     Проверяет, разрешено ли использование команд при текущем пресете (CVar kakila.sot_allowed_presets).
     /// </summary>
     public bool CheckPreset(out string error)
     {

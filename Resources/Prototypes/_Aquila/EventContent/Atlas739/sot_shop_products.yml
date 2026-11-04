@@ -1,0 +1,626 @@
+# Работа выполнена Claude (Anthropic).
+# ==========================================================
+# ТОВАРЫ МАГАЗИНА SoT
+#
+# КАК ДОБАВИТЬ ТОВАР
+#   Скопируйте любой блок ниже и поменяйте поля:
+#
+#   - type: cargoProduct
+#     id: SotAthenaCutlass              # уникальный ID товара (нигде больше не встречается)
+#     icon:                             # картинка в списке: RSI от Resources/Textures + состояние (обычно icon)
+#       sprite: Objects/Weapons/Melee/cutlass.rsi
+#       state: icon
+#     product: Cutlass                  # ID сущности: именно она появится на телепаде
+#     cost: 300                         # цена в кредитах
+#     category: sot-shop-category-weapons   # ключ локализации (см. sot-shop.ftl): вкладка списка
+#     group: SotAthenaMarket            # рынок: SotAthenaMarket - Афина, SotReapersMarket - Жнецы
+#     # cooldown: 0                     # необязательно: пауза между заказами этого товара, секунд
+#     # name: ...                       # необязательно: по умолчанию имя берётся из сущности product
+#     # description: ...                # необязательно: описание
+#
+#   Что можно заказывать:
+#     - предмет (меч, броня, аптечка): поле product - ID самого предмета;
+#     - ящик с набором: поле product - ID ящика (сущность-контейнер с содержимым).
+#   Товар виден только на консоли, у которой этот group указан в allowedGroups,
+#   и только если этот group есть в markets станции (sot_shop.yml).
+#   Чтобы товар продавался обеим фракциям, сделайте два блока с разными id и group.
+#   Новую категорию добавьте ключом в sot-shop.ftl и используйте в поле category.
+#
+#   Как узнать RSI иконки: откройте прототип предмета, там sprite и state (или возьмите
+#   sprite: и state: icon из rsi предмета).
+# ==========================================================
+
+# ---------- АФИНА ----------
+# - Оружие
+- type: cargoProduct
+  id: SotAthenaCutlass
+  icon:
+    sprite: Objects/Weapons/Melee/cutlass.rsi
+    state: icon
+  product: Cutlass
+  cost: 100
+  category: sot-shop-category-weapons
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaEnergyCutlass
+  icon:
+    sprite: _Aquila/EventContent/Atlas739/sot_shop_sprites.rsi
+    state: e_cutlass
+  product: EnergyCutlass
+  cost: 1000
+  category: sot-shop-category-weapons
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaRevolver
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Revolvers/pirate_revolver.rsi
+    state: icon
+  product: WeaponRevolverPirate
+  cost: 500
+  category: sot-shop-category-weapons
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaShotgunSawn
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Shotguns/sawn.rsi
+    state: icon
+  product: WeaponShotgunSawn
+  cost: 800
+  category: sot-shop-category-weapons
+  group: SotAthenaMarket
+# - Патроны
+- type: cargoProduct
+  id: SotAthenaBoxLethalshot
+  icon:
+    sprite: _Aquila/EventContent/Atlas739/sot_shop_sprites.rsi
+    state: lethal
+  product: BoxLethalshot
+  cost: 100
+  category: sot-shop-category-ammo
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaBoxShotgunSlug
+  icon:
+    sprite: _Aquila/EventContent/Atlas739/sot_shop_sprites.rsi
+    state: slug
+  product: BoxShotgunSlug
+  cost: 100
+  category: sot-shop-category-ammo
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaMagazineBoxMagnum
+  icon:
+    sprite: _Aquila/EventContent/Atlas739/sot_shop_sprites.rsi
+    state: base
+  product: MagazineBoxMagnum
+  cost: 50
+  category: sot-shop-category-ammo
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaMagazineBoxMagnumAP
+  icon:
+    sprite: _Aquila/EventContent/Atlas739/sot_shop_sprites.rsi
+    state: piercing
+  product: MagazineBoxMagnumAP
+  cost: 75
+  category: sot-shop-category-ammo
+  group: SotAthenaMarket
+# - Скафандры (ДОБАВИТЬ РИГИ)
+- type: cargoProduct
+  id: SotAthenaHardsuitPirate
+  icon:
+    sprite: Clothing/OuterClothing/Hardsuits/piratecaptain.rsi
+    state: icon
+  product: ClothingOuterHardsuitPirateCap
+  cost: 500
+  category: sot-shop-category-hardsuit
+  group: SotAthenaMarket
+# - Медицина
+- type: cargoProduct
+  id: SotAthenaHealthAnalyzer
+  icon:
+    sprite: Objects/Specific/Medical/healthanalyzer.rsi
+    state: icon
+  product: HandheldHealthAnalyzer
+  cost: 100
+  category: sot-shop-category-medical
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaOintment
+  icon:
+    sprite: Objects/Specific/Medical/medical.rsi
+    state: ointment
+  product: Ointment
+  cost: 50
+  category: sot-shop-category-medical
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaBloodpack
+  icon:
+    sprite: Objects/Specific/Medical/medical.rsi
+    state: bloodpack
+  product: Bloodpack
+  cost: 50
+  category: sot-shop-category-medical
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaGauze
+  icon:
+    sprite: Objects/Specific/Medical/medical.rsi
+    state: gauze
+  product: Gauze
+  cost: 50
+  category: sot-shop-category-medical
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaBrutepack
+  icon:
+    sprite: Objects/Specific/Medical/medical.rsi
+    state: brutepack
+  product: Brutepack
+  cost: 50
+  category: sot-shop-category-medical
+  group: SotAthenaMarket
+# - Инструменты
+- type: cargoProduct
+  id: SotAthenaJawsOfLife
+  icon:
+    sprite: Objects/Tools/jaws_of_life.rsi
+    state: jaws_pry
+  product: JawsOfLife
+  cost: 200
+  category: sot-shop-category-tools
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaPowerDrill
+  icon:
+    sprite: Objects/Tools/drill.rsi
+    state: drill_screw
+  product: PowerDrill
+  cost: 200
+  category: sot-shop-category-tools
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaWelderIndustrialAdvanced
+  icon:
+    sprite: Objects/Tools/welder_industrialadv.rsi
+    state: icon
+  product: WelderIndustrialAdvanced
+  cost: 200
+  category: sot-shop-category-tools
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaMultitool
+  icon:
+    sprite: Objects/Tools/multitool.rsi
+    state: icon
+  product: Multitool
+  cost: 200
+  category: sot-shop-category-tools
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaHolofanProjector
+  icon:
+    sprite: Objects/Devices/Holoprojectors/atmos.rsi
+    state: icon
+  product: HolofanProjector
+  cost: 200
+  category: sot-shop-category-tools
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaRCD
+  icon:
+    sprite: Objects/Tools/rcd.rsi
+    state: icon
+  product: RCD
+  cost: 200
+  category: sot-shop-category-tools
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaCrateRCDAmmo
+  icon:
+    sprite: Structures/Storage/Crates/engineering.rsi
+    state: icon
+  product: CrateRCDAmmo
+  cost: 200
+  category: sot-shop-category-tools
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaBoxInflatable
+  icon:
+    sprite: Objects/Storage/boxes.rsi
+    state: box
+  product: BoxInflatable
+  cost: 100
+  category: sot-shop-category-tools
+  group: SotAthenaMarket
+# - Разное (НАПОЛНИТЬ)
+
+- type: cargoProduct
+  id: SotAthenaPowerCellHigh
+  icon:
+    sprite: Objects/Power/power_cells.rsi
+    state: high
+  product: PowerCellHigh
+  cost: 50
+  category: sot-shop-category-misc
+  group: SotAthenaMarket
+# - Одежда
+- type: cargoProduct
+  id: SotAthenaBeltUtility
+  icon:
+    sprite: Clothing/Belt/utility.rsi
+    state: icon
+  product: ClothingBeltUtility
+  cost: 100
+  category: sot-shop-category-clothing
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaClothingHandsGlovesColorYellow
+  icon:
+    sprite: Clothing/Hands/Gloves/Color/yellow.rsi
+    state: icon
+  product: ClothingHandsGlovesColorYellow
+  cost: 100
+  category: sot-shop-category-clothing
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaClothingEyesGlassesMeson
+  icon:
+    sprite: Clothing/Eyes/Glasses/meson.rsi
+    state: icon
+  product: ClothingEyesGlassesMeson
+  cost: 100
+  category: sot-shop-category-clothing
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaJumpsuitMilitaryColorTeal
+  icon:
+    sprite: _Aquila/EventContent/Atlas739/sot_shop_sprites.rsi
+    state: jumpsuit-teal
+  product: ClothingUniformJumpsuitMilitaryColorTeal
+  cost: 100
+  category: sot-shop-category-clothing
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaClothingShoesBootsMagAdv
+  icon:
+    sprite: Clothing/Shoes/Boots/magboots-advanced.rsi
+    state: icon
+  product: ClothingShoesBootsMagAdv
+  cost: 100
+  category: sot-shop-category-clothing
+  group: SotAthenaMarket
+
+# - Веселье (НАПОЛНИТЬ)
+- type: cargoProduct
+  id: SotAthenaPlushieSeaguard
+  icon:
+    sprite: _Aquila/Objects/Fun/Toys/Crook/Plushie/seaguard.rsi
+    state: icon
+  product: PlushieSeaguard
+  cost: 999999
+  category: sot-shop-category-fun
+  group: SotAthenaMarket
+
+
+# ---------- ЖНЕЦЫ ----------
+
+# - Оружие
+- type: cargoProduct
+  id: SotReapersCutlass
+  icon:
+    sprite: Objects/Weapons/Melee/cutlass.rsi
+    state: icon
+  product: Cutlass
+  cost: 100
+  category: sot-shop-category-weapons
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersEnergyCutlass
+  icon:
+    sprite: _Aquila/EventContent/Atlas739/sot_shop_sprites.rsi
+    state: e_cutlass
+  product: EnergyCutlass
+  cost: 1000
+  category: sot-shop-category-weapons
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersRevolver
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Revolvers/pirate_revolver.rsi
+    state: icon
+  product: WeaponRevolverPirate
+  cost: 500
+  category: sot-shop-category-weapons
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersShotgunSawn
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Shotguns/sawn.rsi
+    state: icon
+  product: WeaponShotgunSawn
+  cost: 800
+  category: sot-shop-category-weapons
+  group: SotReapersMarket
+
+# - Патроны
+- type: cargoProduct
+  id: SotReapersBoxLethalshot
+  icon:
+    sprite: _Aquila/EventContent/Atlas739/sot_shop_sprites.rsi
+    state: lethal
+  product: BoxLethalshot
+  cost: 100
+  category: sot-shop-category-ammo
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersBoxShotgunSlug
+  icon:
+    sprite: _Aquila/EventContent/Atlas739/sot_shop_sprites.rsi
+    state: slug
+  product: BoxShotgunSlug
+  cost: 100
+  category: sot-shop-category-ammo
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersMagazineBoxMagnum
+  icon:
+    sprite: _Aquila/EventContent/Atlas739/sot_shop_sprites.rsi
+    state: base
+  product: MagazineBoxMagnum
+  cost: 50
+  category: sot-shop-category-ammo
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersMagazineBoxMagnumAP
+  icon:
+    sprite: _Aquila/EventContent/Atlas739/sot_shop_sprites.rsi
+    state: piercing
+  product: MagazineBoxMagnumAP
+  cost: 75
+  category: sot-shop-category-ammo
+  group: SotReapersMarket
+
+# - Скафандры (ДОБАВИТЬ РИГИ)
+- type: cargoProduct
+  id: SotReapersHardsuitPirate
+  icon:
+    sprite: Clothing/OuterClothing/Hardsuits/piratecaptain.rsi
+    state: icon
+  product: ClothingOuterHardsuitPirateCap
+  cost: 500
+  category: sot-shop-category-hardsuit
+  group: SotReapersMarket
+
+# - Медицина
+- type: cargoProduct
+  id: SotReapersHealthAnalyzer
+  icon:
+    sprite: Objects/Specific/Medical/healthanalyzer.rsi
+    state: icon
+  product: HandheldHealthAnalyzer
+  cost: 100
+  category: sot-shop-category-medical
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersOintment
+  icon:
+    sprite: Objects/Specific/Medical/medical.rsi
+    state: ointment
+  product: Ointment
+  cost: 50
+  category: sot-shop-category-medical
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersBloodpack
+  icon:
+    sprite: Objects/Specific/Medical/medical.rsi
+    state: bloodpack
+  product: Bloodpack
+  cost: 50
+  category: sot-shop-category-medical
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersGauze
+  icon:
+    sprite: Objects/Specific/Medical/medical.rsi
+    state: gauze
+  product: Gauze
+  cost: 50
+  category: sot-shop-category-medical
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersBrutepack
+  icon:
+    sprite: Objects/Specific/Medical/medical.rsi
+    state: brutepack
+  product: Brutepack
+  cost: 50
+  category: sot-shop-category-medical
+  group: SotReapersMarket
+
+# - Инструменты
+- type: cargoProduct
+  id: SotReapersJawsOfLife
+  icon:
+    sprite: Objects/Tools/jaws_of_life.rsi
+    state: jaws_pry
+  product: JawsOfLife
+  cost: 200
+  category: sot-shop-category-tools
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersPowerDrill
+  icon:
+    sprite: Objects/Tools/drill.rsi
+    state: drill_screw
+  product: PowerDrill
+  cost: 200
+  category: sot-shop-category-tools
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersWelderIndustrialAdvanced
+  icon:
+    sprite: Objects/Tools/welder_industrialadv.rsi
+    state: icon
+  product: WelderIndustrialAdvanced
+  cost: 200
+  category: sot-shop-category-tools
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersMultitool
+  icon:
+    sprite: Objects/Tools/multitool.rsi
+    state: icon
+  product: Multitool
+  cost: 200
+  category: sot-shop-category-tools
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersHolofanProjector
+  icon:
+    sprite: Objects/Devices/Holoprojectors/atmos.rsi
+    state: icon
+  product: HolofanProjector
+  cost: 200
+  category: sot-shop-category-tools
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersRCD
+  icon:
+    sprite: Objects/Tools/rcd.rsi
+    state: icon
+  product: RCD
+  cost: 200
+  category: sot-shop-category-tools
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersCrateRCDAmmo
+  icon:
+    sprite: Structures/Storage/Crates/engineering.rsi
+    state: icon
+  product: CrateRCDAmmo
+  cost: 200
+  category: sot-shop-category-tools
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersBoxInflatable
+  icon:
+    sprite: Objects/Storage/boxes.rsi
+    state: box
+  product: BoxInflatable
+  cost: 100
+  category: sot-shop-category-tools
+  group: SotReapersMarket
+
+# - Разное (НАПОЛНИТЬ)
+- type: cargoProduct
+  id: SotReapersPowerCellHigh
+  icon:
+    sprite: Objects/Power/power_cells.rsi
+    state: high
+  product: PowerCellHigh
+  cost: 50
+  category: sot-shop-category-misc
+  group: SotReapersMarket
+
+# - Одежда
+- type: cargoProduct
+  id: SotReapersBeltUtility
+  icon:
+    sprite: Clothing/Belt/utility.rsi
+    state: icon
+  product: ClothingBeltUtility
+  cost: 100
+  category: sot-shop-category-clothing
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersClothingHandsGlovesColorYellow
+  icon:
+    sprite: Clothing/Hands/Gloves/Color/yellow.rsi
+    state: icon
+  product: ClothingHandsGlovesColorYellow
+  cost: 100
+  category: sot-shop-category-clothing
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersClothingEyesGlassesMeson
+  icon:
+    sprite: Clothing/Eyes/Glasses/meson.rsi
+    state: icon
+  product: ClothingEyesGlassesMeson
+  cost: 100
+  category: sot-shop-category-clothing
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersJumpsuitMilitaryColorRed
+  icon:
+    sprite: _Aquila/EventContent/Atlas739/sot_shop_sprites.rsi
+    state: jumpsuit-red
+  product: ClothingUniformJumpsuitMilitaryColorTeal
+  cost: 100
+  category: sot-shop-category-clothing
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersClothingShoesBootsMagAdv
+  icon:
+    sprite: Clothing/Shoes/Boots/magboots-advanced.rsi
+    state: icon
+  product: ClothingShoesBootsMagAdv
+  cost: 100
+  category: sot-shop-category-clothing
+  group: SotReapersMarket
+
+# - Веселье (НАПОЛНИТЬ)
+- type: cargoProduct
+  id: SotReapersPlushieSeaguard
+  icon:
+    sprite: _Aquila/Objects/Fun/Toys/Crook/Plushie/seaguard.rsi
+    state: icon
+  product: PlushieSeaguard
+  cost: 999999
+  category: sot-shop-category-fun
+  group: SotReapersMarket
