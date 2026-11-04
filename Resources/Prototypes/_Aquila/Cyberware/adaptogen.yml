@@ -11,6 +11,11 @@
       effects:
       - !type:AdjustCyberStrain
         amount: -1.5
+      - !type:SuppressCyberpsychosis
+        time: 15
+      - !type:CyberpsychosisResistance
+        time: 180
+        multiplier: 0.5
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
@@ -36,7 +41,7 @@
   parent: [ BaseHypospray, BaseSyndicateContraband ]
   id: NeuroadaptinInhaler
   name: neuroadaptin inhaler
-  description: A compact inhaler that slowly synthesizes neuroadaptin on its own. A puff helps the body get used to freshly installed implants.
+  description: A compact inhaler that slowly synthesizes neuroadaptin on its own. A puff helps the body get used to freshly installed implants, dulls cyberpsychosis symptoms and lowers the risk of it getting worse.
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/hypospray.rsi

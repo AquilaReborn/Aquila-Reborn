@@ -173,7 +173,7 @@ public sealed partial class SandevistanSystem : EntitySystem // Aquila Change
 
         _speed.RefreshMovementSpeedModifiers(ent);
 
-        EnsureComp<DogVisionComponent>(ent);
+        AddTimeVision(ent); // Aquila Change
 
         if (ent.Comp.SlowfieldEnabled)
             CreateSlowfieldFixture(ent, ent.Comp);
@@ -252,7 +252,7 @@ public sealed partial class SandevistanSystem : EntitySystem // Aquila Change
         DeleteAfterimages(uid);
         StopLoopedAudio(comp);
 
-        RemCompDeferred<DogVisionComponent>(uid);
+        RemoveTimeVision(uid, comp); // Aquila Change
 
         if (wasActive)
             Dirty(uid, comp);
@@ -264,6 +264,8 @@ public sealed partial class SandevistanSystem : EntitySystem // Aquila Change
     /// </summary>
     public void UpdateAfterimages(EntityUid uid, SandevistanUserComponent comp)
     {
+        if (!comp.Afterimages) return; // Aquila Change
+
         if (_timing.CurTime >= comp.NextAfterimageTime)
         {
             SpawnAfterimage(uid, comp);

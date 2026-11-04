@@ -450,7 +450,7 @@ public abstract partial class SharedSurgerySystem : EntitySystem
             return false;
 
 
-        var ev = new SurgeryValidEvent(body, targetPart);
+        var ev = new SurgeryValidEvent(body, targetPart, User: user); // Aquila Change
         if (_timing.IsFirstTimePredicted)
         {
             RaiseLocalEvent(stepEnt, ref ev);

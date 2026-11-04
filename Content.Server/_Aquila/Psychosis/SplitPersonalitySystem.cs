@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Server._Aquila.Chat;
 using Content.Server._Aquila.Psychosis.Components;
 using Content.Server.EUI;
 using Content.Server.Ghost;
@@ -60,10 +61,12 @@ public sealed class SplitPersonalitySystem : EntitySystem
         SubscribeLocalEvent<SplitPersonalityComponent, SplitPersonalitySwapActionEvent>(OnHostSwapAction);
         SubscribeLocalEvent<SplitPersonalityComponent, MobStateChangedEvent>(OnHostStateChanged);
         SubscribeLocalEvent<SplitPersonalityComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<SplitPersonalityComponent, CollectiveMindReceiveAttemptEvent>(OnHostReceiveAttempt);
         SubscribeLocalEvent<SplitPersonalityPassengerComponent, SplitPersonalitySwapActionEvent>(OnPassengerSwapAction);
         SubscribeLocalEvent<SplitPersonalityPassengerComponent, MindAddedMessage>(OnPassengerMindAdded);
         SubscribeLocalEvent<SplitPersonalityPassengerComponent, SpeakAttemptEvent>(OnPassengerSpeakAttempt);
         SubscribeLocalEvent<SplitPersonalityPassengerComponent, EmoteAttemptEvent>(OnPassengerEmoteAttempt);
+        SubscribeLocalEvent<SplitPersonalityPassengerComponent, CollectiveMindReceiveAttemptEvent>(OnPassengerReceiveAttempt);
     }
 
     public override void Update(float frameTime)
@@ -295,6 +298,26 @@ public sealed class SplitPersonalitySystem : EntitySystem
     private void OnPassengerEmoteAttempt(Entity<SplitPersonalityPassengerComponent> ent, ref EmoteAttemptEvent args)
     {
         args.Cancel();
+    }
+
+    private void OnHostReceiveAttempt(Entity<SplitPersonalityComponent> ent, ref CollectiveMindReceiveAttemptEvent args)
+    {
+        if (args.Channel == InnerVoice && GetHost(args.Source) != ent.Owner)
+            args.Cancelled = true;
+    }
+
+    private void OnPassengerReceiveAttempt(Entity<SplitPersonalityPassengerComponent> ent, ref CollectiveMindReceiveAttemptEvent args)
+    {
+        if (args.Channel == InnerVoice && GetHost(args.Source) != ent.Comp.Host)
+            args.Cancelled = true;
+    }
+
+    private EntityUid? GetHost(EntityUid uid)
+    {
+        if (HasComp<SplitPersonalityComponent>(uid))
+            return uid;
+
+        return CompOrNull<SplitPersonalityPassengerComponent>(uid)?.Host;
     }
 
     private EntityUid SpawnPassenger(EntityUid host, EntProtoId prototype)

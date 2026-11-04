@@ -29,6 +29,8 @@
     - KravMagaImplant
     - BinaryImplant
     - CyberHackImplant
+    - OrganHeartSandevistan
+    - OrganHeartStatvekaSandevistan
   - type: ActivatableUI
     key: enum.CyberwareScannerUiKey.Key
     inHandsOnly: true

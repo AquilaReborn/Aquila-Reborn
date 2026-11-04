@@ -26,7 +26,7 @@ cyberware-scanner-level-critical = critical
 ## Neuroadaptin
 
 reagent-name-neuroadaptin = neuroadaptin
-reagent-desc-neuroadaptin = Helps the nervous system get used to freshly installed implants much faster. Toxic in overdose.
+reagent-desc-neuroadaptin = Helps the nervous system get used to freshly installed implants much faster. Dulls cyberpsychosis symptoms and lowers the risk of it getting worse for a while. Toxic in overdose.
 
 entity-effect-guidebook-adjust-cyber-strain =
     { $chance ->
@@ -107,6 +107,11 @@ entity-effect-guidebook-suppress-cyberpsychosis =
         [1] Suppresses
         *[other] suppress
     } cyberpsychosis episodes
+entity-effect-guidebook-cyberpsychosis-resistance =
+    { $chance ->
+        [1] Lowers
+        *[other] lower
+    } the chance of cyberpsychosis starting or getting worse by {$percent}% for {NATURALFIXED($time, 0)} {MANY("second", $time)}
 entity-effect-guidebook-cyberpsychosis-therapy =
     { $chance ->
         [1] Treats
@@ -134,6 +139,7 @@ cyberware-unblocked = The collar comes off and your implants come back to life o
 cyberware-scanner-deep-started = The target is immobilized, starting a deep scan.
 cyberware-scanner-deep-cooldown = A deep scan of this person is not available yet, the scanner has not recalibrated. Running a normal scan.
 cyberware-scanner-concealed = Unknown signatures: {$count}
+cyberware-scanner-mantis-blade = mantis blade ({$arm})
 
 surgery-popup-implants-extracted = Extracted and destroyed implants: {$implants}.
 surgery-popup-implants-nothing = No identified implants found. Without scanner data the rest cannot be located.
@@ -149,4 +155,4 @@ uplink-cyber-hack-implanter-desc = Turns you into a walking emag: in two seconds
 ## Neuroadaptin inhaler
 
 uplink-neuroadaptin-inhaler-name = Neuroadaptin inhaler
-uplink-neuroadaptin-inhaler-desc = A reusable inhaler that slowly synthesizes neuroadaptin on its own. Helps your body adapt to new implants faster, so you can install them closer together with less risk to your mind. One puff recharges in about a minute.
+uplink-neuroadaptin-inhaler-desc = A reusable inhaler that slowly synthesizes neuroadaptin on its own. Helps your body adapt to new implants faster, so you can install them closer together with less risk to your mind. It also briefly dulls cyberpsychosis symptoms and halves the chance of it starting or getting worse for three minutes after a puff. One puff recharges in about a minute.

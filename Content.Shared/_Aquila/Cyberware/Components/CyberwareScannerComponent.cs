@@ -39,4 +39,10 @@ public sealed partial class CyberwareScannerComponent : Component
     /// </summary>
     [DataField]
     public List<EntProtoId> Concealed = new();
+
+    /// <summary>
+    /// Считаются ли клинки богомола скрытыми. Скрытые клинки опознаёт только глубокий скан, и то не наверняка.
+    /// </summary>
+    [DataField]
+    public bool ConcealMantisBlades = true;
 }

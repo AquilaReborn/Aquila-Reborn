@@ -71,3 +71,37 @@
     - SurgeryStepExtractImplants
   - type: SurgeryPartCondition
     parts: [ Chest ]
+
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepRemoveMantisBlade
+  name: Remove mantis blade
+  components:
+  - type: SurgeryStep
+    tool:
+    - type: Hemostat
+    remove:
+    - type: MantisBladeArm
+    duration: 8
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
+    state: hemostat
+
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryRemoveMantisBlade
+  name: Remove Mantis Blade
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision
+    steps:
+    - SurgeryStepSawBones
+    - SurgeryStepRemoveMantisBlade
+    - SurgeryStepSealOrganWound
+  - type: SurgeryPartCondition
+    parts: [ Arm ]
+  - type: SurgeryPartComponentCondition
+    components:
+    - type: MantisBladeArm
+  - type: SurgeryIdentifiedCondition
+    part: true

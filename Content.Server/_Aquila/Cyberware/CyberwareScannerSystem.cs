@@ -1,8 +1,13 @@
 using System.Linq;
+using Content.Goobstation.Shared.MantisBlades;
 using Content.Server._Aquila.Cyberware.Components;
+using Content.Server.Administration.Managers;
 using Content.Shared._Aquila.Cyberware;
 using Content.Shared._Aquila.Cyberware.Components;
+using Content.Shared.Administration;
 using Content.Shared.Body.Components;
+using Content.Shared.Body.Part;
+using Content.Shared.Body.Systems;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
@@ -25,6 +30,7 @@ public sealed class CyberwareScannerSystem : EntitySystem
     private static readonly LocId CyberwareScannerDeepCooldown = "cyberware-scanner-deep-cooldown";
     private static readonly LocId CyberwareScannerBeingScanned = "cyberware-scanner-being-scanned";
     private static readonly LocId CyberwareScannerDeepStarted = "cyberware-scanner-deep-started";
+    private static readonly LocId MantisBladeName = "cyberware-scanner-mantis-blade";
 
     private static readonly LocId LevelNone = "cyberware-scanner-level-none";
     private static readonly LocId LevelLow = "cyberware-scanner-level-low";
@@ -32,6 +38,8 @@ public sealed class CyberwareScannerSystem : EntitySystem
     private static readonly LocId LevelHigh = "cyberware-scanner-level-high";
     private static readonly LocId LevelCritical = "cyberware-scanner-level-critical";
 
+    [Dependency] private readonly IAdminManager _admin = default!;
+    [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly CyberLoadSystem _cyberLoad = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
@@ -51,7 +59,7 @@ public sealed class CyberwareScannerSystem : EntitySystem
     }
 
     /// <summary>
-    /// Начинает сканирование цели. Цель видит, что её сканируют.
+    /// Начинает сканирование цели. Цель видит, что её сканируют, если сканирует не администратор.
     /// Если цель лежит или связана, сканирование будет глубоким: дольше, и может опознать скрытые импланты.
     /// </summary>
     public bool TryStartScan(Entity<CyberwareScannerComponent?> scanner, EntityUid user, EntityUid target)
@@ -80,7 +88,7 @@ public sealed class CyberwareScannerSystem : EntitySystem
         if (!_doAfter.TryStartDoAfter(doAfter))
             return false;
 
-        if (user != target)
+        if (user != target && !_admin.HasAdminFlag(user, AdminFlags.Admin))
         {
             _popup.PopupEntity(Loc.GetString(CyberwareScannerBeingScanned, ("user", Identity.Entity(user, EntityManager))),
                 target,
@@ -123,7 +131,10 @@ public sealed class CyberwareScannerSystem : EntitySystem
             return;
 
         var names = new List<string>();
-        var concealed = CollectImplants(ent, target, args.Deep, names);
+        var identified = GetIdentified(ent, target, args.Deep);
+        var concealed = CollectImplants(ent, target, args.Deep, identified, names);
+        concealed += CollectHiddenOrgans(ent, target, args.Deep, ref identified, names);
+        concealed += CollectArmBlades(ent, target, args.Deep, ref identified, names);
 
         LocId? stageName = null;
         float? cureProgress = null;
@@ -153,21 +164,20 @@ public sealed class CyberwareScannerSystem : EntitySystem
         _ui.OpenUi(ent.Owner, CyberwareScannerUiKey.Key, args.User);
     }
 
-    private int CollectImplants(Entity<CyberwareScannerComponent> scanner, EntityUid target, bool deep, List<string> names)
+    private ImplantsIdentifiedComponent? GetIdentified(Entity<CyberwareScannerComponent> scanner, EntityUid target, bool deep)
+    {
+        if (!deep)
+            return CompOrNull<ImplantsIdentifiedComponent>(target);
+
+        var identified = EnsureComp<ImplantsIdentifiedComponent>(target);
+        identified.NextDeepScan = _timing.CurTime + scanner.Comp.DeepScanCooldown;
+        return identified;
+    }
+
+    private int CollectImplants(Entity<CyberwareScannerComponent> scanner, EntityUid target, bool deep, ImplantsIdentifiedComponent? identified, List<string> names)
     {
         if (!_container.TryGetContainer(target, ImplanterComponent.ImplantSlotId, out var implants))
             return 0;
-
-        ImplantsIdentifiedComponent? identified = null;
-        if (deep)
-        {
-            identified = EnsureComp<ImplantsIdentifiedComponent>(target);
-            identified.NextDeepScan = _timing.CurTime + scanner.Comp.DeepScanCooldown;
-        }
-        else
-        {
-            TryComp(target, out identified);
-        }
 
         var concealed = 0;
         foreach (var implant in implants.ContainedEntities)
@@ -192,6 +202,54 @@ public sealed class CyberwareScannerSystem : EntitySystem
         }
 
         return concealed;
+    }
+
+    private int CollectHiddenOrgans(Entity<CyberwareScannerComponent> scanner, EntityUid target, bool deep, ref ImplantsIdentifiedComponent? identified, List<string> names)
+    {
+        var concealed = 0;
+        foreach (var (organ, _, _) in _body.GetBodyOrganEntityComps<IdentificationRequiredComponent>(target))
+        {
+            if (!TryIdentify(scanner, target, organ, IsConcealed(scanner.Comp, organ), deep, ref identified))
+            {
+                concealed++;
+                continue;
+            }
+
+            names.Add(Name(organ));
+        }
+
+        return concealed;
+    }
+
+    private int CollectArmBlades(Entity<CyberwareScannerComponent> scanner, EntityUid target, bool deep, ref ImplantsIdentifiedComponent? identified, List<string> names)
+    {
+        var concealed = 0;
+        foreach (var (arm, _, _) in _body.GetBodyChildrenOfTypeWithComponent<MantisBladeArmComponent>(target, BodyPartType.Arm))
+        {
+            if (!TryIdentify(scanner, target, arm, scanner.Comp.ConcealMantisBlades, deep, ref identified))
+            {
+                concealed++;
+                continue;
+            }
+
+            names.Add(Loc.GetString(MantisBladeName, ("arm", Name(arm))));
+        }
+
+        return concealed;
+    }
+
+    private bool TryIdentify(Entity<CyberwareScannerComponent> scanner, EntityUid target, EntityUid implant, bool isConcealed, bool deep, ref ImplantsIdentifiedComponent? identified)
+    {
+        if (identified != null && identified.Identified.Contains(implant))
+            return true;
+
+        if (isConcealed && (!deep || !_random.Prob(scanner.Comp.IdentifyChance)))
+            return false;
+
+        identified ??= EnsureComp<ImplantsIdentifiedComponent>(target);
+        identified.Identified.Add(implant);
+        Dirty(target, identified);
+        return true;
     }
 
     private bool IsConcealed(CyberwareScannerComponent scanner, EntityUid implant)

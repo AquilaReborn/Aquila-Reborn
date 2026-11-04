@@ -80,6 +80,7 @@
   - ForeignerTrait
   # Einstein Engines - Language end
   - TTS # CorvaxGoob
+  - SpeechSynthesis # Aquila Change
   blacklist:
     components:
     - AttachedClothing # helmets, which are part of the suit

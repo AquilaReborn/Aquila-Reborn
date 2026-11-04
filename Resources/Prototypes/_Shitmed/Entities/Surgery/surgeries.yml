@@ -175,11 +175,12 @@
   - type: Surgery
     requirement: SurgeryOpenIncision
     steps:
+    - SurgeryStepClampBleeders # Aquila Change
     - SurgeryStepSawBones
     - SurgeryStepClampInternalBleeders
     - SurgeryStepMendBones
-  - type: SurgeryBleedsPresentCondition
-    inverted: true
+  # - type: SurgeryBleedsPresentCondition # Aquila Change
+  #   inverted: true # Aquila Change
   - type: SurgeryTraumaPresentCondition
     trauma: BoneDamage
 
@@ -191,10 +192,11 @@
   - type: Surgery
     requirement: SurgeryOpenIncision
     steps:
+    - SurgeryStepClampBleeders # Aquila Change
     - SurgeryStepClampInternalBleeders
     - SurgeryStepHealOrgans
-  - type: SurgeryBleedsPresentCondition
-    inverted: true
+  # - type: SurgeryBleedsPresentCondition # Aquila Change
+  #   inverted: true # Aquila Change
   - type: SurgeryTraumaPresentCondition
     trauma: OrganDamage
 
@@ -630,6 +632,8 @@
   - type: SurgeryOrganCondition
     organ:
     - type: Heart
+  - type: SurgeryIdentifiedCondition # Aquila Change
+    organSlot: heart # Aquila Change
 
 - type: entity
   parent: BaseSurgeryInsertOrgan

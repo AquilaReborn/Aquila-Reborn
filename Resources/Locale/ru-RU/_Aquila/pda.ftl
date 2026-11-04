@@ -3,3 +3,4 @@ pda-aquila-home-section-station = СТАНЦИЯ
 pda-aquila-home-section-alert = УРОВЕНЬ УГРОЗЫ
 pda-aquila-settings-section = НАСТРОЙКИ КПК
 nano-chat-aquila-emoji = Смайлики
+comp-ringer-aquila-ui-silent-checkbox = Беззвучный режим
