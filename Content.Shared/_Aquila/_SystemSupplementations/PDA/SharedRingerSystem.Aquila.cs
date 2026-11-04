@@ -8,6 +8,7 @@ namespace Content.Shared.PDA;
 public abstract partial class SharedRingerSystem
 {
     private static readonly LocId VibrationPopup = "comp-ringer-vibration-popup";
+    private const float VibrationPopupRange = 0.05f;
 
     private void InitializeAquila()
     {
@@ -35,18 +36,22 @@ public abstract partial class SharedRingerSystem
         SetSilent(ent.AsNullable(), args.Silent);
     }
 
-    private bool TryVibrateSilently(Entity<RingerComponent> ent)
+    private bool VibrateIfSilent(Entity<RingerComponent> ent)
     {
         if (!ent.Comp.Silent)
             return false;
 
+        PopupVibration(ent);
+        return true;
+    }
+
+    private void PopupVibration(Entity<RingerComponent> ent)
+    {
         _popup.PopupPredicted(Loc.GetString(VibrationPopup),
             ent,
             ent.Owner,
-            Filter.Pvs(ent, 0.05f),
+            Filter.Pvs(ent, VibrationPopupRange),
             false,
             PopupType.Medium);
-
-        return true;
     }
 }

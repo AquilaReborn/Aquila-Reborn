@@ -17,6 +17,21 @@ public sealed class CyberpsychosisResistanceSystem : EntitySystem
         SubscribeLocalEvent<CyberpsychosisResistanceComponent, GetCyberpsychosisChanceEvent>(OnGetCyberpsychosisChance);
     }
 
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var now = _timing.CurTime;
+        var query = EntityQueryEnumerator<CyberpsychosisResistanceComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (now < comp.EndTime)
+                continue;
+
+            RemCompDeferred<CyberpsychosisResistanceComponent>(uid);
+        }
+    }
+
     /// <summary>
     /// Даёт защиту на время. Если защита уже есть, продлевает её и оставляет самый сильный множитель.
     /// </summary>
@@ -35,10 +50,7 @@ public sealed class CyberpsychosisResistanceSystem : EntitySystem
     private void OnGetCyberpsychosisChance(Entity<CyberpsychosisResistanceComponent> ent, ref GetCyberpsychosisChanceEvent args)
     {
         if (_timing.CurTime >= ent.Comp.EndTime)
-        {
-            RemCompDeferred<CyberpsychosisResistanceComponent>(ent);
             return;
-        }
 
         args.Multiplier *= ent.Comp.Multiplier;
     }

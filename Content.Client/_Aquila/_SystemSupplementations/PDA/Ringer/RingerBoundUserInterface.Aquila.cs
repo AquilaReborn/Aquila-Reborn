@@ -9,4 +9,13 @@ public sealed partial class RingerBoundUserInterface
     {
         SendPredictedMessage(new RingerSetSilentMessage(args.Pressed));
     }
+
+    /// <inheritdoc/>
+    protected override void Dispose(bool disposing)
+    {
+        if (disposing && _menu != null)
+            _menu.SilentCheckBox.OnToggled -= OnSilentToggled;
+
+        base.Dispose(disposing);
+    }
 }

@@ -114,7 +114,7 @@ public abstract partial class SharedRingerSystem : EntitySystem // Aquila Change
         if (!Resolve(ent, ref ent.Comp))
             return;
 
-        if (TryVibrateSilently((ent, ent.Comp))) // Aquila Change
+        if (VibrateIfSilent((ent, ent.Comp))) // Aquila Change
             return; // Aquila Change
 
         StartRingtone((ent, ent.Comp));
@@ -215,12 +215,7 @@ public abstract partial class SharedRingerSystem : EntitySystem // Aquila Change
 
         UpdateRingerUi(ent);
 
-        _popup.PopupPredicted(Loc.GetString("comp-ringer-vibration-popup"),
-            ent,
-            ent.Owner,
-            Filter.Pvs(ent, 0.05f),
-            false,
-            PopupType.Medium);
+        PopupVibration(ent); // Aquila Change
 
         DirtyFields(ent.AsNullable(),
             null,

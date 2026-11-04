@@ -155,4 +155,4 @@ uplink-cyber-hack-implanter-desc = Turns you into a walking emag: in two seconds
 ## Neuroadaptin inhaler
 
 uplink-neuroadaptin-inhaler-name = Neuroadaptin inhaler
-uplink-neuroadaptin-inhaler-desc = A reusable inhaler that slowly synthesizes neuroadaptin on its own. Helps your body adapt to new implants faster, so you can install them closer together with less risk to your mind. It also briefly dulls cyberpsychosis symptoms and halves the chance of it starting or getting worse for three minutes after a puff. One puff recharges in about a minute.
+uplink-neuroadaptin-inhaler-desc = A reusable inhaler that slowly synthesizes neuroadaptin on its own. Helps your body adapt to new implants faster, so you can install them closer together with less risk to your mind. It also dulls cyberpsychosis symptoms while neuroadaptin is in your blood and halves the chance of it starting or getting worse until three minutes after it wears off. One puff recharges in about a minute.
