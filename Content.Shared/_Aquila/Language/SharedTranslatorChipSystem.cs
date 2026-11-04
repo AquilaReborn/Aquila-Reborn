@@ -48,10 +48,10 @@ public abstract class SharedTranslatorChipSystem : EntitySystem
     public bool TryGetHolder(EntityUid body, [NotNullWhen(true)] out Entity<TranslatorChipHolderComponent>? holder)
     {
         holder = null;
-        if (!TryComp<ImplantedComponent>(body, out var implanted))
+        if (!_container.TryGetContainer(body, ImplanterComponent.ImplantSlotId, out var implants))
             return false;
 
-        foreach (var implant in implanted.ImplantContainer.ContainedEntities)
+        foreach (var implant in implants.ContainedEntities)
         {
             if (!TryComp<TranslatorChipHolderComponent>(implant, out var comp))
                 continue;
