@@ -9,7 +9,7 @@ namespace Content.Goobstation.Shared.MantisBlades;
 public sealed partial class MantisBladeArmComponent : Component
 {
     [DataField]
-    public string ActionProto;
+    public string ActionProto = string.Empty; // Aquila Change
 
     [DataField]
     public EntityUid? ActionUid;
