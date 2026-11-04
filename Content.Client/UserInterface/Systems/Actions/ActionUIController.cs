@@ -431,7 +431,7 @@ public sealed partial class ActionUIController : UIController, IOnStateChanged<G
         if (_actions.Contains(action))
             return;
 
-        _actions.Add(action);
+        InsertActionByPriority(action); // Aquila Change
     }
 
     private void OnActionRemoved(EntityUid actionId)
@@ -653,6 +653,8 @@ public sealed partial class ActionUIController : UIController, IOnStateChanged<G
 
         if (_actionsSystem != null)
             _container?.SetActionData(_actionsSystem, _actions.ToArray());
+
+        SaveActionPriority(); // Aquila Change
 
         _menuDragHelper.EndDrag();
     }
@@ -963,6 +965,7 @@ public sealed partial class ActionUIController : UIController, IOnStateChanged<G
             return;
 
         LoadDefaultActions();
+        ApplyActionPriority(); // Aquila Change
         _container?.SetActionData(_actionsSystem, _actions.ToArray());
         QueueWindowUpdate();
     }

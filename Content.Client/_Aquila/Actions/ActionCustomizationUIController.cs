@@ -31,7 +31,7 @@ using YamlDotNet.RepresentationModel;
 namespace Content.Client._Aquila.Actions;
 
 /// <summary>
-/// Выносит кнопки действий на экран и назначает действиям собственные бинды по Shift + ЛКМ.
+/// Выносит кнопки действий на экран, назначает действиям собственные бинды по Shift + ЛКМ и запоминает их порядок на панели между раундами.
 /// </summary>
 public sealed class ActionCustomizationUIController : UIController, IOnStateChanged<GameplayState>, IOnSystemChanged<ActionsSystem>
 {
@@ -120,7 +120,7 @@ public sealed class ActionCustomizationUIController : UIController, IOnStateChan
         _dragHelper.EndDrag();
         _capturingFor = null;
 
-        _dragShadow?.Dispose();
+        _dragShadow?.Orphan();
         _dragShadow = null;
     }
 
@@ -219,6 +219,80 @@ public sealed class ActionCustomizationUIController : UIController, IOnStateChan
 
         ResetEntryBind(entry);
         OnBindsModified();
+    }
+
+    /// <summary>
+    /// Сортирует действия панели по сохранённому приоритету. Действия без приоритета идут в конце в прежнем порядке.
+    /// </summary>
+    public void ApplyActionPriority(List<EntityUid?> actions)
+    {
+        if (_data.Priority.Count == 0)
+            return;
+
+        var sorted = actions
+            .OfType<EntityUid>()
+            .Select((action, index) => (Action: action, Index: index, Priority: GetPriorityIndex(action)))
+            .OrderBy(entry => entry.Priority < 0 ? int.MaxValue : entry.Priority)
+            .ThenBy(entry => entry.Index)
+            .Select(entry => (EntityUid?) entry.Action)
+            .ToList();
+
+        actions.Clear();
+        actions.AddRange(sorted);
+    }
+
+    /// <summary>
+    /// Возвращает позицию на панели, куда по сохранённому приоритету нужно вставить новое действие.
+    /// </summary>
+    public int GetPriorityInsertIndex(IReadOnlyList<EntityUid?> actions, EntityUid action)
+    {
+        var priority = GetPriorityIndex(action);
+        if (priority < 0)
+            return actions.Count;
+
+        for (var i = 0; i < actions.Count; i++)
+        {
+            if (actions[i] is not { } other)
+                continue;
+
+            var otherPriority = GetPriorityIndex(other);
+            if (otherPriority < 0 || otherPriority > priority)
+                return i;
+        }
+
+        return actions.Count;
+    }
+
+    /// <summary>
+    /// Запоминает порядок действий на панели. Действия, которых сейчас нет, остаются сразу после своего прежнего соседа.
+    /// </summary>
+    public void UpdateActionPriority(IEnumerable<EntityUid?> actions)
+    {
+        var visible = new List<EntProtoId>();
+        foreach (var action in actions)
+        {
+            if (action is { } uid && TryGetPrototype(uid, out var proto) && !visible.Contains(proto))
+                visible.Add(proto);
+        }
+
+        var priority = new List<EntProtoId>(visible);
+        EntProtoId? previous = null;
+        foreach (var proto in _data.Priority)
+        {
+            if (!visible.Contains(proto))
+            {
+                var index = previous is { } prev ? priority.IndexOf(prev) + 1 : 0;
+                priority.Insert(index, proto);
+            }
+
+            previous = proto;
+        }
+
+        if (priority.SequenceEqual(_data.Priority))
+            return;
+
+        _data.Priority = priority;
+        SaveData();
     }
 
     /// <summary>
@@ -630,6 +704,11 @@ public sealed class ActionCustomizationUIController : UIController, IOnStateChan
 
         proto = prototype.ID;
         return true;
+    }
+
+    private int GetPriorityIndex(EntityUid action)
+    {
+        return TryGetPrototype(action, out var proto) ? _data.Priority.IndexOf(proto) : -1;
     }
 
     private ActionCustomizationEntry GetOrCreateEntry(EntProtoId proto)
