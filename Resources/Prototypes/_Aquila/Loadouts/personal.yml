@@ -171,6 +171,18 @@
     - FoodWatermelon
 # VergilAndDante
 
+# onionsenpai
+- type: loadout
+  id: PersonalLoadoutOnionsenpaiMedipen
+  effects:
+  - !type:PersonalLoadoutEffect
+    users:
+    - 01c01096-e858-4e48-acf5-f03870250e07
+  storage:
+    back:
+    - EthyloxyephedrineMedipen
+# onionsenpai
+
 # Ckey
 # something
 # Ckey
