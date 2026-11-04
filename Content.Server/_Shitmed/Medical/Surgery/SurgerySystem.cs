@@ -23,7 +23,7 @@ using Content.Shared.Damage.Systems;
 
 namespace Content.Server._Shitmed.Medical.Surgery;
 
-public sealed class SurgerySystem : SharedSurgerySystem
+public sealed partial class SurgerySystem : SharedSurgerySystem // Aquila Change
 {
     [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
@@ -84,7 +84,7 @@ public sealed class SurgerySystem : SharedSurgerySystem
                 if (GetSingleton(surgery) is not { } surgeryEnt)
                     continue;
 
-                var ev = new SurgeryValidEvent(body, part.Id);
+                var ev = new SurgeryValidEvent(body, part.Id, User: GetSelfSurgeon(body)); // Aquila Change
                 RaiseLocalEvent(surgeryEnt, ref ev);
 
                 if (ev.Cancelled)

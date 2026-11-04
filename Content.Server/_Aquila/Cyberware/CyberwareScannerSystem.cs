@@ -133,8 +133,8 @@ public sealed class CyberwareScannerSystem : EntitySystem
         var names = new List<string>();
         var identified = GetIdentified(ent, target, args.Deep);
         var concealed = CollectImplants(ent, target, args.Deep, identified, names);
-        concealed += CollectHiddenOrgans(target, args.Deep, identified, names);
-        CollectArmBlades(target, args.Deep, identified, names);
+        concealed += CollectHiddenOrgans(ent, target, args.Deep, ref identified, names);
+        concealed += CollectArmBlades(ent, target, args.Deep, ref identified, names);
 
         LocId? stageName = null;
         float? cureProgress = null;
@@ -204,15 +204,12 @@ public sealed class CyberwareScannerSystem : EntitySystem
         return concealed;
     }
 
-    private int CollectHiddenOrgans(EntityUid target, bool deep, ImplantsIdentifiedComponent? identified, List<string> names)
+    private int CollectHiddenOrgans(Entity<CyberwareScannerComponent> scanner, EntityUid target, bool deep, ref ImplantsIdentifiedComponent? identified, List<string> names)
     {
         var concealed = 0;
         foreach (var (organ, _, _) in _body.GetBodyOrganEntityComps<IdentificationRequiredComponent>(target))
         {
-            if (deep && identified!.Identified.Add(organ))
-                Dirty(target, identified);
-
-            if (identified == null || !identified.Identified.Contains(organ))
+            if (!TryIdentify(scanner, target, organ, IsConcealed(scanner.Comp, organ), deep, ref identified))
             {
                 concealed++;
                 continue;
@@ -224,15 +221,35 @@ public sealed class CyberwareScannerSystem : EntitySystem
         return concealed;
     }
 
-    private void CollectArmBlades(EntityUid target, bool deep, ImplantsIdentifiedComponent? identified, List<string> names)
+    private int CollectArmBlades(Entity<CyberwareScannerComponent> scanner, EntityUid target, bool deep, ref ImplantsIdentifiedComponent? identified, List<string> names)
     {
+        var concealed = 0;
         foreach (var (arm, _, _) in _body.GetBodyChildrenOfTypeWithComponent<MantisBladeArmComponent>(target, BodyPartType.Arm))
         {
-            if (deep && identified!.Identified.Add(arm))
-                Dirty(target, identified);
+            if (!TryIdentify(scanner, target, arm, scanner.Comp.ConcealMantisBlades, deep, ref identified))
+            {
+                concealed++;
+                continue;
+            }
 
             names.Add(Loc.GetString(MantisBladeName, ("arm", Name(arm))));
         }
+
+        return concealed;
+    }
+
+    private bool TryIdentify(Entity<CyberwareScannerComponent> scanner, EntityUid target, EntityUid implant, bool isConcealed, bool deep, ref ImplantsIdentifiedComponent? identified)
+    {
+        if (identified != null && identified.Identified.Contains(implant))
+            return true;
+
+        if (isConcealed && (!deep || !_random.Prob(scanner.Comp.IdentifyChance)))
+            return false;
+
+        identified ??= EnsureComp<ImplantsIdentifiedComponent>(target);
+        identified.Identified.Add(implant);
+        Dirty(target, identified);
+        return true;
     }
 
     private bool IsConcealed(CyberwareScannerComponent scanner, EntityUid implant)

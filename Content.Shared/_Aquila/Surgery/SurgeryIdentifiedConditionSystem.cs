@@ -7,6 +7,7 @@ namespace Content.Shared._Aquila.Surgery;
 
 /// <summary>
 /// Прячет операции извлечения скрытых имплантов, пока глубокий скан не опознал эти импланты.
+/// Владелец, который оперирует сам себя, знает о своих имплантах и обходится без скана.
 /// </summary>
 public sealed class SurgeryIdentifiedConditionSystem : EntitySystem
 {
@@ -21,7 +22,7 @@ public sealed class SurgeryIdentifiedConditionSystem : EntitySystem
 
     private void OnSurgeryValid(Entity<SurgeryIdentifiedConditionComponent> ent, ref SurgeryValidEvent args)
     {
-        if (args.Cancelled)
+        if (args.Cancelled || args.User == args.Body)
             return;
 
         if (ent.Comp.Part && !IsIdentified(args.Body, args.Part))
