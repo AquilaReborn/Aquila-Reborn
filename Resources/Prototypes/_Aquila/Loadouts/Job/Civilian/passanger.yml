@@ -1,0 +1,14 @@
+- type: loadout
+  id: JumpsuitCommon
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCommon
+
+- type: loadout
+  id: CommonShorts
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCommonShorts
+
+- type: loadout
+  id: Beerzavr
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitBeerzavr

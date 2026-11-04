@@ -409,6 +409,7 @@
   - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - TechnicalAssistantJumpsuit
+  - TechnicalAssistantOuterClothing # aquila
   - StationEngineerBackpack
   - SurvivalExtended
   - Trinkets
@@ -518,6 +519,7 @@
   - Inventory # CorvaxGoob-loadouts
   - GroupTankHarness
   - ResearchAssistantJumpsuit
+  - ResearchAssistantOuterClothing # aquila
   - ScientistBackpack
   - Glasses
   - Survival
@@ -699,6 +701,7 @@
   - MedicalEyewear
   - GroupTankHarness
   - MedicalInternJumpsuit
+  - MedicalInternOuterClothing # aquila
   - MedicalBackpack
   - SurvivalMedical
   - Trinkets

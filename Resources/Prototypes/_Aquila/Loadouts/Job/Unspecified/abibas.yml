@@ -1,0 +1,29 @@
+- type: loadout
+  id: Abibas
+  equipment:
+    outerClothing: ClothingOuterAbibas
+
+- type: loadout
+  id: AbibasCargo
+  equipment:
+    outerClothing: ClothingOuterAbibasCargo
+
+- type: loadout
+  id: AbibasEng
+  equipment:
+    outerClothing: ClothingOuterAbibasEng
+
+- type: loadout
+  id: AbibasMed
+  equipment:
+    outerClothing: ClothingOuterAbibasMed
+
+- type: loadout
+  id: AbibasSci
+  equipment:
+    outerClothing: ClothingOuterAbibasSci
+
+- type: loadout
+  id: AbibasSec
+  equipment:
+    outerClothing: ClothingOuterAbibasSec

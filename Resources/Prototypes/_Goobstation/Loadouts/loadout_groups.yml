@@ -755,6 +755,7 @@
   - WhiteGloves
   - BlackGloves
   - RedGloves
+  - MonoMimeGloves # Aquila
 
 - type: loadoutGroup
   id: MimeShoes
@@ -766,6 +767,7 @@
   - BlackShoes
   - RedShoes
   - LaceupShoes
+  - MonoMimeBoots # Aquila
 
 # Assistant
 
@@ -1712,6 +1714,7 @@
   loadouts:
   - JumpsuitHawaiBlack
   - JumpsuitHawaiBlue
+  - JumpsuitHawaiGreen
   - JumpsuitHawaiRed
   - JumpsuitHawaiYellow
 

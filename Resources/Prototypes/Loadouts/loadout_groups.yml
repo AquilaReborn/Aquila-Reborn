@@ -320,6 +320,9 @@
   - ContractorJumpsuitTac
   - BlackMJAlt
  # goob changes end
+  - CommonShorts # aquila
+  - JumpsuitCommon # aquila
+  - Beerzavr # aquila
 
 - type: loadoutGroup
   id: PassengerFace
@@ -358,6 +361,7 @@
   minLimit: 0
   loadouts:
   - PassengerWintercoat
+  - Abibas # Aquila
 
 - type: loadoutGroup
   id: PassengerShoes
@@ -509,6 +513,7 @@
   - ChaplainPlagueHat
   - ChaplainWitchHat
   - ChaplainWitchHatAlt
+  - ThornedCrown # aquila
 
 - type: loadoutGroup
   id: ChaplainMask
@@ -536,6 +541,7 @@
   - ChaplainNunRobe
   - ChaplainBlackHoodie
   - ChaplainHoodie
+  - RichChapel # aquila
 
 - type: loadoutGroup
   id: ChaplainNeck
@@ -543,6 +549,7 @@
   minLimit: 0
   loadouts:
   - ChaplainNeck
+  - BlackHood # aquila
 
 - type: loadoutGroup
   id: ChaplainJobTrinkets
@@ -656,6 +663,7 @@
   loadouts:
   - JesterHat
   - JesterAltHat
+  - JestersHat # aquila
 
 # Aquila Start
 - type: loadoutGroup
@@ -683,6 +691,7 @@
   - JesterSuit
   - JesterAltSuit
   - ClownBarotraumaSuit # Aquila # Aquila Change
+  - GildedClownCostume # Aquila
 
 - type: loadoutGroup
   id: ClownBackpack
@@ -707,6 +716,7 @@
   loadouts:
   - ClownShoes
   - JesterShoes
+  - JestersBoots # Aquila
   - ClownBarotraumaShoes # Aquila # Aquila Change
 
 - type: loadoutGroup
@@ -739,6 +749,7 @@
   - MimeHead
   - MimeFrenchBeret
   - MimeCap
+  - MonoMimeHat # aquila
 
 - type: loadoutGroup
   id: MimeMask
@@ -747,6 +758,7 @@
   - MimeMask
   - MimeMaskSad
   - MimeMaskScared
+  - MonoMimeMask # aquila
 
 - type: loadoutGroup
   id: MimeJumpsuit
@@ -754,6 +766,25 @@
   loadouts:
   - MimeJumpsuit
   - MimeJumpskirt
+  - MonoMimeSuit # aquila
+
+# aquila changes start 
+
+# - type: loadoutGroup
+#   id: MimeGloves
+#   name: loadout-group-mime-gloves
+#   minLimit: 0
+#   loadouts:
+#   - MonoMimeGloves 
+
+# - type: loadoutGroup
+#   id: MimeShoes
+#   name: loadout-group-mime-shoes
+#   minLimit: 0
+#   loadouts:
+#   - MonoMimeShoes
+
+# aquila changes end
 
 - type: loadoutGroup
   id: MimeBackpack
@@ -944,6 +975,7 @@
   loadouts:
   - CargoTechnicianWintercoat
   - CargoTechnicianWintercoatMail # Goob/DeltaV - Mail # todo marty fixmail
+  - AbibasCargo # aquila
 
 - type: loadoutGroup
   id: CargoTechnicianShoes
@@ -981,6 +1013,7 @@
   minLimit: 0
   loadouts:
   - SalvageSpecialistWintercoat
+  - AbibasCargo # aquila
 
 - type: loadoutGroup
   id: SalvageSpecialistShoes
@@ -1034,6 +1067,7 @@
   minLimit: 0
   loadouts:
   - ChiefEngineerWintercoat
+  - AbibasEng # aquila
 
 - type: loadoutGroup
   id: ChiefEngineerShoes
@@ -1056,6 +1090,17 @@
   - YellowJumpsuit
   - YellowJumpskirt
   - EngiMJ # goob
+
+# aquila start
+
+- type: loadoutGroup
+  id: TechnicalAssistantOuterClothing
+  name: loadout-group-technical-assistant-outerclothing
+  minLimit: 0
+  loadouts:
+  - AbibasEng
+
+# aquila end
 
 - type: loadoutGroup
   id: TechnicalAssistantJobTrinkets
@@ -1102,6 +1147,7 @@
   loadouts:
   - StationEngineerOuterVest
   - StationEngineerWintercoat
+  - AbibasEng # aquila
 
 - type: loadoutGroup
   id: StationEngineerShoes
@@ -1149,6 +1195,7 @@
   loadouts:
   - AtmosphericTechnicianWintercoat
   - AtmosOveralls # CorvaxGoob
+  - AbibasEng # aquila
 
 - type: loadoutGroup
   id: AtmosphericTechnicianBackpack
@@ -1292,6 +1339,7 @@
   - RoboticistLabCoat
   - RoboticistWintercoat
   - SeniorResearcherLabCoat
+  - AbibasSci # aquila
 
 - type: loadoutGroup
   id: ScientistShoes
@@ -1331,6 +1379,13 @@
   - WhiteJumpsuit
   - WhiteJumpskirt
   - ResearchMJ # goob
+
+- type: loadoutGroup
+  id: ResearchAssistantOuterClothing
+  name: loadout-group-research-assistant-outerclothing
+  minLimit: 0
+  loadouts:
+  - AbibasSci # aquila
 
 - type: loadoutGroup
   id: ResearchAssistantJobTrinkets
@@ -1484,6 +1539,7 @@
   - SecurityOfficerWintercoat
   - WinterCoatSeniorSecArmored # Goobstation
   - VeteranOfficerArmor # Goobstation
+  - AbibasSec # aquila
 
 - type: loadoutGroup
   id: SecurityShoes
@@ -1665,6 +1721,7 @@
   - RegularLabCoat
   - MedicalDoctorWintercoat
   - SeniorPhysicianLabCoat
+  - AbibasMed # aquila
 
 - type: loadoutGroup
   id: MedicalBackpack
@@ -1719,6 +1776,17 @@
   - WhiteJumpskirt
   - MedicMJ # goob
 
+# aquila start
+
+- type: loadoutGroup
+  id: MedicalInternOuterClothing
+  name: loadout-group-medical-intern-outerclothing
+  minLimit: 0
+  loadouts:
+  - AbibasMed
+
+# aquila end
+
 - type: loadoutGroup
   id: MedicalInternJobTrinkets
   name: loadout-group-jobtrinkets
@@ -1745,6 +1813,7 @@
   - ChemistLabCoat
   - ChemistWintercoat
   - SeniorPhysicianLabCoat # Goobstation
+  - AbibasMed # aquila
 
 - type: loadoutGroup
   id: ChemistBackpack

@@ -95,6 +95,8 @@ ent-ClothingOuterSweaterWhite = Белый свитер
     .desc = Шерстяной тёплый свитер
 ent-ClothingOuterSweaterYellow = Жёлтый свитер
     .desc = Шерстяной тёплый свитер
+ent-ClothingOuterSweaterBrown = Коричневый свитер
+    .desc = Шерстяной тёплый свитер
 
 ent-ClothingHeadBlackHatAquila = Чёрная шляпа
     .desc = Они не увидят твоих глаз
@@ -145,3 +147,21 @@ ent-ClothingMaskMonocromeMimeMask = Монохромная маска мима
     .desc = Чёрно-белая маска мима с жуткой, но завораживающей улыбкой. Каждая сторона маски отражает разное состояние актера.
 ent-ClothingUniformMonochromeMimeSuit = Монохромный костюм мима
     .desc = Инкрустированный золотом костюм мима, который носится с перчатками, шляпой и маской из комплекта. Теперь, в тебе отражаются обе стороны одной медали.
+
+ent-ClothingOuterAbibas = Спортивка
+    .desc = ...
+ent-ClothingOuterAbibasCargo = Спортивка карго
+    .desc = ...
+ent-ClothingOuterAbibasEng = Спортивка инженеров
+    .desc = ...
+ent-ClothingOuterAbibasMed = Спортивка медиков
+    .desc = ...
+ent-ClothingOuterAbibasSci = Спортивка ученых
+    .desc = ...
+ent-ClothingOuterAbibasSec = Спортивка охраны
+    .desc = ...
+
+ent-ClothingUniformJumpsuitCommon = Спортивный костюм со штанами
+    .desc = Ничего необычного, и это идеально
+ent-ClothingUniformJumpsuitCommonShorts = Спортивный костюм с шортами
+    .desc = Ничего необычного, и это идеально

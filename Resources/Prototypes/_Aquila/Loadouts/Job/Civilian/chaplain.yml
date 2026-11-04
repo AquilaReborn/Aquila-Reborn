@@ -1,0 +1,14 @@
+- type: loadout
+  id: RichChapel
+  equipment:
+    outerClothing: ClothingOuterRichChapel
+
+- type: loadout
+  id: BlackHood
+  equipment:
+    neck: ClothingNeckBlackHood
+
+- type: loadout
+  id: ThornedCrown
+  equipment:
+    head: ClothingHeadThornedCrown

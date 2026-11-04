@@ -1,0 +1,24 @@
+- type: loadout
+  id: MonoMimeSuit
+  equipment:
+    jumpsuit: ClothingUniformMonochromeMimeSuit
+
+- type: loadout
+  id: MonoMimeGloves
+  equipment:
+    gloves: ClothingHandMonochromeMimeGloves
+  
+- type: loadout
+  id: MonoMimeBoots
+  equipment:
+    shoes: ClothingShoesMonocromeMimeBoots
+
+- type: loadout
+  id: MonoMimeHat
+  equipment:
+    head: ClothingHeadMonochromeMimeHat
+
+- type: loadout
+  id: MonoMimeMask
+  equipment:
+    mask: ClothingMaskMonocromeMimeMask
