@@ -6,6 +6,7 @@
   components:
   - type: Cyberware
     load: 10
+  - type: IdentificationRequired
   - type: Cybernetics
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/sandevistan.rsi

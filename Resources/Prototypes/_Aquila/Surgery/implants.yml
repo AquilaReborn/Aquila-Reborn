@@ -103,3 +103,5 @@
   - type: SurgeryPartComponentCondition
     components:
     - type: MantisBladeArm
+  - type: SurgeryIdentifiedCondition
+    part: true

@@ -8,6 +8,7 @@
   components:
   - type: Cyberware # Aquila Change
     load: 50 # Aquila Change
+  - type: IdentificationRequired # Aquila Change
   - type: Cybernetics
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/sandevistan.rsi
@@ -33,6 +34,7 @@
   components:
   - type: Cyberware # Aquila Change
     load: 50 # Aquila Change
+  - type: IdentificationRequired # Aquila Change
   - type: Cybernetics
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/sandevistan.rsi
