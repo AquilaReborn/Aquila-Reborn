@@ -182,3 +182,8 @@ loadout-group-boxer-envirosuit = Экокостюм боксёра
 loadout-group-plasma-tank = Баллон с плазмой
 # Shaft Miner
 loadout-group-shaft-miner-jumpsuit = Комбинезон шахтёра
+loadout-group-atmospheric-technician-belt = Пояс атмосферного техника
+loadout-group-mime-shoes = Обувь мима
+loadout-group-captain-shoes = Обувь капитана
+loadout-group-boxer-helmet = Шлем боксёра
+loadout-group-security-gloves = Перчатки службы безопасности

@@ -1,0 +1,2 @@
+ent-Solution = раствор
+    .desc = { "" }

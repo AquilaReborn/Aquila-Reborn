@@ -4,3 +4,6 @@ research-technology-work-belts = Рабочие пояса
 research-technology-capture-device = Технологии захвата и сдерживания
 research-technology-nuclear-power = Ядерная энергетика
 research-technology-nuclear-recycling = Переработка ядерных отходов
+research-technology-mechanised-security = Механизированная охрана
+research-technology-blast-proof = Взрывостойкие контейнеры
+research-technology-hypoinjector = Автоматические инъекции

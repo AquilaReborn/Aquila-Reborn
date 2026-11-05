@@ -90,3 +90,4 @@ heretic-speech-realignment = СБР'С!
 heretic-speech-fuckoff = П'Ш'Л Н'Х'Й!!
 heretic-speech-ice-spear = Р'ССВ'Т Л'ДА!
 heretic-speech-shapeshft = Р'ВОК
+heretic-ability-lose-focus-shadow-cloak = Вы теряете концентрацию, и вас вытягивает из теней!

@@ -58,3 +58,6 @@ names-slasher-dataset-29 = Клоунорасщепитель
 names-slasher-dataset-30 = Жнец
 names-slasher-dataset-31 = Крушитель
 names-slasher-dataset-32 = Робаст
+names-slasher-title-dataset-29 = Кожаный
+names-slasher-title-dataset-30 = Мидвичский
+names-slasher-dataset-33 = Зубы

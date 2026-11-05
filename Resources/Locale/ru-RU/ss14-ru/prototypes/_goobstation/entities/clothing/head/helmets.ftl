@@ -43,3 +43,5 @@ ent-ClothingHeadHatHelmetDragon = драконий капюшон
 ent-ClothingHeadHatHelmetInquisitor = фуражка инквизитора
     .desc = Великолепная позолоченная фуражка. Воплощение кары, которая постигнет еретиков!
     .suffix = Священник
+ent-ClothingHeadHelmetSwatBase = { ent-ClothingHeadHelmetBase }
+    .desc = { ent-ClothingHeadHelmetBase.desc }

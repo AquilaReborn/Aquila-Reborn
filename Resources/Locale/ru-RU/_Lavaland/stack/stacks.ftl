@@ -34,3 +34,23 @@ stack-legion-skull =
         [1] череп легиона
        *[other] черепов легиона
     }
+stack-ashwood-stick =
+    { $amount ->
+        [1] палка пепельного дерева
+       *[other] палок пепельного дерева
+    }
+stack-wood-stick =
+    { $amount ->
+        [1] деревянная палка
+       *[other] деревянных палок
+    }
+stack-flowers-ash =
+    { $amount ->
+        [1] пепельный цветок
+       *[other] пепельных цветов
+    }
+stack-flowers-pale =
+    { $amount ->
+        [1] бледный цветок
+       *[other] бледных цветов
+    }

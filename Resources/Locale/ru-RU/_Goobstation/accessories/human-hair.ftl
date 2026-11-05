@@ -62,3 +62,4 @@ marking-HumanHairClassicBun = Классический пучок
 marking-HumanHairLooseBun = Свободный пучок
 marking-HumanHairLowPonytail = Низкий хвост
 marking-HumanHairLongTwinTails = Длинные хвостики
+marking-HumanHairCubism = Кубизм

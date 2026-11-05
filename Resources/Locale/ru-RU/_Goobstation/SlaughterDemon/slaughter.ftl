@@ -18,5 +18,7 @@ laughter-role-greeting =
 demonic-whisper-title = Демонический шёпот
 demonic-whisper-popup = Вдруг в вашей голове раздаётся странный демонический голос...
 demonic-whisper-whisper = Вы шепчете { $name }: { $message }
+demonic-whisper-flavor = Вдруг в вашей голове раздаётся странный демонический голос...
+demonic-whisper-self = Вы шепчете { $name }: { $message }
 # metadata
 name-format-slaughter = { $part1 }, { $part0 }

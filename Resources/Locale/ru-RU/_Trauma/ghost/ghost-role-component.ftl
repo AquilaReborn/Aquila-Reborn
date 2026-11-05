@@ -1,0 +1,9 @@
+ghost-role-information-nukie-carp-name = Карп - ядерный оперативник
+ghost-role-information-nukie-carp-description = Подкрепление Синдиката в лице карпа - ядерного оперативника.
+ghost-role-information-nukie-mouse-name = Мышь - ядерный оперативник
+ghost-role-information-nukie-mouse-description = Подкрепление Синдиката в лице мыши - ядерного оперативника.
+ghost-role-information-nukie-spider-name = Паук - ядерный оперативник
+ghost-role-information-nukie-spider-description = Подкрепление Синдиката в лице паука - ядерного оперативника.
+ghost-role-information-syndicate-cyborg-medical-name = Медицинский киборг Синдиката
+ghost-role-information-syndicate-behonker-name = Бехонкер Синдиката
+ghost-role-information-syndicate-behonker-desc = Последователю Хонкоматери нужна твоя помощь. Поддержи его в трудный час.

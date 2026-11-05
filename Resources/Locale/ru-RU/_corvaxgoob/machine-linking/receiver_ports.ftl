@@ -15,3 +15,8 @@ signal-port-description-gas-turbine-receiver-decrease = Уменьшает на�
 
 signal-port-name-gas-turbine-data-receiver = Монитор турбины
 signal-port-description-gas-turbine-data-receiver = Получение информации о газовой турбине.
+
+signal-port-name-vitals-monitor-receiver-med = Медицинская койка
+signal-port-description-vitals-monitor-receiver-med = Отправка информации о состоянии пациента на монитор жизненных показателей.
+signal-port-name-vitals-monitor-receiver-stasis = Стазисная койка
+signal-port-description-vitals-monitor-receiver-stasis = Отправка информации о состоянии пациента на монитор жизненных показателей.

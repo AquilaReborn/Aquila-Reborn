@@ -9,3 +9,6 @@ signal-port-description-gas-turbine-speed-low = Скорость ниже опт
 
 signal-port-name-gas-turbine-data-sender = Газовая турбина
 signal-port-description-gas-turbine-data-sender = Отправка информации о газовой турбине на монитор.
+
+signal-port-name-vitals-monitor-sender = Монитор жизненных показателей
+signal-port-description-vitals-monitor-sender = Получение информации о состоянии пациента с медицинской или стазисной койки.

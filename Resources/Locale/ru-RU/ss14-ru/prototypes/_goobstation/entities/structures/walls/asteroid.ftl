@@ -16,3 +16,6 @@ ent-WallRockSandBSCrystal = { ent-WallRockSand }
 ent-WallRockChromiteBSCrystal = { ent-WallRockChromite }
     .suffix = bluespace crystal
     .desc = { ent-WallRockChromite.desc }
+ent-BaseVeinBSCrystal = { "" }
+    .suffix = Блюспейс кристалл
+    .desc = Рудная жила, богатая блюспейс кристаллами.

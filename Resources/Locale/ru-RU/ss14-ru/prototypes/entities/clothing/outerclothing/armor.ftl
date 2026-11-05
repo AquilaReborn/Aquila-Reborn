@@ -41,3 +41,5 @@ ent-ClothingOuterBrassArmor = латунный доспех
     .desc = Старый славянский латунный доспех, как у наших предков.
 ent-ClothingHeadHatHelmetBrass = латунный шлем
     .desc = Латунный шлем, как в добрые старые времена.
+ent-ClothingOuterArmorBaseCarapace = { ent-ClothingOuterBaseLarge }
+    .desc = { ent-ClothingOuterBaseLarge.desc }

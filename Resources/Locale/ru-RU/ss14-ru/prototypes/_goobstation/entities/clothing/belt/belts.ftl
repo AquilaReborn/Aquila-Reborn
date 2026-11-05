@@ -30,3 +30,5 @@ ent-ClothingBeltSecurityWebbingContractorFilled = { ent-ClothingBeltSecurityWebb
 ent-ClothingBeltWhipping = батин ремен
     .suffix = Адмем
     .desc = Пьяный офицер специальных операций вернулся с работы домой к семье...
+ent-ClothingBeltUtilityAtmos = пояс атмосферного техника
+    .desc = Вмещает все инструменты, нужные подрастающей (средних лет) кошкодевочке-атмосу.

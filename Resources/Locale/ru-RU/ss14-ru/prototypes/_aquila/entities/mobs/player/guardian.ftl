@@ -1,0 +1,16 @@
+ent-MobGuardianRangedBase = страж
+    .desc = Страж.
+ent-MobGuardianMeleeStaminaBase = страж
+    .desc = Страж.
+ent-MobGuardianTuskOne = Tusk One
+    .desc = Маленький розовый цыплёнок, стреляющий снарядами.
+ent-MobGuardianKingCrimson = King Crimson
+    .desc = Багровый Король с очень недовольным лицом и мощными кулаками!
+ent-MobGuardianTheWorld = The World
+    .desc = Величественный страж, способный остановить течение времени!
+ent-MobGuardianD4C = D4C
+    .desc = Способность странствовать между мирами подвластна лишь мне!
+ent-MobGuardianMandom = Mandom
+    .desc = Страж, связанный со своим хозяином и дарующий способность отматывать время!
+ent-MobGuardianGoldExperience = Gold Experience
+    .desc = Страж, способный создавать жизнь одним прикосновением!

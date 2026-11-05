@@ -15,3 +15,5 @@ cosmicability-monument-spawn-error-grid = Недопустимое место! �
 cosmicability-monument-spawn-error-station = Недопустимое место! Монумент может быть призван только на станции.
 cosmicability-monument-spawn-error-intersection = Слишком тесно! Для призыва Монумента требуется свободная область 3x1.
 cosmicability-monument-spawn-error-space = Слишком близко к космосу! Монумент должен находиться как минимум в { $DISTANCE } м. отсюда.
+cosmicability-siphon-crit = Глаза { CAPITALIZE($user) } вспыхивают энергией, и { $target } падает замертво!
+cosmicability-hibernate-confirm = ЭТО ДЕЙСТВИЕ ОБЕЗДВИЖИТ ВАС! Используйте снова, чтобы подтвердить.

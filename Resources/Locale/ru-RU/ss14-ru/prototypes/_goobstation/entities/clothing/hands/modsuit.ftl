@@ -16,3 +16,5 @@ ent-ClothingModsuitGauntletsResearchDirector = перчатки скафандр
     .desc = Чтобы сохранить пальцы целыми, когда артефакт термоядерит тебя.
 ent-ClothingModsuitGauntletsCaptain = перчатки скафандра MOD "Магнат"
     .desc = С особыми канавками и вырезами, чтобы удобнее держать этот чёртов диск.
+ent-ClothingModsuitGauntletsBrigMed = перчатки травматологического скафандра MOD
+    .desc = Крутые перчатки.

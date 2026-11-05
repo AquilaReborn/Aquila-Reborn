@@ -5,3 +5,4 @@ martial-arts-combo-MimejutsuSilentExecution = бесшумная казнь
 martial-arts-combo-MimejutsuMimechucks = мимчаки
 martial-arts-combo-MimejutsuSilencer = глушитель
 martial-arts-combo-MimejutsuSilentPalm = бесшумная ладонь
+martial-arts-combo-Silentpunch = бесшумный удар

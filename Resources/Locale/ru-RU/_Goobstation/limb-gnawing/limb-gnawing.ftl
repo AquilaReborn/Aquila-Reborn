@@ -1,0 +1,3 @@
+limb-gnaw-verb = Отгрызть конечность
+limb-gnaw-start = Ты начинаешь грызть {$target}...
+limb-gnaw-finish = {CAPITALIZE($user)} отгрызает {$part}!

@@ -17,3 +17,7 @@ ent-WindowFrostedDirectional = направленное матовое окно
 ent-WindowDiagonal = { ent-Window }
     .suffix = Диагональ
     .desc = { ent-Window.desc }
+ent-BaseWindowStructure = окно
+    .desc = Смотри не заляпай.
+ent-BaseWindowStructureDirectional = направленное окно
+    .desc = Смотри не заляпай.

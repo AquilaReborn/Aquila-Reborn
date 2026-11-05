@@ -80,3 +80,5 @@ ent-BorgChassisServiceRich = борг-официант "богатей"
     .desc = { ent-BorgChassisService.desc }
 ent-BorgChassisServiceRover = борг-официант "ровер"
     .desc = { ent-BorgChassisService.desc }
+ent-BorgChassisSEC = киборг S.E.C.
+    .desc = Киборг охраны правопорядка, созданный для соблюдения космического закона.

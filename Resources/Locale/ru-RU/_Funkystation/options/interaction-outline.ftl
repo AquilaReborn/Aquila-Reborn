@@ -1,0 +1,11 @@
+ui-options-interaction-outline-header = Настройки обводки взаимодействия
+ui-options-use-custom-interaction-outline-color = Использовать свои цвета обводки взаимодействия
+ui-options-interaction-outline-color-expand = Развернуть настройки цвета обводки
+ui-options-interaction-outline-color-valid = Цвет обводки объектов в зоне досягаемости
+ui-options-interaction-outline-color-invalid = Цвет обводки объектов вне зоны досягаемости
+ui-options-interaction-outline-color-example = Так выглядит цвет обводки.
+ui-options-color-slider-default-button = Сбросить по умолчанию
+ui-options-radio-channel-colors-header = Цвета радиоканалов
+ui-options-use-custom-radio-channel-colors = Использовать свои цвета радиоканалов
+ui-options-radio-channel-colors-expand = Развернуть настройки цветов радиоканалов
+ui-options-radio-channel-colors-example = [{$channel}] Так выглядит цвет канала.

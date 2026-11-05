@@ -1,0 +1,3 @@
+telepathic-whisper-title = Телепатический шёпот
+telepathic-whisper-flavor = Вдруг в твоей голове раздаётся голос...
+telepathic-whisper-self = Ты шепчешь {$name}: {$message}

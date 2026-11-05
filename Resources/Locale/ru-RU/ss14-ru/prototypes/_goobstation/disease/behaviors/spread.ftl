@@ -1,2 +1,12 @@
 ent-DiseaseBehaviorCough = Кашель
     .desc = Заставляет носителя кашлять. Способствует распространению.
+ent-DiseaseBehaviorHonk = ХОНК!
+    .desc = ХОНК! ОЧЕНЬ заразно.
+ent-DiseaseBehaviorPneumonia = Пневмония
+    .desc = Вызывает кашель. Кашлять больно.
+ent-DiseaseBehaviorSneeze = Чихание
+    .desc = Вызывает чихание. ОЧЕНЬ заразно.
+ent-DiseaseBehaviorSkinLesion = Поражение кожи
+    .desc = Наносит режущий урон. Заразно.
+ent-DiseaseBehaviorAbscesses = Абсцессы
+    .desc = На последних стадиях наносит сильный режущий урон. Заразно.

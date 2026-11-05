@@ -10,6 +10,8 @@ set-game-preset-preset-set-finite = Установлен пресет "{ $preset
     *[other] следующие { $rounds } раундов
 }.
 
+set-game-preset-command-hint-1 = <id>
+
 set-game-preset-command-hint-2 = [количество раундов]
 
 set-game-preset-command-hint-3 = [пресет для обмана]

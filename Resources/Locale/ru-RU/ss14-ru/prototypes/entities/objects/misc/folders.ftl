@@ -110,3 +110,9 @@ ent-BoxFolderPlasticClipboardEmpty = пластиковый планшет
 
 ent-BoxFolderCentComClipboardEmpty = планшет Центком
     .desc = Роскошный планшет, обитый зелёным бархатом. Представители Центком часто носят его с собой, но редко используют.
+
+ent-BoxFolderFillThreePapers = { "" }
+    .suffix = 3 листа бумаги
+    .desc = { "" }
+ent-BoxFolderPlasticClipboard = { ent-BoxFolderPlasticClipboardEmpty }
+    .desc = { ent-BoxFolderPlasticClipboardEmpty.desc }

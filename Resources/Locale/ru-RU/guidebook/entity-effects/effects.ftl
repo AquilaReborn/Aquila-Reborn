@@ -523,3 +523,21 @@ reagent-effect-guidebook-add-to-chemicals =
         [1] to
        *[-1] from
     } the solution
+reagent-effect-guidebook-status-effect-delay =
+    { $type ->
+        [add]
+            { $chance ->
+                [1] Вызывает
+               *[other] вызывают
+            } { $key } минимум на { NATURALFIXED($time, 3) } { MANY("секунд", $time) } с накоплением эффекта
+       *[set]
+            { $chance ->
+                [1] Вызывает
+               *[other] вызывают
+            } { $key } минимум на { NATURALFIXED($time, 3) } { MANY("секунд", $time) } без накопления эффекта
+        [remove]
+            { $chance ->
+                [1] Снимает
+               *[other] снимают
+            } { NATURALFIXED($time, 3) } { MANY("секунд", $time) } эффекта { $key }
+    } после задержки в { NATURALFIXED($delay, 3) } сек.

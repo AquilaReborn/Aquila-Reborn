@@ -4,3 +4,7 @@ ent-BorgModuleLollypop = леденцовый модуль борга
     .desc = { ent-BaseBorgModule.desc }
 ent-BorgModulePKA = прото-кинетический модуль борга
     .desc = { ent-BaseBorgModuleCargo.desc }
+ent-BorgModuleSECNonLethal = нелетальный модуль S.E.C.
+    .desc = Стандартный модуль усмирения для киборга S.E.C. Включает станбатон, станнер и боевой нож, а также слоты для бол и наручников.
+ent-BorgModuleSECLethal = летальный модуль S.E.C.
+    .desc = Модуль летального реагирования для киборга S.E.C. В его слоты помещается Лектер или патроны к нему, которые выдаёт служба безопасности.

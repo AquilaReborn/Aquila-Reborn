@@ -23,3 +23,8 @@ stack-screw =
         [1] винт
        *[other] винты
     }
+stack-canvas-tile =
+    { $amount ->
+        [1] плитка холста
+       *[other] плитки холста
+    }

@@ -30,3 +30,6 @@ condition-body-bleeding-LeftHand = • Кровотечение из левой 
 condition-body-bleeding-RightHand = • Кровотечение из правой кисти у { $entity }.
 condition-body-bleeding-LeftFoot = • Кровотечение из левой стопы у { $entity }.
 condition-body-bleeding-RightFoot = • Кровотечение из правой стопы у { $entity }.
+condition-body-trauma-Shrapnel = • В { $woundable } застряли осколки.
+condition-body-trauma-Braindeath = • [color=red]Мозг мёртв.[/color] Перед воскрешением его нужно восстановить хирургически.
+condition-body-low-blood = • У { $entity } [color=red]опасно низкий[/color] уровень крови.

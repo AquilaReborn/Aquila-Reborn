@@ -420,3 +420,5 @@ stack-desert-astro-sand-floor = пустынный астро-песок
 stack-xenoborg = ксеноборг-плитка
 
 stack-astro-ironsand-floor = астро-железный песок
+
+stack-astro-ironsand-floor-borderless = астро-железный песок без каймы

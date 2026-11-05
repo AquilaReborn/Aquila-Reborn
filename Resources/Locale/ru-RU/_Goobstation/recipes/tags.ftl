@@ -51,3 +51,6 @@ construction-graph-tag-ash = пепел
 construction-graph-tag-ice-bucket = ведёрко для льда
 construction-graph-tag-water-bottle = бутылка воды
 construction-graph-tag-camera-electronics = плата камеры наблюдения
+construction-graph-tag-stunbaton = станбатон
+construction-graph-tag-disabler = станнер
+construction-graph-tag-combat-knife = боевой нож

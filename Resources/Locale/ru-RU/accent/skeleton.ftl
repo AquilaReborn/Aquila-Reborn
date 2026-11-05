@@ -18,3 +18,7 @@ accent-skeleton-words-6 = убит
 accent-skeleton-words-replace-6 = отскелетирован
 accent-skeleton-words-7 = смешно
 accent-skeleton-words-replace-7 = скелет сраный
+accent-skeleton-words-8 = кость
+accent-skeleton-words-replace-8 = косточка
+accent-skeleton-words-9 = голова
+accent-skeleton-words-replace-9 = черепушка

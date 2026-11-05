@@ -18,3 +18,5 @@ ent-ClothingModsuitHelmetResearchDirector = шлем скафандра MOD «М
     .desc = Тёмный, очень тёмный визор, защищающий твоё драгоценное лицо от осколков и взрывов.
 ent-ClothingModsuitHelmetCaptain = шлем скафандра MOD "Магнат"
     .desc = Визор сделан из 10.000-летнего аметиста.
+ent-ClothingModsuitHelmetBrigMed = шлем травматологического скафандра MOD
+    .desc = Крутой шлем без линз. Для хирургии глаза не нужны.
