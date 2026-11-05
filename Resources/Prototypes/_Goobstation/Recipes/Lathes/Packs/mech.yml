@@ -69,10 +69,10 @@
 - type: latheRecipePack
   id: MechBoardsSecurity
   recipes:
-#  - GygaxCentralElectronics
+  - GygaxCentralElectronics # Aquila Change
   - GygaxPeripheralsElectronics
   - GygaxTargetingElectronics
-#  - DurandCentralElectronics
+  - DurandCentralElectronics # Aquila Change
   - DurandPeripheralsElectronics
   - DurandTargetingElectronics
 
