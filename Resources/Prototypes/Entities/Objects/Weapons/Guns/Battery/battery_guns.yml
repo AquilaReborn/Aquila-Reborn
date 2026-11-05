@@ -382,6 +382,10 @@
   id: WeaponLaserCarbine
   description: Favoured by Nanotrasen Security for being cheap and easy to use.
   components:
+  - type: Sprite # Aquila Change
+    sprite: _Aquila/Objects/Weapons/Guns/Battery/laser_gun.rsi # Aquila Change
+  - type: Item # Aquila Change
+    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi # Aquila Change
   - type: BatteryAmmoProvider
     proto: RedLaser
     fireCost: 50 # Goobstation
