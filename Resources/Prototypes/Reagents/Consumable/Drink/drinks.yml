@@ -475,7 +475,7 @@
   flavor: water
   color: "#75b1f0"
   puddleSpriteSet: Water # Goob
-  puddleColor: "#ffffff" # Goob
+  puddleColor: "#75b1f0B3" # Aquila Change
   recognizable: true
   boilingPoint: 100.0
   meltingPoint: 0.0
