@@ -54,6 +54,6 @@
   icon: { sprite: Objects/Tools/emag.rsi, state: icon }
   productEntity: CyberHackImplanter
   cost:
-    Telecrystal: 12
+    Telecrystal: 24
   categories:
   - UplinkImplants
