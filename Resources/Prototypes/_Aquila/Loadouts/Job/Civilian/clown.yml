@@ -4,11 +4,21 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitClownBarotrauma
 
+- type: loadout
+  id: GildedClownCostume
+  equipment:
+    jumpsuit: ClothingUniformColorfulGildedClownCostume
+
 # Shoes
 - type: loadout
   id: ClownBarotraumaShoes
   equipment:
     shoes: ClothingShoesClownBarotrauma
+
+- type: loadout
+  id: JestersBoots
+  equipment:
+    shoes: ClothingShoesJestersBoots
 
 # Mask
 - type: loadout
@@ -26,3 +36,9 @@
   id: ClownBarotraumaHand
   equipment:
     gloves: ClothingHandClownBarotrauma
+
+# Head
+- type: loadout
+  id: JestersHat
+  equipment:
+    head: ClothingHeadColorfulJestersHat

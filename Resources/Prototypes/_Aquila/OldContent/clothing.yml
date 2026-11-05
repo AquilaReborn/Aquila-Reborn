@@ -138,7 +138,7 @@
   - type: Clothing
     sprite: _Aquila/Clothing/Neck/janedoe.rsi
 
-# INNERCLOTHING
+#region INNERCLOTHING
 
 - type: entity
   parent: ClothingUniformBase
@@ -261,7 +261,29 @@
   - type: Clothing
     sprite: _Aquila/Clothing/Uniforms/mimesuit.rsi
 
-# NECK
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCommon
+  name: tracksuit (pants)
+  description: Nothing uncommon and that makes it perfect
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/Uniforms/common_pants.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Uniforms/common_pants.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCommonShorts
+  name: tracksuit (shorts)
+  description: Nothing uncommon and that makes it perfect
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/Uniforms/common_shorts.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Uniforms/common_shorts.rsi
+
+#region NECK
 
 - type: entity
   parent: ClothingOuterWinterCoat
@@ -315,7 +337,7 @@
   - type: Clothing
     sprite: _Aquila/Clothing/Neck/dante.rsi
 
-# HAND
+#region HAND
 
 - type: entity
   parent: ClothingHandsBase
@@ -372,10 +394,10 @@
   - type: Clothing
     sprite: _Aquila/Clothing/Hands/mimegloves.rsi
 
-# OUTERCLOTHING
+#region OUTERCLOTHING
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase
   id: ClothingOuterCloakOfFutureN
   name: trench coat from future
   description: A dark, short-sleeved trench coat from the near future with an iridescent "N" etched on the back.
@@ -386,7 +408,7 @@
     sprite: _Aquila/Clothing/OuterClothing/cloakoffutureN.rsi
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase
   id: ClothingOuterCloakOfFutureS
   name: trench coat from future
   description: A dark, short-sleeved trench coat from the near future with an iridescent "S" etched on the back.
@@ -419,7 +441,7 @@
     sprite: _Aquila/Clothing/OuterClothing/blackcorset.rsi
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase
   id: ClothingOuterShark
   name: shark hoodie
   description: Rawr!
@@ -432,7 +454,7 @@
     clothingPrototype: ClothingHeadShark
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase
   id: ClothingOuterRichChapel
   name: rich chapel cloak
   description: God's favorite child
@@ -442,8 +464,10 @@
   - type: Clothing
     sprite: _Aquila/Clothing/OuterClothing/chapelRich.rsi
 
+#NOTE: Sweaters
+
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase
   id: ClothingOuterSweaterAquamarine
   name: aquamarine sweater
   description: Wool warm sweater
@@ -454,7 +478,7 @@
     sprite: _Aquila/Clothing/OuterClothing/aquamarine.rsi
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase
   id: ClothingOuterSweaterBlack
   name: black sweater
   description: Wool warm sweater
@@ -465,7 +489,7 @@
     sprite: _Aquila/Clothing/OuterClothing/black.rsi
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase
   id: ClothingOuterSweaterBlue
   name: blue sweater
   description: Wool warm sweater
@@ -476,7 +500,7 @@
     sprite: _Aquila/Clothing/OuterClothing/blue.rsi
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase
   id: ClothingOuterSweaterDarkblue
   name: dark blue sweater
   description: Wool warm sweater
@@ -487,7 +511,7 @@
     sprite: _Aquila/Clothing/OuterClothing/darkblue.rsi
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase
   id: ClothingOuterSweaterDarkgreen
   name: dark green sweater
   description: Wool warm sweater
@@ -498,7 +522,7 @@
     sprite: _Aquila/Clothing/OuterClothing/darkgreen.rsi
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase
   id: ClothingOuterSweaterGreen
   name: green sweater
   description: Wool warm sweater
@@ -509,7 +533,7 @@
     sprite: _Aquila/Clothing/OuterClothing/green.rsi
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase
   id: ClothingOuterSweaterGrey
   name: grey sweater
   description: Wool warm sweater
@@ -520,7 +544,7 @@
     sprite: _Aquila/Clothing/OuterClothing/grey.rsi
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase
   id: ClothingOuterSweaterOrange
   name: orange sweater
   description: Wool warm sweater
@@ -531,7 +555,7 @@
     sprite: _Aquila/Clothing/OuterClothing/orange.rsi
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase
   id: ClothingOuterSweaterPink
   name: pink sweater
   description: Wool warm sweater
@@ -542,7 +566,7 @@
     sprite: _Aquila/Clothing/OuterClothing/pink.rsi
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase
   id: ClothingOuterSweaterRed
   name: red sweater
   description: Wool warm sweater
@@ -553,7 +577,7 @@
     sprite: _Aquila/Clothing/OuterClothing/red.rsi
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase
   id: ClothingOuterSweaterViolet
   name: violet sweater
   description: Wool warm sweater
@@ -564,7 +588,7 @@
     sprite: _Aquila/Clothing/OuterClothing/violet.rsi
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase
   id: ClothingOuterSweaterWhite
   name: white sweater
   description: Wool warm sweater
@@ -575,7 +599,7 @@
     sprite: _Aquila/Clothing/OuterClothing/white.rsi
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase
   id: ClothingOuterSweaterYellow
   name: yellow sweater
   description: Wool warm sweater
@@ -586,7 +610,20 @@
     sprite: _Aquila/Clothing/OuterClothing/yellow.rsi
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterSweaterBrown
+  name: brown sweater
+  description: Wool warm sweater
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/OuterClothing/brown.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/OuterClothing/brown.rsi
+
+#NOTE: End Sweaters
+
+- type: entity
+  parent: ClothingOuterStorageBase
   id: ClothingOuterDanteCape
   name: Dante's cape
   description: Smells like pizza
@@ -596,7 +633,74 @@
   - type: Clothing
     sprite: _Aquila/Clothing/OuterClothing/dante.rsi
 
-# HEAD
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterAbibas
+  name: abibas
+  description: abibas-description
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/OuterClothing/abibas.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/OuterClothing/abibas.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterAbibasCargo
+  name: abibas-cargo
+  description: abibas-description
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/OuterClothing/abibas_cargo.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/OuterClothing/abibas_cargo.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterAbibasEng
+  name: abibas-eng
+  description: abibas-description
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/OuterClothing/abibas_eng.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/OuterClothing/abibas_eng.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterAbibasMed
+  name: abibas-med
+  description: abibas-description
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/OuterClothing/abibas_med.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/OuterClothing/abibas_med.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterAbibasSci
+  name: abibas-sci
+  description: abibas-description
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/OuterClothing/abibas_sci.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/OuterClothing/abibas_sci.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterAbibasSec
+  name: abibas-sec
+  description: abibas-description
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/OuterClothing/abibas_sec.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/OuterClothing/abibas_sec.rsi
+
+
+#region HEAD
 
 - type: entity
   parent: ClothingHeadBase
@@ -697,7 +801,7 @@
   - type: Clothing
     sprite: _Aquila/Clothing/Head/mimehat.rsi
 
-# BOOTS
+#region BOOTS
 
 - type: entity
   parent: ClothingShoesBase
@@ -732,7 +836,7 @@
   - type: Clothing
     sprite: _Aquila/Clothing/Shoes/mimeBoots.rsi
 
-# MASK
+#region MASK
 
 - type: entity
   parent: ClothingMaskBase

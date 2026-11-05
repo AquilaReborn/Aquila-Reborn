@@ -39,3 +39,26 @@
   maxPitch: 1.1
   soundCollection:
     collection: KittyBark
+
+# ChineseFemale
+- type: soundCollection
+  id: ChineseFemaleBark
+  files:
+    - /Audio/_Aquila/Voice/Barks/ChineseFemale/1.ogg
+    - /Audio/_Aquila/Voice/Barks/ChineseFemale/2.ogg
+    - /Audio/_Aquila/Voice/Barks/ChineseFemale/3.ogg
+    - /Audio/_Aquila/Voice/Barks/ChineseFemale/4.ogg
+    - /Audio/_Aquila/Voice/Barks/ChineseFemale/5.ogg
+    - /Audio/_Aquila/Voice/Barks/ChineseFemale/6.ogg
+    - /Audio/_Aquila/Voice/Barks/ChineseFemale/7.ogg
+    - /Audio/_Aquila/Voice/Barks/ChineseFemale/8.ogg
+
+- type: bark
+  id: ChineseFemale
+  name: bark-voice-chinese
+  volume: 0.8
+  frequency: 0.3
+  minPitch: 1
+  maxPitch: 1.1
+  soundCollection:
+    collection: ChineseFemaleBark
