@@ -47,14 +47,16 @@ public sealed partial class EatCorpseOperator : HTNOperator
             if (status == DoAfterStatus.Finished)
                 return HTNOperatorStatus.Finished;
 
+            _eatCorpse.StartNpcRetryCooldown((owner, eater)); // Aquila Change
             return HTNOperatorStatus.Failed;
         }
 
-        if (_eatCorpse.TryEatCorpse(owner, target, eater))
+        if (_eatCorpse.NpcTryEatCorpse((owner, eater), target)) // Aquila Change
         {
             return HTNOperatorStatus.Continuing;
         }
 
+        _eatCorpse.StartNpcRetryCooldown((owner, eater)); // Aquila Change
         return HTNOperatorStatus.Failed;
     }
 }

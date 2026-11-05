@@ -4,7 +4,7 @@ using Content.Shared._Shitmed.Body.Part;
 
 namespace Content.Goobstation.Shared.Xenobiology.Components;
 
-[RegisterComponent]
+[RegisterComponent, AutoGenerateComponentPause] // Aquila Change
 public sealed partial class CorpseEaterComponent : Component
 {
     /// <summary>

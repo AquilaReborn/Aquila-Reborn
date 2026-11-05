@@ -9,10 +9,16 @@
     tasks:
     - !type:HTNCompoundTask
       task: XenoSlimeFoodCompound
-  - tasks:
+  - preconditions: # Aquila Change
+    - !type:HasActiveDoAfterPrecondition # Aquila Change
+      invert: true # Aquila Change
+    tasks: # Aquila Change
     - !type:HTNCompoundTask
       task: LatchCompound
-  - tasks:
+  - preconditions: # Aquila Change
+    - !type:HasActiveDoAfterPrecondition # Aquila Change
+      invert: true # Aquila Change
+    tasks: # Aquila Change
     - !type:HTNCompoundTask
       task: EatCorpseCompound
   - tasks:
