@@ -10,6 +10,7 @@ using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -27,6 +28,7 @@ public sealed class CyberpsychosisSystem : SharedCyberpsychosisSystem
     private static readonly LocId CuredMessage = "cyberpsychosis-cured";
 
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly CyberLoadSystem _cyberLoad = default!;
     [Dependency] private readonly SharedEntityEffectsSystem _effects = default!;
     [Dependency] private readonly IComponentFactory _factory = default!;
@@ -65,9 +67,13 @@ public sealed class CyberpsychosisSystem : SharedCyberpsychosisSystem
         {
             UpdateTreatment((uid, comp), now, frameTime);
 
-            if (now < comp.NextEpisode
-                || string.IsNullOrEmpty(comp.Stage.Id)
+            if (string.IsNullOrEmpty(comp.Stage.Id)
                 || !_proto.TryIndex(comp.Stage, out var stage))
+                continue;
+
+            UpdateHallucination((uid, comp), stage, now);
+
+            if (now < comp.NextEpisode)
                 continue;
 
             comp.NextEpisode = now + _random.Next(stage.MinEpisodeDelay, stage.MaxEpisodeDelay);
@@ -157,6 +163,21 @@ public sealed class CyberpsychosisSystem : SharedCyberpsychosisSystem
             ent.Comp.CureProgress = MathF.Max(0f, ent.Comp.CureProgress - ent.Comp.CureDecay * frameTime);
     }
 
+    private void UpdateHallucination(Entity<CyberpsychosisComponent> ent, CyberpsychosisStagePrototype stage, TimeSpan now)
+    {
+        if (stage.HallucinationSounds is not { } sound || now < ent.Comp.NextHallucination)
+            return;
+
+        var wasScheduled = ent.Comp.NextHallucination != TimeSpan.Zero;
+        ent.Comp.NextHallucination = now + _random.Next(stage.MinHallucinationDelay, stage.MaxHallucinationDelay);
+
+        if (!wasScheduled || ent.Comp.Suppressed || !_mobState.IsAlive(ent))
+            return;
+
+        var coords = Transform(ent).Coordinates.Offset(_random.NextVector2(stage.HallucinationDistance));
+        _audio.PlayStatic(sound, ent.Owner, coords, sound.Params.WithVolume(stage.HallucinationVolume));
+    }
+
     private void OnShutdown(Entity<CyberpsychosisComponent> ent, ref ComponentShutdown args)
     {
         if (TerminatingOrDeleted(ent))
@@ -237,6 +258,7 @@ public sealed class CyberpsychosisSystem : SharedCyberpsychosisSystem
 
         comp.Stage = stageId;
         comp.NextEpisode = _timing.CurTime + _random.Next(stage.MinEpisodeDelay, stage.MaxEpisodeDelay);
+        comp.NextHallucination = _timing.CurTime + _random.Next(stage.MinHallucinationDelay, stage.MaxHallucinationDelay);
         AddStageComponents((ent, comp), stage);
         Dirty(ent, comp);
 

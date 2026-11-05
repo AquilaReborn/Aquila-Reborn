@@ -26,6 +26,12 @@ public sealed partial class CyberpsychosisComponent : Component
     public TimeSpan NextEpisode;
 
     /// <summary>
+    /// Когда больной услышит следующую звуковую галлюцинацию.
+    /// </summary>
+    [DataField, AutoPausedField]
+    public TimeSpan NextHallucination;
+
+    /// <summary>
     /// Заглушены ли приступы лекарством.
     /// </summary>
     [ViewVariables, AutoNetworkedField]

@@ -122,6 +122,36 @@ public sealed partial class CyberpsychosisStagePrototype : IPrototype
     public SoundSpecifier? Music;
 
     /// <summary>
+    /// Звуковые галлюцинации, которые на этой стадии иногда слышит только сам больной. Каждый раз выбирается случайный звук.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier? HallucinationSounds;
+
+    /// <summary>
+    /// Наименьшая пауза между звуковыми галлюцинациями.
+    /// </summary>
+    [DataField]
+    public TimeSpan MinHallucinationDelay = TimeSpan.FromSeconds(60);
+
+    /// <summary>
+    /// Наибольшая пауза между звуковыми галлюцинациями.
+    /// </summary>
+    [DataField]
+    public TimeSpan MaxHallucinationDelay = TimeSpan.FromSeconds(120);
+
+    /// <summary>
+    /// Громкость звуковых галлюцинаций в децибелах.
+    /// </summary>
+    [DataField]
+    public float HallucinationVolume;
+
+    /// <summary>
+    /// Как далеко от больного может прозвучать галлюцинация, в тайлах. 0 - звучит прямо из него.
+    /// </summary>
+    [DataField]
+    public float HallucinationDistance = 5f;
+
+    /// <summary>
     /// Что видят окружающие при осмотре больного на этой стадии.
     /// </summary>
     [DataField]

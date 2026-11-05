@@ -11,6 +11,11 @@
   maxGlitchDelay: 50
   glitchDuration: 0.35
   glitchIntensity: 0.6
+  hallucinationSounds:
+    collection: CyberpsychosisHallucinations
+  minHallucinationDelay: 120
+  maxHallucinationDelay: 240
+  hallucinationVolume: -4
   episodes:
   - weight: 3
     effects:
@@ -58,6 +63,11 @@
   maxGlitchDelay: 20
   glitchDuration: 0.6
   glitchIntensity: 0.95
+  hallucinationSounds:
+    collection: CyberpsychosisHallucinations
+  minHallucinationDelay: 60
+  maxHallucinationDelay: 120
+  hallucinationVolume: -2
   components:
   - type: Paracusia
     minTimeBetweenIncidents: 20
@@ -120,6 +130,10 @@
   glitchIntensity: 1.0
   baseGlitchIntensity: 0.35
   redness: 0.42
+  hallucinationSounds:
+    collection: CyberpsychosisHallucinations
+  minHallucinationDelay: 25
+  maxHallucinationDelay: 60
   disguises:
   - CyberpsychosisDisguiseOperative
   - CyberpsychosisDisguiseHereticRust
