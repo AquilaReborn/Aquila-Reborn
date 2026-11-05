@@ -225,7 +225,7 @@ public sealed partial class GraphicsTab : Control
 
         protected override int Value
         {
-            get => _checkBox.Pressed ? CCVars.ViewportSnapToleranceMargin.DefaultValue : 0;
+            get => _checkBox.Pressed ? IntegerScalingSnapMargin : 0; // Aquila Change
             set => _checkBox.Pressed = (value != 0);
         }
 
