@@ -10,6 +10,6 @@ ent-DubstepCowBoyTrenchcoatGrey = серый ковбойский тренч
 ent-DubstepCowBoyVest = ковбойский жилет
     .desc = Ковбойский жилет, подчёркивающий стиль настоящего ковбоя.
     .suffix = Ковбой
-ent-DubstepCowBoyСoat = ковбойская куртка
+ent-DubstepCowBoyCoat = ковбойская куртка
     .desc = Ковбойская куртка, которая выделяет настоящего ковбоя из толпы.
     .suffix = Ковбой

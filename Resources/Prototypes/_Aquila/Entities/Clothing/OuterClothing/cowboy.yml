@@ -48,12 +48,12 @@
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable
-  id: DubstepCowBoyСoat
+  id: DubstepCowBoyCoat
   name: cowboy coat
   suffix: Ковбой
   description: a cowboy jacket that sets a real cowboy apart from the crowd.
   components:
   - type: Sprite
-    sprite: _Aquila/Clothing/OuterClothing/DubstepCowBoyСoat.rsi
+    sprite: _Aquila/Clothing/OuterClothing/DubstepCowBoyCoat.rsi
   - type: Clothing
-    sprite: _Aquila/Clothing/OuterClothing/DubstepCowBoyСoat.rsi
+    sprite: _Aquila/Clothing/OuterClothing/DubstepCowBoyCoat.rsi
