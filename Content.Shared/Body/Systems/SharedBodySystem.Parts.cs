@@ -638,6 +638,7 @@ public partial class SharedBodySystem
         sprintSpeed /= body.RequiredLegs;
         acceleration /= body.RequiredLegs;
         Movement.ChangeBaseSpeed(bodyId, walkSpeed, sprintSpeed, acceleration, movement);
+        Movement.RefreshMovementSpeedModifiers(bodyId, movement); // Aquila Change
     }
 
     #endregion

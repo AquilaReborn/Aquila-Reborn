@@ -148,6 +148,7 @@
   id: LeftFootCybernetic
   name: cybernetic left foot
   components:
+  - type: CyberFootSpeed # Aquila Change
   - type: BodyPart
     baseLayerId: MobCyberneticBishopLFoot
   - type: WoundableVisuals
@@ -166,6 +167,7 @@
   id: RightFootCybernetic
   name: cybernetic right foot
   components:
+  - type: CyberFootSpeed # Aquila Change
   - type: BodyPart
     baseLayerId: MobCyberneticBishopRFoot
   - type: WoundableVisuals
