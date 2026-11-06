@@ -1,0 +1,160 @@
+- type: entity
+  abstract: true
+  parent: BaseFloorDecoration
+  id: AquilaBaseLadder
+  name: ladder
+  description: Leads to another floor. Stand on it and wait a bit to climb.
+  components:
+  - type: Sprite
+    sprite: Structures/stairs.rsi
+    state: stairs_steel
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      ladder:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        layer:
+        - SlipLayer
+        mask:
+        - ItemMask
+        hard: false
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    intersectRatio: 0.3
+    stepOn: true
+  - type: Ladder
+
+- type: entity
+  parent: AquilaBaseLadder
+  id: AquilaLadder
+  suffix: Steel
+  components:
+  - type: Sprite
+    state: stairs_steel
+
+- type: entity
+  parent: AquilaBaseLadder
+  id: AquilaLadderDark
+  suffix: Dark
+  components:
+  - type: Sprite
+    state: stairs_dark
+
+- type: entity
+  parent: AquilaBaseLadder
+  id: AquilaLadderWhite
+  suffix: White
+  components:
+  - type: Sprite
+    state: stairs_white
+
+- type: entity
+  parent: AquilaBaseLadder
+  id: AquilaLadderWood
+  suffix: Wood
+  components:
+  - type: Sprite
+    state: stairs_wood
+
+- type: entity
+  parent: AquilaLadder
+  id: AquilaLadderLinkA
+  suffix: Steel, link A
+  components:
+  - type: Ladder
+    linkId: aquila-ladder-a
+
+- type: entity
+  parent: AquilaLadder
+  id: AquilaLadderLinkB
+  suffix: Steel, link B
+  components:
+  - type: Ladder
+    linkId: aquila-ladder-b
+
+- type: entity
+  parent: AquilaLadder
+  id: AquilaLadderLinkC
+  suffix: Steel, link C
+  components:
+  - type: Ladder
+    linkId: aquila-ladder-c
+
+- type: entity
+  abstract: true
+  parent: AquilaBaseLadder
+  id: AquilaBaseLadderInvisible
+  name: passage
+  description: An invisible passage to another place.
+  components:
+  - type: Sprite
+    sprite: Markers/cross.rsi
+    state: green
+    drawdepth: Overdoors
+  - type: Marker
+  - type: Ladder
+    climbSound: null
+
+- type: entity
+  parent: AquilaBaseLadderInvisible
+  id: AquilaLadderInvisible
+  suffix: Invisible
+
+- type: entity
+  parent: AquilaBaseLadderInvisible
+  id: AquilaLadderInvisibleInstant
+  suffix: Invisible, instant
+  components:
+  - type: Ladder
+    delay: 0
+
+- type: entity
+  parent: AquilaLadderInvisible
+  id: AquilaLadderInvisibleLinkA
+  suffix: Invisible, link A
+  components:
+  - type: Ladder
+    linkId: aquila-ladder-a
+
+- type: entity
+  parent: AquilaLadderInvisible
+  id: AquilaLadderInvisibleLinkB
+  suffix: Invisible, link B
+  components:
+  - type: Ladder
+    linkId: aquila-ladder-b
+
+- type: entity
+  parent: AquilaLadderInvisible
+  id: AquilaLadderInvisibleLinkC
+  suffix: Invisible, link C
+  components:
+  - type: Ladder
+    linkId: aquila-ladder-c
+
+- type: entity
+  parent: AquilaLadderInvisibleInstant
+  id: AquilaLadderInvisibleInstantLinkA
+  suffix: Invisible, instant, link A
+  components:
+  - type: Ladder
+    linkId: aquila-ladder-instant-a
+
+- type: entity
+  parent: AquilaLadderInvisibleInstant
+  id: AquilaLadderInvisibleInstantLinkB
+  suffix: Invisible, instant, link B
+  components:
+  - type: Ladder
+    linkId: aquila-ladder-instant-b
+
+- type: entity
+  parent: AquilaLadderInvisibleInstant
+  id: AquilaLadderInvisibleInstantLinkC
+  suffix: Invisible, instant, link C
+  components:
+  - type: Ladder
+    linkId: aquila-ladder-instant-c
