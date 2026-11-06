@@ -132,7 +132,7 @@ public sealed class CyberwareScannerSystem : EntitySystem
 
         var names = new List<string>();
         var identified = GetIdentified(ent, target, args.Deep);
-        var concealed = CollectImplants(ent, target, args.Deep, identified, names);
+        var concealed = CollectImplants(ent, target, args.Deep, ref identified, names);
         concealed += CollectHiddenOrgans(ent, target, args.Deep, ref identified, names);
         concealed += CollectArmBlades(ent, target, args.Deep, ref identified, names);
 
@@ -143,8 +143,8 @@ public sealed class CyberwareScannerSystem : EntitySystem
             && _proto.TryIndex(psychosis.Stage, out var stage))
         {
             stageName = stage.Name;
-            if (psychosis.CureProgress > 0f)
-                cureProgress = Math.Clamp(psychosis.CureProgress / psychosis.CureTime, 0f, 1f);
+            if (psychosis.CureProgress > TimeSpan.Zero && psychosis.CureTime > TimeSpan.Zero)
+                cureProgress = Math.Clamp((float) (psychosis.CureProgress / psychosis.CureTime), 0f, 1f);
         }
 
         var state = new CyberwareScannerUiState(
@@ -174,7 +174,7 @@ public sealed class CyberwareScannerSystem : EntitySystem
         return identified;
     }
 
-    private int CollectImplants(Entity<CyberwareScannerComponent> scanner, EntityUid target, bool deep, ImplantsIdentifiedComponent? identified, List<string> names)
+    private int CollectImplants(Entity<CyberwareScannerComponent> scanner, EntityUid target, bool deep, ref ImplantsIdentifiedComponent? identified, List<string> names)
     {
         if (!_container.TryGetContainer(target, ImplanterComponent.ImplantSlotId, out var implants))
             return 0;
@@ -185,18 +185,11 @@ public sealed class CyberwareScannerSystem : EntitySystem
             if (!HasComp<SubdermalImplantComponent>(implant))
                 continue;
 
-            var known = !IsConcealed(scanner.Comp, implant)
-                || identified != null && identified.Identified.Contains(implant)
-                || deep && _random.Prob(scanner.Comp.IdentifyChance);
-
-            if (!known)
+            if (!IdentifyImplant(scanner, target, implant, IsConcealed(scanner.Comp, implant), deep, ref identified))
             {
                 concealed++;
                 continue;
             }
-
-            if (deep && identified!.Identified.Add(implant))
-                Dirty(target, identified);
 
             names.Add(Name(implant));
         }
@@ -257,9 +250,9 @@ public sealed class CyberwareScannerSystem : EntitySystem
         if (MetaData(implant).EntityPrototype is not { } proto)
             return false;
 
-        foreach (var id in scanner.Concealed)
+        foreach (var (parent, _) in _proto.EnumerateAllParents<EntityPrototype>(proto.ID, true))
         {
-            if (proto.ID == id.Id || proto.Parents?.Contains(id.Id) == true)
+            if (scanner.Concealed.Contains(parent))
                 return true;
         }
 

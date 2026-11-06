@@ -9,10 +9,10 @@ namespace Content.Shared._Aquila.Cyberware.EntityEffects;
 public sealed partial class CyberpsychosisTherapy : EntityEffectBase<CyberpsychosisTherapy>
 {
     /// <summary>
-    /// Сколько секунд курса засчитывается за одно срабатывание.
+    /// Сколько курса засчитывается за одно срабатывание.
     /// </summary>
     [DataField]
-    public float Amount = 1f;
+    public TimeSpan Amount = TimeSpan.FromSeconds(1);
 
     public override string EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys) =>
         Loc.GetString("entity-effect-guidebook-cyberpsychosis-therapy", ("chance", Probability));

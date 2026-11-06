@@ -34,12 +34,7 @@ public sealed class CyberwareBlockedSystem : EntitySystem
 
         foreach (var (part, _) in _body.GetBodyChildren(ent.Owner))
         {
-            if (!TryComp<MantisBladeArmComponent>(part, out var blade)
-                || blade.BladeUid is not { } extended)
-                continue;
-
-            QueueDel(extended);
-            blade.BladeUid = null;
+            RetractMantisBlade(part);
         }
 
         _cyberLoad.QueueRecalculationWithoutStrain(ent);
@@ -53,5 +48,19 @@ public sealed class CyberwareBlockedSystem : EntitySystem
 
         _cyberLoad.QueueRecalculationWithoutStrain(ent);
         _popup.PopupEntity(Loc.GetString(UnblockedMessage), ent, ent, PopupType.Medium);
+    }
+
+    private void RetractMantisBlade(EntityUid part)
+    {
+        if (!TryComp<MantisBladeArmComponent>(part, out var blade) || blade.BladeUid == null)
+            return;
+
+        RaiseLocalEvent(part, new ToggleMantisBladeEvent());
+
+        if (blade.BladeUid is not { } stuck)
+            return;
+
+        QueueDel(stuck);
+        blade.BladeUid = null;
     }
 }

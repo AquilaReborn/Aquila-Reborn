@@ -122,3 +122,47 @@
       amount: 1
   products:
     Cybersynaptin: 2
+
+- type: reagent
+  id: Ferroanima
+  name: reagent-name-ferroanima
+  group: Medicine
+  desc: reagent-desc-ferroanima
+  physicalDesc: reagent-physical-desc-metallic
+  flavor: medicine
+  color: "#C9A93F"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.2
+      effects:
+      - !type:AdjustCyberTolerance
+        amount: 0.2
+      - !type:AdjustCyberStrain
+        conditions:
+        - !type:ReagentCondition
+          reagent: Ferroanima
+          min: 10
+        amount: 1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: Ferroanima
+          min: 10
+        damage:
+          types:
+            Poison: 1
+
+- type: reaction
+  id: Ferroanima
+  minTemp: 400
+  reactants:
+    Cybersynaptin:
+      amount: 2
+    Phalanximine:
+      amount: 1
+    Gold:
+      amount: 1
+    Plasma:
+      amount: 1
+  products:
+    Ferroanima: 2

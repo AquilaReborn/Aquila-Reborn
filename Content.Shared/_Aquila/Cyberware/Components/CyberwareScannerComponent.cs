@@ -6,7 +6,7 @@ namespace Content.Shared._Aquila.Cyberware.Components;
 /// Ручной сканер имплантов. Быстрый скан называет только легальные импланты,
 /// а глубокий скан лежачего или связанного человека может опознать и скрытые, но не наверняка.
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, Access(Other = AccessPermissions.ReadExecute)]
 public sealed partial class CyberwareScannerComponent : Component
 {
     /// <summary>

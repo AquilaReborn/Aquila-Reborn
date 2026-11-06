@@ -9,6 +9,8 @@ namespace Content.Shared._Aquila.Cyberware.EntityEffects;
 /// </summary>
 public sealed partial class CyberpsychosisRampage : EntityEffectBase<CyberpsychosisRampage>
 {
+    private static readonly ProtoId<NpcFactionPrototype> AllHostileFaction = "AllHostile";
+
     /// <summary>
     /// Сколько длится приступ.
     /// </summary>
@@ -19,7 +21,7 @@ public sealed partial class CyberpsychosisRampage : EntityEffectBase<Cyberpsycho
     /// Фракция, к которой больной принадлежит на время приступа.
     /// </summary>
     [DataField]
-    public ProtoId<NpcFactionPrototype> Faction = "AllHostile";
+    public ProtoId<NpcFactionPrototype> Faction = AllHostileFaction;
 
     /// <summary>
     /// Компоненты, которые управляют телом во время приступа, обычно ИИ нападения.

@@ -59,11 +59,12 @@ public sealed class CyberwareBlockSystem : EntitySystem
 
     /// <summary>
     /// Запрещает действие, если его выдал отключённый ЭМИ имплант или имплант заглушённого существа.
+    /// Возвращает true, если действие запрещено.
     /// </summary>
-    public void TryBlockAction(EntityUid provider, ref ActionProviderAttemptEvent args)
+    public bool TryBlockAction(EntityUid provider, ref ActionProviderAttemptEvent args)
     {
         if (args.Cancelled)
-            return;
+            return true;
 
         LocId message;
         if (HasComp<EmpDisabledComponent>(provider))
@@ -71,10 +72,11 @@ public sealed class CyberwareBlockSystem : EntitySystem
         else if (GetHost(provider) is { } host && IsBlocked(host))
             message = BlockedMessage;
         else
-            return;
+            return false;
 
         args.Cancelled = true;
         _popup.PopupClient(Loc.GetString(message), args.User, args.User);
+        return true;
     }
 
     private void OnBlockerEquipped(Entity<CyberwareBlockerComponent> ent, ref GotEquippedEvent args)

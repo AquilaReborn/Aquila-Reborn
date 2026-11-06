@@ -41,6 +41,17 @@ entity-effect-guidebook-adjust-cyber-strain =
             }
     } the strain from freshly installed implants
 
+## Ferroanima
+
+reagent-name-ferroanima = ferroanima
+reagent-desc-ferroanima = An expensive drug that permanently reinforces the links between the nervous system and the hardware, so the body can handle more implants. Works gradually and only up to a limit. Toxic in overdose and sharply overloads the implants.
+
+entity-effect-guidebook-adjust-cyber-tolerance =
+    { $chance ->
+        [1] Permanently raises
+        *[other] permanently raise
+    } implant tolerance
+
 
 ## Cyberpsychosis
 

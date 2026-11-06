@@ -34,7 +34,7 @@ public sealed partial class CyberpsychosisComponent : Component
     /// <summary>
     /// Заглушены ли приступы лекарством.
     /// </summary>
-    [ViewVariables, AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public bool Suppressed;
 
     /// <summary>
@@ -44,19 +44,19 @@ public sealed partial class CyberpsychosisComponent : Component
     public TimeSpan SuppressedUntil;
 
     /// <summary>
-    /// Сколько секунд курса лечения нужно пройти без перерыва, чтобы вылечиться.
+    /// Сколько курса лечения нужно пройти без перерыва, чтобы вылечиться.
     /// </summary>
     [DataField]
-    public float CureTime = 120f;
+    public TimeSpan CureTime = TimeSpan.FromSeconds(120);
 
     /// <summary>
-    /// Сколько секунд курса уже пройдено.
+    /// Сколько курса уже пройдено.
     /// </summary>
-    [ViewVariables]
-    public float CureProgress;
+    [DataField]
+    public TimeSpan CureProgress;
 
     /// <summary>
-    /// Сколько секунд курса теряется за секунду, если лекарства в крови нет.
+    /// Какая доля прошедшего времени вычитается из курса, если лекарства в крови нет.
     /// </summary>
     [DataField]
     public float CureDecay = 0.5f;
@@ -90,28 +90,4 @@ public sealed partial class CyberpsychosisComponent : Component
     /// </summary>
     [ViewVariables]
     public List<string> AddedComponents = new();
-
-    /// <summary>
-    /// Когда на экране начнётся следующий глитч. Считается только на клиенте.
-    /// </summary>
-    [ViewVariables]
-    public TimeSpan NextGlitch;
-
-    /// <summary>
-    /// Когда закончится текущий глитч. Считается только на клиенте.
-    /// </summary>
-    [ViewVariables]
-    public TimeSpan GlitchEnd;
-
-    /// <summary>
-    /// Когда в следующий раз обновлять враждебные облики окружающих. Считается только на клиенте.
-    /// </summary>
-    [ViewVariables]
-    public TimeSpan NextDisguiseUpdate;
-
-    /// <summary>
-    /// Музыка стадии, которая сейчас играет у больного. Существует только на клиенте.
-    /// </summary>
-    [ViewVariables]
-    public EntityUid? MusicStream;
 }

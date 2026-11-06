@@ -31,11 +31,11 @@ public sealed class CyberpsychosisSystem : SharedCyberpsychosisSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly CyberLoadSystem _cyberLoad = default!;
     [Dependency] private readonly SharedEntityEffectsSystem _effects = default!;
-    [Dependency] private readonly IComponentFactory _factory = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly TemporaryComponentsSystem _temporaryComponents = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
@@ -109,7 +109,7 @@ public sealed class CyberpsychosisSystem : SharedCyberpsychosisSystem
     /// <summary>
     /// Продвигает курс лечения. Курс идёт, только пока риск кибернагрузки ниже порога.
     /// </summary>
-    public void ApplyTherapy(Entity<CyberpsychosisComponent?> ent, float seconds)
+    public void ApplyTherapy(Entity<CyberpsychosisComponent?> ent, TimeSpan amount)
     {
         if (!Resolve(ent, ref ent.Comp, false))
             return;
@@ -127,7 +127,7 @@ public sealed class CyberpsychosisSystem : SharedCyberpsychosisSystem
         }
 
         ent.Comp.LastTherapy = now;
-        ent.Comp.CureProgress += seconds;
+        ent.Comp.CureProgress += amount;
 
         if (ent.Comp.CureProgress >= ent.Comp.CureTime)
             Cure(ent);
@@ -159,8 +159,11 @@ public sealed class CyberpsychosisSystem : SharedCyberpsychosisSystem
             ShowMessage(ent, SuppressionEndedMessage);
         }
 
-        if (ent.Comp.CureProgress > 0f && now - ent.Comp.LastTherapy > ent.Comp.TherapyGrace)
-            ent.Comp.CureProgress = MathF.Max(0f, ent.Comp.CureProgress - ent.Comp.CureDecay * frameTime);
+        if (ent.Comp.CureProgress <= TimeSpan.Zero || now - ent.Comp.LastTherapy <= ent.Comp.TherapyGrace)
+            return;
+
+        var decayed = ent.Comp.CureProgress - TimeSpan.FromSeconds(ent.Comp.CureDecay * frameTime);
+        ent.Comp.CureProgress = decayed > TimeSpan.Zero ? decayed : TimeSpan.Zero;
     }
 
     private void UpdateHallucination(Entity<CyberpsychosisComponent> ent, CyberpsychosisStagePrototype stage, TimeSpan now)
@@ -267,28 +270,12 @@ public sealed class CyberpsychosisSystem : SharedCyberpsychosisSystem
 
     private void AddStageComponents(Entity<CyberpsychosisComponent> ent, CyberpsychosisStagePrototype stage)
     {
-        var toAdd = new ComponentRegistry();
-        foreach (var (name, entry) in stage.Components)
-        {
-            if (HasComp(ent.Owner, entry.Component.GetType()))
-                continue;
-
-            toAdd.Add(name, entry);
-            ent.Comp.AddedComponents.Add(name);
-        }
-
-        EntityManager.AddComponents(ent.Owner, toAdd);
+        _temporaryComponents.AddMissing(ent, stage.Components, ent.Comp.AddedComponents);
     }
 
     private void RemoveStageComponents(Entity<CyberpsychosisComponent> ent)
     {
-        foreach (var name in ent.Comp.AddedComponents)
-        {
-            if (_factory.TryGetRegistration(name, out var registration))
-                RemComp(ent.Owner, registration.Type);
-        }
-
-        ent.Comp.AddedComponents.Clear();
+        _temporaryComponents.RemoveAdded(ent, ent.Comp.AddedComponents);
     }
 
     private CyberpsychosisEpisode? PickEpisode(CyberpsychosisStagePrototype stage)

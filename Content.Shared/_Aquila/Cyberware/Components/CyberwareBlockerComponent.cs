@@ -3,7 +3,7 @@ namespace Content.Shared._Aquila.Cyberware.Components;
 /// <summary>
 /// Ошейник-блокиратор: пока надет на шею, глушит все импланты носителя и снижает кибернагрузку.
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, Access(Other = AccessPermissions.ReadExecute)]
 public sealed partial class CyberwareBlockerComponent : Component
 {
     /// <summary>

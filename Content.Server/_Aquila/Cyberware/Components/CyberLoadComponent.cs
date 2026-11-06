@@ -11,22 +11,39 @@ namespace Content.Server._Aquila.Cyberware.Components;
 [RegisterComponent, Access(typeof(CyberLoadSystem), typeof(CyberpsychosisSystem), typeof(CyberwareEmpSystem)), AutoGenerateComponentPause]
 public sealed partial class CyberLoadComponent : Component
 {
+    private static readonly ProtoId<CyberpsychosisStagePrototype> InstabilityStage = "CyberpsychosisInstability";
+    private static readonly ProtoId<CyberpsychosisStagePrototype> RejectionStage = "CyberpsychosisRejection";
+    private static readonly ProtoId<CyberpsychosisStagePrototype> BreakdownStage = "CyberpsychosisBreakdown";
+    private static readonly ProtoId<DamageTypePrototype> ShockDamage = "Shock";
+
     /// <summary>
     /// Постоянная нагрузка, сумма нагрузок всех установленных имплантов.
     /// </summary>
-    [ViewVariables]
+    [DataField]
     public float Load;
 
     /// <summary>
     /// Напряжение от свежих установок, со временем спадает.
     /// </summary>
-    [ViewVariables]
+    [DataField]
     public float Strain;
+
+    /// <summary>
+    /// Постоянная переносимость имплантов, на которую риск киберпсихоза считается ниже.
+    /// </summary>
+    [DataField]
+    public float Tolerance;
+
+    /// <summary>
+    /// Выше какого значения переносимость уже не растёт.
+    /// </summary>
+    [DataField]
+    public float MaxTolerance = 40f;
 
     /// <summary>
     /// Сколько имплантов дают нагрузку.
     /// </summary>
-    [ViewVariables]
+    [DataField]
     public int ImplantCount;
 
     /// <summary>
@@ -60,7 +77,8 @@ public sealed partial class CyberLoadComponent : Component
     public float WarningLevel = 60f;
 
     /// <summary>
-    /// Риск, выше которого возможен киберпсихоз.
+    /// Риск, с которого курс лечения киберпсихоза перестаёт идти, а сканер показывает высокий уровень нагрузки.
+    /// Сами стадии начинаются со своего <c>minRisk</c> в прототипе стадии.
     /// </summary>
     [DataField]
     public float Threshold = 100f;
@@ -83,9 +101,9 @@ public sealed partial class CyberLoadComponent : Component
     [DataField]
     public List<ProtoId<CyberpsychosisStagePrototype>> Stages = new()
     {
-        "CyberpsychosisInstability",
-        "CyberpsychosisRejection",
-        "CyberpsychosisBreakdown",
+        InstabilityStage,
+        RejectionStage,
+        BreakdownStage,
     };
 
     /// <summary>
@@ -110,7 +128,7 @@ public sealed partial class CyberLoadComponent : Component
     /// Тип урона, который ЭМИ наносит телу с отключёнными имплантами.
     /// </summary>
     [DataField]
-    public ProtoId<DamageTypePrototype> EmpDamageType = "Shock";
+    public ProtoId<DamageTypePrototype> EmpDamageType = ShockDamage;
 
     /// <summary>
     /// Урон от ЭМИ, который получает тело при отключении имплантов, без учёта нагрузки.

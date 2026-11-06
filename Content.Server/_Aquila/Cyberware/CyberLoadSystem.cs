@@ -101,14 +101,25 @@ public sealed class CyberLoadSystem : EntitySystem
     }
 
     /// <summary>
-    /// Риск киберпсихоза: постоянная нагрузка вместе с текущим напряжением.
+    /// Риск киберпсихоза: постоянная нагрузка вместе с текущим напряжением за вычетом переносимости.
     /// </summary>
     public float GetRisk(Entity<CyberLoadComponent?> ent)
     {
         if (!Resolve(ent, ref ent.Comp, false))
             return 0f;
 
-        return ent.Comp.Load + ent.Comp.Strain;
+        return MathF.Max(0f, ent.Comp.Load + ent.Comp.Strain - ent.Comp.Tolerance);
+    }
+
+    /// <summary>
+    /// Меняет переносимость имплантов, не выходя за пределы от нуля до потолка тела.
+    /// </summary>
+    public void AdjustTolerance(Entity<CyberLoadComponent?> ent, float amount)
+    {
+        if (!Resolve(ent, ref ent.Comp, false))
+            return;
+
+        ent.Comp.Tolerance = Math.Clamp(ent.Comp.Tolerance + amount, 0f, ent.Comp.MaxTolerance);
     }
 
     /// <summary>

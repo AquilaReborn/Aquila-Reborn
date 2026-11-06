@@ -77,34 +77,35 @@ public sealed class CyberpsychosisSystem : SharedCyberpsychosisSystem
             return;
         }
 
+        var visuals = EnsureComp<CyberpsychosisVisualsComponent>(local);
         var now = _timing.RealTime;
-        if (comp.NextGlitch == TimeSpan.Zero)
+        if (visuals.NextGlitch == TimeSpan.Zero)
         {
-            comp.NextGlitch = now + _random.Next(stage.MinGlitchDelay, stage.MaxGlitchDelay);
+            visuals.NextGlitch = now + _random.Next(stage.MinGlitchDelay, stage.MaxGlitchDelay);
         }
-        else if (now >= comp.NextGlitch)
+        else if (now >= visuals.NextGlitch)
         {
-            comp.GlitchEnd = now + stage.GlitchDuration;
-            comp.NextGlitch = now + _random.Next(stage.MinGlitchDelay, stage.MaxGlitchDelay);
+            visuals.GlitchEnd = now + stage.GlitchDuration;
+            visuals.NextGlitch = now + _random.Next(stage.MinGlitchDelay, stage.MaxGlitchDelay);
         }
 
         var baseIntensity = comp.Suppressed ? 0f : stage.BaseGlitchIntensity;
-        _glitchOverlay.Intensity = now < comp.GlitchEnd
+        _glitchOverlay.Intensity = now < visuals.GlitchEnd
             ? MathF.Max(stage.GlitchIntensity, baseIntensity)
             : baseIntensity;
         _glitchOverlay.Redness = comp.Suppressed ? 0f : stage.Redness;
 
         if (comp.Suppressed)
-            StopMusic(comp);
+            StopMusic(visuals);
         else
-            UpdateMusic(comp, stage);
+            UpdateMusic(visuals, stage);
 
         SyncDisguises();
 
-        if (now < comp.NextDisguiseUpdate)
+        if (now < visuals.NextDisguiseUpdate)
             return;
 
-        comp.NextDisguiseUpdate = now + DisguiseUpdateInterval;
+        visuals.NextDisguiseUpdate = now + DisguiseUpdateInterval;
 
         if (comp.Suppressed)
             ClearDisguises();
@@ -122,7 +123,7 @@ public sealed class CyberpsychosisSystem : SharedCyberpsychosisSystem
 
     private void OnShutdown(Entity<CyberpsychosisComponent> ent, ref ComponentShutdown args)
     {
-        StopMusic(ent.Comp);
+        RemoveVisuals(ent);
 
         if (_player.LocalEntity != ent.Owner)
             return;
@@ -133,37 +134,48 @@ public sealed class CyberpsychosisSystem : SharedCyberpsychosisSystem
 
     private void OnPlayerAttached(Entity<CyberpsychosisComponent> ent, ref LocalPlayerAttachedEvent args)
     {
-        ent.Comp.NextGlitch = TimeSpan.Zero;
+        RemoveVisuals(ent);
         _overlay.AddOverlay(_glitchOverlay);
     }
 
     private void OnPlayerDetached(Entity<CyberpsychosisComponent> ent, ref LocalPlayerDetachedEvent args)
     {
-        StopMusic(ent.Comp);
+        RemoveVisuals(ent);
         ClearDisguises();
         _overlay.RemoveOverlay(_glitchOverlay);
     }
 
-    private void UpdateMusic(CyberpsychosisComponent comp, CyberpsychosisStagePrototype stage)
+    private void RemoveVisuals(EntityUid uid)
+    {
+        if (!TryComp<CyberpsychosisVisualsComponent>(uid, out var visuals))
+            return;
+
+        StopMusic(visuals);
+
+        if (!TerminatingOrDeleted(uid))
+            RemComp(uid, visuals);
+    }
+
+    private void UpdateMusic(CyberpsychosisVisualsComponent visuals, CyberpsychosisStagePrototype stage)
     {
         if (stage.Music == null)
         {
-            StopMusic(comp);
+            StopMusic(visuals);
             return;
         }
 
-        if (comp.MusicStream is { } stream && !TerminatingOrDeleted(stream))
+        if (visuals.MusicStream is { } stream && !TerminatingOrDeleted(stream))
             return;
 
-        comp.MusicStream = _audio.PlayGlobal(stage.Music, Filter.Local(), false, stage.Music.Params.WithLoop(true))?.Entity;
+        visuals.MusicStream = _audio.PlayGlobal(stage.Music, Filter.Local(), false, stage.Music.Params.WithLoop(true))?.Entity;
     }
 
-    private void StopMusic(CyberpsychosisComponent comp)
+    private void StopMusic(CyberpsychosisVisualsComponent visuals)
     {
-        if (comp.MusicStream is { } stream)
+        if (visuals.MusicStream is { } stream)
             _audio.Stop(stream);
 
-        comp.MusicStream = null;
+        visuals.MusicStream = null;
     }
 
     private void UpdateDisguises(EntityUid local, CyberpsychosisStagePrototype stage)

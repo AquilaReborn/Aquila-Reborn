@@ -21,10 +21,10 @@ namespace Content.Server._Aquila.Cyberware;
 public sealed class CyberpsychosisRampageSystem : EntitySystem
 {
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
-    [Dependency] private readonly IComponentFactory _factory = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly TemporaryComponentsSystem _temporaryComponents = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
@@ -67,17 +67,7 @@ public sealed class CyberpsychosisRampageSystem : EntitySystem
             _faction.AddFaction((uid, member), settings.Faction);
         }
 
-        var toAdd = new ComponentRegistry();
-        foreach (var (name, entry) in settings.Components)
-        {
-            if (HasComp(uid, entry.Component.GetType()))
-                continue;
-
-            toAdd.Add(name, entry);
-            comp.AddedComponents.Add(name);
-        }
-
-        EntityManager.AddComponents(uid, toAdd);
+        _temporaryComponents.AddMissing(uid, settings.Components, comp.AddedComponents);
 
         _adminLog.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(uid):player} lost control to a cyberpsychosis rampage");
         return true;
@@ -88,11 +78,7 @@ public sealed class CyberpsychosisRampageSystem : EntitySystem
         if (TerminatingOrDeleted(ent))
             return;
 
-        foreach (var name in ent.Comp.AddedComponents)
-        {
-            if (_factory.TryGetRegistration(name, out var registration))
-                RemComp(ent.Owner, registration.Type);
-        }
+        _temporaryComponents.RemoveAdded(ent, ent.Comp.AddedComponents);
 
         if (TryComp<NpcFactionMemberComponent>(ent, out var member))
         {
@@ -112,6 +98,12 @@ public sealed class CyberpsychosisRampageSystem : EntitySystem
 
         if (FindWeapon(uid) is not { } weapon)
             return;
+
+        if (_hands.IsHolding((uid, hands), weapon, out var holdingHand))
+        {
+            _hands.TrySetActiveHand((uid, hands), holdingHand);
+            return;
+        }
 
         if (!_hands.TryGetEmptyHand((uid, hands), out var emptyHand))
             return;
