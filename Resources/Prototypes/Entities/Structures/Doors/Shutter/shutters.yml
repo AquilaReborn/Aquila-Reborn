@@ -11,6 +11,7 @@
     flags:
     - Anchorable
   - type: Rotatable
+  - type: DoorAutoOrient # Aquila Change
   - type: Sprite
     sprite: Structures/Doors/Shutters/shutters.rsi
     drawdepth: BlastDoors

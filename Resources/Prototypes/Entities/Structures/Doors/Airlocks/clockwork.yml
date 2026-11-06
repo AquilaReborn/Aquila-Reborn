@@ -7,6 +7,10 @@
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/clockwork_pinion.rsi
+  # Aquila Change start
+  - type: DoorAutoOrient
+    enabled: false
+  # Aquila Change end
   - type: Construction
     graph: PinionAirlock
     node: airlock
@@ -22,6 +26,10 @@
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Glass/clockwork_pinion.rsi
+  # Aquila Change start
+  - type: DoorAutoOrient
+    enabled: false
+  # Aquila Change end
   - type: Construction
     graph: PinionAirlock
     node: glassAirlock

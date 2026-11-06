@@ -1088,6 +1088,8 @@
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Airlocks/technical.rsi
+  - type: DoorAutoOrient
+    enabled: false
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsFederationadmin ]
@@ -1101,6 +1103,8 @@
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Airlocks/technical.rsi
+  - type: DoorAutoOrient
+    enabled: false
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsFederation ]
@@ -1114,6 +1118,8 @@
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/Sir_Felix/ElysiumPrime/Airlocks/technical.rsi
+  - type: DoorAutoOrient
+    enabled: false
 
 - type: entity
   parent: ClothingNeckBase

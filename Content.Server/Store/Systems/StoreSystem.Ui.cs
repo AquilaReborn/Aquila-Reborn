@@ -101,6 +101,8 @@ public sealed partial class StoreSystem
         if (!Resolve(store, ref component))
             return;
 
+        EnsureListingsCatalog(component); // Aquila Change
+
         //this is the person who will be passed into logic for all listing filtering.
         if (user != null) //if we have no "buyer" for this update, then don't update the listings
         {

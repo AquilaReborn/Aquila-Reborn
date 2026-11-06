@@ -12,6 +12,7 @@
     flags:
     - Anchorable
   - type: Rotatable
+  - type: DoorAutoOrient # Aquila Change
   - type: AtmosAlarmable
     syncWith:
     - FireAlarm

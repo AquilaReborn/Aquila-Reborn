@@ -400240,6 +400240,8 @@ entities:
           seed: 0
         tile: FloorAsteroidSand
       seed: 1122218260
+    - type: BiomeOptimize
+      loadArea: -256,-224,17056,208
     - type: MapLight
     - type: Roof
       data:

@@ -6,7 +6,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.Chemistry.EntitySystems;
 
-public sealed class SolutionRegenerationSystem : EntitySystem
+public sealed partial class SolutionRegenerationSystem : EntitySystem // Aquila Change
 {
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -45,9 +45,9 @@ public sealed class SolutionRegenerationSystem : EntitySystem
                 continue;
 
             // timer ignores if its full, it's just a fixed cycle
-            regen.NextRegenTime += regen.Duration;
+            regen.NextRegenTime = GetNextRegenTime(regen); // Aquila Change
             // Needs to be networked and dirtied so that the client can reroll it during prediction
-            Dirty(uid, regen);
+            // Dirty(uid, regen); // Aquila Change
             if (!_solutionContainer.ResolveSolution((uid, manager),
                     regen.SolutionName,
                     ref regen.SolutionRef,
@@ -57,6 +57,8 @@ public sealed class SolutionRegenerationSystem : EntitySystem
             var amount = FixedPoint2.Min(solution.AvailableVolume, regen.Generated.Volume);
             if (amount <= FixedPoint2.Zero)
                 continue;
+
+            Dirty(uid, regen); // Aquila Change
 
             // Don't bother cloning and splitting if adding the whole thing
             var generated = amount == regen.Generated.Volume

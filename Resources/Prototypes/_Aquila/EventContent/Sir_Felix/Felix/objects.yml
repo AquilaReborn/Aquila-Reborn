@@ -348,6 +348,8 @@
     energy: 3
     color: "#a53030"
   - type: AccessReader
+  - type: DoorAutoOrient
+    enabled: false
   - type: Sprite
     sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/laserblastdoor/default.rsi
     layers:
@@ -2329,6 +2331,8 @@
         layer:
         - AirlockLayer
   - type: AccessReader
+  - type: DoorAutoOrient
+    enabled: false
   - type: Sprite
     sprite: _Aquila/EventContent/Sir_Felix/Felix/Objects/Gatebiohazard.rsi
     offset: 0.5,-0.5
