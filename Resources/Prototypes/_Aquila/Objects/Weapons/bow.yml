@@ -24,8 +24,8 @@
   - type: Projectile
     damage:
       types:
-        Heat: 25
-        Holy: 20
+        Heat: 2
+        Holy: 15
   - type: TimedDespawn
     lifetime: 6
 
@@ -42,9 +42,8 @@
   - type: Projectile
     damage:
       groups:
-        Brute: -33
-        Burn: -33
-        Airloss: -8
+        Brute: -20
+        Burn: -20
   - type: SpawnEntitiesOnHit
     spawnOnlyIfHitMob: true
     proto: EffectSpark
@@ -86,7 +85,7 @@
       map: [ "bowstring" ]
   - type: Item
     size: Normal
-    sprite: _Aquila/Objects/Weapons/Bow/druid_bow.rsi	
+    sprite: _Aquila/Objects/Weapons/Bow/druid_bow.rsi
   - type: Clothing
     sprite: _Aquila/Objects/Weapons/Bow/druid_bow.rsi
     clothingVisuals:
