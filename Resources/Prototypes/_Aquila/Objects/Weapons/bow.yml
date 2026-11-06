@@ -24,7 +24,7 @@
   - type: Projectile
     damage:
       types:
-        Heat: 2
+        Heat: 8
         Holy: 15
   - type: TimedDespawn
     lifetime: 6
