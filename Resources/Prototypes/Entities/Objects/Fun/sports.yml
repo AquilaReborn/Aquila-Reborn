@@ -8,7 +8,7 @@
   id: BaseSportsBall # How about that game with the pigskin?
   components:
   - type: Catchable
-    catchChance: 0.8
+    catchChance: 0.7 # Aquila Change 0.8 -> 0.7
     catchSuccessSound: &SoundSportsBounce
       path: /Audio/Effects/Footsteps/bounce.ogg
   - type: EmitSoundOnCollide
