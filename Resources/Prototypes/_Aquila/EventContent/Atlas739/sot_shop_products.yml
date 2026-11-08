@@ -599,7 +599,7 @@
   icon:
     sprite: _Aquila/EventContent/Atlas739/sot_shop_sprites.rsi
     state: jumpsuit-red
-  product: ClothingUniformJumpsuitMilitaryColorTeal
+  product: ClothingUniformJumpsuitMilitaryColorRed
   cost: 100
   category: sot-shop-category-clothing
   group: SotReapersMarket

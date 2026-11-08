@@ -541,6 +541,11 @@ namespace Content.Server.Cargo.Systems
             if (!TryComp<StationCargoOrderDatabaseComponent>(station, out var orderDatabase))
                 return;
 
+            // Aquila-SoT: консоль со своим счётом (SotAthenaCargo / SotReapersCargo) может оказаться на станции,
+            // где этого счёта нет; ниже Orders[Account] читается прямым индексатором (ComponentInit консоли
+            // срабатывает раньше, чем SotShopLinkSystem успевает создать ключ), поэтому создаём ключ здесь.
+            orderDatabase.Orders.TryAdd(console.Account, new List<CargoOrderData>());
+
             if (_uiSystem.HasUi(consoleUid, CargoConsoleUiKey.Orders))
             {
                 _uiSystem.SetUiState(consoleUid,
