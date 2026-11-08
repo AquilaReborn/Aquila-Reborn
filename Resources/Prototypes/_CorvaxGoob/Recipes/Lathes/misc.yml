@@ -50,3 +50,18 @@
   id: HydraspeakTranslatorImplanter
   subname: lathe-recipe-HydraspeakTranslatorImplanter-subname
   result: HydraspeakTranslatorChip # Aquila Change
+
+- type: latheRecipe
+  parent: ClothingShoesBootsMagSci
+  id: ClothingShoesBootsMag
+  result: ClothingShoesBootsMag
+
+- type: latheRecipe
+  parent: ClothingShoesBootsMagSci
+  id: ClothingShoesBootsMagSec
+  result: ClothingShoesBootsMagSec
+
+- type: latheRecipe
+  parent: ClothingShoesBootsMagSci
+  id: ClothingShoesBootsMagAtmos
+  result: ClothingShoesBootsMagAtmos
