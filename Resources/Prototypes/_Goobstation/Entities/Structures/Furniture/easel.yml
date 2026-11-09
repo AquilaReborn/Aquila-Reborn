@@ -2,6 +2,7 @@
   parent: BaseStructureDynamic
   id: PaintEasel
   name: easel
+  suffix: Painting # Aquila Change
   description: A wooden stand that holds a canvas while you paint on it.
   components:
   - type: Sprite

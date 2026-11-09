@@ -60,6 +60,7 @@ public sealed partial class PaintBoundUserInterface(EntityUid owner, Enum uiKey)
         _window.UndoPressed += Undo;
         _window.FinishPressed += Finish;
         _input.FirstChanceOnKeyEvent += OnKeyEvent;
+        InitializeAquila(); // Aquila Change
 
         Rebuild();
         RefreshTool(true);
@@ -430,6 +431,7 @@ public sealed partial class PaintBoundUserInterface(EntityUid owner, Enum uiKey)
             return;
 
         _input.FirstChanceOnKeyEvent -= OnKeyEvent;
+        DisposeAquila(); // Aquila Change
         _texture?.Dispose();
         _texture = null;
     }

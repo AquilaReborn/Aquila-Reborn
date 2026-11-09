@@ -105,6 +105,8 @@ public sealed partial class PaintWindow : FancyWindow
 
         UpdateSize();
         SetTool(null, false, Color.Black);
+
+        InitializeAquila(); // Aquila Change
     }
 
     public void SetFinished(bool finished, string? title, string? artist)
@@ -113,6 +115,7 @@ public sealed partial class PaintWindow : FancyWindow
         EditPanel.Visible = !finished;
         FinishedLabel.Visible = finished;
         Canvas.Interactive = HasTool && !finished;
+        ImportButton.Disabled = finished; // Aquila Change
 
         if (!finished)
             return;

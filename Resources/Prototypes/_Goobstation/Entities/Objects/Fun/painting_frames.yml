@@ -2,6 +2,7 @@
   abstract: true
   parent: BaseItem
   id: BasePaintingFrame
+  suffix: Painting # Aquila Change
   description: Put it on a finished painting to frame it.
   components:
   - type: Sprite
