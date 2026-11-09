@@ -46002,7 +46002,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/ElysiumPrime/Music/Last_Stand.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/ElysiumPrime/Music/Last_Stand.ogg
     missingComponents:
     - AmbientOnPowered
   - uid: 3490
@@ -46023,7 +46023,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/Asimov/Misc/ambient5.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/Misc/ambient5.ogg
   - uid: 3491
     components:
     - type: Transform

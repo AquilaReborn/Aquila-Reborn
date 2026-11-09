@@ -1,54 +1,86 @@
 <controls:FancyWindow xmlns="https://spacestation14.io"
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
                       Title="{Loc 'cyberware-scanner-ui-title'}"
-                      MinSize="360 300"
-                      SetSize="360 460">
+                      MinSize="360 320"
+                      SetSize="400 540">
     <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
-        <BoxContainer Orientation="Vertical" Margin="10 6 10 10">
-            <Label Name="EmptyLabel"
-                   Text="{Loc 'cyberware-scanner-ui-empty'}"
-                   StyleClasses="LabelSubText" />
-            <BoxContainer Name="ResultContainer" Orientation="Vertical" Visible="False">
-                <Label Name="TargetLabel" StyleClasses="LabelHeading" ClipText="True" />
-                <Label Name="ScanTypeLabel" StyleClasses="LabelSubText" />
-                <PanelContainer StyleClasses="LowDivider" Margin="0 6" />
+        <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="6">
+            <PanelContainer Name="EmptyCard" StyleClasses="PanelDark">
+                <RichTextLabel Name="EmptyLabel" Margin="10 8" />
+            </PanelContainer>
 
-                <Label Text="{Loc 'cyberware-scanner-ui-load'}" StyleClasses="LabelKeyText" />
-                <ProgressBar Name="RiskBar"
-                             MinValue="0"
-                             MaxValue="1"
-                             SetHeight="22"
-                             HorizontalExpand="True"
-                             Margin="0 4">
-                    <Label Name="RiskText" HorizontalAlignment="Center" />
-                </ProgressBar>
-                <GridContainer Columns="2" HSeparationOverride="12">
-                    <Label Text="{Loc 'cyberware-scanner-ui-count'}" StyleClasses="LabelSubText" />
-                    <Label Name="CountLabel" />
-                    <Label Text="{Loc 'cyberware-scanner-ui-level'}" StyleClasses="LabelSubText" />
-                    <Label Name="LevelLabel" />
-                </GridContainer>
-                <Label Name="AdaptingLabel"
-                       Text="{Loc 'cyberware-scanner-adapting'}"
-                       Visible="False" />
-                <PanelContainer StyleClasses="LowDivider" Margin="0 6" />
+            <BoxContainer Name="ResultContainer" Orientation="Vertical" SeparationOverride="6" Visible="False">
+                <PanelContainer StyleClasses="PanelDark">
+                    <BoxContainer Orientation="Vertical" Margin="10 8">
+                        <Label Name="TargetLabel" StyleClasses="LabelHeading" ClipText="True" />
+                        <Label Name="ScanTypeLabel" StyleClasses="LabelSubText" ClipText="True" />
+                    </BoxContainer>
+                </PanelContainer>
 
-                <Label Text="{Loc 'cyberware-scanner-ui-implants'}" StyleClasses="LabelKeyText" />
-                <BoxContainer Name="ImplantList" Orientation="Vertical" Margin="6 4 0 4" />
-                <Label Name="ConcealedLabel" Visible="False" />
+                <Label Text="{Loc 'cyberware-scanner-ui-load'}" StyleClasses="LabelKeyText" Margin="2 4 0 0" />
+                <PanelContainer StyleClasses="PanelDark">
+                    <BoxContainer Orientation="Vertical" Margin="10 8" SeparationOverride="8">
+                        <GridContainer Columns="2" HSeparationOverride="12" VSeparationOverride="2">
+                            <Label Text="{Loc 'cyberware-scanner-ui-level'}" StyleClasses="LabelSubText" VAlign="Center" />
+                            <Label Name="LevelLabel" HorizontalExpand="True" Align="Right" ClipText="True" />
+                            <Label Text="{Loc 'cyberware-scanner-ui-risk'}" StyleClasses="LabelSubText" VAlign="Center" />
+                            <Label Name="RiskLabel" HorizontalExpand="True" Align="Right" ClipText="True" />
+                            <Label Text="{Loc 'cyberware-scanner-ui-count'}" StyleClasses="LabelSubText" VAlign="Center" />
+                            <Label Name="CountLabel" HorizontalExpand="True" Align="Right" ClipText="True" />
+                        </GridContainer>
 
-                <BoxContainer Name="PsychosisSection" Orientation="Vertical" Visible="False">
-                    <PanelContainer StyleClasses="LowDivider" Margin="0 6" />
-                    <Label Text="{Loc 'cyberware-scanner-ui-psychosis'}" StyleClasses="LabelKeyText" />
-                    <Label Name="StageLabel" Margin="0 4" />
-                    <ProgressBar Name="CureBar"
-                                 MinValue="0"
-                                 MaxValue="1"
-                                 SetHeight="22"
-                                 HorizontalExpand="True"
-                                 Visible="False">
-                        <Label Name="CureText" HorizontalAlignment="Center" />
-                    </ProgressBar>
+                        <BoxContainer Orientation="Vertical" SeparationOverride="2">
+                            <BoxContainer Orientation="Horizontal" SeparationOverride="3" SetHeight="12">
+                                <ProgressBar Name="LowBar" HorizontalExpand="True" VerticalExpand="True" />
+                                <ProgressBar Name="ElevatedBar" HorizontalExpand="True" VerticalExpand="True" />
+                                <ProgressBar Name="HighBar" HorizontalExpand="True" VerticalExpand="True" />
+                            </BoxContainer>
+                            <BoxContainer Orientation="Horizontal" SeparationOverride="3">
+                                <Label Name="LowLegend"
+                                       Text="{Loc 'cyberware-scanner-level-low'}"
+                                       StyleClasses="LabelSubText"
+                                       HorizontalExpand="True"
+                                       ClipText="True" />
+                                <Label Name="ElevatedLegend"
+                                       Text="{Loc 'cyberware-scanner-level-elevated'}"
+                                       StyleClasses="LabelSubText"
+                                       HorizontalExpand="True"
+                                       ClipText="True" />
+                                <Label Name="HighLegend"
+                                       Text="{Loc 'cyberware-scanner-level-high'}"
+                                       StyleClasses="LabelSubText"
+                                       HorizontalExpand="True"
+                                       ClipText="True" />
+                            </BoxContainer>
+                        </BoxContainer>
+
+                        <RichTextLabel Name="AdaptingLabel" Visible="False" />
+                    </BoxContainer>
+                </PanelContainer>
+
+                <Label Text="{Loc 'cyberware-scanner-ui-implants'}" StyleClasses="LabelKeyText" Margin="2 4 0 0" />
+                <PanelContainer StyleClasses="PanelDark">
+                    <BoxContainer Orientation="Vertical" Margin="10 8" SeparationOverride="4">
+                        <BoxContainer Name="ImplantList" Orientation="Vertical" SeparationOverride="2" />
+                        <Label Name="ConcealedLabel" StyleClasses="status-bad" ClipText="True" Visible="False" />
+                    </BoxContainer>
+                </PanelContainer>
+
+                <BoxContainer Name="PsychosisSection" Orientation="Vertical" SeparationOverride="6" Visible="False">
+                    <Label Text="{Loc 'cyberware-scanner-ui-psychosis'}" StyleClasses="LabelKeyText" Margin="2 4 0 0" />
+                    <PanelContainer StyleClasses="PanelDark">
+                        <BoxContainer Orientation="Vertical" Margin="10 8" SeparationOverride="6">
+                            <Label Name="StageLabel" StyleClasses="status-critical" ClipText="True" />
+                            <ProgressBar Name="CureBar"
+                                         MinValue="0"
+                                         MaxValue="1"
+                                         SetHeight="20"
+                                         HorizontalExpand="True"
+                                         Visible="False">
+                                <Label Name="CureText" HorizontalAlignment="Center" />
+                            </ProgressBar>
+                        </BoxContainer>
+                    </PanelContainer>
                 </BoxContainer>
             </BoxContainer>
         </BoxContainer>

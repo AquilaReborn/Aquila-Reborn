@@ -353645,7 +353645,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/NotUse/RadioSirens.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/NotUse/RadioSirens.ogg
   - uid: 10150
     components:
     - type: Transform
@@ -353666,7 +353666,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/NotUse/Military.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/NotUse/Military.ogg
   - uid: 47372
     components:
     - type: Transform
@@ -353687,7 +353687,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/NotUse/Military.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/NotUse/Military.ogg
   - uid: 47373
     components:
     - type: Transform
@@ -353708,7 +353708,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/NotUse/Military.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/NotUse/Military.ogg
   - uid: 47661
     components:
     - type: Transform
@@ -353736,7 +353736,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/NotUse/Break-Default.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/NotUse/Break-Default.ogg
 - proto: AquilaSimpleRadio2Felix
   entities:
   - uid: 15394
@@ -353759,7 +353759,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/NotUse/Stalkers.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/NotUse/Stalkers.ogg
   - uid: 47229
     components:
     - type: Transform
@@ -353780,7 +353780,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/NotUse/RadioSirens.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/NotUse/RadioSirens.ogg
   - uid: 47376
     components:
     - type: Transform
@@ -353801,7 +353801,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/NotUse/Military.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/NotUse/Military.ogg
   - uid: 47377
     components:
     - type: Transform
@@ -353822,7 +353822,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/NotUse/Scientists.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/NotUse/Scientists.ogg
   - uid: 47378
     components:
     - type: Transform
@@ -353843,7 +353843,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/NotUse/Scientists.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/NotUse/Scientists.ogg
 - proto: TableGlass
   entities:
   - uid: 47384
@@ -368126,7 +368126,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
     - type: DeviceLinkSink
       invokeCounter: 1
   - uid: 10061
@@ -368147,7 +368147,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
     - type: ApcPowerReceiver
       needsPower: False
     - type: DeviceLinkSink
@@ -368170,7 +368170,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
     - type: ApcPowerReceiver
       needsPower: False
     - type: DeviceLinkSink
@@ -368193,7 +368193,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
     - type: ApcPowerReceiver
       needsPower: False
     - type: DeviceLinkSink
@@ -368215,7 +368215,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
     - type: ApcPowerReceiver
       needsPower: False
     - type: DeviceLinkSink

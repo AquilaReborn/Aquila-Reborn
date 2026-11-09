@@ -24,6 +24,7 @@ public sealed partial class WoundSystem
         WoundableComponent? woundable = null)
     {
         if (!Resolve(uid, ref wound)
+            || !TryRestoreHoldingWoundable((uid, wound)) // Aquila Change
             || !Resolve(wound.HoldingWoundable, ref woundable))
             return;
 
@@ -62,6 +63,7 @@ public sealed partial class WoundSystem
         WoundableComponent? woundable = null)
     {
         if (!Resolve(uid, ref wound)
+            || !TryRestoreHoldingWoundable((uid, wound)) // Aquila Change
             || !Resolve(wound.HoldingWoundable, ref woundable))
             return;
 

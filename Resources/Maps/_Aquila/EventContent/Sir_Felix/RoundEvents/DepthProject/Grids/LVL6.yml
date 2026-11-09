@@ -78074,7 +78074,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Generator/generator.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Generator/generator.ogg
 - proto: AquilaSimpleRadio2Felix
   entities:
   - uid: 12037
@@ -78097,7 +78097,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/NotUse/Stalkers.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/NotUse/Stalkers.ogg
 - proto: Steamvent
   entities:
   - uid: 12038
@@ -79790,7 +79790,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
     - type: ApcPowerReceiver
       powerLoad: 0
     - type: DamageOnInteract

@@ -40,6 +40,16 @@ public sealed class CyberwareScannerUiState : BoundUserInterfaceState
     public readonly float CriticalLevel;
 
     /// <summary>
+    /// Риск, с которого нагрузка считается повышенной.
+    /// </summary>
+    public readonly float WarningLevel;
+
+    /// <summary>
+    /// Риск, с которого нагрузка считается высокой.
+    /// </summary>
+    public readonly float Threshold;
+
+    /// <summary>
     /// Название уровня кибернагрузки.
     /// </summary>
     public readonly LocId Level;
@@ -75,6 +85,8 @@ public sealed class CyberwareScannerUiState : BoundUserInterfaceState
         int implantCount,
         float risk,
         float criticalLevel,
+        float warningLevel,
+        float threshold,
         LocId level,
         bool adapting,
         List<string> implants,
@@ -87,6 +99,8 @@ public sealed class CyberwareScannerUiState : BoundUserInterfaceState
         ImplantCount = implantCount;
         Risk = risk;
         CriticalLevel = criticalLevel;
+        WarningLevel = warningLevel;
+        Threshold = threshold;
         Level = level;
         Adapting = adapting;
         Implants = implants;

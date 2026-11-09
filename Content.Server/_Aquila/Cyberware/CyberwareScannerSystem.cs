@@ -153,6 +153,8 @@ public sealed class CyberwareScannerSystem : EntitySystem
             load.ImplantCount,
             _cyberLoad.GetRisk((target, load)),
             load.CriticalLevel,
+            load.WarningLevel,
+            load.Threshold,
             GetLevel((target, load)),
             load.Strain > 0f,
             names,

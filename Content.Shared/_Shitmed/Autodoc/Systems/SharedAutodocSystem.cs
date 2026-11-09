@@ -24,7 +24,7 @@ using System.Linq;
 
 namespace Content.Shared._Shitmed.Autodoc.Systems;
 
-public abstract class SharedAutodocSystem : EntitySystem
+public abstract partial class SharedAutodocSystem : EntitySystem // Aquila Change
 {
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] protected readonly IGameTiming Timing = default!;
@@ -228,6 +228,7 @@ public abstract class SharedAutodocSystem : EntitySystem
 
     public bool GrabItem(Entity<AutodocComponent, HandsComponent> ent, EntityUid item)
     {
+        FreeItemHand(ent, item); // Aquila Change
         return _hands.TryPickup(ent, item, ent.Comp1.ItemSlot, animate: false, handsComp: ent.Comp2);
     }
 
@@ -329,6 +330,7 @@ public abstract class SharedAutodocSystem : EntitySystem
 
         var index = pair.Item2;
         var nextStep = nextSurgery.Comp.Steps[index];
+        PrepareInsertItem(ent, nextSurgery, nextStep); // Aquila Change
         if (!_surgery.TryDoSurgeryStep(patient, part, ent, surgeryId, nextStep, out var error))
         {
             // if the omnitool is held inserting organ etc will fail
