@@ -17,19 +17,19 @@
     damageCoefficient: 0.45
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.75
-        Radiation: 0.7
-        Caustic: 0.7
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.65
+        Radiation: 0.6
+        Caustic: 0.6
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -67,19 +67,19 @@
     damageCoefficient: 0.1
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.4
-      OrganDamage: 0.4
-      BoneDamage: 0.4
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.6
-        Piercing: 0.7
-        Heat: 0.5
-        Radiation: 0.6
-        Caustic: 0.6
+        Blunt: 0.4
+        Slash: 0.5
+        Piercing: 0.6
+        Heat: 0.4
+        Radiation: 0.5
+        Caustic: 0.5
   - type: ClothingSpeedModifier
     walkModifier: 0.65
     sprintModifier: 0.65
@@ -117,19 +117,19 @@
     damageCoefficient: 0.9
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.1
-      OrganDamage: 0.1
-      BoneDamage: 0.1
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.95
-        Heat: 0.9
-        Radiation: 0.8
-        Caustic: 0.9
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.85
+        Heat: 0.8
+        Radiation: 0.7
+        Caustic: 0.8
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -162,19 +162,19 @@
     damageCoefficient: 0.7
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.8
-        Heat: 0.85
-        Radiation: 0.8
-        Caustic: 0.85
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.7
+        Heat: 0.75
+        Radiation: 0.7
+        Caustic: 0.75
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.85
@@ -209,19 +209,19 @@
     damageCoefficient: 0.5
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.8
-        Heat: 0.7
-        Radiation: 0.5
-        Caustic: 0.7
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.7
+        Heat: 0.6
+        Radiation: 0.4
+        Caustic: 0.6
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
@@ -257,19 +257,19 @@
     damageCoefficient: 0.45
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.75
-        Radiation: 0.7
-        Caustic: 0.7
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.65
+        Radiation: 0.6
+        Caustic: 0.6
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -307,19 +307,19 @@
     damageCoefficient: 0.7
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.8
-        Heat: 0.8
-        Radiation: 0.6
-        Caustic: 0.4
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.7
+        Heat: 0.7
+        Radiation: 0.5
+        Caustic: 0.3
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -354,19 +354,19 @@
     damageCoefficient: 0.35
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.5
-      OrganDamage: 0.5
-      BoneDamage: 0.5
+      Dismemberment: 0.6
+      OrganDamage: 0.6
+      BoneDamage: 0.6
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.5
-        Radiation: 0.5
-        Caustic: 0.5
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.4
+        Radiation: 0.4
+        Caustic: 0.4
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -404,18 +404,18 @@
     damageCoefficient: 0.5
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.4
-      OrganDamage: 0.4
-      BoneDamage: 0.4
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.65
-        Heat: 0.6
-        Radiation: 0.4
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.55
+        Heat: 0.5
+        Radiation: 0.3
         Caustic: 0.3
   - type: ClothingSpeedModifier
     walkModifier: 0.95
@@ -454,19 +454,19 @@
     damageCoefficient: 0.6
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.8
-        Radiation: 0.7
-        Caustic: 0.8
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.7
+        Radiation: 0.6
+        Caustic: 0.7
   - type: ClothingSpeedModifier
     walkModifier: 0.95
     sprintModifier: 0.95
@@ -516,19 +516,19 @@
     damageCoefficient: 0.9
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.1
-      OrganDamage: 0.1
-      BoneDamage: 0.1
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.95
-        Heat: 0.9
-        Radiation: 0.8
-        Caustic: 0.9
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.85
+        Heat: 0.8
+        Radiation: 0.7
+        Caustic: 0.8
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -561,19 +561,19 @@
     damageCoefficient: 0.7
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.8
-        Heat: 0.85
-        Radiation: 0.8
-        Caustic: 0.85
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.7
+        Heat: 0.75
+        Radiation: 0.7
+        Caustic: 0.75
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.85
@@ -609,19 +609,19 @@
     damageCoefficient: 0.45
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.75
-        Radiation: 0.7
-        Caustic: 0.7
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.65
+        Radiation: 0.6
+        Caustic: 0.6
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -659,19 +659,19 @@
     damageCoefficient: 0.35
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.5
-      OrganDamage: 0.5
-      BoneDamage: 0.5
+      Dismemberment: 0.6
+      OrganDamage: 0.6
+      BoneDamage: 0.6
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.5
-        Radiation: 0.5
-        Caustic: 0.5
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.4
+        Radiation: 0.4
+        Caustic: 0.4
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -709,19 +709,19 @@
     damageCoefficient: 0.6
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.8
-        Radiation: 0.7
-        Caustic: 0.8
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.7
+        Radiation: 0.6
+        Caustic: 0.7
   - type: ClothingSpeedModifier
     walkModifier: 0.95
     sprintModifier: 0.95
@@ -770,19 +770,19 @@
     damageCoefficient: 0.5
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.8
-        Heat: 0.7
-        Radiation: 0.5
-        Caustic: 0.7
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.7
+        Heat: 0.6
+        Radiation: 0.4
+        Caustic: 0.6
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
@@ -818,19 +818,19 @@
     damageCoefficient: 0.9
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.1
-      OrganDamage: 0.1
-      BoneDamage: 0.1
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.95
-        Heat: 0.9
-        Radiation: 0.8
-        Caustic: 0.9
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.85
+        Heat: 0.8
+        Radiation: 0.7
+        Caustic: 0.8
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -863,19 +863,19 @@
     damageCoefficient: 0.45
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.75
-        Radiation: 0.7
-        Caustic: 0.7
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.65
+        Radiation: 0.6
+        Caustic: 0.6
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -913,19 +913,19 @@
     damageCoefficient: 0.4
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.4
-      OrganDamage: 0.4
-      BoneDamage: 0.4
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.55
-        Slash: 0.55
-        Piercing: 0.55
-        Heat: 0.7
-        Radiation: 0.6
-        Caustic: 0.6
+        Blunt: 0.45
+        Slash: 0.45
+        Piercing: 0.45
+        Heat: 0.6
+        Radiation: 0.5
+        Caustic: 0.5
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.85
@@ -963,19 +963,19 @@
     damageCoefficient: 0.1
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.4
-      OrganDamage: 0.4
-      BoneDamage: 0.4
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.6
-        Piercing: 0.7
-        Heat: 0.5
-        Radiation: 0.6
-        Caustic: 0.6
+        Blunt: 0.4
+        Slash: 0.5
+        Piercing: 0.6
+        Heat: 0.4
+        Radiation: 0.5
+        Caustic: 0.5
   - type: ClothingSpeedModifier
     walkModifier: 0.65
     sprintModifier: 0.65
@@ -1013,19 +1013,19 @@
     damageCoefficient: 0.5
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.8
-        Heat: 0.7
-        Radiation: 0.5
-        Caustic: 0.7
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.7
+        Heat: 0.6
+        Radiation: 0.4
+        Caustic: 0.6
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
@@ -1060,19 +1060,19 @@
     damageCoefficient: 0.9
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.1
-      OrganDamage: 0.1
-      BoneDamage: 0.1
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.95
-        Heat: 0.9
-        Radiation: 0.8
-        Caustic: 0.9
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.85
+        Heat: 0.8
+        Radiation: 0.7
+        Caustic: 0.8
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -1105,19 +1105,19 @@
     damageCoefficient: 0.25
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.6
-      OrganDamage: 0.6
-      BoneDamage: 0.6
+      Dismemberment: 0.7
+      OrganDamage: 0.7
+      BoneDamage: 0.7
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.4
-        Slash: 0.4
-        Piercing: 0.4
-        Heat: 0.6
-        Radiation: 0.6
-        Caustic: 0.6
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.3
+        Heat: 0.5
+        Radiation: 0.5
+        Caustic: 0.5
   - type: ClothingSpeedModifier
     walkModifier: 0.65
     sprintModifier: 0.65
@@ -1155,19 +1155,19 @@
     damageCoefficient: 0.6
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.8
-        Radiation: 0.7
-        Caustic: 0.8
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.7
+        Radiation: 0.6
+        Caustic: 0.7
   - type: ClothingSpeedModifier
     walkModifier: 0.95
     sprintModifier: 0.95
@@ -1203,19 +1203,19 @@
     damageCoefficient: 0.45
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.75
-        Radiation: 0.7
-        Caustic: 0.7
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.65
+        Radiation: 0.6
+        Caustic: 0.6
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -1253,19 +1253,19 @@
     damageCoefficient: 0.35
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.5
-      OrganDamage: 0.5
-      BoneDamage: 0.5
+      Dismemberment: 0.6
+      OrganDamage: 0.6
+      BoneDamage: 0.6
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.5
-        Radiation: 0.5
-        Caustic: 0.5
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.4
+        Radiation: 0.4
+        Caustic: 0.4
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -1303,19 +1303,19 @@
     damageCoefficient: 0.1
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.4
-      OrganDamage: 0.4
-      BoneDamage: 0.4
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.6
-        Piercing: 0.7
-        Heat: 0.5
-        Radiation: 0.6
-        Caustic: 0.6
+        Blunt: 0.4
+        Slash: 0.5
+        Piercing: 0.6
+        Heat: 0.4
+        Radiation: 0.5
+        Caustic: 0.5
   - type: ClothingSpeedModifier
     walkModifier: 0.65
     sprintModifier: 0.65
@@ -1353,19 +1353,19 @@
     damageCoefficient: 0.5
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.8
-        Heat: 0.7
-        Radiation: 0.5
-        Caustic: 0.7
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.7
+        Heat: 0.6
+        Radiation: 0.4
+        Caustic: 0.6
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
@@ -1400,19 +1400,19 @@
     damageCoefficient: 0.6
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.8
-        Radiation: 0.7
-        Caustic: 0.8
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.7
+        Radiation: 0.6
+        Caustic: 0.7
   - type: ClothingSpeedModifier
     walkModifier: 0.95
     sprintModifier: 0.95
@@ -1448,19 +1448,19 @@
     damageCoefficient: 0.45
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.75
-        Radiation: 0.7
-        Caustic: 0.7
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.65
+        Radiation: 0.6
+        Caustic: 0.6
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -1498,19 +1498,19 @@
     damageCoefficient: 0.35
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.5
-      OrganDamage: 0.5
-      BoneDamage: 0.5
+      Dismemberment: 0.6
+      OrganDamage: 0.6
+      BoneDamage: 0.6
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.5
-        Radiation: 0.5
-        Caustic: 0.5
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.4
+        Radiation: 0.4
+        Caustic: 0.4
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -1548,19 +1548,19 @@
     damageCoefficient: 0.6
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.8
-        Radiation: 0.7
-        Caustic: 0.8
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.7
+        Radiation: 0.6
+        Caustic: 0.7
   - type: ClothingSpeedModifier
     walkModifier: 0.95
     sprintModifier: 0.95
@@ -1596,19 +1596,19 @@
     damageCoefficient: 0.4
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.4
-      OrganDamage: 0.4
-      BoneDamage: 0.4
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.55
-        Slash: 0.55
-        Piercing: 0.55
-        Heat: 0.7
-        Radiation: 0.6
-        Caustic: 0.6
+        Blunt: 0.45
+        Slash: 0.45
+        Piercing: 0.45
+        Heat: 0.6
+        Radiation: 0.5
+        Caustic: 0.5
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.85
@@ -1647,19 +1647,19 @@
     damageCoefficient: 0.5
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.4
-      OrganDamage: 0.4
-      BoneDamage: 0.4
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.45
-        Piercing: 0.6
-        Heat: 0.6
-        Radiation: 0.7
-        Caustic: 0.7
+        Blunt: 0.5
+        Slash: 0.35
+        Piercing: 0.5
+        Heat: 0.5
+        Radiation: 0.6
+        Caustic: 0.6
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -1697,19 +1697,19 @@
     damageCoefficient: 0.45
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.75
-        Radiation: 0.7
-        Caustic: 0.7
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.65
+        Radiation: 0.6
+        Caustic: 0.6
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -1747,19 +1747,19 @@
     damageCoefficient: 0.35
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.5
-      OrganDamage: 0.5
-      BoneDamage: 0.5
+      Dismemberment: 0.6
+      OrganDamage: 0.6
+      BoneDamage: 0.6
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.5
-        Radiation: 0.5
-        Caustic: 0.5
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.4
+        Radiation: 0.4
+        Caustic: 0.4
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -1798,19 +1798,19 @@
     damageCoefficient: 0.9
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.1
-      OrganDamage: 0.1
-      BoneDamage: 0.1
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.95
-        Heat: 0.9
-        Radiation: 0.8
-        Caustic: 0.9
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.85
+        Heat: 0.8
+        Radiation: 0.7
+        Caustic: 0.8
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -1843,19 +1843,19 @@
     damageCoefficient: 0.5
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.8
-        Heat: 0.7
-        Radiation: 0.5
-        Caustic: 0.7
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.7
+        Heat: 0.6
+        Radiation: 0.4
+        Caustic: 0.6
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
@@ -1890,19 +1890,19 @@
     damageCoefficient: 0.4
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.4
-      OrganDamage: 0.4
-      BoneDamage: 0.4
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.55
-        Slash: 0.55
-        Piercing: 0.55
-        Heat: 0.7
-        Radiation: 0.6
-        Caustic: 0.6
+        Blunt: 0.45
+        Slash: 0.45
+        Piercing: 0.45
+        Heat: 0.6
+        Radiation: 0.5
+        Caustic: 0.5
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.85
@@ -1940,19 +1940,19 @@
     damageCoefficient: 0.45
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.75
-        Radiation: 0.7
-        Caustic: 0.7
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.65
+        Radiation: 0.6
+        Caustic: 0.6
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
