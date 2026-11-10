@@ -12,15 +12,21 @@ paint-window-finish = Finish
 paint-window-title-placeholder = Title
 paint-window-finish-button = Finish and sign
 paint-window-finish-confirm = Sign? It can't be changed after.
+# Aquila Change start
+paint-window-export = Export
+paint-window-import = Import
+# Aquila Change end
 paint-window-finished = [bold]{$title}[/bold]
     Signed by {$artist}
 
-paint-tool-brush = Brush
-paint-tool-eraser = Eraser
-paint-tool-line = Line
-paint-tool-rectangle = Rectangle
-paint-tool-ellipse = Ellipse
-paint-tool-picker = Colour picker
+# Aquila Change start
+paint-tool-brush = Brush (B)
+paint-tool-eraser = Eraser (E)
+paint-tool-line = Line (L)
+paint-tool-rectangle = Rectangle (R)
+paint-tool-ellipse = Ellipse (O)
+paint-tool-picker = Colour picker (I)
+# Aquila Change end
 
 paint-style-round = Round
 paint-style-square = Square

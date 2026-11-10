@@ -11,14 +11,20 @@ paint-window-finish = Завершить
 paint-window-title-placeholder = Название
 paint-window-finish-button = Завершить и подписать
 paint-window-finish-confirm = Подписать? Потом изменить уже не получится.
+# Aquila Change start
+paint-window-export = Экспорт
+paint-window-import = Импорт
+# Aquila Change end
 paint-window-finished = [bold]{$title}[/bold]
     Автор: {$artist}
-paint-tool-brush = Кисть
-paint-tool-eraser = Ластик
-paint-tool-line = Линия
-paint-tool-rectangle = Прямоугольник
-paint-tool-ellipse = Эллипс
-paint-tool-picker = Пипетка
+# Aquila Change start
+paint-tool-brush = Кисть (B)
+paint-tool-eraser = Ластик (E)
+paint-tool-line = Линия (L)
+paint-tool-rectangle = Прямоугольник (R)
+paint-tool-ellipse = Эллипс (O)
+paint-tool-picker = Пипетка (I)
+# Aquila Change end
 paint-style-round = Круглая
 paint-style-square = Квадратная
 paint-style-spray = Распылитель

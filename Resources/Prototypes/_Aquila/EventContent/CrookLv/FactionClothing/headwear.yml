@@ -24,17 +24,17 @@
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_x11.rsi
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.8
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.7
 
 - type: entity
   parent: ClothingHeadBase
@@ -85,17 +85,17 @@
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/riot_clip.rsi
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.25
-      OrganDamage: 0.25
-      BoneDamage: 0.25
+      Dismemberment: 0.35
+      OrganDamage: 0.35
+      BoneDamage: 0.35
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.85
-        Heat: 0.85
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.75
+        Heat: 0.75
 
 - type: entity
   parent: ClothingHeadBase
@@ -173,7 +173,7 @@
     - Head
     modifiers:
       coefficients:
-        Caustic: 0.6
+        Caustic: 0.5
 
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
@@ -188,18 +188,18 @@
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/CLIP/clip_bard_bio_armored.rsi
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.2
-      OrganDamage: 0.2
-      BoneDamage: 0.2
+      Dismemberment: 0.3
+      OrganDamage: 0.3
+      BoneDamage: 0.3
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.8
-        Heat: 0.8
-        Caustic: 0.6
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.7
+        Caustic: 0.5
 
 # Cybersun
 - type: entity
@@ -299,17 +299,17 @@
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/cybersun_x11helm.rsi
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.8
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.7
 
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseSyndicateContraband ]
@@ -324,17 +324,17 @@
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/riot_cybersun.rsi
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.25
-      OrganDamage: 0.25
-      BoneDamage: 0.25
+      Dismemberment: 0.35
+      OrganDamage: 0.35
+      BoneDamage: 0.35
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.85
-        Heat: 0.85
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.75
+        Heat: 0.75
 
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseSyndicateContraband ]
@@ -361,17 +361,17 @@
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/trauma_x11helm.rsi
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.8
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.7
 
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseSyndicateContraband ]
@@ -386,17 +386,17 @@
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/riot_trauma.rsi
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.25
-      OrganDamage: 0.25
-      BoneDamage: 0.25
+      Dismemberment: 0.35
+      OrganDamage: 0.35
+      BoneDamage: 0.35
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.85
-        Heat: 0.85
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.75
+        Heat: 0.75
 
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseSyndicateContraband ]
@@ -423,17 +423,17 @@
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/trauma_teal_x11helm.rsi
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.8
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.7
 
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseSyndicateContraband ]
@@ -448,17 +448,17 @@
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Cybersun/riot_trauma_teal.rsi
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.25
-      OrganDamage: 0.25
-      BoneDamage: 0.25
+      Dismemberment: 0.35
+      OrganDamage: 0.35
+      BoneDamage: 0.35
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.85
-        Heat: 0.85
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.75
+        Heat: 0.75
 
 # Gezena
 - type: entity
@@ -642,17 +642,17 @@
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/marineraiderhelmet.rsi
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.25
-      OrganDamage: 0.25
-      BoneDamage: 0.25
+      Dismemberment: 0.35
+      OrganDamage: 0.35
+      BoneDamage: 0.35
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.65
-        Heat: 0.75
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.55
+        Heat: 0.65
 
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
@@ -667,17 +667,17 @@
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/marineraiderhelmet_medic.rsi
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.25
-      OrganDamage: 0.25
-      BoneDamage: 0.25
+      Dismemberment: 0.35
+      OrganDamage: 0.35
+      BoneDamage: 0.35
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.65
-        Heat: 0.75
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.55
+        Heat: 0.65
 
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
@@ -692,17 +692,17 @@
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/marinejuggernauthelmet.rsi
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.4
-      OrganDamage: 0.4
-      BoneDamage: 0.4
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.7
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.6
 
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
@@ -717,17 +717,17 @@
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/marinejuggernauthelmet_medic.rsi
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.4
-      OrganDamage: 0.4
-      BoneDamage: 0.4
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.7
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.6
 
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
@@ -742,17 +742,17 @@
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/navyjuggernauthelmet.rsi
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.4
-      OrganDamage: 0.4
-      BoneDamage: 0.4
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.7
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.6
 
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseMajorContraband ]
@@ -767,17 +767,17 @@
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Gezena/navyjuggernauthelmet_medic.rsi
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.4
-      OrganDamage: 0.4
-      BoneDamage: 0.4
+      Dismemberment: 0.5
+      OrganDamage: 0.5
+      BoneDamage: 0.5
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.7
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.6
 
 # Blood Vanguard
 - type: entity
@@ -808,9 +808,9 @@
     - Head
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.9
-        Piercing: 0.9
+        Blunt: 0.7
+        Slash: 0.8
+        Piercing: 0.8
 
 - type: entity
   parent: [ ClothingHeadHelmetArmoredBase, BaseSyndicateContraband ]
@@ -825,17 +825,17 @@
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Hardliners/hl_x11.rsi
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.8
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.7
 
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
@@ -959,17 +959,17 @@
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/InteQ/inteq_x11helm.rsi
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.8
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.7
 
 # Gorlex Republic
 - type: entity
@@ -1012,9 +1012,9 @@
     - Head
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.9
-        Piercing: 0.9
+        Blunt: 0.7
+        Slash: 0.8
+        Piercing: 0.8
 
 - type: entity
   parent: [ ClothingHeadHelmetBase, BaseSyndicateContraband ]
@@ -1032,9 +1032,9 @@
     - Head
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.9
-        Piercing: 0.9
+        Blunt: 0.7
+        Slash: 0.8
+        Piercing: 0.8
 
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
@@ -1061,17 +1061,17 @@
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/NGR/ngr_x11.rsi
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.8
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.7
 
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
@@ -1150,9 +1150,9 @@
     - Head
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.9
-        Piercing: 0.9
+        Blunt: 0.7
+        Slash: 0.8
+        Piercing: 0.8
 
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
@@ -1191,17 +1191,17 @@
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/Ramzi/ramzi_x11.rsi
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.8
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.7
 
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
@@ -1380,9 +1380,9 @@
     - Head
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.9
-        Piercing: 0.9
+        Blunt: 0.7
+        Slash: 0.8
+        Piercing: 0.8
 
 # Hunters' Order
 - type: entity
@@ -1434,17 +1434,17 @@
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SRM/rouma_heavy.rsi
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.8
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.7
 
 - type: entity
   parent: ClothingHeadBase
@@ -1559,9 +1559,9 @@
     - Head
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.9
-        Piercing: 0.9
+        Blunt: 0.7
+        Slash: 0.8
+        Piercing: 0.8
 
 - type: entity
   parent: ClothingHeadBase
@@ -1612,14 +1612,14 @@
     sprite: _Aquila/EventContent/CrookLv/FactionHeadwear/SUNS/sunslpkvisor.rsi
   - type: Armor
     traumaDeductions:
-      Dismemberment: 0.3
-      OrganDamage: 0.3
-      BoneDamage: 0.3
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
       VeinsDamage: 0
       NerveDamage: 0
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.8
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.7

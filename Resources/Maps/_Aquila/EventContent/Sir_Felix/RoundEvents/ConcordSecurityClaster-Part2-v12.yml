@@ -212247,7 +212247,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/Asimov/music/Oats_In_The_Water.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/music/Oats_In_The_Water.ogg
     missingComponents:
     - AmbientOnPowered
   - uid: 21905
@@ -212270,7 +212270,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/Asimov/music/Oats_In_The_Water.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/music/Oats_In_The_Water.ogg
     missingComponents:
     - AmbientOnPowered
   - uid: 22516
@@ -212293,7 +212293,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Sound/Code/code3.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Sound/Code/code3.ogg
     missingComponents:
     - AmbientOnPowered
   - uid: 35099
@@ -212316,7 +212316,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/Asimov/Misc/ambient5.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/Misc/ambient5.ogg
     missingComponents:
     - AmbientOnPowered
   - uid: 35100
@@ -212339,7 +212339,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Sound/Code/code4.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Sound/Code/code4.ogg
     missingComponents:
     - AmbientOnPowered
   - uid: 39003
@@ -212362,7 +212362,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/Asimov/Misc/ambient5.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/Misc/ambient5.ogg
     missingComponents:
     - AmbientOnPowered
   - uid: 40242
@@ -212385,7 +212385,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/Felix/Music/me_in_the_house_in_a_heartbeat.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/Felix/Music/me_in_the_house_in_a_heartbeat.ogg
   - uid: 40243
     components:
     - type: Transform
@@ -212406,7 +212406,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/Felix/Music/me_in_the_house_in_a_heartbeat.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/Felix/Music/me_in_the_house_in_a_heartbeat.ogg
   - uid: 40244
     components:
     - type: Transform
@@ -212427,7 +212427,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/Asimov/Misc/Galactic_Siege.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/Misc/Galactic_Siege.ogg
 - proto: AquilaSimpleRadio2Felix
   entities:
   - uid: 41849
@@ -222252,7 +222252,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 20
-        path: /Audio/Imperial/DeadSector/Sound/Ambient/Blowout/blowoutsiren2.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Sound/Ambient/Blowout/blowoutsiren2.ogg
       code: 85902371
       enteredCode: 849123
       timer: 150

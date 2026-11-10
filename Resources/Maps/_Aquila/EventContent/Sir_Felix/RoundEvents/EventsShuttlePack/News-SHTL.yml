@@ -4742,7 +4742,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 698
     components:
     - type: Transform
@@ -4760,7 +4760,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
 - proto: Railing
   entities:
   - uid: 503

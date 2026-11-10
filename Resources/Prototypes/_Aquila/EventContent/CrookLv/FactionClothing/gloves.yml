@@ -30,9 +30,9 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.95
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.85
 
 - type: entity
   parent: ClothingHandsBase
@@ -78,9 +78,9 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.95
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.85
 
 # Inteq
 - type: entity
@@ -183,6 +183,6 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.95
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.85

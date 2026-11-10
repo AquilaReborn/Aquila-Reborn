@@ -11,6 +11,7 @@
     flags:
     - Anchorable
   - type: Rotatable
+  - type: DoorAutoOrient # Aquila Change
   - type: Sprite
     sprite: Structures/Specific/plastic-flaps.rsi # Aquila Change
     state: plasticflaps

@@ -2,8 +2,8 @@
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
                       xmlns:paint="clr-namespace:Content.Goobstation.Client.Paint"
                       Title="{Loc 'paint-window-title'}"
-                      MinSize="700 500"
-                      SetSize="840 560">
+                      MinSize="700 620"
+                      SetSize="840 680">
     <BoxContainer Orientation="Horizontal" Margin="8" SeparationOverride="8">
         <BoxContainer Orientation="Vertical" MinWidth="260" SeparationOverride="6">
             <BoxContainer Name="EditPanel" Orientation="Vertical" SeparationOverride="6">
@@ -36,6 +36,12 @@
                                         ConfirmationText="{Loc 'paint-window-finish-confirm'}" />
             </BoxContainer>
             <RichTextLabel Name="FinishedLabel" Visible="False" />
+            <BoxContainer Orientation="Horizontal" SeparationOverride="4" Margin="0 6 0 0">
+                <!-- Aquila Change start -->
+                <Button Name="ExportButton" Text="{Loc 'paint-window-export'}" HorizontalExpand="True" />
+                <Button Name="ImportButton" Text="{Loc 'paint-window-import'}" HorizontalExpand="True" />
+                <!-- Aquila Change end -->
+            </BoxContainer>
             <Control VerticalExpand="True" />
             <Label Name="StatusLabel" StyleClasses="LabelSubText" />
         </BoxContainer>

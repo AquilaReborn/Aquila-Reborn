@@ -17,7 +17,7 @@
   - type: Sprite
     sprite: _Aquila/EventContent/Sir_Felix/DeadSector/Firearms/Guns/granedlauncher/M32A1-gun/M32A1.rsi
     layers:
-    - state: bolt-open
+    - state: icon
       map: [ "enum.GunVisualLayers.Base" ]
   - type: Item
     sprite: _Aquila/EventContent/Sir_Felix/DeadSector/Firearms/Guns/granedlauncher/M32A1-gun/M32A1-inhand.rsi

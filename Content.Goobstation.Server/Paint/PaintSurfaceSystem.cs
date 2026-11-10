@@ -38,6 +38,8 @@ public sealed partial class PaintSurfaceSystem : SharedPaintSurfaceSystem
                 subs.Event<PaintUndoMessage>(OnUndo);
                 subs.Event<PaintFinishMessage>(OnFinish);
             });
+
+        InitializeAquila(); // Aquila Change
     }
 
     private void OnRoundRestartCleanup(RoundRestartCleanupEvent ev)

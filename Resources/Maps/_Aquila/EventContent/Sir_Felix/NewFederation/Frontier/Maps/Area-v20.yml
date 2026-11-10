@@ -382312,7 +382312,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/NotUse/Scientists.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/NotUse/Scientists.ogg
   - uid: 44915
     components:
     - type: Transform
@@ -382334,7 +382334,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/NotUse/Military.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/NotUse/Military.ogg
 - proto: AquilaSimpleRadio2Felix
   entities:
   - uid: 1724
@@ -382357,7 +382357,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/ElysiumPrime/Music/ST-QuantumSpawn.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/ElysiumPrime/Music/ST-QuantumSpawn.ogg
   - uid: 25582
     components:
     - type: Transform
@@ -382378,7 +382378,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/ElysiumPrime/Music/ST-Opening.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/ElysiumPrime/Music/ST-Opening.ogg
   - uid: 37969
     components:
     - type: Transform
@@ -451684,7 +451684,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 31845
     components:
     - type: Transform
@@ -451775,7 +451775,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 13927
     components:
     - type: Transform
@@ -451795,7 +451795,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 13928
     components:
     - type: Transform
@@ -451814,7 +451814,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 13929
     components:
     - type: Transform
@@ -451833,7 +451833,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 13930
     components:
     - type: Transform
@@ -451852,7 +451852,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 13931
     components:
     - type: Transform
@@ -451871,7 +451871,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 13932
     components:
     - type: Transform
@@ -451889,7 +451889,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 13933
     components:
     - type: Transform
@@ -451908,7 +451908,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 13934
     components:
     - type: Transform
@@ -451926,7 +451926,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 13935
     components:
     - type: Transform
@@ -451945,7 +451945,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 13936
     components:
     - type: Transform
@@ -451963,7 +451963,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 13937
     components:
     - type: Transform
@@ -451981,7 +451981,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 13938
     components:
     - type: Transform
@@ -452000,7 +452000,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 13939
     components:
     - type: Transform
@@ -452019,7 +452019,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 35285
     components:
     - type: Transform
@@ -452076,7 +452076,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 45562
     components:
     - type: Transform
@@ -452094,7 +452094,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 45563
     components:
     - type: Transform
@@ -452112,7 +452112,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 45564
     components:
     - type: Transform
@@ -452130,7 +452130,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 45565
     components:
     - type: Transform
@@ -452148,7 +452148,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 45566
     components:
     - type: Transform
@@ -452168,7 +452168,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
     - type: PoweredLight
       on: True
   - uid: 45567
@@ -452188,7 +452188,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 45568
     components:
     - type: Transform
@@ -452206,7 +452206,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 45569
     components:
     - type: Transform
@@ -452224,7 +452224,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 45570
     components:
     - type: Transform
@@ -452248,7 +452248,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 45572
     components:
     - type: Transform
@@ -452266,7 +452266,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 45573
     components:
     - type: Transform
@@ -452284,7 +452284,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 45574
     components:
     - type: Transform
@@ -452302,7 +452302,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 45575
     components:
     - type: Transform
@@ -452320,7 +452320,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 55372
     components:
     - type: Transform
@@ -452339,7 +452339,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 55373
     components:
     - type: Transform
@@ -452358,7 +452358,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 55374
     components:
     - type: Transform
@@ -452377,7 +452377,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 78916
     components:
     - type: Transform
@@ -452396,7 +452396,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 78917
     components:
     - type: Transform
@@ -452416,7 +452416,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 78918
     components:
     - type: Transform
@@ -452435,7 +452435,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 78919
     components:
     - type: Transform
@@ -452454,7 +452454,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 78920
     components:
     - type: Transform
@@ -452473,7 +452473,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 78921
     components:
     - type: Transform
@@ -452492,7 +452492,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 78922
     components:
     - type: Transform
@@ -452510,7 +452510,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 78923
     components:
     - type: Transform
@@ -452529,7 +452529,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 78924
     components:
     - type: Transform
@@ -452547,7 +452547,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 78925
     components:
     - type: Transform
@@ -452566,7 +452566,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 78926
     components:
     - type: Transform
@@ -452584,7 +452584,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 78927
     components:
     - type: Transform
@@ -452602,7 +452602,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 78928
     components:
     - type: Transform
@@ -452621,7 +452621,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
   - uid: 78929
     components:
     - type: Transform
@@ -452640,7 +452640,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
 - proto: Protolathe
   entities:
   - uid: 45576

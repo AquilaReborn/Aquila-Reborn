@@ -306662,7 +306662,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/NotUse/RadioSirens.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/NotUse/RadioSirens.ogg
   - uid: 41048
     components:
     - type: Transform
@@ -306683,7 +306683,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/NotUse/Military.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/NotUse/Military.ogg
   - uid: 41049
     components:
     - type: Transform
@@ -306704,7 +306704,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/NotUse/Military.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/NotUse/Military.ogg
   - uid: 41050
     components:
     - type: Transform
@@ -306725,7 +306725,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/NotUse/Military.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/NotUse/Military.ogg
   - uid: 41051
     components:
     - type: Transform
@@ -306755,7 +306755,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/NotUse/Stalkers.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/NotUse/Stalkers.ogg
   - uid: 41053
     components:
     - type: Transform
@@ -306776,7 +306776,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/NotUse/RadioSirens.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/NotUse/RadioSirens.ogg
   - uid: 41054
     components:
     - type: Transform
@@ -306797,7 +306797,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/NotUse/Scientists.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/NotUse/Scientists.ogg
   - uid: 41055
     components:
     - type: Transform
@@ -306818,7 +306818,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/NotUse/Scientists.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/NotUse/Scientists.ogg
 - proto: TableGlass
   entities:
   - uid: 41056
@@ -319261,7 +319261,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
     - type: DeviceLinkSink
       invokeCounter: 1
   - uid: 43648
@@ -319282,7 +319282,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
     - type: ApcPowerReceiver
       needsPower: False
     - type: DeviceLinkSink
@@ -319305,7 +319305,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
     - type: ApcPowerReceiver
       needsPower: False
     - type: DeviceLinkSink
@@ -319328,7 +319328,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
     - type: ApcPowerReceiver
       needsPower: False
     - type: DeviceLinkSink
@@ -319350,7 +319350,7 @@ entities:
           maxDistance: 15
           pitch: 1
           volume: 0
-        path: /Audio/Imperial/DeadSector/Misc/Strobo/Strobo-siren.ogg
+        path: /Audio/_Aquila/EventContent/Sir_Felix/DeadSector/Misc/Strobo/Strobo-siren.ogg
     - type: ApcPowerReceiver
       needsPower: False
     - type: DeviceLinkSink
