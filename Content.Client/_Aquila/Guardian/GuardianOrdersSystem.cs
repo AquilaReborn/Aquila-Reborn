@@ -67,7 +67,7 @@ public sealed class GuardianOrdersSystem : EntitySystem
             return;
 
         _menu.OnClose -= CloseMenu;
-        _menu.Dispose();
+        _menu.Orphan();
         _menu = null;
     }
 }

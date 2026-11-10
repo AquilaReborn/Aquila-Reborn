@@ -329,7 +329,7 @@ public sealed class ActionCustomizationUIController : UIController, IOnStateChan
     {
         ClearFloatingButtons();
 
-        _floatingRoot?.Dispose();
+        _floatingRoot?.Orphan();
         _floatingRoot = null;
     }
 
@@ -391,7 +391,7 @@ public sealed class ActionCustomizationUIController : UIController, IOnStateChan
 
         button.ActionPressed -= OnFloatingPressed;
         button.ActionUnpressed -= OnFloatingUnpressed;
-        button.Dispose();
+        button.Orphan();
     }
 
     private void OnFloatingPressed(GUIBoundKeyEventArgs args, ActionButton button)
