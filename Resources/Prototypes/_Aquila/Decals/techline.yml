@@ -1,0 +1,55 @@
+- type: decal
+  id: TechLineImperialCornerNe
+  tags: ["station"]
+  sprite:
+    sprite: _Aquila/Decals/techline.rsi
+    state: corner_ne
+
+- type: decal
+  id: TechLineImperialCornerNw
+  tags: ["station"]
+  sprite:
+    sprite: _Aquila/Decals/techline.rsi
+    state: corner_nw
+
+- type: decal
+  id: TechLineImperialCornerSe
+  tags: ["station"]
+  sprite:
+    sprite: _Aquila/Decals/techline.rsi
+    state: corner_se
+
+- type: decal
+  id: TechLineImperialCornerSw
+  tags: ["station"]
+  sprite:
+    sprite: _Aquila/Decals/techline.rsi
+    state: corner_sw
+
+- type: decal
+  id: TechLineImperialLineE
+  tags: ["station"]
+  sprite:
+    sprite: _Aquila/Decals/techline.rsi
+    state: line_e
+
+- type: decal
+  id: TechLineImperialLineN
+  tags: ["station"]
+  sprite:
+    sprite: _Aquila/Decals/techline.rsi
+    state: line_n
+
+- type: decal
+  id: TechLineImperialLineS
+  tags: ["station"]
+  sprite:
+    sprite: _Aquila/Decals/techline.rsi
+    state: line_s
+
+- type: decal
+  id: TechLineImperialLineW
+  tags: ["station"]
+  sprite:
+    sprite: _Aquila/Decals/techline.rsi
+    state: line_w
