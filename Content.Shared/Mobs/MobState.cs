@@ -17,8 +17,9 @@ public enum MobState : byte
 {
     Invalid = 0,
     Alive = 1,
-    Critical = 2,
-    Dead = 3
+    PreCritical = 2, // Aquila Change
+    Critical = 3, // Aquila Change
+    Dead = 4 // Aquila Change
 }
 
 /// <summary>

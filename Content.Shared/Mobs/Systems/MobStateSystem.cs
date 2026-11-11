@@ -45,7 +45,7 @@ public partial class MobStateSystem : EntitySystem
     {
         if (!_mobStateQuery.Resolve(target, ref component, false))
             return false;
-        return component.CurrentState == MobState.Alive;
+        return component.CurrentState is MobState.Alive or MobState.PreCritical; // Aquila Change
     }
 
     /// <summary>

@@ -1,0 +1,8 @@
+- type: alert
+  id: HumanPreCritical
+  category: Health
+  icons:
+  - sprite: /Textures/Interface/Alerts/human_critical.rsi
+    state: critical
+  name: alerts-precritical-name
+  description: alerts-precritical-desc

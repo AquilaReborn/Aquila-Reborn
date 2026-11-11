@@ -265,6 +265,13 @@
   - type: MindControllable # Goobstation
   - type: VisibleContraband # Goobstation
   - type: MomentumSteering # Goobstation - No steer
+  - type: PreCritical # Aquila Change
+  - type: MobThresholds # Aquila Change
+    thresholds: # Aquila Change
+      0: Alive # Aquila Change
+      100: PreCritical # Aquila Change
+      130: Critical # Aquila Change
+      200: Dead # Aquila Change
 
 - type: entity
   save: false

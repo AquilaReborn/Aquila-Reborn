@@ -47,4 +47,10 @@ public sealed class AquilaCVars
     /// </summary>
     public static readonly CVarDef<float> LightGlowIntensity =
         CVarDef.Create("aquila.light_glow_intensity", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Выводить в лог отладку предкритического состояния.
+    /// </summary>
+    public static readonly CVarDef<bool> PreCriticalDebug =
+        CVarDef.Create("aquila.precrit_debug", false, CVar.SERVERONLY);
 }

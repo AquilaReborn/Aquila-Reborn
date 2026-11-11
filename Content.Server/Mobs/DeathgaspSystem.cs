@@ -22,7 +22,7 @@ public sealed class DeathgaspSystem: EntitySystem
     {
         // don't deathgasp if they arent going straight from crit to dead
         if (component.NeedsCritical // Goobstation
-            && args.OldMobState != MobState.Critical
+            && args.OldMobState is not (MobState.Critical or MobState.PreCritical) // Aquila Change
             || args.NewMobState != MobState.Dead)
             return;
 

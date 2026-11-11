@@ -3,6 +3,8 @@ health-analyzer-window-entity-unknown-text = неизвестно
 health-analyzer-window-entity-unknown-species-text = Негуманоид
 health-analyzer-window-entity-unknown-value-text = Н/Д
 health-analyzer-window-entity-alive-text = Жив
+# Aquila Change
+health-analyzer-window-entity-pre-critical-text = Предкритическое состояние
 health-analyzer-window-entity-dead-text = Мёртв
 health-analyzer-window-entity-critical-text = Критическое состояние
 health-analyzer-window-entity-temperature-text = Температура:

@@ -4,6 +4,8 @@ health-analyzer-window-entity-unknown-species-text = Non-Humanoid
 health-analyzer-window-entity-unknown-value-text = N/A
 
 health-analyzer-window-entity-alive-text = Alive
+# Aquila Change
+health-analyzer-window-entity-pre-critical-text = Pre-critical
 health-analyzer-window-entity-dead-text = Dead
 health-analyzer-window-entity-critical-text = Critical
 
