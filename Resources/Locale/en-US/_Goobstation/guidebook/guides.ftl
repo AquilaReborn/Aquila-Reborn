@@ -102,6 +102,8 @@ guide-entry-devil-clauses = Devil Clauses
 guide-entry-antag-revealing-conditions = Antag Revealing Conditions
 guide-entry-xenobiology = Xenobiology
 guide-entry-slasher = Slasher
+# Aquila Change
+guide-entry-slasher-boogeyman = Slasher: Boogeyman
 guide-entry-slaughter-demon = Slaughter Demon
 # Aquila Change
 guide-entry-gang-wars = Gang Wars
