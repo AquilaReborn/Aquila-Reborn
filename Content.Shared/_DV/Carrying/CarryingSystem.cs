@@ -30,11 +30,11 @@ using System.Numerics;
 using Content.Shared._EinsteinEngines.Contests;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Mind.Components;
-using Content.Goobstation.Common.Traits; // CorvaxGoob edit
+// using Content.Goobstation.Common.Traits; // CorvaxGoob edit, Aquila Change
 
 namespace Content.Shared._DV.Carrying;
 
-public sealed class CarryingSystem : EntitySystem
+public sealed partial class CarryingSystem : EntitySystem // Aquila Change
 {
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly CarryingSlowdownSystem _slowdown = default!;
@@ -54,6 +54,7 @@ public sealed class CarryingSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+        InitializeCarryKnockdownAquila(); // Aquila Change
 
         SubscribeLocalEvent<CarriableComponent, GetVerbsEvent<AlternativeVerb>>(AddCarryVerb);
         SubscribeLocalEvent<CarryingComponent, GetVerbsEvent<InnateVerb>>(AddInsertCarriedVerb);
@@ -262,7 +263,7 @@ public sealed class CarryingSystem : EntitySystem
             return;
         }
 
-        if (!HasComp<KnockedDownComponent>(carried))
+        if (!IsCrawlingAquila(carried)) // Aquila Change
             length *= 2f;
 
         var ev = new CarryDoAfterEvent();
@@ -296,7 +297,7 @@ public sealed class CarryingSystem : EntitySystem
         var carriedComp = EnsureComp<BeingCarriedComponent>(carried);
         carriedComp.Carrier = carrier;
         Dirty(carried, carriedComp);
-        EnsureComp<KnockedDownComponent>(carried);
+        ApplyCarryKnockdownAquila((carried, carriedComp)); // Aquila Change
 
         ApplyCarrySlowdown(carrier, carried);
 
@@ -344,9 +345,12 @@ public sealed class CarryingSystem : EntitySystem
         // Goob edit: carried can be invalid/deleted (e.g. out of PVS on the client), nothing to drop then.
         if (TerminatingOrDeleted(carried))
             return;
-        RemComp<BeingCarriedComponent>(carried);
-        if (!HasComp<LegsParalyzedComponent>(carried)) // CorvaxGoob edit
-            RemComp<KnockedDownComponent>(carried);
+        // Aquila Change start
+        // RemComp<BeingCarriedComponent>(carried);
+        // if (!HasComp<LegsParalyzedComponent>(carried)) // CorvaxGoob edit
+        //     RemComp<KnockedDownComponent>(carried);
+        // Aquila Change end
+        RemoveCarryKnockdownAquila(carried); // Aquila Change
         _actionBlocker.UpdateCanMove(carried);
         Transform(carried).AttachToGridOrMap();
         _standingState.Stand(carried);

@@ -1,22 +1,21 @@
+using Content.Goobstation.Maths.FixedPoint;
+
 namespace Content.Shared._Aquila.PreCritical;
 
 /// <summary>
-/// Состояние моба между живым и критическим: он ещё жив, но уже не может стоять.
-/// Пока урон держится в полосе предкрита, моб лежит, ползёт и работает руками;
-/// урон выше критического порога отправляет его в крит, а лечение возвращает в живое состояние.
+/// Настройки предкрита живого персонажа.
 /// </summary>
-[RegisterComponent, Access(typeof(PreCriticalSystem))]
+[RegisterComponent, Access(Other = AccessPermissions.ReadExecute)]
 public sealed partial class PreCriticalComponent : Component
 {
     /// <summary>
-    /// Сколько времени моб остаётся лежачим. Значение с большим запасом, чтобы моб
-    /// ползал до лечения или следующего урона, а не вставал сам по таймеру.
+    /// Порог урона жизненно важных частей тела.
     /// </summary>
     [DataField]
-    public TimeSpan HoldTime = TimeSpan.FromMinutes(10);
+    public FixedPoint2 DamageThreshold = 100;
 
     /// <summary>
-    /// Множитель скорости движения поверх скорости ползания, пока моб в предкритическом состоянии.
+    /// Множитель скорости поверх обычной скорости ползания.
     /// </summary>
     [DataField]
     public float CrawlSpeedMultiplier = 0.5f;

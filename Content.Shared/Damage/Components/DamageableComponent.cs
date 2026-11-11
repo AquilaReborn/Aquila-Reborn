@@ -80,7 +80,6 @@ public sealed partial class DamageableComponent : Component
     public Dictionary<MobState, ProtoId<HealthIconPrototype>> HealthIcons = new()
     {
         { MobState.Alive, "HealthIconFine" },
-        { MobState.PreCritical, "HealthIconCritical" }, // Aquila Change
         { MobState.Critical, "HealthIconCritical" },
         { MobState.Dead, "HealthIconDead" },
     };

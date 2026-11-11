@@ -106,7 +106,10 @@ public sealed partial class DamageableSystem
         }
 
         if (delta.Empty)
+        { // Aquila Change
+            RefreshVitalThresholdsAquila(body.Owner); // Aquila Change
             return false;
+        } // Aquila Change
 
         // raises DamageChangedEvent through here
         OnEntityDamageChanged((body, body.Comp2), delta, interruptsDoAfters, origin, ignoreBlockers);

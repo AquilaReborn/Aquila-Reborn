@@ -111,7 +111,6 @@ public sealed class DamageOverlayUiController : UIController
             switch (mobState.CurrentState)
             {
                 // Why the fuck is this the correct formatting??? Im gonna fucking kill someone.
-                case MobState.PreCritical: // Aquila Change
                 case MobState.Alive:
                     {
                         FixedPoint2 painLevel = 0;
@@ -165,7 +164,6 @@ public sealed class DamageOverlayUiController : UIController
             switch (mobState.CurrentState)
             {
                 // Why the fuck is this the correct formatting??? Im gonna fucking kill someone.
-                case MobState.PreCritical: // Aquila Change
                 case MobState.Alive:
                     {
                         _overlay.CritLevel = 0;

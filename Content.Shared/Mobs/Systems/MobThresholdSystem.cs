@@ -418,10 +418,12 @@ public sealed partial class MobThresholdSystem : EntitySystem
     }
 
     private void UpdateAlerts(EntityUid target, MobState currentMobState, MobThresholdsComponent? threshold = null,
-        DamageableComponent? damageable = null, BodyComponent? body = null) // Shitmed Change
+        DamageableComponent? damageable = null, BodyComponent? body = null, bool refreshPreCritical = true) // Shitmed Change, Aquila Change
     {
         if (!Resolve(target, ref threshold, ref damageable)) // Shitmed Change
             return;
+
+        var preCritical = UpdatePreCriticalAquila(target, currentMobState, threshold, damageable, refreshPreCritical); // Aquila Change
 
         // don't handle alerts if they are managed by another system... BobbySim (soon TM)
         if (!threshold.TriggersAlerts)
@@ -433,6 +435,7 @@ public sealed partial class MobThresholdSystem : EntitySystem
             return;
         }
 
+        currentAlert = SelectHealthAlertAquila(preCritical, currentAlert); // Aquila Change
         if (!_alerts.TryGet(currentAlert, out var alertPrototype))
         {
             Log.Error($"Invalid alert type {currentAlert}");
@@ -453,7 +456,7 @@ public sealed partial class MobThresholdSystem : EntitySystem
             }
 
             if (TryGetNextState(target, currentMobState, out var nextState, threshold) &&
-                TryGetPercentageForState(target, nextState.Value, CheckVitalDamage(target, damageable), out var percentage)) // Goobstation
+                TryGetAlertPercentageAquila(target, currentMobState, nextState.Value, damageable, out var percentage)) // Goobstation, Aquila Change
             {
                 percentage = FixedPoint2.Clamp(percentage.Value, 0, 1);
 
@@ -485,7 +488,7 @@ public sealed partial class MobThresholdSystem : EntitySystem
     }
 
     // Shitmed Change Start
-    private void OnWoundableDamage(EntityUid body, MobThresholdsComponent thresholds, WoundableIntegrityChangedOnBodyEvent args)
+    private void OnWoundableDamage(EntityUid body, MobThresholdsComponent thresholds, ref WoundableIntegrityChangedOnBodyEvent args) // Aquila Change
     {
         if (!TryComp<MobStateComponent>(body, out var mobState))
             return;
@@ -494,7 +497,7 @@ public sealed partial class MobThresholdSystem : EntitySystem
         if (_net.IsServer)
             RaiseNetworkEvent(new MobThresholdChecked(GetNetEntity(body)), body);
 
-        UpdateAlerts(body, mobState.CurrentState, thresholds, null, Comp<BodyComponent>(body));
+        UpdateAlerts(body, mobState.CurrentState, thresholds, null, Comp<BodyComponent>(body), refreshPreCritical: false); // Aquila Change
     }
     // Shitmed Change End
 
@@ -508,6 +511,7 @@ public sealed partial class MobThresholdSystem : EntitySystem
 
     private void MobThresholdShutdown(EntityUid target, MobThresholdsComponent component, ComponentShutdown args)
     {
+        ClearPreCriticalAquila(target); // Aquila Change
         if (component.TriggersAlerts)
             _alerts.ClearAlertCategory(target, component.HealthAlertCategory);
     }

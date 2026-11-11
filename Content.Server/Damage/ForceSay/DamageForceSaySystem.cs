@@ -124,7 +124,7 @@ public sealed class DamageForceSaySystem : EntitySystem
 
     private void OnMobStateChanged(EntityUid uid, DamageForceSayComponent component, MobStateChangedEvent args)
     {
-        if (args is not { OldMobState: MobState.Alive or MobState.PreCritical, NewMobState: MobState.Critical or MobState.Dead }) // Aquila Change
+        if (args is not { OldMobState: MobState.Alive, NewMobState: MobState.Critical or MobState.Dead })
             return;
 
         // no suffix for the drama

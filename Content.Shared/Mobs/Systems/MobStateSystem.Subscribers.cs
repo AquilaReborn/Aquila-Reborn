@@ -85,9 +85,6 @@ public partial class MobStateSystem
             case MobState.Alive:
                 //unused
                 break;
-            case MobState.PreCritical: // Aquila Change
-                _standing.Stand(target); // Aquila Change
-                break; // Aquila Change
             case MobState.Critical:
                 _standing.Stand(target);
                 break;
@@ -120,11 +117,6 @@ public partial class MobStateSystem
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Alive);
                 break;
             }
-            case MobState.PreCritical: // Aquila Change
-            { // Aquila Change
-                _appearance.SetData(target, MobStateVisuals.State, MobState.PreCritical); // Aquila Change
-                break; // Aquila Change
-            } // Aquila Change
             case MobState.Critical:
             {
                 Down(target);

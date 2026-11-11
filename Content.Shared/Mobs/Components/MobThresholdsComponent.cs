@@ -30,7 +30,6 @@ public sealed partial class MobThresholdsComponent : Component
     public Dictionary<MobState, ProtoId<AlertPrototype>> StateAlertDict = new()
     {
         {MobState.Alive, "HumanHealth"},
-        {MobState.PreCritical, "HumanPreCritical"}, // Aquila Change
         {MobState.Critical, "HumanCrit"},
         {MobState.Dead, "HumanDead"},
     };
