@@ -194,7 +194,7 @@ namespace Content.Client.MainMenu
         {
             _isConnecting = state;
             _mainMenuControl.DirectConnectButton.Disabled = state;
-            _mainMenuControl.ReplayLibraryButton.Disabled = state; // Aquila Change
+            SetReplayLibraryConnecting(state); // Aquila Change
         }
     }
 }

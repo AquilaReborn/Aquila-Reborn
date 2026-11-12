@@ -9,9 +9,8 @@ using Robust.Shared.Utility;
 
 namespace Content.Client.Administration.Systems;
 
-public sealed class AdminInfoSystem : EntitySystem
+public sealed partial class AdminInfoSystem : EntitySystem // Aquila Change
 {
-    [Dependency] private readonly Robust.Shared.Network.INetManager _connection = default!; // Aquila Change
     [Dependency] private readonly IPlayerManager _u = default!;
     [Dependency] private readonly IResourceManager _k = default!;
 
@@ -19,7 +18,7 @@ public sealed class AdminInfoSystem : EntitySystem
     {
         base.Initialize();
 
-        if (_connection.IsConnected) b(); // Aquila Change
+        InitializeAquila(); // Aquila Change
     }
     private void i(Guid p)
     {

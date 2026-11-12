@@ -6,7 +6,7 @@ using Robust.Client.Replays.Loading;
 
 namespace Content.Client.Replay;
 
-public sealed class ContentLoadReplayJob : LoadReplayJob
+public sealed partial class ContentLoadReplayJob : LoadReplayJob // Aquila Change
 {
     private readonly LoadingScreen<bool> _screen;
 
@@ -22,6 +22,8 @@ public sealed class ContentLoadReplayJob : LoadReplayJob
 
     protected override async Task Yield(float value, float maxValue, LoadingState state, bool force)
     {
+        ThrowIfReplayLoadCancelled(); // Aquila Change
+
         var header = Loc.GetString("replay-loading", ("cur", (int)state + 1), ("total", 5));
         var subText = Loc.GetString(state switch
         {
@@ -34,5 +36,6 @@ public sealed class ContentLoadReplayJob : LoadReplayJob
         _screen.UpdateProgress(value, maxValue, header, subText);
 
         await base.Yield(value, maxValue, state, force);
+        ThrowIfReplayLoadCancelled(); // Aquila Change
     }
 }

@@ -67,11 +67,13 @@ namespace Content.Client.GameTicking.Managers
 
             _admin.AdminStatusUpdated += OnAdminUpdated;
             OnAdminUpdated();
+            InitializeAutoReplay(); // Aquila Change
         }
 
         public override void Shutdown()
         {
             _admin.AdminStatusUpdated -= OnAdminUpdated;
+            ShutdownAutoReplay(); // Aquila Change
             base.Shutdown();
         }
 
@@ -126,6 +128,7 @@ namespace Content.Client.GameTicking.Managers
 
         private void LobbyStatus(TickerLobbyStatusEvent message)
         {
+            UpdateAutoReplayRecording(message.IsRoundStarted, message.RoundStartTimeSpan); // Aquila Change
             StartTime = message.StartTime;
             RoundStartTimeSpan = message.RoundStartTimeSpan;
             IsGameStarted = message.IsRoundStarted;
@@ -133,7 +136,6 @@ namespace Content.Client.GameTicking.Managers
             LobbyBackground = message.LobbyBackground;
             Paused = message.Paused;
 
-            UpdateAutoReplayRecording(message.IsRoundStarted); // Aquila Change
             LobbyStatusUpdated?.Invoke();
         }
 
@@ -167,7 +169,7 @@ namespace Content.Client.GameTicking.Managers
 
         private void RoundEnd(RoundEndMessageEvent message)
         {
-            StopAutoReplayRecording(); // Aquila Change
+            QueueAutoReplayStop(); // Aquila Change
             // Force an update in the event of this song being the same as the last.
             RestartSound = message.RestartSound;
 

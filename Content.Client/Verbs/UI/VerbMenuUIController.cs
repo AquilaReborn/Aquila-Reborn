@@ -25,7 +25,7 @@ namespace Content.Client.Verbs.UI
     ///     open a verb menu for a given entity, add verbs to it, and add server-verbs when the server response is
     ///     received.
     /// </remarks>
-    public sealed class VerbMenuUIController : UIController,
+    public sealed partial class VerbMenuUIController : UIController, // Aquila Change
         IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>,
         IOnStateEntered<MappingState>, IOnStateExited<MappingState>
     {
@@ -105,7 +105,7 @@ namespace Content.Client.Verbs.UI
             if (_playerManager.LocalEntity is not {Valid: true} user)
                 return;
 
-            if (!force && _combatMode.IsInCombatMode(user))
+            if (!force && IsCombatMenuBlockedAquila(user)) // Aquila Change
                 return;
 
             Close();

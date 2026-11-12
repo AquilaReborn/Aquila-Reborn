@@ -19,6 +19,11 @@ public sealed partial class MainScreen
         _mainMenuControl.ReplayLibraryButton.OnPressed -= OpenReplayLibrary;
     }
 
+    private void SetReplayLibraryConnecting(bool connecting)
+    {
+        _mainMenuControl.ReplayLibraryButton.Disabled = connecting;
+    }
+
     private void OpenReplayLibrary(BaseButton.ButtonEventArgs args)
     {
         if (!_isConnecting && _client.RunLevel == ClientRunLevel.Initialize)

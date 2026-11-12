@@ -82,9 +82,7 @@ public sealed partial class ContentReplayPlaybackManager // Aquila Change
 
     private void LoadOverride(IReplayFileReader fileReader)
     {
-        var screen = _stateMan.RequestStateChange<LoadingScreen<bool>>();
-        screen.Job = new ContentLoadReplayJob(1 / 60f, fileReader, _loadMan, screen);
-        BindReplayLoadCompletion(screen, fileReader); // Aquila Change
+        LoadReplayWithGuard(fileReader); // Aquila Change
     }
 
     private void OnFinishedLoading(Exception? exception)
@@ -155,6 +153,8 @@ public sealed partial class ContentReplayPlaybackManager // Aquila Change
 
     private bool OnHandleReplayMessage(object message, bool skipEffects)
     {
+        if (HandleRecordedLobbyTransition(message)) return true; // Aquila Change
+
         // TODO REPLAYS figure out a cleaner way of doing this. This sucks.
         // Maybe wrap the event in another cancellable event and raise that?
 
@@ -213,6 +213,6 @@ public sealed partial class ContentReplayPlaybackManager // Aquila Change
     private void OnReplayPlaybackStopped()
     {
         _conGrp.Implementation = (IClientConGroupImplementation) _adminMan;
-        ReturnToDefaultState();
+        if (!IsReplayLoadInProgress) ReturnToDefaultState(); // Aquila Change
     }
 }

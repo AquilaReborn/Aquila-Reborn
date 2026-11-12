@@ -9,9 +9,8 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.CharacterInfo;
 
-public sealed class CharacterInfoSystem : EntitySystem
+public sealed partial class CharacterInfoSystem : EntitySystem // Aquila Change
 {
-    [Dependency] private readonly Robust.Shared.Network.INetManager _connection = default!; // Aquila Change
     [Dependency] private readonly IPlayerManager _players = default!;
 
     public event Action<CharacterData>? OnCharacterUpdate;
@@ -25,18 +24,12 @@ public sealed class CharacterInfoSystem : EntitySystem
 
     public void RequestCharacterInfo()
     {
-        var entity = _players.LocalEntity;
-        if (entity == null || !_connection.IsConnected) // Aquila Change
-        {
-            return;
-        }
-
-        RaiseNetworkEvent(new RequestCharacterInfoEvent(GetNetEntity(entity.Value)));
+        RequestCharacterInfoAquila(); // Aquila Change
     }
 
     private void OnCharacterInfoEvent(CharacterInfoEvent msg, EntitySessionEventArgs args)
     {
-        if (!TryGetEntity(msg.NetEntity, out var maybeEntity) || maybeEntity is not { } entity || !Exists(entity)) // Aquila Change
+        if (!TryGetCharacterInfoEntityAquila(msg.NetEntity, out var entity)) // Aquila Change
             return; // Aquila Change
 
         var data = new CharacterData(entity, msg.JobProto, msg.Objectives, msg.Briefing, Name(entity)); // CorvaxGoob

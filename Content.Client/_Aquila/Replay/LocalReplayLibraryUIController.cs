@@ -5,7 +5,6 @@ using Content.Client.Lobby;
 using Content.Client.Replay;
 using Robust.Client;
 using Robust.Client.Replays.Loading;
-using Robust.Client.Replays.Playback;
 using Robust.Client.State;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
@@ -26,14 +25,12 @@ public sealed class LocalReplayLibraryUIController : UIController
     [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly IResourceManager _resources = default!;
     [Dependency] private readonly IFileDialogManager _fileDialog = default!;
-    [Dependency] private readonly IReplayPlaybackManager _playback = default!;
     [Dependency] private readonly ContentReplayPlaybackManager _contentPlayback = default!;
 
     private const string ArchiveExtension = "zip";
     private static readonly FileDialogFilters ReplayFilter = new(new FileDialogFilters.Group(ArchiveExtension));
     private static readonly LocId Empty = "aquila-replay-library-empty";
     private static readonly LocId ListError = "aquila-replay-library-list-error";
-    private static readonly LocId DisconnectReason = "aquila-replay-library-disconnect-reason";
     internal static readonly LocId LoadError = "aquila-replay-library-load-error";
 
     private LocalReplayLibraryWindow? _window;
@@ -45,7 +42,7 @@ public sealed class LocalReplayLibraryUIController : UIController
     private bool IsConnectedLobby => _state.CurrentState is LobbyState &&
         _client.RunLevel is (ClientRunLevel.Connected or ClientRunLevel.InGame);
 
-    private bool CanOpenReplay => _playback.Replay == null && (_fromLobby
+    private bool CanOpenReplay => _contentPlayback.CanStartReplayLoad && (_fromLobby
         ? IsConnectedLobby
         : _state.CurrentState is LocalReplayLibraryState && _client.RunLevel == ClientRunLevel.Initialize);
 
@@ -90,6 +87,7 @@ public sealed class LocalReplayLibraryUIController : UIController
             return;
 
         _window = null;
+        _fromLobby = false;
         _selected = null;
         _pendingReplay?.Dispose();
         _pendingReplay = null;
@@ -107,8 +105,9 @@ public sealed class LocalReplayLibraryUIController : UIController
 
     private void OnWindowClosed()
     {
+        var fromLobby = _fromLobby;
         Close();
-        if (_fromLobby)
+        if (fromLobby)
             return;
 
         _contentPlayback.LeaveLocalReplayLibrary();
@@ -117,7 +116,9 @@ public sealed class LocalReplayLibraryUIController : UIController
 
     private void OnRunLevelChanged(object? sender, RunLevelChangedEventArgs args)
     {
-        if (_window is { } window)
+        if (_fromLobby && !IsConnectedLobby)
+            Close();
+        else if (_window is { } window)
             UpdateActions(window);
     }
 
@@ -137,18 +138,13 @@ public sealed class LocalReplayLibraryUIController : UIController
         try
         {
             var directory = new ResPath(_config.GetCVar(CVars.ReplayDirectory)).ToRootedPath();
-            var userData = _resources.UserData;
-            var names = userData.DirectoryEntries(directory).OrderBy(name => name, StringComparer.OrdinalIgnoreCase);
+            var paths = EnumerateArchives(directory)
+                .Select(path => (Path: path, Name: path.RelativeTo(directory).ToString()))
+                .OrderBy(entry => entry.Name, StringComparer.OrdinalIgnoreCase)
+                .ThenBy(entry => entry.Name, StringComparer.Ordinal);
             var items = new List<ItemList.Item>();
-            foreach (var name in names)
+            foreach (var (path, name) in paths)
             {
-                if (!name.EndsWith("." + ArchiveExtension, StringComparison.OrdinalIgnoreCase))
-                    continue;
-
-                var path = directory / name;
-                if (userData.IsDir(path))
-                    continue;
-
                 items.Add(new ItemList.Item(window.ReplayList)
                 {
                     Text = name,
@@ -164,6 +160,27 @@ public sealed class LocalReplayLibraryUIController : UIController
         catch (Exception error)
         {
             ReportError(window, ListError, error);
+        }
+    }
+
+    private IEnumerable<ResPath> EnumerateArchives(ResPath directory)
+    {
+        var userData = _resources.UserData;
+        if (!userData.IsDir(directory))
+            yield break;
+
+        var directories = new Stack<ResPath>();
+        directories.Push(directory);
+        while (directories.TryPop(out var current))
+        {
+            foreach (var name in userData.DirectoryEntries(current))
+            {
+                var path = current / name;
+                if (userData.IsDir(path))
+                    directories.Push(path);
+                else if (name.EndsWith("." + ArchiveExtension, StringComparison.OrdinalIgnoreCase))
+                    yield return path;
+            }
         }
     }
 
@@ -266,7 +283,6 @@ public sealed class LocalReplayLibraryUIController : UIController
             return;
 
         _pendingReplay = null;
-        UpdateActions(window);
         StartReplay(window, reader, disconnect: true);
     }
 
@@ -282,22 +298,25 @@ public sealed class LocalReplayLibraryUIController : UIController
     {
         try
         {
-            if (disconnect)
-                _client.DisconnectFromServer(Loc.GetString(DisconnectReason));
-
-            if (_client.RunLevel != ClientRunLevel.Initialize || _playback.Replay != null)
-                throw new InvalidOperationException(Loc.GetString(LoadError));
-
-            _contentPlayback.LoadLocalReplay(reader);
+            _contentPlayback.LoadLocalReplay(reader, disconnect);
         }
         catch (Exception error)
         {
             reader.Dispose();
-            if (_window != window && _client.RunLevel == ClientRunLevel.Initialize && _playback.Replay == null)
+            if (_window != window && _client.RunLevel == ClientRunLevel.Initialize && _contentPlayback.CanStartReplayLoad)
                 _state.RequestStateChange<LocalReplayLibraryState>();
 
-            ReportError(_window ?? window, LoadError, error);
+            var current = _window ?? window;
+            ReportError(current, LoadError, error);
+            if (_window == current)
+                UpdateActions(current);
         }
+    }
+
+    internal void UpdateActions()
+    {
+        if (_window is { } window)
+            UpdateActions(window);
     }
 
     private void UpdateActions(LocalReplayLibraryWindow window)

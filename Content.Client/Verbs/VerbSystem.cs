@@ -187,7 +187,7 @@ namespace Content.Client.Verbs
                 return new();
             }
 
-            return GetLocalVerbs(local.Value, user, verbTypes, out extraCategories, force);
+            return GetMenuVerbsAquila(local.Value, target, user, verbTypes, out extraCategories, force); // Aquila Change
         }
 
 
