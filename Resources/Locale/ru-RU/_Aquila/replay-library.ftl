@@ -1,0 +1,12 @@
+aquila-replay-library-title = Библиотека реплеев
+aquila-replay-library-play = Смотреть
+aquila-replay-library-browse = Открыть ZIP…
+aquila-replay-library-refresh = Обновить
+aquila-replay-library-empty = В папке реплеев нет ZIP-архивов.
+aquila-replay-library-list-error = Не удалось прочитать папку реплеев.
+aquila-replay-library-load-error = Не удалось открыть архив реплея.
+aquila-replay-library-return = Вернуться в библиотеку
+aquila-replay-library-confirm-disconnect = Для просмотра нужно отключиться от сервера.
+aquila-replay-library-disconnect-and-play = Отключиться и смотреть
+aquila-replay-library-cancel = Отмена
+aquila-replay-library-disconnect-reason = Отключение для просмотра локального реплея.

@@ -24,7 +24,7 @@ using Robust.Shared.Utility;
 namespace Content.Client.Verbs
 {
     [UsedImplicitly]
-    public sealed class VerbSystem : SharedVerbSystem
+    public sealed partial class VerbSystem : SharedVerbSystem // Aquila Change
     {
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly ExamineSystem _examine = default!;
@@ -177,7 +177,7 @@ namespace Content.Client.Verbs
         /// </summary>
         public SortedSet<Verb> GetVerbs(NetEntity target, EntityUid user, List<Type> verbTypes, out List<VerbCategory> extraCategories, bool force = false)
         {
-            if (!target.IsClientSide())
+            if (CanSendServerVerbsAquila(target)) // Aquila Change
                 RaiseNetworkEvent(new RequestServerVerbsEvent(target, verbTypes, adminRequest: force));
 
             // Some admin menu interactions will try get verbs for entities that have not yet been sent to the player.
@@ -226,7 +226,7 @@ namespace Content.Client.Verbs
             if (verb.ClientExclusive || target.IsClientSide())
                 // is this a client exclusive (gui) verb?
                 ExecuteVerb(verb, user, GetEntity(target));
-            else
+            else if (CanSendServerVerbsAquila(target)) // Aquila Change
                 RaisePredictiveEvent(new ExecuteVerbEvent(target, verb));
         }
 

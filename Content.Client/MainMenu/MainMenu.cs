@@ -19,7 +19,7 @@ namespace Content.Client.MainMenu
     ///     Main menu screen that is the first screen to be displayed when the game starts.
     /// </summary>
     // Instantiated dynamically through the StateManager, Dependencies will be resolved.
-    public sealed class MainScreen : Robust.Client.State.State
+    public sealed partial class MainScreen : Robust.Client.State.State // Aquila Change
     {
         [Dependency] private readonly IBaseClient _client = default!;
         [Dependency] private readonly IClientNetManager _netManager = default!;
@@ -50,6 +50,7 @@ namespace Content.Client.MainMenu
             _mainMenuControl.DirectConnectButton.OnPressed += DirectConnectButtonPressed;
             _mainMenuControl.AddressBox.OnTextEntered += AddressBoxEntered;
             _mainMenuControl.ChangelogButton.OnPressed += ChangelogButtonPressed;
+            InitializeReplayLibrary(); // Aquila Change
 
             _client.RunLevelChanged += RunLevelChanged;
         }
@@ -59,6 +60,7 @@ namespace Content.Client.MainMenu
         {
             _client.RunLevelChanged -= RunLevelChanged;
             _netManager.ConnectFailed -= _onConnectFailed;
+            ShutdownReplayLibrary(); // Aquila Change
 
             _mainMenuControl.Dispose();
         }
@@ -192,6 +194,7 @@ namespace Content.Client.MainMenu
         {
             _isConnecting = state;
             _mainMenuControl.DirectConnectButton.Disabled = state;
+            _mainMenuControl.ReplayLibraryButton.Disabled = state; // Aquila Change
         }
     }
 }

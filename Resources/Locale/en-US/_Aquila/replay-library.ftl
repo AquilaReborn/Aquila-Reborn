@@ -1,0 +1,12 @@
+aquila-replay-library-title = Replay Library
+aquila-replay-library-play = Play
+aquila-replay-library-browse = Open ZIP…
+aquila-replay-library-refresh = Refresh
+aquila-replay-library-empty = No ZIP archives in the replay folder.
+aquila-replay-library-list-error = Could not read the replay folder.
+aquila-replay-library-load-error = Could not open the replay archive.
+aquila-replay-library-return = Return to library
+aquila-replay-library-confirm-disconnect = Watching a replay requires disconnecting from the server.
+aquila-replay-library-disconnect-and-play = Disconnect and watch
+aquila-replay-library-cancel = Cancel
+aquila-replay-library-disconnect-reason = Disconnected to watch a local replay.

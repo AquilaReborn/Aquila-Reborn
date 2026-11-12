@@ -12,7 +12,7 @@ namespace Content.Client.Replay.UI;
 /// Gameplay state when observing/spectating an entity during a replay.
 /// </summary>
 [Virtual]
-public class ReplaySpectateEntityState : GameplayState
+public partial class ReplaySpectateEntityState : GameplayState // Aquila Change
 {
     [Dependency] private readonly ContentReplayPlaybackManager _replayManager = default!;
 
@@ -28,6 +28,7 @@ public class ReplaySpectateEntityState : GameplayState
         var replayWidget = screen.GetOrAddWidget<ReplayControlWidget>();
         SetAnchorAndMarginPreset(replayWidget, LayoutPreset.TopLeft, margin: 10);
         replayWidget.Visible = !_replayManager.IsScreenshotMode;
+        ConfigureLocalReplayControls(replayWidget); // Aquila Change
 
         foreach (var chatbox in UserInterfaceManager.GetUIController<ChatUIController>().Chats)
         {

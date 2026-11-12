@@ -189,6 +189,7 @@ namespace Content.Client.Entry
             {
                 if (args.NewLevel == ClientRunLevel.Initialize)
                 {
+                    if (args.OldLevel == ClientRunLevel.SinglePlayerGame && _playbackMan.IsLocalLibraryReplay) return; // Aquila Change
                     SwitchToDefaultState(args.OldLevel == ClientRunLevel.Connected ||
                                          args.OldLevel == ClientRunLevel.InGame);
                 }

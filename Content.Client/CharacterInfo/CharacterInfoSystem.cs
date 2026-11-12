@@ -11,6 +11,7 @@ namespace Content.Client.CharacterInfo;
 
 public sealed class CharacterInfoSystem : EntitySystem
 {
+    [Dependency] private readonly Robust.Shared.Network.INetManager _connection = default!; // Aquila Change
     [Dependency] private readonly IPlayerManager _players = default!;
 
     public event Action<CharacterData>? OnCharacterUpdate;
@@ -25,7 +26,7 @@ public sealed class CharacterInfoSystem : EntitySystem
     public void RequestCharacterInfo()
     {
         var entity = _players.LocalEntity;
-        if (entity == null)
+        if (entity == null || !_connection.IsConnected) // Aquila Change
         {
             return;
         }

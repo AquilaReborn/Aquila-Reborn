@@ -266,7 +266,7 @@ namespace Content.Client.Gameplay
 
             // client side command handlers will always be sent the local player session.
             var session = _playerManager.LocalSession;
-            if (inputSys.HandleInputCommand(session, func, message))
+            if (HandleViewportInputAquila(inputSys, session, func, message)) // Aquila Change
             {
                 kArgs.Handle();
             }

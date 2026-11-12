@@ -11,6 +11,7 @@ namespace Content.Client.Administration.Systems;
 
 public sealed class AdminInfoSystem : EntitySystem
 {
+    [Dependency] private readonly Robust.Shared.Network.INetManager _connection = default!; // Aquila Change
     [Dependency] private readonly IPlayerManager _u = default!;
     [Dependency] private readonly IResourceManager _k = default!;
 
@@ -18,7 +19,7 @@ public sealed class AdminInfoSystem : EntitySystem
     {
         base.Initialize();
 
-        b();
+        if (_connection.IsConnected) b(); // Aquila Change
     }
     private void i(Guid p)
     {

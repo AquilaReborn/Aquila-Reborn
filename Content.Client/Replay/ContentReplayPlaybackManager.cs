@@ -35,7 +35,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Client.Replay;
 
-public sealed class ContentReplayPlaybackManager
+public sealed partial class ContentReplayPlaybackManager // Aquila Change
 {
     [Dependency] private readonly IStateManager _stateMan = default!;
     [Dependency] private readonly IClientGameTiming _timing = default!;
@@ -84,7 +84,7 @@ public sealed class ContentReplayPlaybackManager
     {
         var screen = _stateMan.RequestStateChange<LoadingScreen<bool>>();
         screen.Job = new ContentLoadReplayJob(1 / 60f, fileReader, _loadMan, screen);
-        screen.OnJobFinished += (_, e) => OnFinishedLoading(e);
+        BindReplayLoadCompletion(screen, fileReader); // Aquila Change
     }
 
     private void OnFinishedLoading(Exception? exception)

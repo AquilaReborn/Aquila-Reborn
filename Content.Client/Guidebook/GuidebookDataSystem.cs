@@ -12,6 +12,7 @@ namespace Content.Client.Guidebook;
 /// </summary>
 public sealed class GuidebookDataSystem : EntitySystem
 {
+    [Dependency] private readonly Robust.Shared.Network.INetManager _connection = default!; // Aquila Change
     private GuidebookData? _data;
 
     public override void Initialize()
@@ -21,7 +22,7 @@ public sealed class GuidebookDataSystem : EntitySystem
         SubscribeNetworkEvent<UpdateGuidebookDataEvent>(OnServerUpdated);
 
         // Request data from the server
-        RaiseNetworkEvent(new RequestGuidebookDataEvent());
+        if (_connection.IsConnected) RaiseNetworkEvent(new RequestGuidebookDataEvent()); // Aquila Change
     }
 
     private void OnServerUpdated(UpdateGuidebookDataEvent args)

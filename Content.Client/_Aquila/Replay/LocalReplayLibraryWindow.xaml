@@ -1,0 +1,23 @@
+<ui:FancyWindow xmlns="https://spacestation14.io"
+                xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
+                Title="{Loc 'aquila-replay-library-title'}"
+                SetSize="560 360"
+                MinSize="420 260">
+    <BoxContainer Orientation="Vertical" SeparationOverride="8" Margin="8">
+        <ItemList Name="ReplayList" Access="Internal" SelectMode="Single" VerticalExpand="True" RectClipContent="True" />
+        <Label Name="StatusLabel" Access="Internal" Visible="False" />
+        <BoxContainer Name="LibraryActions" Access="Internal" SeparationOverride="8">
+            <Button Name="PlayButton" Access="Internal" Text="{Loc 'aquila-replay-library-play'}" Disabled="True" />
+            <Button Name="BrowseButton" Access="Internal" Text="{Loc 'aquila-replay-library-browse'}" />
+            <Button Name="RefreshButton" Access="Internal" Text="{Loc 'aquila-replay-library-refresh'}" />
+        </BoxContainer>
+        <BoxContainer Name="DisconnectConfirmation" Access="Internal" Orientation="Vertical"
+                      SeparationOverride="8" Visible="False">
+            <Label Text="{Loc 'aquila-replay-library-confirm-disconnect'}" />
+            <BoxContainer SeparationOverride="8">
+                <Button Name="ConfirmPlayButton" Access="Internal" Text="{Loc 'aquila-replay-library-disconnect-and-play'}" />
+                <Button Name="CancelPlayButton" Access="Internal" Text="{Loc 'aquila-replay-library-cancel'}" />
+            </BoxContainer>
+        </BoxContainer>
+    </BoxContainer>
+</ui:FancyWindow>

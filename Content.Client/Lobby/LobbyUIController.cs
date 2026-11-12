@@ -29,7 +29,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Client.Lobby;
 
-public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState>, IOnStateExited<LobbyState>
+public sealed partial class LobbyUIController : UIController, IOnStateEntered<LobbyState>, IOnStateExited<LobbyState> // Aquila Change
 {
     [Dependency] private readonly IClientPreferencesManager _preferencesManager = default!;
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
@@ -144,12 +144,14 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
 
     public void OnStateEntered(LobbyState state)
     {
+        BindReplayControls(state.Lobby); // Aquila Change
         PreviewPanel?.SetLoaded(_preferencesManager.ServerDataLoaded);
         ReloadCharacterSetup();
     }
 
     public void OnStateExited(LobbyState state)
     {
+        UnbindReplayControls(); // Aquila Change
         PreviewPanel?.SetLoaded(false);
         _profileEditor?.Dispose();
         _characterSetup?.Dispose();
