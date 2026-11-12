@@ -1,0 +1,9 @@
+- type: marking
+  id: AquilaBishopSpine
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian, Tajaran]
+  followSkinColor: false
+  sprites:
+  - sprite: _Aquila/Customization/Markings/bishop_spine.rsi
+    state: spine

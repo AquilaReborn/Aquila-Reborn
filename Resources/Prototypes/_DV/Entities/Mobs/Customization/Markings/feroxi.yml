@@ -109,7 +109,7 @@
   id: FeroxiTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [ Feroxi ]
+  speciesRestriction: [ Feroxi, Human ] # Aquila Change
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Feroxi/tail_markings.rsi #RedTerror Goob Resprite
     state: feroxi-tail
