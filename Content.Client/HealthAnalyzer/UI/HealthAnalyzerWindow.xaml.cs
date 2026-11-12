@@ -183,7 +183,7 @@ namespace Content.Client.HealthAnalyzer.UI
 
             StatusLabel.Text =
                 _entityManager.TryGetComponent<MobStateComponent>(_target.Value, out var mobStateComponent)
-                    ? GetStatus(mobStateComponent.CurrentState)
+                    ? GetStatusAquila(_target.Value, mobStateComponent.CurrentState) // Aquila Change
                     : Loc.GetString("health-analyzer-window-entity-unknown-text");
 
             return true;

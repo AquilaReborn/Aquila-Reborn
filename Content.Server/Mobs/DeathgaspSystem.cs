@@ -2,12 +2,13 @@
 
 using Content.Server.Chat.Systems;
 using Content.Shared.Mobs;
+using Content.Shared.Mobs.Systems; // Aquila Change
 using Content.Shared.Speech.Muting;
 
 namespace Content.Server.Mobs;
 
 /// <see cref="DeathgaspComponent"/>
-public sealed class DeathgaspSystem: EntitySystem
+public sealed partial class DeathgaspSystem: EntitySystem // Aquila Change
 {
     [Dependency] private readonly ChatSystem _chat = default!;
 
@@ -15,14 +16,14 @@ public sealed class DeathgaspSystem: EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<DeathgaspComponent, MobStateChangedEvent>(OnMobStateChanged);
+        SubscribeLocalEvent<DeathgaspComponent, MobStateChangedEvent>(OnMobStateChanged, before: [typeof(MobThresholdSystem)]); // Aquila Change
     }
 
     private void OnMobStateChanged(EntityUid uid, DeathgaspComponent component, MobStateChangedEvent args)
     {
         // don't deathgasp if they arent going straight from crit to dead
         if (component.NeedsCritical // Goobstation
-            && args.OldMobState != MobState.Critical
+            && !WasCriticalAquila(uid, args.OldMobState) // Aquila Change
             || args.NewMobState != MobState.Dead)
             return;
 

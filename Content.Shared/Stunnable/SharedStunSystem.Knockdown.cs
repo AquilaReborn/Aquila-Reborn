@@ -100,7 +100,8 @@ public abstract partial class SharedStunSystem
             if (!knockedDown.AutoStand || knockedDown.DoAfterId.HasValue || knockedDown.NextUpdate > GameTiming.CurTime)
                 continue;
 
-            TryStanding(uid);
+            if (!IsPreCriticalAquila(uid)) // Aquila Change
+                TryStanding(uid); // Aquila Change
         }
     }
 
@@ -290,7 +291,7 @@ public abstract partial class SharedStunSystem
         if (!Resolve(entity, ref entity.Comp, false))
             return true;
 
-        if (!KnockdownOver((entity, entity.Comp)))
+        if (IsPreCriticalAquila(entity.Owner) || !KnockdownOver((entity, entity.Comp))) // Aquila Change
             return false;
 
         if (!_crawlerQuery.TryComp(entity, out var crawler) || !_cfgManager.GetCVar(CCVars.MovementCrawling))
@@ -399,7 +400,7 @@ public abstract partial class SharedStunSystem
 
     public void ForceStandUp(Entity<KnockedDownComponent?> entity)
     {
-        if (!Resolve(entity, ref entity.Comp, false))
+        if (!Resolve(entity, ref entity.Comp, false) || IsPreCriticalAquila(entity.Owner)) // Aquila Change
             return;
 
         // That way if we fail to stand, the game will try to stand for us when we are able to
@@ -662,18 +663,18 @@ public abstract partial class SharedStunSystem
 
     private void OnRefreshKnockedSpeed(Entity<KnockedDownComponent> entity, ref RefreshMovementSpeedModifiersEvent args)
     {
-        args.ModifySpeed(entity.Comp.SpeedModifier, true); // Goob: bypass immunity
+        args.ModifySpeed(KnockdownMovementModifierAquila(entity.Owner, entity.Comp.SpeedModifier), true); // Aquila Change, Goob: bypass immunity
     }
 
     private void OnKnockedTileFriction(Entity<KnockedDownComponent> entity, ref TileFrictionEvent args)
     {
-        args.Modifier *= entity.Comp.FrictionModifier;
+        args.Modifier *= KnockdownMovementModifierAquila(entity.Owner, entity.Comp.FrictionModifier); // Aquila Change
     }
 
     private void OnRefreshFriction(Entity<KnockedDownComponent> entity, ref RefreshFrictionModifiersEvent args)
     {
-        args.ModifyFriction(entity.Comp.FrictionModifier);
-        args.ModifyAcceleration(entity.Comp.FrictionModifier);
+        args.ModifyFriction(KnockdownMovementModifierAquila(entity.Owner, entity.Comp.FrictionModifier)); // Aquila Change
+        args.ModifyAcceleration(KnockdownMovementModifierAquila(entity.Owner, entity.Comp.FrictionModifier)); // Aquila Change
     }
 
     #endregion

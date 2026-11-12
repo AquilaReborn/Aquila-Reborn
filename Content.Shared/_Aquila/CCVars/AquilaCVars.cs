@@ -21,6 +21,12 @@ public sealed class AquilaCVars
     public static readonly CVarDef<float> RadioMusicVolume =
         CVarDef.Create("aquila.radio_music_volume", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
 
+    /// <summary>
+    /// Автоматически сохранять локальный реплей со старта раунда.
+    /// </summary>
+    public static readonly CVarDef<bool> AutoRecordReplay =
+        CVarDef.Create("aquila.auto_record_replay", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
     public static readonly CVarDef<bool> XenobiologyShuffle =
         CVarDef.Create("aquila.xenobiology_shuffle", true, CVar.SERVERONLY);
 
@@ -47,4 +53,10 @@ public sealed class AquilaCVars
     /// </summary>
     public static readonly CVarDef<float> LightGlowIntensity =
         CVarDef.Create("aquila.light_glow_intensity", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Выводить в лог отладку предкритического состояния.
+    /// </summary>
+    public static readonly CVarDef<bool> PreCriticalDebug =
+        CVarDef.Create("aquila.precrit_debug", false, CVar.SERVERONLY);
 }

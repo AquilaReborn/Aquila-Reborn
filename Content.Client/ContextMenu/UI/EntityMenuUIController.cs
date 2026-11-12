@@ -135,6 +135,9 @@ namespace Content.Client.ContextMenu.UI
                 args.Function == ContentKeyFunctions.TryPullObject ||
                 args.Function == ContentKeyFunctions.MovePulledObject)
             {
+                if (!CanSendContextInputAquila()) // Aquila Change
+                    return; // Aquila Change
+
                 var inputSys = _systemManager.GetEntitySystem<InputSystem>();
 
                 var func = args.Function;
@@ -170,7 +173,7 @@ namespace Content.Client.ContextMenu.UI
             if (_stateManager.CurrentState is not GameplayStateBase)
                 return false;
 
-            if (_combatMode.IsInCombatMode(args.Session?.AttachedEntity))
+            if (IsCombatContextBlockedAquila(args.Session)) // Aquila Change
                 return false;
 
             var coords = _xform.ToMapCoordinates(args.Coordinates);
@@ -201,7 +204,7 @@ namespace Content.Client.ContextMenu.UI
 
             if (!_eyeManager.CurrentEye.DrawFov)
             {
-                visibility &= ~MenuVisibility.NoFov;
+                visibility |= MenuVisibility.NoFov; // Aquila Change
             }
 
             var ev = new MenuVisibilityEvent()

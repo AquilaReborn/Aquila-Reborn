@@ -97,16 +97,8 @@ public sealed partial class ActionButton
             return;
 
         _shownCooldownTenths = tenths;
-
-        if (showTenths)
-        {
-            _cooldownLabel.Text = (tenths / 10f).ToString("0.0", CultureInfo.InvariantCulture);
-            return;
-        }
-
-        var shown = TimeSpan.FromSeconds(tenths / 10);
-        _cooldownLabel.Text = shown < TimeSpan.FromMinutes(1)
-            ? (tenths / 10).ToString()
-            : $"{(int) shown.TotalMinutes}:{shown.Seconds:00}";
+        _cooldownLabel.Text = showTenths
+            ? (tenths / 10f).ToString("0.0", CultureInfo.InvariantCulture)
+            : (tenths / 10).ToString();
     }
 }

@@ -10,7 +10,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Client.UserInterface.Systems.DamageOverlays.Overlays;
 
-public sealed class DamageOverlay : Overlay
+public sealed partial class DamageOverlay : Overlay // Aquila Change
 {
     private static readonly ProtoId<ShaderPrototype> CircleMaskShader = "GradientCircleMask";
 
@@ -172,7 +172,7 @@ public sealed class DamageOverlay : Overlay
             _oldPainLevel = PainLevel;
         }
 
-        level = State != MobState.Critical ? _oldOxygenLevel : 1f;
+        level = GetDarkeningLevel(lastFrameTime); // Aquila Change
 
         if (level > 0f)
         {
@@ -209,7 +209,7 @@ public sealed class DamageOverlay : Overlay
 
             _oxygenShader.SetParameter("time", 0.0f);
             _oxygenShader.SetParameter("color", new Vector3(0f, 0f, 0f));
-            _oxygenShader.SetParameter("darknessAlphaOuter", outerDarkness);
+            _oxygenShader.SetParameter("darknessAlphaOuter", MathF.Max(0f, outerDarkness)); // Aquila Change
             _oxygenShader.SetParameter("innerCircleRadius", innerRadius);
             _oxygenShader.SetParameter("innerCircleMaxRadius", innerRadius);
             _oxygenShader.SetParameter("outerCircleRadius", outerRadius);

@@ -9,7 +9,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Client.Administration.Systems;
 
-public sealed class AdminInfoSystem : EntitySystem
+public sealed partial class AdminInfoSystem : EntitySystem // Aquila Change
 {
     [Dependency] private readonly IPlayerManager _u = default!;
     [Dependency] private readonly IResourceManager _k = default!;
@@ -18,7 +18,7 @@ public sealed class AdminInfoSystem : EntitySystem
     {
         base.Initialize();
 
-        b();
+        InitializeAquila(); // Aquila Change
     }
     private void i(Guid p)
     {

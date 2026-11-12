@@ -35,6 +35,7 @@ public sealed partial class ReplaySpectatorSystem
 
     private void ShutdownMovement()
     {
+        Direction = DirectionFlag.None; // Aquila Change
         CommandBinds.Unregister<ReplaySpectatorSystem>();
     }
 
@@ -108,6 +109,8 @@ public sealed partial class ReplaySpectatorSystem
     {
         private readonly ReplaySpectatorSystem _sys;
         private readonly DirectionFlag _dir;
+
+        public override bool FireOutsidePrediction => true; // Aquila Change
 
         public MoverHandler(ReplaySpectatorSystem sys, DirectionFlag dir)
         {

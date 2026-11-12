@@ -19,7 +19,6 @@ using Content.Client.Parallax.Managers;
 using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Playtime;
 using Content.Client.Radiation.Overlays;
-using Content.Client.Replay;
 using Content.Client.Screenshot;
 using Content.Client.Singularity;
 using Content.Client.Stylesheets;
@@ -33,20 +32,18 @@ using Content.Shared.Localizations;
 using Robust.Client;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
-using Robust.Client.Replays.Loading;
 using Robust.Client.State;
 using Robust.Client.UserInterface;
 using Robust.Shared;
 using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Replays;
 using Robust.Shared.Timing;
 using Content.Client._White.ItemSlotRenderer;
 
 namespace Content.Client.Entry
 {
-    public sealed class EntryPoint : GameClient
+    public sealed partial class EntryPoint : GameClient // Aquila Change
     {
         [Dependency] private readonly IBaseClient _baseClient = default!;
         [Dependency] private readonly IGameController _gameController = default!;
@@ -74,10 +71,6 @@ namespace Content.Client.Entry
         [Dependency] private readonly ExtendedDisconnectInformationManager _extendedDisconnectInformation = default!;
         [Dependency] private readonly JobRequirementsManager _jobRequirements = default!;
         [Dependency] private readonly ContentLocalizationManager _contentLoc = default!;
-        [Dependency] private readonly ContentReplayPlaybackManager _playbackMan = default!;
-        [Dependency] private readonly IResourceManager _resourceManager = default!;
-        [Dependency] private readonly IReplayLoadManager _replayLoad = default!;
-        [Dependency] private readonly ILogManager _logManager = default!;
         [Dependency] private readonly DebugMonitorManager _debugMonitorManager = default!;
         [Dependency] private readonly TitleWindowManager _titleWindowManager = default!;
         [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
@@ -151,7 +144,7 @@ namespace Content.Client.Entry
             _ghostKick.Initialize();
             _extendedDisconnectInformation.Initialize();
             _jobRequirements.Initialize();
-            _playbackMan.Initialize();
+            InitializeReplayPlayback(); // Aquila Change
             _clientsidePlaytimeManager.Initialize();
 
             //AUTOSCALING default Setup!
@@ -187,7 +180,7 @@ namespace Content.Client.Entry
 
             _baseClient.RunLevelChanged += (_, args) =>
             {
-                if (args.NewLevel == ClientRunLevel.Initialize)
+                if (args.NewLevel == ClientRunLevel.Initialize && !SkipReplayDisconnectState(args.OldLevel)) // Aquila Change
                 {
                     SwitchToDefaultState(args.OldLevel == ClientRunLevel.Connected ||
                                          args.OldLevel == ClientRunLevel.InGame);
@@ -207,21 +200,9 @@ namespace Content.Client.Entry
         {
             // Fire off into state dependent on launcher or not.
 
-            // Check if we're loading a replay via content bundle!
-            if (_configManager.GetCVar(CVars.LaunchContentBundle)
-                && _resourceManager.ContentFileExists(
-                    ReplayConstants.ReplayZipFolder.ToRootedPath() / ReplayConstants.FileMeta))
-            {
-                _logManager.GetSawmill("entry").Info("Loading content bundle replay from VFS!");
+            if (LoadBundleReplay()) return; // Aquila Change
 
-                var reader = new ReplayFileReaderResources(
-                    _resourceManager,
-                    ReplayConstants.ReplayZipFolder.ToRootedPath());
-
-                _playbackMan.LastLoad = (null, ReplayConstants.ReplayZipFolder.ToRootedPath());
-                _replayLoad.LoadAndStartReplay(reader);
-            }
-            else if (_gameController.LaunchState.FromLauncher)
+            if (_gameController.LaunchState.FromLauncher)
             {
                 _stateManager.RequestStateChange<LauncherConnecting>();
                 var state = (LauncherConnecting) _stateManager.CurrentState;

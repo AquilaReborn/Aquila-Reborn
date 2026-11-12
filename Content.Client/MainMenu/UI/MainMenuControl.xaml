@@ -40,6 +40,12 @@ SPDX-License-Identifier: MIT
                 Text="{Loc 'main-menu-direct-connect-button'}"
                 TextAlign="Center"
                 StyleIdentifier="mainMenu"/>
+        <!-- Aquila Change -->
+        <Button Name="ReplayLibraryButton"
+                Access="Public"
+                Text="{Loc 'aquila-replay-library-title'}"
+                TextAlign="Center"
+                StyleIdentifier="mainMenu"/>
         <Button Name="OptionsButton"
                 Access="Public"
                 Text="{Loc 'main-menu-options-button'}"

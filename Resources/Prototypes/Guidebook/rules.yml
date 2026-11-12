@@ -4,7 +4,7 @@
   id: DefaultRuleset
   name: guide-entry-rules
   priority: 60
-  text: "/ServerInfo/_CorvaxGoob/Guidebook/ServerRules/MrpRuleset.xml" # CorvaxGoob-MRPRules
+  text: "/ServerInfo/_Aquila/Guidebook/ServerRules/AquilaRuleset.xml" # Aquila Change
   children:
   - CoreRules
   - RoleplayRules

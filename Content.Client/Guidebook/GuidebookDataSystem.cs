@@ -10,7 +10,7 @@ namespace Content.Client.Guidebook;
 /// Requests data from the server on <see cref="Initialize"/>.
 /// Can also be pushed new data when the server reloads prototypes.
 /// </summary>
-public sealed class GuidebookDataSystem : EntitySystem
+public sealed partial class GuidebookDataSystem : EntitySystem // Aquila Change
 {
     private GuidebookData? _data;
 
@@ -21,7 +21,7 @@ public sealed class GuidebookDataSystem : EntitySystem
         SubscribeNetworkEvent<UpdateGuidebookDataEvent>(OnServerUpdated);
 
         // Request data from the server
-        RaiseNetworkEvent(new RequestGuidebookDataEvent());
+        RequestGuidebookDataAquila(); // Aquila Change
     }
 
     private void OnServerUpdated(UpdateGuidebookDataEvent args)

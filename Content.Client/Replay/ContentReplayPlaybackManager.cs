@@ -35,7 +35,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Client.Replay;
 
-public sealed class ContentReplayPlaybackManager
+public sealed partial class ContentReplayPlaybackManager // Aquila Change
 {
     [Dependency] private readonly IStateManager _stateMan = default!;
     [Dependency] private readonly IClientGameTiming _timing = default!;
@@ -82,9 +82,7 @@ public sealed class ContentReplayPlaybackManager
 
     private void LoadOverride(IReplayFileReader fileReader)
     {
-        var screen = _stateMan.RequestStateChange<LoadingScreen<bool>>();
-        screen.Job = new ContentLoadReplayJob(1 / 60f, fileReader, _loadMan, screen);
-        screen.OnJobFinished += (_, e) => OnFinishedLoading(e);
+        LoadReplayWithGuard(fileReader); // Aquila Change
     }
 
     private void OnFinishedLoading(Exception? exception)
@@ -155,6 +153,8 @@ public sealed class ContentReplayPlaybackManager
 
     private bool OnHandleReplayMessage(object message, bool skipEffects)
     {
+        if (HandleRecordedLobbyTransition(message)) return true; // Aquila Change
+
         // TODO REPLAYS figure out a cleaner way of doing this. This sucks.
         // Maybe wrap the event in another cancellable event and raise that?
 
@@ -213,6 +213,6 @@ public sealed class ContentReplayPlaybackManager
     private void OnReplayPlaybackStopped()
     {
         _conGrp.Implementation = (IClientConGroupImplementation) _adminMan;
-        ReturnToDefaultState();
+        if (!IsReplayLoadInProgress) ReturnToDefaultState(); // Aquila Change
     }
 }

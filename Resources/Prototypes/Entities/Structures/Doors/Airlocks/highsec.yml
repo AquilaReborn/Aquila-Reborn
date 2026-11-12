@@ -10,6 +10,7 @@
     flags:
     - Anchorable
   - type: Rotatable
+  - type: DoorAutoOrient # Aquila Change
   - type: StationAiWhitelist
   - type: InteractionOutline
   - type: Sprite

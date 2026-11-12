@@ -91,6 +91,9 @@ namespace Content.Client.Examine
 
         public override bool CanExamine(EntityUid examiner, MapCoordinates target, Ignored? predicate = null, EntityUid? examined = null, ExaminerComponent? examinerComp = null)
         {
+            if (CanReplayExamineAquila(examiner, target)) // Aquila Change
+                return true; // Aquila Change
+
             if (!Resolve(examiner, ref examinerComp, false))
                 return false;
 
@@ -414,7 +417,7 @@ namespace Content.Client.Examine
             message = GetExamineText(entity, playerEnt);
             UpdateTooltipInfo(playerEnt.Value, entity, message);
 
-            if (!IsClientSide(entity))
+            if (CanRequestExamineAquila(entity)) // Aquila Change
             {
                 // Ask server for extra examine info.
                 unchecked

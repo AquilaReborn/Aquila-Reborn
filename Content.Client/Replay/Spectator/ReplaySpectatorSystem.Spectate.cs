@@ -21,6 +21,7 @@ public sealed partial class ReplaySpectatorSystem
         ev.Verbs.Add(new AlternativeVerb
         {
             Priority = 100,
+            ClientExclusive = true, // Aquila Change
             Act = () => SpectateEntity(ev.Target),
             Text = Loc.GetString("replay-verb-spectate"),
             Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/vv.svg.192dpi.png"))

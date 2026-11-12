@@ -107,6 +107,13 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                                 Text="{Loc 'ui-lobby-leave-button'}" />
                     </BoxContainer>
                     <controls:HSpacer Spacing="10" />
+                    <!-- Aquila Change -->
+                    <BoxContainer Margin="3 0 3 5" SeparationOverride="8">
+                        <Button Name="ReplayLibraryButton" Access="Public" Text="{Loc 'aquila-lobby-replays'}" />
+                        <CheckBox Name="AutoRecordReplay" Access="Public" VerticalAlignment="Center"
+                                  Text="{Loc 'aquila-lobby-auto-record-replay'}"
+                                  ToolTip="{Loc 'aquila-lobby-auto-record-replay-tooltip'}" />
+                    </BoxContainer>
                     <!-- Server info -->
                     <controls:NanoHeading Text="{Loc 'ui-lobby-server-info-block'}" />
                     <info:ServerInfo Name="ServerInfo" Access="Public" MinSize="0 30" VerticalExpand="false"

@@ -28,7 +28,7 @@ public sealed partial class PointingSystem : SharedPointingSystem
 
     private void AddPointingVerb(GetVerbsEvent<Verb> args)
     {
-        if (IsClientSide(args.Target))
+        if (!CanSendPointingVerbAquila(args.Target)) // Aquila Change
             return;
 
         // Really this could probably be a properly predicted event, but that requires reworking pointing. For now
@@ -50,7 +50,7 @@ public sealed partial class PointingSystem : SharedPointingSystem
             Text = Loc.GetString("pointing-verb-get-data-text"),
             Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/point.svg.192dpi.png")),
             ClientExclusive = true,
-            Act = () => RaiseNetworkEvent(new PointingAttemptEvent(GetNetEntity(args.Target)))
+            Act = () => SendPointingVerbAquila(args.Target) // Aquila Change
         };
 
         args.Verbs.Add(verb);

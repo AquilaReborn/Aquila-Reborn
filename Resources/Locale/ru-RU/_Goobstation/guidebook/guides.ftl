@@ -110,6 +110,8 @@ guide-entry-devil-clauses = Пункты соглашений
 guide-entry-antag-revealing-conditions = Раскрытие антагонистов
 guide-entry-xenobiology = Ксенобиология
 guide-entry-slasher = Мясник
+# Aquila Change
+guide-entry-slasher-boogeyman = Мясник: Бугимен
 guide-entry-slaughter-demon = Демон резни
 # Aquila Change
 guide-entry-gang-wars = Войны банд
