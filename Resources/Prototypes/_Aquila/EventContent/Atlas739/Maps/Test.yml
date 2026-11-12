@@ -1,7 +1,7 @@
 - type: gameMap
-  id: TestSoT
-  mapName: 'Reapers'
-  mapPath: /Maps/_Aquila/EventContent/Atlas739/Test.yml
+  id: SoTEmptyArena
+  mapName: 'SoT Empty Arena'
+  mapPath: (поменять)
   minPlayers: 0
   maxPlayers: 10
   stations:
