@@ -13,6 +13,8 @@ using Robust.Shared;
 using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Replays;
+using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.Markdown.Value;
 using Robust.Shared.Utility;
 
 namespace Content.Client._Aquila.Replay;
@@ -27,10 +29,14 @@ public sealed class LocalReplayLibraryUIController : UIController
     [Dependency] private readonly IFileDialogManager _fileDialog = default!;
     [Dependency] private readonly ContentReplayPlaybackManager _contentPlayback = default!;
 
+    [Dependency] private readonly IReplayLoadManager _replayLoader = default!;
+    [Dependency] private readonly IRobustSerializer _serializer = default!;
+
     private const string ArchiveExtension = "zip";
     private static readonly FileDialogFilters ReplayFilter = new(new FileDialogFilters.Group(ArchiveExtension));
     private static readonly LocId Empty = "aquila-replay-library-empty";
     private static readonly LocId ListError = "aquila-replay-library-list-error";
+    private static readonly LocId IncompatibleReplay = "aquila-replay-library-incompatible";
     internal static readonly LocId LoadError = "aquila-replay-library-load-error";
 
     private LocalReplayLibraryWindow? _window;
@@ -253,8 +259,18 @@ public sealed class LocalReplayLibraryUIController : UIController
         try
         {
             reader = new ReplayFileReaderZip(new ZipArchive(stream), ReplayConstants.ReplayZipFolder);
-            if (!reader.Exists(ReplayConstants.FileMeta))
+            var metadata = _replayLoader.LoadYamlMetadata(reader);
+            if (metadata == null || !metadata.TryGet<ValueDataNode>(ReplayConstants.MetaKeyTypeHash, out var hash))
                 throw new InvalidDataException(Loc.GetString(LoadError));
+
+            var clientHash = _serializer.GetSerializableTypesHashString();
+            if (!string.Equals(hash.Value, clientHash, StringComparison.OrdinalIgnoreCase))
+            {
+                reader.Dispose();
+                _logManager.GetSawmill("replay.library").Warning($"Replay type hash {hash.Value} differs from client hash {clientHash}.");
+                ShowStatus(window, IncompatibleReplay);
+                return;
+            }
         }
         catch
         {

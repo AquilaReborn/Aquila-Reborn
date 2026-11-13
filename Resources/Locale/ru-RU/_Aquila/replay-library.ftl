@@ -10,3 +10,4 @@ aquila-replay-library-confirm-disconnect = Для просмотра нужно 
 aquila-replay-library-disconnect-and-play = Отключиться и смотреть
 aquila-replay-library-cancel = Отмена
 aquila-replay-library-disconnect-reason = Отключение для просмотра локального реплея.
+aquila-replay-library-incompatible = Реплей несовместим с текущей сборкой клиента. Открой его в сборке, на которой он был записан.

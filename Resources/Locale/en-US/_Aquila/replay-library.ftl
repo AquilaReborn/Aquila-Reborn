@@ -10,3 +10,4 @@ aquila-replay-library-confirm-disconnect = Watching a replay requires disconnect
 aquila-replay-library-disconnect-and-play = Disconnect and watch
 aquila-replay-library-cancel = Cancel
 aquila-replay-library-disconnect-reason = Disconnected to watch a local replay.
+aquila-replay-library-incompatible = This replay is incompatible with the current client build. Open it with the build used to record it.
