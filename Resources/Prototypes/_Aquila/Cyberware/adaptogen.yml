@@ -44,10 +44,8 @@
   description: A compact inhaler that slowly synthesizes neuroadaptin on its own. A puff helps the body get used to freshly installed implants, dulls cyberpsychosis symptoms and lowers the risk of it getting worse.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/hypospray.rsi
-    layers:
-    - state: hypo
-      color: "#3FD0C9"
+    sprite: _Aquila/Objects/Specific/Medical/neuroadaptin_inhaler.rsi
+    state: icon
   - type: Item
     sprite: Objects/Specific/Medical/hypospray.rsi
     size: Small
