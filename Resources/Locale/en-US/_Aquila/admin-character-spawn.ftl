@@ -1,0 +1,15 @@
+aquila-admin-character-title = Spawn character
+aquila-admin-character-previous = Previous character
+aquila-admin-character-next = Next character
+aquila-admin-character-target = Original character
+aquila-admin-character-lobby = My lobby characters
+aquila-admin-character-presets = Character presets
+aquila-admin-character-outfit = Loadout
+aquila-admin-character-search = Search loadouts
+aquila-admin-character-name = Name
+aquila-admin-character-no-outfit = No loadout
+aquila-admin-character-spawn = Spawn here
+aquila-admin-character-clone = Clone here
+aquila-admin-character-error = Could not spawn the character. Check the name and whether the target is still available.
+aquila-admin-character-target-lobby = Lobby characters of the target player
+aquila-admin-character-inside-storage = Spawn inside a closed crate or locker

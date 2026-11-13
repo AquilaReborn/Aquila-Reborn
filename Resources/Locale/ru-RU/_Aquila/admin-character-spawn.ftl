@@ -1,0 +1,15 @@
+aquila-admin-character-title = Спавн персонажа
+aquila-admin-character-previous = Предыдущий персонаж
+aquila-admin-character-next = Следующий персонаж
+aquila-admin-character-target = Исходный персонаж
+aquila-admin-character-lobby = Мои персонажи из лобби
+aquila-admin-character-target-lobby = Персонажи цели из лобби
+aquila-admin-character-presets = Готовые профили
+aquila-admin-character-outfit = Снаряжение
+aquila-admin-character-search = Поиск
+aquila-admin-character-name = Имя
+aquila-admin-character-no-outfit = Без снаряжения
+aquila-admin-character-spawn = Заспавнить тут
+aquila-admin-character-clone = Клонировать тут
+aquila-admin-character-error = Не удалось создать персонажа. Проверь имя и доступность цели.
+aquila-admin-character-inside-storage = Создать внутри закрытого ящика или шкафа

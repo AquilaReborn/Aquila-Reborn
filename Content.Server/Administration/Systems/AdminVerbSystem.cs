@@ -9,7 +9,7 @@ using Content.Server.Ghost.Roles;
 using Content.Server.Mind;
 using Content.Server.Prayer;
 using Content.Server.Silicons.Laws;
-using Content.Server.Station.Systems;
+// using Content.Server.Station.Systems; // Aquila Change
 using Content.Shared.Administration;
 using Content.Shared.Administration.Systems;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -62,8 +62,8 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly ToolshedManager _toolshed = default!;
         [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
         [Dependency] private readonly SharedPopupSystem _popup = default!;
-        [Dependency] private readonly StationSystem _stations = default!;
-        [Dependency] private readonly StationSpawningSystem _spawning = default!;
+        // [Dependency] private readonly StationSystem _stations = default!; // Aquila Change
+        // [Dependency] private readonly StationSpawningSystem _spawning = default!; // Aquila Change
         [Dependency] private readonly ExamineSystemShared _examine = default!;
         [Dependency] private readonly AdminFrozenSystem _freeze = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
@@ -131,53 +131,56 @@ namespace Content.Server.Administration.Systems
                     prayerVerb.Impact = LogImpact.Low;
                     args.Verbs.Add(prayerVerb);
 
-                    // Spawn - Like respawn but on the spot.
-                    args.Verbs.Add(new Verb()
-                    {
-                        Text = Loc.GetString("admin-player-actions-spawn"),
-                        Category = VerbCategory.Admin,
-                        Act = () =>
-                        {
-                            if (!_transformSystem.TryGetMapOrGridCoordinates(args.Target, out var coords))
-                            {
-                                _popup.PopupEntity(Loc.GetString("admin-player-spawn-failed"), args.User, args.User);
-                                return;
-                            }
-
-                            var stationUid = _stations.GetOwningStation(args.Target);
-
-                            var profile = _gameTicker.GetPlayerProfile(targetActor.PlayerSession);
-                            var mobUid = _spawning.SpawnPlayerMob(coords.Value, null, profile, stationUid);
-
-                            if (_mindSystem.TryGetMind(args.Target, out var mindId, out var mindComp))
-                                _mindSystem.TransferTo(mindId, mobUid, true, mind: mindComp);
-
-                        },
-                        ConfirmationPopup = true,
-                        Impact = LogImpact.High,
-                    });
-
-                    // Clone - Spawn but without the mind transfer, also spawns at the user's coordinates not the target's
-                    args.Verbs.Add(new Verb()
-                    {
-                        Text = Loc.GetString("admin-player-actions-clone"),
-                        Category = VerbCategory.Admin,
-                        Act = () =>
-                        {
-                            if (!_transformSystem.TryGetMapOrGridCoordinates(args.User, out var coords))
-                            {
-                                _popup.PopupEntity(Loc.GetString("admin-player-spawn-failed"), args.User, args.User);
-                                return;
-                            }
-
-                            var stationUid = _stations.GetOwningStation(args.Target);
-
-                            var profile = _gameTicker.GetPlayerProfile(targetActor.PlayerSession);
-                            _spawning.SpawnPlayerMob(coords.Value, null, profile, stationUid);
-                        },
-                        ConfirmationPopup = true,
-                        Impact = LogImpact.High,
-                    });
+                    // Aquila Change start
+                    // // Spawn - Like respawn but on the spot.
+                    // args.Verbs.Add(new Verb()
+                    // {
+                    //     Text = Loc.GetString("admin-player-actions-spawn"),
+                    //     Category = VerbCategory.Admin,
+                    //     Act = () =>
+                    //     {
+                    //         if (!_transformSystem.TryGetMapOrGridCoordinates(args.Target, out var coords))
+                    //         {
+                    //             _popup.PopupEntity(Loc.GetString("admin-player-spawn-failed"), args.User, args.User);
+                    //             return;
+                    //         }
+                    //
+                    //         var stationUid = _stations.GetOwningStation(args.Target);
+                    //
+                    //         var profile = _gameTicker.GetPlayerProfile(targetActor.PlayerSession);
+                    //         var mobUid = _spawning.SpawnPlayerMob(coords.Value, null, profile, stationUid);
+                    //
+                    //         if (_mindSystem.TryGetMind(args.Target, out var mindId, out var mindComp))
+                    //             _mindSystem.TransferTo(mindId, mobUid, true, mind: mindComp);
+                    //
+                    //     },
+                    //     ConfirmationPopup = true,
+                    //     Impact = LogImpact.High,
+                    // });
+                    //
+                    // // Clone - Spawn but without the mind transfer, also spawns at the user's coordinates not the target's
+                    // args.Verbs.Add(new Verb()
+                    // {
+                    //     Text = Loc.GetString("admin-player-actions-clone"),
+                    //     Category = VerbCategory.Admin,
+                    //     Act = () =>
+                    //     {
+                    //         if (!_transformSystem.TryGetMapOrGridCoordinates(args.User, out var coords))
+                    //         {
+                    //             _popup.PopupEntity(Loc.GetString("admin-player-spawn-failed"), args.User, args.User);
+                    //             return;
+                    //         }
+                    //
+                    //         var stationUid = _stations.GetOwningStation(args.Target);
+                    //
+                    //         var profile = _gameTicker.GetPlayerProfile(targetActor.PlayerSession);
+                    //         _spawning.SpawnPlayerMob(coords.Value, null, profile, stationUid);
+                    //     },
+                    //     ConfirmationPopup = true,
+                    //     Impact = LogImpact.High,
+                    // });
+                    AddAdminCharacterSpawnVerbs(args, player, targetActor.PlayerSession); // Aquila Change
+                    // Aquila Change end
 
                     // PlayerPanel
                     args.Verbs.Add(new Verb

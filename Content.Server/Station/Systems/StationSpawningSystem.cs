@@ -85,13 +85,15 @@ public sealed partial class StationSpawningSystem : SharedStationSpawningSystem 
     /// <param name="profile">Appearance profile to use for the character.</param>
     /// <param name="station">The station this player is being spawned on.</param>
     /// <param name="entity">The entity to use, if one already exists.</param>
+    /// <param name="adminGear">Стартовое снаряжение, выбранное администратором.</param> <!-- Aquila Change -->
+    /// <param name="adminPreset">Пресет внешности, выбранный администратором.</param> <!-- Aquila Change -->
     /// <returns>The spawned entity</returns>
     public EntityUid SpawnPlayerMob(
         EntityCoordinates coordinates,
         ProtoId<JobPrototype>? job,
         HumanoidCharacterProfile? profile,
         EntityUid? station,
-        EntityUid? entity = null)
+        EntityUid? entity = null, StartingGearPrototype? adminGear = null, HumanoidProfilePrototype? adminPreset = null) // Aquila Change
     {
         _prototypeManager.Resolve(job, out var prototype);
         RoleLoadout? loadout = null;
@@ -137,6 +139,8 @@ public sealed partial class StationSpawningSystem : SharedStationSpawningSystem 
 
         entity ??= Spawn(species.Prototype, coordinates);
 
+        ApplyAdminPresetLayers(entity.Value, adminPreset); // Aquila Change
+
         if (profile != null)
         {
             _humanoidSystem.LoadProfile(entity.Value, profile);
@@ -155,7 +159,7 @@ public sealed partial class StationSpawningSystem : SharedStationSpawningSystem 
             EquipRoleLoadout(entity.Value, loadout, roleProto!, equipPersonal: false); // Aquila Change
         }
 
-        if (prototype?.StartingGear != null)
+        if (!TryEquipAdminSpawnGear(entity.Value, adminGear) && prototype?.StartingGear != null) // Aquila Change
         {
             var startingGear = _prototypeManager.Index<StartingGearPrototype>(prototype.StartingGear);
             EquipStartingGear(entity.Value, startingGear, raiseEvent: false);
