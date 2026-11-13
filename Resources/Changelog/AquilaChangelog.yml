@@ -403,13 +403,13 @@ Entries:
       message: Обновлён комплект одежды бригмедика.
   id: 60
   time: '2026-11-12T23:35:41.1303037+00:00'
-- author: TheDark_
+- author: CrookLv
   changes:
     - type: Tweak
       message: Обновлён спрайт телекристалла.
   id: 61
   time: '2026-11-12T23:40:28.7009912+00:00'
-- author: TheDark_
+- author: CrookLv
   changes:
     - type: Add
       message: Добавлены новые варианты ящиков.
