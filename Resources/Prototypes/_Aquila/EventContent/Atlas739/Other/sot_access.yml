@@ -1,0 +1,21 @@
+# Работа выполнена Claude (Anthropic).
+# Доступы SoT. Названия для интерфейса: Resources/Locale/ru-RU/_Aquila/EventContent/Atlas739/sot-access.ftl
+#
+# Как использовать на карте (AccessReader у дверей, шкафчиков, консолей):
+#   access: [["SotAthena"]]                       - только экипаж Афины
+#   access: [["SotReaper"]]                       - только экипаж Жнецов
+#   access: [["SotFactionLeader"]]                - лидер любой стороны
+#   access: [["SotAthena", "SotFactionLeader"]]   - только лидер Афины (внутри одного списка - "И")
+#   access: [["SotAthena"], ["SotReaper"]]        - любой из двух (отдельные списки - "ИЛИ")
+
+- type: accessLevel
+  id: SotAthena
+  name: id-card-access-level-sot-athena
+
+- type: accessLevel
+  id: SotReaper
+  name: id-card-access-level-sot-reaper
+
+- type: accessLevel
+  id: SotFactionLeader
+  name: id-card-access-level-sot-faction-leader

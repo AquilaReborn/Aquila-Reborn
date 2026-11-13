@@ -20,6 +20,7 @@
   canBeAntag: false
   accessGroups:
   - AllAccess
+  access: [ SotAthena, SotFactionLeader ]
   special:
   - !type:AddComponentSpecial
     components:
@@ -54,6 +55,7 @@
   joinNotifyCrew: false
   supervisors: job-supervisors-sot-supreme-pirate
   canBeAntag: false
+  access: [ SotAthena ]
   accessGroups:
   - AllAccess
   special:

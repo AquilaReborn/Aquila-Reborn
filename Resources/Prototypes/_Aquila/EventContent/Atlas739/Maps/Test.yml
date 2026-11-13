@@ -1,0 +1,33 @@
+- type: gameMap
+  id: SoTEmptyArena
+  mapName: 'SoT Empty Arena'
+  mapPath: /Maps/_Aquila/EventContent/Atlas739/Test.yml
+  minPlayers: 0
+  maxPlayers: 10
+  stations:
+    Reapers:
+      stationProto: SotStationReapers
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Reapers {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'B'
+        - type: StationJobs
+          availableJobs:
+            #service
+            SotBurningHeartCaptain: [ 1, 1 ]
+            SotFlameWarrior: [ 10, 10 ]
+    Athena:
+      stationProto: SotStationAthena
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Athena {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'B'
+        - type: StationJobs
+          availableJobs:
+            #service
+            SotSupremePirate: [ 1, 1 ]
+            SotTreasureWarrior: [ 10, 10 ]

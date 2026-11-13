@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Заглушки: перекрашенные default/gold из Objects/Misc/id_cards.rsi (tgstation d917f4c2a088419d5c3aec7656b7ff8cebd1822e). Заменить финальными спрайтами.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "athena"
+    },
+    {
+      "name": "athena_lead"
+    },
+    {
+      "name": "reaper"
+    },
+    {
+      "name": "reaper_lead"
+    }
+  ]
+}

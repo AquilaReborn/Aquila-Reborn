@@ -20,6 +20,7 @@
   canBeAntag: false
   accessGroups:
   - AllAccess
+  access: [ SotReaper, SotFactionLeader ]
   special:
   - !type:AddComponentSpecial
     components:
@@ -54,6 +55,7 @@
   joinNotifyCrew: false
   supervisors: job-supervisors-sot-burning-heart-captain
   canBeAntag: false
+  access: [ SotReaper ]
   accessGroups:
   - AllAccess
   special:

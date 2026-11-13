@@ -420,7 +420,8 @@ namespace Content.Client.Cargo.UI
                 {
                     HorizontalAlignment = HAlignment.Center,
                     HorizontalExpand = true,
-                    PlaceHolder = (bank.RevenueDistribution[account] * 100).ToString(),
+                    // Aquila-SoT: счёт SoT, добавленный в Accounts без записи в RevenueDistribution, не должен ронять клиент.
+                    PlaceHolder = (bank.RevenueDistribution.GetValueOrDefault(account) * 100).ToString(),
                     Editable = false,
                     MinWidth = 30
                 };

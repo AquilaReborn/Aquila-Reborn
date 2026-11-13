@@ -1,0 +1,89 @@
+# Работа выполнена Claude (Anthropic).
+# ID-карты SoT. Доступ, должность и иконка берутся из должности (PresetIdCard.job + access в роли),
+# поэтому карта всегда соответствует роли. Спрайты: _Aquila/EventContent/Atlas739/sot_id_cards.rsi
+# (состояния athena, athena_lead, reaper, reaper_lead, 32x32).
+# Предметы в руках берут стандартные состояния из Objects/Misc/id_cards.rsi (default/gold-inhand-*).
+
+- type: entity
+  parent: IDCardStandard
+  id: SotAthenaIDCard
+  name: ID-карта Афины
+  description: Пропуск члена экипажа Афины.
+  suffix: SoT, Афина
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Atlas739/sot_id_cards.rsi
+    layers:
+    - state: athena
+  - type: Item
+    sprite: Objects/Misc/id_cards.rsi
+    heldPrefix: default
+  - type: PresetIdCard
+    job: SotTreasureWarrior
+
+- type: entity
+  parent: IDCardStandard
+  id: SotAthenaLeadIDCard
+  name: ID-карта верховного пирата
+  description: Пропуск лидера экипажа Афины.
+  suffix: SoT, Афина, лидер
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Atlas739/sot_id_cards.rsi
+    layers:
+    - state: athena_lead
+  - type: Item
+    sprite: Objects/Misc/id_cards.rsi
+    heldPrefix: gold
+  - type: PresetIdCard
+    job: SotSupremePirate
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - WhitelistChameleon
+    - WhitelistChameleonIdCard
+    - HighRiskItem
+  - type: CargoSellBlacklist
+  - type: SupermatterImmune
+
+- type: entity
+  parent: IDCardStandard
+  id: SotReaperIDCard
+  name: ID-карта Жнеца
+  description: Пропуск члена экипажа Жнецов.
+  suffix: SoT, Жнецы
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Atlas739/sot_id_cards.rsi
+    layers:
+    - state: reaper
+  - type: Item
+    sprite: Objects/Misc/id_cards.rsi
+    heldPrefix: default
+  - type: PresetIdCard
+    job: SotFlameWarrior
+
+- type: entity
+  parent: IDCardStandard
+  id: SotReaperLeadIDCard
+  name: ID-карта капитана Пылающее Сердце
+  description: Пропуск лидера экипажа Жнецов.
+  suffix: SoT, Жнецы, лидер
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/Atlas739/sot_id_cards.rsi
+    layers:
+    - state: reaper_lead
+  - type: Item
+    sprite: Objects/Misc/id_cards.rsi
+    heldPrefix: gold
+  - type: PresetIdCard
+    job: SotBurningHeartCaptain
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - WhitelistChameleon
+    - WhitelistChameleonIdCard
+    - HighRiskItem
+  - type: CargoSellBlacklist
+  - type: SupermatterImmune

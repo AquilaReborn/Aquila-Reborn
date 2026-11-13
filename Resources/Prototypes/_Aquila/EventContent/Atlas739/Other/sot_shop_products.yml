@@ -31,7 +31,7 @@
 # ==========================================================
 
 # ---------- АФИНА ----------
-# - Оружие
+# - Оружие ближнего боя
 - type: cargoProduct
   id: SotAthenaCutlass
   icon:
@@ -39,7 +39,7 @@
     state: icon
   product: Cutlass
   cost: 100
-  category: sot-shop-category-weapons
+  category: sot-shop-category-weapons-melee
   group: SotAthenaMarket
 
 - type: cargoProduct
@@ -49,9 +49,20 @@
     state: e_cutlass
   product: EnergyCutlass
   cost: 1000
-  category: sot-shop-category-weapons
+  category: sot-shop-category-weapons-melee
   group: SotAthenaMarket
 
+- type: cargoProduct
+  id: SotAthenaCombatKnife
+  icon:
+    sprite: Objects/Weapons/Melee/combat_knife.rsi
+    state: icon
+  product: CombatKnife
+  cost: 300
+  category: sot-shop-category-weapons-melee
+  group: SotAthenaMarket
+
+# - Оружие дальнего боя
 - type: cargoProduct
   id: SotAthenaRevolver
   icon:
@@ -59,7 +70,7 @@
     state: icon
   product: WeaponRevolverPirate
   cost: 500
-  category: sot-shop-category-weapons
+  category: sot-shop-category-weapons-ranged
   group: SotAthenaMarket
 
 - type: cargoProduct
@@ -69,7 +80,7 @@
     state: icon
   product: WeaponShotgunSawn
   cost: 800
-  category: sot-shop-category-weapons
+  category: sot-shop-category-weapons-ranged
   group: SotAthenaMarket
 # - Патроны
 - type: cargoProduct
@@ -111,7 +122,7 @@
   cost: 75
   category: sot-shop-category-ammo
   group: SotAthenaMarket
-# - Скафандры (ДОБАВИТЬ РИГИ)
+# - Скафандры
 - type: cargoProduct
   id: SotAthenaHardsuitPirate
   icon:
@@ -119,6 +130,16 @@
     state: icon
   product: ClothingOuterHardsuitPirateCap
   cost: 500
+  category: sot-shop-category-hardsuit
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaModsuit
+  icon:
+    sprite: _Aquila/EventContent/Atlas739/Modsuits/Athena/back.rsi
+    state: control
+  product: ClothingModsuitSotAthena
+  cost: 2000
   category: sot-shop-category-hardsuit
   group: SotAthenaMarket
 # - Медицина
@@ -251,6 +272,49 @@
   cost: 100
   category: sot-shop-category-tools
   group: SotAthenaMarket
+# - Взрывчатка
+- type: cargoProduct
+  id: SotAthenaGrenadeFrag
+  icon:
+    sprite: Objects/Weapons/Grenades/grenade.rsi
+    state: icon
+  product: ExGrenade
+  cost: 400
+  category: sot-shop-category-explosives
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaC4
+  icon:
+    sprite: Objects/Weapons/Bombs/c4.rsi
+    state: icon
+  product: C4
+  cost: 1000
+  category: sot-shop-category-explosives
+  group: SotAthenaMarket
+
+# - Медицина (продвинутая)
+- type: cargoProduct
+  id: SotAthenaEmergencyMedipen
+  icon:
+    sprite: Objects/Specific/Medical/medipen.rsi
+    state: medipen
+  product: EmergencyMedipen
+  cost: 250
+  category: sot-shop-category-medical
+  group: SotAthenaMarket
+
+# - Тактическое снаряжение
+- type: cargoProduct
+  id: SotAthenaClothingEyesNightVision
+  icon:
+    sprite: _White/Clothing/Eyes/Goggles/nightvision.rsi
+    state: icon
+  product: ClothingEyesNightVisionGoggles
+  cost: 1000
+  category: sot-shop-category-tactical
+  group: SotAthenaMarket
+
 # - Разное (НАПОЛНИТЬ)
 
 - type: cargoProduct
@@ -327,7 +391,7 @@
 
 # ---------- ЖНЕЦЫ ----------
 
-# - Оружие
+# - Оружие ближнего боя
 - type: cargoProduct
   id: SotReapersCutlass
   icon:
@@ -335,7 +399,7 @@
     state: icon
   product: Cutlass
   cost: 100
-  category: sot-shop-category-weapons
+  category: sot-shop-category-weapons-melee
   group: SotReapersMarket
 
 - type: cargoProduct
@@ -345,9 +409,20 @@
     state: e_cutlass
   product: EnergyCutlass
   cost: 1000
-  category: sot-shop-category-weapons
+  category: sot-shop-category-weapons-melee
   group: SotReapersMarket
 
+- type: cargoProduct
+  id: SotReapersCombatKnife
+  icon:
+    sprite: Objects/Weapons/Melee/combat_knife.rsi
+    state: icon
+  product: CombatKnife
+  cost: 300
+  category: sot-shop-category-weapons-melee
+  group: SotReapersMarket
+
+# - Оружие дальнего боя
 - type: cargoProduct
   id: SotReapersRevolver
   icon:
@@ -355,7 +430,7 @@
     state: icon
   product: WeaponRevolverPirate
   cost: 500
-  category: sot-shop-category-weapons
+  category: sot-shop-category-weapons-ranged
   group: SotReapersMarket
 
 - type: cargoProduct
@@ -365,7 +440,7 @@
     state: icon
   product: WeaponShotgunSawn
   cost: 800
-  category: sot-shop-category-weapons
+  category: sot-shop-category-weapons-ranged
   group: SotReapersMarket
 
 # - Патроны
@@ -409,7 +484,7 @@
   category: sot-shop-category-ammo
   group: SotReapersMarket
 
-# - Скафандры (ДОБАВИТЬ РИГИ)
+# - Скафандры
 - type: cargoProduct
   id: SotReapersHardsuitPirate
   icon:
@@ -417,6 +492,16 @@
     state: icon
   product: ClothingOuterHardsuitPirateCap
   cost: 500
+  category: sot-shop-category-hardsuit
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersModsuit
+  icon:
+    sprite: _Aquila/EventContent/Atlas739/Modsuits/Reaper/back.rsi
+    state: control
+  product: ClothingModsuitSotReaper
+  cost: 2000
   category: sot-shop-category-hardsuit
   group: SotReapersMarket
 
@@ -552,6 +637,49 @@
   category: sot-shop-category-tools
   group: SotReapersMarket
 
+# - Взрывчатка
+- type: cargoProduct
+  id: SotReapersGrenadeFrag
+  icon:
+    sprite: Objects/Weapons/Grenades/grenade.rsi
+    state: icon
+  product: ExGrenade
+  cost: 400
+  category: sot-shop-category-explosives
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersC4
+  icon:
+    sprite: Objects/Weapons/Bombs/c4.rsi
+    state: icon
+  product: C4
+  cost: 1000
+  category: sot-shop-category-explosives
+  group: SotReapersMarket
+
+# - Медицина (продвинутая)
+- type: cargoProduct
+  id: SotReapersEmergencyMedipen
+  icon:
+    sprite: Objects/Specific/Medical/medipen.rsi
+    state: medipen
+  product: EmergencyMedipen
+  cost: 250
+  category: sot-shop-category-medical
+  group: SotReapersMarket
+
+# - Тактическое снаряжение
+- type: cargoProduct
+  id: SotReapersClothingEyesNightVision
+  icon:
+    sprite: _White/Clothing/Eyes/Goggles/nightvision.rsi
+    state: icon
+  product: ClothingEyesNightVisionGoggles
+  cost: 1000
+  category: sot-shop-category-tactical
+  group: SotReapersMarket
+
 # - Разное (НАПОЛНИТЬ)
 - type: cargoProduct
   id: SotReapersPowerCellHigh
@@ -599,7 +727,7 @@
   icon:
     sprite: _Aquila/EventContent/Atlas739/sot_shop_sprites.rsi
     state: jumpsuit-red
-  product: ClothingUniformJumpsuitMilitaryColorTeal
+  product: ClothingUniformJumpsuitMilitaryColorRed
   cost: 100
   category: sot-shop-category-clothing
   group: SotReapersMarket

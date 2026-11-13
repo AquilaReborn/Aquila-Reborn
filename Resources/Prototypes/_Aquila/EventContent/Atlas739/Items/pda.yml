@@ -6,7 +6,7 @@
   suffix: SoT
   components:
   - type: Pda
-    id: PassengerIDCard
+    id: SotAthenaIDCard
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
@@ -20,7 +20,7 @@
   - type: Icon
     sprite: _Aquila/EventContent/Atlas739/sot_pda.rsi
     state: athena_pda
-    
+
 - type: entity
   parent: BasePDA
   id: AthenaLeadPDA
@@ -29,7 +29,7 @@
   suffix: SoT
   components:
   - type: Pda
-    id: CaptainIDCard
+    id: SotAthenaLeadIDCard
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
@@ -52,12 +52,12 @@
   suffix: SoT
   components:
   - type: Pda
-    id: PassengerIDCard
+    id: SotReaperIDCard
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
         !type:String
-        reaper_pda          
+        reaper_pda
   - type: PdaBorderColor
     borderColor: "#4d0000"
   - type: Sprite
@@ -66,7 +66,7 @@
   - type: Icon
     sprite: _Aquila/EventContent/Atlas739/sot_pda.rsi
     state: reaper_pda
-    
+
 - type: entity
   parent: BasePDA
   id: ReaperLeadPDA
@@ -75,12 +75,12 @@
   suffix: SoT
   components:
   - type: Pda
-    id: CaptainIDCard
+    id: SotReaperLeadIDCard
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
         !type:String
-        reaper_pda          
+        reaper_pda
   - type: PdaBorderColor
     borderColor: "#4d0000"
   - type: Sprite

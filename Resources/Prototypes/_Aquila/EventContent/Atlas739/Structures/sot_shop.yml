@@ -5,13 +5,17 @@
 # Как это работает (кратко):
 #   1) Каждый корабль - отдельная станция (грид с BecomesStation + stationProto ниже),
 #      у неё свой счёт в кредитах (StationBankAccount) и свой список рынков (Markets).
-#   2) Консоль закупок (SotShopConsole*) показывает товары рынка своей фракции и списывает кредиты
-#      со счёта станции. Деньги можно пополнить, вставив в консоль кредиты (стопку Credit).
-#   3) Одобренный заказ появляется на телепаде закупок (SotShopTelepad*) своего корабля.
-#      Консоль и телепады одного грида связываются сами (SotShopLinkSystem).
-#   4) Список товаров лежит в sot_shop_products.yml (там же инструкция, как добавлять).
+#   2) У КАЖДОЙ ФРАКЦИИ СВОЙ СЧЁТ (SotAthenaCargo / SotReapersCargo, см. ниже), а не общий "Cargo".
+#      Это разделяет заказы: консоль показывает и позволяет одобрять/отменять только заказы СВОЕГО
+#      счёта, даже если обе стороны по ошибке стоят на одной станции.
+#   3) Консоль закупок (SotShopConsole*) показывает товары рынка своей фракции и списывает кредиты
+#      со своего счёта. Деньги можно пополнить, вставив в консоль кредиты (стопку Credit).
+#   4) Одобренный заказ появляется на телепаде закупок (SotShopTelepad*) своего корабля. Консоль и
+#      телепады ТОЙ ЖЕ СТОРОНЫ на одном гриде связываются сами (SotShopLinkSystem): если на одном
+#      гриде стоят телепады и консоли обеих фракций, они не перепутаются.
+#   5) Список товаров лежит в sot_shop_products.yml (там же инструкция, как добавлять).
 #
-# Кладите в Resources/Prototypes/_Aquila/SoT/
+# Кладите в Resources/Prototypes/_Aquila/EventContent/Atlas739/
 # ==========================================================
 
 # ---------- Рынки (каталоги): у каждой фракции свой ----------
@@ -20,6 +24,23 @@
 
 - type: cargoMarket
   id: SotReapersMarket
+
+# ---------- Счета (у каждой фракции свой, а не общий "Cargo") ----------
+- type: cargoAccount
+  id: SotAthenaCargo
+  name: sot-shop-account-athena-name
+  code: sot-shop-account-athena-code
+  color: "#4060ff"
+  radioChannel: Supply
+  acquisitionSlip: PaperAcquisitionSlipCargo
+
+- type: cargoAccount
+  id: SotReapersCargo
+  name: sot-shop-account-reapers-name
+  code: sot-shop-account-reapers-code
+  color: "#ff3a20"
+  radioChannel: Supply
+  acquisitionSlip: PaperAcquisitionSlipCargo
 
 # ---------- Станции ----------
 # stationProto для gameMap: счёт в кредитах + заказы + (по желанию) должности.
@@ -31,16 +52,18 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: StationBankAccount
-    primaryAccount: Cargo
+    primaryAccount: SotAthenaCargo
     accounts:
-      Cargo: 3000           # стартовый баланс в кредитах
+      SotAthenaCargo: 3000  # стартовый баланс в кредитах
     revenueDistribution:
-      Cargo: 1.0
+      SotAthenaCargo: 1.0
     increasePerSecond: 0    # без пассивного дохода (в обычной станции деньги капают сами)
   - type: StationCargoOrderDatabase
     capacity: 20            # сколько заказов может ждать одновременно
     markets:
     - SotAthenaMarket
+    orders:
+      SotAthenaCargo: []    # ключ счёта обязан существовать до первого заказа
 
 - type: entity
   id: SotStationReapers
@@ -48,16 +71,18 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: StationBankAccount
-    primaryAccount: Cargo
+    primaryAccount: SotReapersCargo
     accounts:
-      Cargo: 3000
+      SotReapersCargo: 3000
     revenueDistribution:
-      Cargo: 1.0
+      SotReapersCargo: 1.0
     increasePerSecond: 0
   - type: StationCargoOrderDatabase
     capacity: 20
     markets:
     - SotReapersMarket
+    orders:
+      SotReapersCargo: []
 
 # ---------- Консоли закупок ----------
 # Спрайт: корпус и экран свои (sot_shop_console.rsi), клавиатура, клавиши и панель - стандартные.
@@ -70,6 +95,7 @@
   suffix: SoT, Афина
   components:
   - type: SotShopConsole
+    side: Athena
   - type: Sprite
     layers:
     - map: [ "computerLayerBody" ]
@@ -85,7 +111,7 @@
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
   - type: CargoOrderConsole
-    account: Cargo                      # счёт станции, с которого идёт оплата
+    account: SotAthenaCargo             # свой счёт: заказы другой стороны не видны и не редактируются
     allowedGroups: [ SotAthenaMarket ]  # какие рынки видны на этой консоли
     baseTransferLimit: 0                # 0 - нельзя снимать наличные со счёта (только закупки)
     removeLimitAccess: []
@@ -104,6 +130,7 @@
   suffix: SoT, Жнецы
   components:
   - type: SotShopConsole
+    side: Reapers
   - type: Sprite
     layers:
     - map: [ "computerLayerBody" ]
@@ -119,7 +146,7 @@
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
   - type: CargoOrderConsole
-    account: Cargo
+    account: SotReapersCargo            # свой счёт: заказы другой стороны не видны и не редактируются
     allowedGroups: [ SotReapersMarket ]
     baseTransferLimit: 0
     removeLimitAccess: []
@@ -141,6 +168,7 @@
   suffix: SoT, Афина
   components:
   - type: SotShopTelepad
+    side: Athena
   - type: Sprite
     sprite: _Aquila/EventContent/Atlas739/sot_shop_telepad_athena.rsi
   - type: ApcPowerReceiver
@@ -154,6 +182,7 @@
   suffix: SoT, Жнецы
   components:
   - type: SotShopTelepad
+    side: Reapers
   - type: Sprite
     sprite: _Aquila/EventContent/Atlas739/sot_shop_telepad_reapers.rsi
   - type: ApcPowerReceiver
