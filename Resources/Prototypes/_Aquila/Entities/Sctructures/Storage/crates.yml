@@ -1,0 +1,220 @@
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateAquilaArmory
+  name: armory crate
+  suffix: CrookLv, Декор
+  components:
+  - type: Icon
+    sprite: _Aquila/Structures/Storage/Crates/armory.rsi
+  - type: Sprite
+    sprite: _Aquila/Structures/Storage/Crates/armory.rsi
+  - type: Paintable
+    group: null
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateAquilaAmmo
+  name: ammunition crate
+  suffix: CrookLv, Декор
+  components:
+  - type: Icon
+    sprite: _Aquila/Structures/Storage/Crates/ammo.rsi
+  - type: Sprite
+    sprite: _Aquila/Structures/Storage/Crates/ammo.rsi
+  - type: Paintable
+    group: null
+
+- type: entity
+  parent: CrateSyndicate
+  id: CrateAquilaSyndicate
+  name: Syndicate crate
+  suffix: CrookLv, Декор
+  components:
+  - type: Icon
+    sprite: _Aquila/Structures/Storage/Crates/syndicate.rsi
+  - type: Sprite
+    sprite: _Aquila/Structures/Storage/Crates/syndicate.rsi
+  - type: Paintable
+    group: null
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateAquilaPrivate
+  name: metal pirate chest
+  suffix: CrookLv, Декор
+  components:
+  - type: Icon
+    sprite: _Aquila/Structures/Storage/Crates/pirate_metal.rsi
+  - type: Sprite
+    sprite: _Aquila/Structures/Storage/Crates/pirate_metal.rsi
+  - type: Paintable
+    group: null
+
+- type: entity
+  parent: CratePirate
+  id: CrateAquilaPirate
+  name: pirate chest
+  suffix: CrookLv, Декор
+  components:
+  - type: Icon
+    sprite: _Aquila/Structures/Storage/Crates/pirate.rsi
+  - type: Sprite
+    sprite: _Aquila/Structures/Storage/Crates/pirate.rsi
+  - type: Paintable
+    group: null
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateAquilaSecurity
+  name: CyberSun crate
+  suffix: CrookLv, Декор
+  components:
+  - type: Icon
+    sprite: _Aquila/Structures/Storage/Crates/cybersun.rsi
+  - type: Sprite
+    sprite: _Aquila/Structures/Storage/Crates/cybersun.rsi
+  - type: Paintable
+    group: null
+
+- type: entity
+  parent: CrateElectrical
+  id: CrateAquilaHazard
+  name: hazardous materials crate
+  suffix: CrookLv, Декор
+  components:
+  - type: Icon
+    sprite: _Aquila/Structures/Storage/Crates/hazard.rsi
+  - type: Sprite
+    sprite: _Aquila/Structures/Storage/Crates/hazard.rsi
+  - type: Paintable
+    group: null
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateAquilaIndustrial
+  name: industrial crate
+  suffix: CrookLv, Декор
+  components:
+  - type: Icon
+    sprite: _Aquila/Structures/Storage/Crates/industrial.rsi
+  - type: Sprite
+    sprite: _Aquila/Structures/Storage/Crates/industrial.rsi
+  - type: Paintable
+    group: null
+
+- type: entity
+  parent: CrateFreezer
+  id: CrateAquilaIndustrialFreezer
+  name: industrial freezer crate
+  suffix: CrookLv, Декор
+  components:
+  - type: Icon
+    sprite: _Aquila/Structures/Storage/Crates/industrial_freezer.rsi
+  - type: Sprite
+    sprite: _Aquila/Structures/Storage/Crates/industrial_freezer.rsi
+  - type: Paintable
+    group: null
+
+- type: entity
+  parent: CrateScience
+  id: CrateAquilaScience
+  name: NanoTrasen crate
+  suffix: CrookLv, Декор
+  components:
+  - type: Icon
+    sprite: _Aquila/Structures/Storage/Crates/nanotrasen.rsi
+  - type: Sprite
+    sprite: _Aquila/Structures/Storage/Crates/nanotrasen.rsi
+  - type: Paintable
+    group: null
+
+- type: entity
+  parent: CrateEngineering
+  id: CrateAquilaEngineering
+  name: engineering crate
+  suffix: CrookLv, Декор
+  components:
+  - type: Icon
+    sprite: _Aquila/Structures/Storage/Crates/engineering.rsi
+  - type: Sprite
+    sprite: _Aquila/Structures/Storage/Crates/engineering.rsi
+  - type: Paintable
+    group: null
+
+- type: entity
+  parent: CrateMedical
+  id: CrateAquilaMedical
+  name: medical crate
+  suffix: CrookLv, Декор
+  components:
+  - type: Icon
+    sprite: _Aquila/Structures/Storage/Crates/medical.rsi
+  - type: Sprite
+    sprite: _Aquila/Structures/Storage/Crates/medical.rsi
+  - type: Paintable
+    group: null
+
+- type: entity
+  parent: CrateFreezer
+  id: CrateAquilaFoodFreezerHeavy
+  name: food freezer crate
+  suffix: CrookLv, Декор
+  components:
+  - type: Icon
+    sprite: _Aquila/Structures/Storage/Crates/food_freezer_alt.rsi
+  - type: Sprite
+    sprite: _Aquila/Structures/Storage/Crates/food_freezer_alt.rsi
+  - type: Paintable
+    group: null
+
+- type: entity
+  parent: CrateFreezer
+  id: CrateAquilaFoodFreezer
+  name: food freezer crate
+  suffix: CrookLv, Декор
+  components:
+  - type: Icon
+    sprite: _Aquila/Structures/Storage/Crates/food_freezer.rsi
+  - type: Sprite
+    sprite: _Aquila/Structures/Storage/Crates/food_freezer.rsi
+  - type: Paintable
+    group: null
+
+- type: entity
+  parent: CrateFreezer
+  id: CrateAquilaDonkFreezer
+  name: Donk freezer crate
+  suffix: CrookLv, Декор
+  components:
+  - type: Icon
+    sprite: _Aquila/Structures/Storage/Crates/donk_freezer.rsi
+  - type: Sprite
+    sprite: _Aquila/Structures/Storage/Crates/donk_freezer.rsi
+  - type: Paintable
+    group: null
+
+- type: entity
+  parent: CrateFreezer
+  id: CrateAquilaDonkFreezerLight
+  name: light Donk freezer crate
+  suffix: CrookLv, Декор
+  components:
+  - type: Icon
+    sprite: _Aquila/Structures/Storage/Crates/donk_freezer_light.rsi
+  - type: Sprite
+    sprite: _Aquila/Structures/Storage/Crates/donk_freezer_light.rsi
+  - type: Paintable
+    group: null
+
+- type: entity
+  parent: CrateSyndicate
+  id: CrateAquilaSyndicateOps
+  name: Syndicate operations crate
+  suffix: CrookLv, Декор
+  components:
+  - type: Icon
+    sprite: _Aquila/Structures/Storage/Crates/syndicate_ops.rsi
+  - type: Sprite
+    sprite: _Aquila/Structures/Storage/Crates/syndicate_ops.rsi
+  - type: Paintable
+    group: null

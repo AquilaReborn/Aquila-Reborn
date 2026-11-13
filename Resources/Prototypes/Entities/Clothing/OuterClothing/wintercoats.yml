@@ -71,20 +71,20 @@
   name: atmospherics winter coat
   components:
   - type: Sprite
-    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    sprite: _Aquila/Clothing/EngExtraDrip/OuterClothing/WinterCoats/coatatmos.rsi # Aquila Change
     layers:
-    - state: ATMOS-icon
+    - state: icon # Aquila Change
   - type: Item # CorvaxGoob-Resprite
     inhandVisuals:
       left:
-      - state: ATMOS-inhand-left
+      - state: inhand-left # Aquila Change
       right:
-      - state: ATMOS-inhand-right
+      - state: inhand-right # Aquila Change
   - type: Clothing
-    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    sprite: _Aquila/Clothing/EngExtraDrip/OuterClothing/WinterCoats/coatatmos.rsi # Aquila Change
     clothingVisuals:
       outerClothing:
-      - state: ATMOS-equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING # Aquila Change
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterEngineer
@@ -167,20 +167,20 @@
   name: chief engineer's winter coat
   components:
   - type: Sprite
-    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    sprite: _Aquila/Clothing/EngExtraDrip/OuterClothing/WinterCoats/coatce.rsi # Aquila Change
     layers:
-    - state: CE-icon
+    - state: icon # Aquila Change
   - type: Item
     inhandVisuals:
       left:
-      - state: CE-inhand-left
+      - state: inhand-left # Aquila Change
       right:
-      - state: CE-inhand-right
+      - state: inhand-right # Aquila Change
   - type: Clothing
-    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    sprite: _Aquila/Clothing/EngExtraDrip/OuterClothing/WinterCoats/coatce.rsi # Aquila Change
     clothingVisuals:
       outerClothing:
-      - state: CE-equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING # Aquila Change
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterCE
@@ -309,20 +309,20 @@
   name: engineering winter coat
   components:
   - type: Sprite
-    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    sprite: _Aquila/Clothing/EngExtraDrip/OuterClothing/WinterCoats/coatengi.rsi # Aquila Change
     layers:
-    - state: ENGI-icon
+    - state: icon # Aquila Change
   - type: Item
     inhandVisuals:
       left:
-      - state: ENGI-inhand-left
+      - state: inhand-left # Aquila Change
       right:
-      - state: ENGI-inhand-right
+      - state: inhand-right # Aquila Change
   - type: Clothing
-    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    sprite: _Aquila/Clothing/EngExtraDrip/OuterClothing/WinterCoats/coatengi.rsi # Aquila Change
     clothingVisuals:
       outerClothing:
-      - state: ENGI-equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING # Aquila Change
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterEngineer
@@ -720,20 +720,20 @@
   name: security winter coat
   components:
   - type: Sprite
-    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    sprite: _Aquila/Clothing/Security/Refresh/OuterClothing/WinterCoats/coatsec.rsi # CorvaxGoob-Resprite # Aquila Change
     layers:
-    - state: SEC-icon
+    - state: icon # Aquila Change
   - type: Item
     inhandVisuals:
       left:
-      - state: SEC-inhand-left
+      - state: inhand-left # Aquila Change
       right:
-      - state: SEC-inhand-right
+      - state: inhand-right # Aquila Change
   - type: Clothing
-    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    sprite: _Aquila/Clothing/Security/Refresh/OuterClothing/WinterCoats/coatsec.rsi # CorvaxGoob-Resprite # Aquila Change
     clothingVisuals:
       outerClothing:
-      - state: SEC-equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING # Aquila Change
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterSec
@@ -807,20 +807,20 @@
   description: A sturdy coat, a warm coat, but not an armored coat.
   components:
   - type: Sprite
-    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    sprite: _Aquila/Clothing/Security/Refresh/OuterClothing/WinterCoats/coatwarden.rsi # CorvaxGoob-Resprite # Aquila Change
     layers:
-    - state: WARD-icon
+    - state: icon # Aquila Change
   - type: Item
     inhandVisuals:
       left:
-      - state: WARD-inhand-left
+      - state: inhand-left # Aquila Change
       right:
-      - state: WARD-inhand-right
+      - state: inhand-right # Aquila Change
   - type: Clothing
-    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi # CorvaxGoob-Resprite
+    sprite: _Aquila/Clothing/Security/Refresh/OuterClothing/WinterCoats/coatwarden.rsi # CorvaxGoob-Resprite # Aquila Change
     clothingVisuals:
       outerClothing:
-      - state: WARD-equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING # Aquila Change
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterWarden

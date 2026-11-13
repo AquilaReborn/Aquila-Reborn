@@ -1,0 +1,88 @@
+- type: entity
+  parent: [ClothingUniformBase, BaseSecurityContraband]
+  id: ClothingUniformJumpsuitHuntSecurity
+  name: hunter security jumpsuit
+  description: A field uniform for security patrols.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/Security/HuntSecurity/huntsec.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Security/HuntSecurity/huntsec.rsi
+
+- type: entity
+  parent: [ClothingHandsBase, BaseSecurityContraband]
+  id: ClothingHandsGlovesHuntSecurity
+  name: hunter security gloves
+  description: Gloves for security patrols.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/Security/HuntSecurity/hunter.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Security/HuntSecurity/hunter.rsi
+
+- type: entity
+  parent: [ClothingScarfBase, BaseSecurityContraband]
+  id: ClothingNeckScarfHuntSecurity
+  name: hunter security scarf
+  description: A scarf for security patrols.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/Security/HuntSecurity/huntbscarf.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Security/HuntSecurity/huntbscarf.rsi
+
+- type: entity
+  parent: [ClothingMaskNeckGaiter, BaseSecurityContraband]
+  id: ClothingMaskNeckGaiterHuntSecurity
+  name: hunter security neck gaiter
+  description: A neck gaiter that can be pulled down.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/Security/HuntSecurity/huntneckgaiter.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Security/HuntSecurity/huntneckgaiter.rsi
+  - type: Mask
+
+- type: entity
+  parent: ClothingBeltSecurityWebbing
+  id: ClothingBeltHuntSecurity
+  name: hunter security chest rig
+  description: A chest rig for security patrol gear.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/Security/HuntSecurity/hunterwebbing.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Security/HuntSecurity/hunterwebbing.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSecurityContraband]
+  id: ClothingUniformJumpsuitSecAgent
+  name: security agent suit
+  description: A suit for security agents.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/Security/SecAgent/secagent.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Security/SecAgent/secagent.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSecurityContraband]
+  id: ClothingUniformJumpsuitSecAgentAlt
+  name: alternate security agent suit
+  description: An alternate suit for security agents.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/Security/SecAgent/secagentalt.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Security/SecAgent/secagentalt.rsi
+
+- type: entity
+  parent: [ClothingOuterBase, BaseSecurityContraband]
+  id: ClothingOuterCoatSecAgent
+  name: security agent coat
+  description: A coat for security agents.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/Security/SecAgent/secagentcoat.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Security/SecAgent/secagentcoat.rsi

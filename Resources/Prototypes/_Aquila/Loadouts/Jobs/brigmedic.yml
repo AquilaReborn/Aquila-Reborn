@@ -1,0 +1,14 @@
+- type: loadout
+  id: BrigmedicBootsAquila
+  equipment:
+    shoes: ClothingShoesBootsBrigmedicAquila
+
+- type: loadoutGroup
+  id: BrigmedicShoesAquila
+  name: loadout-group-aquila-brigmedic-shoes
+  loadouts:
+  - JackBoots
+  - CombatBoots
+  - SecurityWinterBoots
+  - ClothingShoesSwatBoots
+  - BrigmedicBootsAquila

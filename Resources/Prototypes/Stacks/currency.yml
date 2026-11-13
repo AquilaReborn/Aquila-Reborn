@@ -1,7 +1,7 @@
 - type: stack
   id: Telecrystal
   name: stack-telecrystal
-  icon: { sprite: /Textures/Objects/Specific/Syndicate/telecrystal.rsi, state: telecrystal }
+  icon: { sprite: /Textures/_Aquila/Objects/Specific/Syndicate/telecrystal.rsi, state: telecrystal } # Aquila Change
   spawn: Telecrystal1
 
 - type: stack

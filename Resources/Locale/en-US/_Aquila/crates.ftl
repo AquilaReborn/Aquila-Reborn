@@ -1,0 +1,17 @@
+ent-CrateAquilaArmory = armory crate
+ent-CrateAquilaAmmo = ammunition crate
+ent-CrateAquilaSyndicate = Syndicate crate
+ent-CrateAquilaPrivate = metal pirate chest
+ent-CrateAquilaPirate = pirate chest
+ent-CrateAquilaSecurity = CyberSun crate
+ent-CrateAquilaHazard = hazardous materials crate
+ent-CrateAquilaIndustrial = industrial crate
+ent-CrateAquilaIndustrialFreezer = industrial freezer crate
+ent-CrateAquilaScience = NanoTrasen crate
+ent-CrateAquilaEngineering = engineering crate
+ent-CrateAquilaMedical = medical crate
+ent-CrateAquilaFoodFreezerHeavy = food freezer crate
+ent-CrateAquilaFoodFreezer = food freezer crate
+ent-CrateAquilaDonkFreezer = Donk freezer crate
+ent-CrateAquilaDonkFreezerLight = light Donk freezer crate
+ent-CrateAquilaSyndicateOps = Syndicate operations crate

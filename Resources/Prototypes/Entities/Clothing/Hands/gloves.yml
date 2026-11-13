@@ -283,9 +283,9 @@
   description: These tactical gloves are fireproof and shock resistant.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/combat.rsi
+    sprite: _Aquila/Clothing/Security/Refresh/Gloves/combat.rsi # Aquila Change
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/combat.rsi
+    sprite: _Aquila/Clothing/Security/Refresh/Gloves/combat.rsi # Aquila Change
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-insulative

@@ -1,0 +1,17 @@
+ent-CrateAquilaArmory = оружейный ящик
+ent-CrateAquilaAmmo = ящик для боеприпасов
+ent-CrateAquilaSyndicate = ящик Синдиката
+ent-CrateAquilaPrivate = металлический пиратский сундук
+ent-CrateAquilaPirate = пиратский сундук
+ent-CrateAquilaSecurity = ящик CyberSun
+ent-CrateAquilaHazard = ящик для опасных материалов
+ent-CrateAquilaIndustrial = промышленный ящик
+ent-CrateAquilaIndustrialFreezer = промышленный ящик-морозильник
+ent-CrateAquilaScience = ящик NanoTrasen
+ent-CrateAquilaEngineering = инженерный ящик
+ent-CrateAquilaMedical = медицинский ящик
+ent-CrateAquilaFoodFreezerHeavy = ящик-морозильник для продуктов
+ent-CrateAquilaFoodFreezer = ящик-морозильник для продуктов
+ent-CrateAquilaDonkFreezer = ящик-морозильник Donk
+ent-CrateAquilaDonkFreezerLight = светлый ящик-морозильник Donk
+ent-CrateAquilaSyndicateOps = оперативный ящик Синдиката

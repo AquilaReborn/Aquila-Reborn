@@ -1,0 +1,83 @@
+- type: entity
+  parent: ClothingUniformJumpsuitBrigmedic
+  id: ClothingUniformJumpsuitBrigmedicAquila
+  name: brigmedic duty jumpsuit
+  suffix: Бригмедик
+  description: A duty uniform for medics assigned to the brig.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/Brigmedic/brigmedicnewjumpsuit.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Brigmedic/brigmedicnewjumpsuit.rsi
+
+- type: entity
+  parent: ClothingUniformJumpskirtBrigmedic
+  id: ClothingUniformJumpskirtBrigmedicAquila
+  name: brigmedic duty jumpskirt
+  suffix: Бригмедик
+  description: A duty jumpskirt for medics assigned to the brig.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/Brigmedic/brigmedicnewjumpskirt.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Brigmedic/brigmedicnewjumpskirt.rsi
+
+- type: entity
+  parent: ClothingHeadHelmetSecurityMedic
+  id: ClothingHeadHelmetBrigmedicAquila
+  name: brigmedic combat helmet
+  suffix: Бригмедик
+  description: A combat helmet issued to brigmedics.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/Brigmedic/brigmedichelmet.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Brigmedic/brigmedichelmet.rsi
+
+- type: entity
+  parent: ClothingMaskBreathMedicalSecurity
+  id: ClothingMaskRebreatherBrigmedicAquila
+  name: brigmedic rebreather
+  suffix: Бригмедик
+  description: A reinforced medical mask issued to brigmedics.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/Brigmedic/brigmedicrebreather.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Brigmedic/brigmedicrebreather.rsi
+
+- type: entity
+  parent: ClothingShoesBootsCombat
+  id: ClothingShoesBootsBrigmedicAquila
+  name: brigmedic boots
+  suffix: Бригмедик
+  description: Red duty boots issued to brigmedics.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/Brigmedic/brigmedicboots.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Brigmedic/brigmedicboots.rsi
+
+- type: entity
+  parent: ClothingEyesHudMedSec
+  id: ClothingEyesVisorBrigmedicAquila
+  name: brigmedic visor
+  suffix: Бригмедик
+  description: A visor with a combined medical and security display.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/Brigmedic/medsecvisor.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Brigmedic/medsecvisor.rsi
+
+- type: entity
+  parent: ClothingBeltMedicalEMTFilled
+  id: ClothingBeltWebbingBrigmedicAquila
+  name: brigmedic chest rig
+  suffix: Бригмедик
+  description: A chest rig stocked with emergency medical supplies.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/Brigmedic/brigmedicwebbing.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Brigmedic/brigmedicwebbing.rsi

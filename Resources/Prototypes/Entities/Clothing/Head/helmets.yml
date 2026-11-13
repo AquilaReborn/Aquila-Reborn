@@ -66,9 +66,9 @@
   description: Standard security gear. Protects the head from impacts.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Helmets/security.rsi
+    sprite: _Aquila/Clothing/Security/Refresh/Head/Helmets/security.rsi # Aquila Change
   - type: Clothing
-    sprite: Clothing/Head/Helmets/security.rsi
+    sprite: _Aquila/Clothing/Security/Refresh/Head/Helmets/security.rsi # Aquila Change
   - type: Tag
     tags:
     - WhitelistChameleon

@@ -50,6 +50,10 @@
   parent: [ BaseSecurityBartenderContraband, ClothingOuterArmorBase]
   id: ClothingOuterArmorBasic
   components:
+  - type: Sprite # Aquila Change
+    sprite: _Aquila/Clothing/Security/Refresh/OuterClothing/Armor/security.rsi # Aquila Change
+  - type: Clothing # Aquila Change
+    sprite: _Aquila/Clothing/Security/Refresh/OuterClothing/Armor/security.rsi # Aquila Change
   - type: Tag
     tags:
     - CorgiWearable
@@ -65,9 +69,9 @@
   description: A slim Type I armored vest that provides decent protection against most types of damage.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Armor/security_slim.rsi
+    sprite: _Aquila/Clothing/Security/Refresh/OuterClothing/Armor/security_slim.rsi # Aquila Change
   - type: Clothing
-    sprite: Clothing/OuterClothing/Armor/security_slim.rsi
+    sprite: _Aquila/Clothing/Security/Refresh/OuterClothing/Armor/security_slim.rsi # Aquila Change
 
 - type: entity
   parent: ClothingOuterArmorBase

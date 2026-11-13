@@ -393,3 +393,25 @@ Entries:
       message: Библиотека реплеев показывает записи из подпапок.
   id: 59
   time: '2026-11-12T09:03:48.9421472+00:00'
+- author: CrookLv
+  changes:
+    - type: Tweak
+      message: Обновлены спрайты экипировки инженеров и СБ.
+    - type: Add
+      message: В автомат одежды СБ добавлены комплекты HuntSecurity и SecAgent.
+    - type: Tweak
+      message: Обновлён комплект одежды бригмедика.
+  id: 60
+  time: '2026-11-12T23:35:41.1303037+00:00'
+- author: TheDark_
+  changes:
+    - type: Tweak
+      message: Обновлён спрайт телекристалла.
+  id: 61
+  time: '2026-11-12T23:40:28.7009912+00:00'
+- author: TheDark_
+  changes:
+    - type: Add
+      message: Добавлены новые варианты ящиков.
+  id: 62
+  time: '2026-11-12T23:44:49.9470016+00:00'

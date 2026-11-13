@@ -40,6 +40,14 @@
     ClothingHeadHelmetBasic: 2
     ClothingHeadHelmetBasicAlt: 2
     ClothingUniformJumpsuitDSS: 3 # _CorvaxGoob
+    ClothingUniformJumpsuitHuntSecurity: 3 # Aquila Change
+    ClothingHandsGlovesHuntSecurity: 3 # Aquila Change
+    ClothingNeckScarfHuntSecurity: 3 # Aquila Change
+    ClothingMaskNeckGaiterHuntSecurity: 3 # Aquila Change
+    ClothingBeltHuntSecurity: 3 # Aquila Change
+    ClothingUniformJumpsuitSecAgent: 3 # Aquila Change
+    ClothingUniformJumpsuitSecAgentAlt: 3 # Aquila Change
+    ClothingOuterCoatSecAgent: 3 # Aquila Change
   contrabandInventory:
     ClothingMaskClownSecurity: 1
     ClothingMaskMimeSecurity: 1

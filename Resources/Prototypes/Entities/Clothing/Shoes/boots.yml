@@ -19,9 +19,9 @@
   description: Nanotrasen-issue Security combat boots for combat scenarios or combat situations. All combat, all the time.
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/jackboots.rsi
+    sprite: _Aquila/Clothing/Security/Refresh/Shoes/Boots/jackboots.rsi # Aquila Change
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/jackboots.rsi
+    sprite: _Aquila/Clothing/Security/Refresh/Shoes/Boots/jackboots.rsi # Aquila Change
   - type: ClothingSlowOnDamageModifier
     modifier: 0.5
 
@@ -55,9 +55,9 @@
   description: Robust combat boots for combat scenarios or combat situations. All combat, all the time.
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/combatboots.rsi
+    sprite: _Aquila/Clothing/Security/Refresh/Shoes/Boots/combatboots.rsi # Aquila Change
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/combatboots.rsi
+    sprite: _Aquila/Clothing/Security/Refresh/Shoes/Boots/combatboots.rsi # Aquila Change
 
 - type: entity
   parent: ClothingShoesBaseButcherable #Goobstation

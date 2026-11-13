@@ -88,9 +88,9 @@
   description: Can hold various things.
   components:
   - type: Sprite
-    sprite: Clothing/Belt/utility.rsi
+    sprite: _Aquila/Clothing/EngExtraDrip/Belt/utility.rsi # Aquila Change
   - type: Clothing
-    sprite: Clothing/Belt/utility.rsi
+    sprite: _Aquila/Clothing/EngExtraDrip/Belt/utility.rsi # Aquila Change
   - type: Tag
     tags:
     - UtilityBelt
@@ -379,9 +379,9 @@
   description: Can hold security gear like handcuffs and flashes.
   components:
   - type: Sprite
-    sprite: Clothing/Belt/security.rsi
+    sprite: _Aquila/Clothing/Security/Refresh/Belt/security.rsi # Aquila Change
   - type: Clothing
-    sprite: Clothing/Belt/security.rsi
+    sprite: _Aquila/Clothing/Security/Refresh/Belt/security.rsi # Aquila Change
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: Storage

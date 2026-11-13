@@ -109,7 +109,7 @@
   - MedicalGloves
   - BrigmedicBackpack
   - SecurityMelee # EE parity, make corpsman able to carry weapons like the rest of security
-  - SecurityShoes
+  - BrigmedicShoesAquila # Aquila Change
   - SecurityNeck
   - SurvivalSecurity
   - Trinkets

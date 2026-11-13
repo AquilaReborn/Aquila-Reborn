@@ -1484,6 +1484,7 @@
   loadouts:
   - BrigmedicSecurityHat #Corvax-Goob-brigmedic-loadout-update
   - BrigmedicBeret
+  - BrigmedicHelmet # Aquila Change
   - CMOMedicalHeadMirror
   - SecurityBeret
   - SecurityHat

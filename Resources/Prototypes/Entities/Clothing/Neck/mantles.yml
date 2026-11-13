@@ -18,9 +18,9 @@
   description: High visibility, check. RIG system, check. High capacity cell, check. Everything a chief engineer could need in a stylish mantle.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Neck/Mantle/ChiefEngineer/whitecemantle.rsi # Goob Station - mantle resprite
+    sprite: _Aquila/Clothing/EngExtraDrip/Neck/mantles/cemantle.rsi # Aquila Change
   - type: Clothing
-    sprite: _Goobstation/Clothing/Neck/Mantle/ChiefEngineer/whitecemantle.rsi # Goob Station - mantle resprite
+    sprite: _Aquila/Clothing/EngExtraDrip/Neck/mantles/cemantle.rsi # Aquila Change
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
@@ -62,9 +62,9 @@
   description: Shootouts with syndicate agents are just another Tuesday for this HoS. This mantle is a symbol of commitment to the station.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Neck/Mantle/hosmantle.rsi # Goob Station - mantle resprite
+    sprite: _Aquila/Clothing/Security/Refresh/Neck/Mantles/hosmantle.rsi # Goob Station - mantle resprite # Aquila Change
   - type: Clothing
-    sprite: _Goobstation/Clothing/Neck/Mantle/hosmantle.rsi # Goob Station - mantle resprite
+    sprite: _Aquila/Clothing/Security/Refresh/Neck/Mantles/hosmantle.rsi # Goob Station - mantle resprite # Aquila Change
 
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]

@@ -182,9 +182,9 @@
   description: Unique and versatile chest rig, can hold security gear.
   components:
   - type: Sprite
-    sprite: Clothing/Belt/securitywebbing.rsi
+    sprite: _Aquila/Clothing/Security/Refresh/Belt/securitywebbing.rsi # Aquila Change
   - type: Clothing
-    sprite: Clothing/Belt/securitywebbing.rsi
+    sprite: _Aquila/Clothing/Security/Refresh/Belt/securitywebbing.rsi # Aquila Change
 
 - type: entity
   parent: [ ClothingBeltStorageBase, BaseSecurityCargoContraband ]

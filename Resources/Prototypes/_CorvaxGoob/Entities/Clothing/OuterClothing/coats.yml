@@ -5,9 +5,9 @@
   description: A greatcoat enhanced with a special alloy for some extra protection and style for those with a commanding presence.
   components:
     - type: Sprite
-      sprite: _CorvaxGoob/Clothing/OuterClothing/Coats/hos_greatcoat.rsi
+      sprite: _Aquila/Clothing/Security/Refresh/OuterClothing/Coats/hos_greatcoat.rsi # Aquila Change
     - type: Clothing
-      sprite: _CorvaxGoob/Clothing/OuterClothing/Coats/hos_greatcoat.rsi
+      sprite: _Aquila/Clothing/Security/Refresh/OuterClothing/Coats/hos_greatcoat.rsi # Aquila Change
     - type: Armor
       modifiers:
         coefficients:

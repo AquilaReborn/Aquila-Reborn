@@ -95,7 +95,7 @@
   description: It's a very robust backpack.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Backpacks/security.rsi
+    sprite: _Aquila/Clothing/Security/Refresh/Back/Backpacks/security.rsi # Aquila Change
 
 - type: entity
   parent: [ClothingBackpack, BaseSecurityContraband]
@@ -113,7 +113,7 @@
   description: It's a tough backpack for the daily grind of station life.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Backpacks/engineering.rsi
+    sprite: _Aquila/Clothing/EngExtraDrip/Back/Backpacks/engineering.rsi # Aquila Change
 
 - type: entity
   parent: ClothingBackpack
@@ -122,7 +122,7 @@
   description: It's a backpack made of fire resistant fibers. Smells like plasma.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Backpacks/atmospherics.rsi
+    sprite: _Aquila/Clothing/EngExtraDrip/Back/Backpacks/atmospherics.rsi # Aquila Change
 
 - type: entity
   parent: ClothingBackpack

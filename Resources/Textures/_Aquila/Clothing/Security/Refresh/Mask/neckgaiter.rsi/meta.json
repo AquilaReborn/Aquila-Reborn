@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprite by @mcdonaldsobamaburger and @sentryprimies; retained original states: Sprited by belay5 (Discord) | equipped-MASK-vox sprited by PuroSlavKing (Github), equipped-MASK-feroxi by RedTerror. hydrakin sprite by Zethine / @synthetic_086 (discord). Synth states from Afterlight.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "equipped-MASK-reptilian",
+      "directions": 4
+    },
+    {
+      "name": "equipped-MASK-vox",
+      "directions": 4
+    },
+    {
+      "name": "equipped-MASK",
+      "directions": 4
+    },
+    {
+      "name": "icon"
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "equipped-MASK-vulpkanin",
+      "directions": 4
+    },
+    {
+      "name": "equipped-MASK-feroxi",
+      "directions": 4
+    },
+    {
+      "name": "equipped-MASK-hydrakin",
+      "directions": 4
+    },
+    {
+      "name": "equipped-MASK-synth",
+      "directions": 4
+    }
+  ]
+}

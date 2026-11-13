@@ -1,0 +1,16 @@
+ent-ClothingUniformJumpsuitHuntSecurity = комбинезон охотничьего патруля
+    .desc = Полевая форма для патрулей службы безопасности.
+ent-ClothingHandsGlovesHuntSecurity = перчатки охотничьего патруля
+    .desc = Перчатки для патрулей службы безопасности.
+ent-ClothingNeckScarfHuntSecurity = шарф охотничьего патруля
+    .desc = Шарф для патрулей службы безопасности.
+ent-ClothingMaskNeckGaiterHuntSecurity = бафф охотничьего патруля
+    .desc = Бафф, который можно спустить на шею.
+ent-ClothingBeltHuntSecurity = разгрузка охотничьего патруля
+    .desc = Разгрузка для снаряжения патруля службы безопасности.
+ent-ClothingUniformJumpsuitSecAgent = костюм агента службы безопасности
+    .desc = Костюм для агентов службы безопасности.
+ent-ClothingUniformJumpsuitSecAgentAlt = альтернативный костюм агента службы безопасности
+    .desc = Другой вариант костюма для агентов службы безопасности.
+ent-ClothingOuterCoatSecAgent = пальто агента службы безопасности
+    .desc = Пальто для агентов службы безопасности.

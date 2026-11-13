@@ -154,6 +154,7 @@
       visible: false
     - state: lighter_flame
       map: ["flame"]
+      offset: "0.03125,0" # Aquila Change
       visible: false
       shader: unshaded
   - type: ItemToggle
@@ -251,6 +252,7 @@
       visible: false
     - state: lighter_flame
       map: ["flame"]
+      offset: "0.03125,0.03125" # Aquila Change
       visible: false
       shader: unshaded
   - type: StealTarget

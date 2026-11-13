@@ -172,7 +172,7 @@
     checkCanInteract: false
     itemIconStyle: NoItem
     icon:
-      sprite: Clothing/Shoes/Boots/jackboots.rsi
+      sprite: _Aquila/Clothing/Security/Refresh/Shoes/Boots/jackboots.rsi # Aquila Change
       state: icon
   - type: TargetAction
     interactOnMiss: false

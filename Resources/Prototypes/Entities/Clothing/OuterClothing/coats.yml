@@ -18,9 +18,9 @@
   description: An 18th-century multi-purpose trenchcoat. Someone who wears this means serious business.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/detective.rsi
+    sprite: _Aquila/Clothing/Security/Refresh/OuterClothing/Coats/detective.rsi # Aquila Change
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/detective.rsi
+    sprite: _Aquila/Clothing/Security/Refresh/OuterClothing/Coats/detective.rsi # Aquila Change
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
@@ -149,9 +149,9 @@
   description: A greatcoat enhanced with a special alloy for some extra protection and style for those with a commanding presence.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/hos_trenchcoat.rsi
+    sprite: _Aquila/Clothing/Security/Refresh/OuterClothing/Coats/hos_trenchcoat.rsi # Aquila Change
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/hos_trenchcoat.rsi
+    sprite: _Aquila/Clothing/Security/Refresh/OuterClothing/Coats/hos_trenchcoat.rsi # Aquila Change
 
 - type: entity
   parent: ClothingOuterStorageToggleableBase
@@ -437,9 +437,9 @@
   description: A sturdy, utilitarian jacket designed to protect a warden from any brig-bound threats.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/warden.rsi
+    sprite: _Aquila/Clothing/Security/Refresh/OuterClothing/Coats/warden.rsi # Aquila Change
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/warden.rsi
+    sprite: _Aquila/Clothing/Security/Refresh/OuterClothing/Coats/warden.rsi # Aquila Change
 
 - type: entity
   parent: ClothingOuterStorageBase

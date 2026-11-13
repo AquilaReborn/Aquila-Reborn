@@ -16,6 +16,6 @@
   description: Shootouts with nukies are just another tuesday for this HoS. This mantle is a symbol of commitment to the station.
   components:
   - type: Sprite
-    sprite: _CorvaxGoob/Clothing/Neck/Mantles/hosmantle_shoulder.rsi
+    sprite: _Aquila/Clothing/Security/Refresh/Neck/Mantles/hosmantle_shoulder.rsi # Aquila Change
   - type: Clothing
-    sprite: _CorvaxGoob/Clothing/Neck/Mantles/hosmantle_shoulder.rsi
+    sprite: _Aquila/Clothing/Security/Refresh/Neck/Mantles/hosmantle_shoulder.rsi # Aquila Change

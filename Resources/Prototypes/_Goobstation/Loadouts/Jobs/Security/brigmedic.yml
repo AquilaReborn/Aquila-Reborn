@@ -3,13 +3,13 @@
 - type: loadout
   id: BrigmedicJumpsuit
   equipment:
-    jumpsuit: ClothingUniformJumpsuitBrigmedic
+    jumpsuit: ClothingUniformJumpsuitBrigmedicAquila # Aquila Change
 
 
 - type: loadout
   id: BrigmedicJumpskirt
   equipment:
-    jumpsuit: ClothingUniformJumpskirtBrigmedic
+    jumpsuit: ClothingUniformJumpskirtBrigmedicAquila # Aquila Change
 
 
 - type: loadout

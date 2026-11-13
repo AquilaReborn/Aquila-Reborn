@@ -51,9 +51,9 @@
   - type: Item
     size: Tiny
   - type: Sprite
-    sprite: Clothing/Mask/gassecurity.rsi
+    sprite: _Aquila/Clothing/Security/Refresh/Mask/gassecurity.rsi # Aquila Change
   - type: Clothing
-    sprite: Clothing/Mask/gassecurity.rsi
+    sprite: _Aquila/Clothing/Security/Refresh/Mask/gassecurity.rsi # Aquila Change
   - type: Armor
     coverage:
     - Head
@@ -845,9 +845,9 @@
   description: Stylish neck gaiter for your neck, can protect from the cosmic wind?...
   components:
   - type: Sprite
-    sprite: Clothing/Mask/neckgaiter.rsi
+    sprite: _Aquila/Clothing/Security/Refresh/Mask/neckgaiter.rsi # Aquila Change
   - type: Clothing
-    sprite: Clothing/Mask/neckgaiter.rsi
+    sprite: _Aquila/Clothing/Security/Refresh/Mask/neckgaiter.rsi # Aquila Change
   - type: IdentityBlocker
     coverage: MOUTH
   - type: Tag

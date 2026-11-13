@@ -1,0 +1,16 @@
+ent-ClothingUniformJumpsuitHuntSecurity = hunter security jumpsuit
+    .desc = A field uniform for security patrols.
+ent-ClothingHandsGlovesHuntSecurity = hunter security gloves
+    .desc = Gloves for security patrols.
+ent-ClothingNeckScarfHuntSecurity = hunter security scarf
+    .desc = A scarf for security patrols.
+ent-ClothingMaskNeckGaiterHuntSecurity = hunter security neck gaiter
+    .desc = A neck gaiter that can be pulled down.
+ent-ClothingBeltHuntSecurity = hunter security chest rig
+    .desc = A chest rig for security patrol gear.
+ent-ClothingUniformJumpsuitSecAgent = security agent suit
+    .desc = A suit for security agents.
+ent-ClothingUniformJumpsuitSecAgentAlt = alternate security agent suit
+    .desc = An alternate suit for security agents.
+ent-ClothingOuterCoatSecAgent = security agent coat
+    .desc = A coat for security agents.

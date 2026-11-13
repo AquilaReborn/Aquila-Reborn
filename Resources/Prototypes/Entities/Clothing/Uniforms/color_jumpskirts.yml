@@ -268,20 +268,20 @@
   description: A generic yellow jumpskirt with no rank markings.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/color.rsi
+    sprite: _Aquila/Clothing/EngExtraDrip/Uniforms/Jumpskirt/Color/yellow.rsi # Aquila Change
     layers:
     - state: icon
-      color: "#ffe14d"
+      # color: "#ffe14d" # Aquila Change
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#ffe14d"
+        # color: "#ffe14d" # Aquila Change
       right:
       - state: inhand-right
-        color: "#ffe14d"
+        # color: "#ffe14d" # Aquila Change
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/color/yellow.rsi
+    sprite: _Aquila/Clothing/EngExtraDrip/Uniforms/Jumpskirt/Color/yellow.rsi # Aquila Change
 
 
 # Purple Jumpskirt

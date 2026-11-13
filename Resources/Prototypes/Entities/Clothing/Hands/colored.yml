@@ -325,9 +325,9 @@
   components:
   - type: FingerprintMask
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/Color/yellow.rsi
+    sprite: _Aquila/Clothing/EngExtraDrip/Hands/Gloves/Color/yellow.rsi # Aquila Change
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/Color/yellow.rsi
+    sprite: _Aquila/Clothing/EngExtraDrip/Hands/Gloves/Color/yellow.rsi # Aquila Change
   - type: Butcherable
     butcheringType: Knife
     spawned:

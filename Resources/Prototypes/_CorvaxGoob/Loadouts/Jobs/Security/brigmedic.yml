@@ -12,7 +12,7 @@
 - type: loadout
   id: BrigmedicHelmet
   equipment:
-    head: ClothingHeadHelmetSecurityMedic
+    head: ClothingHeadHelmetBrigmedicAquila # Aquila Change
 
 # Маска
 - type: loadout
@@ -23,7 +23,7 @@
 - type: loadout
   id: BrigmedicMedicalSecurity
   equipment:
-    mask: ClothingMaskBreathMedicalSecurity
+    mask: ClothingMaskRebreatherBrigmedicAquila # Aquila Change
 
 # Перчатки
 - type: loadout
@@ -92,4 +92,4 @@
 - type: loadout
   id: BrigmedicHud
   equipment:
-    eyes: ClothingEyesHudMedSec
+    eyes: ClothingEyesVisorBrigmedicAquila # Aquila Change

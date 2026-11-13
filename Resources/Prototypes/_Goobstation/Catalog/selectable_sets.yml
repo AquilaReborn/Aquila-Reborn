@@ -53,7 +53,7 @@
   name: selectable-set-thief-syndie-name
   description: selectable-set-thief-syndie-description
   sprite:
-    sprite: Objects/Specific/Syndicate/telecrystal.rsi
+    sprite: _Aquila/Objects/Specific/Syndicate/telecrystal.rsi # Aquila Change
     state: telecrystal
   content:
   - RadioJammer

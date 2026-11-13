@@ -267,9 +267,9 @@
   description: A baseball cap colored to match security's uniforms.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Soft/secsoft.rsi
+    sprite: _Aquila/Clothing/Security/Refresh/Head/Soft/secsoft.rsi # Aquila Change
   - type: Clothing
-    sprite: Clothing/Head/Soft/secsoft.rsi
+    sprite: _Aquila/Clothing/Security/Refresh/Head/Soft/secsoft.rsi # Aquila Change
   - type: Armor # Goob
     coverage:
     - Head

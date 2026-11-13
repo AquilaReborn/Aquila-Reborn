@@ -30,7 +30,7 @@
   description: A tough satchel with extra pockets.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Satchels/engineering.rsi
+    sprite: _Aquila/Clothing/EngExtraDrip/Back/Satchels/engineering.rsi # Aquila Change
 
 - type: entity
   parent: ClothingBackpackSatchel
@@ -39,7 +39,7 @@
   description: A tough satchel made of fire resistant fibers. Smells like plasma.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Satchels/atmospherics.rsi
+    sprite: _Aquila/Clothing/EngExtraDrip/Back/Satchels/atmospherics.rsi # Aquila Change
 
 - type: entity
   parent: ClothingBackpackSatchel
@@ -123,7 +123,7 @@
   description: A robust satchel for security related needs.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Satchels/security.rsi
+    sprite: _Aquila/Clothing/Security/Refresh/Back/Satchels/security.rsi # Aquila Change
 
 - type: entity
   parent: [ClothingBackpackSatchel, BaseSecurityContraband]
