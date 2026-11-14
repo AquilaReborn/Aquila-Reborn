@@ -50,7 +50,7 @@ public sealed class CyberLoadSystem : EntitySystem
         SubscribeLocalEvent<RecoilAbsorberArmComponent, GetCyberLoadEvent>(OnRecoilAbsorberGetLoad);
 
         SubscribeLocalEvent<MantisBladeArmComponent, ComponentStartup>(OnArmUpgradeChanged);
-        SubscribeLocalEvent<MantisBladeArmComponent, ComponentRemove>(OnArmUpgradeChanged);
+        SubscribeLocalEvent<MantisBladeArmComponent, ComponentShutdown>(OnArmUpgradeChanged);
         SubscribeLocalEvent<SmartLinkArmComponent, ComponentStartup>(OnArmUpgradeChanged);
         SubscribeLocalEvent<SmartLinkArmComponent, ComponentRemove>(OnArmUpgradeChanged);
         SubscribeLocalEvent<RecoilAbsorberArmComponent, ComponentStartup>(OnArmUpgradeChanged);

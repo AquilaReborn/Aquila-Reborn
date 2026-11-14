@@ -3,6 +3,7 @@ ent-BaseSpeedLoaderMagnum = спидлоадер (.45 магнум)
 ent-SpeedLoaderMagnum = спидлоадер (.45 магнум)
     .desc = { ent-BaseSpeedLoaderMagnum.desc }
 ent-SpeedLoaderMagnumEmpty = спидлоадер (.45 магнум любые)
+    .suffix = Пустой
     .desc = { ent-SpeedLoaderMagnum.desc }
 ent-SpeedLoaderMagnumIncendiary = спидлоадер (.45 магнум зажигательные)
     .desc = { ent-SpeedLoaderMagnum.desc }

@@ -128,7 +128,7 @@ marking-HumanHairBigLock = Большая прядь [Акила]
 marking-HumanHairTallHairTwoLayer = Длинные волосы [Акила]
 
 marking-LongPointedHorns = Направленные рога [Акила]
-marking-RamHorns = Бараньи рога [Акила]
+marking-AquilaRamHorns = Бараньи рога [Акила]
 marking-ShortHorns = Короткие рожки [Акила]
 marking-ShortStraightHorns = Прямые рожки [Акила]
 marking-ShortTwistedHorns = Короткие кривые рожки [Акила]

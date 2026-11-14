@@ -37,11 +37,6 @@
         whitelist:
           components:
             - PowerCell
-  - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
-      back:
-      - state: equipped-BACKPACK-sealed
 
 - type: entity
   parent: ClothingOuterBase
@@ -72,20 +67,6 @@
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-chestplate
-    sealDownPopup: sealable-clothing-seal-down-chestplate
-  - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING-sealed
-      outerClothing-resomi:
-      - state: equipped-OUTERCLOTHING-sealed-resomi
-      outerClothing-vox:
-      - state: equipped-OUTERCLOTHING-sealed-vox
-      outerClothing-hydrakin:
-      - state: equipped-OUTERCLOTHING-sealed-hydrakin
   # ИЗМЕНИТЬ: сопротивление взрывам (0.5 = урон от взрыва вдвое меньше).
   - type: ExplosionResistance
     damageCoefficient: 0.5
@@ -163,24 +144,6 @@
   - type: HideLayerClothing
     slots:
     - Snout
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-helmet
-    sealDownPopup: sealable-clothing-seal-down-helmet
-  - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
-      head:
-      - state: equipped-HEAD-sealed
-      head-resomi:
-      - state: equipped-HEAD-sealed-resomi
-      head-vox:
-      - state: equipped-HEAD-sealed-vox
-      head-vulpkanin:
-      - state: equipped-HEAD-sealed-vulpkanin
-      head-feroxi:
-      - state: equipped-HEAD-sealed-feroxi
-      head-hydrakin:
-      - state: equipped-HEAD-sealed-hydrakin
   - type: Armor
     # ИЗМЕНИТЬ: защита от травм (вычет урона по телу). Не резист, оставлено как у Security.
     traumaDeductions:
@@ -278,18 +241,6 @@
     fiberMaterial: fibers-modular
     fiberColor: fibers-black
   - type: FingerprintMask
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-gauntlets
-    sealDownPopup: sealable-clothing-seal-down-gauntlets
-  - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
-      gloves:
-      - state: equipped-HAND-sealed
-      gloves-vox:
-      - state: equipped-HAND-sealed-vox
-      gloves-hydrakin:
-      - state: equipped-HAND-sealed-hydrakin
 
 - type: entity
   parent: ClothingShoesBase
@@ -325,18 +276,6 @@
   - type: Tag
     tags:
     - WhitelistChameleon
-  - type: SealableClothing
-    sealUpPopup: sealable-clothing-seal-up-boots
-    sealDownPopup: sealable-clothing-seal-down-boots
-  - type: SealableClothingVisuals
-    spriteLayer: sealed
-    clothingVisuals:
-      shoes:
-      - state: equipped-FEET-sealed
-      shoes-vox:
-      - state: equipped-FEET-sealed-vox
-      shoes-hydrakin:
-      - state: equipped-FEET-sealed-hydrakin
   - type: ClothingSlowOnDamageModifier
     modifier: 0.5
   - type: ModifyStandingUpTime

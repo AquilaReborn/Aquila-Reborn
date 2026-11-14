@@ -2,9 +2,9 @@
   id: SpawnArmamentsDruid
   categories: [ HideSpawnMenu ]
   name: druid armor
-  parent: SpawnSupplyEmpty
+  parent: DropPod
   components:
-  - type: SpawnTableOnDespawn
+  - type: DropPod
     table: !type:AllSelector
       children:
       - id: ClothingOuterArmorDruid

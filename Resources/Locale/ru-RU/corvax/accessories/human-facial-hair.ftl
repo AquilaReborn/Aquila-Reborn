@@ -1,4 +1,3 @@
-marking-HumanFacialHairHandlebar = Усы (Велосипедный руль)
 marking-HumanFacialHairHandlebarAlt = Усы (Велосипедный руль альт.)
 marking-Mustache2 = Усы (тип 2)
 marking-Beard = Борода

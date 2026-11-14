@@ -1,14 +1,6 @@
 ## Эмоуты
 
 chat-emote-name-mew = Мяукать
-chat-emote-name-ring = Звенеть
-chat-emote-msg-ring = звенит
-chat-emote-name-pew = Пиу
-chat-emote-msg-pew = делает «пиу»
-chat-emote-name-bang = Бах
-chat-emote-msg-bang = делает «бах»
-chat-emote-name-rev = Рычать мотором
-chat-emote-msg-rev = рычит мотором
 chat-emote-name-caw = Каркать
 chat-emote-msg-caw = каркает
 chat-emote-name-bark = Лаять

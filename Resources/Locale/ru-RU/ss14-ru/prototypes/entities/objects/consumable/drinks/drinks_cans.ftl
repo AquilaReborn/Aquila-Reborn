@@ -1,4 +1,5 @@
 ent-DrinkCanBaseFull = { ent-BaseItem }
+    .suffix = Полный
     .desc = { ent-BaseItem.desc }
 ent-DrinkColaCan = баночка Спейс Кола
     .desc = Сладкий газированный безалкогольный напиток.

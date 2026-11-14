@@ -30,6 +30,7 @@ ent-ActionCosmicColossusHibernate = Оболочка сна
 ent-ActionCosmicColossusEffigy = Призвать изваяние
     .desc = Вытянуть изваяние энтропии в реальное пространство.
 ent-MindRoleCosmicColossus = Роль колосса
+    .desc = { ent-BaseMindRoleAntag.desc }
 ent-ColossusSurviveObjective = УСТОЯТЬ
     .desc = Продержитесь до конца всего сущего.
 ent-ColossusEffigyObjective = ПРИЗВАТЬ
@@ -94,8 +95,11 @@ ent-MindRoleGhostRoleFreeAgentSecurityGoob = Роль призрака (Воль
 ent-MindRoleGhostRoleSoloAntagonistMimeGoob = Роль антагониста
     .desc = { ent-MindRoleGhostRoleSoloAntagonistGoob.desc }
 ent-MindRoleGhostRoleSoloAntagonistPassengerGoob = Роль антагониста
+    .desc = { ent-MindRoleGhostRoleSoloAntagonistMimeGoob.desc }
 ent-MindRoleGhostRoleSoloAntagonistBorgGoob = Роль антагониста
+    .desc = { ent-MindRoleGhostRoleSoloAntagonistMimeGoob.desc }
 ent-MindRoleGhostRoleSoloAntagonistClownGoob = Роль антагониста
+    .desc = { ent-MindRoleGhostRoleSoloAntagonistMimeGoob.desc }
 
 ## Статусные эффекты
 

@@ -1,7 +1,7 @@
 using Content.Goobstation.Shared.MantisBlades;
 using Content.Goobstation.Shared.Sandevistan;
 using Content.Shared._Aquila.Cyberware.Components;
-using Content.Shared.Body.Systems;
+using Content.Shared.Actions;
 using Content.Shared.Popups;
 
 namespace Content.Server._Aquila.Cyberware;
@@ -14,8 +14,8 @@ public sealed class CyberwareBlockedSystem : EntitySystem
     private static readonly LocId BlockedMessage = "cyberware-blocked";
     private static readonly LocId UnblockedMessage = "cyberware-unblocked";
 
-    [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly CyberLoadSystem _cyberLoad = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SandevistanSystem _sandevistan = default!;
 
@@ -25,6 +25,7 @@ public sealed class CyberwareBlockedSystem : EntitySystem
 
         SubscribeLocalEvent<CyberwareBlockedComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<CyberwareBlockedComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<CyberwareBlockedComponent, ActionAddedEvent>(OnMantisBladesActionAdded);
     }
 
     private void OnStartup(Entity<CyberwareBlockedComponent> ent, ref ComponentStartup args)
@@ -32,10 +33,10 @@ public sealed class CyberwareBlockedSystem : EntitySystem
         if (TryComp<SandevistanUserComponent>(ent, out var sandevistan) && sandevistan.Active)
             _sandevistan.Disable(ent, sandevistan);
 
-        foreach (var (part, _) in _body.GetBodyChildren(ent.Owner))
-        {
-            RetractMantisBlade(part);
-        }
+        if (TryComp<MantisBladeUserComponent>(ent, out var blades))
+            _actions.SetEnabled(blades.ActionEntity, false);
+
+        RetractMantisBlades(ent);
 
         _cyberLoad.QueueRecalculationWithoutStrain(ent);
         _popup.PopupEntity(Loc.GetString(BlockedMessage), ent, ent, PopupType.MediumCaution);
@@ -46,21 +47,27 @@ public sealed class CyberwareBlockedSystem : EntitySystem
         if (TerminatingOrDeleted(ent))
             return;
 
+        if (TryComp<MantisBladeUserComponent>(ent, out var blades))
+            _actions.SetEnabled(blades.ActionEntity, true);
+
         _cyberLoad.QueueRecalculationWithoutStrain(ent);
         _popup.PopupEntity(Loc.GetString(UnblockedMessage), ent, ent, PopupType.Medium);
     }
 
-    private void RetractMantisBlade(EntityUid part)
+    private void OnMantisBladesActionAdded(Entity<CyberwareBlockedComponent> ent, ref ActionAddedEvent args)
     {
-        if (!TryComp<MantisBladeArmComponent>(part, out var blade) || blade.BladeUid == null)
+        if (!TryComp<MantisBladeUserComponent>(ent, out var blades)
+            || Prototype(args.Action)?.ID != blades.Action.Id)
             return;
 
-        RaiseLocalEvent(part, new ToggleMantisBladeEvent());
+        _actions.SetEnabled(args.Action, false);
+    }
 
-        if (blade.BladeUid is not { } stuck)
+    private void RetractMantisBlades(EntityUid body)
+    {
+        if (!TryComp<MantisBladeUserComponent>(body, out var blades) || !blades.IsExtended)
             return;
 
-        QueueDel(stuck);
-        blade.BladeUid = null;
+        RaiseLocalEvent(body, new ToggleMantisBladesActionEvent());
     }
 }

@@ -17,7 +17,7 @@ public sealed partial class HumanoidProfileEditor
             PlayPreviewBark();
         };
 
-        BarkVoicePlayButton.OnPressed += _ => PlayPreviewBark();
+        BarkVoiceButton.OnPlayPressed += _ => PlayPreviewBark();
     }
 
     private void UpdateBarkVoice()

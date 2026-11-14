@@ -84,6 +84,7 @@ enabled = true
 
 [voice]
 barks_enabled = true
+enabled = true # Aquila Change: влито в нашу секцию [voice]
 
 [biomass]
 easy_mode = false

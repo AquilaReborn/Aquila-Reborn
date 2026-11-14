@@ -567,7 +567,7 @@
     whitelist:
       tags:
         - CartridgeArmorPiercingSniperSVUMkI
-    proto: CartridgeSniperSVUMkIPiercing
+    proto: CartridgeArmorPiercingSniperSVUMkI
     capacity: 10
   - type: Item
     size: Small

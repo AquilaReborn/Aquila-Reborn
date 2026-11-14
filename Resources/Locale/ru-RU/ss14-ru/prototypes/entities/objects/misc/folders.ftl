@@ -24,6 +24,7 @@ ent-BoxFolderGreen = { ent-BoxFolderBase }
     .suffix = Зелёная
     .desc = { ent-BoxFolderBase.desc }
 ent-BoxFolderCentCom = папка ЦК
+    .suffix = НЕ МАППИТЬ, Заполнена
     .desc = Жалкая кучка секретов Центрального Командования!
 ent-BoxFolderClipboard = планшет
     .desc = Оружие тех, кто действует на передовой бюрократии.

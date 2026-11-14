@@ -36,5 +36,6 @@ action-speech-spell-summon-stick-minions = Восстаньте, мои твор
 action-speech-spell-tile-toggle = ПР'КЛ'ТЬЕ ВМ'А!!!
 action-speech-spell-curse-of-byond = ПРОКЛЯТЬЕ БЬЙОНДА!!!
 action-speech-spell-rathen = АРС НАТХ!!!
+action-speech-spell-summon-supermatter = ГИ'Т ОХ'О РИ'ЛЕР'!!!
 action-speech-spell-cluwne-goob = АНУОЛК ЬТСЕМ
 action-speech-spell-charge-goob = DI'RI CEL

@@ -48,6 +48,11 @@
   - type: Sprite
     sprite: Tiles/TileEntities/liquid-lava.rsi # Aquila Change
     drawdepth: BelowFloor
+    # Aquila Change start
+    layers:
+    - state: full
+      shader: unshaded
+    # Aquila Change end
   - type: Icon
     sprite: Tiles/TileEntities/liquid-lava.rsi # Aquila Change
     state: full

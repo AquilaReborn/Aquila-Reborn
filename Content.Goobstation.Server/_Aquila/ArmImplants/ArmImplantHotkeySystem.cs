@@ -57,9 +57,11 @@ public sealed partial class ArmImplantHotkeySystem : EntitySystem
         foreach (var (partId, _) in _body.GetBodyChildrenOfType(user, BodyPartType.Arm, symmetry: symmetry))
         {
             if (TryComp<MantisBladeArmComponent>(partId, out var blade)
-                && (held == null || held == blade.BladeUid))
+                && (held == null || held == blade.Blade))
             {
-                TryPerformAction(user, blade.ActionUid);
+                if (TryComp<MantisBladeUserComponent>(user, out var mantisBlades))
+                    TryPerformAction(user, mantisBlades.ActionEntity);
+
                 return;
             }
 

@@ -2,7 +2,7 @@
   id: FoxEars
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Human]
+  speciesRestriction: [Human, Dwarf]
   sponsorOnly: false # СУКА ВЛАСТЬ НАРОДУ # Aquila Change
   sprites:
   - sprite: _CorvaxGoob/Mobs/Customization/fox_parts.rsi
