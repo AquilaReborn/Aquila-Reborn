@@ -1,7 +1,7 @@
 - type: entity
   abstract: true
   # Aquila Change start
-  parent: [SolutionTank, SolutionGinormous, BaseWallmountMetallic, StructureHealthContainerFlimsy]
+  parent: [BaseWallmountMetallic, StructureHealthContainerFlimsy]
   id: BaseDispenser
   # Aquila Change end
   components:
@@ -38,6 +38,12 @@
   - type: ReagentTank
   - type: ExaminableSolution
     solution: tank
+  # Aquila Change start
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 960
+  # Aquila Change end
 
 - type: entity
   parent: BaseDispenser
@@ -55,11 +61,13 @@
     maxFillLevels: 5
     fillBaseName: fill-
   # Aquila Change start
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: SpaceCleaner
-        Quantity: 960
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 960
+        reagents:
+        - ReagentId: SpaceCleaner
+          Quantity: 960
   # Aquila Change end
 
 - type: entity
@@ -78,11 +86,13 @@
     maxFillLevels: 5
     fillBaseName: fill-
   # Aquila Change start
-  - type: Solution
-    solution:
-      reagents:
-      - ReagentId: WeldingFuel
-        Quantity: 960
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 960
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 960
   # Aquila Change end
   - type: ReagentTank
     tankType: Fuel

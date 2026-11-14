@@ -1,0 +1,9 @@
+heretic-livingheart-state-alive-male = alive
+heretic-livingheart-state-alive-female = alive
+heretic-livingheart-state-alive-neuter = alive
+heretic-livingheart-state-critical-male = critical
+heretic-livingheart-state-critical-female = critical
+heretic-livingheart-state-critical-neuter = critical
+heretic-livingheart-state-dead-male = dead
+heretic-livingheart-state-dead-female = dead
+heretic-livingheart-state-dead-neuter = dead

@@ -24,6 +24,7 @@
     - 00000000-0000-0000-0000-000000000000 # Ваш UUID
     # roles: # Необязательно: роли, у которых вещь появится в "Мой инвентарь". Без списка вещь доступна у всех ролей
     # - Warden
+  # replace: true # Старую вещь из слота удалить, а не класть в рюкзак. Вещь с содержимым не удаляется
   equipment: # Наденется на вас, заменяя старую вещь, старая вещь кладётся в рюкзак, либо в руку, если места нет
     head: ClothingHeadHatBeret # Слот головы
     # jumpsuit: ClothingUniformJumpsuitColorGrey # Слот комбинезона
@@ -70,6 +71,7 @@
 
 - type: loadout
   id: PersonalLoadoutCrookLvScienceJumpsuit
+  replace: true
   effects:
   - !type:PersonalLoadoutEffect
     users:
@@ -117,6 +119,7 @@
 
 - type: loadout
   id: PersonalLoadoutKeeynSkirt
+  replace: true
   effects:
   - !type:PersonalLoadoutEffect
     users:
@@ -157,6 +160,7 @@
 
 - type: loadout
   id: PersonalLoadoutMcDonaldsBlackDivisionUniform
+  replace: true
   effects:
   - !type:PersonalLoadoutEffect
     users:
@@ -168,6 +172,7 @@
 # gleb_debrucho
 - type: loadout
   id: PersonalLoadoutGlebDebruchoShirt
+  replace: true
   effects:
   - !type:PersonalLoadoutEffect
     users:
@@ -189,6 +194,7 @@
 # VergilAndDante
 - type: loadout
   id: PersonalLoadoutVergilAndDanteJumpsuit
+  replace: true
   effects:
   - !type:PersonalLoadoutEffect
     users:

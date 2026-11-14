@@ -10,6 +10,7 @@
   - type: SolutionContainerManager
     solutions:
       tank:
+        maxVol: 2000 # Aquila Change
         reagents:
         - ReagentId: OleoresinCapsaicin
           Quantity: 2000

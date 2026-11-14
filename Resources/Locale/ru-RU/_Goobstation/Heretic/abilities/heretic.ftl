@@ -48,10 +48,13 @@ heretic-manselink-start-target = Вы чувствуете, как ваш раз
 ## living heart
 
 heretic-livingheart-notargets = Нет доступных целей, посетите руну.
-heretic-livingheart-offstation = Оно { $state }, вне станции, { $direction }!
-heretic-livingheart-onstation = Оно { $state }, { $direction }!
+# Aquila Change
+heretic-livingheart-offstation = { $state }, вне станции, { $direction }!
+# Aquila Change
+heretic-livingheart-onstation = { $state }, { $direction }!
 heretic-livingheart-unknown = Оно... не в этом измерении.
-heretic-livingheart-faraway = Оно { $state }, невероятно далеко!
+# Aquila Change
+heretic-livingheart-faraway = { $state }, невероятно далеко!
 heretic-stargaze-obliterate-other = Вы видите, как { $uid } поглощается испепеляющим гневом космоса. На мгновение вы замечаете его силуэт, корчащийся в агонии, прежде чем он рассыпается в атомы.
 heretic-stargaze-obliterate-user = САМА СИЛА КОСМОСА ИЗЛИВАЕТСЯ НА ВАШУ ПЛОТЬ. ОБЖАГИЮЩИЕ ВОЛНЫ ОХВАТЫВАЮТ ВАШЕ ТЕЛО, РАЗДИРАЯ ЕГО НА ЧАСТИ. ВО МГНОВЕНИЕ ВЫ АННИГИЛИРУЕТЕ, ПРЕВРАЩАЕТЕСЬ В ТО, ЧЕМ ВСЕГДА БЫЛИ — В ПЫЛЬ...
 heretic-stargazer-reset-consciousness = ЭТО ДЕЙСТВИЕ НЕОБРАТИМО ИЗМЕНИТ СОЗНАНИЕ ВАШЕГО ЗВЁЗДНОГО НАБЛЮДАТЕЛЯ! Используйте снова, чтобы подтвердить.

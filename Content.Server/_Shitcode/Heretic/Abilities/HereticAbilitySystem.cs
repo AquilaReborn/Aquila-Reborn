@@ -296,7 +296,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         var uid = args.Actor;
 
         var state = mobstate.CurrentState;
-        var locstate = state.ToString().ToLower();
+        var locstate = GetHeartStateLoc(target.Value, state); // Aquila Change
 
         var ourMapCoords = _transform.GetMapCoordinates(uid);
         var targetMapCoords = _transform.GetMapCoordinates(target.Value);
@@ -326,6 +326,8 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
                 ("direction", locdir));
 
             var distance = vector.Length();
+
+            _heartWaypointer.SetTarget(uid, target.Value); // Aquila Change
 
             if (isOnStation && distance <= 50f)
                 _aud.PlayGlobal(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/heartbeat.ogg"), target.Value, AudioParams.Default.WithVolume(-distance * 0.5f)); // steep dropoff so it's more impactful when they're close

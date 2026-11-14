@@ -10,7 +10,8 @@ namespace Content.Shared._Aquila.PersonalLoadouts;
 
 /// <summary>
 /// Выдаёт личные вещи из лоадаута. Личная вещь занимает слот, а то, что в нём было,
-/// убирается в рюкзак или в руки, а не падает на пол.
+/// убирается в рюкзак или в руки, а не падает на пол. Если у лоадаута указан
+/// <see cref="LoadoutPrototype.Replace"/>, старая вещь без содержимого удаляется.
 /// </summary>
 public sealed class PersonalLoadoutSystem : EntitySystem
 {
@@ -40,19 +41,19 @@ public sealed class PersonalLoadoutSystem : EntitySystem
                 continue;
 
             if (_prototype.Resolve(proto.StartingGear, out var startingGear))
-                Equip(uid, proto.ID, startingGear);
+                Equip(uid, proto.ID, startingGear, proto.Replace);
 
-            Equip(uid, proto.ID, proto);
+            Equip(uid, proto.ID, proto, proto.Replace);
         }
     }
 
-    private void Equip(EntityUid uid, string loadoutId, IEquipmentLoadout gear)
+    private void Equip(EntityUid uid, string loadoutId, IEquipmentLoadout gear, bool replace)
     {
         var coords = Transform(uid).Coordinates;
 
         foreach (var (slot, protoId) in gear.Equipment)
         {
-            EquipToSlot(uid, loadoutId, slot, Spawn(protoId, coords));
+            EquipToSlot(uid, loadoutId, slot, Spawn(protoId, coords), replace);
         }
 
         foreach (var protoId in gear.Inhand)
@@ -81,7 +82,7 @@ public sealed class PersonalLoadoutSystem : EntitySystem
         }
     }
 
-    private void EquipToSlot(EntityUid uid, string loadoutId, string slot, EntityUid item)
+    private void EquipToSlot(EntityUid uid, string loadoutId, string slot, EntityUid item, bool replace)
     {
         if (!_inventory.TryGetSlot(uid, slot, out var slotDefinition))
         {
@@ -105,7 +106,7 @@ public sealed class PersonalLoadoutSystem : EntitySystem
             return;
         }
 
-        if (HasOccupiedDependents(uid, slot)
+        if ((!replace && HasOccupiedDependents(uid, slot))
             || !_inventory.TryUnequip(uid, slot, out var old, silent: true, force: true))
         {
             Stash(uid, item);
@@ -119,7 +120,7 @@ public sealed class PersonalLoadoutSystem : EntitySystem
             return;
         }
 
-        Stash(uid, old.Value);
+        ReplaceOldItem(uid, old.Value, replace);
     }
 
     private bool HasOccupiedDependents(EntityUid uid, string slot)
@@ -141,6 +142,17 @@ public sealed class PersonalLoadoutSystem : EntitySystem
         return _inventory.TryGetSlotEntity(uid, slot, out var slotEntity)
                && TryComp<StorageComponent>(slotEntity, out var storage)
                && _storage.Insert(slotEntity.Value, item, out _, storageComp: storage, playSound: false);
+    }
+
+    private void ReplaceOldItem(EntityUid uid, EntityUid item, bool replace)
+    {
+        if (!replace || Transform(item).ChildCount > 0)
+        {
+            Stash(uid, item);
+            return;
+        }
+
+        QueueDel(item);
     }
 
     private void Stash(EntityUid uid, EntityUid item)

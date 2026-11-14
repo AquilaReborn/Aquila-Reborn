@@ -1,0 +1,9 @@
+heretic-livingheart-state-alive-male = Он жив
+heretic-livingheart-state-alive-female = Она жива
+heretic-livingheart-state-alive-neuter = Оно живо
+heretic-livingheart-state-critical-male = Он при смерти
+heretic-livingheart-state-critical-female = Она при смерти
+heretic-livingheart-state-critical-neuter = Оно при смерти
+heretic-livingheart-state-dead-male = Он мёртв
+heretic-livingheart-state-dead-female = Она мертва
+heretic-livingheart-state-dead-neuter = Оно мертво
