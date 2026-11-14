@@ -1137,3 +1137,18 @@ RMCPlatformHybrisaThree: null
 RMCPlatformHybrisaThreeCorner: null
 RMCPlatformHybrisaThreeStairAlt: null
 # Aquila Change end
+
+# 2026-10-31 Goob - MODsuit refactor
+UndeterminedVoidsuitParamedic: ClothingOuterHardsuitVoidParamed
+UndeterminedVoidsuitSecurity: ClothingOuterVoidsuitSecurity
+UndeterminedVoidsuitHeadOfSecurity: ClothingOuterHardsuitSecurityRed
+UndeterminedVoidsuitEngineer: ClothingOuterHardsuitEngineering
+UndeterminedVoidsuitCaptain: ClothingOuterHardsuitCap
+UndeterminedVoidsuitRD: ClothingOuterHardsuitRd
+UndeterminedVoidsuitBrigMed: ClothingOuterHardsuitBrigmedic
+SpawnMobHumanHosModSuit: null
+SpawnMobHumanSecurityOfficerModSuit: null
+SpawnMobHumanBSOModSuit: null
+SpawnMobHumanCaptainModsuit: null
+ClothingModsuitStandardNoStorage: ClothingModsuitStandard
+BlueshieldUndeterminedHardsuit: ClothingOuterHardsuitBlueshieldLight

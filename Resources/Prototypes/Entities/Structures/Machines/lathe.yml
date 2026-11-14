@@ -471,6 +471,7 @@
     # Goobstation Packs
     - MechPartsGoob
     - Modsuits
+    - ModsuitModules
     - PowerCages
     - BorgModulesGoob
     - SecBorgParts # Goob
@@ -603,6 +604,7 @@
     - SecurityAmmo
     - SecurityWeapons
     - SecurityDisablers
+    - ModsuitSecurity # Goob
     # Goobstation
     - SecurityWeaponsGoob
     - RestraintTechnology
@@ -722,6 +724,7 @@
     dynamicPacks:
     - CompactDefib # Aquila Compact Defibrillator # Aquila Change
     - Chemistry
+    - ModsuitMedical # Goob
     # Goobstation Packs
     - Surgery
     - MedicalCybernetics
@@ -733,7 +736,7 @@
     - MedicalBoardsGoob
     - Janitor
     - Genetics
-    - MedicalCloning
+    #- MedicalCloning # CorvaxGoob
     # Einstein Engines Packs
     - Translators # Language
     - TranslatorImplanters # Language

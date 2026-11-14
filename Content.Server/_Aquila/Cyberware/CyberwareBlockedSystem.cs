@@ -1,7 +1,6 @@
 using Content.Goobstation.Shared.MantisBlades;
 using Content.Goobstation.Shared.Sandevistan;
 using Content.Shared._Aquila.Cyberware.Components;
-using Content.Shared.Body.Systems;
 using Content.Shared.Popups;
 
 namespace Content.Server._Aquila.Cyberware;
@@ -14,7 +13,6 @@ public sealed class CyberwareBlockedSystem : EntitySystem
     private static readonly LocId BlockedMessage = "cyberware-blocked";
     private static readonly LocId UnblockedMessage = "cyberware-unblocked";
 
-    [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly CyberLoadSystem _cyberLoad = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SandevistanSystem _sandevistan = default!;
@@ -32,10 +30,7 @@ public sealed class CyberwareBlockedSystem : EntitySystem
         if (TryComp<SandevistanUserComponent>(ent, out var sandevistan) && sandevistan.Active)
             _sandevistan.Disable(ent, sandevistan);
 
-        foreach (var (part, _) in _body.GetBodyChildren(ent.Owner))
-        {
-            RetractMantisBlade(part);
-        }
+        RetractMantisBlades(ent);
 
         _cyberLoad.QueueRecalculationWithoutStrain(ent);
         _popup.PopupEntity(Loc.GetString(BlockedMessage), ent, ent, PopupType.MediumCaution);
@@ -50,17 +45,11 @@ public sealed class CyberwareBlockedSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString(UnblockedMessage), ent, ent, PopupType.Medium);
     }
 
-    private void RetractMantisBlade(EntityUid part)
+    private void RetractMantisBlades(EntityUid body)
     {
-        if (!TryComp<MantisBladeArmComponent>(part, out var blade) || blade.BladeUid == null)
+        if (!TryComp<MantisBladeUserComponent>(body, out var blades) || !blades.IsExtended)
             return;
 
-        RaiseLocalEvent(part, new ToggleMantisBladeEvent());
-
-        if (blade.BladeUid is not { } stuck)
-            return;
-
-        QueueDel(stuck);
-        blade.BladeUid = null;
+        RaiseLocalEvent(body, new ToggleMantisBladesActionEvent());
     }
 }
