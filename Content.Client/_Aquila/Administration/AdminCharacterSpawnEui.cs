@@ -29,7 +29,7 @@ public sealed class AdminCharacterSpawnEui : BaseEui
         _window.OnClose -= OnWindowClosed;
         _window.OnConfirm -= SendMessage;
         _window.Close();
-        _window.ClearPreview();
+        _window.Release();
     }
 
     /// <inheritdoc/>

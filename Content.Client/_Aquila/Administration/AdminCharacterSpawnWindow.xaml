@@ -1,7 +1,7 @@
 <ui:FancyWindow xmlns="https://spacestation14.io"
                 xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
                 Title="{Loc 'aquila-admin-character-title'}"
-                SetSize="720 460" MinSize="590 410">
+                SetSize="820 540" MinSize="700 460">
     <BoxContainer Orientation="Vertical" SeparationOverride="8" Margin="8">
         <BoxContainer SeparationOverride="12" VerticalExpand="True">
             <BoxContainer Orientation="Vertical" SeparationOverride="8" MinSize="245 0">
@@ -15,16 +15,23 @@
                     <Button Name="NextProfile" Text="▶" VerticalAlignment="Center"
                             ToolTip="{Loc 'aquila-admin-character-next'}" />
                 </BoxContainer>
-                <Label Name="ProfileName" HorizontalAlignment="Center" ClipText="True" />
+                <Label Name="ProfileName" Align="Center" ClipText="True" />
             </BoxContainer>
-            <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="6">
-                <Label Text="{Loc 'aquila-admin-character-outfit'}" />
-                <LineEdit Name="SearchGear" PlaceHolder="{Loc 'aquila-admin-character-search'}" />
-                <ItemList Name="Gear" SelectMode="Single" VerticalExpand="True" RectClipContent="True" />
-                <Label Name="SelectedGear" ClipText="True" />
-                <Label Text="{Loc 'aquila-admin-character-name'}" />
-                <LineEdit Name="NameOverride" />
-            </BoxContainer>
+            <TabContainer HorizontalExpand="True" VerticalExpand="True">
+                <BoxContainer Name="EquipmentTab" Orientation="Vertical" HorizontalExpand="True" SeparationOverride="6">
+                    <Label Text="{Loc 'aquila-admin-character-outfit'}" />
+                    <LineEdit Name="SearchGear" PlaceHolder="{Loc 'aquila-admin-character-search'}" />
+                    <ItemList Name="Gear" SelectMode="Single" VerticalExpand="True" RectClipContent="True" />
+                    <Label Name="SelectedGear" ClipText="True" />
+                    <Button Name="Favorite" HorizontalAlignment="Left" />
+                    <Label Text="{Loc 'aquila-admin-character-name'}" />
+                    <LineEdit Name="NameOverride" />
+                </BoxContainer>
+                <BoxContainer Name="ImplantsTab" Orientation="Vertical" SeparationOverride="6">
+                    <LineEdit Name="ImplantSearch" PlaceHolder="{Loc 'aquila-admin-character-implant-search'}" />
+                    <ItemList Name="Implants" SelectMode="Multiple" VerticalExpand="True" RectClipContent="True" />
+                </BoxContainer>
+            </TabContainer>
         </BoxContainer>
         <CheckBox Name="InsideStorage" Text="{Loc 'aquila-admin-character-inside-storage'}" Visible="False" />
         <Label Name="Status" Visible="False" ClipText="True" />
