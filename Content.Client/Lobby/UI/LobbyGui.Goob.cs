@@ -170,7 +170,7 @@ public sealed partial class LobbyGui
         AddLink("server-info-wiki-button", CCVars.InfoLinksWiki);
         AddLink("server-info-forum-button", CCVars.InfoLinksForum);
         AddLink("server-info-telegram-button", CCVars.InfoLinksTelegram);
-        AddLink("rmc-ui-patreon", CCVars.InfoLinksPatreon);
+        // AddLink("rmc-ui-patreon", CCVars.InfoLinksPatreon); // Aquila Change
 
         /* CorvaxGoob-Coins-start
         var linkAccount = new Button { Text = Loc.GetString("rmc-ui-link-discord-account") };

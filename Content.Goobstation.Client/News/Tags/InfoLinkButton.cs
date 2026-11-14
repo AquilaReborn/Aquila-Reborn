@@ -60,7 +60,7 @@ public sealed partial class InfoLinkButton : Button, IDocumentTag
             "Github" => CCVars.InfoLinksGithub,
             "Website" => CCVars.InfoLinksWebsite,
             "Wiki" => CCVars.InfoLinksWiki,
-            "Patreon" => CCVars.InfoLinksPatreon,
+            // "Patreon" => CCVars.InfoLinksPatreon, // Aquila Change
             "BugReport" => CCVars.InfoLinksBugReport,
             "Appeal" => CCVars.InfoLinksAppeal,
             "Telegram" => CCVars.InfoLinksTelegram,

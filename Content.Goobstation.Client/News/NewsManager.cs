@@ -136,6 +136,8 @@ public sealed partial class NewsManager
 
     public bool TryRender(Control target, ResPath path)
     {
+        path = ResolveLocalizedPath(path); // Aquila Change
+
         if (!_res.ContentFileExists(path))
         {
             _sawmill.Error($"News document {path} doesn't exist");

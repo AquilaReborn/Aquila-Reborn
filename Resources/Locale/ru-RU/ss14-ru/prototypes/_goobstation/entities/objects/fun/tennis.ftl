@@ -1,4 +1,6 @@
 
+ent-TennisBallGoob = теннисный мяч
+    .desc = Создан для проверки терпения службы безопасности.
 ent-BaseTennisRacket = теннисная ракетка
     .desc = Робастная теннисная ракетка.
 ent-NTTennisRacket = теннисная ракетка NanoTrasen

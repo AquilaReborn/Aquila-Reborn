@@ -53,7 +53,7 @@ forum = "https://forums.goobstation.com"
 github = "https://github.com/Goob-Station/Goob-Station"
 website = "https://goobstation.com"
 wiki = "https://wiki.goobstation.com"
-patreon = "https://www.patreon.com/goobstation14"
+# patreon = "https://www.patreon.com/goobstation14" # Aquila Change
 bug_report = "https://github.com/Goob-Station/Goob-Station/issues/new"
 appeal = "https://forums.goobstation.com"
 
@@ -96,4 +96,4 @@ barks_enabled = true
 easy_mode = false
 
 [news]
-pinned = "PatreonSupport"
+pinned = "" # Aquila Change: убрана новость PatreonSupport

@@ -1,0 +1,7 @@
+<Document>
+  Твоя поддержка помогает нам держать серверы на ходу, финансировать разработку и продолжать улучшать игру.
+  <Box>
+    <InfoLinkButton Link="Patreon" Text="news-patreon-visit"/>
+    <NewsOpenButton Entry="PatreonSupport" Text="news-patreon-perks"/>
+  </Box>
+</Document>

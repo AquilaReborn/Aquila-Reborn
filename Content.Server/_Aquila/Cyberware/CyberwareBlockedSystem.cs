@@ -1,6 +1,7 @@
 using Content.Goobstation.Shared.MantisBlades;
 using Content.Goobstation.Shared.Sandevistan;
 using Content.Shared._Aquila.Cyberware.Components;
+using Content.Shared.Actions;
 using Content.Shared.Popups;
 
 namespace Content.Server._Aquila.Cyberware;
@@ -14,6 +15,7 @@ public sealed class CyberwareBlockedSystem : EntitySystem
     private static readonly LocId UnblockedMessage = "cyberware-unblocked";
 
     [Dependency] private readonly CyberLoadSystem _cyberLoad = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SandevistanSystem _sandevistan = default!;
 
@@ -23,12 +25,16 @@ public sealed class CyberwareBlockedSystem : EntitySystem
 
         SubscribeLocalEvent<CyberwareBlockedComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<CyberwareBlockedComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<CyberwareBlockedComponent, ActionAddedEvent>(OnMantisBladesActionAdded);
     }
 
     private void OnStartup(Entity<CyberwareBlockedComponent> ent, ref ComponentStartup args)
     {
         if (TryComp<SandevistanUserComponent>(ent, out var sandevistan) && sandevistan.Active)
             _sandevistan.Disable(ent, sandevistan);
+
+        if (TryComp<MantisBladeUserComponent>(ent, out var blades))
+            _actions.SetEnabled(blades.ActionEntity, false);
 
         RetractMantisBlades(ent);
 
@@ -41,8 +47,20 @@ public sealed class CyberwareBlockedSystem : EntitySystem
         if (TerminatingOrDeleted(ent))
             return;
 
+        if (TryComp<MantisBladeUserComponent>(ent, out var blades))
+            _actions.SetEnabled(blades.ActionEntity, true);
+
         _cyberLoad.QueueRecalculationWithoutStrain(ent);
         _popup.PopupEntity(Loc.GetString(UnblockedMessage), ent, ent, PopupType.Medium);
+    }
+
+    private void OnMantisBladesActionAdded(Entity<CyberwareBlockedComponent> ent, ref ActionAddedEvent args)
+    {
+        if (!TryComp<MantisBladeUserComponent>(ent, out var blades)
+            || Prototype(args.Action)?.ID != blades.Action.Id)
+            return;
+
+        _actions.SetEnabled(args.Action, false);
     }
 
     private void RetractMantisBlades(EntityUid body)
