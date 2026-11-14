@@ -1,57 +1,5 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Harpy
-- type: emote
-  id: Ring
-  name: chat-emote-name-ring # Aquila Change
-  category: Vocal
-  icon: _Goobstation/Interface/Emotes/ring.png
-  whitelist:
-    tags:
-    - HarpyEmotes
-  blacklist:
-    components:
-    - BorgChassis
-  chatMessages: ["chat-emote-msg-ring"] # Aquila Change
-  chatTriggers:
-    - ring
-    - rings
-    - ringing
-    - ringed
-
-- type: emote
-  id: Pew
-  name: chat-emote-name-pew # Aquila Change
-  category: Vocal
-  icon: _Goobstation/Interface/Emotes/pew.png
-  whitelist:
-    tags:
-    - HarpyEmotes
-  blacklist:
-    components:
-    - BorgChassis
-  chatMessages: ["chat-emote-msg-pew"] # Aquila Change
-  chatTriggers:
-    - pew
-    - pews
-
-- type: emote
-  id: Bang
-  name: chat-emote-name-bang # Aquila Change
-  category: Vocal
-  icon: _Goobstation/Interface/Emotes/bang.png
-  whitelist:
-    tags:
-    - HarpyEmotes
-  blacklist:
-    components:
-    - BorgChassis
-  chatMessages: ["chat-emote-msg-bang"] # Aquila Change
-  chatTriggers:
-    - bangs
-    - bang
-    - banging
-    - banged
-
 #- type: emote
 #  id: Beep
 #  category: Vocal
@@ -61,24 +9,6 @@
 #    - beep
 #    - beeping
 #    - beeped
-
-- type: emote
-  id: Rev
-  name: chat-emote-name-rev # Aquila Change
-  category: Vocal
-  icon: _Goobstation/Interface/Emotes/rev.png
-  whitelist:
-    tags:
-    - HarpyEmotes
-  blacklist:
-    components:
-    - BorgChassis
-  chatMessages: ["chat-emote-msg-rev"] # Aquila Change
-  chatTriggers:
-    - revs
-    - rev
-    - revving
-    - revved
 
 #- type: emote
 #  id: Click
@@ -117,7 +47,6 @@
   whitelist:
     tags:
     - VulpEmotes
-    - HarpyEmotes
   blacklist:
     components:
     - BorgChassis
@@ -136,7 +65,6 @@
   whitelist:
     tags:
     - VulpEmotes
-    - HarpyEmotes
   blacklist:
     components:
     - BorgChassis
@@ -155,7 +83,6 @@
   whitelist:
     tags:
     - VulpEmotes
-    - HarpyEmotes
   blacklist:
     components:
     - BorgChassis
@@ -174,7 +101,6 @@
   whitelist:
     tags:
     - VulpEmotes
-    - HarpyEmotes
   blacklist:
     components:
     - BorgChassis
@@ -193,7 +119,6 @@
   whitelist:
     tags:
     - VulpEmotes
-    - HarpyEmotes
   blacklist:
     components:
     - BorgChassis

@@ -4,3 +4,9 @@
 
 marking-dogTail = Собачий хвост
 marking-dogTailWag = Собачий хвост(Виляющий)
+
+marking-SynthTailSynthliz = Синто-хвост(Синтоящер)
+marking-SynthTailSynthliz-tail_synthliz = Хвост
+
+marking-SynthTailSynthlizWag = Синто-хвост(Синтоящер, Виляющий)
+marking-SynthTailSynthlizWag-tail_synthliz_wagging = Хвост

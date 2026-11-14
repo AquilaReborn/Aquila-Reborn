@@ -20,7 +20,8 @@ public sealed partial class StasisOverlaySystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<InsideStasisComponent, ComponentInit>(OnStasisInit);
-        SubscribeLocalEvent<InsideStasisComponent, ComponentShutdown>(OnStasisShutdown);
+        // SubscribeLocalEvent<InsideStasisComponent, ComponentShutdown>(OnStasisShutdown); // Aquila Change
+        InitializeAquila(); // Aquila Change
 
         SubscribeLocalEvent<InsideStasisComponent, LocalPlayerAttachedEvent>(OnPlayerAttached);
         SubscribeLocalEvent<InsideStasisComponent, LocalPlayerDetachedEvent>(OnPlayerDetached);
@@ -44,11 +45,13 @@ public sealed partial class StasisOverlaySystem : EntitySystem
             _overlayManager.AddOverlay(_overlay);
     }
 
-    private void OnStasisShutdown(Entity<InsideStasisComponent> stasised, ref ComponentShutdown args)
-    {
-        if (_player.LocalEntity == stasised)
-        {
-            _overlayManager.RemoveOverlay(_overlay);
-        }
-    }
+    // Aquila Change start
+    // private void OnStasisShutdown(Entity<InsideStasisComponent> stasised, ref ComponentShutdown args)
+    // {
+    //     if (_player.LocalEntity == stasised)
+    //     {
+    //         _overlayManager.RemoveOverlay(_overlay);
+    //     }
+    // }
+    // Aquila Change end
 }

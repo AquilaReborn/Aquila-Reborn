@@ -49,6 +49,7 @@ public sealed partial class CreditsWindow : DefaultWindow
 
         TabContainer.SetTabTitle(Ss14ContributorsTab, Loc.GetString("credits-window-ss14contributorslist-tab"));
         TabContainer.SetTabTitle(PatronsTab, Loc.GetString("credits-window-patrons-tab"));
+        HidePatronsTab(); // Aquila Change
         TabContainer.SetTabTitle(LicensesTab, Loc.GetString("credits-window-licenses-tab"));
         TabContainer.SetTabTitle(AttributionsTab, Loc.GetString("credits-window-attributions-tab"));
 
@@ -274,19 +275,21 @@ public sealed partial class CreditsWindow : DefaultWindow
 
         var patrons = LoadPatrons();
 
-            var linkPatreon = _cfg.GetCVar(CCVars.InfoLinksPatreon);
-            if (linkPatreon != "")
-            {
-                Button patronButton;
-                patronsContainer.AddChild(patronButton = new Button
-                {
-                    Text = Loc.GetString("credits-window-become-patron-button"),
-                    HorizontalAlignment = HAlignment.Center
-                });
-
-            patronButton.OnPressed +=
-                _ => IoCManager.Resolve<IUriOpener>().OpenUri(linkPatreon);
-        }
+        // Aquila Change start
+        // var linkPatreon = _cfg.GetCVar(CCVars.InfoLinksPatreon);
+        // if (linkPatreon != "")
+        // {
+        //     Button patronButton;
+        //     patronsContainer.AddChild(patronButton = new Button
+        //     {
+        //         Text = Loc.GetString("credits-window-become-patron-button"),
+        //         HorizontalAlignment = HAlignment.Center
+        //     });
+        //
+        //     patronButton.OnPressed +=
+        //         _ => IoCManager.Resolve<IUriOpener>().OpenUri(linkPatreon);
+        // }
+        // Aquila Change end
 
         var first = true;
         // Goob start - patron tier prototypes

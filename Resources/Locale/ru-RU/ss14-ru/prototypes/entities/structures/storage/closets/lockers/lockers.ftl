@@ -90,6 +90,7 @@ ent-LockerDetective = шкаф детектива
 ent-LockerEvidence = шкаф для улик
     .desc = Для хранения пакетиков с гильзами и вещей задержанных.
 ent-LockerSyndicatePersonal = оружейный шкаф
+    .suffix = Закрыт
     .desc = Это персональное хранилище для оперативного снаряжения.
 ent-LockerBluespaceStation = блюспейс шкаф
     .desc = Передовая технология шкафчикостроения.

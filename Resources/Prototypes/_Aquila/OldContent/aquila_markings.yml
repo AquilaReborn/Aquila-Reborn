@@ -538,7 +538,7 @@
       state: long_pointed_horns
 
 - type: marking
-  id: RamHorns
+  id: AquilaRamHorns
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Human, Dwarf]
