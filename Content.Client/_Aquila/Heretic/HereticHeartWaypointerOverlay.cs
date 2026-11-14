@@ -18,7 +18,7 @@ public sealed class HereticHeartWaypointerOverlay : Overlay
     private static readonly ResPath MarkerRsi = new("/Textures/_Aquila/Markers/Waypointers/waypointer.rsi");
 
     private const int MarkerStateCount = 5;
-    private const float MarkerSize = 2f;
+    private const float MarkerSize = 2.5f;
     private const float MinDirectionLengthSquared = 0.01f;
 
     [Dependency] private readonly IEntityManager _entity = default!;

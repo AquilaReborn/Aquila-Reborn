@@ -50,13 +50,13 @@ public sealed partial class HereticHeartWaypointerComponent : Component
     /// Дальность, начиная с которой градация считается максимальной.
     /// </summary>
     [DataField]
-    public float MaxRange = 50f;
+    public float MaxRange = 30f;
 
     /// <summary>
     /// На сколько тайлов от еретика висит стрелка.
     /// </summary>
     [DataField]
-    public float Offset = 1f;
+    public float Offset = 1.2f;
 
     /// <summary>
     /// Момент следующего обновления позиции жертвы.
