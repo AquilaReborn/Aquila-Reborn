@@ -33,10 +33,13 @@ public sealed class AutoVoteSystem : EntitySystem
 
         switch (ev.New)
         {
-            case GameRunLevel.PostRound:
+            case GameRunLevel.PostRound when !_ticker.LobbyEnabled:
                 StartPresetVote();
                 break;
             case GameRunLevel.PreRoundLobby when ev.Old == GameRunLevel.PostRound:
+                if (_ticker.LobbyEnabled)
+                    StartPresetVote();
+
                 StartMapVote();
                 break;
         }
