@@ -33,6 +33,11 @@ public sealed class AdminCharacterSpawnRequest : EuiMessageBase
     public ProtoId<StartingGearPrototype>? Gear;
 
     /// <summary>
+    /// Подкожные импланты, которые получит созданный персонаж.
+    /// </summary>
+    public List<EntProtoId> Implants = new();
+
+    /// <summary>
     /// Имя, заданное администратором.
     /// </summary>
     public string? Name;

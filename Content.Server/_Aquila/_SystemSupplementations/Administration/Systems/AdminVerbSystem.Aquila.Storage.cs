@@ -57,6 +57,24 @@ public sealed partial class AdminVerbSystem
         return storage.HasValue;
     }
 
+    private bool TryValidateAdminSpawnStorage(ICommonSession player, EntityUid? offeredStorage, out EntityUid? storage)
+    {
+        storage = null;
+        if (offeredStorage is not { } uid
+            || player.AttachedEntity is not { } ghost
+            || !HasComp<GhostComponent>(ghost)
+            || !TryComp<EntityStorageComponent>(uid, out var component)
+            || !CanUseAdminSpawnStorage(uid, component)
+            || !Transform(ghost).Coordinates.TryDistance(EntityManager, Transform(uid).Coordinates, out var distance)
+            || distance > AdminSpawnStorageRange)
+        {
+            return false;
+        }
+
+        storage = uid;
+        return true;
+    }
+
     private bool TryPlaceAdminSpawnInsideStorage(EntityUid mob, EntityUid? storage)
     {
         return storage is { } uid

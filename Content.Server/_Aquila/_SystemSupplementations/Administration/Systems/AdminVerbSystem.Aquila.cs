@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server._Aquila.Administration;
 using Content.Server.Administration.Logs;
+using Content.Server.Implants;
 using Content.Server.Preferences.Managers;
 using Content.Server.Station.Systems;
 using Content.Shared._Aquila.Administration;
@@ -9,6 +10,7 @@ using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Implants.Components;
 using Content.Shared.Mind;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
@@ -24,6 +26,7 @@ public sealed partial class AdminVerbSystem
     [Dependency] private readonly IServerPreferencesManager _spawnPreferences = default!;
     [Dependency] private readonly IConfigurationManager _spawnConfiguration = default!;
     [Dependency] private readonly IAdminLogManager _spawnAdminLog = default!;
+    [Dependency] private readonly SubdermalImplantSystem _spawnImplants = default!;
     [Dependency] private readonly StationSystem _stations = default!;
     [Dependency] private readonly StationSpawningSystem _spawning = default!;
 
@@ -103,15 +106,7 @@ public sealed partial class AdminVerbSystem
 
     private static HumanoidCharacterProfile CreateSpawnPreview(HumanoidCharacterProfile profile)
     {
-        return new HumanoidCharacterProfile
-        {
-            Name = profile.Name,
-            Species = profile.Species,
-            Appearance = profile.Appearance,
-            Age = profile.Age,
-            Height = profile.Height,
-            Width = profile.Width,
-        }.WithSex(profile.Sex).WithGender(profile.Gender);
+        return new HumanoidCharacterProfile(profile);
     }
 
     internal bool TrySpawnAdminCharacter(EntityUid target, ICommonSession player, ICommonSession targetPlayer,
@@ -129,7 +124,7 @@ public sealed partial class AdminVerbSystem
 
         EntityUid? storage = null;
         if (request.SpawnInsideStorage
-            && (!TryGetAdminSpawnStorage(player, out storage) || storage != offeredStorage))
+            && !TryValidateAdminSpawnStorage(player, offeredStorage, out storage))
             return false;
 
         var destination = storage ?? (clone ? user : target);
@@ -139,7 +134,7 @@ public sealed partial class AdminVerbSystem
             return false;
         }
 
-        if (!TryResolveSpawnProfile(preferences, targetPreferences, request, out var profile, out var preset)
+        if (!TryResolveSpawnProfile(player, targetPlayer, preferences, targetPreferences, request, out var profile, out var preset)
             || !_prototypeManager.TryIndex(profile.Species, out _))
         {
             return false;
@@ -152,6 +147,9 @@ public sealed partial class AdminVerbSystem
             return false;
         }
 
+        if (!ValidateAdminSpawnChoices(request))
+            return false;
+
         if (!string.IsNullOrWhiteSpace(request.Name))
         {
             var name = request.Name.Trim();
@@ -161,11 +159,13 @@ public sealed partial class AdminVerbSystem
             profile = profile.WithName(name);
         }
 
+        var placed = storage == null;
         var station = _stations.GetOwningStation(target);
         var mob = _spawning.SpawnPlayerMob(coordinates.Value, null, profile, station,
-            adminGear: gear, adminPreset: preset);
+            adminGear: gear, adminPreset: preset,
+            placeBeforeEquipment: storage == null ? null : body => placed = TryPlaceAdminSpawnInsideStorage(body, storage));
 
-        if (storage != null && !TryPlaceAdminSpawnInsideStorage(mob, storage))
+        if (!placed)
         {
             Del(mob);
             return false;
@@ -174,22 +174,55 @@ public sealed partial class AdminVerbSystem
         if (mindComp != null)
             _mindSystem.TransferTo(mind, mob, true, mind: mindComp);
 
+        _spawnImplants.AddImplants(mob, request.Implants.Distinct());
+
         var action = clone ? "cloned" : "respawned";
         _spawnAdminLog.Add(LogType.AdminCommands, LogImpact.High,
             $"{ToPrettyString(user):user} {action} {ToPrettyString(target):target} as {ToPrettyString(mob):spawned}");
         return true;
     }
 
-    private bool TryResolveSpawnProfile(PlayerPreferences? preferences, PlayerPreferences targetPreferences, AdminCharacterSpawnRequest request,
+    private bool ValidateAdminSpawnChoices(AdminCharacterSpawnRequest request)
+    {
+        if (request.Implants == null)
+            return false;
+
+        foreach (var implant in request.Implants)
+        {
+            if (string.IsNullOrEmpty(implant.Id)
+                || !_prototypeManager.TryIndex(implant, out var prototype)
+                || prototype.Abstract
+                || !prototype.TryGetComponent<SubdermalImplantComponent>(out _, EntityManager.ComponentFactory)
+                || prototype.TryGetComponent<HideFromAdminCharacterSpawnComponent>(out _, EntityManager.ComponentFactory))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private bool TryResolveSpawnProfile(ICommonSession player, ICommonSession targetPlayer, PlayerPreferences? preferences, PlayerPreferences targetPreferences, AdminCharacterSpawnRequest request,
         [NotNullWhen(true)] out HumanoidCharacterProfile? profile, out HumanoidProfilePrototype? preset)
     {
         profile = null;
         preset = null;
 
+        if (request.UseTargetSlot && request.Slot == null)
+            return false;
+
         if (request.Slot is { } slot)
         {
             var source = request.UseTargetSlot ? targetPreferences : preferences;
             if (request.Preset != null || source == null || !source.Characters.TryGetValue(slot, out var character))
+            {
+                return false;
+            }
+
+            var owner = request.UseTargetSlot ? targetPlayer : player;
+            if (!_spawnPreferences.TryGetCachedPreferences(owner.UserId, out var current)
+                || !current.Characters.TryGetValue(slot, out var currentCharacter)
+                || !ReferenceEquals(character, currentCharacter))
             {
                 return false;
             }
@@ -207,7 +240,10 @@ public sealed partial class AdminVerbSystem
             return true;
         }
 
-        if (!targetPreferences.Characters.TryGetValue(targetPreferences.SelectedCharacterIndex, out var selected))
+        if (!targetPreferences.Characters.TryGetValue(targetPreferences.SelectedCharacterIndex, out var selected)
+            || !_spawnPreferences.TryGetCachedPreferences(targetPlayer.UserId, out var currentTarget)
+            || !currentTarget.Characters.TryGetValue(targetPreferences.SelectedCharacterIndex, out var currentSelected)
+            || !ReferenceEquals(selected, currentSelected))
         {
             return false;
         }

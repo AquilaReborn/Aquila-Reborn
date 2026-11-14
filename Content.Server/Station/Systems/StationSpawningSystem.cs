@@ -87,13 +87,14 @@ public sealed partial class StationSpawningSystem : SharedStationSpawningSystem 
     /// <param name="entity">The entity to use, if one already exists.</param>
     /// <param name="adminGear">Стартовое снаряжение, выбранное администратором.</param> <!-- Aquila Change -->
     /// <param name="adminPreset">Пресет внешности, выбранный администратором.</param> <!-- Aquila Change -->
+    /// <param name="placeBeforeEquipment">Вызывается до выдачи снаряжения; при возврате false снаряжение не выдаётся.</param> <!-- Aquila Change -->
     /// <returns>The spawned entity</returns>
     public EntityUid SpawnPlayerMob(
         EntityCoordinates coordinates,
         ProtoId<JobPrototype>? job,
         HumanoidCharacterProfile? profile,
         EntityUid? station,
-        EntityUid? entity = null, StartingGearPrototype? adminGear = null, HumanoidProfilePrototype? adminPreset = null) // Aquila Change
+        EntityUid? entity = null, StartingGearPrototype? adminGear = null, HumanoidProfilePrototype? adminPreset = null, Func<EntityUid, bool>? placeBeforeEquipment = null) // Aquila Change
     {
         _prototypeManager.Resolve(job, out var prototype);
         RoleLoadout? loadout = null;
@@ -159,11 +160,14 @@ public sealed partial class StationSpawningSystem : SharedStationSpawningSystem 
             EquipRoleLoadout(entity.Value, loadout, roleProto!, equipPersonal: false); // Aquila Change
         }
 
-        if (!TryEquipAdminSpawnGear(entity.Value, adminGear) && prototype?.StartingGear != null) // Aquila Change
+        if (prototype?.StartingGear != null)
         {
             var startingGear = _prototypeManager.Index<StartingGearPrototype>(prototype.StartingGear);
             EquipStartingGear(entity.Value, startingGear, raiseEvent: false);
         }
+
+        if (!TryEquipAdminCharacterSpawnGear(entity.Value, adminGear, placeBeforeEquipment, profile)) // Aquila Change
+            return entity.Value; // Aquila Change
 
         // Aquila Change start
         if (loadout != null)
