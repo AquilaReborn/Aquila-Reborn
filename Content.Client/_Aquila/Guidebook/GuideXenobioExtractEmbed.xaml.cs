@@ -133,7 +133,7 @@ public sealed partial class GuideXenobioExtractEmbed : BoxContainer, IDocumentTa
         {
             HorizontalExpand = true,
             Margin = new Thickness(0, 4, 0, 0),
-            StyleClasses = { StyleNano.StyleClassBackgroundBaseLight },
+            StyleClasses = { "PanelBackgroundBaseLight" },
         };
         row.AddChild(content);
 

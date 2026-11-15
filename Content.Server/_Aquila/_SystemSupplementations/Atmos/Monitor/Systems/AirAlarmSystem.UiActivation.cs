@@ -3,7 +3,7 @@ using Content.Shared.Interaction;
 
 namespace Content.Server.Atmos.Monitor.Systems;
 
-public partial class AirAlarmSystem
+public sealed partial class AirAlarmSystem
 {
     private bool TryOpenAirAlarmUi(EntityUid uid, ActivateInWorldEvent args)
     {

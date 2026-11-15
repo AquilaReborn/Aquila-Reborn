@@ -80,7 +80,7 @@ public sealed class PullableHelmetSystem : EntitySystem
         component.Toggled = !component.Toggled;
         var newPrototype = component.Toggled ? component.ToggledPrototype : component.UntoggledPrototype;
         var sound = component.Toggled ? component.PullDownSound : component.PullUpSound;
-        var newEntity = Spawn(newPrototype, Transform(uid).Coordinates);
+        var newEntity = SpawnAttachedTo(newPrototype, Transform(uid).Coordinates);
         if (!TryComp<PullableHelmetComponent>(newEntity, out var hlm))
         {
             QueueDel(newEntity);

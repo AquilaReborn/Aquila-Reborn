@@ -973,6 +973,7 @@
     state: pda-centcom
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
+    diskSpace: 10 # Aquila Change
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge

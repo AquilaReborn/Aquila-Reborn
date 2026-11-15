@@ -24,6 +24,7 @@ public sealed partial class AdminCharacterSpawnWindow : FancyWindow
 
     [Dependency] private readonly IPlayerManager _players = default!;
     [Dependency] private readonly IComponentFactory _components = default!;
+    [Dependency] private readonly Robust.Shared.Localization.ILocalizationManager _spawnLoc = default!;
 
     private static readonly LocId FavoriteAdd = "aquila-admin-character-favorite-add";
     private static readonly LocId FavoriteRemove = "aquila-admin-character-favorite-remove";
@@ -157,8 +158,8 @@ public sealed partial class AdminCharacterSpawnWindow : FancyWindow
         var filter = ImplantSearch.Text.Trim();
         foreach (var implant in _prototypes.EnumeratePrototypes<EntityPrototype>()
                      .Where(proto => !proto.Abstract
-                         && proto.TryGetComponent<SubdermalImplantComponent>(out _, _components)
-                         && !proto.TryGetComponent<HideFromAdminCharacterSpawnComponent>(out _, _components)
+                         && proto.TryComp<SubdermalImplantComponent>(out _, _components)
+                         && !proto.TryComp<HideFromAdminCharacterSpawnComponent>(out _, _components)
                          && proto.Name.Contains(filter, StringComparison.OrdinalIgnoreCase))
                      .OrderBy(proto => proto.Name))
         {
@@ -205,7 +206,7 @@ public sealed partial class AdminCharacterSpawnWindow : FancyWindow
             if (!_prototypes.TryIndex(gear, out var outfit))
                 continue;
 
-            var name = Loc.TryGetString($"aquila-admin-character-gear-{gear.Id.ToLowerInvariant().Replace('_', '-')}", out var localizedName)
+            var name = _spawnLoc.TryGetString($"aquila-admin-character-gear-{gear.Id.ToLowerInvariant().Replace('_', '-')}", out var localizedName)
                 ? localizedName
                 : jobNames.GetValueOrDefault(gear) ?? Loc.GetString(UnnamedGearLabel, ("id", gear.Id));
             if (!name.Contains(filter, StringComparison.OrdinalIgnoreCase)

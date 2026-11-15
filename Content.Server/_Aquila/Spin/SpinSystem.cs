@@ -4,7 +4,6 @@ using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Stunnable;
 using Content.Server.Damage.Systems;
 using Content.Shared.Damage.Components;
-using Content.Shared.StatusEffect;
 
 namespace Content.Server.Aquila.Spin;
 
@@ -14,7 +13,6 @@ public sealed class SpinUserSystem : SharedSpinSystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly StaminaSystem _stamina = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
 
     public override void Initialize()
     {
@@ -111,7 +109,7 @@ public sealed class SpinUserSystem : SharedSpinSystem
             return;
 
         var targetXform = Transform(args.Target);
-        var markEntity = Spawn(comp.MarkProto, targetXform.Coordinates);
+        var markEntity = SpawnAttachedTo(comp.MarkProto, targetXform.Coordinates);
         var markComp = EnsureComp<SpinMarkComponent>(markEntity);
         markComp.OwnerEntity = args.Performer;
 

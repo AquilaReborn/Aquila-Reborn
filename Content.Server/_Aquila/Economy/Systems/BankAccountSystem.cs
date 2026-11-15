@@ -1,6 +1,8 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Content.Server._Aquila.Economy.Components;
 using Content.Server.GameTicking;
+using Content.Server.Station.Systems;
 using Content.Shared._Aquila.CCVars;
 using Content.Shared._Aquila.Economy.DataDefinitions;
 using Content.Shared.Access.Components;
@@ -22,6 +24,11 @@ public sealed class BankAccountSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly SharedIdCardSystem _idCard = default!;
+    [Dependency] private readonly StationJobsSystem _stationJobs = default!;
+
+    private readonly Dictionary<EntityUid, PendingAccount> _pending = new();
+
+    private readonly record struct PendingAccount(ProtoId<JobPrototype>? Job, string Name, TimeSpan Expiry);
 
     public override void Initialize()
     {
@@ -29,11 +36,27 @@ public sealed class BankAccountSystem : EntitySystem
 
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete);
         SubscribeLocalEvent<BankCardComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<IdCardComponent, ComponentStartup>(OnIdCardStartup);
+    }
+
+    private void OnIdCardStartup(Entity<IdCardComponent> ent, ref ComponentStartup args)
+    {
+        if (ent.Comp.JobPrototype is not { } job ||
+            !TryComp<BankCardComponent>(ent, out var card) ||
+            card.Account is not { } accountUid ||
+            !TryComp<BankAccountComponent>(accountUid, out var account))
+            return;
+
+        account.Job = job;
+        account.Salary = ResolveSalary(account, job);
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
+
+        if (_pending.Count > 0)
+            UpdatePendingAccounts();
 
         var enabled = _cfg.GetCVar(AquilaCVars.Economy);
         var query = EntityQueryEnumerator<BankAccountComponent>();
@@ -50,19 +73,70 @@ public sealed class BankAccountSystem : EntitySystem
 
     private void OnPlayerSpawnComplete(PlayerSpawnCompleteEvent args)
     {
-        if (!_cfg.GetCVar(AquilaCVars.Economy)
-            || !_idCard.TryFindIdCard(args.Mob, out var idCard)
-            || !TryComp<BankCardComponent>(idCard, out var card)
-            || card.Account != null)
+        if (!_cfg.GetCVar(AquilaCVars.Economy))
             return;
 
-        ProtoId<JobPrototype>? job = args.JobId is { } jobId ? new ProtoId<JobPrototype>(jobId) : (ProtoId<JobPrototype>?) null;
-        var account = CreateAccount((idCard.Owner, card), args.Profile.Name, job);
-        account.Comp.Salary = job is { } salaryJob
-            ? account.Comp.Salaries.GetValueOrDefault(salaryJob, account.Comp.DefaultSalary)
-            : account.Comp.DefaultSalary;
+        ProtoId<JobPrototype>? job = null;
+        if (!string.IsNullOrEmpty(args.JobId))
+            job = new ProtoId<JobPrototype>(args.JobId);
+
+        if (job is null &&
+            _stationJobs.TryGetPlayerJobs(args.Station, args.Player.UserId, out var playerJobs) &&
+            playerJobs.Count > 0)
+        {
+            job = playerJobs[^1];
+        }
+
+        if (!_idCard.TryFindIdCard(args.Mob, out var idCard) || !TryComp<BankCardComponent>(idCard, out var card))
+        {
+            _pending[args.Mob] = new PendingAccount(job, args.Profile.Name, _timing.CurTime + TimeSpan.FromMinutes(10));
+            return;
+        }
+
+        job ??= idCard.Comp.JobPrototype;
+        SetupAccount(idCard, card, job, args.Profile.Name);
+    }
+
+    private void UpdatePendingAccounts()
+    {
+        var now = _timing.CurTime;
+        foreach (var (mob, pending) in _pending.ToArray())
+        {
+            if (TerminatingOrDeleted(mob) || now >= pending.Expiry)
+            {
+                _pending.Remove(mob);
+                continue;
+            }
+
+            if (!_idCard.TryFindIdCard(mob, out var idCard) || !TryComp<BankCardComponent>(idCard, out var card))
+                continue;
+
+            var job = pending.Job ?? idCard.Comp.JobPrototype;
+            SetupAccount(idCard, card, job, pending.Name);
+            _pending.Remove(mob);
+        }
+    }
+
+    private void SetupAccount(Entity<IdCardComponent> idCard, BankCardComponent card, ProtoId<JobPrototype>? job, string name)
+    {
+        if (card.Account is { } existingUid && TryComp<BankAccountComponent>(existingUid, out var existing))
+        {
+            existing.Job = job;
+            existing.Salary = ResolveSalary(existing, job);
+            return;
+        }
+
+        var account = CreateAccount((idCard.Owner, card), name, job);
+        account.Comp.Salary = ResolveSalary(account.Comp, job);
 
         Deposit(account.AsNullable(), account.Comp.Salary * account.Comp.StartingPaychecks, account.Comp.StartingReason);
+    }
+
+    private static int ResolveSalary(BankAccountComponent account, ProtoId<JobPrototype>? job)
+    {
+        return job is { } jobId
+            ? account.Salaries.GetValueOrDefault(jobId, account.DefaultSalary)
+            : account.DefaultSalary;
     }
 
     /// <summary>
@@ -87,7 +161,8 @@ public sealed class BankAccountSystem : EntitySystem
         var card = EnsureComp<BankCardComponent>(idCard);
         var id = Comp<IdCardComponent>(idCard);
         var ownerName = string.IsNullOrWhiteSpace(id.FullName) ? fallbackName : id.FullName;
-        account = CreateAccount((idCard, card), ownerName, id.JobPrototype);
+        var created = CreateAccount((idCard, card), ownerName, id.JobPrototype);
+        account = created;
         return true;
     }
 

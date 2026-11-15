@@ -327,7 +327,7 @@ public sealed partial class AutoCookerSystem : EntitySystem
             var coords = Transform(ent).Coordinates;
             for (var i = 0; i < job.ResultCount; i++)
             {
-                Spawn(job.Result, coords);
+                SpawnAttachedTo(job.Result, coords);
             }
 
             ClearProcessing(ent);

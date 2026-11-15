@@ -101,7 +101,7 @@ public sealed class SacrificeArmSystem : EntitySystem
         var cutDamage = new DamageSpecifier(_prototype.Index(CutDamageType), FixedPoint2.New(CutDamageAmount));
         _damageable.TryChangeDamage(performer, cutDamage, origin: performer);
 
-        var mob = Spawn(mobProto, spawnCoords);
+        var mob = SpawnAttachedTo(mobProto, spawnCoords);
 
         _faction.IgnoreEntity(mob, performer);
 

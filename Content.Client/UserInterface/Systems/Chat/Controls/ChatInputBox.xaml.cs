@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Client.Stylesheets;
+using Content.Client._Aquila.Chat.Controls; // Aquila Change
 using Content.Shared.Chat;
 using Content.Shared.Input;
 using Robust.Client.UserInterface.Controls;
@@ -49,7 +50,7 @@ public class ChatInputBox : PanelContainer
             foreach (var control in voiceControls.CreateControls()) // Goobstation - Voice chat
                 Container.AddChild(control); // Goobstation - Voice chat
         }
-        Input = new HistoryLineEdit
+        Input = new LanguageLineEdit // Aquila Change
         {
             Name = "Input",
             PlaceHolder = GetChatboxInfoPlaceholder(),

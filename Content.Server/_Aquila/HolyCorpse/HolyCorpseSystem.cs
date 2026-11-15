@@ -61,7 +61,7 @@ public sealed class HolyCorpseSystem : EntitySystem
         if (!Resolve(limb, ref limb.Comp) || !CanImplant(limb, user, target))
             return false;
 
-        var flash = Spawn(limb.Comp.FlashProto, Transform(target).Coordinates);
+        var flash = SpawnAttachedTo(limb.Comp.FlashProto, Transform(target).Coordinates);
         _transform.SetParent(flash, target);
 
         var ev = new HolyCorpseImplantDoAfterEvent(GetNetEntity(flash));

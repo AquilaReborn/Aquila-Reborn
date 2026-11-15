@@ -1,0 +1,19 @@
+light_mode unshaded;
+
+highp float hash(highp vec2 p) {
+    highp vec3 p3 = fract(vec3(p.xyx) * 0.1031);
+    p3 += dot(p3, p3.yzx + 33.33);
+    return fract((p3.x + p3.y) * p3.z);
+}
+
+void fragment() {
+    highp vec4 base = texture2D(TEXTURE, UV);
+    if (base.a < 0.05)
+        discard;
+
+    highp float frame = mod(floor(TIME * 24.0), 512.0);
+    highp vec2 cell = floor(FRAGCOORD.xy / 2.0);
+    highp float grain = hash(cell + vec2(frame * 37.0, frame * 91.0));
+
+    COLOR = vec4(vec3(grain), base.a);
+}

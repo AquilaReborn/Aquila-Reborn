@@ -91,8 +91,9 @@ namespace Content.Client.Examine
 
         public override bool CanExamine(EntityUid examiner, MapCoordinates target, Ignored? predicate = null, EntityUid? examined = null, ExaminerComponent? examinerComp = null)
         {
-            if (CanReplayExamineAquila(examiner, target)) // Aquila Change
-                return true; // Aquila Change
+            if (IsExamineBlockedAquila(examiner, examined)) return false; // Aquila Change
+
+            if (CanReplayExamineAquila(examiner, target)) return true; // Aquila Change
 
             if (!Resolve(examiner, ref examinerComp, false))
                 return false;

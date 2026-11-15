@@ -132,7 +132,7 @@ public sealed class SotSpeakerClientSystem : EntitySystem
         double offset;
         try
         {
-            var length = _audio.GetAudioLength(path.Path.ToString()).TotalSeconds;
+            var length = _audio.GetAudioLength(new ResolvedPathSpecifier(path.Path)).TotalSeconds;
 
             if (comp.Loop)
             {

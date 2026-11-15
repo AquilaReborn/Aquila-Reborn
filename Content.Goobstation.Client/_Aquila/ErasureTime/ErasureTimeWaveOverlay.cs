@@ -11,6 +11,8 @@ public sealed partial class ErasureTimeWaveOverlay : Overlay
 
     public override OverlaySpace Space => OverlaySpace.ScreenSpace;
 
+    private static readonly ProtoId<ShaderPrototype> WaveShader = "ErasureTimeWave";
+
     private readonly ErasureTimeWaveOverlaySystem _system;
     private readonly ShaderInstance _shader;
 
@@ -18,7 +20,7 @@ public sealed partial class ErasureTimeWaveOverlay : Overlay
     {
         IoCManager.InjectDependencies(this);
         _system = system;
-        _shader = _protoManager.Index<ShaderPrototype>("ErasureTimeWave").InstanceUnique();
+        _shader = _protoManager.Index(WaveShader).InstanceUnique();
     }
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)

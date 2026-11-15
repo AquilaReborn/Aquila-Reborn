@@ -92,7 +92,7 @@ public sealed class VivifySystem : EntitySystem
         _hands.TryDrop(performer, itemUid, doDropInteraction: false);
 
         var coords = Transform(performer).Coordinates;
-        var creatureUid = Spawn(args.CreaturePrototype, coords);
+        var creatureUid = SpawnAttachedTo(args.CreaturePrototype, coords);
 
         var creatureComponent = EnsureComp<VivifiedCreatureComponent>(creatureUid);
         creatureComponent.Caster = performer;
