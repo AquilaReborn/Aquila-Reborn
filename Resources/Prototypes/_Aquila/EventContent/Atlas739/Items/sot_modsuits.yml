@@ -408,7 +408,6 @@
     startingModules:
     - ModsuitModuleStorageLarge
     - ModsuitModuleWelding
-    - ModsuitModuleMagbootsAdvanced
 
 - type: entity
   parent: ClothingModsuitChestplateSotBase
@@ -473,7 +472,6 @@
     startingModules:
     - ModsuitModuleStorageLarge
     - ModsuitModuleWelding
-    - ModsuitModuleMagbootsAdvanced
 
 - type: modTheme
   id: ModThemeSotAthena

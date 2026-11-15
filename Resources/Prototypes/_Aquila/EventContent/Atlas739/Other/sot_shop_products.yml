@@ -326,7 +326,151 @@
   cost: 50
   category: sot-shop-category-misc
   group: SotAthenaMarket
+
+# - Мод модули
+- type: cargoProduct
+  id: SotAthenaModuleEnergyShield
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: energy_shield
+  product: ModsuitModuleEnergyShield
+  cost: 100
+  category: sot-shop-category-modules
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaModuleJetpackAdvanced
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: jetpack_advanced
+  product: ModsuitModuleJetpackAdvanced
+  cost: 100
+  category: sot-shop-category-modules
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaModuleThermalRegulator
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: regulator
+  product: ModsuitModuleThermalRegulator
+  cost: 100
+  category: sot-shop-category-modules
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaModuleFlashlight
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: flashlight
+  product: ModsuitModuleFlashlight
+  cost: 100
+  category: sot-shop-category-modules
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaModuleDefibrillator
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: defibrillator
+  product: ModsuitModuleDefibrillator
+  cost: 100
+  category: sot-shop-category-modules
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaModuleNightVisor
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: night_visor
+  product: ModsuitModuleNightVisor
+  cost: 100
+  category: sot-shop-category-modules
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaModuleAdrenalineBoost
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: adrenaline_boost
+  product: ModsuitModuleAdrenalineBoost
+  cost: 100
+  category: sot-shop-category-modules
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaModuleGps
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: gps
+  product: ModsuitModuleGps
+  cost: 100
+  category: sot-shop-category-modules
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaModuleEmpPulse
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: emp_pulse
+  product: ModsuitModuleEmpPulse
+  cost: 100
+  category: sot-shop-category-modules
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaModuleEmpShield
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: empshield
+  product: ModsuitModuleEmpShield
+  cost: 100
+  category: sot-shop-category-modules
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaModuleTRay
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: tray
+  product: ModsuitModuleTRay
+  cost: 100
+  category: sot-shop-category-modules
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaModuleBuiltinInsulation
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: module
+  product: ModsuitModuleBuiltinInsulation
+  cost: 100
+  category: sot-shop-category-modules
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaModuleStorageBluespace
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: storage_bluespace
+  product: ModsuitModuleStorageBluespace
+  cost: 100
+  category: sot-shop-category-modules
+  group: SotAthenaMarket
+
+- type: cargoProduct
+  id: SotAthenaModsuitCoreStandardAntique
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/modsuit_parts.rsi
+    state: mod-core-standard
+    color: "#E8C27AFF"
+  product: ModsuitCoreStandardAntique
+  cost: 10000
+  category: sot-shop-category-modules
+  group: SotAthenaMarket
+
 # - Одежда
+
 - type: cargoProduct
   id: SotAthenaBeltUtility
   icon:
@@ -387,6 +531,8 @@
   cost: 999999
   category: sot-shop-category-fun
   group: SotAthenaMarket
+
+
 
 
 # ---------- ЖНЕЦЫ ----------
@@ -691,7 +837,151 @@
   category: sot-shop-category-misc
   group: SotReapersMarket
 
+# - Мод модули
+
+- type: cargoProduct
+  id: SotReapersModuleEnergyShield
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: energy_shield
+  product: ModsuitModuleEnergyShield
+  cost: 100
+  category: sot-shop-category-modules
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersModuleJetpackAdvanced
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: jetpack_advanced
+  product: ModsuitModuleJetpackAdvanced
+  cost: 100
+  category: sot-shop-category-modules
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersModuleThermalRegulator
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: regulator
+  product: ModsuitModuleThermalRegulator
+  cost: 100
+  category: sot-shop-category-modules
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersModuleFlashlight
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: flashlight
+  product: ModsuitModuleFlashlight
+  cost: 100
+  category: sot-shop-category-modules
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersModuleDefibrillator
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: defibrillator
+  product: ModsuitModuleDefibrillator
+  cost: 100
+  category: sot-shop-category-modules
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersModuleNightVisor
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: night_visor
+  product: ModsuitModuleNightVisor
+  cost: 100
+  category: sot-shop-category-modules
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersModuleAdrenalineBoost
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: adrenaline_boost
+  product: ModsuitModuleAdrenalineBoost
+  cost: 100
+  category: sot-shop-category-modules
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersModuleGps
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: gps
+  product: ModsuitModuleGps
+  cost: 100
+  category: sot-shop-category-modules
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersModuleEmpPulse
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: emp_pulse
+  product: ModsuitModuleEmpPulse
+  cost: 100
+  category: sot-shop-category-modules
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersModuleEmpShield
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: empshield
+  product: ModsuitModuleEmpShield
+  cost: 100
+  category: sot-shop-category-modules
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersModuleTRay
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: tray
+  product: ModsuitModuleTRay
+  cost: 100
+  category: sot-shop-category-modules
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersModuleBuiltinInsulation
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: module
+  product: ModsuitModuleBuiltinInsulation
+  cost: 100
+  category: sot-shop-category-modules
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersModuleStorageBluespace
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/mod_modules.rsi
+    state: storage_bluespace
+  product: ModsuitModuleStorageBluespace
+  cost: 100
+  category: sot-shop-category-modules
+  group: SotReapersMarket
+
+- type: cargoProduct
+  id: SotReapersModsuitCoreStandardAntique
+  icon:
+    sprite: _Goobstation/Objects/Specific/Robotics/modsuit_parts.rsi
+    state: mod-core-standard
+    color: "#E8C27AFF"
+  product: ModsuitCoreStandardAntique
+  cost: 10000
+  category: sot-shop-category-modules
+  group: SotReapersMarket
+
 # - Одежда
+
 - type: cargoProduct
   id: SotReapersBeltUtility
   icon:
