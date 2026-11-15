@@ -12,6 +12,7 @@ namespace Content.Shared._Aquila.PersonalLoadouts;
 /// Выдаёт личные вещи из лоадаута. Личная вещь занимает слот, а то, что в нём было,
 /// убирается в рюкзак или в руки, а не падает на пол. Если у лоадаута указан
 /// <see cref="LoadoutPrototype.Replace"/>, старая вещь без содержимого удаляется.
+/// Вещи из зависимых слотов (карманы, ID) после замены возвращаются на место.
 /// </summary>
 public sealed class PersonalLoadoutSystem : EntitySystem
 {
@@ -106,8 +107,9 @@ public sealed class PersonalLoadoutSystem : EntitySystem
             return;
         }
 
-        if ((!replace && HasOccupiedDependents(uid, slot))
-            || !_inventory.TryUnequip(uid, slot, out var old, silent: true, force: true))
+        var dependents = GetDependentItems(uid, slot);
+
+        if (!_inventory.TryUnequip(uid, slot, out var old, silent: true, force: true))
         {
             Stash(uid, item);
             return;
@@ -116,25 +118,51 @@ public sealed class PersonalLoadoutSystem : EntitySystem
         if (!_inventory.TryEquip(uid, item, slot, silent: true, force: true))
         {
             _inventory.TryEquip(uid, old.Value, slot, silent: true, force: true);
+            RestoreDependents(uid, dependents);
             Stash(uid, item);
             return;
         }
 
+        RestoreDependents(uid, dependents);
         ReplaceOldItem(uid, old.Value, replace);
     }
 
-    private bool HasOccupiedDependents(EntityUid uid, string slot)
+    private List<(string Slot, EntityUid Item)> GetDependentItems(EntityUid uid, string slot)
     {
+        var dependents = new List<(string Slot, EntityUid Item)>();
+
         if (!_inventory.TryGetSlots(uid, out var slots))
-            return false;
+            return dependents;
 
         foreach (var definition in slots)
         {
-            if (definition.DependsOn == slot && _inventory.TryGetSlotEntity(uid, definition.Name, out _))
-                return true;
+            if (definition.DependsOn != slot
+                || !_inventory.TryGetSlotEntity(uid, definition.Name, out var dependent))
+            {
+                continue;
+            }
+
+            dependents.Add((definition.Name, dependent.Value));
         }
 
-        return false;
+        return dependents;
+    }
+
+    private void RestoreDependents(EntityUid uid, List<(string Slot, EntityUid Item)> dependents)
+    {
+        foreach (var (slot, item) in dependents)
+        {
+            if (_inventory.TryGetSlotEntity(uid, slot, out var current))
+            {
+                if (current != item)
+                    Stash(uid, item);
+
+                continue;
+            }
+
+            if (!_inventory.TryEquip(uid, item, slot, silent: true, force: true))
+                Stash(uid, item);
+        }
     }
 
     private bool TryInsertIntoSlotStorage(EntityUid uid, string slot, EntityUid item)
