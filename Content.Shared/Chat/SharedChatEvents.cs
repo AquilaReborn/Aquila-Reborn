@@ -58,7 +58,7 @@ public sealed class CheckIgnoreSpeechBlockerEvent : EntityEventArgs
 /// <summary>
 /// Raised on an entity when it speaks, either through 'say' or 'whisper'.
 /// </summary>
-public sealed class EntitySpokeEvent : EntityEventArgs
+public sealed partial class EntitySpokeEvent : EntityEventArgs // Aquila Change
 {
     public readonly EntityUid Source;
     public readonly string Message;

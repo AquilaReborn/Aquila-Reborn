@@ -65,6 +65,7 @@ public sealed partial class RadioSystem : EntitySystem
             && component.Channels.Contains(args.Channel.ID)
             && _whitelist.IsWhitelistPassOrNull(args.Channel.SendWhitelist, uid)) // Goobstation - Whitelisted radio channels
         {
+            _aquilaSegments = args.Chunks; // Aquila Change
             SendRadioMessage(uid, args.Message, args.Channel, uid, args.Language); // Einstein Engines - Language
             args.Channel = null; // prevent duplicate messages from other listeners.
         }
@@ -133,6 +134,7 @@ public sealed partial class RadioSystem : EntitySystem
         int? frequency = null, // Nuclear-14
         bool escapeMarkup = true)
     {
+        var aquilaChunks = TakeAquilaSegments(message); // Aquila Change
         // Einstein Engines - Language begin
         if (language == null)
             language = _language.GetLanguage(messageSource);
@@ -255,6 +257,7 @@ public sealed partial class RadioSystem : EntitySystem
                 continue;
 
             // send the message
+            if (TryAquilaSendSegmentedRadio(receiver, messageSource, channel, name, language, jobIcon, jobName, frequency, radioSource, aquilaChunks)) continue; // Aquila Change
             RaiseLocalEvent(receiver, ref ev);
         }
 
