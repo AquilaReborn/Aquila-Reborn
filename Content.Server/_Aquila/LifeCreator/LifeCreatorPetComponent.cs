@@ -4,5 +4,5 @@ namespace Content.Server.Aquila.LifeCreator;
 public sealed partial class LifeCreatorPetComponent : Component
 {
     [ViewVariables]
-    public EntityUid Owner;
+    public new EntityUid Owner;
 }

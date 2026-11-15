@@ -172,7 +172,7 @@ public sealed partial class DamageOverlay : Overlay // Aquila Change
             _oldPainLevel = PainLevel;
         }
 
-        level = GetDarkeningLevel(lastFrameTime); // Aquila Change
+        level = _oldOxygenLevel; // Aquila Change
 
         if (level > 0f)
         {
@@ -218,7 +218,7 @@ public sealed partial class DamageOverlay : Overlay // Aquila Change
             handle.DrawRect(viewport, Color.White);
         }
 
-        level = State != MobState.Dead ? _oldCritLevel : DeadLevel;
+        level = GetCritOverlayLevelAquila(); // Aquila Change
 
         if (level > 0f)
         {

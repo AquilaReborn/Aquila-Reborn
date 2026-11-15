@@ -192,8 +192,8 @@ public sealed partial class AdminVerbSystem
             if (string.IsNullOrEmpty(implant.Id)
                 || !_prototypeManager.TryIndex(implant, out var prototype)
                 || prototype.Abstract
-                || !prototype.TryGetComponent<SubdermalImplantComponent>(out _, EntityManager.ComponentFactory)
-                || prototype.TryGetComponent<HideFromAdminCharacterSpawnComponent>(out _, EntityManager.ComponentFactory))
+                || !prototype.TryComp<SubdermalImplantComponent>(out _, EntityManager.ComponentFactory)
+                || prototype.TryComp<HideFromAdminCharacterSpawnComponent>(out _, EntityManager.ComponentFactory))
             {
                 return false;
             }

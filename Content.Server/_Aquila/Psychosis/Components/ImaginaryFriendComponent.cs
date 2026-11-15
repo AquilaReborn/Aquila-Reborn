@@ -12,7 +12,7 @@ public sealed partial class ImaginaryFriendComponent : Component
     /// Тот, кому мерещится друг. Пусто, пока энграмма заперта в чипе.
     /// </summary>
     [ViewVariables]
-    public EntityUid? Owner;
+    public new EntityUid? Owner;
 
     /// <summary>
     /// Сессия, которой сейчас принудительно отправляется друг.

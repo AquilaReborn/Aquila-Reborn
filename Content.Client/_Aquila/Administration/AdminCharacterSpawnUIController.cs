@@ -55,7 +55,7 @@ public sealed class AdminCharacterSpawnUIController : UIController
                     if (!gear.Equipment.TryGetValue(slot.Name, out var prototype))
                         continue;
 
-                    var item = _entities.SpawnEntity(prototype, MapCoordinates.Nullspace);
+                    var item = _entities.Spawn(prototype, MapCoordinates.Nullspace);
                     if ((slot.Whitelist != null && !whitelist.IsWhitelistPass(slot.Whitelist, item))
                         || !inventory.TryEquip(dummy, item, slot.Name, silent: true, force: true))
                     {

@@ -11,7 +11,6 @@ using Content.Server.Humanoid;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs;
-using Content.Shared.Mobs.Systems;
 using Robust.Shared.Prototypes;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Hands.Components;
@@ -31,7 +30,6 @@ public sealed class CloneSummonSystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
 
@@ -78,7 +76,8 @@ public sealed class CloneSummonSystem : EntitySystem
         if (!HasComp<HumanoidAppearanceComponent>(target))
             return;
 
-        if (!TryComp<MetaDataComponent>(target, out var targetMeta) || targetMeta.EntityPrototype == null)
+        var targetMeta = MetaData(target);
+        if (targetMeta.EntityPrototype == null)
             return;
 
         args.Handled = true;
@@ -86,7 +85,7 @@ public sealed class CloneSummonSystem : EntitySystem
         var performer = args.Performer;
         var spawnCoords = Transform(target).Coordinates;
 
-        var clone = Spawn(targetMeta.EntityPrototype.ID, spawnCoords);
+        var clone = SpawnAttachedTo(targetMeta.EntityPrototype.ID, spawnCoords);
 
         _humanoidAppearance.CloneAppearance(target, clone);
         _metaData.SetEntityName(clone, targetMeta.EntityName);
@@ -104,7 +103,7 @@ public sealed class CloneSummonSystem : EntitySystem
             cloneComp.DespawnEffect = summonerActionComp.SpawnEffect;
 
             if (summonerActionComp.SpawnEffect != null)
-                Spawn(summonerActionComp.SpawnEffect, spawnCoords);
+                SpawnAttachedTo(summonerActionComp.SpawnEffect, spawnCoords);
         }
 
         EnsureComp<ActiveNPCComponent>(clone);
@@ -113,7 +112,7 @@ public sealed class CloneSummonSystem : EntitySystem
         {
             RootTask = new HTNCompoundTask { Task = HostileHtnTask }
         };
-        EntityManager.AddComponent(clone, htn, overwrite: true);
+        AddComp(clone, htn, overwrite: true);
 
         _faction.ClearFactions(clone, dirty: false);
         _faction.AddFaction(clone, HostileFaction);
@@ -139,10 +138,11 @@ public sealed class CloneSummonSystem : EntitySystem
                 if (!_inventory.TryGetSlotEntity(source, slot.Name, out var itemUid))
                     continue;
 
-                if (!TryComp<MetaDataComponent>(itemUid.Value, out var itemMeta) || itemMeta.EntityPrototype == null)
+                var itemMeta = MetaData(itemUid.Value);
+                if (itemMeta.EntityPrototype == null)
                     continue;
 
-                var newItem = Spawn(itemMeta.EntityPrototype.ID, Transform(target).Coordinates);
+                var newItem = SpawnAttachedTo(itemMeta.EntityPrototype.ID, Transform(target).Coordinates);
                 if (!_inventory.TryEquip(target, newItem, slot.Name, force: true, silent: true))
                     QueueDel(newItem);
             }
@@ -152,10 +152,11 @@ public sealed class CloneSummonSystem : EntitySystem
         {
             foreach (var held in _hands.EnumerateHeld(source))
             {
-                if (!TryComp<MetaDataComponent>(held, out var itemMeta) || itemMeta.EntityPrototype == null)
+                var itemMeta = MetaData(held);
+                if (itemMeta.EntityPrototype == null)
                     continue;
 
-                var newItem = Spawn(itemMeta.EntityPrototype.ID, Transform(target).Coordinates);
+                var newItem = SpawnAttachedTo(itemMeta.EntityPrototype.ID, Transform(target).Coordinates);
                 if (!_hands.TryPickup(target, newItem))
                     QueueDel(newItem);
             }
@@ -274,7 +275,7 @@ public sealed class CloneSummonSystem : EntitySystem
         DropNonOriginalItems(uid, comp);
 
         if (comp.DespawnEffect != null)
-            Spawn(comp.DespawnEffect, coords);
+            SpawnAttachedTo(comp.DespawnEffect, coords);
 
         foreach (var item in comp.OriginalItems)
         {

@@ -125,7 +125,7 @@ public sealed partial class AutoCookerSystem
         foreach (var proto in _proto.EnumeratePrototypes<EntityPrototype>())
         {
             if (proto.Abstract
-                || !proto.TryGetComponent<SliceableFoodComponent>(out var sliceable, EntityManager.ComponentFactory)
+                || !proto.TryComp<SliceableFoodComponent>(out var sliceable, EntityManager.ComponentFactory)
                 || sliceable.Slice is not { } slice)
                 continue;
 

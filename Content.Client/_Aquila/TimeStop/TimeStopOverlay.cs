@@ -19,12 +19,14 @@ public sealed class TimeStopOverlay : Overlay
 
     private readonly ShaderInstance _grayscaleShader;
     private readonly ShaderInstance _flashShader;
+    private static readonly ProtoId<ShaderPrototype> GrayscaleShader = "TimeStopGrayscale";
+    private static readonly ProtoId<ShaderPrototype> FlashShader = "TimeStopFlash";
 
     public TimeStopOverlay()
     {
         IoCManager.InjectDependencies(this);
-        _grayscaleShader = _proto.Index<ShaderPrototype>("TimeStopGrayscale").InstanceUnique(); //inv
-        _flashShader = _proto.Index<ShaderPrototype>("TimeStopFlash").InstanceUnique();
+        _grayscaleShader = _proto.Index(GrayscaleShader).InstanceUnique();
+        _flashShader = _proto.Index(FlashShader).InstanceUnique();
         ZIndex = 10;
     }
 

@@ -74,7 +74,7 @@ public sealed class PlayMapSoundCommand : LocalizedEntityCommands
         }
 
         var filter = Filter.Empty().AddInMap(mapId, EntityManager);
-        _globalSound.PlayAdminGlobal(filter, args[0], audio.AddVolume(AdminVolumeOffset));
+        _globalSound.PlayAdminGlobal(filter, new ResolvedPathSpecifier(args[0]), audio.AddVolume(AdminVolumeOffset));
 
         var players = string.Join(", ", filter.Recipients.Select(session => session.Name).Order());
         shell.WriteLine(filter.Count == 0

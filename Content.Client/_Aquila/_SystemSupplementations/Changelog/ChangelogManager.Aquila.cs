@@ -1,3 +1,5 @@
+using Robust.Shared.Localization;
+
 namespace Content.Client.Changelog;
 
 public sealed partial class ChangelogManager
@@ -12,7 +14,7 @@ public sealed partial class ChangelogManager
 
         internal string GetLocalizedMessage()
         {
-            return MessageLoc != null && Loc.TryGetString(MessageLoc, out var localized) ? localized : Message;
+            return MessageLoc != null && IoCManager.Resolve<ILocalizationManager>().TryGetString(MessageLoc, out var localized) ? localized : Message;
         }
     }
 }

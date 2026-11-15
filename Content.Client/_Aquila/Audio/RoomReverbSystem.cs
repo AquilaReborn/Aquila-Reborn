@@ -237,7 +237,7 @@ public sealed class RoomReverbSystem : EntitySystem
         if (!_map.TryGetTileRef(gridUid, grid, indices, out var tileRef) || _turf.IsSpace(tileRef))
             return false;
 
-        var anchored = _map.GetAnchoredEntitiesEnumerator(gridUid, grid, indices);
+        var anchored = _map.GetAnchoredEntities(gridUid, grid, indices);
         while (anchored.MoveNext(out var uid))
         {
             if (TryComp(uid, out OccluderComponent? occluder) && occluder.Enabled)

@@ -111,7 +111,7 @@ public sealed class EngramSystem : EntitySystem
         args.Handled = true;
 
         var coords = Transform(args.User).Coordinates;
-        var chip = Spawn(ent.Comp.ChipPrototype, coords);
+        var chip = SpawnAttachedTo(ent.Comp.ChipPrototype, coords);
         var chipComp = EnsureComp<EngramChipComponent>(chip);
         var container = _container.EnsureContainer<ContainerSlot>(chip, chipComp.ContainerId);
 
@@ -132,7 +132,7 @@ public sealed class EngramSystem : EntitySystem
     {
         var victimHumanoid = CompOrNull<HumanoidAppearanceComponent>(victim);
         var species = _proto.Index(victimHumanoid?.Species ?? soulkiller.DefaultSpecies);
-        var engram = Spawn(species.DollPrototype, coords);
+        var engram = SpawnAttachedTo(species.DollPrototype, coords);
         EnsureComp<ImaginaryFriendComponent>(engram);
         _friend.HideFromOthers(engram);
 
@@ -154,7 +154,7 @@ public sealed class EngramSystem : EntitySystem
     {
         var knowledge = CompOrNull<LanguageKnowledgeComponent>(victim);
         if (knowledge == null)
-            _proto.Index(species.Prototype).TryGetComponent(out knowledge, Factory);
+            _proto.Index(species.Prototype).TryComp(out knowledge, Factory);
 
         if (knowledge == null)
         {
@@ -179,7 +179,7 @@ public sealed class EngramSystem : EntitySystem
                 || MetaData(worn.Value).EntityPrototype is not { } proto)
                 continue;
 
-            var copy = Spawn(proto.ID, Transform(engram).Coordinates);
+            var copy = SpawnAttachedTo(proto.ID, Transform(engram).Coordinates);
             ClearStorage(copy);
             EnsureComp<UnremoveableComponent>(copy);
 

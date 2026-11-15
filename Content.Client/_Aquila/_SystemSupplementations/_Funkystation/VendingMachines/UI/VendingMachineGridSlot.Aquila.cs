@@ -26,7 +26,7 @@ public sealed partial class VendingMachineGridSlot
 
         if (_priceLabel == null)
         {
-            _priceLabel = new Label { StyleClasses = { StyleNano.StyleClassLabelSubText } };
+            _priceLabel = new Label { StyleClasses = { "LabelSubText" } };
             SlotLayout.AddChild(_priceLabel);
             LayoutContainer.SetPosition(_priceLabel, new Vector2(PriceMargin, SlotSize - PriceHeight - PriceMargin));
         }
