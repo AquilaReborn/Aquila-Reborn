@@ -39,6 +39,24 @@
     },
     {
       "name": "action_timestop_pt"
+    },
+    {
+      "name": "Action_switch1"
+    },
+    {
+      "name": "Action_switch2"
+    },
+    {
+      "name": "Action_Bee"
+    },
+    {
+      "name": "Action_DoubleReflect"
+    },
+    {
+      "name": "Action_Capsule"
+    },
+    {
+      "name": "Action_Soup"
     }
   ]
 }

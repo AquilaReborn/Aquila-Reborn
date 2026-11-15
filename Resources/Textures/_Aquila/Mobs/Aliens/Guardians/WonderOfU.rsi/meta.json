@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by (Ваше Имя/Ник)",
+  "size": {
+    "x": 64,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "wou_mode1",
+      "directions": 4
+    },
+    {
+      "name": "wou_mode1_unshaded",
+      "directions": 4
+    },
+    {
+      "name": "wou_mode2",
+      "directions": 4
+    },
+    {
+      "name": "wou_mode2_unshaded",
+      "directions": 4
+    }
+  ]
+}

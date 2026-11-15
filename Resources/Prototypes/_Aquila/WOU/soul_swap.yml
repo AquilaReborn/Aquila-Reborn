@@ -1,0 +1,24 @@
+- type: entity
+  id: ActionSoulSwap
+  name: Вселиться в паразита
+  description: Перенести своё сознание в тело паразита. Если у паразита есть разум, он займёт ваше тело.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon: { sprite: _Aquila\Mobs\Aliens\Guardians\guardianOrders.rsi, state: Action_soulswap1 }
+    itemIconStyle: BigItem
+    useDelay: 1
+  - type: InstantAction
+    event: !type:SoulSwapActionEvent
+
+- type: entity
+  id: ActionSoulSwapReturn
+  name: Вернуться в тело
+  description: Вернуть своё сознание в исходное тело, обменявшись местами с тем, кто сейчас им управляет.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon: { sprite: _Aquila\Mobs\Aliens\Guardians\guardianOrders.rsi, state: Action_soulswap2 }
+    itemIconStyle: BigItem
+  - type: InstantAction
+    event: !type:SoulSwapReturnActionEvent

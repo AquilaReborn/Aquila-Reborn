@@ -1,0 +1,134 @@
+- type: entity
+  id: WOUActionToggleForm
+  name: Переключить форму паразита
+  description: Меняет форму паразита между режимом 1 (Satoru Akefu) и режимом 2 (Wonder Of U).
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon: { sprite: _Aquila/Action/guardian.rsi, state: action_timestop }
+    itemIconStyle: BigItem
+    useDelay: 10
+  - type: InstantAction
+    event: !type:WOUToggleFormActionEvent
+
+- type: entity
+  id: WOUActionBeeSphere
+  name: A Minor Calamity
+  description: Любой кто приблизится - встретит отпор разъяренных пчел.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon: { sprite: _Aquila/Action/guardian.rsi, state: Action_Bee }
+    itemIconStyle: BigItem
+    useDelay: 10
+  - type: InstantAction
+    event: !type:WOUBeeSphereActionEvent
+
+- type: entity
+  id: WOUActionDoubleReflect
+  name: A Moderate Calamity
+  description: Любой кто посмеет атаковать - случайно ударит по себе вдвое сильнее.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon: { sprite: _Aquila/Action/guardian.rsi, state: Action_DoubleReflect }
+    itemIconStyle: BigItem
+    useDelay: 20
+  - type: InstantAction
+    event: !type:WOUDoubleReflectActionEvent
+
+- type: entity
+  id: WOUActionCapsuleSphere
+  name: A Major Calamity
+  description: Со свистом что-то пролетело мимо. Это была капсула с крысами, которая упала на врага.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon: { sprite: _Aquila/Action/guardian.rsi, state: Action_Capsule }
+    itemIconStyle: BigItem
+    useDelay: 34
+  - type: InstantAction
+    event: !type:WOUCapsuleSphereActionEvent
+
+- type: entity
+  id: WOUActionSlipSphere
+  name: A Critical Calamity
+  description: Каждый кто приблизится вплотную запнется.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon: { sprite: _Aquila/Action/guardian.rsi, state: Action_Soup }
+    itemIconStyle: BigItem
+    useDelay: 48
+  - type: InstantAction
+    event: !type:WOUSlipSphereActionEvent
+
+- type: entity
+  parent: BeeLicoxide
+  id: WOUBeeLicoxideAggressive
+  name: aggressive bee (licoxide)
+  components:
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+
+- type: entity
+  parent: MobRatServant
+  id: WOUMobRatAggressive
+  name: aggressive rat
+  components:
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+
+- type: entity
+  id: WOUCapsule
+  name: supply capsule
+  description: A capsule falling from orbit.
+  components:
+  - type: Transform
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/DropPod/landingpod.rsi
+    state: landing
+    offset: -1.7, 4.3
+    drawdepth: FloorObjects
+  - type: TimedDespawn
+    lifetime: 5 
+  - type: SmokeOnTrigger
+    smokePrototype: Smoke
+    duration: 3
+    spreadAmount: 4
+
+- type: entity
+  id: ActionSwitch
+  name: Disguise
+  description: Ваш стенд превратится в человека по имени Сатору Акефу - хороший врач в хорошем костюме (Не забудьте шляпу!).
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon: { sprite: _Aquila/Action/guardian.rsi, state: Action_switch1 }
+    itemIconStyle: BigItem
+    useDelay: 10
+  - type: InstantAction
+    event: !type:SwitchActionEvent
+
+- type: entity
+  id: ActionSwitchReturn
+  name: Disclosure
+  description: Ваш стенд обретет истенный лик и возможность использовать свои способности.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon: { sprite: _Aquila/Action/guardian.rsi, state: Action_switch2 }
+    itemIconStyle: BigItem
+    useDelay: 10
+    checkCanInteract: false    
+    checkConsciousness: false  
+  - type: InstantAction
+    event: !type:SwitchReturnActionEvent

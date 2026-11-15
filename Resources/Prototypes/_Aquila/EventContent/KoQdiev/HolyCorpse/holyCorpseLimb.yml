@@ -121,9 +121,8 @@
     flashProto: HolyCorpseEffect
     implantDelay: 1.9
     sets:
-    - guardianProto: MobGuardianMandom
-      components:
-      - type: TimeRewind
+    - guardianProto: WonderOfUm1
+      components: []
 
 - type: entity
   name: holy corpse right eye
