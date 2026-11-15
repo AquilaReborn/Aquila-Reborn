@@ -3,6 +3,7 @@ using Content.Shared.Mobs.Systems;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
+using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
@@ -12,6 +13,7 @@ public sealed partial class MobNoiseSystem : EntitySystem
 {
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
     private const string ShaderId = "MobNoise";
@@ -21,7 +23,7 @@ public sealed partial class MobNoiseSystem : EntitySystem
     private bool _active;
     private TimeSpan _nextScan;
 
-    private readonly record struct LayerSnapshot(int Index, ShaderInstance? Shader, ProtoId<ShaderPrototype>? Prototype);
+    private readonly record struct LayerSnapshot(int Index, ShaderInstance? Shader, ProtoId<ShaderPrototype>? Prototype, Color Color);
 
     /// <summary>
     /// Накладывает шум на спрайты других мобов, пока локальный игрок находится в критическом состоянии или мёртв.
@@ -61,8 +63,9 @@ public sealed partial class MobNoiseSystem : EntitySystem
             for (var i = 0; i < sprite.LayerData.Count; i++)
             {
                 var layer = sprite.LayerData[i];
-                snapshots.Add(new LayerSnapshot(i, layer.Shader, layer.ShaderPrototype));
+                snapshots.Add(new LayerSnapshot(i, layer.Shader, layer.ShaderPrototype, layer.Color));
                 sprite.LayerSetShader(i, ShaderId);
+                _sprite.LayerSetColor((uid, sprite), i, Color.White);
             }
 
             _modified[uid] = snapshots;
@@ -77,7 +80,10 @@ public sealed partial class MobNoiseSystem : EntitySystem
                 continue;
 
             foreach (var snapshot in snapshots)
+            {
                 sprite.LayerSetShader(snapshot.Index, snapshot.Shader, snapshot.Prototype?.Id);
+                _sprite.LayerSetColor((uid, sprite), snapshot.Index, snapshot.Color);
+            }
         }
 
         _modified.Clear();

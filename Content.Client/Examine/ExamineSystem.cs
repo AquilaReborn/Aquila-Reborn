@@ -93,8 +93,7 @@ namespace Content.Client.Examine
         {
             if (IsExamineBlockedAquila(examiner, examined)) return false; // Aquila Change
 
-            if (CanReplayExamineAquila(examiner, target)) // Aquila Change
-                return true; // Aquila Change
+            if (CanReplayExamineAquila(examiner, target)) return true; // Aquila Change
 
             if (!Resolve(examiner, ref examinerComp, false))
                 return false;
