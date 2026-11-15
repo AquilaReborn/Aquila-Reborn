@@ -8,7 +8,7 @@ namespace Content.Client.UserInterface.Systems.DamageOverlays.Overlays;
 
 public sealed partial class DamageOverlay
 {
-    private const float PreCriticalDarkeningLevel = 0.14f;
+    private const float PreCriticalDarkeningLevel = 0.55f;
     private const float PreCriticalFadeTolerance = 0.001f;
 
     private EntityUid? _preCriticalOwner;
@@ -23,14 +23,13 @@ public sealed partial class DamageOverlay
             _preCriticalDarkening = 0f;
         }
 
-        if (State != MobState.Alive ||
-            !_entityManager.TryGetComponent(entity, out MobStateComponent? mobState) ||
+        if (!_entityManager.TryGetComponent(entity, out MobStateComponent? mobState) ||
             mobState.CurrentState != MobState.Alive ||
             !_entityManager.TryGetComponent(entity, out MobThresholdsComponent? thresholds) ||
             !thresholds.ShowOverlays)
         {
             _preCriticalDarkening = 0f;
-            return State == MobState.Critical ? 1f : _oldOxygenLevel;
+            return _oldOxygenLevel;
         }
 
         var target = _entityManager.HasComponent<PreCriticalActiveComponent>(entity)
