@@ -58,7 +58,7 @@ public sealed partial class PlayerCount
 ///   A scheduler which keeps track of a 'chaos score' which it tries to get closer to 0.
 /// </summary>
 [UsedImplicitly]
-public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
+public sealed partial class SecretPlusSystem : GameRuleSystem<SecretPlusComponent> // Aquila Change
 {
     [Dependency] private AntagSelectionSystem _antagSelection = default!;
     [Dependency] private EventManagerSystem _event = default!;
