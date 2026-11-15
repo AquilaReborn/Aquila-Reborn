@@ -37,7 +37,7 @@
       connections:
       - groin
       organs:
-        lungs: OrganAnimalLungs
+        lungs: OrganRatLungs # Aquila Change
         heart: OrganAnimalHeart
     groin:
       part: GroinAnimal
