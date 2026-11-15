@@ -97,7 +97,7 @@ public sealed class PersonalCargoOrderSystem : EntitySystem
         if (keys.Count == 0)
             return null;
 
-        var crate = Spawn(personal.CratePrototype, coordinates);
+        var crate = SpawnAttachedTo(personal.CratePrototype, coordinates);
         if (TryComp<AccessReaderComponent>(crate, out var reader))
             _accessReader.SetAccessKeys((crate, reader), keys);
 
@@ -106,10 +106,12 @@ public sealed class PersonalCargoOrderSystem : EntitySystem
 
     private bool FitsInCrate(EntityPrototype product)
     {
+#pragma warning disable CS0618
         if (!product.HasComponent<StorageFillComponent>(Factory) && !product.HasComponent<EntityTableContainerFillComponent>(Factory))
+#pragma warning restore CS0618
             return product.HasComponent<ItemComponent>(Factory);
 
-        if (!product.TryGetComponent<AccessReaderComponent>(out var reader, Factory))
+        if (!product.TryComp<AccessReaderComponent>(out var reader, Factory))
             return true;
 
         var accessLists = reader.AccessLists;

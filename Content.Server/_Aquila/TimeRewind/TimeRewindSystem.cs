@@ -87,7 +87,8 @@ public sealed class TimeRewindSystem : EntitySystem
             if (target == uid)
                 continue;
 
-            if (!TryComp<TransformComponent>(target, out var targetXform) || targetXform.Anchored)
+            var targetXform = Transform(target);
+            if (targetXform.Anchored)
                 continue;
 
             if (HasComp<MapGridComponent>(target) || HasComp<MapComponent>(target))

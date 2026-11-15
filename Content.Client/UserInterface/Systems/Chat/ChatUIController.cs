@@ -11,6 +11,7 @@ using Content.Client.Chat.UI;
 using Content.Client.Examine;
 using Content.Client.Gameplay;
 using Content.Client.Ghost;
+using Content.Client._Aquila.Chat.Controls; // Aquila Change
 using Content.Client._Aquila.TypingIndicator; // Aquila Change
 using Content.Client.Mind;
 using Content.Client.Roles;
@@ -264,6 +265,8 @@ public sealed partial class ChatUIController : UIController
         _config.OnValueChanged(CCVars.ChatWindowOpacity, OnChatWindowOpacityChanged);
 
         InitializeHighlights();
+
+        InitializeAquila(); // Aquila Change
     }
 
     public void OnScreenLoad()
@@ -801,6 +804,8 @@ public sealed partial class ChatUIController : UIController
 
     public void SendMessage(ChatBox box, ChatSelectChannel channel)
     {
+        var aquilaMessage = CaptureAquilaMessage(box); // Aquila Change
+
         _typingIndicator?.ClientSubmittedChatText();
 
         var text = box.ChatInput.Input.Text;
@@ -829,6 +834,8 @@ public sealed partial class ChatUIController : UIController
             // radio must have prefix as it goes through the say command.
             text = $";{text}";
         }
+
+        if (TrySendAquilaSegmentedMessage(aquilaMessage, prefixChannel, channel)) return; // Aquila Change
 
         _manager.SendMessage(text, prefixChannel == 0 ? channel : prefixChannel);
     }

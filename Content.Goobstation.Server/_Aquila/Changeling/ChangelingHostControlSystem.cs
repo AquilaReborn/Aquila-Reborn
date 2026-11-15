@@ -131,7 +131,7 @@ public sealed partial class ChangelingHostControlSystem : EntitySystem
             || !_mind.TryGetMind(host, out var lingMind, out var lingMindComp))
             return false;
 
-        var passenger = Spawn(PassengerPrototype, Transform(host).Coordinates);
+        var passenger = SpawnAttachedTo(PassengerPrototype, Transform(host).Coordinates);
         _transform.SetParent(passenger, host);
         EnsureComp<ChangelingPassengerComponent>(passenger).Host = host;
 

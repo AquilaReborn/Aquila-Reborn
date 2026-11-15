@@ -38,6 +38,7 @@ public sealed class ActionCustomizationUIController : UIController, IOnStateChan
     [Dependency] private readonly IInputManager _input = default!;
     [Dependency] private readonly IResourceManager _resource = default!;
     [Dependency] private readonly ISerializationManager _serialization = default!;
+    [Dependency] private readonly Robust.Shared.Localization.ILocalizationManager _actionLoc = default!;
 
     [UISystemDependency] private readonly ActionsSystem? _actionsSystem = default;
 
@@ -599,7 +600,7 @@ public sealed class ActionCustomizationUIController : UIController, IOnStateChan
                 continue;
 
             var function = binding.Function.FunctionName;
-            var name = Loc.TryGetString(KeyFunctionLocPrefix + CaseConversion.PascalToKebab(function), out var locName)
+            var name = _actionLoc.TryGetString(KeyFunctionLocPrefix + CaseConversion.PascalToKebab(function), out var locName)
                 ? locName
                 : function;
 

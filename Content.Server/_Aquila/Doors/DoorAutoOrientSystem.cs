@@ -76,7 +76,7 @@ public sealed class DoorAutoOrientSystem : EntitySystem
 
     private bool IsSupport(string? proto, EntityUid gridUid, MapGridComponent grid, Vector2i indices)
     {
-        var anchored = _map.GetAnchoredEntitiesEnumerator(gridUid, grid, indices);
+        var anchored = _map.GetAnchoredEntities(gridUid, grid, indices);
         while (anchored.MoveNext(out var uid))
         {
             if (_autoOrientQuery.HasComp(uid.Value))

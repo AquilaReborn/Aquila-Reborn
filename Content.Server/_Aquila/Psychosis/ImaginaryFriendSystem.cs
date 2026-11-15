@@ -119,7 +119,7 @@ public sealed class ImaginaryFriendSystem : EntitySystem
         if (HasImaginaryFriend(owner))
             return false;
 
-        var friend = Spawn(FriendPrototype, Transform(owner).Coordinates);
+        var friend = SpawnAttachedTo(FriendPrototype, Transform(owner).Coordinates);
         Attach(owner, friend, true);
         return true;
     }

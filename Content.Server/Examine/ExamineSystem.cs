@@ -11,7 +11,7 @@ using Robust.Shared.Utility;
 namespace Content.Server.Examine
 {
     [UsedImplicitly]
-    public sealed class ExamineSystem : ExamineSystemShared
+    public sealed partial class ExamineSystem : ExamineSystemShared // Aquila Change
     {
         [Dependency] private readonly VerbSystem _verbSystem = default!;
 
@@ -66,6 +66,8 @@ namespace Content.Server.Examine
                     request.NetEntity, request.Id, _entityOutOfRangeMessage, knowTarget: false), channel);
                 return;
             }
+
+            if (TryBlockExamineAquila(playerEnt, entity, request.NetEntity, request.Id, channel)) return; // Aquila Change
 
             SortedSet<Verb>? verbs = null;
             if (request.GetVerbs)

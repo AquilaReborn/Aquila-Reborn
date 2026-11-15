@@ -41,7 +41,7 @@ public sealed class VehicleGallopSystem : SharedVehicleGallopSystem
             return;
 
         var coords = Transform(uid).Coordinates.Offset(component.CloudOffset);
-        Spawn(component.SuccessCloudEffect, coords);
+        SpawnAttachedTo(component.SuccessCloudEffect, coords);
     }
 
     public override void Update(float frameTime)
@@ -63,7 +63,7 @@ public sealed class VehicleGallopSystem : SharedVehicleGallopSystem
                 continue;
 
             var coords = Transform(uid).Coordinates.Offset(component.CloudOffset);
-            Spawn(component.StepCloudEffect, coords);
+            SpawnAttachedTo(component.StepCloudEffect, coords);
             component.LastStep = _timing.CurTime;
         }
     }

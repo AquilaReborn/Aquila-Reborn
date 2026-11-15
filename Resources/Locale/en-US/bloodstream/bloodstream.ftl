@@ -3,5 +3,7 @@ bloodstream-component-slight-bleeding = [color=#893843]{CAPITALIZE(SUBJECT($targ
 bloodstream-component-bleeding = [color=red]{CAPITALIZE(SUBJECT($target))} {CONJUGATE-BE($target)} bleeding.[/color]
 bloodstream-component-profusely-bleeding = [color=crimson]{CAPITALIZE(SUBJECT($target))} {CONJUGATE-BE($target)} profusely bleeding![/color]
 bloodstream-component-massive-bleeding = [color=#420000]{CAPITALIZE(SUBJECT($target))} {CONJUGATE-BE($target)} massive bleeding.[/color]
+# Aquila Change
+bloodstream-component-strong-bleeding = [color=crimson]{CAPITALIZE(SUBJECT($target))} {CONJUGATE-BE($target)} strongly bleeding![/color]
 
 bloodstream-component-wounds-cauterized = You feel your wounds painfully close!

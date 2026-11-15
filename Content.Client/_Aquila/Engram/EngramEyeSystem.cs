@@ -22,10 +22,10 @@ public sealed class EngramEyeSystem : EntitySystem
     {
         if (!TryComp<EyeComponent>(ent, out var eye)
             || eye.Target is not { } host
-            || host == ent.Owner
-            || !TryComp<TransformComponent>(host, out var hostXform))
+            || host == ent.Owner)
             return;
 
+        var hostXform = Transform(host);
         var xform = Transform(ent);
         if (xform.MapID != hostXform.MapID)
             return;

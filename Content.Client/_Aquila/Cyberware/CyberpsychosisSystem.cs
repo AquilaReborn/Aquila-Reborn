@@ -212,7 +212,7 @@ public sealed class CyberpsychosisSystem : SharedCyberpsychosisSystem
                 continue;
 
             var proto = stage.Disguises[target.Owner.Id % stage.Disguises.Count];
-            disguised.Disguise = Spawn(proto, new EntityCoordinates(target, Vector2.Zero));
+            disguised.Disguise = SpawnAttachedTo(proto, new EntityCoordinates(target, Vector2.Zero));
             _sprite.SetPostShader(target.AsNullable(), new SpriteComponent.PostShaderArgs(HiddenPostShaderId, _hiddenShader)
             {
                 After = ContentPostShaderIds.BeforeOutlines,

@@ -141,12 +141,12 @@ public sealed class MansusRealmSystem : EntitySystem
         for (var i = 0; i < realm.RuneCount; i++)
         {
             var distance = (edge + i * perimeter / realm.RuneCount) % perimeter;
-            var rune = Spawn(realm.DormantRune, new EntityCoordinates(grid, PerimeterPoint(distance, edge)));
+            var rune = SpawnAttachedTo(realm.DormantRune, new EntityCoordinates(grid, PerimeterPoint(distance, edge)));
             _appearance.SetData(rune, MansusRuneVisuals.Glyph, i % RuneGlyphs + 1);
             realm.Runes.Add(rune);
         }
 
-        var copy = Spawn(species.Prototype, new EntityCoordinates(grid, Vector2.Zero));
+        var copy = SpawnAttachedTo(species.Prototype, new EntityCoordinates(grid, Vector2.Zero));
         _humanoid.CloneAppearance(victim, copy, humanoid);
         _heightAdjust.SetScale(copy, new Vector2(humanoid.Width, humanoid.Height));
         _meta.SetEntityName(copy, Name(victim));
@@ -156,7 +156,7 @@ public sealed class MansusRealmSystem : EntitySystem
                 || Prototype(item.Value) is not { } itemProto)
                 continue;
 
-            var clone = Spawn(itemProto.ID, Transform(copy).Coordinates);
+            var clone = SpawnAttachedTo(itemProto.ID, Transform(copy).Coordinates);
             if (!_inventory.TryEquip(copy, clone, slot, silent: true, force: true))
                 QueueDel(clone);
         }
@@ -347,7 +347,7 @@ public sealed class MansusRealmSystem : EntitySystem
             var rune = realm.Runes[realm.LitRunes];
             var coords = Transform(rune).Coordinates;
             QueueDel(rune);
-            var lit = Spawn(realm.LitRune, coords);
+            var lit = SpawnAttachedTo(realm.LitRune, coords);
             _appearance.SetData(lit, MansusRuneVisuals.Glyph, realm.LitRunes % RuneGlyphs + 1);
             realm.Runes[realm.LitRunes] = lit;
             realm.LitRunes++;
@@ -372,7 +372,7 @@ public sealed class MansusRealmSystem : EntitySystem
 
     private void SpawnHand(MansusRealmComponent realm, Vector2 start, Vector2 direction, float speed)
     {
-        var hand = Spawn(_random.Pick(realm.HandPrototypes), new EntityCoordinates(realm.Grid, start));
+        var hand = SpawnAttachedTo(_random.Pick(realm.HandPrototypes), new EntityCoordinates(realm.Grid, start));
 
         var angle = direction.ToWorldAngle();
         if (TryComp<ProjectileComponent>(hand, out var projectile))
@@ -450,7 +450,7 @@ public sealed class MansusRealmSystem : EntitySystem
         _transform.SetCoordinates(victim, coords);
         _transform.AttachToGridOrMap(victim);
 
-        Spawn(realm.ReturnEffect, coords);
+        SpawnAttachedTo(realm.ReturnEffect, coords);
         _audio.PlayPvs(realm.ReturnSound, coords);
 
         _status.TryAddStatusEffectDuration(victim, ForcedSleep, realm.SleepDuration);

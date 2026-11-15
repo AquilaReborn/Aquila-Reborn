@@ -1,10 +1,8 @@
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Aquila.Karaoke;
-using Robust.Shared.Prototypes;
 using Content.Shared.Aquila.Karaoke.Components;
 using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Aquila.Karaoke;
 namespace Content.Server.Aquila.Karaoke;
 
 

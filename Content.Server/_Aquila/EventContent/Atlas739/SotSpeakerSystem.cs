@@ -139,7 +139,7 @@ public sealed class SotSpeakerSystem : EntitySystem
         {
             try
             {
-                comp.EndsAt = _timing.CurTime + _audio.GetAudioLength(path.Path.ToString());
+                comp.EndsAt = _timing.CurTime + _audio.GetAudioLength(new ResolvedPathSpecifier(path.Path));
             }
             catch (Exception e)
             {

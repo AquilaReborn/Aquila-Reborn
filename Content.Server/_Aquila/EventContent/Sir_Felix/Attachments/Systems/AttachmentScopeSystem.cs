@@ -11,7 +11,6 @@ namespace Content.Server._Aquila.EventContent.Sir_Felix.Attachments.Systems
         //[Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
         private readonly HashSet<Entity<AttachmentScopeComponent>> _activeMufflers = new();
-        [Dependency] private readonly SharedGunSystem _gunSystem = default!;
         public override void Initialize()
         {
             base.Initialize();

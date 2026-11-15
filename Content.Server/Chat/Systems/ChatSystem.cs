@@ -123,6 +123,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         Subs.CVar(_configurationManager, RMCCVars.RMCDeadChatEnabled, OnDeadChatEnabledChanged, true); // RMC14
 
         SubscribeLocalEvent<GameRunLevelChangedEvent>(OnGameChange);
+        InitializeAquila(); // Aquila Change
     }
 
     private void OnLoocEnabledChanged(bool val)
@@ -269,7 +270,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         bool shouldCapitalizeTheWordI = (!CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Parent.Name == "en")
             || (CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Name == "en");
 
-        message = SanitizeInGameICMessage(source, message, out var emoteStr, shouldCapitalize, shouldPunctuate, shouldCapitalizeTheWordI);
+        message = SanitizeAquila(source, message, out var emoteStr, shouldCapitalize, shouldPunctuate, shouldCapitalizeTheWordI); // Aquila Change
 
         // Was there an emote in the message? If so, send it.
         if (player != null && emoteStr != message && emoteStr != null)
@@ -319,6 +320,7 @@ public sealed partial class ChatSystem : SharedChatSystem
                 return;
             }
         }
+        if (TrySendAquilaSegmentedMessage(source, message, _aquilaOriginalText ?? message, desiredType, range, nameOverride, language, hideLog, ignoreActionBlocker, colorOverride)) return; // Aquila Change
 
         // Otherwise, send whatever type.
         switch (desiredType)
@@ -758,6 +760,8 @@ public sealed partial class ChatSystem : SharedChatSystem
             if (MessageRangeCheck(session, data, range) != MessageRangeCheckResult.Full)
                 continue; // Won't get logged to chat, and ghosts are too far away to see the pop-up, so we just won't send it to them.
 
+            if (TrySendUnclearMessage(ChatChannel.Whisper, listener, source, false, session.Channel)) continue; // Aquila Change
+
             // Goob edit start
             var evSight = new ChatMessageOverrideInRange(language.SpeechOverride.RequireSpeech, language.SpeechOverride.RequireSight);
             RaiseLocalEvent(listener, ref evSight);
@@ -1028,6 +1032,8 @@ public sealed partial class ChatSystem : SharedChatSystem
             var vacuumHearing = channel == ChatChannel.Local ? _vacuumChat.GetHearing(source, listener) : VacuumHearing.Air; // Aquila Change
             if (vacuumHearing == VacuumHearing.None) // Aquila Change
                 continue; // Aquila Change
+
+            if (TrySendUnclearMessage(channel, listener, source, entHideChat, session.Channel)) continue; // Aquila Change
 
             // Goob edit start
             // Raises a event for the deaf and blind component

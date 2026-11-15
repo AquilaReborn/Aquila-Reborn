@@ -322,7 +322,7 @@ public sealed class SplitPersonalitySystem : EntitySystem
 
     private EntityUid SpawnPassenger(EntityUid host, EntProtoId prototype)
     {
-        var passenger = Spawn(prototype, Transform(host).Coordinates);
+        var passenger = SpawnAttachedTo(prototype, Transform(host).Coordinates);
         _transform.SetParent(passenger, host);
         EnsureComp<SplitPersonalityPassengerComponent>(passenger).Host = host;
 
