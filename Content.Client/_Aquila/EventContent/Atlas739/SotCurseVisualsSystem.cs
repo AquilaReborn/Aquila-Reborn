@@ -3,22 +3,31 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Numerics;
+using Content.Client.Graphics;
 using Content.Shared._Aquila.EventContent.Atlas739;
 using Robust.Client.GameObjects;
+using Robust.Client.Graphics;
+using Robust.Shared.Prototypes;
 
 namespace Content.Client._Aquila.EventContent.Atlas739;
 
 /// <summary>
-///     Внешний вид проклятия SoT: красит спрайт персонажа цветом SotCurse.Color (оттенок + прозрачность).
-///     Цвет задаётся на весь SpriteComponent, а слои одежды, предметов в руках, волос и т.д. лежат в том же
-///     спрайте, поэтому проклятие действует и на них. При снятии проклятия возвращается исходный цвет.
+///     Внешний вид проклятия SoT: персонаж становится полупрозрачным с цветным оттенком (SotCurse.Color).
+///     Используется постшейдер (SotCurse): движок сначала рисует ВЕСЬ спрайт (тело, одежду, предметы в руках,
+///     волосы) в промежуточный буфер, а шейдер выводит готовый силуэт целиком. Поэтому прозрачность применяется
+///     один раз ко всему персонажу, и тело не просвечивает сквозь одежду. Свой экземпляр шейдера у каждого
+///     проклятого, чтобы у разных людей мог быть разный цвет.
 /// </summary>
 public sealed class SotCurseVisualsSystem : EntitySystem
 {
+    private const string PostShaderId = "sot-curse";
+    private static readonly ProtoId<ShaderPrototype> ShaderProto = "SotCurse";
+
+    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
 
-    /// <summary>Цвет спрайта до проклятия (чтобы вернуть как было, а не просто белый).</summary>
-    private readonly Dictionary<EntityUid, Color> _originalColors = new();
+    private readonly Dictionary<EntityUid, ShaderInstance> _shaders = new();
 
     public override void Initialize()
     {
@@ -36,19 +45,19 @@ public sealed class SotCurseVisualsSystem : EntitySystem
 
     private void OnState(Entity<SotCurseComponent> ent, ref AfterAutoHandleStateEvent args)
     {
-        // Цвет могли поменять на лету (VV, повторное наложение): красим заново.
+        // Цвет могли поменять на лету (VV, повторное наложение): обновляем параметр шейдера.
         Apply(ent);
     }
 
     private void OnShutdown(Entity<SotCurseComponent> ent, ref ComponentShutdown args)
     {
-        if (!_originalColors.Remove(ent.Owner, out var original))
+        if (!_shaders.Remove(ent.Owner, out var shader))
             return;
 
-        if (TerminatingOrDeleted(ent) || !TryComp<SpriteComponent>(ent, out var sprite))
-            return;
+        if (!TerminatingOrDeleted(ent))
+            _sprite.RemovePostShader(ent.Owner, PostShaderId);
 
-        _sprite.SetColor((ent.Owner, sprite), original);
+        shader.Dispose();
     }
 
     private void Apply(Entity<SotCurseComponent> ent)
@@ -56,9 +65,19 @@ public sealed class SotCurseVisualsSystem : EntitySystem
         if (!TryComp<SpriteComponent>(ent, out var sprite))
             return;
 
-        // Запоминаем исходный цвет только один раз (первый вызов), дальше только перекрашиваем.
-        _originalColors.TryAdd(ent.Owner, sprite.Color);
+        if (!_shaders.TryGetValue(ent.Owner, out var shader))
+        {
+            shader = _proto.Index(ShaderProto).InstanceUnique();
+            _shaders[ent.Owner] = shader;
 
-        _sprite.SetColor((ent.Owner, sprite), ent.Comp.Color);
+            _sprite.SetPostShader((ent.Owner, sprite), new SpriteComponent.PostShaderArgs(PostShaderId, shader)
+            {
+                // Контуры взаимодействия рисуются поверх проклятия, а не под ним.
+                Before = ContentPostShaderIds.BeforeOutlines,
+            });
+        }
+
+        var color = ent.Comp.Color;
+        shader.SetParameter("tint", new Vector4(color.R, color.G, color.B, color.A));
     }
 }
