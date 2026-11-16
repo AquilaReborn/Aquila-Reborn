@@ -203,6 +203,33 @@ public sealed class BankAccountSystem : EntitySystem
     }
 
     /// <summary>
+    /// Отдаёт номер, баланс и зарплату счёта, привязанного к карте.
+    /// </summary>
+    public bool TryGetAccountInfo(Entity<BankCardComponent?> card, out int number, out int balance, out int salary)
+    {
+        if (!Resolve(card, ref card.Comp, false))
+        {
+            number = 0;
+            balance = 0;
+            salary = 0;
+            return false;
+        }
+
+        if (!TryGetAccount(card, out var account))
+        {
+            number = 0;
+            balance = 0;
+            salary = 0;
+            return false;
+        }
+
+        number = account.Value.Comp.Number;
+        balance = account.Value.Comp.Balance;
+        salary = account.Value.Comp.Salary;
+        return true;
+    }
+
+    /// <summary>
     /// Ищет счёт по его номеру.
     /// </summary>
     public bool TryFindAccount(int number, [NotNullWhen(true)] out Entity<BankAccountComponent>? account)

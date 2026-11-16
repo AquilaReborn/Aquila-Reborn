@@ -72,6 +72,8 @@ public sealed partial class GeneralRecord : Control
         };
         // CorvaxGoob-Locale-End
 
+        AquilaSetupBankAccount(record); // Aquila Change
+
         if (canDelete && id != null)
         {
             DeleteButton.Visible = true;
