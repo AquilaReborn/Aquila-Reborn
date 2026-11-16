@@ -26,6 +26,8 @@ public sealed class VisionOverlay : Overlay
     private const float PreCriticalRadiusMax = 0.34f;
     private const float PreCriticalRadiusMin = 0.16f;
     private const float DeadRadius = 0.08f;
+    private const float RadiusSmoothSpeed = 8f;
+    private const float FadeSpeed = 8f;
 
     private static readonly ProtoId<ShaderPrototype> MaskShader = "GradientCircleMask";
     private static readonly ProtoId<ShaderPrototype> RedShader = "GradientCircleMask";
@@ -34,6 +36,13 @@ public sealed class VisionOverlay : Overlay
     private readonly ShaderInstance _mask;
     private readonly ShaderInstance _red;
     private readonly ShaderInstance _grayscale;
+
+    private float _smoothedRadius;
+    private float _smoothedSeverity;
+    private float _fade;
+    private bool _wasActive;
+    private bool _justActivated;
+    private TimeSpan _lastUpdate;
 
     public VisionOverlay()
     {
@@ -46,7 +55,23 @@ public sealed class VisionOverlay : Overlay
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)
     {
-        return TryGetState(out _, out _, out _);
+        if (!TryGetState(out _, out _, out _))
+        {
+            _wasActive = false;
+            _smoothedRadius = 0f;
+            _fade = 0f;
+            return false;
+        }
+
+        if (!_wasActive)
+        {
+            _wasActive = true;
+            _justActivated = true;
+            _fade = 0f;
+            _lastUpdate = _timing.RealTime;
+        }
+
+        return true;
     }
 
     protected override void Draw(in OverlayDrawArgs args)
@@ -63,16 +88,41 @@ public sealed class VisionOverlay : Overlay
         var view = args.ViewportBounds;
         var distance = MathF.Min(view.Width, view.Height);
 
+        var delta = Math.Clamp((float) (_timing.RealTime - _lastUpdate).TotalSeconds, 0f, 0.1f);
+        _lastUpdate = _timing.RealTime;
+        _fade = Smooth(_fade, 1f, FadeSpeed, delta);
+
         if (critical)
         {
             var severity = GetCriticalSeverity(player.Value);
+
+            if (_justActivated)
+            {
+                _smoothedSeverity = severity;
+            }
+            else
+            {
+                _smoothedSeverity = Smooth(_smoothedSeverity, severity, RadiusSmoothSpeed, delta);
+            }
+
             var critBeat = 0.5f + 0.5f * MathF.Sin((float) _timing.RealTime.TotalSeconds * 3f);
-            var baseRadius = distance * (0.15f + (0.08f - 0.15f) * severity);
-            var maskRadius = baseRadius * (1f + 0.06f * (critBeat - 0.5f));
+            var criticalTargetRadius = distance * (0.15f + (0.08f - 0.15f) * severity) * (1f + 0.06f * (critBeat - 0.5f));
+
+            if (_justActivated)
+            {
+                _smoothedRadius = criticalTargetRadius;
+                _justActivated = false;
+            }
+            else
+            {
+                _smoothedRadius = Smooth(_smoothedRadius, criticalTargetRadius, RadiusSmoothSpeed, delta);
+            }
+
+            var maskRadius = _smoothedRadius;
 
             _mask.SetParameter("time", 0f);
             _mask.SetParameter("color", Vector3.One);
-            _mask.SetParameter("darknessAlphaOuter", 0.35f * (0.4f + 0.6f * critBeat));
+            _mask.SetParameter("darknessAlphaOuter", 0.35f * (0.4f + 0.6f * critBeat) * _fade);
             _mask.SetParameter("innerCircleRadius", 0f);
             _mask.SetParameter("innerCircleMaxRadius", 0f);
             _mask.SetParameter("outerCircleRadius", maskRadius);
@@ -82,7 +132,7 @@ public sealed class VisionOverlay : Overlay
 
             _mask.SetParameter("time", 0f);
             _mask.SetParameter("color", new Vector3(0f, 0f, 0f));
-            _mask.SetParameter("darknessAlphaOuter", 1f);
+            _mask.SetParameter("darknessAlphaOuter", _fade);
             _mask.SetParameter("innerCircleRadius", maskRadius * 0.3f);
             _mask.SetParameter("innerCircleMaxRadius", maskRadius * 0.3f);
             _mask.SetParameter("outerCircleRadius", maskRadius * 1.05f);
@@ -90,10 +140,36 @@ public sealed class VisionOverlay : Overlay
             handle.UseShader(_mask);
             handle.DrawRect(box, Color.White);
             handle.UseShader(null);
+
+            var hazeInner = distance * (0.6f - 0.58f * _smoothedSeverity);
+            var hazeOuter = distance * (2f - _smoothedSeverity);
+
+            _mask.SetParameter("time", critBeat);
+            _mask.SetParameter("color", Vector3.One);
+            _mask.SetParameter("darknessAlphaOuter", 0.6f * _fade);
+            _mask.SetParameter("innerCircleRadius", hazeInner);
+            _mask.SetParameter("innerCircleMaxRadius", hazeInner + 0.005f * distance);
+            _mask.SetParameter("outerCircleRadius", hazeOuter);
+            _mask.SetParameter("outerCircleMaxRadius", hazeOuter + 0.2f * distance);
+            handle.UseShader(_mask);
+            handle.DrawRect(box, Color.White);
+            handle.UseShader(null);
             return;
         }
 
-        var radius = dead ? distance * DeadRadius : GetPreCriticalRadius(player.Value, distance);
+        var targetRadius = dead ? distance * DeadRadius : GetPreCriticalRadius(player.Value, distance);
+
+        if (_justActivated)
+        {
+            _smoothedRadius = targetRadius;
+            _justActivated = false;
+        }
+        else
+        {
+            _smoothedRadius = Smooth(_smoothedRadius, targetRadius, RadiusSmoothSpeed, delta);
+        }
+
+        var radius = _smoothedRadius;
         var beat = 0.5f + 0.5f * MathF.Sin((float) _timing.RealTime.TotalSeconds * 3f);
 
         if (dead && ScreenTexture != null)
@@ -110,7 +186,7 @@ public sealed class VisionOverlay : Overlay
             var redOuter = maskRadius * (1.15f + 0.35f * beat);
             _red.SetParameter("time", 0f);
             _red.SetParameter("color", new Vector3(1f, 0f, 0f));
-            _red.SetParameter("darknessAlphaOuter", 0.12f * (0.35f + 0.65f * beat));
+            _red.SetParameter("darknessAlphaOuter", 0.12f * (0.35f + 0.65f * beat) * _fade);
             _red.SetParameter("innerCircleRadius", redInner);
             _red.SetParameter("innerCircleMaxRadius", redInner);
             _red.SetParameter("outerCircleRadius", redOuter);
@@ -121,7 +197,7 @@ public sealed class VisionOverlay : Overlay
 
         _mask.SetParameter("time", 0f);
         _mask.SetParameter("color", new Vector3(0f, 0f, 0f));
-        _mask.SetParameter("darknessAlphaOuter", 1f);
+        _mask.SetParameter("darknessAlphaOuter", _fade);
         _mask.SetParameter("innerCircleRadius", radius * 0.3f);
         _mask.SetParameter("innerCircleMaxRadius", radius * 0.3f);
         _mask.SetParameter("outerCircleRadius", radius * 1.05f);
@@ -130,6 +206,11 @@ public sealed class VisionOverlay : Overlay
         handle.DrawRect(box, Color.White);
 
         handle.UseShader(null);
+    }
+
+    private static float Smooth(float current, float target, float speed, float delta)
+    {
+        return target + (current - target) * MathF.Exp(-speed * delta);
     }
 
     private float GetCriticalSeverity(EntityUid player)

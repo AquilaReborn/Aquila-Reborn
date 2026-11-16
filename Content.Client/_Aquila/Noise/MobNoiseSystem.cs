@@ -1,3 +1,4 @@
+using Content.Shared.Inventory;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Robust.Client.GameObjects;
@@ -15,6 +16,7 @@ public sealed partial class MobNoiseSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
 
     private const string ShaderId = "MobNoise";
 
@@ -56,20 +58,40 @@ public sealed partial class MobNoiseSystem : EntitySystem
         var query = EntityQueryEnumerator<SpriteComponent, MobStateComponent>();
         while (query.MoveNext(out var uid, out var sprite, out _))
         {
-            if (uid == player || _modified.ContainsKey(uid))
+            if (uid == player)
                 continue;
 
-            var snapshots = new List<LayerSnapshot>(sprite.LayerData.Count);
-            for (var i = 0; i < sprite.LayerData.Count; i++)
-            {
-                var layer = sprite.LayerData[i];
-                snapshots.Add(new LayerSnapshot(i, layer.Shader, layer.ShaderPrototype, layer.Color));
-                sprite.LayerSetShader(i, ShaderId);
-                _sprite.LayerSetColor((uid, sprite), i, Color.White);
-            }
+            ApplyNoise(uid, sprite);
 
-            _modified[uid] = snapshots;
+            if (!_inventory.TryGetSlots(uid, out var slots))
+                continue;
+
+            foreach (var slot in slots)
+            {
+                if (!_inventory.TryGetSlotEntity(uid, slot.Name, out var item))
+                    continue;
+
+                if (TryComp<SpriteComponent>(item.Value, out var itemSprite))
+                    ApplyNoise(item.Value, itemSprite);
+            }
         }
+    }
+
+    private void ApplyNoise(EntityUid uid, SpriteComponent sprite)
+    {
+        if (_modified.ContainsKey(uid))
+            return;
+
+        var snapshots = new List<LayerSnapshot>(sprite.LayerData.Count);
+        for (var i = 0; i < sprite.LayerData.Count; i++)
+        {
+            var layer = sprite.LayerData[i];
+            snapshots.Add(new LayerSnapshot(i, layer.Shader, layer.ShaderPrototype, layer.Color));
+            sprite.LayerSetShader(i, ShaderId);
+            _sprite.LayerSetColor((uid, sprite), i, Color.White);
+        }
+
+        _modified[uid] = snapshots;
     }
 
     private void Restore()
