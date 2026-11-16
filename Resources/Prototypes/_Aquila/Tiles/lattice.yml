@@ -1,0 +1,47 @@
+- type: tile
+  parent: Lattice
+  id: LatticeSmall1
+  name: tiles-lattice-small1
+  sprite: /Textures/_Aquila/Tiles/LatticeSmall1.png
+
+- type: tile
+  parent: Lattice
+  id: LatticeSmall2
+  name: tiles-lattice-small2
+  sprite: /Textures/_Aquila/Tiles/LatticeSmall2.png
+
+- type: tile
+  parent: Lattice
+  id: LatticeSmall3
+  name: tiles-lattice-small3
+  sprite: /Textures/_Aquila/Tiles/LatticeSmall3.png
+
+- type: tile
+  parent: Lattice
+  id: LatticeSmall4
+  name: tiles-lattice-small4
+  sprite: /Textures/_Aquila/Tiles/LatticeSmall4.png
+
+- type: tile
+  parent: Lattice
+  id: LatticeCorner1
+  name: tiles-lattice-corner1
+  sprite: /Textures/_Aquila/Tiles/LatticeCorner1.png
+
+- type: tile
+  parent: Lattice
+  id: LatticeCorner2
+  name: tiles-lattice-corner2
+  sprite: /Textures/_Aquila/Tiles/LatticeCorner2.png
+
+- type: tile
+  parent: Lattice
+  id: LatticeCorner3
+  name: tiles-lattice-corner3
+  sprite: /Textures/_Aquila/Tiles/LatticeCorner3.png
+
+- type: tile
+  parent: Lattice
+  id: LatticeCorner4
+  name: tiles-lattice-corner4
+  sprite: /Textures/_Aquila/Tiles/LatticeCorner4.png

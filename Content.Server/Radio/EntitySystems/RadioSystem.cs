@@ -135,6 +135,7 @@ public sealed partial class RadioSystem : EntitySystem
         bool escapeMarkup = true)
     {
         var aquilaChunks = TakeAquilaSegments(message); // Aquila Change
+        if (AquilaBlocksRadio(messageSource)) return; // Aquila Change
         // Einstein Engines - Language begin
         if (language == null)
             language = _language.GetLanguage(messageSource);

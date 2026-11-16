@@ -225,6 +225,27 @@
     - EthyloxyephedrineMedipen
 # onionsenpai
 
+# obaldui
+- type: loadout
+  id: PersonalLoadoutGoliathCloak03d32492
+  effects:
+  - !type:PersonalLoadoutEffect
+    users:
+    - 03d32492-6371-4515-8f67-59926b377400
+  equipment:
+    neck: ClothingNeckCloakGoliathCloak
+
+- type: loadout
+  id: PersonalLoadoutBanana03d32492
+  effects:
+  - !type:PersonalLoadoutEffect
+    users:
+    - 03d32492-6371-4515-8f67-59926b377400
+  storage:
+    back:
+    - FoodBanana
+# obaldui
+
 # Ckey
 # something
 # Ckey
