@@ -27,8 +27,6 @@
   parent: ClothingModsuitStandard
   id: ClothingModsuitSotBase
   abstract: true
-  name: контроллер скафандра MOD
-  description: Основа контроллеров скафандров MOD SoT. Общие параметры обеих сторон.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/Atlas739/Modsuits/Athena/back.rsi  # дочерние прототипы подставляют свою сторону
@@ -47,8 +45,6 @@
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateSotBase
   abstract: true
-  name: нагрудник скафандра MOD
-  description: Основа скафандров MOD SoT. Общие параметры обеих сторон.
   categories: [ HideSpawnMenu ]
   components:
   - type: ToggleHideLayersClothing
@@ -140,8 +136,6 @@
   parent: BaseClothingModsuitHelmet
   id: ClothingModsuitHelmetSotBase
   abstract: true
-  name: шлем скафандра MOD
-  description: Основа скафандров MOD SoT. Общие параметры обеих сторон.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -235,8 +229,6 @@
   parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsSotBase
   abstract: true
-  name: перчатки скафандра MOD
-  description: Основа скафандров MOD SoT. Общие параметры обеих сторон.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -279,8 +271,6 @@
   parent: ClothingShoesBase
   id: ClothingModsuitBootsSotBase
   abstract: true
-  name: ботинки скафандра MOD
-  description: Основа скафандров MOD SoT. Общие параметры обеих сторон.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -348,9 +338,6 @@
 - type: entity
   parent: ClothingModsuitChestplateSotBase
   id: ClothingModsuitChestplateSotAthena
-  name: 'нагрудник скафандра MOD "Афина"'
-  description: Нагрудник скафандра MOD экипажа Афина.
-  suffix: SoT, Афина
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -359,9 +346,6 @@
 - type: entity
   parent: ClothingModsuitHelmetSotBase
   id: ClothingModsuitHelmetSotAthena
-  name: 'шлем скафандра MOD "Афина"'
-  description: Шлем скафандра MOD экипажа Афина.
-  suffix: SoT, Афина
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -370,9 +354,6 @@
 - type: entity
   parent: ClothingModsuitGauntletsSotBase
   id: ClothingModsuitGauntletsSotAthena
-  name: 'перчатки скафандра MOD "Афина"'
-  description: Перчатки скафандра MOD экипажа Афина.
-  suffix: SoT, Афина
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -381,9 +362,6 @@
 - type: entity
   parent: ClothingModsuitBootsSotBase
   id: ClothingModsuitBootsSotAthena
-  name: 'ботинки скафандра MOD "Афина"'
-  description: Ботинки скафандра MOD экипажа Афина.
-  suffix: SoT, Афина
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -392,9 +370,6 @@
 - type: entity
   parent: ClothingModsuitSotBase
   id: ClothingModsuitSotAthena
-  name: 'контроллер скафандра MOD "Афина"'
-  description: Модульный скафандр экипажа Афина.
-  suffix: SoT, Афина
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/Atlas739/Modsuits/Athena/back.rsi
@@ -412,9 +387,6 @@
 - type: entity
   parent: ClothingModsuitChestplateSotBase
   id: ClothingModsuitChestplateSotReaper
-  name: 'нагрудник скафандра MOD "Жнец"'
-  description: Нагрудник скафандра MOD экипажа Жнеца.
-  suffix: SoT, Жнец
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -423,9 +395,6 @@
 - type: entity
   parent: ClothingModsuitHelmetSotBase
   id: ClothingModsuitHelmetSotReaper
-  name: 'шлем скафандра MOD "Жнец"'
-  description: Шлем скафандра MOD экипажа Жнеца.
-  suffix: SoT, Жнец
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -434,9 +403,6 @@
 - type: entity
   parent: ClothingModsuitGauntletsSotBase
   id: ClothingModsuitGauntletsSotReaper
-  name: 'перчатки скафандра MOD "Жнец"'
-  description: Перчатки скафандра MOD экипажа Жнеца.
-  suffix: SoT, Жнец
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -445,9 +411,6 @@
 - type: entity
   parent: ClothingModsuitBootsSotBase
   id: ClothingModsuitBootsSotReaper
-  name: 'ботинки скафандра MOD "Жнец"'
-  description: Ботинки скафандра MOD экипажа Жнеца.
-  suffix: SoT, Жнец
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -456,9 +419,6 @@
 - type: entity
   parent: ClothingModsuitSotBase
   id: ClothingModsuitSotReaper
-  name: 'контроллер скафандра MOD "Жнец"'
-  description: Модульный скафандр экипажа Жнеца.
-  suffix: SoT, Жнец
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/Atlas739/Modsuits/Reaper/back.rsi

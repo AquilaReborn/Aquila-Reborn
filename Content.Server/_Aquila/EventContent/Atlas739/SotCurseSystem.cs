@@ -71,8 +71,15 @@ public sealed class SotCurseSystem : SharedSotCurseSystem
 
         var target = args.Target;
 
-        // Проклясть можно только члена нужной фракции (SotFaction.Side). Не handled: кулдаун не запускается.
-        if (!TryComp<SotFactionComponent>(target, out var faction) || faction.Side != comp.TargetSide)
+        // Проклясть можно только члена нужной фракции: явно заданной (TargetSide) или, по умолчанию, своей
+        // собственной (SotFaction.Side проклинающего). Не handled: кулдаун не запускается.
+        SotSide? allowedSide = comp.TargetSide;
+        if (allowedSide == null && TryComp<SotFactionComponent>(uid, out var ownFaction))
+            allowedSide = ownFaction.Side;
+
+        if (allowedSide == null
+            || !TryComp<SotFactionComponent>(target, out var faction)
+            || faction.Side != allowedSide)
         {
             _popup.PopupEntity(Loc.GetString("sot-curse-bad-target"), uid, uid);
             return;

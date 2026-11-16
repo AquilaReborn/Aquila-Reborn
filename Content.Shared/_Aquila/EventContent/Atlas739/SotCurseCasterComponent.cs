@@ -26,9 +26,13 @@ public sealed partial class SotCurseCasterComponent : Component
     [DataField]
     public Color CurseColor = new(0.45f, 1f, 0.55f, 0.55f);
 
-    /// <summary>Фракция, члены которой могут быть прокляты (по SotFaction.Side у цели).</summary>
+    /// <summary>
+    ///     ИЗМЕНИТЬ: фракция, члены которой могут быть прокляты (сверяется с SotFaction.Side у цели).
+    ///     Если не указано, проклинать можно членов СВОЕЙ фракции (по SotFaction.Side самого проклинающего):
+    ///     у лидера Афины это Афина, у лидера Жнецов это Жнецы. Указывать нужно только для особых случаев.
+    /// </summary>
     [DataField]
-    public SotSide TargetSide = SotSide.Athena;
+    public SotSide? TargetSide;
 
     /// <summary>Выданное действие (сервер). Не данные прототипа, поэтому не DataField.</summary>
     [ViewVariables]
