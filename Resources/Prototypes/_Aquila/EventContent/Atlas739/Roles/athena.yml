@@ -29,7 +29,7 @@
       - type: SotCurseCaster
         curseColor: "#00ffb7CC"
       - type: SotCurse
-        curseColor: "#00ffb7CC"
+        color: "#00ffb7CC"
 
 - type: startingGear
   id: SotSupremePirateGear

@@ -1,6 +1,8 @@
 # Работа выполнена Claude (Anthropic).
 # Проклятие SoT: два действия. Код: Content.*/_Aquila/EventContent/Atlas739/SotCurse*.cs
 #
+# Названия и описания действий: Resources/Locale/ru-RU/_Aquila/EventContent/Atlas739/sot-curse.ftl (ent-ActionSotCurse, ent-ActionSotUncurse).
+#
 # ГДЕ ЧТО МЕНЯТЬ
 #   - Цвет проклятия (оттенок + прозрачность): в роли верховного пирата, компонент SotCurseCaster, поле curseColor
 #     (см. Roles/athena.yml). Формат "#RRGGBBAA", где AA - прозрачность (ff непрозрачный, 00 невидимый).
@@ -11,8 +13,6 @@
 - type: entity
   parent: BaseAction
   id: ActionSotCurse
-  name: Проклясть
-  description: Наложить проклятие на члена своей фракции. Проклятый становится полупрозрачным и может снять проклятие сам.
   components:
   - type: Action
     # ИЗМЕНИТЬ: иконка (сейчас заглушка из стандартных) и кулдаун в секундах
@@ -33,8 +33,6 @@
 - type: entity
   parent: BaseAction
   id: ActionSotUncurse
-  name: Снять проклятие
-  description: Избавиться от проклятия, наложенного на вас.
   components:
   - type: Action
     # ИЗМЕНИТЬ: иконка (сейчас заглушка из стандартных) и кулдаун в секундах

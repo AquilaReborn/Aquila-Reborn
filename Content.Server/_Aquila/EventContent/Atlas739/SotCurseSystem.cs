@@ -18,7 +18,7 @@ namespace Content.Server._Aquila.EventContent.Atlas739;
 ///     Действия выдаются двумя путями: при MapInit (компонент задан в прототипе) и при ComponentStartup,
 ///     если сущность уже инициализирована (компонент добавлен позже: AddComponentSpecial, addcomp, наше же проклятие).
 /// </summary>
-public sealed class SotCurseSystem : EntitySystem
+public sealed class SotCurseSystem : SharedSotCurseSystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;

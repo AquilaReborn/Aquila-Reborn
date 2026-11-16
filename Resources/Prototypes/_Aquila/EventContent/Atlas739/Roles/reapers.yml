@@ -29,7 +29,7 @@
       - type: SotCurseCaster
         curseColor: "#c80f0fCC"
       - type: SotCurse
-        curseColor: "#c80f0fCC"
+        color: "#c80f0fCC"
 
 - type: startingGear
   id: SotBurningHeartCaptainGear
