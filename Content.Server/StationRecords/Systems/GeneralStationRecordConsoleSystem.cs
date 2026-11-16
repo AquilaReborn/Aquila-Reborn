@@ -8,7 +8,7 @@ using Robust.Server.GameObjects;
 
 namespace Content.Server.StationRecords.Systems;
 
-public sealed class GeneralStationRecordConsoleSystem : EntitySystem
+public sealed partial class GeneralStationRecordConsoleSystem : EntitySystem // Aquila Change
 {
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly StationSystem _station = default!;
@@ -94,6 +94,7 @@ public sealed class GeneralStationRecordConsoleSystem : EntitySystem
 
         var key = new StationRecordKey(id, owningStation.Value);
         _stationRecords.TryGetRecord<GeneralStationRecord>(key, out var record, stationRecords);
+        AquilaPopulateBankAccount(key, record); // Aquila Change
 
         GeneralStationRecordConsoleState newState = new(id, record, listing, console.Filter, ent.Comp.CanDeleteEntries);
         _ui.SetUiState(uid, GeneralStationRecordConsoleKey.Key, newState);
