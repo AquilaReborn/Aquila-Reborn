@@ -1246,6 +1246,7 @@
       - CloningPodSender
   - type: ActivatableUI
     key: enum.CloningConsoleUiKey.Key
+    blockSpectators: true # Aquila Change
   - type: UserInterface
     interfaces:
         enum.CloningConsoleUiKey.Key:

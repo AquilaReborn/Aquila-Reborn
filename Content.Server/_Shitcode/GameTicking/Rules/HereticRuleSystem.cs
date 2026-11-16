@@ -22,7 +22,7 @@ using Content.Shared.Station.Components;
 
 namespace Content.Server.GameTicking.Rules;
 
-public sealed class HereticRuleSystem : GameRuleSystem<HereticRuleComponent>
+public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleComponent> // Aquila Change
 {
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
@@ -54,19 +54,21 @@ public sealed class HereticRuleSystem : GameRuleSystem<HereticRuleComponent>
     {
         TryMakeHeretic(args.EntityUid, ent.Comp);
 
-        if (!TryGetRandomStation(out var station))
-            return;
-
-        var grid = GetStationMainGrid(Comp<StationDataComponent>(station.Value));
-
-        if (grid == null)
-            return;
-
-        for (var i = 0; i < ent.Comp.RealityShiftPerHeretic.Next(_rand); i++)
-        {
-            if (TryFindTileOnGrid(grid.Value, out _, out var coords))
-                Spawn(ent.Comp.RealityShift, coords);
-        }
+        // Aquila Change start
+        // if (!TryGetRandomStation(out var station))
+        //     return;
+        //
+        // var grid = GetStationMainGrid(Comp<StationDataComponent>(station.Value));
+        //
+        // if (grid == null)
+        //     return;
+        //
+        // for (var i = 0; i < ent.Comp.RealityShiftPerHeretic.Next(_rand); i++)
+        // {
+        //     if (TryFindTileOnGrid(grid.Value, out _, out var coords))
+        //         Spawn(ent.Comp.RealityShift, coords);
+        // }
+        // Aquila Change end
     }
 
     public bool TryMakeHeretic(EntityUid target, HereticRuleComponent rule)
@@ -89,6 +91,7 @@ public sealed class HereticRuleSystem : GameRuleSystem<HereticRuleComponent>
         }
 
         EnsureComp<HereticComponent>(mindId);
+        AquilaOnHereticMade(target, rule); // Aquila Change
 
         // add store
         var store = EnsureComp<StoreComponent>(mindId);
