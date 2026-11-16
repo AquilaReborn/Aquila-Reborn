@@ -11,6 +11,7 @@ sot-shop-category-tactical = Тактическое снаряжение
 sot-shop-category-misc = Разное
 sot-shop-category-clothing = Одежда
 sot-shop-category-fun = Весёлое
+sot-shop-category-modules = Модули MOD
 
 # --- Счета фракций (банковские, для консолей закупок) ---
 sot-shop-account-athena-name = Счёт Афины

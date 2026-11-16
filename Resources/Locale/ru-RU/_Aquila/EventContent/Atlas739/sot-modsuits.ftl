@@ -1,0 +1,34 @@
+# Работа выполнена Claude (Anthropic).
+modsuit-theme-sot-athena = Афина
+modsuit-theme-sot-reaper = Жнец
+
+ent-ClothingModsuitChestplateSotAthena = нагрудник скафандра MOD "Афина"
+    .desc = Нагрудник скафандра MOD экипажа Афины.
+    .suffix = SoT, Афина
+ent-ClothingModsuitHelmetSotAthena = шлем скафандра MOD "Афина"
+    .desc = Шлем скафандра MOD экипажа Афины.
+    .suffix = SoT, Афина
+ent-ClothingModsuitGauntletsSotAthena = перчатки скафандра MOD "Афина"
+    .desc = Перчатки скафандра MOD экипажа Афины.
+    .suffix = SoT, Афина
+ent-ClothingModsuitBootsSotAthena = ботинки скафандра MOD "Афина"
+    .desc = Ботинки скафандра MOD экипажа Афины.
+    .suffix = SoT, Афина
+ent-ClothingModsuitSotAthena = контроллер скафандра MOD "Афина"
+    .desc = Модульный скафандр экипажа Афины.
+    .suffix = SoT, Афина
+ent-ClothingModsuitChestplateSotReaper = нагрудник скафандра MOD "Жнец"
+    .desc = Нагрудник скафандра MOD экипажа Жнецов.
+    .suffix = SoT, Жнец
+ent-ClothingModsuitHelmetSotReaper = шлем скафандра MOD "Жнец"
+    .desc = Шлем скафандра MOD экипажа Жнецов.
+    .suffix = SoT, Жнец
+ent-ClothingModsuitGauntletsSotReaper = перчатки скафандра MOD "Жнец"
+    .desc = Перчатки скафандра MOD экипажа Жнецов.
+    .suffix = SoT, Жнец
+ent-ClothingModsuitBootsSotReaper = ботинки скафандра MOD "Жнец"
+    .desc = Ботинки скафандра MOD экипажа Жнецов.
+    .suffix = SoT, Жнец
+ent-ClothingModsuitSotReaper = контроллер скафандра MOD "Жнец"
+    .desc = Модульный скафандр экипажа Жнецов.
+    .suffix = SoT, Жнец

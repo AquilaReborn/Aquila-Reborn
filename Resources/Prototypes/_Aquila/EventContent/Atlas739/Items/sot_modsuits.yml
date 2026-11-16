@@ -1,55 +1,56 @@
 # Работа выполнена Claude (Anthropic).
 # Скафандры MOD для сторон SoT: контроллер "Афина" и контроллер "Жнец".
-# За основу взят Security (ClothingModsuitSecurity и его четыре части).
+# ПЕРЕНЕСЕНО на новую систему ModSuit (апстрим-коммит 0cead4dbb "what if modular suits were modular", #7485):
+# старая система SealableClothing удалена, вместо неё ModSuit (контроллер), ModPart (части), ModCore (ядро с батареей),
+# ModTheme (тема: сложность, расход, время активации). Основой взят Security в его НОВОМ виде.
 #
 # СТРУКТУРА
-#   Для каждого слота (контроллер, нагрудник, шлем, перчатки, ботинки) есть абстрактная ОСНОВА
-#   (...SotBase) и два дочерних прототипа (Афина, Жнец). Все общие параметры лежат в основе,
-#   дочерние меняют только название, описание и текстуры.
+#   Для каждого слота (контроллер, нагрудник, шлем, перчатки, ботинки) есть абстрактная ОСНОВА (...SotBase)
+#   и два дочерних прототипа (Афина, Жнец). Общие параметры лежат в основе, дочерние меняют название,
+#   описание и текстуры. У каждой стороны своя ТЕМА (ModThemeSotAthena / ModThemeSotReaper).
 #
-# ГДЕ ЧТО МЕНЯТЬ (ищите в файле пометки "ИЗМЕНИТЬ")
-#   - Резисты (все 50%): блоки  Armor.modifiers.coefficients,  ExplosionResistance,  StaminaResistance
-#     в основах нагрудника, шлема и ботинок. Правка в основе действует сразу на обе стороны.
-#   - Чтобы у сторон были РАЗНЫЕ резисты: скопируйте нужный блок "- type: Armor / modifiers / coefficients"
-#     в дочерний прототип стороны и поменяйте цифры там (в дочернем достаточно указать только изменяемые типы урона).
+# ГДЕ ЧТО МЕНЯТЬ (ищите пометки "ИЗМЕНИТЬ")
+#   - Резисты (все 50%): блоки Armor.modifiers.coefficients, ExplosionResistance, StaminaResistance в основах
+#     нагрудника, шлема и ботинок. Правка в основе действует сразу на обе стороны.
+#   - Чтобы резисты у сторон были РАЗНЫЕ: скопируйте блок "- type: Armor / modifiers / coefficients" в дочерний
+#     прототип стороны и поменяйте цифры там (достаточно указать только изменяемые типы урона).
+#   - Характеристики самого скафандра (сложность модулей, расход заряда, время активации, встроенные модули):
+#     прототипы ModThemeSotAthena / ModThemeSotReaper внизу файла. Модули, выданные при создании: ModSuit.startingModules.
+#   - Ядро/батарея: слот mod-core в основе контроллера (ModsuitCoreStandardHighCapacity = ядро с большой батареей).
 #   - Названия и описания: поля name / description у дочерних прототипов.
 #   - Текстуры: Resources/Textures/_Aquila/EventContent/Atlas739/Modsuits/<Athena|Reaper>/<back|outer|head|hands|shoes>.rsi
 #   - Перчатки в оригинале (Security) брони не имеют, поэтому резистов в них нет.
-#   - В отличие от Security: убраны контрабанда (BaseSecurityContraband) и ветка крафта (Construction);
-#     контроллер выдаётся сразу с батареей PowerCellHigh.
+#   - В отличие от Security: убраны контрабанда (BaseSecurityContraband) и ветка крафта (Construction) у частей.
+#     ВНИМАНИЕ: контроллер наследует Construction от ClothingModsuitStandard (граф Modsuit, узел standard).
 
 - type: entity
   parent: ClothingModsuitStandard
   id: ClothingModsuitSotBase
   abstract: true
-  name: контроллер скафандра MOD
-  description: Основа контроллеров скафандров MOD SoT. Общие параметры обеих сторон.
   components:
-  - type: Appearance
   - type: Sprite
     sprite: _Aquila/EventContent/Atlas739/Modsuits/Athena/back.rsi  # дочерние прототипы подставляют свою сторону
-  # ИЗМЕНИТЬ: стартовая батарея контроллера (PowerCellHigh = большая; можно PowerCellMedium и т.д.)
+  # ИЗМЕНИТЬ: ядро со стартовой батареей. ModsuitCoreStandardHighCapacity = ядро с большой батареей,
+  # ModsuitCoreStandard = пустое ядро (батарею вставляют вручную).
   - type: ItemSlots
     slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHigh
+      mod-core:
+        name: modsuit-core-slot-name
+        startingItem: ModsuitCoreStandardHyper
         whitelist:
           components:
-            - PowerCell
+          - ModCore
 
 - type: entity
   parent: ClothingOuterBase
   id: ClothingModsuitChestplateSotBase
   abstract: true
-  name: нагрудник скафандра MOD
-  description: Основа скафандров MOD SoT. Общие параметры обеих сторон.
   categories: [ HideSpawnMenu ]
   components:
-  - type: ToggleHideLayersClothing # Aquila Change
-    slots: OUTERCLOTHING # Aquila Change
+  - type: ToggleHideLayersClothing
+    slots: OUTERCLOTHING
     groups:
-    - layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ] # Aquila Change
+    - layers: [ Tail, TailBehind, TailBehindBackpack, TailOversuit, Wings ]
   - type: Appearance
   - type: AllowSuitStorage
   - type: Sprite
@@ -63,10 +64,27 @@
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
     slots: [ outerClothing ]
-  # ИЗМЕНИТЬ: скорость (1.0 = без замедления, меньше = медленнее). Резистами не считается, оставлено как у Security.
+  # ИЗМЕНИТЬ: скорость (1.0 = без замедления, меньше = медленнее). Здесь 1.0 - ваша правка, в оригинале Security 0.8.
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-chestplate
+    sealDownPopup: modsuit-part-seal-down-chestplate
+  - type: ModSuitSealedVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING-sealed
+      outerClothing-resomi:
+      - state: equipped-OUTERCLOTHING-sealed-resomi
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-sealed-vox
+      outerClothing-hydrakin:
+      - state: equipped-OUTERCLOTHING-sealed-hydrakin
   # ИЗМЕНИТЬ: сопротивление взрывам (0.5 = урон от взрыва вдвое меньше).
   - type: ExplosionResistance
     damageCoefficient: 0.5
@@ -102,7 +120,8 @@
         Piercing: 0.5
         Heat: 0.5
         Radiation: 0.5
-  - type: ComponentToggler
+  # ИЗМЕНИТЬ: защита, которая включается только когда скафандр запечатан (давление, температура и т.д.).
+  - type: ModSealedComponents
     components:
     - type: PressureProtection
       highPressureMultiplier: 0.3
@@ -117,8 +136,6 @@
   parent: BaseClothingModsuitHelmet
   id: ClothingModsuitHelmetSotBase
   abstract: true
-  name: шлем скафандра MOD
-  description: Основа скафандров MOD SoT. Общие параметры обеих сторон.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -144,6 +161,27 @@
   - type: HideLayerClothing
     slots:
     - Snout
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-helmet
+    sealDownPopup: modsuit-part-seal-down-helmet
+  - type: ModSuitSealedVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      head:
+      - state: equipped-HEAD-sealed
+      head-resomi:
+      - state: equipped-HEAD-sealed-resomi
+      head-vox:
+      - state: equipped-HEAD-sealed-vox
+      head-vulpkanin:
+      - state: equipped-HEAD-sealed-vulpkanin
+      head-feroxi:
+      - state: equipped-HEAD-sealed-feroxi
+      head-hydrakin:
+      - state: equipped-HEAD-sealed-hydrakin
   - type: Armor
     # ИЗМЕНИТЬ: защита от травм (вычет урона по телу). Не резист, оставлено как у Security.
     traumaDeductions:
@@ -161,7 +199,8 @@
         Piercing: 0.5
         Heat: 0.5
         Radiation: 0.5
-  - type: ComponentToggler
+  # ИЗМЕНИТЬ: защита, которая включается только когда скафандр запечатан (давление, температура и т.д.).
+  - type: ModSealedComponents
     components:
     - type: BreathMask
     - type: PressureProtection
@@ -178,7 +217,6 @@
       - Snout
       - HeadTop
       - HeadSide
-  #THIS WILL BE REPLACED WITH MODULE ↓↓
   - type: PointLight
     enabled: false
     radius: 5
@@ -186,39 +224,11 @@
     lightMask: ConeSingle
     autoRot: true
     netsync: true
-  - type: HandheldLight
-    addPrefix: true
-    blinkingBehaviourId: blinking
-    radiatingBehaviourId: radiating
-  - type: LightBehaviour
-    behaviours:
-      - !type:FadeBehaviour
-        id: radiating
-        interpolate: Linear
-        maxDuration: 2.0
-        startValue: 3.0
-        endValue: 2.0
-        isLooped: true
-        reverseWhenFinished: true
-      - !type:PulseBehaviour
-        id: blinking
-        interpolate: Nearest
-        maxDuration: 1.0
-        startValue: 0.1
-        endValue: 2.0
-        isLooped: true
-  - type: Battery
-    maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
-    startingCharge: 600
-  - type: BatterySelfRecharger
-    autoRechargeRate: 2
 
 - type: entity
   parent: ClothingHandModsuitBase
   id: ClothingModsuitGauntletsSotBase
   abstract: true
-  name: перчатки скафандра MOD
-  description: Основа скафандров MOD SoT. Общие параметры обеих сторон.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -241,13 +251,26 @@
     fiberMaterial: fibers-modular
     fiberColor: fibers-black
   - type: FingerprintMask
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-gauntlets
+    sealDownPopup: modsuit-part-seal-down-gauntlets
+  - type: ModSuitSealedVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND-sealed
+      gloves-vox:
+      - state: equipped-HAND-sealed-vox
+      gloves-hydrakin:
+      - state: equipped-HAND-sealed-hydrakin
 
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsSotBase
   abstract: true
-  name: ботинки скафандра MOD
-  description: Основа скафандров MOD SoT. Общие параметры обеих сторон.
   categories: [ HideSpawnMenu ]
   components:
   - type: Appearance
@@ -276,6 +299,21 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+  - type: ContainerContainer
+    containers:
+      mod-part-stored: !type:ContainerSlot
+  - type: ModPart
+    sealUpPopup: modsuit-part-seal-up-boots
+    sealDownPopup: modsuit-part-seal-down-boots
+  - type: ModSuitSealedVisuals
+    spriteLayer: sealed
+    clothingVisuals:
+      shoes:
+      - state: equipped-FEET-sealed
+      shoes-vox:
+      - state: equipped-FEET-sealed-vox
+      shoes-hydrakin:
+      - state: equipped-FEET-sealed-hydrakin
   - type: ClothingSlowOnDamageModifier
     modifier: 0.5
   - type: ModifyStandingUpTime
@@ -300,9 +338,6 @@
 - type: entity
   parent: ClothingModsuitChestplateSotBase
   id: ClothingModsuitChestplateSotAthena
-  name: 'нагрудник скафандра MOD "Афина"'
-  description: Нагрудник скафандра MOD экипажа Афина.
-  suffix: SoT, Афина
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -311,9 +346,6 @@
 - type: entity
   parent: ClothingModsuitHelmetSotBase
   id: ClothingModsuitHelmetSotAthena
-  name: 'шлем скафандра MOD "Афина"'
-  description: Шлем скафандра MOD экипажа Афина.
-  suffix: SoT, Афина
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -322,9 +354,6 @@
 - type: entity
   parent: ClothingModsuitGauntletsSotBase
   id: ClothingModsuitGauntletsSotAthena
-  name: 'перчатки скафандра MOD "Афина"'
-  description: Перчатки скафандра MOD экипажа Афина.
-  suffix: SoT, Афина
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -333,9 +362,6 @@
 - type: entity
   parent: ClothingModsuitBootsSotBase
   id: ClothingModsuitBootsSotAthena
-  name: 'ботинки скафандра MOD "Афина"'
-  description: Ботинки скафандра MOD экипажа Афина.
-  suffix: SoT, Афина
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -344,25 +370,23 @@
 - type: entity
   parent: ClothingModsuitSotBase
   id: ClothingModsuitSotAthena
-  name: 'контроллер скафандра MOD "Афина"'
-  description: Модульный скафандр экипажа Афина.
-  suffix: SoT, Афина
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/Atlas739/Modsuits/Athena/back.rsi
-  - type: ToggleableClothing
-    clothingPrototypes:
+  - type: ModSuit
+    theme: ModThemeSotAthena
+    parts:
       head: ClothingModsuitHelmetSotAthena
       gloves: ClothingModsuitGauntletsSotAthena
       outerClothing: ClothingModsuitChestplateSotAthena
       shoes: ClothingModsuitBootsSotAthena
+    startingModules:
+    - ModsuitModuleStorageLarge
+    - ModsuitModuleWelding
 
 - type: entity
   parent: ClothingModsuitChestplateSotBase
   id: ClothingModsuitChestplateSotReaper
-  name: 'нагрудник скафандра MOD "Жнец"'
-  description: Нагрудник скафандра MOD экипажа Жнец.
-  suffix: SoT, Жнец
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -371,9 +395,6 @@
 - type: entity
   parent: ClothingModsuitHelmetSotBase
   id: ClothingModsuitHelmetSotReaper
-  name: 'шлем скафандра MOD "Жнец"'
-  description: Шлем скафандра MOD экипажа Жнец.
-  suffix: SoT, Жнец
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -382,9 +403,6 @@
 - type: entity
   parent: ClothingModsuitGauntletsSotBase
   id: ClothingModsuitGauntletsSotReaper
-  name: 'перчатки скафандра MOD "Жнец"'
-  description: Перчатки скафандра MOD экипажа Жнец.
-  suffix: SoT, Жнец
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -393,9 +411,6 @@
 - type: entity
   parent: ClothingModsuitBootsSotBase
   id: ClothingModsuitBootsSotReaper
-  name: 'ботинки скафандра MOD "Жнец"'
-  description: Ботинки скафандра MOD экипажа Жнец.
-  suffix: SoT, Жнец
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -404,15 +419,34 @@
 - type: entity
   parent: ClothingModsuitSotBase
   id: ClothingModsuitSotReaper
-  name: 'контроллер скафандра MOD "Жнец"'
-  description: Модульный скафандр экипажа Жнец.
-  suffix: SoT, Жнец
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/Atlas739/Modsuits/Reaper/back.rsi
-  - type: ToggleableClothing
-    clothingPrototypes:
+  - type: ModSuit
+    theme: ModThemeSotReaper
+    parts:
       head: ClothingModsuitHelmetSotReaper
       gloves: ClothingModsuitGauntletsSotReaper
       outerClothing: ClothingModsuitChestplateSotReaper
       shoes: ClothingModsuitBootsSotReaper
+    startingModules:
+    - ModsuitModuleStorageLarge
+    - ModsuitModuleWelding
+
+- type: modTheme
+  id: ModThemeSotAthena
+  name: modsuit-theme-sot-athena
+  # ИЗМЕНИТЬ: время шага активации (сек), как у Security. Остальные параметры можно добавить:
+  #   complexityMax: 15      - сколько "сложности" модулей влезает (по умолчанию 15)
+  #   chargeDrain: 0.8       - расход заряда в секунду (по умолчанию 0.8)
+  inbuiltModules: [ ModsuitModuleDnaLock ]     # модули, встроенные в скафандр этой темы
+  activationStepTime: 0.75
+
+- type: modTheme
+  id: ModThemeSotReaper
+  name: modsuit-theme-sot-reaper
+  # ИЗМЕНИТЬ: время шага активации (сек), как у Security. Остальные параметры можно добавить:
+  #   complexityMax: 15      - сколько "сложности" модулей влезает (по умолчанию 15)
+  #   chargeDrain: 0.8       - расход заряда в секунду (по умолчанию 0.8)
+  inbuiltModules: [ ModsuitModuleDnaLock ]     # модули, встроенные в скафандр этой темы
+  activationStepTime: 0.75
