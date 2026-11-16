@@ -111,6 +111,7 @@ public sealed class PersonalLoadoutSystem : EntitySystem
 
         if (!_inventory.TryUnequip(uid, slot, out var old, silent: true, force: true))
         {
+            RestoreDependents(uid, dependents);
             Stash(uid, item);
             return;
         }
@@ -131,21 +132,24 @@ public sealed class PersonalLoadoutSystem : EntitySystem
     {
         var dependents = new List<(string Slot, EntityUid Item)>();
 
-        if (!_inventory.TryGetSlots(uid, out var slots))
-            return dependents;
-
-        foreach (var definition in slots)
-        {
-            if (definition.DependsOn != slot
-                || !_inventory.TryGetSlotEntity(uid, definition.Name, out var dependent))
-            {
-                continue;
-            }
-
-            dependents.Add((definition.Name, dependent.Value));
-        }
+        if (_inventory.TryGetSlots(uid, out var slots))
+            CollectDependentItems(uid, slot, slots, dependents, new HashSet<string>());
 
         return dependents;
+    }
+
+    private void CollectDependentItems(EntityUid uid, string parent, SlotDefinition[] slots, List<(string Slot, EntityUid Item)> dependents, HashSet<string> visited)
+    {
+        foreach (var definition in slots)
+        {
+            if (definition.DependsOn != parent || !visited.Add(definition.Name))
+                continue;
+
+            if (_inventory.TryGetSlotEntity(uid, definition.Name, out var dependent))
+                dependents.Add((definition.Name, dependent.Value));
+
+            CollectDependentItems(uid, definition.Name, slots, dependents, visited);
+        }
     }
 
     private void RestoreDependents(EntityUid uid, List<(string Slot, EntityUid Item)> dependents)
