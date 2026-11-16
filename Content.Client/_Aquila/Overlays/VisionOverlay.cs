@@ -146,7 +146,7 @@ public sealed class VisionOverlay : Overlay
 
             _mask.SetParameter("time", critBeat);
             _mask.SetParameter("color", Vector3.One);
-            _mask.SetParameter("darknessAlphaOuter", 0.6f * _fade);
+            _mask.SetParameter("darknessAlphaOuter", 0.3f * _fade);
             _mask.SetParameter("innerCircleRadius", hazeInner);
             _mask.SetParameter("innerCircleMaxRadius", hazeInner + 0.005f * distance);
             _mask.SetParameter("outerCircleRadius", hazeOuter);
