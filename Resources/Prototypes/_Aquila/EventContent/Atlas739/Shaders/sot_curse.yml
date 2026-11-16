@@ -1,0 +1,6 @@
+# Работа выполнена Claude (Anthropic).
+# Шейдер проклятия SoT. Подключается клиентской системой SotCurseVisualsSystem.
+- type: shader
+  id: SotCurse
+  kind: source
+  path: "/Textures/_Aquila/EventContent/Atlas739/Shaders/sot_curse.swsl"

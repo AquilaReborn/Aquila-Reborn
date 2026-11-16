@@ -1,0 +1,44 @@
+# Работа выполнена Claude (Anthropic).
+# Проклятие SoT: два действия. Код: Content.*/_Aquila/EventContent/Atlas739/SotCurse*.cs
+#
+# Названия и описания действий: Resources/Locale/ru-RU/_Aquila/EventContent/Atlas739/sot-curse.ftl (ent-ActionSotCurse, ent-ActionSotUncurse).
+#
+# ГДЕ ЧТО МЕНЯТЬ
+#   - Цвет проклятия (оттенок + прозрачность): в роли верховного пирата, компонент SotCurseCaster, поле curseColor
+#     (см. Roles/athena.yml). Формат "#RRGGBBAA", где AA - прозрачность (ff непрозрачный, 00 невидимый).
+#     Значение по умолчанию (если поле не указано): #73ff8c8c (зелёный, примерно 55% непрозрачности).
+#   - Кто может быть проклят: по умолчанию члены СВОЕЙ фракции (SotFaction.Side проклинающего). Явно задать
+#     можно полем targetSide компонента SotCurseCaster (Athena или Reapers).
+#   - Дальность, кулдаун и иконки действий: ниже (range, useDelay, icon).
+
+- type: entity
+  parent: BaseAction
+  id: ActionSotCurse
+  components:
+  - type: Action
+    # ИЗМЕНИТЬ: иконка (сейчас заглушка из стандартных) и кулдаун в секундах
+    icon: Interface/Actions/blight.png
+    useDelay: 5
+    raiseOnUser: true
+  - type: TargetAction
+    # ИЗМЕНИТЬ: дальность в тайлах
+    range: 7
+  - type: EntityTargetAction
+    # Подсвечивает возможные цели; точную проверку стороны (Афина) делает сервер.
+    whitelist:
+      components:
+      - SotFaction
+    canTargetSelf: false
+    event: !type:SotCurseActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionSotUncurse
+  components:
+  - type: Action
+    # ИЗМЕНИТЬ: иконка (сейчас заглушка из стандартных) и кулдаун в секундах
+    icon: Interface/Actions/defile.png
+    useDelay: 1
+    raiseOnUser: true
+  - type: InstantAction
+    event: !type:SotUncurseActionEvent

@@ -26,6 +26,10 @@
     components:
       - type: SotFaction
         side: Reapers
+      - type: SotCurseCaster
+        curseColor: "#c80f0fCC"
+      - type: SotCurse
+        color: "#c80f0fCC"
 
 - type: startingGear
   id: SotBurningHeartCaptainGear

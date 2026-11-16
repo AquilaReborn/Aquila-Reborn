@@ -26,6 +26,10 @@
     components:
       - type: SotFaction
         side: Athena
+      - type: SotCurseCaster
+        curseColor: "#00ffb7CC"
+      - type: SotCurse
+        color: "#00ffb7CC"
 
 - type: startingGear
   id: SotSupremePirateGear
