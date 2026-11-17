@@ -46,12 +46,14 @@ public partial class SharedMartialArtsSystem
             return;
 
         var user = args.Wearer;
+        if (HasComp<SystemGrantedJudoComponent>(user)) return; // Aquila Change
         TryGrantMartialArt(user, ent.Comp);
     }
 
     private void OnRemoveCorporateJudo(Entity<GrantCorporateJudoComponent> ent, ref ClothingGotUnequippedEvent args)
     {
         var user = args.Wearer;
+        if (HasComp<SystemGrantedJudoComponent>(user)) return; // Aquila Change
         if (!TryComp<MartialArtsKnowledgeComponent>(user, out var martialArtsKnowledge))
             return;
 
