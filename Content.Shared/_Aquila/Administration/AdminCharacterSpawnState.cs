@@ -26,6 +26,11 @@ public sealed class AdminCharacterSpawnState : EuiStateBase
     public Dictionary<int, HumanoidCharacterProfile> TargetProfiles = new();
 
     /// <summary>
+    /// Снаряжение, снятое с текущего тела цели при открытии окна.
+    /// </summary>
+    public AdminCharacterSpawnCustomGear? CustomGear;
+
+    /// <summary>
     /// Создать копию без переноса разума.
     /// </summary>
     public bool Clone;

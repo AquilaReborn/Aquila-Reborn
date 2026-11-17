@@ -38,6 +38,15 @@ public sealed partial class AdminCharacterSpawnWindow : FancyWindow
     private static readonly LocId SpawnLabel = "aquila-admin-character-spawn";
     private static readonly LocId TargetLabel = "aquila-admin-character-target";
     private static readonly LocId TargetLobbyLabel = "aquila-admin-character-target-lobby";
+    private static readonly LocId TemplatesTabLabel = "aquila-admin-character-templates";
+    private static readonly LocId TemplateNameRequired = "aquila-admin-character-template-name-required";
+    private static readonly LocId TemplateAlreadyExists = "aquila-admin-character-template-already-exists";
+    private static readonly LocId TemplateSaveFailed = "aquila-admin-character-template-save-failed";
+    private static readonly LocId TemplateDeleteFailed = "aquila-admin-character-template-delete-failed";
+    private static readonly LocId TemplateInvalid = "aquila-admin-character-template-invalid";
+    private static readonly LocId TemplateApplied = "aquila-admin-character-template-applied";
+    private static readonly LocId CustomGearLabel = "aquila-admin-character-custom-gear-selected";
+    private static readonly LocId CustomGearCaptureFailed = "aquila-admin-character-custom-gear-capture-failed";
 
     private enum Source
     {
@@ -55,6 +64,8 @@ public sealed partial class AdminCharacterSpawnWindow : FancyWindow
     private int _profileIndex;
     private EntityUid? _dummy;
     private ProtoId<StartingGearPrototype>? _selectedGear;
+    private AdminCharacterSpawnCustomGear? _customGear;
+    private AdminCharacterSpawnCustomGear? _capturedGear;
 
     internal event Action<AdminCharacterSpawnRequest>? OnConfirm;
 
@@ -65,11 +76,21 @@ public sealed partial class AdminCharacterSpawnWindow : FancyWindow
         RobustXamlLoader.Load(this);
         TabContainer.SetTabTitle(EquipmentTab, Loc.GetString("aquila-admin-character-equipment"));
         TabContainer.SetTabTitle(ImplantsTab, Loc.GetString("aquila-admin-character-implants"));
+        TabContainer.SetTabTitle(TemplatesTab, Loc.GetString(TemplatesTabLabel));
 
         ImplantSearch.OnTextChanged += _ => PopulateImplants();
         Implants.OnItemSelected += args => _selectedImplants.Add((EntProtoId) Implants[args.ItemIndex].Metadata!);
         Implants.OnItemDeselected += args => _selectedImplants.Remove((EntProtoId) Implants[args.ItemIndex].Metadata!);
         Favorite.OnPressed += _ => ToggleFavorite();
+        CaptureGear.OnPressed += _ => CaptureGearPressed();
+        ResetCustomGear.OnPressed += _ => SetCustomGear(null);
+        TemplateList.OnItemSelected += OnTemplateSelected;
+        TemplateList.OnItemDeselected += OnTemplateDeselected;
+        SaveTemplate.OnPressed += OnSaveTemplatePressed;
+        ApplyTemplate.OnPressed += OnApplyTemplatePressed;
+        DeleteTemplate.OnPressed += OnDeleteTemplatePressed;
+        TemplateName.OnTextChanged += OnTemplateNameChanged;
+        Templates.TemplatesChanged += OnTemplatesChanged;
         PopulateImplants();
 
         _presets = _prototypes.EnumeratePrototypes<HumanoidProfilePrototype>().OrderBy(p => p.ID).Select(p => new ProtoId<HumanoidProfilePrototype>(p.ID)).ToArray();
@@ -102,11 +123,13 @@ public sealed partial class AdminCharacterSpawnWindow : FancyWindow
         Confirm.OnPressed += _ => Submit();
         Gear.OnItemDeselected += OnGearDeselected;
         PopulateGear();
+        PopulateTemplates();
     }
 
     internal void UpdateState(AdminCharacterSpawnState state)
     {
         _state = state;
+        _capturedGear = state.CustomGear?.Copy();
         InsideStorage.Visible = state.CanSpawnInsideStorage;
         _profiles = state.Profiles.OrderBy(entry => entry.Key).ToArray();
         _targetProfiles = state.TargetProfiles.OrderBy(entry => entry.Key).ToArray();
@@ -117,6 +140,8 @@ public sealed partial class AdminCharacterSpawnWindow : FancyWindow
         ProfileSource.SetItemDisabled(ProfileSource.GetIdx((int) Source.Lobby), _profiles.Length == 0);
         Confirm.Text = Loc.GetString(state.Clone ? CloneLabel : SpawnLabel);
         Confirm.Disabled = false;
+        UpdateGearButtons();
+        PopulateTemplates();
         UpdatePreview();
     }
 
@@ -152,6 +177,11 @@ public sealed partial class AdminCharacterSpawnWindow : FancyWindow
     private AdminCharacterSpawnFavoritesUIController Favorites =>
         UserInterfaceManager.GetUIController<AdminCharacterSpawnFavoritesUIController>();
 
+    private AdminCharacterSpawnTemplatesUIController Templates =>
+        UserInterfaceManager.GetUIController<AdminCharacterSpawnTemplatesUIController>();
+
+    private string? SelectedTemplateName => TemplateList.GetSelected().FirstOrDefault()?.Metadata as string;
+
     private void PopulateImplants()
     {
         Implants.Clear();
@@ -178,19 +208,22 @@ public sealed partial class AdminCharacterSpawnWindow : FancyWindow
         if (AdminId is not { } admin || _selectedGear is not { } gear)
             return;
 
-        Favorites.ToggleFavorite(admin, gear);
+        Favorites.TryToggleFavorite(admin, gear);
         PopulateGear();
     }
 
-    private void UpdateFavorite()
+    private void UpdateGearButtons()
     {
         Favorite.Disabled = _selectedGear == null || AdminId == null;
         Favorite.Text = Loc.GetString(_selectedGear is { } gear && IsFavorite(gear) ? FavoriteRemove : FavoriteAdd);
+        CaptureGear.Disabled = _state == null;
+        ResetCustomGear.Disabled = _customGear == null;
     }
 
     private void PopulateGear()
     {
         Gear.Clear();
+        UpdateSelectedGearLabel();
         AddGear(Loc.GetString(NoOutfitLabel), null);
         var filter = SearchGear.Text.Trim();
         var jobNames = new Dictionary<ProtoId<StartingGearPrototype>, string>();
@@ -221,19 +254,21 @@ public sealed partial class AdminCharacterSpawnWindow : FancyWindow
             AddGear(IsFavorite(gear) ? $"☆ {name}" : name, gear, tooltip);
         }
 
-        UpdateFavorite();
+        UpdateGearButtons();
     }
 
     private void AddGear(string text, ProtoId<StartingGearPrototype>? gear, string? tooltip = null)
     {
         var item = new ItemList.Item(Gear) { Text = text, TooltipText = tooltip ?? text };
         Gear.Add(item);
-        item.Selected = gear == _selectedGear;
+        item.Selected = _customGear == null && gear == _selectedGear;
         item.OnSelected += _ =>
         {
+            _customGear = null;
             _selectedGear = gear;
             SelectedGear.Text = text;
-            UpdateFavorite();
+            SelectedGear.ToolTip = null;
+            UpdateGearButtons();
             UpdatePreview();
         };
 
@@ -248,13 +283,231 @@ public sealed partial class AdminCharacterSpawnWindow : FancyWindow
 
         _selectedGear = null;
         SelectedGear.Text = Loc.GetString(NoOutfitLabel);
-        UpdateFavorite();
+        SelectedGear.ToolTip = null;
+        UpdateGearButtons();
         UpdatePreview();
+    }
+
+    private void UpdateSelectedGearLabel()
+    {
+        if (_customGear is not { } customGear)
+        {
+            SelectedGear.ToolTip = null;
+            return;
+        }
+
+        var count = customGear.Equipment.Count + customGear.Inhand.Count + customGear.Storage.Values.Sum(items => items.Count);
+        SelectedGear.Text = Loc.GetString(CustomGearLabel, ("count", count));
+        var contents = customGear.Equipment.Values
+            .Concat(customGear.Inhand)
+            .Concat(customGear.Storage.Values.SelectMany(items => items))
+            .Distinct()
+            .Select(item => _prototypes.TryIndex(item, out var prototype) ? prototype.Name : item.Id);
+        SelectedGear.ToolTip = string.Join(Environment.NewLine, contents);
+    }
+
+    private void SetCustomGear(AdminCharacterSpawnCustomGear? gear)
+    {
+        _customGear = gear?.Copy();
+        if (gear != null)
+            _selectedGear = null;
+
+        PopulateGear();
+        UpdatePreview();
+        Status.Visible = false;
+    }
+
+    private void CaptureGearPressed()
+    {
+        if (_capturedGear is not { } captured)
+        {
+            ShowStatus(CustomGearCaptureFailed);
+            return;
+        }
+
+        SetCustomGear(captured);
+    }
+
+    private void PopulateTemplates(string? selectedName = null)
+    {
+        selectedName ??= SelectedTemplateName;
+        TemplateList.Clear();
+        if (AdminId is { } admin)
+        {
+            foreach (var name in Templates.GetTemplates(admin).Keys.OrderBy(templateName => templateName, StringComparer.Ordinal))
+            {
+                TemplateList.Add(new ItemList.Item(TemplateList)
+                {
+                    Text = name,
+                    TooltipText = name,
+                    Metadata = name,
+                    Selected = string.Equals(name, selectedName, StringComparison.Ordinal),
+                });
+            }
+        }
+
+        UpdateTemplateButtons();
+    }
+
+    private void OnTemplateSelected(ItemList.ItemListSelectedEventArgs args)
+    {
+        UpdateTemplateButtons();
+    }
+
+    private void OnTemplateDeselected(ItemList.ItemListDeselectedEventArgs args)
+    {
+        UpdateTemplateButtons();
+    }
+
+    private void OnTemplateNameChanged(LineEdit.LineEditEventArgs args)
+    {
+        UpdateTemplateButtons();
+    }
+
+    private void OnTemplatesChanged(string admin)
+    {
+        if (AdminId == admin)
+            PopulateTemplates();
+    }
+
+    private void UpdateTemplateButtons()
+    {
+        var adminAvailable = AdminId != null;
+        SaveTemplate.Disabled = !adminAvailable;
+        ApplyTemplate.Disabled = DeleteTemplate.Disabled = !adminAvailable || SelectedTemplateName == null;
+    }
+
+    private void OnSaveTemplatePressed(BaseButton.ButtonEventArgs args)
+    {
+        if (AdminId is not { } admin)
+            return;
+
+        var name = TemplateName.Text.Trim();
+        if (name.Length == 0)
+        {
+            ShowStatus(TemplateNameRequired);
+            return;
+        }
+
+        if (Templates.HasTemplate(admin, name))
+        {
+            ShowStatus(TemplateAlreadyExists);
+            return;
+        }
+
+        if (!Templates.TrySaveTemplate(admin, name, CaptureTemplate()))
+        {
+            ShowStatus(TemplateSaveFailed);
+            return;
+        }
+
+        TemplateName.Text = string.Empty;
+        Status.Visible = false;
+        PopulateTemplates(name);
+    }
+
+    private AdminCharacterSpawnTemplate CaptureTemplate()
+    {
+        return new AdminCharacterSpawnTemplate
+        {
+            Gear = _selectedGear,
+            CustomGear = _customGear?.Copy(),
+            Implants = _selectedImplants.ToList(),
+        };
+    }
+
+    private void OnApplyTemplatePressed(BaseButton.ButtonEventArgs args)
+    {
+        if (AdminId is not { } admin || SelectedTemplateName is not { } name)
+            return;
+
+        if (!Templates.GetTemplates(admin).TryGetValue(name, out var template))
+        {
+            PopulateTemplates();
+            return;
+        }
+
+        if (!CanApplyTemplate(template))
+        {
+            ShowStatus(TemplateInvalid);
+            Confirm.Disabled = false;
+            return;
+        }
+
+        ApplyTemplateSettings(template);
+        ShowStatus(TemplateApplied);
+    }
+
+    private bool CanApplyTemplate(AdminCharacterSpawnTemplate template)
+    {
+        if (template.CustomGear is { } customGear
+            && (template.Gear != null || !AdminCharacterSpawnGearValidation.CanUseCustomGear(customGear, _prototypes, _components)))
+        {
+            return false;
+        }
+
+        if (template.Gear is { } gearId
+            && (string.IsNullOrEmpty(gearId.Id) || !_prototypes.TryIndex(gearId, out var gear) || gear.Abstract))
+        {
+            return false;
+        }
+
+        foreach (var implantId in template.Implants)
+        {
+            if (string.IsNullOrEmpty(implantId.Id) || !_prototypes.TryIndex(implantId, out var implant)
+                || implant.Abstract
+                || !implant.TryGetComponent<SubdermalImplantComponent>(out _, _components)
+                || implant.TryGetComponent<HideFromAdminCharacterSpawnComponent>(out _, _components))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private void ApplyTemplateSettings(AdminCharacterSpawnTemplate template)
+    {
+        _selectedGear = template.Gear;
+        _customGear = template.CustomGear?.Copy();
+        _selectedImplants.Clear();
+        _selectedImplants.UnionWith(template.Implants);
+        PopulateGear();
+        PopulateImplants();
+        UpdatePreview();
+    }
+
+    private void OnDeleteTemplatePressed(BaseButton.ButtonEventArgs args)
+    {
+        if (AdminId is not { } admin || SelectedTemplateName is not { } name)
+            return;
+
+        if (!Templates.TryDeleteTemplate(admin, name))
+        {
+            PopulateTemplates();
+            ShowStatus(TemplateDeleteFailed);
+            return;
+        }
+
+        Status.Visible = false;
+    }
+
+    private void ShowStatus(LocId message)
+    {
+        Status.Text = Loc.GetString(message);
+        Status.Visible = true;
     }
 
     internal void Release()
     {
         Gear.OnItemDeselected -= OnGearDeselected;
+        TemplateList.OnItemSelected -= OnTemplateSelected;
+        TemplateList.OnItemDeselected -= OnTemplateDeselected;
+        SaveTemplate.OnPressed -= OnSaveTemplatePressed;
+        ApplyTemplate.OnPressed -= OnApplyTemplatePressed;
+        DeleteTemplate.OnPressed -= OnDeleteTemplatePressed;
+        TemplateName.OnTextChanged -= OnTemplateNameChanged;
+        Templates.TemplatesChanged -= OnTemplatesChanged;
         ClearPreview();
     }
 
@@ -269,7 +522,7 @@ public sealed partial class AdminCharacterSpawnWindow : FancyWindow
 
         ProtoId<HumanoidProfilePrototype>? preset = source == Source.Preset ? (ProtoId<HumanoidProfilePrototype>?) _presets[Preset.SelectedId] : null;
         var dummy = UserInterfaceManager.GetUIController<AdminCharacterSpawnUIController>()
-            .CreatePreview(profile, preset, _selectedGear);
+            .CreatePreview(profile, preset, _selectedGear, _customGear);
         _dummy = dummy;
         Preview.SetEntity(dummy);
         NameOverride.PlaceHolder = profile.Name;
@@ -298,6 +551,7 @@ public sealed partial class AdminCharacterSpawnWindow : FancyWindow
             SpawnInsideStorage = InsideStorage.Visible && InsideStorage.Pressed,
             Preset = preset,
             Gear = _selectedGear,
+            CustomGear = _customGear?.Copy(),
             Implants = _selectedImplants.ToList(),
             Name = NameOverride.Text.Trim(),
         });

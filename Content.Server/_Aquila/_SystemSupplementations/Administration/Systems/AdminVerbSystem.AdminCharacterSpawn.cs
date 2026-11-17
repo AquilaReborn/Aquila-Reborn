@@ -31,6 +31,7 @@ public sealed partial class AdminVerbSystem
     [Dependency] private readonly StationSpawningSystem _spawning = default!;
 
     private static readonly LocId SpawnCoordinatesFailed = "admin-player-spawn-failed";
+    private static readonly LocId CustomGearSpawnFailed = "aquila-admin-character-custom-gear-spawn-failed";
     private static readonly LocId SpawnHere = "admin-player-actions-spawn";
     private static readonly LocId CloneHere = "admin-player-actions-clone";
 
@@ -79,6 +80,7 @@ public sealed partial class AdminVerbSystem
         var state = new AdminCharacterSpawnState
         {
             TargetProfile = CreateSpawnPreview(targetProfile),
+            CustomGear = _spawning.CaptureAdminCharacterCustomGear(target),
             Clone = clone,
             CanSpawnInsideStorage = storage.HasValue,
         };
@@ -147,6 +149,14 @@ public sealed partial class AdminVerbSystem
             return false;
         }
 
+        if (request.CustomGear is { } customGear
+            && (request.Gear != null
+                || !AdminCharacterSpawnGearValidation.CanUseCustomGear(customGear, _prototypeManager, EntityManager.ComponentFactory)))
+        {
+            _popup.PopupEntity(Loc.GetString(CustomGearSpawnFailed), user, user);
+            return false;
+        }
+
         if (!ValidateAdminSpawnChoices(request))
             return false;
 
@@ -160,14 +170,33 @@ public sealed partial class AdminVerbSystem
         }
 
         var placed = storage == null;
+        var customGearEquipped = true;
+        var customGearLoadout = request.CustomGear;
         var station = _stations.GetOwningStation(target);
         var mob = _spawning.SpawnPlayerMob(coordinates.Value, null, profile, station,
             adminGear: gear, adminPreset: preset,
-            placeBeforeEquipment: storage == null ? null : body => placed = TryPlaceAdminSpawnInsideStorage(body, storage));
+            placeBeforeEquipment: body =>
+            {
+                if (customGearLoadout != null && !_spawning.TryEquipAdminCharacterCustomGear(body, customGearLoadout, out _))
+                {
+                    customGearEquipped = false;
+                    return false;
+                }
 
-        if (!placed)
+                if (storage != null && !TryPlaceAdminSpawnInsideStorage(body, storage))
+                {
+                    placed = false;
+                    return false;
+                }
+
+                return true;
+            });
+
+        if (!placed || !customGearEquipped)
         {
             Del(mob);
+            if (!customGearEquipped)
+                _popup.PopupEntity(Loc.GetString(CustomGearSpawnFailed), user, user);
             return false;
         }
 

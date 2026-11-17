@@ -23,13 +23,29 @@
                     <LineEdit Name="SearchGear" PlaceHolder="{Loc 'aquila-admin-character-search'}" />
                     <ItemList Name="Gear" SelectMode="Single" VerticalExpand="True" RectClipContent="True" />
                     <Label Name="SelectedGear" ClipText="True" />
-                    <Button Name="Favorite" HorizontalAlignment="Left" />
+                    <BoxContainer SeparationOverride="6">
+                        <Button Name="Favorite" HorizontalAlignment="Left" />
+                        <Button Name="CaptureGear" Text="{Loc 'aquila-admin-character-custom-gear-capture'}"
+                                ToolTip="{Loc 'aquila-admin-character-custom-gear-capture-tooltip'}" Disabled="True" />
+                        <Button Name="ResetCustomGear" Text="{Loc 'aquila-admin-character-custom-gear-reset'}" Disabled="True" />
+                    </BoxContainer>
                     <Label Text="{Loc 'aquila-admin-character-name'}" />
                     <LineEdit Name="NameOverride" />
                 </BoxContainer>
                 <BoxContainer Name="ImplantsTab" Orientation="Vertical" SeparationOverride="6">
                     <LineEdit Name="ImplantSearch" PlaceHolder="{Loc 'aquila-admin-character-implant-search'}" />
                     <ItemList Name="Implants" SelectMode="Multiple" VerticalExpand="True" RectClipContent="True" />
+                </BoxContainer>
+                <BoxContainer Name="TemplatesTab" Orientation="Vertical" SeparationOverride="6">
+                    <BoxContainer SeparationOverride="6">
+                        <LineEdit Name="TemplateName" HorizontalExpand="True" PlaceHolder="{Loc 'aquila-admin-character-template-name'}" />
+                        <Button Name="SaveTemplate" Text="{Loc 'aquila-admin-character-template-save'}" Disabled="True" />
+                    </BoxContainer>
+                    <ItemList Name="TemplateList" SelectMode="Single" VerticalExpand="True" RectClipContent="True" />
+                    <BoxContainer HorizontalAlignment="Right" SeparationOverride="6">
+                        <Button Name="ApplyTemplate" Text="{Loc 'aquila-admin-character-template-apply'}" Disabled="True" />
+                        <Button Name="DeleteTemplate" Text="{Loc 'aquila-admin-character-template-delete'}" Disabled="True" />
+                    </BoxContainer>
                 </BoxContainer>
             </TabContainer>
         </BoxContainer>

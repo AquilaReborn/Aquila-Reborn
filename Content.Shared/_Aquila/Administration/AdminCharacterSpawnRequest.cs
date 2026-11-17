@@ -33,6 +33,11 @@ public sealed class AdminCharacterSpawnRequest : EuiMessageBase
     public ProtoId<StartingGearPrototype>? Gear;
 
     /// <summary>
+    /// Собственное снаряжение вместо готового комплекта.
+    /// </summary>
+    public AdminCharacterSpawnCustomGear? CustomGear;
+
+    /// <summary>
     /// Подкожные импланты, которые получит созданный персонаж.
     /// </summary>
     public List<EntProtoId> Implants = new();

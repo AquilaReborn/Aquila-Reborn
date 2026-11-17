@@ -1,14 +1,9 @@
-using System.IO;
-using System.Linq;
 using Content.Shared.Roles;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
-using Robust.Shared.Serialization.Markdown;
-using Robust.Shared.Serialization.Markdown.Mapping;
 using Robust.Shared.Utility;
-using YamlDotNet.RepresentationModel;
 
 namespace Content.Client._Aquila.Administration;
 
@@ -22,6 +17,7 @@ public sealed class AdminCharacterSpawnFavoritesUIController : UIController
     [Dependency] private readonly ISerializationManager _serialization = default!;
 
     private static readonly ResPath SavePath = new("/admin_character_spawn_favorites.yml");
+    private AdminCharacterSpawnYamlStore<Dictionary<string, HashSet<string>>> _store = default!;
     private Dictionary<string, HashSet<string>> _favorites = new();
 
     /// <summary>
@@ -29,19 +25,8 @@ public sealed class AdminCharacterSpawnFavoritesUIController : UIController
     /// </summary>
     public override void Initialize()
     {
-        try
-        {
-            using var reader = _resources.UserData.OpenText(SavePath);
-            var document = DataNodeParser.ParseYamlStream(reader).First();
-            _favorites = _serialization.Read<Dictionary<string, HashSet<string>>>(document.Root, notNullableOverride: true);
-        }
-        catch (FileNotFoundException)
-        {
-        }
-        catch (Exception e)
-        {
-            Log.Warning($"Failed to load admin character spawn favorites: {e}");
-        }
+        _store = new(_resources.UserData, _serialization, Log, SavePath);
+        _favorites = _store.Load(_favorites);
     }
 
     internal bool IsFavorite(string admin, ProtoId<StartingGearPrototype> gear)
@@ -52,33 +37,26 @@ public sealed class AdminCharacterSpawnFavoritesUIController : UIController
             && favorites?.Contains(gear.Id) == true;
     }
 
-    internal void ToggleFavorite(string admin, ProtoId<StartingGearPrototype> gear)
+    internal bool TryToggleFavorite(string admin, ProtoId<StartingGearPrototype> gear)
     {
         if (string.IsNullOrWhiteSpace(admin) || string.IsNullOrWhiteSpace(gear.Id))
-            return;
+            return false;
 
-        if (!_favorites.TryGetValue(admin, out var favorites) || favorites == null)
-        {
-            favorites = new HashSet<string>();
-            _favorites[admin] = favorites;
-        }
-
+        var updated = new Dictionary<string, HashSet<string>>(_favorites);
+        var favorites = updated.TryGetValue(admin, out var current) && current != null
+            ? new HashSet<string>(current)
+            : new HashSet<string>();
         if (!favorites.Add(gear.Id))
-        {
             favorites.Remove(gear.Id);
-            if (favorites.Count == 0)
-                _favorites.Remove(admin);
-        }
+        if (favorites.Count == 0)
+            updated.Remove(admin);
+        else
+            updated[admin] = favorites;
 
-        try
-        {
-            var node = _serialization.WriteValueAs<MappingDataNode>(_favorites);
-            using var writer = _resources.UserData.OpenWriteText(SavePath);
-            new YamlStream { new YamlDocument(node.ToYaml()) }.Save(writer, false);
-        }
-        catch (Exception e)
-        {
-            Log.Warning($"Failed to save admin character spawn favorites: {e}");
-        }
+        if (!_store.TrySave(updated))
+            return false;
+
+        _favorites = updated;
+        return true;
     }
 }
