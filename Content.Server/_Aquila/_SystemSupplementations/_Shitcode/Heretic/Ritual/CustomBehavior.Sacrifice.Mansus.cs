@@ -14,6 +14,6 @@ public partial class RitualSacrificeBehavior
             return;
 
         var station = args.EntityManager.System<StationSystem>().GetOwningStation(args.Platform);
-        args.EntityManager.System<MansusRealmSystem>().TrySendToMansus(uid, station);
+        args.EntityManager.System<MansusRealmSystem>().TrySendToMansus(uid, station, args.Performer);
     }
 }

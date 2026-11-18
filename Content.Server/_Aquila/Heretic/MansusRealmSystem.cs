@@ -5,6 +5,7 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.Ghost;
+using Content.Server.Pinpointer;
 using Content.Server.Station.Systems;
 using Content.Shared._Aquila.Heretic;
 using Content.Shared._EinsteinEngines.HeightAdjust;
@@ -19,6 +20,7 @@ using Content.Shared.Light.Components;
 using Content.Shared.Maps;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Parallax;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
@@ -48,7 +50,15 @@ public sealed class MansusRealmSystem : EntitySystem
     }
 
     private static readonly EntProtoId ForcedSleep = "StatusEffectForcedSleeping";
-    private const string ReturnMessageLoc = "influence-base-message";
+    private static readonly LocId VictimSentMessage = "mansus-trial-victim-sent";
+    private static readonly LocId ReportPassedMessage = "mansus-trial-report-passed";
+    private static readonly LocId ReportFailedMessage = "mansus-trial-report-failed";
+    private static readonly LocId RealmMapName = "mansus-realm-map-name";
+    private static readonly LocId RealmArrival = "mansus-realm-arrival";
+    private static readonly LocId RealmFall = "mansus-realm-fall";
+    private static readonly LocId RealmLeaving = "mansus-realm-leaving";
+    private static readonly LocId RealmReturn = "mansus-realm-return";
+    private static readonly LocId ReturnMessageLoc = "influence-base-message";
     private const int ReturnMessageSize = 22;
     private const int RuneGlyphs = 12;
 
@@ -65,6 +75,8 @@ public sealed class MansusRealmSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly NavMapSystem _navMap = default!;
     [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
@@ -83,7 +95,14 @@ public sealed class MansusRealmSystem : EntitySystem
         SubscribeLocalEvent<MansusVictimComponent, MobStateChangedEvent>(OnVictimMobStateChanged);
     }
 
-    public bool TrySendToMansus(EntityUid victim, EntityUid? returnStation)
+    /// <summary>
+    /// Отправляет жертву на испытание Мансуса и создаёт для него отдельный мир.
+    /// </summary>
+    /// <param name="victim">Тело, которое отправляют на испытание.</param>
+    /// <param name="returnStation">Станция, куда вернётся жертва, может быть null.</param>
+    /// <param name="heretic">Еретик, который получит отчёт об исходе испытания.</param>
+    /// <returns><see langword="true"/>, если жертву удалось отправить.</returns>
+    public bool TrySendToMansus(EntityUid victim, EntityUid? returnStation, EntityUid? heretic = null)
     {
         if (!_mind.TryGetMind(victim, out var mindId, out var mind)
             || mind.UserId is not { } userId
@@ -93,10 +112,13 @@ public sealed class MansusRealmSystem : EntitySystem
             || !_proto.TryIndex(humanoid.Species, out var species))
             return false;
 
+        if (mind.VisitingEntity != null)
+            _mind.UnVisit(mindId, mind);
+
         var now = _timing.CurTime;
         var mapUid = _map.CreateMap(out var mapId);
         var realm = EnsureComp<MansusRealmComponent>(mapUid);
-        _meta.SetEntityName(mapUid, Loc.GetString("mansus-realm-map-name"));
+        _meta.SetEntityName(mapUid, Loc.GetString(RealmMapName));
 
         var light = EnsureComp<MapLightComponent>(mapUid);
         light.AmbientLightColor = realm.AmbientLight;
@@ -171,13 +193,17 @@ public sealed class MansusRealmSystem : EntitySystem
         realm.Mind = mindId;
         realm.Grid = grid;
         realm.ReturnStation = returnStation;
+        realm.Heretic = heretic;
         realm.StartTime = now;
         realm.NextHand = now + realm.GracePeriod;
 
         if (_player.TryGetSessionByEntity(copy, out var session))
             realm.MusicStream = _audio.PlayGlobal(realm.Music, session)?.Entity;
 
-        _popup.PopupEntity(Loc.GetString("mansus-realm-arrival"), copy, copy, PopupType.LargeCaution);
+        _popup.PopupEntity(Loc.GetString(RealmArrival), copy, copy, PopupType.LargeCaution);
+
+        var sentMessage = Loc.GetString(VictimSentMessage);
+        _chat.ChatMessageToOne(ChatChannel.Server, sentMessage, sentMessage, default, false, victimSession.Channel, canCoalesce: false);
         return true;
     }
 
@@ -200,7 +226,7 @@ public sealed class MansusRealmSystem : EntitySystem
 
             if (Transform(realm.Victim).GridUid != realm.Grid)
             {
-                _popup.PopupEntity(Loc.GetString("mansus-realm-fall"), realm.Victim, realm.Victim, PopupType.LargeCaution);
+                _popup.PopupEntity(Loc.GetString(RealmFall), realm.Victim, realm.Victim, PopupType.LargeCaution);
                 Finish((uid, realm), false);
                 continue;
             }
@@ -411,7 +437,7 @@ public sealed class MansusRealmSystem : EntitySystem
                 QueueDel(hand);
         }
 
-        _popup.PopupEntity(Loc.GetString("mansus-realm-leaving"), realm.Comp.Victim, realm.Comp.Victim, PopupType.Large);
+        _popup.PopupEntity(Loc.GetString(RealmLeaving), realm.Comp.Victim, realm.Comp.Victim, PopupType.Large);
     }
 
     private void OnVictimMobStateChanged(Entity<MansusVictimComponent> ent, ref MobStateChangedEvent args)
@@ -432,9 +458,16 @@ public sealed class MansusRealmSystem : EntitySystem
         var victim = realm.Comp.Victim;
 
         if (survived && !TerminatingOrDeleted(victim))
+        {
             ReturnVictim(realm.Comp, victim);
+            ReportToHeretic(realm.Comp, true, victim);
+        }
         else
-            ReleaseMind(realm);
+        {
+            ReturnFailedVictim(realm.Comp, victim);
+            if (!TerminatingOrDeleted(victim))
+                ReportToHeretic(realm.Comp, false, victim);
+        }
 
         QueueDel(realm);
     }
@@ -443,9 +476,7 @@ public sealed class MansusRealmSystem : EntitySystem
     {
         RemComp<MansusVictimComponent>(victim);
 
-        var coords = TryFindReturnCoordinates(realm.ReturnStation, out var found)
-            ? found
-            : _gameTicker.GetObserverSpawnPoint();
+        var coords = GetReturnCoordinates(realm);
 
         _transform.SetCoordinates(victim, coords);
         _transform.AttachToGridOrMap(victim);
@@ -458,29 +489,89 @@ public sealed class MansusRealmSystem : EntitySystem
         if (!_player.TryGetSessionByEntity(victim, out var session))
             return;
 
-        var message = Loc.GetString("mansus-realm-return");
+        var message = Loc.GetString(RealmReturn);
         var size = ReturnMessageSize;
         var wrapped = Loc.GetString(ReturnMessageLoc, ("size", size), ("text", message));
         SharedChatSystem.UpdateFontSize(size, ref message, ref wrapped);
         _chat.ChatMessageToOne(ChatChannel.Server, message, wrapped, default, false, session.Channel, canCoalesce: false);
     }
 
-    private void ReleaseMind(Entity<MansusRealmComponent> realm)
+    private void ReturnFailedVictim(MansusRealmComponent realm, EntityUid victim)
     {
-        if (!TryComp<MindComponent>(realm.Comp.Mind, out var mind))
+        EntityCoordinates? coords = null;
+        if (!TerminatingOrDeleted(victim))
+        {
+            coords = GetReturnCoordinates(realm);
+
+            _transform.SetCoordinates(victim, coords.Value);
+            _transform.AttachToGridOrMap(victim);
+
+            if (!_mobState.IsDead(victim))
+                _mobState.ChangeMobState(victim, MobState.Dead);
+
+            RemComp<MansusVictimComponent>(victim);
+
+            SpawnAttachedTo(realm.ReturnEffect, coords.Value);
+            _audio.PlayPvs(realm.ReturnSound, coords.Value);
+        }
+
+        ReleaseMind(realm, coords);
+    }
+
+    private void ReleaseMind(MansusRealmComponent realm, EntityCoordinates? bodyCoords)
+    {
+        if (!TryComp<MindComponent>(realm.Mind, out var mind))
             return;
 
-        if (mind.VisitingEntity is { } visiting
-            && Transform(visiting).MapUid == realm.Owner
-            && TryComp<GhostComponent>(visiting, out var ghost))
+        if (mind.VisitingEntity is { } visiting)
         {
-            _transform.SetCoordinates(visiting, _gameTicker.GetObserverSpawnPoint());
-            _ghost.SetCanReturnToBody((visiting, ghost), false);
+            if (Transform(visiting).MapUid == realm.Owner
+                && TryComp<GhostComponent>(visiting, out var ghost))
+            {
+                _transform.SetCoordinates(visiting, bodyCoords ?? _gameTicker.GetObserverSpawnPoint());
+                _ghost.SetCanReturnToBody((visiting, ghost), false);
+            }
+
             return;
         }
 
-        if (mind.OwnedEntity == realm.Comp.Victim)
-            _ghost.SpawnGhost((realm.Comp.Mind, mind));
+        if (mind.OwnedEntity != realm.Victim)
+            return;
+
+        if (bodyCoords is not { } coords)
+        {
+            _ghost.SpawnGhost((realm.Mind, mind));
+            return;
+        }
+
+        if (_ghost.SpawnGhost((realm.Mind, mind), coords, true) is not { } spawned
+            || !TryComp<GhostComponent>(spawned, out var spawnedGhost))
+            return;
+
+        _ghost.SetCanReturnToBody((spawned, spawnedGhost), false);
+    }
+
+    private void ReportToHeretic(MansusRealmComponent realm, bool survived, EntityUid victim)
+    {
+        if (realm.Heretic is not { } heretic
+            || TerminatingOrDeleted(victim)
+            || !_mind.TryGetMind(heretic, out _, out var hereticMind)
+            || hereticMind.UserId is not { } userId
+            || !_player.TryGetSessionById(userId, out var session))
+            return;
+
+        var location = FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString(victim));
+        var message = Loc.GetString(survived ? ReportPassedMessage : ReportFailedMessage,
+            ("victim", Name(victim)),
+            ("location", location));
+        _chat.ChatMessageToOne(ChatChannel.Server, message, message, default, false, session.Channel, canCoalesce: false);
+    }
+
+    private EntityCoordinates GetReturnCoordinates(MansusRealmComponent realm)
+    {
+        return TryFindReturnCoordinates(realm.ReturnStation, out var found)
+            ? found
+            : _gameTicker.GetObserverSpawnPoint();
     }
 
     private bool TryFindReturnCoordinates(EntityUid? station, out EntityCoordinates coords)

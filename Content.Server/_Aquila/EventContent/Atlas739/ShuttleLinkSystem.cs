@@ -1,7 +1,4 @@
 // Работа выполнена Claude (Anthropic).
-// SPDX-FileCopyrightText: 2026 GromPlay739
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._Aquila.EventContent.Atlas739;
 using Content.Shared.Shuttles.Components; // FTLComponent; если не находится: Content.Server.Shuttles.Components

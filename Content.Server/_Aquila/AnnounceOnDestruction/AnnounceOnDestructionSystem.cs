@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2026 GromPlay739
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Server.Chat.Systems;
 using Content.Shared._Aquila.AnnounceOnDestruction;
 using Content.Shared.Destructible; // если не компилируется: Content.Server.Destructible

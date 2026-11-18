@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server._Aquila.Heretic; // Aquila Change
 using Content.Server.Heretic.EntitySystems;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
@@ -8,6 +9,7 @@ using Content.Shared.Store.Components;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 using Robust.Server.Containers;
+using System.Linq; // Aquila Change
 
 namespace Content.Server.Heretic.Ritual;
 
@@ -63,7 +65,7 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
 
         if (_missingTags.Count > 0)
         {
-            var missing = string.Join(", ", _missingTags);
+            var missing = string.Join(", ", _missingTags.Select(tag => HereticTagLocalization.Localize(tag, args.Loc))); // Aquila Change
             outstr = Loc.GetString("heretic-ritual-fail-items", ("itemlist", missing));
             return false;
         }

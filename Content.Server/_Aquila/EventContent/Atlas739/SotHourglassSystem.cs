@@ -1,7 +1,4 @@
 // Работа выполнена Claude (Anthropic).
-// SPDX-FileCopyrightText: 2026 GromPlay739
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Chat.Systems;
 using Content.Server.Shuttles.Components; // FTLComponent (один из двух using окажется лишним - это нормально)

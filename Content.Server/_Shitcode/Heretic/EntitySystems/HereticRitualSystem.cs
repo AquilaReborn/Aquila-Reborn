@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server._Aquila.Heretic; // Aquila Change
 using Content.Server.Heretic.Components;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Heretic;
@@ -90,7 +91,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
         foreach (var behavior in behaviors)
         {
-            var ritData = new RitualData(performer, platform, (mind, heretic), ritualId, EntityManager, limited, rit.Limit);
+            var ritData = new RitualData(performer, platform, (mind, heretic), ritualId, EntityManager, limited, rit.Limit, Loc); // Aquila Change
 
             if (!behavior.Execute(ritData, out var missingStr))
             {
@@ -143,7 +144,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
             for (int i = 0; i < missingList.Keys.Count; i++)
             {
                 var key = missingList.Keys.ToList()[i];
-                var missing = $"{key} x{missingList[key]}";
+                var missing = $"{HereticTagLocalization.Localize(key, Loc)} x{missingList[key]}"; // Aquila Change
 
                 // makes a nice, list, of, missing, items.
                 if (i != missingList.Count - 1)
@@ -163,7 +164,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
         // finalize all of the custom ones
         foreach (var behavior in behaviors)
         {
-            var ritData = new RitualData(performer, platform, (mind, heretic), ritualId, EntityManager, limited, rit.Limit);
+            var ritData = new RitualData(performer, platform, (mind, heretic), ritualId, EntityManager, limited, rit.Limit, Loc); // Aquila Change
             behavior.Finalize(ritData);
         }
 
@@ -249,6 +250,9 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
     private void OnInteractUsing(Entity<HereticRitualRuneComponent> ent, ref InteractUsingEvent args)
     {
+        if (TryEraseRuneWithCodex(ent, args)) // Aquila Change
+            return;
+
         if (!_heretic.TryGetHereticComponent(args.User, out var heretic, out var mind))
             return;
 

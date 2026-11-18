@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation/tgstation, icons/mob/effects/heretic_aura.dmi (heretic aura overlay), CC-BY-SA-3.0",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "heretic_aura",
+      "delays": [
+        [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1 ]
+      ]
+    }
+  ]
+}

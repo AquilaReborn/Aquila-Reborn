@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Robust.Shared.Localization; // Aquila Change
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Heretic.Prototypes;
@@ -25,4 +26,5 @@ public readonly record struct RitualData(
     ProtoId<HereticRitualPrototype> RitualId,
     IEntityManager EntityManager,
     List<EntityUid>? Limited,
-    int Limit);
+    int Limit,
+    ILocalizationManager Loc); // Aquila Change

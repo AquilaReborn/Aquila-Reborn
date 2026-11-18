@@ -39,6 +39,8 @@ public sealed partial class AdminCharacterSpawnWindow : FancyWindow
     private static readonly LocId TargetLabel = "aquila-admin-character-target";
     private static readonly LocId TargetLobbyLabel = "aquila-admin-character-target-lobby";
     private static readonly LocId TemplatesTabLabel = "aquila-admin-character-templates";
+    private static readonly LocId EquipmentTabLabel = "aquila-admin-character-equipment";
+    private static readonly LocId ImplantsTabLabel = "aquila-admin-character-implants";
     private static readonly LocId TemplateNameRequired = "aquila-admin-character-template-name-required";
     private static readonly LocId TemplateAlreadyExists = "aquila-admin-character-template-already-exists";
     private static readonly LocId TemplateSaveFailed = "aquila-admin-character-template-save-failed";
@@ -74,8 +76,8 @@ public sealed partial class AdminCharacterSpawnWindow : FancyWindow
     {
         IoCManager.InjectDependencies(this);
         RobustXamlLoader.Load(this);
-        TabContainer.SetTabTitle(EquipmentTab, Loc.GetString("aquila-admin-character-equipment"));
-        TabContainer.SetTabTitle(ImplantsTab, Loc.GetString("aquila-admin-character-implants"));
+        TabContainer.SetTabTitle(EquipmentTab, Loc.GetString(EquipmentTabLabel));
+        TabContainer.SetTabTitle(ImplantsTab, Loc.GetString(ImplantsTabLabel));
         TabContainer.SetTabTitle(TemplatesTab, Loc.GetString(TemplatesTabLabel));
 
         ImplantSearch.OnTextChanged += _ => PopulateImplants();

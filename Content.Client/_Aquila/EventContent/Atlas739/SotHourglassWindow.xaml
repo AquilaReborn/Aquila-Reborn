@@ -1,7 +1,4 @@
-<!--
-Работа выполнена Claude (Anthropic).
-SPDX-License-Identifier: AGPL-3.0-or-later
--->
+<!-- Работа выполнена Claude (Anthropic). -->
 
 <controls:FancyWindow xmlns="https://spacestation14.io"
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"

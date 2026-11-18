@@ -237,6 +237,8 @@ public sealed partial class HereticSystem : SharedHereticSystem
         _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { "KnowledgePoint", amount } }, mindId, store);
         _store.UpdateUserInterface(uid, mindId, store);
 
+        _aura.OnKnowledgeGained((mindId, heretic), amount); // Aquila Change
+
         if (_mind.TryGetObjectiveComp<HereticKnowledgeConditionComponent>(mindId, out var objective, mind))
             objective.Researched += amount;
 
