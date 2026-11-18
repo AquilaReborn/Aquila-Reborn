@@ -36,6 +36,7 @@ aquila-admin-character-custom-gear-capture-failed = Could not take gear from the
 aquila-admin-character-custom-gear-reset = Clear custom
 aquila-admin-character-custom-gear-selected = Custom outfit ({ $count })
 aquila-admin-character-custom-gear-spawn-failed = Check that the selected items fit the slots, hands, and containers and are still available.
+aquila-admin-character-custom-gear-partial = Some gear pieces could not be equipped ({ $count }). The rest was applied.
 
 aquila-admin-character-gear-abductoragentgear = Abductor agent
 aquila-admin-character-gear-abductorscientistgear = Abductor scientist

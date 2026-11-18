@@ -32,6 +32,7 @@ public sealed partial class AdminVerbSystem
 
     private static readonly LocId SpawnCoordinatesFailed = "admin-player-spawn-failed";
     private static readonly LocId CustomGearSpawnFailed = "aquila-admin-character-custom-gear-spawn-failed";
+    private static readonly LocId CustomGearSpawnPartial = "aquila-admin-character-custom-gear-partial";
     private static readonly LocId SpawnHere = "admin-player-actions-spawn";
     private static readonly LocId CloneHere = "admin-player-actions-clone";
 
@@ -171,16 +172,22 @@ public sealed partial class AdminVerbSystem
 
         var placed = storage == null;
         var customGearEquipped = true;
+        var customGearSkipped = 0;
         var customGearLoadout = request.CustomGear;
         var station = _stations.GetOwningStation(target);
         var mob = _spawning.SpawnPlayerMob(coordinates.Value, null, profile, station,
             adminGear: gear, adminPreset: preset,
             placeBeforeEquipment: body =>
             {
-                if (customGearLoadout != null && !_spawning.TryEquipAdminCharacterCustomGear(body, customGearLoadout, out _))
+                if (customGearLoadout != null)
                 {
-                    customGearEquipped = false;
-                    return false;
+                    if (!_spawning.TryEquipAdminCharacterCustomGear(body, customGearLoadout, out var skippedItems))
+                    {
+                        customGearEquipped = false;
+                        return false;
+                    }
+
+                    customGearSkipped = skippedItems;
                 }
 
                 if (storage != null && !TryPlaceAdminSpawnInsideStorage(body, storage))
@@ -199,6 +206,9 @@ public sealed partial class AdminVerbSystem
                 _popup.PopupEntity(Loc.GetString(CustomGearSpawnFailed), user, user);
             return false;
         }
+
+        if (customGearSkipped > 0)
+            _popup.PopupEntity(Loc.GetString(CustomGearSpawnPartial, ("count", customGearSkipped)), user, user);
 
         if (mindComp != null)
             _mindSystem.TransferTo(mind, mob, true, mind: mindComp);

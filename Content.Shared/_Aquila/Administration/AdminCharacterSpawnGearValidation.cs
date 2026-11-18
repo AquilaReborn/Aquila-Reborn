@@ -1,3 +1,4 @@
+using Content.Shared.Clothing.Components;
 using Content.Shared.Item;
 using Content.Shared.Storage;
 using Robust.Shared.Prototypes;
@@ -24,6 +25,22 @@ public static class AdminCharacterSpawnGearValidation
     public static bool CanUseItem(EntityPrototype prototype, IComponentFactory components)
     {
         return !prototype.Abstract && prototype.TryComp<ItemComponent>(out _, components);
+    }
+
+    /// <summary>Checks that the prototype can be worn in an inventory slot.</summary>
+    public static bool CanUseEquipmentItem(EntProtoId id, IPrototypeManager prototypes, IComponentFactory components)
+    {
+        return !string.IsNullOrEmpty(id.Id)
+            && prototypes.TryIndex(id, out var prototype)
+            && CanUseEquipmentItem(prototype, components);
+    }
+
+    /// <summary>Checks that the prototype is a wearable item or a clothing item without the item component.</summary>
+    public static bool CanUseEquipmentItem(EntityPrototype prototype, IComponentFactory components)
+    {
+        return !prototype.Abstract
+            && (prototype.TryComp<ItemComponent>(out _, components)
+                || prototype.TryComp<ClothingComponent>(out _, components));
     }
 
     /// <summary>Проверяет состав комплекта до примерки на конкретное тело.</summary>
@@ -57,7 +74,7 @@ public static class AdminCharacterSpawnGearValidation
         foreach (var (slot, item) in gear.Equipment)
         {
             if (string.IsNullOrWhiteSpace(slot) || slot.Length > MaxSlotNameLength
-                || !CanUseItem(item, prototypes, components))
+                || !CanUseEquipmentItem(item, prototypes, components))
             {
                 return false;
             }

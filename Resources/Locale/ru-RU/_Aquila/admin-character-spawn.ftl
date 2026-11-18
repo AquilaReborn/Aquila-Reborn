@@ -36,6 +36,7 @@ aquila-admin-character-custom-gear-capture-failed = Не удалось снят
 aquila-admin-character-custom-gear-reset = Сбросить
 aquila-admin-character-custom-gear-selected = Свой комплект ({ $count })
 aquila-admin-character-custom-gear-spawn-failed = Проверь доступность предметов и подходят ли они для слотов, рук и контейнеров.
+aquila-admin-character-custom-gear-partial = Часть снаряжения надеть не удалось ({ $count }). Остальное выдано.
 
 aquila-admin-character-gear-abductoragentgear = Абдуктор-агент
 aquila-admin-character-gear-abductorscientistgear = Абдуктор-ученый
