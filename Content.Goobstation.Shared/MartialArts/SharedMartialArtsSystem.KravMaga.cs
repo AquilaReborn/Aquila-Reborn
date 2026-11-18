@@ -96,7 +96,7 @@ public abstract partial class SharedMartialArtsSystem
 
     private void OnMapInit(Entity<KravMagaComponent> ent, ref MapInitEvent args)
     {
-        if (HasComp<MartialArtsKnowledgeComponent>(ent) || HasComp<ChangelingComponent>(ent))
+        if ((HasComp<MartialArtsKnowledgeComponent>(ent) && !HasComp<SystemGrantedJudoComponent>(ent)) || HasComp<ChangelingComponent>(ent)) // Aquila Change
             return;
 
         foreach (var actionId in ent.Comp.BaseKravMagaMoves)
