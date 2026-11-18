@@ -1,0 +1,14 @@
+- type: entity
+  parent: ClothingEyesHudSecurity
+  id: ClothingEyesNGRGoggles
+  name: modified meson goggles
+  suffix: CrookLv, Clothing, Gorlex Republic
+  description: Meson scanners refitted with a flash-proof tint and a security HUD. The opaque visor leaves the scan useless.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionGlasses/NGR/ngr_goggles.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionGlasses/NGR/ngr_goggles.rsi
+  - type: FlashImmunity
+  - type: IdentityBlocker
+    coverage: EYES

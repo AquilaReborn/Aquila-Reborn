@@ -1,0 +1,38 @@
+- type: entity
+  parent: ClothingEyesGlasses
+  id: ClothingEyesSUNSScienceMask
+  name: eye mask science goggles
+  suffix: CrookLv, Clothing, SUNS
+  description: A fancy mask that guards against chemical spills, fitted with an analyzer for scanning reagents.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionGlasses/SUNS/suns_sciencemask.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionGlasses/SUNS/suns_sciencemask.rsi
+  - type: SolutionScanner
+  - type: IdentityBlocker
+    coverage: EYES
+
+- type: entity
+  parent: ClothingEyesHudMedical
+  id: ClothingEyesSUNSDoctorMask
+  name: eye mask health scanner HUD
+  suffix: CrookLv, Clothing, SUNS
+  description: A peculiar mask seen at academic functions, with a health HUD lens set into it.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionGlasses/SUNS/suns_doctormask.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionGlasses/SUNS/suns_doctormask.rsi
+
+- type: entity
+  parent: ClothingEyesHudSecurity
+  id: ClothingEyesSUNSPeacekeeperMask
+  name: eye mask security HUD
+  suffix: CrookLv, Clothing, SUNS
+  description: A peculiar mask seen at academic functions, with a security HUD lens set into it.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionGlasses/SUNS/suns_pkmask.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionGlasses/SUNS/suns_pkmask.rsi

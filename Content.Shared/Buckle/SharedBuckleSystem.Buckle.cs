@@ -564,7 +564,7 @@ public abstract partial class SharedBuckleSystem
             else
                 _transform.SetCoordinates(buckle, buckleXform, _transform.GetMoverCoordinates(strap, oldBuckledXform));
             // Goobstation end
-            buckleXform.ActivelyLerping = false;
+            // buckleXform.ActivelyLerping = false; // Aquila Change
 
             var oldBuckledToWorldRot = _transform.GetWorldRotation(strap);
             _transform.SetWorldRotationNoLerp((buckle, buckleXform), oldBuckledToWorldRot);

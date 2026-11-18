@@ -1,0 +1,14 @@
+- type: entity
+  parent: ClothingEyesHudSecurity
+  id: ClothingEyesRamziGoggles
+  name: battered goggles
+  suffix: CrookLv, Clothing, Rust Clique
+  description: Scavenged meson goggles with a flash-proof tint and a shoddily wired security HUD.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionGlasses/Ramzi/ramzi_goggles.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionGlasses/Ramzi/ramzi_goggles.rsi
+  - type: FlashImmunity
+  - type: IdentityBlocker
+    coverage: EYES

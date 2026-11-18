@@ -1,0 +1,14 @@
+- type: entity
+  parent: ClothingEyesHudSecurity
+  id: ClothingEyesHardlinersGoggles
+  name: security goggles
+  suffix: CrookLv, Clothing, Blood Vanguard
+  description: Tinted red goggles with an integrated security HUD. Built to shrug off flashes.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionGlasses/Hardliners/hl_goggles.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionGlasses/Hardliners/hl_goggles.rsi
+  - type: FlashImmunity
+  - type: IdentityBlocker
+    coverage: EYES

@@ -4,7 +4,7 @@
   id: ClothingNeckGezenaCape
   name: rank-cape
   suffix: CrookLv, Clothing, Gezena
-  description: A flowing black drape issued to every member of the Gezenan armed forces. It can be worn on the shoulders or fully unfolded.
+  description: A flowing black drape issued to every member of the armed forces. It can be worn on the shoulders or fully unfolded.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionCloaks/Gezena/cape.rsi
@@ -27,7 +27,7 @@
   id: ClothingNeckGezenaEngicape
   name: engineering rank-cape
   suffix: CrookLv, Clothing, Gezena
-  description: A rank-cape with engineering trim. It can be worn on the shoulders or fully unfolded. Part of the Gezenan Federation equipment.
+  description: A rank-cape with engineering trim. It can be worn on the shoulders or fully unfolded. Part of the service kit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionCloaks/Gezena/engicape.rsi
@@ -50,7 +50,7 @@
   id: ClothingNeckGezenaMedcape
   name: medic rank-cape
   suffix: CrookLv, Clothing, Gezena
-  description: A white rank-cape of Gezenan medics. It can be worn on the shoulders or fully unfolded.
+  description: A white rank-cape of military medics. It can be worn on the shoulders or fully unfolded.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionCloaks/Gezena/medcape.rsi
@@ -73,7 +73,7 @@
   id: ClothingNeckGezenaOfficercape
   name: command rank-cape
   suffix: CrookLv, Clothing, Gezena
-  description: A rank-cape with command trim. It can be worn on the shoulders or fully unfolded. Part of the Gezenan Federation equipment.
+  description: A rank-cape with command trim. It can be worn on the shoulders or fully unfolded. Part of the service kit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionCloaks/Gezena/officercape.rsi
@@ -96,7 +96,7 @@
   id: ClothingNeckGezenaCaptaincape
   name: captain's rank-cape
   suffix: CrookLv, Clothing, Gezena
-  description: A white rank-cape of a Gezenan captain. It can be worn on the shoulders or fully unfolded.
+  description: A white rank-cape of a ship captain. It can be worn on the shoulders or fully unfolded.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionCloaks/Gezena/captaincape.rsi
@@ -120,7 +120,7 @@
   id: ClothingNeckSolGovCloak
   name: overseer's cloak
   suffix: CrookLv, Clothing, UEG
-  description: A cloak worn by United Earth Government overseers that smells faintly of bureaucracy.
+  description: A cloak worn by government overseers that smells faintly of bureaucracy.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionCloaks/SolGov/solgov_cloak.rsi
@@ -132,7 +132,7 @@
   id: ClothingNeckSolGovWeibel
   name: weibel
   suffix: CrookLv, Clothing, UEG
-  description: A ceremonial cloak worn by United Earth Government officials.
+  description: A ceremonial cloak worn by government officials.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionCloaks/SolGov/solgov_weibel.rsi
@@ -144,7 +144,7 @@
   id: ClothingNeckSolGovCapCloak
   name: captain's cloak
   suffix: CrookLv, Clothing, UEG
-  description: A cloak worn by United Earth Government captains.
+  description: A cloak worn by government captains.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionCloaks/SolGov/solgov_cap_cloak.rsi
@@ -157,7 +157,7 @@
   id: ClothingNeckSUNSShouldercape
   name: short cloak
   suffix: CrookLv, Clothing, SUNS
-  description: A short cloak worn by students and staff of Student-Union of Naturalistic Sciences alike.
+  description: A short cloak worn by students and staff of a science academy alike.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionCloaks/SUNS/suns_shouldercape.rsi
@@ -169,7 +169,7 @@
   id: ClothingNeckSUNSXocape
   name: academic staff cloak
   suffix: CrookLv, Clothing, SUNS
-  description: A cloak worn by Student-Union of Naturalistic Sciences academic staff.
+  description: A cloak worn by academy staff.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionCloaks/SUNS/suns_xocape.rsi
@@ -181,7 +181,7 @@
   id: ClothingNeckSUNSCaptaincloak
   name: captain's cloak
   suffix: CrookLv, Clothing, SUNS
-  description: An imposing cloak worn by Student-Union of Naturalistic Sciences captains.
+  description: An imposing cloak worn by academy captains.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionCloaks/SUNS/suns_captaincloak.rsi

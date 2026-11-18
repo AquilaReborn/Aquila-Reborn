@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e. Reptilian edit by Nairod(Github). equipped-MASK-vox state taken from /vg/station at commit https://github.com/vgstation-coders/vgstation13/commit/4638130fab5ff0e9faa220688811349d3297a33e and slightly modified to fix an error, equipped-MASK-feroxi by RedTerror Synth states from Afterlight.",
+    "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e. Reptilian edit by Nairod(Github). equipped-MASK-vox state taken from /vg/station at commit https://github.com/vgstation-coders/vgstation13/commit/4638130fab5ff0e9faa220688811349d3297a33e and slightly modified to fix an error, equipped-MASK-feroxi by RedTerror Synth states from Afterlight. equipped-MASK state taken from Shiptest at commit https://github.com/shiptest-ss13/Shiptest/blob/3adaaf8b0ff4bf4f08502eeadb27ce12e39f86ef/icons/mob/clothing/mask.dmi, state syndicate.",
     "size": {
         "x": 32,
         "y": 32

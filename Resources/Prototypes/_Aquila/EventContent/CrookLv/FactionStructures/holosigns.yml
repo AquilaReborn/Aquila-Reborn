@@ -1,0 +1,148 @@
+- type: entity
+  abstract: true
+  parent: BaseHolosign
+  id: BaseFactionHolosign
+  components:
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Anchorable
+  - type: PointLight
+    enabled: true
+    radius: 2
+    energy: 1.5
+    castShadows: false
+
+- type: entity
+  parent: BaseFactionHolosign
+  id: FactionHolosignCybersun
+  name: Cybersun Industries holosign
+  suffix: CrookLv, Structures, Cybersun
+  description: Ships, robotics, personal defense and pharmaceuticals, all at extreme premium quality. Try not to get dazzled.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionStructures/Holosigns/CybersunHolosign.rsi
+    layers:
+    - state: frame
+    - state: ad
+  - type: PointLight
+    color: "#FA644B"
+
+- type: entity
+  parent: BaseFactionHolosign
+  id: FactionHolosignInteq
+  name: Inteq Risk Management Group holosign
+  suffix: CrookLv, Structures, Inteq
+  description: I hear you have a problem. You will not have one with us. No nonsense, guaranteed.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionStructures/Holosigns/InteqHolosign.rsi
+    layers:
+    - state: frame
+    - state: ad
+  - type: PointLight
+    color: "#FAA019"
+
+- type: entity
+  parent: BaseFactionHolosign
+  id: FactionHolosignHardline
+  name: Hardline holosign
+  suffix: CrookLv, Structures, Hardliners
+  description: Toughest ships for the toughest situations.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionStructures/Holosigns/HardlineHolosign.rsi
+    layers:
+    - state: frame
+    - state: ad
+  - type: PointLight
+    color: "#FFF743"
+
+- type: entity
+  parent: BaseFactionHolosign
+  id: FactionHolosignClover
+  name: Clover Corporation holosign
+  suffix: CrookLv, Structures, LFC
+  description: Lucky products for lucky people. Postrionics, computers, washing machines and mobile phones, lucky you.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionStructures/Holosigns/CloverHolosign.rsi
+    layers:
+    - state: frame
+    - state: ad
+  - type: PointLight
+    color: "#00FFFF"
+
+- type: entity
+  parent: BaseFactionHolosign
+  id: FactionHolosignHuntersPride
+  name: Hunter's Pride holosign
+  suffix: CrookLv, Structures, Hunters' Order
+  description: Simple, deadly, cheap. No need to brag, you have seen us in action before.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionStructures/Holosigns/HuntersPrideHolosign.rsi
+    layers:
+    - state: frame
+    - state: ad
+  - type: PointLight
+    color: "#FA644B"
+
+- type: entity
+  parent: BaseFactionHolosign
+  id: FactionHolosignGec
+  name: GEC holosign
+  suffix: CrookLv, Structures, Gezena
+  description: United, the workers build back the ruins. We repair vessels, stations and equipment.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionStructures/Holosigns/GecHolosign.rsi
+    layers:
+    - state: frame
+    - state: ad
+  - type: PointLight
+    color: "#C81919"
+
+- type: entity
+  parent: BaseFactionHolosign
+  id: FactionHolosignNsLogistics
+  name: N+S Logistics holosign
+  suffix: CrookLv, Structures, N+S Logistics
+  description: Need something delivered fast? Our frontierwide network gets parcels anywhere quickly and safely.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionStructures/Holosigns/NsLogisticsHolosign.rsi
+    layers:
+    - state: frame
+    - state: ad
+  - type: PointLight
+    color: "#FA644B"
+
+- type: entity
+  parent: BaseFactionHolosign
+  id: FactionHolosignMakosso
+  name: Makosso-Warra holosign
+  suffix: CrookLv, Structures, Makosso-Warra
+  description: Selling ships, medical supplies and technology since 342 FSC. Shop now.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionStructures/Holosigns/MakossoHolosign.rsi
+    layers:
+    - state: frame
+    - state: ad
+  - type: PointLight
+    color: "#6496FA"
+
+- type: entity
+  parent: BaseFactionHolosign
+  id: FactionHolosignVigilitas
+  name: Vigilitas Interstellar holosign
+  suffix: CrookLv, Structures, Vigilitas
+  description: The number one private security for businesses. Others may be cheaper, we have the experience.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionStructures/Holosigns/VigilitasHolosign.rsi
+    layers:
+    - state: frame
+    - state: ad
+  - type: PointLight
+    color: "#FA644B"

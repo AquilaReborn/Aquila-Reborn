@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingMaskGas
+  id: ClothingMaskCLIPGasMask
+  name: gas mask
+  suffix: CrookLv, Clothing, LFC
+  description: A close-fitting gas mask of hasty wartime manufacture.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionMasks/CLIP/clip_gasmask.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionMasks/CLIP/clip_gasmask.rsi

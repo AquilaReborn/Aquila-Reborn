@@ -4,7 +4,7 @@
   id: WeaponPistolLfcCm23
   name: CM-23 pistol
   suffix: CrookLv, Weapons, LFC
-  description: A reliable sidearm of the League of Free Colonies militia.
+  description: A reliable sidearm of a frontier militia.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionWeapons/CLIP/cm23.rsi
@@ -23,7 +23,7 @@
   id: WeaponSubMachineGunLfcCm5
   name: CM-5 submachine gun
   suffix: CrookLv, Weapons, LFC
-  description: A compact submachine gun for League of Free Colonies patrols.
+  description: A compact submachine gun for frontier patrols.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionWeapons/CLIP/cm5.rsi
@@ -50,7 +50,7 @@
   id: WeaponRifleLfcF4
   name: F4 battle rifle
   suffix: CrookLv, Weapons, LFC
-  description: The main service rifle of the League of Free Colonies militia.
+  description: The main service rifle of a frontier militia.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionWeapons/CLIP/f4.rsi
@@ -78,7 +78,7 @@
   id: WeaponPistolCybersunTroubleshooter
   name: Troubleshooter laser pistol
   suffix: CrookLv, Weapons, Cybersun
-  description: A corporate security laser pistol made by Cybersun Industries.
+  description: A corporate security laser pistol made by a security contractor.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Cybersun/troubleshooter.rsi
@@ -105,7 +105,7 @@
   id: WeaponRifleCybersunCatalyzer
   name: Catalyzer laser carbine
   suffix: CrookLv, Weapons, Cybersun
-  description: A fast-firing laser carbine made by Cybersun Industries.
+  description: A fast-firing laser carbine made by a corporate arms manufacturer.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Cybersun/catalyzer.rsi
@@ -124,7 +124,7 @@
   id: WeaponRifleCybersunVector
   name: Vector heavy laser rifle
   suffix: CrookLv, Weapons, Cybersun
-  description: A powerful laser rifle issued to elite Cybersun squads.
+  description: A powerful laser rifle issued to elite corporate squads.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Cybersun/vector.rsi
@@ -144,7 +144,7 @@
   id: WeaponPistolGezenaKalix
   name: Kalix laser pistol
   suffix: CrookLv, Weapons, Gezena
-  description: A laser pistol carried by officers of the Gezenan navy.
+  description: A laser pistol carried by navy officers.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Gezena/kalixpistol.rsi
@@ -171,7 +171,7 @@
   id: WeaponRifleGezenaEtherbor
   name: Etherbor laser rifle
   suffix: CrookLv, Weapons, Gezena
-  description: The standard laser rifle of the Gezenan marines.
+  description: The standard laser rifle of the marines.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Gezena/pgfgun.rsi
@@ -190,7 +190,7 @@
   id: WeaponSniperGezenaEtherborHeavy
   name: Etherbor heavy laser marksman rifle
   suffix: CrookLv, Weapons, Gezena
-  description: A long-range laser rifle of the Gezenan navy marksmen.
+  description: A long-range laser rifle of navy marksmen.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Gezena/pgfheavy_sniper.rsi
@@ -237,7 +237,7 @@
   id: WeaponRifleVanguardHydra
   name: Hydra assault rifle
   suffix: CrookLv, Weapons, Blood Vanguard
-  description: The main assault rifle of the Blood Vanguard fighters.
+  description: The main assault rifle of veteran fighters.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Hardliners/hydra.rsi
@@ -264,7 +264,7 @@
   id: WeaponSniperVanguardBoomslang
   name: Boomslang sniper rifle
   suffix: CrookLv, Weapons, Blood Vanguard
-  description: A sniper rifle the Blood Vanguard favors for public executions.
+  description: A sniper rifle veteran marksmen favor for public executions.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Hardliners/boomslang.rsi
@@ -282,7 +282,7 @@
   id: WeaponPistolGorlexRingneck
   name: Ringneck pistol
   suffix: CrookLv, Weapons, Gorlex Republic
-  description: The service pistol of Gorlex Republic officers.
+  description: The service pistol of republican officers.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionWeapons/NGR/ringneck.rsi
@@ -301,7 +301,7 @@
   id: WeaponSubMachineGunGorlexRattlesnake
   name: Rattlesnake submachine gun
   suffix: CrookLv, Weapons, Gorlex Republic
-  description: A submachine gun for Gorlex Republic crews and outriders.
+  description: A submachine gun for republican crews and outriders.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionWeapons/NGR/rattlesnake.rsi
@@ -328,7 +328,7 @@
   id: WeaponRifleGorlexGaboon
   name: Gaboon rifle
   suffix: CrookLv, Weapons, Gorlex Republic
-  description: The main rifle of the Gorlex Republic army.
+  description: The main rifle of the republican army.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionWeapons/NGR/gaboon.rsi
@@ -391,7 +391,7 @@
   id: WeaponPistolInteqCommander
   name: Commander pistol
   suffix: CrookLv, Weapons, Inteq
-  description: A dependable pistol of Inteq PMC contractors.
+  description: A dependable pistol of mercenary contractors.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionWeapons/InteQ/commander_inteq.rsi
@@ -437,7 +437,7 @@
   id: WeaponRifleInteqSkm
   name: SKM rifle
   suffix: CrookLv, Weapons, Inteq
-  description: The nearly indestructible rifle of Inteq PMC mercenaries.
+  description: The nearly indestructible rifle of hardened mercenaries.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionWeapons/InteQ/skm_inteq.rsi
@@ -465,7 +465,7 @@
   id: WeaponPistolUegPistoleC
   name: Pistole-C
   suffix: CrookLv, Weapons, UEG
-  description: The service pistol of United Earth Government officers.
+  description: The service pistol of government officers.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionWeapons/SolGov/pistole-c.rsi
@@ -484,7 +484,7 @@
   id: WeaponRifleUegGar
   name: Gar rifle
   suffix: CrookLv, Weapons, UEG
-  description: The standard rifle of the United Earth Government army, built for xenomorph purges.
+  description: The standard rifle of a government army, built for xenomorph purges.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionWeapons/SolGov/gar.rsi
@@ -511,7 +511,7 @@
   id: WeaponSniperUegSsg669
   name: SSG-669 sniper rifle
   suffix: CrookLv, Weapons, UEG
-  description: A precise sniper rifle of the United Earth Government army.
+  description: A precise sniper rifle of a government army.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionWeapons/SolGov/ssg669c.rsi
@@ -529,7 +529,7 @@
   id: WeaponRevolverHuntersShadow
   name: Shadow revolver
   suffix: CrookLv, Weapons, Hunters' Order
-  description: A heavy revolver of a Hunters' Order hunter.
+  description: A heavy revolver of a guild hunter.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionWeapons/SRM/shadow.rsi
@@ -546,7 +546,7 @@
   id: WeaponSniperHuntersFlamingArrow
   name: Flaming Arrow lever-action rifle
   suffix: CrookLv, Weapons, Hunters' Order
-  description: A lever-action rifle favored by the hunters of the Order.
+  description: A lever-action rifle favored by guild hunters.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionWeapons/SRM/flamingarrow.rsi
@@ -563,7 +563,7 @@
   id: WeaponShotgunHuntersDouble
   name: hunter's double-barreled shotgun
   suffix: CrookLv, Weapons, Hunters' Order
-  description: A hunting shotgun blessed by the flame of the Order.
+  description: A hunting shotgun blessed by the flame of the guild.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionWeapons/SRM/dshotgun_srm.rsi

@@ -1,0 +1,24 @@
+- type: entity
+  parent: ClothingMaskBreath
+  id: ClothingMaskNGRFaceMask
+  name: face mask
+  suffix: CrookLv, Clothing, Gorlex Republic
+  description: A soft face mask that covers the nose, mouth and neck.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionMasks/NGR/ngr_facemask.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionMasks/NGR/ngr_facemask.rsi
+
+- type: entity
+  parent: ClothingMaskBreath
+  id: ClothingMaskNGRBalaclava
+  name: combat balaclava
+  suffix: CrookLv, Clothing, Gorlex Republic
+  description: A comfy balaclava with a mouthpiece, cut to keep sand out.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionMasks/NGR/ngr_balaclava.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionMasks/NGR/ngr_balaclava.rsi
+  - type: IdentityBlocker

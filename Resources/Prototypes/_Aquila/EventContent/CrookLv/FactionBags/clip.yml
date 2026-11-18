@@ -1,0 +1,23 @@
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackCLIP
+  name: field backpack
+  suffix: CrookLv, Clothing, LFC
+  description: A sturdy blue backpack with a pale star emblem, built for long frontier patrols.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionBags/CLIP/clip_backpack.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionBags/CLIP/clip_backpack.rsi
+
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelCLIP
+  name: field satchel
+  suffix: CrookLv, Clothing, LFC
+  description: A blue satchel with a pale star emblem, made for frontier couriers.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionBags/CLIP/clip_satchel.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionBags/CLIP/clip_satchel.rsi

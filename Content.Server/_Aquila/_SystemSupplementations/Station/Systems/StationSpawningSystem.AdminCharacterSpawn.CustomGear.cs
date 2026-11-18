@@ -1,11 +1,10 @@
+using System.Linq;
 using Content.Shared._Aquila.Administration;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Inventory;
 using Content.Shared.Roles;
 using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
-using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 
@@ -16,21 +15,25 @@ public sealed partial class StationSpawningSystem
     [Dependency] private readonly SharedHandsSystem _adminCustomGearHands = default!;
     [Dependency] private readonly SharedStorageSystem _adminCustomGearStorage = default!;
     [Dependency] private readonly SharedContainerSystem _adminCustomGearContainers = default!;
-    [Dependency] private readonly EntityWhitelistSystem _adminCustomGearWhitelist = default!;
 
-    internal bool TryEquipAdminCharacterCustomGear(EntityUid uid, IEquipmentLoadout gear, out int skipped)
+    /// <summary>
+    /// Equips a custom loadout on a spawned body and rolls back every spawned item on failure.
+    /// </summary>
+    /// <param name="uid">Body to equip.</param>
+    /// <param name="gear">Custom loadout to equip.</param>
+    /// <returns>True if the whole loadout was equipped.</returns>
+    public bool TryEquipAdminCharacterCustomGear(EntityUid uid, IEquipmentLoadout gear)
     {
-        skipped = 0;
-        if (!InventorySystem.TryGetSlots(uid, out var slots))
-            return false;
-
         var spawned = new List<EntityUid>();
+        var equipped = false;
         try
         {
-            TryEquipAdminCustomInventory(uid, slots, gear, spawned, ref skipped);
-            TryEquipAdminCustomHands(uid, gear, spawned, ref skipped);
-            TryFillAdminCustomStorage(uid, gear, spawned, ref skipped);
-            return true;
+            equipped = TryEquipAdminCustomInventory(uid, gear, spawned)
+                && TryEquipAdminCustomHands(uid, gear, spawned)
+                && TryFillAdminCustomStorage(uid, gear, spawned)
+                && spawned.All(item => IsAdminCustomGearContained(uid, item));
+
+            return equipped;
         }
         catch (Exception exception)
         {
@@ -39,56 +42,77 @@ public sealed partial class StationSpawningSystem
         }
         finally
         {
-            DropUncontainedAdminCustomGear(uid, spawned, ref skipped);
+            if (!equipped)
+            {
+                for (var i = spawned.Count - 1; i >= 0; i--)
+                    Del(spawned[i]);
+            }
         }
     }
 
-    private void TryEquipAdminCustomInventory(EntityUid uid, SlotDefinition[] slots, IEquipmentLoadout gear,
-        List<EntityUid> spawned, ref int skipped)
+    private bool TryEquipAdminCustomInventory(EntityUid uid, IEquipmentLoadout gear, List<EntityUid> spawned)
     {
-        foreach (var slot in slots)
-        {
-            if (!gear.Equipment.TryGetValue(slot.Name, out var prototype))
-                continue;
+        if (gear.Equipment.Count == 0)
+            return true;
 
-            if (!InventorySystem.TryGetSlotContainer(uid, slot.Name, out var container, out _)
+        if (!InventorySystem.TryGetSlots(uid, out var slots))
+            return false;
+
+        foreach (var slot in gear.Equipment.Keys)
+        {
+            if (!InventorySystem.TryGetSlotContainer(uid, slot, out var container, out _)
                 || container.ContainedEntity != null)
             {
-                skipped += 1;
-                continue;
-            }
-
-            var item = SpawnAdminCustomGearItem(uid, prototype, spawned);
-            if ((slot.Whitelist != null && !_adminCustomGearWhitelist.IsWhitelistPass(slot.Whitelist, item))
-                || !InventorySystem.TryEquip(uid, item, slot.Name, silent: true, force: true))
-            {
-                SkipAdminCustomGearItem(item, spawned, ref skipped);
+                return false;
             }
         }
+
+        var pending = slots.Where(slot => gear.Equipment.ContainsKey(slot.Name)).ToList();
+        while (pending.Count > 0)
+        {
+            var before = pending.Count;
+            for (var index = 0; index < pending.Count;)
+            {
+                var slot = pending[index];
+                if (slot.DependsOn is { } required && !InventorySystem.TryGetSlotEntity(uid, required, out _))
+                {
+                    index++;
+                    continue;
+                }
+
+                var item = SpawnAdminCustomGearItem(uid, gear.Equipment[slot.Name], spawned);
+                if (!InventorySystem.TryEquip(uid, item, slot.Name, silent: true))
+                    return false;
+
+                pending.RemoveAt(index);
+            }
+
+            if (pending.Count == before)
+                return false;
+        }
+
+        return true;
     }
 
-    private void TryEquipAdminCustomHands(EntityUid uid, IEquipmentLoadout gear, List<EntityUid> spawned,
-        ref int skipped)
+    private bool TryEquipAdminCustomHands(EntityUid uid, IEquipmentLoadout gear, List<EntityUid> spawned)
     {
         foreach (var prototype in gear.Inhand)
         {
             if (!_adminCustomGearHands.TryGetEmptyHand((uid, null), out var hand))
-            {
-                skipped += 1;
-                continue;
-            }
+                return false;
 
             var item = SpawnAdminCustomGearItem(uid, prototype, spawned);
             if (!_adminCustomGearHands.TryPickup(uid, item, hand, checkActionBlocker: false, animate: false)
                 || _adminCustomGearHands.GetHeldItem((uid, null), hand) != item)
             {
-                SkipAdminCustomGearItem(item, spawned, ref skipped);
+                return false;
             }
         }
+
+        return true;
     }
 
-    private void TryFillAdminCustomStorage(EntityUid uid, IEquipmentLoadout gear, List<EntityUid> spawned,
-        ref int skipped)
+    private bool TryFillAdminCustomStorage(EntityUid uid, IEquipmentLoadout gear, List<EntityUid> spawned)
     {
         foreach (var (slot, contents) in gear.Storage)
         {
@@ -98,9 +122,10 @@ public sealed partial class StationSpawningSystem
             if (!InventorySystem.TryGetSlotEntity(uid, slot, out var storageUid)
                 || !TryComp<StorageComponent>(storageUid, out var storage))
             {
-                skipped += contents.Count;
-                continue;
+                return false;
             }
+
+            ClearAdminCustomStorage(storage);
 
             foreach (var prototype in contents)
             {
@@ -109,28 +134,21 @@ public sealed partial class StationSpawningSystem
                     || !_adminCustomGearStorage.Insert(storageUid.Value, item, out _, storageComp: storage,
                         playSound: false, stackAutomatically: false))
                 {
-                    SkipAdminCustomGearItem(item, spawned, ref skipped);
+                    return false;
                 }
             }
         }
+
+        return true;
     }
 
-    private void SkipAdminCustomGearItem(EntityUid item, List<EntityUid> spawned, ref int skipped)
+    private void ClearAdminCustomStorage(StorageComponent storage)
     {
-        spawned.Remove(item);
-        Del(item);
-        skipped += 1;
-    }
-
-    private void DropUncontainedAdminCustomGear(EntityUid uid, List<EntityUid> spawned, ref int skipped)
-    {
-        foreach (var item in spawned)
+        var contained = storage.Container.ContainedEntities.ToArray();
+        foreach (var item in contained)
         {
-            if (IsAdminCustomGearContained(uid, item))
-                continue;
-
+            _adminCustomGearContainers.Remove(item, storage.Container, reparent: false);
             Del(item);
-            skipped += 1;
         }
     }
 
@@ -170,7 +188,12 @@ public sealed partial class StationSpawningSystem
         return AdminCharacterSpawnGearValidation.CanUseEquipmentItem(prototype, EntityManager.ComponentFactory);
     }
 
-    internal AdminCharacterSpawnCustomGear? CaptureAdminCharacterCustomGear(EntityUid uid)
+    /// <summary>
+    /// Captures the gear currently worn, held and stored by the entity as a custom loadout.
+    /// </summary>
+    /// <param name="uid">Entity to capture gear from.</param>
+    /// <returns>The captured loadout, or null if there is nothing suitable to capture.</returns>
+    public AdminCharacterSpawnCustomGear? CaptureAdminCharacterCustomGear(EntityUid uid)
     {
         if (TerminatingOrDeleted(uid) || !InventorySystem.TryGetSlots(uid, out var slots))
             return null;

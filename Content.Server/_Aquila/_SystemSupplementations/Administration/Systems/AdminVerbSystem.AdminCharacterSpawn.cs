@@ -27,12 +27,10 @@ public sealed partial class AdminVerbSystem
     [Dependency] private readonly IConfigurationManager _spawnConfiguration = default!;
     [Dependency] private readonly IAdminLogManager _spawnAdminLog = default!;
     [Dependency] private readonly SubdermalImplantSystem _spawnImplants = default!;
-    [Dependency] private readonly StationSystem _stations = default!;
     [Dependency] private readonly StationSpawningSystem _spawning = default!;
 
     private static readonly LocId SpawnCoordinatesFailed = "admin-player-spawn-failed";
     private static readonly LocId CustomGearSpawnFailed = "aquila-admin-character-custom-gear-spawn-failed";
-    private static readonly LocId CustomGearSpawnPartial = "aquila-admin-character-custom-gear-partial";
     private static readonly LocId SpawnHere = "admin-player-actions-spawn";
     private static readonly LocId CloneHere = "admin-player-actions-clone";
 
@@ -112,7 +110,19 @@ public sealed partial class AdminVerbSystem
         return new HumanoidCharacterProfile(profile);
     }
 
-    internal bool TrySpawnAdminCharacter(EntityUid target, ICommonSession player, ICommonSession targetPlayer,
+    /// <summary>
+    /// Validates the request and spawns the requested character for the target player.
+    /// </summary>
+    /// <param name="target">Mob of the target player.</param>
+    /// <param name="player">Session of the administrator.</param>
+    /// <param name="targetPlayer">Session of the target player.</param>
+    /// <param name="clone">Whether to spawn a clone instead of respawning the target.</param>
+    /// <param name="request">Validated spawn request.</param>
+    /// <param name="offeredStorage">Storage offered when the request spawns inside a container.</param>
+    /// <param name="preferences">Preferences of the administrator, if they are known.</param>
+    /// <param name="targetPreferences">Preferences of the target player.</param>
+    /// <returns>True if the character was spawned.</returns>
+    public bool TrySpawnAdminCharacter(EntityUid target, ICommonSession player, ICommonSession targetPlayer,
         bool clone, AdminCharacterSpawnRequest request, EntityUid? offeredStorage, PlayerPreferences? preferences, PlayerPreferences targetPreferences)
     {
         if (!CanCustomizeSpawn(target, player, targetPlayer) || player.AttachedEntity is not { } user)
@@ -150,7 +160,8 @@ public sealed partial class AdminVerbSystem
             return false;
         }
 
-        if (request.CustomGear is { } customGear
+        var customGear = request.CustomGear;
+        if (customGear != null
             && (request.Gear != null
                 || !AdminCharacterSpawnGearValidation.CanUseCustomGear(customGear, _prototypeManager, EntityManager.ComponentFactory)))
         {
@@ -170,45 +181,22 @@ public sealed partial class AdminVerbSystem
             profile = profile.WithName(name);
         }
 
-        var placed = storage == null;
-        var customGearEquipped = true;
-        var customGearSkipped = 0;
-        var customGearLoadout = request.CustomGear;
-        var station = _stations.GetOwningStation(target);
-        var mob = _spawning.SpawnPlayerMob(coordinates.Value, null, profile, station,
-            adminGear: gear, adminPreset: preset,
-            placeBeforeEquipment: body =>
-            {
-                if (customGearLoadout != null)
-                {
-                    if (!_spawning.TryEquipAdminCharacterCustomGear(body, customGearLoadout, out var skippedItems))
-                    {
-                        customGearEquipped = false;
-                        return false;
-                    }
+        var mob = _spawning.SpawnAdminCharacterBody(coordinates.Value, profile, preset);
 
-                    customGearSkipped = skippedItems;
-                }
-
-                if (storage != null && !TryPlaceAdminSpawnInsideStorage(body, storage))
-                {
-                    placed = false;
-                    return false;
-                }
-
-                return true;
-            });
-
-        if (!placed || !customGearEquipped)
+        if (customGear != null && !_spawning.TryEquipAdminCharacterCustomGear(mob, customGear))
         {
             Del(mob);
-            if (!customGearEquipped)
-                _popup.PopupEntity(Loc.GetString(CustomGearSpawnFailed), user, user);
+            _popup.PopupEntity(Loc.GetString(CustomGearSpawnFailed), user, user);
             return false;
         }
 
-        if (customGearSkipped > 0)
-            _popup.PopupEntity(Loc.GetString(CustomGearSpawnPartial, ("count", customGearSkipped)), user, user);
+        if (storage != null && !TryPlaceAdminSpawnInsideStorage(mob, storage))
+        {
+            Del(mob);
+            return false;
+        }
+
+        _spawning.EquipAdminCharacterGear(mob, gear, profile);
 
         if (mindComp != null)
             _mindSystem.TransferTo(mind, mob, true, mind: mindComp);

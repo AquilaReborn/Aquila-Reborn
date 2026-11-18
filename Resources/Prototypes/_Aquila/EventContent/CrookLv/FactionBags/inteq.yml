@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingBackpackMessenger
+  id: ClothingBackpackMessengerInteq
+  name: courier bag
+  suffix: CrookLv, Clothing, Inteq
+  description: A comfortable leather-strapped courier bag with a brass clasp.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionBags/Inteq/inteq_messenger.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionBags/Inteq/inteq_messenger.rsi

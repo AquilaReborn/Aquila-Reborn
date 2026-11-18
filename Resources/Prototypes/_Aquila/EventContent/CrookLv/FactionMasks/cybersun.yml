@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingMaskGas
+  id: ClothingMaskCybersunGas
+  name: gas mask
+  suffix: CrookLv, Clothing, Cybersun
+  description: A lightweight gas mask with a single reinforced filter built into the front.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionMasks/Cybersun/cybersun_gas.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionMasks/Cybersun/cybersun_gas.rsi

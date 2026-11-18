@@ -7,7 +7,10 @@ using Robust.Shared.Player;
 
 namespace Content.Server._Aquila.Administration;
 
-internal sealed class AdminCharacterSpawnEui(
+/// <summary>
+/// Admin interface that requests a character spawn and reports its failure back to the administrator.
+/// </summary>
+public sealed class AdminCharacterSpawnEui(
     AdminVerbSystem system,
     EntityUid target,
     ICommonSession targetPlayer,

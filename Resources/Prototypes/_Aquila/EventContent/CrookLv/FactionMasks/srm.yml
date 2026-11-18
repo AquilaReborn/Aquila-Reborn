@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingMaskGas
+  id: ClothingMaskSRMRoumaGas
+  name: leather gas mask
+  suffix: CrookLv, Clothing, Hunters' Order
+  description: A bug-like leather gas mask with an odd herbal filter.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionMasks/SRM/rouma_gas.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionMasks/SRM/rouma_gas.rsi

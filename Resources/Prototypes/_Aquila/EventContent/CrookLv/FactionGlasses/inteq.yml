@@ -1,0 +1,14 @@
+- type: entity
+  parent: ClothingEyesHudSecurity
+  id: ClothingEyesInteQBallisticGoggles
+  name: ballistic goggles
+  suffix: CrookLv, Clothing, Inteq
+  description: Ballistic goggles with an integrated security HUD. The opaque visor shields the eyes from flashes.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionGlasses/InteQ/inteq_goggles.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionGlasses/InteQ/inteq_goggles.rsi
+  - type: FlashImmunity
+  - type: IdentityBlocker
+    coverage: EYES

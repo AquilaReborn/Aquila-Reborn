@@ -71,7 +71,7 @@
     sprite: _Aquila/Clothing/Brigmedic/medsecvisor.rsi
 
 - type: entity
-  parent: ClothingBeltMedicalEMTFilled
+  parent: ClothingBeltMedicalEMT
   id: ClothingBeltWebbingBrigmedicAquila
   name: brigmedic chest rig
   suffix: Бригмедик
@@ -81,3 +81,11 @@
     sprite: _Aquila/Clothing/Brigmedic/brigmedicwebbing.rsi
   - type: Clothing
     sprite: _Aquila/Clothing/Brigmedic/brigmedicwebbing.rsi
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Brutepack
+        - id: Ointment
+        - id: Bloodpack
+        - id: Gauze

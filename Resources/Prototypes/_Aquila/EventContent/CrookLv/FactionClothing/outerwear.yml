@@ -4,7 +4,7 @@
   id: ClothingOuterCLIPSuitjacket
   name: officer suit jacket
   suffix: CrookLv, Clothing, LFC
-  description: A buttoned dress jacket issued to officers of the League of Free Colonies.
+  description: A buttoned dress jacket issued to frontier officers.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/CLIP/suitjacket_clip.rsi
@@ -16,7 +16,7 @@
   id: ClothingOuterCLIPSuitjacketCommand
   name: senior officer suit jacket
   suffix: CrookLv, Clothing, LFC
-  description: A buttoned dress jacket issued to senior officers of the League of Free Colonies.
+  description: A buttoned dress jacket issued to senior frontier officers.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/CLIP/suitjacket_clip_command.rsi
@@ -28,7 +28,7 @@
   id: ClothingOuterCLIPGeneral
   name: militia general coat
   suffix: CrookLv, Clothing, LFC
-  description: A flamboyant armored coat worn by field generals of the League of Free Colonies militia.
+  description: A flamboyant armored coat worn by field generals of the frontier militia.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/CLIP/clip_general.rsi
@@ -63,7 +63,7 @@
   id: ClothingOuterCLIPAdmiral
   name: militia admiral trenchcoat
   suffix: CrookLv, Clothing, LFC
-  description: A very fancy armored trenchcoat worn by naval admirals of the League of Free Colonies militia.
+  description: A very fancy armored trenchcoat worn by naval admirals of the frontier militia.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/CLIP/clip_admiral.rsi
@@ -98,7 +98,7 @@
   id: ClothingOuterCLIPRiot
   name: black riot suit
   suffix: CrookLv, Clothing, LFC
-  description: A charcoal-painted suit of heavy armor for close-quarters fighting and riot control, favoured by Biohazard Assessment and Response Division teams but used across the whole League of Free Colonies.
+  description: A charcoal-painted suit of heavy armor for close-quarters fighting and riot control, favoured by biohazard response teams but used across the whole frontier.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/CLIP/riot_clip.rsi
@@ -110,7 +110,7 @@
   id: ClothingOuterCLIPTrenchcoat
   name: trenchcoat
   suffix: CrookLv, Clothing, LFC
-  description: A trenchcoat in League colors with light padding and a lot of pockets, worn in every branch of the League of Free Colonies.
+  description: A trenchcoat in frontier colors with light padding and a lot of pockets, worn in every branch of the frontier forces.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/CLIP/clip_trenchcoat.rsi
@@ -140,7 +140,7 @@
   id: ClothingOuterCLIPCaptaincoat
   name: militia captain's coat
   suffix: CrookLv, Clothing, LFC
-  description: A thickly padded coat issued to captains of the League of Free Colonies militia. It protects well, though it is no substitute for proper armor.
+  description: A thickly padded coat issued to captains of the frontier militia. It protects well, though it is no substitute for proper armor.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/CLIP/clip_captaincoat.rsi
@@ -175,7 +175,7 @@
   id: ClothingOuterCLIPArmorCorrespondant
   name: correspondent armor vest
   suffix: CrookLv, Clothing, LFC
-  description: A slim Type I armored vest with the word PRESS printed across the front. Part of the League of Free Colonies equipment.
+  description: A slim Type I armored vest with the word PRESS printed across the front. Part of a frontier kit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/CLIP/armor_correspondant.rsi
@@ -185,9 +185,9 @@
 - type: entity
   parent: ClothingOuterBioGeneral
   id: ClothingOuterCLIPBardBiosuit
-  name: BARD-440 bio suit
+  name: bio suit
   suffix: CrookLv, Clothing, LFC
-  description: The iconic biosuit of Biohazard Assessment and Response Division agents of the League of Free Colonies.
+  description: The iconic biosuit of biohazard response agents.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/CLIP/clip_bard_biosuit.rsi
@@ -197,9 +197,9 @@
 - type: entity
   parent: [ ClothingOuterBioGeneral, BaseMajorContraband ]
   id: ClothingOuterCLIPBardBiosuitMedium
-  name: BARD-434-2 combat bio suit
+  name: combat bio suit
   suffix: CrookLv, Clothing, LFC
-  description: An armored bio suit for Biohazard Assessment and Response Division teams expecting a fight with dangerous xenofauna. Cumbersome.
+  description: An armored bio suit for biohazard response teams expecting a fight with dangerous xenofauna. Cumbersome.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/CLIP/clip_bard_biosuit_medium.rsi
@@ -225,9 +225,9 @@
 - type: entity
   parent: [ ClothingOuterBioGeneral, BaseMajorContraband ]
   id: ClothingOuterCLIPBardBiosuitHeavy
-  name: BARD-434-3 heavy combat bio suit
+  name: heavy combat bio suit
   suffix: CrookLv, Clothing, LFC
-  description: A heavily armored bio suit for Biohazard Assessment and Response Division teams sent against the worst xenofauna. Very cumbersome.
+  description: A heavily armored bio suit for biohazard response teams sent against the worst xenofauna. Very cumbersome.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/CLIP/clip_bard_biosuit_heavy.rsi
@@ -256,7 +256,7 @@
   id: ClothingOuterCybersunSuit
   name: suit jacket
   suffix: CrookLv, Clothing, Cybersun
-  description: A plain white suit jacket favoured by Cybersun officers.
+  description: A plain white suit jacket favoured by corporate officers.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Cybersun/cybersun_suit.rsi
@@ -268,7 +268,7 @@
   id: ClothingOuterCybersunCarapace
   name: captain's haori
   suffix: CrookLv, Clothing, Cybersun
-  description: An extraordinarily fashionable haori worn by Cybersun captains, woven with armored fabric.
+  description: An extraordinarily fashionable haori worn by corporate captains, woven with armored fabric.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Cybersun/carapace_cybersun.rsi
@@ -303,7 +303,7 @@
   id: ClothingOuterCybersunSmock
   name: smock
   suffix: CrookLv, Clothing, Cybersun
-  description: A maroon smock beloved for how well it hides bloodstains. Part of the Cybersun equipment.
+  description: A maroon smock beloved for how well it hides bloodstains. Part of a corporate kit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Cybersun/cybersun_smock.rsi
@@ -324,7 +324,7 @@
   id: ClothingOuterCybersunVest
   name: armor vest
   suffix: CrookLv, Clothing, Cybersun
-  description: Red plasteel plating with a white insert over the sternum that cynics call a target. Part of the Cybersun equipment.
+  description: Red plasteel plating with a white insert over the sternum that cynics call a target. Part of a corporate kit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Cybersun/cybersun_vest.rsi
@@ -334,9 +334,9 @@
 - type: entity
   parent: [ ClothingOuterArmorBase, BaseSyndicateContraband ]
   id: ClothingOuterCybersunTraumaVest
-  name: Trauma Team vest
+  name: medical vest
   suffix: CrookLv, Clothing, Cybersun
-  description: Highly visible white and teal plasteel worn by Cybersun's Trauma Team.
+  description: Highly visible white and teal plasteel worn by a trauma response team.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Cybersun/trauma_vest.rsi
@@ -348,7 +348,7 @@
   id: ClothingOuterCybersunBulletproof
   name: bulletproof vest
   suffix: CrookLv, Clothing, Cybersun
-  description: Cybersun-branded ballistic plates made to catch bullets and shrapnel.
+  description: Corporate ballistic plates made to catch bullets and shrapnel.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Cybersun/cybersun_bulletproof.rsi
@@ -358,9 +358,9 @@
 - type: entity
   parent: [ ClothingOuterArmorBulletproof, BaseSyndicateContraband ]
   id: ClothingOuterCybersunTraumaBulletproof
-  name: Trauma Team bulletproof vest
+  name: medical bulletproof vest
   suffix: CrookLv, Clothing, Cybersun
-  description: A bulletproof vest in the bright white and teal of the Trauma Team. Part of the Cybersun equipment.
+  description: A bulletproof vest in the bright white and teal of the trauma response team. Part of a corporate kit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Cybersun/trauma_bulletproof.rsi
@@ -372,7 +372,7 @@
   id: ClothingOuterCybersunMarineLight
   name: Troubleshooter vest
   suffix: CrookLv, Clothing, Cybersun
-  description: Molded plasteel plates in the colors of Cybersun's Troubleshooters, with excellent all-around protection.
+  description: Molded plasteel plates in the colors of a corporate security team, with excellent all-around protection.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Cybersun/marine_light_cybersun.rsi
@@ -400,9 +400,9 @@
 - type: entity
   parent: [ ClothingOuterArmorBase, BaseSyndicateContraband ]
   id: ClothingOuterCybersunTraumaLight
-  name: Trauma Team combat vest
+  name: medical combat vest
   suffix: CrookLv, Clothing, Cybersun
-  description: Durable impact-resistant plates used by Trauma Team first responders. Part of the Cybersun equipment.
+  description: Durable impact-resistant plates used by trauma response team first responders. Part of a corporate kit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Cybersun/trauma_light_cybersun.rsi
@@ -432,7 +432,7 @@
   id: ClothingOuterCybersunMarineMedium
   name: heavy Troubleshooter suit
   suffix: CrookLv, Clothing, Cybersun
-  description: Crystalline plasteel armor with arm and leg pieces for maximum survivability. Part of the Cybersun equipment.
+  description: Crystalline plasteel armor with arm and leg pieces for maximum survivability. Part of a corporate kit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Cybersun/marine_medium_cybersun.rsi
@@ -466,9 +466,9 @@
 - type: entity
   parent: [ ClothingOuterArmorBase, BaseSyndicateContraband ]
   id: ClothingOuterCybersunTraumaMedium
-  name: Trauma Team point suit
+  name: medical point suit
   suffix: CrookLv, Clothing, Cybersun
-  description: Teal-tinted crystalline plasteel armor worn by the point man of a Trauma Team. Part of the Cybersun equipment.
+  description: Teal-tinted crystalline plasteel armor worn by the point man of a trauma response team. Part of a corporate kit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Cybersun/trauma_medium_cybersun.rsi
@@ -504,7 +504,7 @@
   id: ClothingOuterCybersunMarineHeavy
   name: Solution combat armor
   suffix: CrookLv, Clothing, Cybersun
-  description: Plastitanium plating filled with crystalline plasteel, made for Cybersun's finest.
+  description: Plastitanium plating filled with crystalline plasteel, made for the corporate elite.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Cybersun/marine_heavy_cybersun.rsi
@@ -540,7 +540,7 @@
   id: ClothingOuterCybersunTraumaHeavy
   name: Recovery combat armor
   suffix: CrookLv, Clothing, Cybersun
-  description: Heavy plastitanium armor of the Trauma Team. If Cybersun sends one of these for you, you will be found.
+  description: Heavy plastitanium armor of a trauma response team. If they send one of these for you, you will be found.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Cybersun/trauma_heavy_cybersun.rsi
@@ -577,7 +577,7 @@
   id: ClothingOuterGezenaNavyjacket
   name: navy silkenweave jacket
   suffix: CrookLv, Clothing, Gezena
-  description: A light, comfortable and surprisingly warm jacket in navy blue. Part of the Gezenan Federation equipment.
+  description: A light, comfortable and surprisingly warm jacket in navy blue. Part of the service kit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Gezena/navyjacket.rsi
@@ -589,7 +589,7 @@
   id: ClothingOuterGezenaMarinejacket
   name: marine silkenweave jacket
   suffix: CrookLv, Clothing, Gezena
-  description: A light, comfortable and surprisingly warm jacket in marine corps green. Part of the Gezenan Federation equipment.
+  description: A light, comfortable and surprisingly warm jacket in marine corps green. Part of the service kit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Gezena/marinejacket.rsi
@@ -601,7 +601,7 @@
   id: ClothingOuterGezenaNavycoat
   name: navywear coat
   suffix: CrookLv, Clothing, Gezena
-  description: A heavy belted coat with sleek epaulettes in recognizable Gezenan green.
+  description: A heavy belted coat with sleek epaulettes in recognizable marine green.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Gezena/navycoat.rsi
@@ -631,7 +631,7 @@
   id: ClothingOuterGezenaMedcoat
   name: medical navywear coat
   suffix: CrookLv, Clothing, Gezena
-  description: A heavy belted coat with sleek epaulettes in sterile medical white. Part of the Gezenan Federation equipment.
+  description: A heavy belted coat with sleek epaulettes in sterile medical white. Part of the service kit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Gezena/medcoat.rsi
@@ -661,7 +661,7 @@
   id: ClothingOuterGezenaEngicoat
   name: engineering navywear coat
   suffix: CrookLv, Clothing, Gezena
-  description: A heavy belted coat with sleek epaulettes in rugged engineering orange. Part of the Gezenan Federation equipment.
+  description: A heavy belted coat with sleek epaulettes in rugged engineering orange. Part of the service kit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Gezena/engicoat.rsi
@@ -691,7 +691,7 @@
   id: ClothingOuterGezenaCaptaincoat
   name: captain's navywear coat
   suffix: CrookLv, Clothing, Gezena
-  description: A heavy belted coat with sleek epaulettes in regal command silver. Part of the Gezenan Federation equipment.
+  description: A heavy belted coat with sleek epaulettes in regal command silver. Part of the service kit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Gezena/captaincoat.rsi
@@ -726,7 +726,7 @@
   id: ClothingOuterGezenaNavyvest
   name: navy flak vest
   suffix: CrookLv, Clothing, Gezena
-  description: A sky blue flak vest with reflectors on the back that help sailors find each other in emergencies. Part of the Gezenan Federation equipment.
+  description: A sky blue flak vest with reflectors on the back that help sailors find each other in emergencies. Part of the service kit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Gezena/navyvest.rsi
@@ -738,7 +738,7 @@
   id: ClothingOuterGezenaMarinevest
   name: marine combat vest
   suffix: CrookLv, Clothing, Gezena
-  description: A bright green combat vest of heavy composite plating in its most basic configuration. Part of the Gezenan Federation equipment.
+  description: A bright green combat vest of heavy composite plating in its most basic configuration. Part of the service kit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Gezena/marinevest.rsi
@@ -768,7 +768,7 @@
   id: ClothingOuterGezenaMarineinterceptor
   name: marine interceptor vest
   suffix: CrookLv, Clothing, Gezena
-  description: A bright green combat vest with the full suite of extremity protectors. Part of the Gezenan Federation equipment.
+  description: A bright green combat vest with the full suite of extremity protectors. Part of the service kit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Gezena/marineinterceptor.rsi
@@ -805,7 +805,7 @@
   id: ClothingOuterHardlinersHlcoat
   name: leather jacket
   suffix: CrookLv, Clothing, Blood Vanguard
-  description: A sturdy leather jacket worn by fighters of the Blood Vanguard.
+  description: A sturdy leather jacket worn by fighters of the veteran corps.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Hardliners/hlcoat.rsi
@@ -817,7 +817,7 @@
   id: ClothingOuterHardlinersApron
   name: white smock
   suffix: CrookLv, Clothing, Blood Vanguard
-  description: A plain white surgical smock, since even mercenaries need a medic sometimes. Part of the Blood Vanguard equipment.
+  description: A plain white surgical smock, since even mercenaries need a medic sometimes. Part of a veteran kit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Hardliners/hl_apron.rsi
@@ -838,7 +838,7 @@
   id: ClothingOuterHardlinersHazard
   name: hazard vest
   suffix: CrookLv, Clothing, Blood Vanguard
-  description: A white high-visibility vest worn by Blood Vanguard mechanics.
+  description: A white high-visibility vest worn by veteran corps mechanics.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Hardliners/hl_hazard.rsi
@@ -850,7 +850,7 @@
   id: ClothingOuterHardlinersWinterCoat
   name: winter coat
   suffix: CrookLv, Clothing, Blood Vanguard
-  description: A stark white winter coat with a hood, worn by fighters of the Blood Vanguard.
+  description: A stark white winter coat with a hood, worn by fighters of the veteran corps.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Hardliners/coathl.rsi
@@ -865,7 +865,7 @@
   id: ClothingOuterHardlinersVest
   name: armor vest
   suffix: CrookLv, Clothing, Blood Vanguard
-  description: A slim Type I armored vest painted in classic Vanguard white, which makes bloodstains very obvious.
+  description: A slim Type I armored vest painted in classic combat white, which makes bloodstains very obvious.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Hardliners/hl_vest.rsi
@@ -877,7 +877,7 @@
   id: ClothingOuterHardlinersJacket
   name: armored kutte
   suffix: CrookLv, Clothing, Blood Vanguard
-  description: A leather kutte over a slim Type I armored vest with the Vanguard patch on the back.
+  description: A leather kutte over a slim Type I armored vest with a unit patch on the back.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Hardliners/hl_jacket.rsi
@@ -889,7 +889,7 @@
   id: ClothingOuterHardlinersSergeant
   name: sergeant jacket
   suffix: CrookLv, Clothing, Blood Vanguard
-  description: An armored jacket worn by sergeants of the Blood Vanguard.
+  description: An armored jacket worn by sergeants of the veteran corps.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Hardliners/hl_sergeant.rsi
@@ -924,7 +924,7 @@
   id: ClothingOuterHardlinersCaptain
   name: captain coat
   suffix: CrookLv, Clothing, Blood Vanguard
-  description: An imposing armored coat worn by captains of the Blood Vanguard fleets.
+  description: An imposing armored coat worn by captains of the veteran corps fleets.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Hardliners/hl_captain.rsi
@@ -960,7 +960,7 @@
   id: ClothingOuterInteQArmorBattlecoat
   name: battle coat
   suffix: CrookLv, Clothing, Inteq
-  description: An armored battle coat worn by Inteq PMC vanguards.
+  description: An armored battle coat worn by mercenary shock troops.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/InteQ/armor_inteq_battlecoat.rsi
@@ -993,9 +993,9 @@
 - type: entity
   parent: [ ClothingOuterStorageBase, BaseMajorContraband ]
   id: ClothingOuterInteQArmorHonorableBattlecoat
-  name: honorable vanguard battlecoat
+  name: honorable battlecoat
   suffix: CrookLv, Clothing, Inteq
-  description: A sleek black coat with snow white fur trim, made to order for honorable Inteq PMC vanguards.
+  description: A sleek black coat with snow white fur trim, made to order for honorable mercenary shock troops.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/InteQ/armor_inteq_honorable_battlecoat.rsi
@@ -1030,7 +1030,7 @@
   id: ClothingOuterInteQMaacoat
   name: master at arms' armored coat
   suffix: CrookLv, Clothing, Inteq
-  description: A brown armored coat with a bulletproof vest over it, worn by the Inteq PMC master at arms.
+  description: A brown armored coat with a bulletproof vest over it, worn by the mercenary master at arms.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/InteQ/maacoat.rsi
@@ -1065,7 +1065,7 @@
   id: ClothingOuterInteQArmorLabcoat
   name: corpsman vest
   suffix: CrookLv, Clothing, Inteq
-  description: A shortened brown labcoat over an armor vest, worn by Inteq PMC support corpsmen.
+  description: A shortened brown labcoat over an armor vest, worn by mercenary support corpsmen.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/InteQ/armor_inteq_labcoat.rsi
@@ -1077,7 +1077,7 @@
   id: ClothingOuterInteQWinterCoat
   name: winter coat
   suffix: CrookLv, Clothing, Inteq
-  description: An armored winter coat in Inteq PMC colors with a hood and the Inteq shield on the zipper tab.
+  description: An armored winter coat in mercenary colors with a hood and a company shield on the zipper tab.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/InteQ/coatinteq.rsi
@@ -1092,7 +1092,7 @@
   id: ClothingOuterInteQHoodedCoat
   name: hooded coat
   suffix: CrookLv, Clothing, Inteq
-  description: A comfy hooded coat with fur trim and a small Inteq PMC logo on the shoulder.
+  description: A comfy hooded coat with fur trim and a small mercenary logo on the shoulder.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/InteQ/coatinteq_alt.rsi
@@ -1107,7 +1107,7 @@
   id: ClothingOuterInteQFlightinteq
   name: pilot jacket
   suffix: CrookLv, Clothing, Inteq
-  description: A fur-lined flight jacket issued to Inteq PMC shuttle pilots.
+  description: A fur-lined flight jacket issued to mercenary shuttle pilots.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/InteQ/flightinteq.rsi
@@ -1120,7 +1120,7 @@
   id: ClothingOuterNGRForeman
   name: foreman's jacket
   suffix: CrookLv, Clothing, Gorlex Republic
-  description: A beige high-visibility jacket worn by foremen of the Gorlex Republic.
+  description: A beige high-visibility jacket worn by foremen of a frontier republic.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/NGR/ngr_foreman.rsi
@@ -1132,7 +1132,7 @@
   id: ClothingOuterNGRGarrisoncoat
   name: garrison jacket
   suffix: CrookLv, Clothing, Gorlex Republic
-  description: A comfy coat given to all service members of the Gorlex Republic, good at keeping out both cold and dust.
+  description: A comfy coat given to all service members of a frontier republic, good at keeping out both cold and dust.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/NGR/garrisoncoat.rsi
@@ -1144,7 +1144,7 @@
   id: ClothingOuterNGRApron
   name: blood red smock
   suffix: CrookLv, Clothing, Gorlex Republic
-  description: A blood red surgical smock worn by field medics of the Gorlex Republic.
+  description: A blood red surgical smock worn by field medics of a frontier republic.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/NGR/ngr_apron.rsi
@@ -1165,7 +1165,7 @@
   id: ClothingOuterNGRHazard
   name: hazard vest
   suffix: CrookLv, Clothing, Gorlex Republic
-  description: A blood red high-visibility vest used in work zones of the Gorlex Republic.
+  description: A blood red high-visibility vest used in work zones of a frontier republic.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/NGR/ngr_hazard.rsi
@@ -1177,7 +1177,7 @@
   id: ClothingOuterNGRWinterCoat
   name: winter coat
   suffix: CrookLv, Clothing, Gorlex Republic
-  description: A sleek beige winter coat with a hood, worn by the Second Battlegroup of the Gorlex Republic.
+  description: A sleek beige winter coat with a hood, worn by a republican battlegroup.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/NGR/coatngr.rsi
@@ -1192,7 +1192,7 @@
   id: ClothingOuterNGRVest
   name: armor vest
   suffix: CrookLv, Clothing, Gorlex Republic
-  description: A slim Type I armored vest used by the Second Battlegroup of the Gorlex Republic.
+  description: A slim Type I armored vest used by a republican battlegroup.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/NGR/ngr_vest.rsi
@@ -1204,7 +1204,7 @@
   id: ClothingOuterNGRLieutenant
   name: battlegroup overcoat
   suffix: CrookLv, Clothing, Gorlex Republic
-  description: An armored overcoat of Second Battlegroup lieutenants. Part of the Gorlex Republic equipment.
+  description: An armored overcoat of battlegroup lieutenants. Part of a republican kit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/NGR/ngr_lieutenant.rsi
@@ -1239,7 +1239,7 @@
   id: ClothingOuterNGRCaptain
   name: battlegroup coat
   suffix: CrookLv, Clothing, Gorlex Republic
-  description: An armored coat of Second Battlegroup captains. Part of the Gorlex Republic equipment.
+  description: An armored coat of battlegroup captains. Part of a republican kit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/NGR/ngr_captain.rsi
@@ -1275,7 +1275,7 @@
   id: ClothingOuterRamziWorker
   name: torn worker's jacket
   suffix: CrookLv, Clothing, Rust Clique
-  description: A torn and patched worker's jacket that has clearly seen better days. Part of the Rust Clique equipment.
+  description: A torn and patched worker's jacket that has clearly seen better days. Part of a pirate kit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Ramzi/ramzi_worker.rsi
@@ -1287,7 +1287,7 @@
   id: ClothingOuterRamziSmock
   name: maroon smock
   suffix: CrookLv, Clothing, Rust Clique
-  description: A maroon smock that hides stains well. Part of the Rust Clique equipment.
+  description: A maroon smock that hides stains well. Part of a pirate kit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Ramzi/ramzi_smock.rsi
@@ -1308,7 +1308,7 @@
   id: ClothingOuterRamziVest
   name: armor vest
   suffix: CrookLv, Clothing, Rust Clique
-  description: A battered armor vest favoured by Rust Clique boarders.
+  description: A battered armor vest favoured by pirate boarders.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Ramzi/ramzi_vest.rsi
@@ -1320,7 +1320,7 @@
   id: ClothingOuterRamziBullet
   name: bulletproof vest
   suffix: CrookLv, Clothing, Rust Clique
-  description: Heavy ballistic plates, probably taken off someone who no longer needed them. Part of the Rust Clique equipment.
+  description: Heavy ballistic plates, probably taken off someone who no longer needed them. Part of a pirate kit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Ramzi/ramzi_bullet.rsi
@@ -1332,7 +1332,7 @@
   id: ClothingOuterRamziLead
   name: overcoat
   suffix: CrookLv, Clothing, Rust Clique
-  description: An armored overcoat worn by Rust Clique crew leaders.
+  description: An armored overcoat worn by pirate crew leaders.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Ramzi/ramzi_lead.rsi
@@ -1367,7 +1367,7 @@
   id: ClothingOuterRamziCaptain
   name: armored captain's coat
   suffix: CrookLv, Clothing, Rust Clique
-  description: A heavily armored coat that marks a Rust Clique captain.
+  description: A heavily armored coat that marks a pirate captain.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Ramzi/ramzi_captain.rsi
@@ -1402,7 +1402,7 @@
   id: ClothingOuterRamziLight
   name: tactical vest
   suffix: CrookLv, Clothing, Rust Clique
-  description: A tactical armor vest pieced together from stolen plates. Part of the Rust Clique equipment.
+  description: A tactical armor vest pieced together from stolen plates. Part of a pirate kit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Ramzi/ramzi_light.rsi
@@ -1432,7 +1432,7 @@
   id: ClothingOuterRamziMedium
   name: medium tactical vest
   suffix: CrookLv, Clothing, Rust Clique
-  description: A tactical vest reinforced with extra plates and limb guards. Part of the Rust Clique equipment.
+  description: A tactical vest reinforced with extra plates and limb guards. Part of a pirate kit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/Ramzi/ramzi_medium.rsi
@@ -1467,9 +1467,9 @@
 - type: entity
   parent: [ ClothingOuterArmorBase, BaseMajorContraband ]
   id: ClothingOuterSolGovGambison
-  name: Sonnensoldner gambeson
+  name: padded gambeson
   suffix: CrookLv, Clothing, UEG
-  description: A thick padded gambeson worn by Sonnensoldner mercenaries in United Earth Government service.
+  description: A thick padded gambeson worn by mercenaries in government service.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SolGov/solgov_gambison.rsi
@@ -1481,7 +1481,7 @@
   id: ClothingOuterSolGovOverseerRobe
   name: overseer robe
   suffix: CrookLv, Clothing, UEG
-  description: An armored robe worn by United Earth Government overseers.
+  description: An armored robe worn by government overseers.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SolGov/solgov_overseer_robe.rsi
@@ -1516,7 +1516,7 @@
   id: ClothingOuterSolGovCaptainCoat
   name: captain coat
   suffix: CrookLv, Clothing, UEG
-  description: An armored coat worn by United Earth Government captains.
+  description: An armored coat worn by government captains.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SolGov/solgov_coat.rsi
@@ -1551,7 +1551,7 @@
   id: ClothingOuterSolGovHazard
   name: hazard vest
   suffix: CrookLv, Clothing, UEG
-  description: A high-visibility vest in United Earth Government colors.
+  description: A high-visibility vest in government colors.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SolGov/hazard_solgov.rsi
@@ -1563,7 +1563,7 @@
   id: ClothingOuterSolGovRobe
   name: robe
   suffix: CrookLv, Clothing, UEG
-  description: A formal robe worn by United Earth Government officials.
+  description: A formal robe worn by government officials.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SolGov/solgov_robe.rsi
@@ -1575,7 +1575,7 @@
   id: ClothingOuterSolGovDress
   name: dress
   suffix: CrookLv, Clothing, UEG
-  description: A formal dress in United Earth Government colors.
+  description: A formal dress in government colors.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SolGov/solgov_dress.rsi
@@ -1587,7 +1587,7 @@
   id: ClothingOuterSolGovSuit
   name: suit jacket
   suffix: CrookLv, Clothing, UEG
-  description: A formal suit jacket in United Earth Government colors.
+  description: A formal suit jacket in government colors.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SolGov/solgov_suit.rsi
@@ -1599,7 +1599,7 @@
   id: ClothingOuterSolGovBureaucratRobe
   name: bureaucrat robe
   suffix: CrookLv, Clothing, UEG
-  description: A robe that smells faintly of paperwork, worn by United Earth Government bureaucrats.
+  description: A robe that smells faintly of paperwork, worn by government bureaucrats.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SolGov/solgov_bureaucrat_robe.rsi
@@ -1611,7 +1611,7 @@
   id: ClothingOuterSolGovOvercoat
   name: overcoat
   suffix: CrookLv, Clothing, UEG
-  description: A long overcoat in United Earth Government colors.
+  description: A long overcoat in government colors.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SolGov/solgov_overcoat.rsi
@@ -1623,7 +1623,7 @@
   id: ClothingOuterSolGovJacket
   name: jacket
   suffix: CrookLv, Clothing, UEG
-  description: A casual jacket in United Earth Government colors.
+  description: A casual jacket in government colors.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SolGov/solgov_jacket.rsi
@@ -1635,7 +1635,7 @@
   id: ClothingOuterSolGovServiceCoat
   name: coat
   suffix: CrookLv, Clothing, UEG
-  description: An armored service coat of the United Earth Government.
+  description: An armored service coat of a central government.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SolGov/coat_solgov.rsi
@@ -1670,7 +1670,7 @@
   id: ClothingOuterSolGovTerragovCoat
   name: coat
   suffix: CrookLv, Clothing, UEG
-  description: An armored service coat of the Earth Confederation.
+  description: An armored service coat of an old central government.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SolGov/coat_terragov.rsi
@@ -1705,7 +1705,7 @@
   id: ClothingOuterSolGovArmorTrenchcoat
   name: trenchcoat
   suffix: CrookLv, Clothing, UEG
-  description: A trenchcoat in United Earth Government colors with light padding.
+  description: A trenchcoat in government colors with light padding.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SolGov/armor_solgov_trenchcoat.rsi
@@ -1735,7 +1735,7 @@
   id: ClothingOuterSolGovWinterCoat
   name: winter coat
   suffix: CrookLv, Clothing, UEG
-  description: A winter coat with a hood in United Earth Government colors.
+  description: A winter coat with a hood in government colors.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SolGov/coatsolgov.rsi
@@ -1751,7 +1751,7 @@
   id: ClothingOuterSRMArmor
   name: duster
   suffix: CrookLv, Clothing, Hunters' Order
-  description: A long armored duster worn by hunters of the Order.
+  description: A long armored duster worn by hunters of the guild.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SRM/armor_rouma.rsi
@@ -1786,7 +1786,7 @@
   id: ClothingOuterSRMArmorShadow
   name: shadow duster
   suffix: CrookLv, Clothing, Hunters' Order
-  description: A dark armored duster worn by the Order's shadows.
+  description: A dark armored duster worn by the guild's shadows.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SRM/armor_rouma_shadow.rsi
@@ -1821,7 +1821,7 @@
   id: ClothingOuterSRMMedCoat
   name: medical duster
   suffix: CrookLv, Clothing, Hunters' Order
-  description: An armored duster worn by the Order's medics.
+  description: An armored duster worn by the guild's medics.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SRM/rouma_med_coat.rsi
@@ -1856,7 +1856,7 @@
   id: ClothingOuterSRMArmorMachinist
   name: machinist leather vest
   suffix: CrookLv, Clothing, Hunters' Order
-  description: A thick leather vest worn by the Order's machinists.
+  description: A thick leather vest worn by the guild's machinists.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SRM/armor_rouma_machinist.rsi
@@ -1886,7 +1886,7 @@
   id: ClothingOuterSRMArmorFlamebearer
   name: flamebearer robes
   suffix: CrookLv, Clothing, Hunters' Order
-  description: Armored robes worn by the Order's flamebearers.
+  description: Armored robes worn by the guild's flamebearers.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SRM/armor_rouma_flamebearer.rsi
@@ -1921,7 +1921,7 @@
   id: ClothingOuterSRMArmorPlate
   name: heavy duster
   suffix: CrookLv, Clothing, Hunters' Order
-  description: A duster reinforced with steel plates. Part of the Hunters' Order equipment.
+  description: A duster reinforced with steel plates. Part of a hunters' kit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SRM/armor_rouma_plate.rsi
@@ -1955,7 +1955,7 @@
   id: ClothingOuterSRMArmorMonplate
   name: montagne battle coat
   suffix: CrookLv, Clothing, Hunters' Order
-  description: A plated battle coat worn by the Order's montagnes.
+  description: A plated battle coat worn by the guild's montagnes.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SRM/armor_rouma_monplate.rsi
@@ -1989,7 +1989,7 @@
   id: ClothingOuterSRMArmorColligne
   name: colligne coat
   suffix: CrookLv, Clothing, Hunters' Order
-  description: An armored coat worn by the Order's collignes.
+  description: An armored coat worn by the guild's collignes.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SRM/armor_rouma_colligne.rsi
@@ -2024,7 +2024,7 @@
   id: ClothingOuterSRMArmorMontagne
   name: montagne coat
   suffix: CrookLv, Clothing, Hunters' Order
-  description: An armored coat worn by the Order's montagnes.
+  description: An armored coat worn by the guild's montagnes.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SRM/armor_rouma_montagne.rsi
@@ -2059,7 +2059,7 @@
   id: ClothingOuterSRMArmorPlateMedium
   name: three quarter plate harness
   suffix: CrookLv, Clothing, Hunters' Order
-  description: A plate harness covering most of the body. Part of the Hunters' Order equipment.
+  description: A plate harness covering most of the body. Part of a hunters' kit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SRM/armor_rouma_plate_medium.rsi
@@ -2093,7 +2093,7 @@
   id: ClothingOuterSRMArmorPlateHeavy
   name: heavy three quarter plate harness
   suffix: CrookLv, Clothing, Hunters' Order
-  description: A heavy plate harness for hunters going against the worst beasts. Part of the Hunters' Order equipment.
+  description: A heavy plate harness for hunters going against the worst beasts. Part of a hunters' kit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SRM/armor_rouma_plate_heavy.rsi
@@ -2128,7 +2128,7 @@
   id: ClothingOuterSUNSJacket
   name: jacket
   suffix: CrookLv, Clothing, SUNS
-  description: A casual jacket in Student-Union of Naturalistic Sciences colors.
+  description: A casual jacket in academy colors.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SUNS/suns_jacket.rsi
@@ -2140,7 +2140,7 @@
   id: ClothingOuterSUNSSchooljacket
   name: black school jacket
   suffix: CrookLv, Clothing, SUNS
-  description: A black school jacket worn by Student-Union of Naturalistic Sciences students.
+  description: A black school jacket worn by academy students.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SUNS/suns_schooljacket.rsi
@@ -2152,7 +2152,7 @@
   id: ClothingOuterSUNSWorkervest
   name: work vest
   suffix: CrookLv, Clothing, SUNS
-  description: A practical work vest in Student-Union of Naturalistic Sciences colors.
+  description: A practical work vest in academy colors.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SUNS/suns_workervest.rsi
@@ -2164,7 +2164,7 @@
   id: ClothingOuterSUNSCmocoat
   name: medical instructor coat
   suffix: CrookLv, Clothing, SUNS
-  description: A labcoat worn by Student-Union of Naturalistic Sciences medical instructors.
+  description: A labcoat worn by academy medical instructors.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SUNS/suns_cmocoat.rsi
@@ -2186,7 +2186,7 @@
   id: ClothingOuterSUNSDoctorlabcoat
   name: doctor's labcoat
   suffix: CrookLv, Clothing, SUNS
-  description: A labcoat worn by Student-Union of Naturalistic Sciences doctors.
+  description: A labcoat worn by academy doctors.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SUNS/suns_doctorlabcoat.rsi
@@ -2208,7 +2208,7 @@
   id: ClothingOuterSUNSLabcoat
   name: labcoat
   suffix: CrookLv, Clothing, SUNS
-  description: A hooded labcoat that protects against chemical spills. Part of the Student-Union of Naturalistic Sciences equipment.
+  description: A hooded labcoat that protects against chemical spills. Part of an academy kit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SUNS/suns_labcoat.rsi
@@ -2233,7 +2233,7 @@
   id: ClothingOuterSUNSPkarmor
   name: peacekeeper plating
   suffix: CrookLv, Clothing, SUNS
-  description: Armor plating worn by Student-Union of Naturalistic Sciences peacekeepers.
+  description: Armor plating worn by campus peacekeepers.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SUNS/suns_pkarmor.rsi
@@ -2245,7 +2245,7 @@
   id: ClothingOuterSUNSLpkarmor
   name: gilded peacekeeper plating
   suffix: CrookLv, Clothing, SUNS
-  description: Gilded armor plating worn by the head of Student-Union of Naturalistic Sciences peacekeepers.
+  description: Gilded armor plating worn by the head of campus peacekeepers.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SUNS/suns_lpkarmor.rsi
@@ -2257,7 +2257,7 @@
   id: ClothingOuterSUNSGreatcoat
   name: peacekeeper greatcoat
   suffix: CrookLv, Clothing, SUNS
-  description: An armored greatcoat worn by senior Student-Union of Naturalistic Sciences peacekeepers.
+  description: An armored greatcoat worn by senior campus peacekeepers.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SUNS/suns_greatcoat.rsi
@@ -2292,7 +2292,7 @@
   id: ClothingOuterSUNSPkjacket
   name: peacekeeper coat
   suffix: CrookLv, Clothing, SUNS
-  description: A lightly padded coat worn by Student-Union of Naturalistic Sciences peacekeepers.
+  description: A lightly padded coat worn by campus peacekeepers.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SUNS/suns_pkjacket.rsi
@@ -2322,7 +2322,7 @@
   id: ClothingOuterSUNSCaptaincoat
   name: decorated academic coat
   suffix: CrookLv, Clothing, SUNS
-  description: An armored academic coat decorated for Student-Union of Naturalistic Sciences captains.
+  description: An armored academic coat decorated for academy captains.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SUNS/suns_captaincoat.rsi
@@ -2357,7 +2357,7 @@
   id: ClothingOuterSUNSXojacket
   name: academic staff coat
   suffix: CrookLv, Clothing, SUNS
-  description: An armored coat worn by Student-Union of Naturalistic Sciences academic staff.
+  description: An armored coat worn by academy staff.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionOuter/SUNS/suns_xojacket.rsi

@@ -1,0 +1,24 @@
+- type: entity
+  parent: ClothingMaskGas
+  id: ClothingMaskInteQGas
+  name: gas mask
+  suffix: CrookLv, Clothing, Inteq
+  description: A refitted gas mask with a scratch resistant visor and secure straps.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionMasks/InteQ/inteq_gas_mask.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionMasks/InteQ/inteq_gas_mask.rsi
+
+- type: entity
+  parent: ClothingMaskBreath
+  id: ClothingMaskInteQBalaclava
+  name: combat balaclava
+  suffix: CrookLv, Clothing, Inteq
+  description: A surprisingly advanced balaclava with a mouthpiece for an air supply.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionMasks/InteQ/inteq_balaclava.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionMasks/InteQ/inteq_balaclava.rsi
+  - type: IdentityBlocker

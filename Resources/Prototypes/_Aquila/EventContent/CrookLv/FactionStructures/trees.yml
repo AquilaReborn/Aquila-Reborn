@@ -1,0 +1,23 @@
+- type: entity
+  parent: BaseTree
+  id: FactionTreeMontagnesOak
+  name: Montagne's Oak
+  suffix: CrookLv, Structures, Hunters' Order
+  description: A sturdy oak grown from imported soil, with an apple branch grafted into its crown.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionStructures/Trees/MontagnesOak.rsi
+    state: churchtree
+    offset: 0,0.95
+
+- type: entity
+  parent: BaseTreeConifer
+  id: FactionTreeMontagnesConifer
+  name: Montagne's Conifer
+  suffix: CrookLv, Structures, Hunters' Order
+  description: A hardy imported conifer, its grafted apple branch yields fruit carrying bacteria from its homeworld.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionStructures/Trees/MontagnesConifer.rsi
+    state: pine_1
+    offset: 0,1.45

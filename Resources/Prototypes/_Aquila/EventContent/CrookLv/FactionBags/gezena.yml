@@ -1,0 +1,71 @@
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackGezena
+  name: combat backpack
+  suffix: CrookLv, Clothing, Gezena
+  description: A rugged backpack in deep sea colors, with a small antenna for field coordination.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionBags/Gezena/pgf_backpack.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionBags/Gezena/pgf_backpack.rsi
+
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelGezena
+  name: combat satchel
+  suffix: CrookLv, Clothing, Gezena
+  description: A deep sea satchel built to ride high on a combat harness.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionBags/Gezena/pgf_satchel.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionBags/Gezena/pgf_satchel.rsi
+
+- type: entity
+  parent: ClothingBackpackMessenger
+  id: ClothingBackpackMessengerGezena
+  name: assault pack
+  suffix: CrookLv, Clothing, Gezena
+  description: A compact pack in deep sea colors, made to be slung over one shoulder.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionBags/Gezena/pgf_assault_pack.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionBags/Gezena/pgf_assault_pack.rsi
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackMedicalGezena
+  name: trauma backpack
+  suffix: CrookLv, Clothing, Gezena
+  description: A sterile white backpack with a small antenna, packed for trauma response.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionBags/Gezena/pgf_medical_backpack.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionBags/Gezena/pgf_medical_backpack.rsi
+
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelMedicalGezena
+  name: trauma satchel
+  suffix: CrookLv, Clothing, Gezena
+  description: A sterile white satchel packed for trauma response.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionBags/Gezena/pgf_medical_satchel.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionBags/Gezena/pgf_medical_satchel.rsi
+
+- type: entity
+  parent: ClothingBackpackMessenger
+  id: ClothingBackpackMessengerMedicalGezena
+  name: trauma pack
+  suffix: CrookLv, Clothing, Gezena
+  description: A sterile white pack for trauma response, slung over one shoulder.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionBags/Gezena/pgf_trauma_pack.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionBags/Gezena/pgf_trauma_pack.rsi

@@ -1,0 +1,14 @@
+- type: entity
+  parent: ClothingEyesGlasses
+  id: ClothingEyesGezenaProtectiveGoggles
+  name: protective goggles
+  suffix: CrookLv, Clothing, Gezena
+  description: Bright cyan goggles with a polarized lens that obscures the wearer's eyes.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionGlasses/Gezena/pgfgoggles.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionGlasses/Gezena/pgfgoggles.rsi
+  - type: FlashImmunity
+  - type: IdentityBlocker
+    coverage: EYES

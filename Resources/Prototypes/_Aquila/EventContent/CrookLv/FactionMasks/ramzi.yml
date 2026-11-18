@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingMaskGas
+  id: ClothingMaskRamziGas
+  name: gas mask
+  suffix: CrookLv, Clothing, Rust Clique
+  description: A protective gas mask salvaged back together from spare parts.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionMasks/Ramzi/ramzi_gas.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionMasks/Ramzi/ramzi_gas.rsi

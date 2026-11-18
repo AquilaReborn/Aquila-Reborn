@@ -11,9 +11,9 @@
 - type: entity
   parent: BaseFactionLeaflet
   id: FactionLeafletClipMinutemen
-  name: LFC militia recruitment leaflet
+  name: militia recruitment leaflet
   suffix: CrookLv, Decor, LFC
-  description: A call to join the militia of the League of Free Colonies.
+  description: A call to join a frontier militia.
   components:
   - type: Sprite
     layers:
@@ -35,9 +35,9 @@
 - type: entity
   parent: BaseFactionLeaflet
   id: FactionLeafletClipBard
-  name: LFC BARD biohazard warning
+  name: biohazard warning
   suffix: CrookLv, Decor, LFC
-  description: A warning issued by the Biohazard Assessment and Response Division of the League of Free Colonies.
+  description: A warning issued by a biohazard response division.
   components:
   - type: Sprite
     layers:
@@ -60,9 +60,9 @@
 - type: entity
   parent: BaseFactionLeaflet
   id: FactionLeafletCybersunImplants
-  name: Cybersun implants advertisement
+  name: implants advertisement
   suffix: CrookLv, Decor, Cybersun
-  description: A glossy advertisement for Cybersun Industries cybernetics.
+  description: A glossy advertisement for corporate cybernetics.
   components:
   - type: Sprite
     layers:
@@ -84,9 +84,9 @@
 - type: entity
   parent: BaseFactionLeaflet
   id: FactionLeafletCybersunTrauma
-  name: Cybersun Trauma Team advertisement
+  name: trauma response advertisement
   suffix: CrookLv, Decor, Cybersun
-  description: An advertisement for a Cybersun Trauma Team subscription.
+  description: An advertisement for a trauma response subscription.
   components:
   - type: Sprite
     layers:
@@ -109,9 +109,9 @@
 - type: entity
   parent: BaseFactionLeaflet
   id: FactionLeafletPgfNavy
-  name: Gezenan navy recruitment leaflet
+  name: navy recruitment leaflet
   suffix: CrookLv, Decor, Gezena
-  description: A call to serve in the navy of the Gezenan Federation.
+  description: A call to serve in the navy.
   components:
   - type: Sprite
     layers:
@@ -133,9 +133,9 @@
 - type: entity
   parent: BaseFactionLeaflet
   id: FactionLeafletPgfPiracy
-  name: Gezenan anti-piracy notice
+  name: anti-piracy notice
   suffix: CrookLv, Decor, Gezena
-  description: A Gezenan navy notice offering rewards for information on Rust Clique pirates.
+  description: A navy notice offering rewards for information on pirates.
   components:
   - type: Sprite
     layers:
@@ -158,7 +158,7 @@
 - type: entity
   parent: BaseFactionLeaflet
   id: FactionLeafletHardlinersWar
-  name: Blood Vanguard propaganda leaflet
+  name: propaganda leaflet
   suffix: CrookLv, Decor, Blood Vanguard
   description: A crumpled, blood-stained leaflet insisting that the war is not over.
   components:
@@ -182,9 +182,9 @@
 - type: entity
   parent: BaseFactionLeaflet
   id: FactionLeafletHardlinersTraitors
-  name: Blood Vanguard death list
+  name: death list
   suffix: CrookLv, Decor, Blood Vanguard
-  description: A leaflet condemning the Gorlex Republic and Inteq PMC as traitors.
+  description: A leaflet condemning republican and mercenary forces as traitors.
   components:
   - type: Sprite
     layers:
@@ -207,9 +207,9 @@
 - type: entity
   parent: BaseFactionLeaflet
   id: FactionLeafletInteqRecruitment
-  name: Inteq PMC recruitment leaflet
+  name: recruitment leaflet
   suffix: CrookLv, Decor, Inteq
-  description: A recruitment leaflet of the Inteq private military company.
+  description: A recruitment leaflet of a private military company.
   components:
   - type: Sprite
     layers:
@@ -231,9 +231,9 @@
 - type: entity
   parent: BaseFactionLeaflet
   id: FactionLeafletInteqServices
-  name: Inteq PMC client brochure
+  name: client brochure
   suffix: CrookLv, Decor, Inteq
-  description: A brochure listing the services of the Inteq private military company.
+  description: A brochure listing the services of a private military company.
   components:
   - type: Sprite
     layers:
@@ -256,9 +256,9 @@
 - type: entity
   parent: BaseFactionLeaflet
   id: FactionLeafletNgrService
-  name: Gorlex Republic conscription leaflet
+  name: conscription leaflet
   suffix: CrookLv, Decor, Gorlex Republic
-  description: A call to serve the Gorlex Republic.
+  description: A call to serve a frontier republic.
   components:
   - type: Sprite
     layers:
@@ -280,9 +280,9 @@
 - type: entity
   parent: BaseFactionLeaflet
   id: FactionLeafletNgrOutriders
-  name: Gorlex Republic patrol orders
+  name: patrol orders
   suffix: CrookLv, Decor, Gorlex Republic
-  description: Standing orders for the outrider patrols of the Gorlex Republic.
+  description: Standing orders for the outrider patrols of a frontier republic.
   components:
   - type: Sprite
     layers:
@@ -305,9 +305,9 @@
 - type: entity
   parent: BaseFactionLeaflet
   id: FactionLeafletRamziMark
-  name: Rust Clique black mark
+  name: black mark
   suffix: CrookLv, Decor, Rust Clique
-  description: A threatening note from the Rust Clique pirates.
+  description: A threatening note from a pirate crew.
   components:
   - type: Sprite
     layers:
@@ -329,9 +329,9 @@
 - type: entity
   parent: BaseFactionLeaflet
   id: FactionLeafletRamziRecruitment
-  name: Rust Clique recruitment leaflet
+  name: recruitment leaflet
   suffix: CrookLv, Decor, Rust Clique
-  description: A suspicious leaflet inviting you to join the Rust Clique.
+  description: A suspicious leaflet inviting you to join a pirate crew.
   components:
   - type: Sprite
     layers:
@@ -354,9 +354,9 @@
 - type: entity
   parent: BaseFactionLeaflet
   id: FactionLeafletSolgovProclamation
-  name: UEG proclamation
+  name: proclamation
   suffix: CrookLv, Decor, UEG
-  description: An official proclamation of the United Earth Government.
+  description: An official proclamation of a central government.
   components:
   - type: Sprite
     layers:
@@ -378,9 +378,9 @@
 - type: entity
   parent: BaseFactionLeaflet
   id: FactionLeafletSolgovSonnensoldner
-  name: Sonnensoldner recruitment leaflet
+  name: recruitment leaflet
   suffix: CrookLv, Decor, UEG
-  description: A call to join the Sonnensoldner mercenaries in service of the United Earth Government.
+  description: A call to join a mercenary company in government service.
   components:
   - type: Sprite
     layers:
@@ -403,9 +403,9 @@
 - type: entity
   parent: BaseFactionLeaflet
   id: FactionLeafletSrmCreed
-  name: Hunters' Order creed
+  name: guild creed
   suffix: CrookLv, Decor, Hunters' Order
-  description: The creed of the Hunters' Order.
+  description: The creed of a monster hunting guild.
   components:
   - type: Sprite
     layers:
@@ -427,9 +427,9 @@
 - type: entity
   parent: BaseFactionLeaflet
   id: FactionLeafletSrmBounty
-  name: Hunters' Order bounty board notice
+  name: bounty board notice
   suffix: CrookLv, Decor, Hunters' Order
-  description: A list of monster bounties posted by a Hunters' Order lodge.
+  description: A list of monster bounties posted by a hunters' lodge.
   components:
   - type: Sprite
     layers:
@@ -452,9 +452,9 @@
 - type: entity
   parent: BaseFactionLeaflet
   id: FactionLeafletSunsAdmission
-  name: SUNS admission leaflet
+  name: admission leaflet
   suffix: CrookLv, Decor, SUNS
-  description: An admission leaflet of the Student-Union of Naturalistic Sciences.
+  description: An admission leaflet of a science academy.
   components:
   - type: Sprite
     layers:
@@ -476,9 +476,9 @@
 - type: entity
   parent: BaseFactionLeaflet
   id: FactionLeafletSunsCampus
-  name: SUNS campus rules
+  name: campus rules
   suffix: CrookLv, Decor, SUNS
-  description: Campus rules posted by the SUNS peacekeepers.
+  description: Campus rules posted by the peacekeepers.
   components:
   - type: Sprite
     layers:
