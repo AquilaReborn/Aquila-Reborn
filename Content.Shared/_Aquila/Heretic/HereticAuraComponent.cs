@@ -6,25 +6,25 @@ using Robust.Shared.Utility;
 namespace Content.Shared._Aquila.Heretic;
 
 /// <summary>
-/// Видимая всем аура еретика, которая включается после набора достаточного количества очков знаний.
+/// Visible to everyone heretic aura that turns on after gaining enough knowledge points.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class HereticAuraComponent : BaseSpriteOverlayComponent
 {
     /// <summary>
-    /// Спрайт ауры.
+    /// Aura sprite.
     /// </summary>
     [DataField]
     public override SpriteSpecifier? Sprite { get; set; } =
         new SpriteSpecifier.Rsi(new ResPath("_Aquila/Heretic/Effects/heretic_aura.rsi"), "heretic_aura");
 
     /// <summary>
-    /// Ключ слоя ауры в спрайте сущности.
+    /// Aura layer key in the entity sprite.
     /// </summary>
     public override Enum Key { get; set; } = HereticAuraKey.Key;
 
     /// <summary>
-    /// Смещение спрайта ауры относительно тела: на два пикселя ниже.
+    /// Aura sprite offset relative to the body: two pixels lower.
     /// </summary>
     [DataField]
     public override Vector2 Offset { get; set; } = new Vector2(0f, -2f / 32f);

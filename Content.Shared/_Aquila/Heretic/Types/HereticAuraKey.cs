@@ -1,7 +1,7 @@
 namespace Content.Shared._Aquila.Heretic;
 
 /// <summary>
-/// Ключи слоёв оверлея ауры еретика.
+/// Aura overlay layer keys.
 /// </summary>
 public enum HereticAuraKey : byte
 {

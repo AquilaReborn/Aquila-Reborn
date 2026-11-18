@@ -3,19 +3,19 @@ using Robust.Shared.GameStates;
 namespace Content.Shared._Aquila.Inventory.Components;
 
 /// <summary>
-/// Предмет, в контейнере которого лежит вещь, продолжающая работать как надетая.
+/// Item that holds a stored item in its container which keeps working as if worn.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class StoredClothingComponent : Component
 {
     /// <summary>
-    /// Вещь, эффекты которой должны работать, как будто она надета.
+    /// The item whose effects should work as if it were worn.
     /// </summary>
     [AutoNetworkedField]
     public EntityUid? Item;
 
     /// <summary>
-    /// Компоненты, скопированные с этой вещи на предмет.
+    /// Components copied from that item to this one.
     /// </summary>
     [ViewVariables]
     public List<string> Components = new();

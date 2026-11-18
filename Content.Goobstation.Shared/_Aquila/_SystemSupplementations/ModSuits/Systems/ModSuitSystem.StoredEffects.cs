@@ -17,7 +17,7 @@ public sealed partial class ModSuitSystem
     private const string ShoesSlot = "shoes";
 
     /// <summary>
-    /// Компоненты, которые переносятся с сохранённой вещи на часть модсьюта, чтобы её функции не пропали.
+    /// Components copied from the stored item to the modsuit part so its functions are not lost.
     /// </summary>
     private static readonly Type[] StoredEffectComponents =
     {
@@ -26,7 +26,7 @@ public sealed partial class ModSuitSystem
     };
 
     /// <summary>
-    /// Переносит эффекты сохранённой вещи на часть модсьюта перед её надеванием.
+    /// Copies the stored item's effects to the modsuit part before it is equipped.
     /// </summary>
     private void TransferStoredEffects(EntityUid stored, EntityUid part, string slot)
     {
@@ -56,7 +56,7 @@ public sealed partial class ModSuitSystem
     }
 
     /// <summary>
-    /// Убирает с части модсьюта компоненты, перенесённые с сохранённой вещи.
+    /// Removes the components copied from the stored item from the modsuit part.
     /// </summary>
     private void RemoveStoredEffects(EntityUid part)
     {

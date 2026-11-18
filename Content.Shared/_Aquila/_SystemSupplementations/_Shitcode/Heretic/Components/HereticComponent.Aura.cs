@@ -3,19 +3,19 @@ namespace Content.Shared.Heretic;
 public sealed partial class HereticComponent
 {
     /// <summary>
-    /// Сколько очков знаний еретик набрал за раунд суммарно. Значение только растёт.
+    /// How many knowledge points the heretic has gained this round in total. The value only grows.
     /// </summary>
     [ViewVariables]
     public float TotalKnowledgeGained;
 
     /// <summary>
-    /// Порог суммарно набранных очков знаний, после которого у еретика появляется видимая аура.
+    /// Threshold of total knowledge points after which the heretic gets a visible aura.
     /// </summary>
     [DataField]
     public float PointsToAura = 5f;
 
     /// <summary>
-    /// Принимал ли еретик сов: после этого аура не появляется больше никогда.
+    /// Whether the heretic has taken the feast of owls; after that the aura never appears again.
     /// </summary>
     [ViewVariables]
     public bool FeastOfOwlsUsed;

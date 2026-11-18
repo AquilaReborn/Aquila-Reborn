@@ -18,12 +18,6 @@ public sealed partial class HereticAuraSystem : EntitySystem
 
     private static readonly LocId AuraExamineMessage = "heretic-aura-examine";
 
-    private static readonly EntProtoId[] AuraHidingClothes =
-    {
-        "ClothingOuterArmorHeretic",
-        "ClothingOuterArmorCloakVoid",
-    };
-
     public override void Initialize()
     {
         base.Initialize();
@@ -37,7 +31,7 @@ public sealed partial class HereticAuraSystem : EntitySystem
     }
 
     /// <summary>
-    /// Учитывает полученные очки знаний и обновляет ауру на текущем теле еретика.
+    /// Tracks gained knowledge points and updates the aura on the heretic's current body.
     /// </summary>
     public void OnKnowledgeGained(Entity<HereticComponent> mind, float amount)
     {
@@ -118,8 +112,14 @@ public sealed partial class HereticAuraSystem : EntitySystem
         if (!_inventory.TryGetSlotEntity(body, "outerClothing", out var outer))
             return false;
 
+        var auraHidingClothes = new EntProtoId[]
+        {
+            "ClothingOuterArmorHeretic",
+            "ClothingOuterArmorCloakVoid",
+        };
+
         var prototype = MetaData(outer.Value).EntityPrototype;
         return prototype is { } proto
-            && AuraHidingClothes.Any(id => id.Id == proto.ID || proto.Parents?.Contains(id.Id) == true);
+            && auraHidingClothes.Any(id => id.Id == proto.ID || proto.Parents?.Contains(id.Id) == true);
     }
 }

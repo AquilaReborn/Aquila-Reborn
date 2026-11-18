@@ -5,7 +5,7 @@ namespace Content.Shared.Inventory;
 public partial class InventorySystem
 {
     /// <summary>
-    /// Передаёт инвентарный релей вещи, лежащей в контейнере предмета, как будто она надета.
+    /// Relays an inventory event to an item stored in the item's container as if it were worn.
     /// </summary>
     private void RelayStoredClothing<T>(EntityUid item, InventoryRelayedEvent<T> ev) where T : IInventoryRelayEvent
     {
