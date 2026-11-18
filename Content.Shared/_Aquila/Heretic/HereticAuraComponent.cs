@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Shared._Shitcode.Heretic.SpriteOverlay;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
@@ -21,4 +22,10 @@ public sealed partial class HereticAuraComponent : BaseSpriteOverlayComponent
     /// Ключ слоя ауры в спрайте сущности.
     /// </summary>
     public override Enum Key { get; set; } = HereticAuraKey.Key;
+
+    /// <summary>
+    /// Смещение спрайта ауры относительно тела: на два пикселя ниже.
+    /// </summary>
+    [DataField]
+    public override Vector2 Offset { get; set; } = new Vector2(0f, -2f / 32f);
 }
