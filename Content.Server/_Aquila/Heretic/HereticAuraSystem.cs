@@ -1,17 +1,28 @@
+using System.Linq;
 using Content.Shared._Aquila.Heretic;
 using Content.Shared._Shitcode.Heretic.Components;
+using Content.Shared.Clothing;
 using Content.Shared.Examine;
 using Content.Shared.Heretic;
+using Content.Shared.Inventory;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Aquila.Heretic;
 
 public sealed partial class HereticAuraSystem : EntitySystem
 {
     [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
 
     private static readonly LocId AuraExamineMessage = "heretic-aura-examine";
+
+    private static readonly EntProtoId[] AuraHidingClothes =
+    {
+        "ClothingOuterArmorHeretic",
+        "ClothingOuterArmorCloakVoid",
+    };
 
     public override void Initialize()
     {
@@ -21,6 +32,8 @@ public sealed partial class HereticAuraSystem : EntitySystem
         SubscribeLocalEvent<MindComponent, MindGotRemovedEvent>(OnMindGotRemoved);
         SubscribeLocalEvent<HereticAuraComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<FeastOfOwlsComponent, ComponentStartup>(OnFeastOfOwls);
+        SubscribeLocalEvent<InventoryComponent, ClothingDidEquippedEvent>(OnClothingChanged);
+        SubscribeLocalEvent<InventoryComponent, ClothingDidUnequippedEvent>(OnClothingChanged);
     }
 
     /// <summary>
@@ -63,6 +76,20 @@ public sealed partial class HereticAuraSystem : EntitySystem
         UpdateAura((mindId, heretic), ent.Owner);
     }
 
+    private void OnClothingChanged(Entity<InventoryComponent> ent, ref ClothingDidEquippedEvent args)
+        => UpdateHereticAura(ent.Owner);
+
+    private void OnClothingChanged(Entity<InventoryComponent> ent, ref ClothingDidUnequippedEvent args)
+        => UpdateHereticAura(ent.Owner);
+
+    private void UpdateHereticAura(EntityUid body)
+    {
+        if (!_mind.TryGetMind(body, out var mindId, out _) || !TryComp<HereticComponent>(mindId, out var heretic))
+            return;
+
+        UpdateAura((mindId, heretic), body);
+    }
+
     private void UpdateAura(Entity<HereticComponent> mind, EntityUid? body)
     {
         if (body is not { } target || TerminatingOrDeleted(target))
@@ -74,9 +101,25 @@ public sealed partial class HereticAuraSystem : EntitySystem
             return;
         }
 
+        if (WearsAuraHidingClothing(target))
+        {
+            RemCompDeferred<HereticAuraComponent>(target);
+            return;
+        }
+
         if (mind.Comp.TotalKnowledgeGained > mind.Comp.PointsToAura)
             EnsureComp<HereticAuraComponent>(target);
         else
             RemCompDeferred<HereticAuraComponent>(target);
+    }
+
+    private bool WearsAuraHidingClothing(EntityUid body)
+    {
+        if (!_inventory.TryGetSlotEntity(body, "outerClothing", out var outer))
+            return false;
+
+        var prototype = MetaData(outer.Value).EntityPrototype;
+        return prototype is { } proto
+            && AuraHidingClothes.Any(id => id.Id == proto.ID || proto.Parents?.Contains(id.Id) == true);
     }
 }

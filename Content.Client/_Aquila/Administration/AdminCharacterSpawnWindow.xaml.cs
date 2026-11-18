@@ -458,8 +458,8 @@ public sealed partial class AdminCharacterSpawnWindow : FancyWindow
         {
             if (string.IsNullOrEmpty(implantId.Id) || !_prototypes.TryIndex(implantId, out var implant)
                 || implant.Abstract
-                || !implant.TryGetComponent<SubdermalImplantComponent>(out _, _components)
-                || implant.TryGetComponent<HideFromAdminCharacterSpawnComponent>(out _, _components))
+                || !implant.TryComp<SubdermalImplantComponent>(out _, _components)
+                || implant.TryComp<HideFromAdminCharacterSpawnComponent>(out _, _components))
             {
                 return false;
             }

@@ -27,7 +27,7 @@ public sealed partial class HereticRuleSystem
         for (var i = 0; i < rule.RealityShiftPerHeretic.Next(_rand); i++)
         {
             if (TryFindTileOnGrid(grid.Value, out _, out var coords))
-                Spawn(rule.RealityShift, coords);
+                SpawnAttachedTo(rule.RealityShift, coords);
         }
     }
 }

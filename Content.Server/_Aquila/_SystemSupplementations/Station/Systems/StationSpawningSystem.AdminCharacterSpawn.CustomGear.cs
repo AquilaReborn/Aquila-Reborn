@@ -135,7 +135,7 @@ public sealed partial class StationSpawningSystem
 
     private EntityUid SpawnAdminCustomGearItem(EntityUid uid, EntProtoId prototype, List<EntityUid> spawned)
     {
-        var item = Spawn(prototype, Transform(uid).Coordinates);
+        var item = SpawnAttachedTo(prototype, Transform(uid).Coordinates);
         spawned.Add(item);
         return item;
     }

@@ -54,12 +54,12 @@ public sealed class PersonalLoadoutSystem : EntitySystem
 
         foreach (var (slot, protoId) in gear.Equipment)
         {
-            EquipToSlot(uid, loadoutId, slot, Spawn(protoId, coords), replace);
+            EquipToSlot(uid, loadoutId, slot, SpawnAttachedTo(protoId, coords), replace);
         }
 
         foreach (var protoId in gear.Inhand)
         {
-            var spawned = Spawn(protoId, coords);
+            var spawned = SpawnAttachedTo(protoId, coords);
             if (!_hands.TryPickupAnyHand(uid, spawned, checkActionBlocker: false, animate: false))
                 Stash(uid, spawned);
         }
@@ -68,7 +68,7 @@ public sealed class PersonalLoadoutSystem : EntitySystem
         {
             foreach (var protoId in protoIds)
             {
-                var spawned = Spawn(protoId, coords);
+                var spawned = SpawnAttachedTo(protoId, coords);
                 if (!_inventory.TryGetSlotEntity(uid, slot, out var slotEntity)
                     || !HasComp<StorageComponent>(slotEntity))
                 {

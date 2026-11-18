@@ -95,11 +95,11 @@ public abstract class SharedPaidVendingMachineSystem : EntitySystem
             return false;
 
         if (category.Tags.Count > 0
-            && (!item.TryGetComponent<TagComponent>(out var tags, Factory) || !category.Tags.Any(tags.Tags.Contains)))
+            && (!item.TryComp<TagComponent>(out var tags, Factory) || !category.Tags.Any(tags.Tags.Contains)))
             return false;
 
         return category.Slots == SlotFlags.NONE
-               || item.TryGetComponent<ClothingComponent>(out var clothing, Factory) && (clothing.Slots & category.Slots) != 0;
+               || item.TryComp<ClothingComponent>(out var clothing, Factory) && (clothing.Slots & category.Slots) != 0;
     }
 
     /// <summary>
@@ -115,7 +115,7 @@ public abstract class SharedPaidVendingMachineSystem : EntitySystem
             return true;
 
         if (!_proto.TryIndex(item, out var itemProto)
-            || !itemProto.TryGetComponent<ContrabandComponent>(out var contraband, Factory)
+            || !itemProto.TryComp<ContrabandComponent>(out var contraband, Factory)
             || !ent.Comp.RestrictedSeverities.Contains(contraband.Severity))
             return true;
 

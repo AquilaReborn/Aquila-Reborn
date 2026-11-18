@@ -23,7 +23,7 @@ public static class AdminCharacterSpawnGearValidation
     /// <summary>Проверяет, что прототип описывает конкретный предмет.</summary>
     public static bool CanUseItem(EntityPrototype prototype, IComponentFactory components)
     {
-        return !prototype.Abstract && prototype.TryGetComponent<ItemComponent>(out _, components);
+        return !prototype.Abstract && prototype.TryComp<ItemComponent>(out _, components);
     }
 
     /// <summary>Проверяет состав комплекта до примерки на конкретное тело.</summary>
@@ -46,7 +46,7 @@ public static class AdminCharacterSpawnGearValidation
             if (items.Count > 0
                 && (string.IsNullOrEmpty(container.Id)
                     || !prototypes.TryIndex(container, out var prototype)
-                    || !prototype.TryGetComponent<StorageComponent>(out _, components)))
+                    || !prototype.TryComp<StorageComponent>(out _, components)))
             {
                 return false;
             }

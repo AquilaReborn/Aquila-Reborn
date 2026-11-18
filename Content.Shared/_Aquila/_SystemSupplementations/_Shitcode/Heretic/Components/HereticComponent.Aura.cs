@@ -12,7 +12,7 @@ public sealed partial class HereticComponent
     /// Порог суммарно набранных очков знаний, после которого у еретика появляется видимая аура.
     /// </summary>
     [DataField]
-    public float PointsToAura = 8f;
+    public float PointsToAura = 5f;
 
     /// <summary>
     /// Принимал ли еретик сов: после этого аура не появляется больше никогда.

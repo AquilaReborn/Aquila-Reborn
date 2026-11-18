@@ -92,7 +92,7 @@ public sealed partial class SlimeCrossbreedingSystem : EntitySystem
         crossbreeding.Fed++;
         Dirty(ent, crossbreeding);
 
-        PredictedQueueDel(extract);
+        QueueDel(extract);
 
         if (crossbreeding.Fed < category.Required)
         {

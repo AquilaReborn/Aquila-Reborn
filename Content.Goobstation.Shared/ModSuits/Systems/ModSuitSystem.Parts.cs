@@ -152,6 +152,7 @@ public sealed partial class ModSuitSystem
         }
 
         var suitStorage = StashSuitStorage(wearer, slot);
+        EntityUid? storedClothing = null; // Aquila Change
         if (_inventory.TryGetSlotEntity(wearer, slot, out var current))
         {
             if (partComp.StoredContainer.ContainedEntity != null
@@ -163,7 +164,12 @@ public sealed partial class ModSuitSystem
                     _popup.PopupClient(Loc.GetString("modsuit-part-slot-occupied", ("item", current.Value)), ent, user.Value);
                 return false;
             }
+
+            storedClothing = removed.Value; // Aquila Change
         }
+
+        if (storedClothing is { } stored) // Aquila Change
+            TransferStoredEffects(stored, part, slot); // Aquila Change
 
         _movingParts.Add(part);
         var equipped = _inventory.TryEquip(wearer, wearer, part, slot, silent: silent, force: true, predicted: true);
@@ -172,6 +178,7 @@ public sealed partial class ModSuitSystem
         if (!equipped)
         {
             RestoreStoredClothing((part, partComp), wearer, slot);
+            RemoveStoredEffects(part); // Aquila Change
             RestoreSuitStorage(wearer, suitStorage);
             return false;
         }
@@ -218,6 +225,7 @@ public sealed partial class ModSuitSystem
         if (wearer != null && _inventory.TryGetSlotEntity(wearer.Value, slot, out var worn) && worn == part)
             _inventory.TryUnequip(wearer.Value, wearer.Value, slot, silent: silent, force: true, predicted: true);
         _container.Insert(part, ent.Comp.PartsContainer);
+        RemoveStoredEffects(part); // Aquila Change
         _movingParts.Remove(part);
 
         if (wearer != null)
@@ -322,6 +330,7 @@ public sealed partial class ModSuitSystem
             SetPartSealed(ent, suitEnt, false, true);
 
         _container.Insert(ent.Owner, suit.PartsContainer);
+        RemoveStoredEffects(ent.Owner); // Aquila Change
         RestoreStoredClothing(ent, args.Equipee, ent.Comp.Slot);
         Dirty(suitUid, suit);
     }

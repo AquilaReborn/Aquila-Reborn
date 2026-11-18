@@ -136,6 +136,7 @@ public partial class InventorySystem
         while (enumerator.NextItem(out var item))
         {
             RaiseLocalEvent(item, ev);
+            RelayStoredClothing(item, ev); // Aquila Change
         }
 
         // and now we copy it back
@@ -152,6 +153,7 @@ public partial class InventorySystem
         while (enumerator.NextItem(out var item))
         {
             RaiseLocalEvent(item, ev);
+            RelayStoredClothing(item, ev); // Aquila Change
         }
     }
 

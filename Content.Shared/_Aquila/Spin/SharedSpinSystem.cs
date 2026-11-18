@@ -16,7 +16,6 @@ using Content.Shared.Damage.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
-using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Weapons.Melee.Events;
@@ -33,7 +32,6 @@ public abstract class SharedSpinSystem : EntitySystem
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedProjectileSystem _projectile = default!;
-    [Dependency] protected readonly IPrototypeManager ProtoMan = default!;
     [Dependency] protected readonly SharedDoAfterSystem DoAfterSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
@@ -339,12 +337,12 @@ NeedHand = false,
     Dirty(item, empowered);
 
         var itemXform = Transform(item);
-        var itemEffect = Spawn(spinUser.EmpowerItemEffectProto, itemXform.Coordinates);
+        var itemEffect = SpawnAttachedTo(spinUser.EmpowerItemEffectProto, itemXform.Coordinates);
         TransformSystem.SetParent(itemEffect, Transform(itemEffect), item, itemXform);
         empowered.Effect = itemEffect;
 
         var performerXform = Transform(performer);
-        var userEffect = Spawn(spinUser.EmpowerUserEffectProto, performerXform.Coordinates);
+        var userEffect = SpawnAttachedTo(spinUser.EmpowerUserEffectProto, performerXform.Coordinates);
         TransformSystem.SetParent(userEffect, Transform(userEffect), performer, performerXform);
 
     }

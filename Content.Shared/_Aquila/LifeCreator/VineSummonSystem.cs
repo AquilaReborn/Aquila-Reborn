@@ -39,7 +39,7 @@ public sealed class VineSummonSystem : EntitySystem
                 continue;
 
             _pending.RemoveAt(i);
-            Spawn(entry.Proto, entry.Coords);
+            SpawnAttachedTo(entry.Proto, entry.Coords);
         }
     }
 

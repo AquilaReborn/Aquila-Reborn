@@ -464,7 +464,7 @@ public sealed class MansusRealmSystem : EntitySystem
         }
         else
         {
-            ReturnFailedVictim(realm.Comp, victim);
+            ReturnFailedVictim(realm, victim);
             if (!TerminatingOrDeleted(victim))
                 ReportToHeretic(realm.Comp, false, victim);
         }
@@ -496,12 +496,12 @@ public sealed class MansusRealmSystem : EntitySystem
         _chat.ChatMessageToOne(ChatChannel.Server, message, wrapped, default, false, session.Channel, canCoalesce: false);
     }
 
-    private void ReturnFailedVictim(MansusRealmComponent realm, EntityUid victim)
+    private void ReturnFailedVictim(Entity<MansusRealmComponent> realm, EntityUid victim)
     {
         EntityCoordinates? coords = null;
         if (!TerminatingOrDeleted(victim))
         {
-            coords = GetReturnCoordinates(realm);
+            coords = GetReturnCoordinates(realm.Comp);
 
             _transform.SetCoordinates(victim, coords.Value);
             _transform.AttachToGridOrMap(victim);
@@ -511,16 +511,16 @@ public sealed class MansusRealmSystem : EntitySystem
 
             RemComp<MansusVictimComponent>(victim);
 
-            SpawnAttachedTo(realm.ReturnEffect, coords.Value);
-            _audio.PlayPvs(realm.ReturnSound, coords.Value);
+            SpawnAttachedTo(realm.Comp.ReturnEffect, coords.Value);
+            _audio.PlayPvs(realm.Comp.ReturnSound, coords.Value);
         }
 
         ReleaseMind(realm, coords);
     }
 
-    private void ReleaseMind(MansusRealmComponent realm, EntityCoordinates? bodyCoords)
+    private void ReleaseMind(Entity<MansusRealmComponent> realm, EntityCoordinates? bodyCoords)
     {
-        if (!TryComp<MindComponent>(realm.Mind, out var mind))
+        if (!TryComp<MindComponent>(realm.Comp.Mind, out var mind))
             return;
 
         if (mind.VisitingEntity is { } visiting)
@@ -535,16 +535,16 @@ public sealed class MansusRealmSystem : EntitySystem
             return;
         }
 
-        if (mind.OwnedEntity != realm.Victim)
+        if (mind.OwnedEntity != realm.Comp.Victim)
             return;
 
         if (bodyCoords is not { } coords)
         {
-            _ghost.SpawnGhost((realm.Mind, mind));
+            _ghost.SpawnGhost((realm.Comp.Mind, mind));
             return;
         }
 
-        if (_ghost.SpawnGhost((realm.Mind, mind), coords, true) is not { } spawned
+        if (_ghost.SpawnGhost((realm.Comp.Mind, mind), coords, true) is not { } spawned
             || !TryComp<GhostComponent>(spawned, out var spawnedGhost))
             return;
 

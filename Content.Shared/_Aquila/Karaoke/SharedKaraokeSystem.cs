@@ -24,7 +24,6 @@ public abstract class SharedKaraokeSystem : EntitySystem
     [Dependency] protected readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
     [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedDeviceLinkSystem _deviceLinkSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()

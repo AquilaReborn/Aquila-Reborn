@@ -20,7 +20,7 @@ public sealed partial class SpawnEntityEntityEffectSystem
             || _container.IsEntityOrParentInContainer(uid))
             return;
 
-        if (!_proto.Index(proto).TryGetComponent<PhysicsComponent>(out var protoBody, EntityManager.ComponentFactory)
+        if (!_proto.Index(proto).TryComp<PhysicsComponent>(out var protoBody, EntityManager.ComponentFactory)
             || !protoBody.CanCollide)
             return;
 
