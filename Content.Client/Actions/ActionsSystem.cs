@@ -28,7 +28,7 @@ using YamlDotNet.RepresentationModel;
 namespace Content.Client.Actions
 {
     [UsedImplicitly]
-    public sealed class ActionsSystem : SharedActionsSystem
+    public sealed partial class ActionsSystem : SharedActionsSystem // Aquila Change
     {
         public delegate void OnActionReplaced(EntityUid actionId);
 
@@ -72,6 +72,7 @@ namespace Content.Client.Actions
             SubscribeLocalEvent<WorldTargetActionComponent, ActionTargetAttemptEvent>(OnWorldTargetAttempt);
 
             SubscribeNetworkEvent<LoadActionsEvent>(OnLoadActions); // Goobstation
+            InitializeTransformationLayouts(); // Aquila Change
         }
 
         private void OnLoadActions(LoadActionsEvent msg, EntitySessionEventArgs args) // Goobstation

@@ -658,7 +658,8 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem // Goob - p
             var missEvent = new MeleeHitEvent(new List<EntityUid>(), user, meleeUid, damage, null, GetCoordinates(ev.Coordinates)); // Goob edit
             RaiseLocalEvent(meleeUid, missEvent, true); // Goob station - broadcast
             _meleeSound.PlaySwingSound(user, meleeUid, component);
-            DoLungeAnimation(user, weapon, component.Angle, TransformSystem.ToMapCoordinates(ev.Coordinates), rangeEv.Range, component.MissAnimation, component.AnimationRotation, component.FlipAnimation); // Goobstation - Edit
+            var (missAnimation, missRotation) = GetLightAttackAnimation(component, user, weapon); // Aquila Change
+            DoLungeAnimation(user, weapon, component.Angle, TransformSystem.ToMapCoordinates(ev.Coordinates), rangeEv.Range, missAnimation, missRotation, component.FlipAnimation); // Aquila Change
             return;
         }
 
@@ -684,7 +685,8 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem // Goob - p
             target.Value
         };
 
-        DoLungeAnimation(user, weapon, component.Angle, TransformSystem.ToMapCoordinates(target.Value.ToCoordinates()), rangeEv.Range, component.Animation, component.AnimationRotation, component.FlipAnimation); // Goobstation - Edit
+        var (hitAnimation, hitRotation) = GetLightAttackAnimation(component, user, weapon); // Aquila Change
+        DoLungeAnimation(user, weapon, component.Angle, TransformSystem.ToMapCoordinates(target.Value.ToCoordinates()), rangeEv.Range, hitAnimation, hitRotation, component.FlipAnimation); // Aquila Change
         // We skip weapon -> target interaction, as forensics system applies DNA on hit
         Interaction.DoContactInteraction(user, weapon);
 

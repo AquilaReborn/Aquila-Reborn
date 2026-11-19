@@ -24,6 +24,8 @@ changeling-absorbbiomatter-start = {THE($user)} starts absorbing the food!
 changeling-absorbbiomatter-bad-food = This food is not absorbable.
 
 changeling-transform-cycle = Switched to {$target}'s DNA.
+# Aquila Change
+changeling-transform-select = Selected {$target}'s form.
 changeling-transform-cycle-empty = We don't have any DNA strains!
 changeling-transform-others = {CAPITALIZE(THE($user))}'s body twists and takes shape of another being!
 changeling-transform-fail-self = We can't transform into the current form!
@@ -39,7 +41,6 @@ changeling-sting-fail-hollow = We are unable to sting a hollow organism.
 
 changeling-sting-extract-fail-duplicate = We have already extracted this DNA in the past.
 changeling-sting-extract-fail-lesser = We can't extract DNA from a lesser creature!
-changeling-sting-extract-max = Need to get rid of the stored DNA beforehand
 
 changeling-dartgun-no-stings = We don't have any reagent stings evolved!
 

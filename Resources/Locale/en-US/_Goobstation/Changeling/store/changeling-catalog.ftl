@@ -28,34 +28,34 @@ evolutionmenu-combat-boneshard-desc =
     Costs 15 chemicals.
 
 evolutionmenu-combat-armor-name = Chitinous Armor
+# Aquila Change
 evolutionmenu-combat-armor-desc =
     Inflate your body into an all-consuming chitinous mass of armor.
     Provides solid protection against physical damage.
     Maintaining its shape slows chemical generation.
-    WARNING: Requires you to absorb at least 2 organics to use the ability.
     Costs 25 chemicals.
 
 evolutionmenu-combat-shield-name = Organic Shield
+# Aquila Change
 evolutionmenu-combat-shield-desc =
     Reforms one of your arms into a large, fleshy shield.
     Reduces incoming damage, albeit is less durable than conventional shields.
-    WARNING: Requires you to absorb at least 1 organic to use the ability.
     Costs 20 chemicals.
 
 evolutionmenu-combat-shriek-dissonant-name = Dissonant Shriek
+# Aquila Change
 evolutionmenu-combat-shriek-dissonant-desc =
     You scream out an EMP blast, which disables technology in the surrounding area, including radio headsets.
     Good for escaping cyborgs and security.
-    WARNING: Requires you to absorb at least 1 organic to use the ability.
     Costs 30 chemicals.
 
 evolutionmenu-combat-shriek-resonant-name = Resonant Shriek
+# Aquila Change
 evolutionmenu-combat-shriek-resonant-desc =
     You scream out a disorienting high frequency sound,
     bursting lights as well as causing sensory overloads in organisms and silicons.
     Good for escaping groups, or hindering people from fleeing.
     Changelings are not affected by this sound, and ear protection will reduce disorientation.
-    WARNING: Requires you to absorb at least 1 organic to use the ability.
     Costs 30 chemicals.
 
 evolutionmenu-combat-strainedmuscles-name = Strained Muscles

@@ -39,7 +39,7 @@ public abstract partial class SharedChanglingActionSystem : EntitySystem // Aqui
             return; // Aquila Change
         }
 
-        if (ent.Comp.RequireAbsorbed > ling.TotalAbsorbedEntities)
+        if (IsAbsorbedRequirementEnabled() && ent.Comp.RequireAbsorbed > ling.TotalAbsorbedEntities) // Aquila Change
         {
             var delta = ent.Comp.RequireAbsorbed - ling.TotalAbsorbedEntities;
             var popup = Loc.GetString("changeling-action-fail-absorbed", ("number", delta));

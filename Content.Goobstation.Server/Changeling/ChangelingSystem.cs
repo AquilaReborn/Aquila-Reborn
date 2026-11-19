@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Actions;
+// using Content.Goobstation.Common.Actions; // Aquila Change
 using Content.Goobstation.Common.Body;
 using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Common.Conversion;
@@ -172,10 +172,12 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         SubscribeLocalEvent<ChangelingIdentityComponent, VoidAdaptionPurchasedEvent>(OnVoidAdaptionPurchased);
 
         SubscribeAbilities();
+
+        InitializeAquila(); // Aquila Change
     }
 
     private void OnPolymorphed(Entity<ChangelingIdentityComponent> ent, ref PolymorphedEvent args)
-        => _polymorph.CopyPolymorphComponent<ChangelingIdentityComponent>(ent, args.NewEntity);
+        => CopyChangelingIdentity(ent, args); // Aquila Change
 
     private void OnPolymorphedTakeTwo(Entity<ChangelingComponent> ent, ref PolymorphedEvent args)
     {
@@ -557,7 +559,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         {
             Name = metadata.EntityName,
             DNA = dna.DNA ?? Loc.GetString("forensics-dna-unknown"),
-            Appearance = appearance,
+            Appearance = SnapshotTransformAppearance(appearance), // Aquila Change
             Voice = tts.VoicePrototypeId // CorvaxGoob-TTS
         };
 
@@ -572,15 +574,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             objective.DNAStolen += 1;
         }
 
-        if (comp.AbsorbedDNA.Count >= comp.MaxAbsorbedDNA)
-            _popup.PopupEntity(Loc.GetString("changeling-sting-extract-max"), uid, uid);
-        else
-        {
-            comp.AbsorbedHistory.Add(data); // so we can't just come back and sting them again
-
-            comp.AbsorbedDNA.Add(data);
-            comp.TotalStolenDNA++;
-        }
+        StoreAbsorbedForm(comp, data); // Aquila Change
 
         return true;
     }
@@ -605,9 +599,11 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             pid = protoId;
         else return null;
 
-        if (data != null
-            && comp != null)
-            comp.AbsorbedDNA.Remove(data); // discard the DNA
+        // Aquila Change start
+        // if (data != null
+        //     && comp != null)
+        //     comp.AbsorbedDNA.Remove(data); // discard the DNA
+        // Aquila Change end
 
         var config = new PolymorphConfiguration
         {
@@ -619,6 +615,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             RevertOnDeath = false
         };
 
+        CloseTransformationInterfaces(uid); // Aquila Change
         var newUid = _polymorph.PolymorphEntity(uid, config);
 
         if (newUid == null)
@@ -631,7 +628,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             Comp<FingerprintComponent>(newEnt).Fingerprint = data.Fingerprint;
             Comp<DnaComponent>(newEnt).DNA = data.DNA;
             Comp<TTSComponent>(newEnt).VoicePrototypeId = data.Voice; // CorvaxGoob-TTS
-            _humanoid.CloneAppearance(data.Appearance.Owner, newEnt);
+            ApplyTransformAppearance(newEnt, data.Appearance); // Aquila Change
             _metaData.SetEntityName(newEnt, data.Name);
             var message = Loc.GetString("changeling-transform-finish", ("target", data.Name));
             _popup.PopupEntity(message, newEnt, newEnt);
@@ -658,7 +655,9 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             && comp != null)
             newComp.AbsorbedDNA = comp.AbsorbedDNA;
 
-        RaiseNetworkEvent(new LoadActionsEvent(GetNetEntity(uid)), newEnt);
+        UpdateTransformedForm(newEnt, data, comp); // Aquila Change
+
+        CompleteTransformation(uid, newEnt); // Aquila Change
 
         return newUid;
     }
@@ -671,6 +670,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             return false;
         }
 
+        RestoreTransformationForms(target, comp, sting); // Aquila Change
         var data = comp.SelectedForm;
 
         if (data == null)
@@ -678,7 +678,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             _popup.PopupEntity(Loc.GetString("changeling-transform-fail-self"), target, target);
             return false;
         }
-        if (data == comp.CurrentForm)
+        if (IsCurrentTransformation(comp, data, sting)) // Aquila Change
         {
             _popup.PopupEntity(Loc.GetString("changeling-transform-fail-choose"), target, target);
             return false;
@@ -743,6 +743,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         // make their blood unreal
         _blood.ChangeBloodReagent(ent.Owner, "BloodChangeling");
+
+        SaveOriginalForm(ent); // Aquila Change
     }
 
     // in the future ChangelingIdentity should have its own system and be ONLY used for holding stored DNA and handling transformations.

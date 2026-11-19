@@ -101,6 +101,12 @@ hugging-success-generic = You hug {THE($target)}.
 hugging-success-generic-others = { CAPITALIZE(THE($user)) } hugs {THE($target)}.
 hugging-success-generic-target = { CAPITALIZE(THE($user)) } hugs you.
 
+# Aquila Change
+patting-success-generic = You pat {THE($target)} on the head.
+patting-success-generic-others = { CAPITALIZE(THE($user)) } pats {THE($target)} on the head.
+shoulder-pat-success-generic = You pat {THE($target)} on the shoulder.
+shoulder-pat-success-generic-others = { CAPITALIZE(THE($user)) } pats {THE($target)} on the shoulder.
+
 ## Other
 
 petting-success-tesla = You pet {THE($target)}, violating the laws of nature and physics.

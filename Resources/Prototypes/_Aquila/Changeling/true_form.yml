@@ -115,9 +115,8 @@
 - type: entity
   parent: SimpleMobBase
   id: MobChangelingTrueForm
-  name: monster
+  name: changeling
   description: A writhing mass of muscle, bone and claws. It is hungry.
-  suffix: Changeling
   components:
   - type: ChangelingTrueForm
   - type: ActionGrant
@@ -147,10 +146,12 @@
     baseWalkSpeed: 3
     baseSprintSpeed: 5.2
   - type: MeleeWeapon
+    altDisarm: false
     soundHit:
       path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
-    angle: 0
+    angle: 90
     animation: WeaponArcClaw
+    wideAnimation: WeaponArcClaw
     damage:
       types:
         Slash: 25

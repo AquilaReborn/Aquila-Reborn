@@ -186,6 +186,14 @@
     interactSuccessString: hugging-success-generic
     interactSuccessSound: /Audio/Effects/thudswoosh.ogg
     messagePerceivedByOthers: hugging-success-generic-others
+    bodyPartSuccessStrings: # Aquila Change
+      Head: patting-success-generic # Aquila Change
+      LeftArm: shoulder-pat-success-generic # Aquila Change
+      RightArm: shoulder-pat-success-generic # Aquila Change
+    bodyPartOthersStrings: # Aquila Change
+      Head: patting-success-generic-others # Aquila Change
+      LeftArm: shoulder-pat-success-generic-others # Aquila Change
+      RightArm: shoulder-pat-success-generic-others # Aquila Change
   - type: CanHostGuardian
   - type: NpcFactionMember
     factions:

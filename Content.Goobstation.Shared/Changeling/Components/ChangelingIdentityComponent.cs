@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Humanoid;
+using Content.Goobstation.Shared.Changeling.Systems; // Aquila Change
 using Content.Shared.StatusIcon;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -89,11 +90,13 @@ public sealed partial class ChangelingIdentityComponent : Component
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public List<TransformData> AbsorbedDNA = new();
 
-    /// <summary>
-    ///     Index of <see cref="AbsorbedDNA"/>. Used for switching forms.
-    /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public int AbsorbedDNAIndex = 0;
+    // Aquila Change start
+    // /// <summary>
+    // ///     Index of <see cref="AbsorbedDNA"/>. Used for switching forms.
+    // /// </summary>
+    // [DataField, ViewVariables(VVAccess.ReadOnly)]
+    // public int AbsorbedDNAIndex = 0;
+    // Aquila Change end
 
     /// <summary>
     ///     Maximum amount of DNA a changeling can absorb.
@@ -122,8 +125,13 @@ public sealed partial class ChangelingIdentityComponent : Component
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public TransformData? CurrentForm;
 
-    [ViewVariables(VVAccess.ReadOnly)]
-    public TransformData? SelectedForm;
+    // Aquila Change start
+    /// <summary>
+    ///     The stored form selected for the next transformation.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly), Access(typeof(SharedChangelingSystem))]
+    public TransformData? SelectedForm = null;
+    // Aquila Change end
 }
 
 [DataDefinition]

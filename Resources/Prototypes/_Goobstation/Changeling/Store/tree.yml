@@ -34,6 +34,9 @@
       position: 1,1
     EvolutionMenuCombatChitinousArmor:
       position: 2,1
+    # Aquila Change
+    EvolutionMenuCombatTrueForm:
+      position: 3,0
     # ChangelingAbilitySting
     EvolutionMenuStingBlind:
       position: -2,2.6

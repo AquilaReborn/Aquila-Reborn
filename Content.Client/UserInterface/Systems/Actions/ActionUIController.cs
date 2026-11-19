@@ -251,6 +251,7 @@ public sealed partial class ActionUIController : UIController, IOnStateChanged<G
 
     public void OnStateExited(GameplayState state)
     {
+        ClearTransformationLayouts(); // Aquila Change
         if (_actionsSystem != null)
         {
             _actionsSystem.OnActionAdded -= OnActionAdded;
@@ -332,6 +333,7 @@ public sealed partial class ActionUIController : UIController, IOnStateChanged<G
 
     private void OnActionsSaved(EntityUid entity)
     {
+        if (IsDiscardedTransformationBody(entity)) return; // Aquila Change
         if (entity == default)
             return;
 
@@ -432,10 +434,12 @@ public sealed partial class ActionUIController : UIController, IOnStateChanged<G
             return;
 
         InsertActionByPriority(action); // Aquila Change
+        UpdateTransformationLayout(); // Aquila Change
     }
 
     private void OnActionRemoved(EntityUid actionId)
     {
+        RetainTransformationAction(actionId); // Aquila Change
         if (_container == null)
             return;
 
@@ -447,6 +451,7 @@ public sealed partial class ActionUIController : UIController, IOnStateChanged<G
 
     private void OnActionsUpdated()
     {
+        UpdateTransformationLayout(); // Aquila Change
         QueueWindowUpdate();
 
         if (_actionsSystem != null)
@@ -655,6 +660,7 @@ public sealed partial class ActionUIController : UIController, IOnStateChanged<G
             _container?.SetActionData(_actionsSystem, _actions.ToArray());
 
         SaveActionPriority(); // Aquila Change
+        CommitTransformationLayout(); // Aquila Change
 
         _menuDragHelper.EndDrag();
     }
@@ -884,6 +890,7 @@ public sealed partial class ActionUIController : UIController, IOnStateChanged<G
             _actions.Add(assign.ActionId);
         }
 
+        CommitTransformationLayout(); // Aquila Change
         _container?.SetActionData(_actionsSystem, _actions.ToArray());
     }
 
@@ -902,6 +909,7 @@ public sealed partial class ActionUIController : UIController, IOnStateChanged<G
 
     public void OnSystemUnloaded(ActionsSystem system)
     {
+        ClearTransformationLayouts(); // Aquila Change
         system.LinkActions -= OnComponentLinked;
         system.UnlinkActions -= OnComponentUnlinked;
         system.ClearAssignments -= ClearActions;
@@ -910,6 +918,7 @@ public sealed partial class ActionUIController : UIController, IOnStateChanged<G
 
     public override void FrameUpdate(FrameEventArgs args)
     {
+        CheckTransformationLayoutDeadline(); // Aquila Change
         _menuDragHelper.Update(args.DeltaSeconds);
         if (_window is {UpdateNeeded: true})
             SearchAndDisplay();
@@ -966,6 +975,7 @@ public sealed partial class ActionUIController : UIController, IOnStateChanged<G
 
         LoadDefaultActions();
         ApplyActionPriority(); // Aquila Change
+        UpdateTransformationLayout(); // Aquila Change
         _container?.SetActionData(_actionsSystem, _actions.ToArray());
         QueueWindowUpdate();
     }

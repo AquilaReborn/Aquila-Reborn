@@ -369,19 +369,23 @@ public sealed partial class ChangelingSystem
         if (args.Handled)
             return;
 
-        comp.AbsorbedDNAIndex += 1;
-        if (comp.AbsorbedDNAIndex >= comp.MaxAbsorbedDNA || comp.AbsorbedDNAIndex >= comp.AbsorbedDNA.Count)
-            comp.AbsorbedDNAIndex = 0;
+        // Aquila Change start
+        // comp.AbsorbedDNAIndex += 1;
+        // if (comp.AbsorbedDNAIndex >= comp.MaxAbsorbedDNA || comp.AbsorbedDNAIndex >= comp.AbsorbedDNA.Count)
+        //     comp.AbsorbedDNAIndex = 0;
+        //
+        // if (comp.AbsorbedDNA.Count == 0)
+        // {
+        //     _popup.PopupEntity(Loc.GetString("changeling-transform-cycle-empty"), uid, uid);
+        //     return;
+        // }
+        //
+        // var selected = comp.AbsorbedDNA.ToArray()[comp.AbsorbedDNAIndex];
+        // comp.SelectedForm = selected;
+        // _popup.PopupEntity(Loc.GetString("changeling-transform-cycle", ("target", selected.Name)), uid, uid);
+        // Aquila Change end
 
-        if (comp.AbsorbedDNA.Count == 0)
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-transform-cycle-empty"), uid, uid);
-            return;
-        }
-
-        var selected = comp.AbsorbedDNA.ToArray()[comp.AbsorbedDNAIndex];
-        comp.SelectedForm = selected;
-        _popup.PopupEntity(Loc.GetString("changeling-transform-cycle", ("target", selected.Name)), uid, uid);
+        OpenTransformMenu(uid, comp); // Aquila Change
 
         args.Handled = true;
     }

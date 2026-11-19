@@ -4,8 +4,9 @@ ent-ActionAbsorbDNA = Поглотить ДНК
     .desc = Поглощает ДНК цели, превращая её в мумию. Стоимость: 25 химикатов.
 ent-ActionStingExtractDNA = Укол извлечения ДНК
     .desc = Крадёт генетическую информацию цели. Стоимость: 25 химикатов.
-ent-ActionChangelingTransformCycle = Переключить ДНК
-    .desc = Переключает доступные формы ДНК.
+# Aquila Change
+ent-ActionChangelingTransformCycle = Выбрать ДНК
+    .desc = Открывает меню выбора сохранённой формы для превращения.
 ent-ActionChangelingTransform = Превращение
     .desc = Превращает в другого гуманоида. Без одежды. Стоимость: 5 химикатов.
 ent-ActionRegenerativeStasis = Регенеративный стазис

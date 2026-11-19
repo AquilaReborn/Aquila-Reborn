@@ -50,7 +50,7 @@ public sealed partial class ChangelingEggSystem : EntitySystem
         EnsureComp<MindContainerComponent>(newUid);
         _mind.TransferTo(comp.lingMind, newUid);
 
-        EnsureComp<ChangelingIdentityComponent>(newUid);
+        RestoreChangelingIdentity(newUid, comp); // Aquila Change
 
         EntityManager.AddComponent(newUid, comp.lingStore);
 

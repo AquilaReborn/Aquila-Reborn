@@ -72,4 +72,10 @@ public sealed class AquilaCVars
     /// </summary>
     public static readonly CVarDef<bool> PreCriticalDebug =
         CVarDef.Create("aquila.precrit_debug", false, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     Whether changeling abilities require a number of absorbed entities before they can be used.
+    /// </summary>
+    public static readonly CVarDef<bool> ChangelingRequireAbsorbed =
+        CVarDef.Create("aquila.changeling_require_absorbed", false, CVar.SERVER | CVar.REPLICATED);
 }

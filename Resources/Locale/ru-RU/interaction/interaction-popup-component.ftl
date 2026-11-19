@@ -96,6 +96,12 @@ hugging-success-generic = Вы обнимаете { $target }.
 hugging-success-generic-others = { CAPITALIZE($user) } обнимает { $target }.
 hugging-success-generic-target = { CAPITALIZE($user) } обнимает вас.
 
+# Aquila Change
+patting-success-generic = Вы гладите { $target } по голове.
+patting-success-generic-others = { CAPITALIZE($user) } гладит { $target } по голове.
+shoulder-pat-success-generic = Вы хлопаете { $target } по плечу.
+shoulder-pat-success-generic-others = { CAPITALIZE($user) } хлопает { $target } по плечу.
+
 ## Other
 
 petting-success-tesla = Вы гладите { $target }, попутно нарушая законы природы и физики.

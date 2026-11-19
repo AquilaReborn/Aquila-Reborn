@@ -16,7 +16,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.Interaction;
 
-public sealed class InteractionPopupSystem : EntitySystem
+public sealed partial class InteractionPopupSystem : EntitySystem // Aquila Change
 {
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -95,8 +95,9 @@ public sealed class InteractionPopupSystem : EntitySystem
 
         if (_random.Prob(component.SuccessChance))
         {
-            if (component.InteractSuccessString != null)
-                msg = Loc.GetString(component.InteractSuccessString, ("target", Identity.Entity(uid, EntityManager))); // Success message (localized).
+            var successString = GetBodyPartString(component.BodyPartSuccessStrings, user) ?? component.InteractSuccessString; // Aquila Change
+            if (successString != null) // Aquila Change
+                msg = Loc.GetString(successString, ("target", Identity.Entity(uid, EntityManager))); // Aquila Change
 
             if (component.InteractSuccessSound != null)
                 sfx = component.InteractSuccessSound;
@@ -122,10 +123,11 @@ public sealed class InteractionPopupSystem : EntitySystem
             RaiseLocalEvent(target, ref ev);
         }
 
-        if (!string.IsNullOrEmpty(component.MessagePerceivedByOthers))
+        var othersString = GetBodyPartString(component.BodyPartOthersStrings, user) ?? component.MessagePerceivedByOthers; // Aquila Change
+        if (!string.IsNullOrEmpty(othersString)) // Aquila Change
         {
-            var msgOthers = Loc.GetString(component.MessagePerceivedByOthers,
-                ("user", Identity.Entity(user, EntityManager)), ("target", Identity.Entity(uid, EntityManager)));
+            var msgOthers = Loc.GetString(othersString,
+                ("user", Identity.Entity(user, EntityManager)), ("target", Identity.Entity(uid, EntityManager))); // Aquila Change
             _popupSystem.PopupEntity(msgOthers, uid, Filter.PvsExcept(user, entityManager: EntityManager), true);
         }
 

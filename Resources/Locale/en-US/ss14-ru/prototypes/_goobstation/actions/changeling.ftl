@@ -4,8 +4,9 @@ ent-ActionAbsorbDNA = Absorb DNA
     .desc = Absorb the target's DNA, husking them in the process. Costs 25 chemicals.
 ent-ActionStingExtractDNA = Extract DNA sting
     .desc = Steal your target's genetic information. Costs 25 chemicals.
-ent-ActionChangelingTransformCycle = Cycle DNA
-    .desc = Cycle your available DNA.
+# Aquila Change
+ent-ActionChangelingTransformCycle = Choose DNA
+    .desc = Open a menu to choose which stored form to transform into.
 ent-ActionChangelingTransform = Transform
     .desc = Transform into another humanoid. Doesn't come with clothes. Costs 5 chemicals.
 ent-ActionRegenerativeStasis = Regenerative Stasis

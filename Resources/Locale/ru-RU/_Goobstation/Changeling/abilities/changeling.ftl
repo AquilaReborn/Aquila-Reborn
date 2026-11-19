@@ -31,6 +31,8 @@ changeling-absorb-fail-onfire = Цель в огне, сначала потуш�
 changeling-absorbbiomatter-start = { $user } начинает поглощать пищу!
 changeling-absorbbiomatter-bad-food = Эта пища непоглощаема.
 changeling-transform-cycle = Переключились на ДНК { $target }.
+# Aquila Change
+changeling-transform-select = Выбрана форма { $target }.
 changeling-transform-cycle-empty = У нас нет ДНК для трансформации!
 changeling-transform-others = Тело { CAPITALIZE($user) } искажается и принимает облик другого существа!
 changeling-transform-fail-self = Нельзя трансформироваться в текущую форму!
@@ -46,7 +48,6 @@ changeling-sting-extract-fail-duplicate = Мы уже извлекали эту 
 changeling-sting-extract-fail-lesser = Мы не можем извлечь ДНК из низшего существа!
 changeling-sting-fail-simplemob = Нельзя ужалить низшее существо!
 changeling-sting-extract-fail = Не удалось извлечь ДНК.
-changeling-sting-extract-max = Сначала нужно избавиться от сохранённой ДНК.
 changeling-stasis-enter-damaged = Мы вошли в регенеративный стазис. Полученные травмы будет трудно залечить...
 changeling-dartgun-no-stings = У нас нет эволюционированных жал!
 changeling-stasis-enter = Мы входим в регенеративный стазис.

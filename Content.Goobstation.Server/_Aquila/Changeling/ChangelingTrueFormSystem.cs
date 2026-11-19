@@ -23,8 +23,6 @@ namespace Content.Goobstation.Server._Aquila.Changeling;
 
 public sealed partial class ChangelingTrueFormSystem : EntitySystem
 {
-    private static readonly ProtoId<PolymorphPrototype> TrueFormPolymorph = "ChangelingTrueForm";
-
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private PolymorphSystem _polymorph = default!;
     [Dependency] private SharedActionsSystem _actions = default!;
@@ -35,6 +33,8 @@ public sealed partial class ChangelingTrueFormSystem : EntitySystem
     [Dependency] private SharedStunSystem _stun = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private ThrowingSystem _throwing = default!;
+
+    private static readonly ProtoId<PolymorphPrototype> TrueFormPolymorph = "ChangelingTrueForm";
 
     public override void Initialize()
     {
@@ -54,11 +54,6 @@ public sealed partial class ChangelingTrueFormSystem : EntitySystem
             return;
 
         var charge = EnsureComp<ChangelingTrueFormChargeComponent>(ent);
-        if (charge.AbsorbedAtLastUse >= 0 && ent.Comp.TotalAbsorbedEntities <= charge.AbsorbedAtLastUse)
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-trueform-no-charge"), ent, ent);
-            return;
-        }
 
         var doAfter = new DoAfterArgs(EntityManager, ent, charge.TransformDelay, new ChangelingTrueFormDoAfterEvent(), ent)
         {
@@ -83,15 +78,8 @@ public sealed partial class ChangelingTrueFormSystem : EntitySystem
 
         args.Handled = true;
 
-        var charge = EnsureComp<ChangelingTrueFormChargeComponent>(ent);
-        var previousUse = charge.AbsorbedAtLastUse;
-        charge.AbsorbedAtLastUse = ent.Comp.TotalAbsorbedEntities;
-
         if (_polymorph.PolymorphEntity(ent, TrueFormPolymorph) is not { } form)
-        {
-            charge.AbsorbedAtLastUse = previousUse;
             return;
-        }
 
         HideChangelingActions(form);
         RaiseNetworkEvent(new LoadActionsEvent(GetNetEntity(ent)), form);
