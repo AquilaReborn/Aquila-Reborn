@@ -4,7 +4,7 @@
   id: ClothingHandsGlovesCLIPNitrile
   name: nitrile gloves
   suffix: CrookLv, Clothing, LFC
-  description: White nitrile gloves of frontier medics.
+  description: White nitrile gloves.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionGloves/CLIP/nitrile_clip.rsi
@@ -18,9 +18,9 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesGezenaMarinegloves
-  name: marine gloves
+  name: padded gloves
   suffix: CrookLv, Clothing, Gezena
-  description: Padded gloves of the marines.
+  description: Padded gloves.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionGloves/Gezena/marinegloves.rsi
@@ -37,9 +37,9 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesGezenaNavalgloves
-  name: navy gloves
+  name: blue gloves
   suffix: CrookLv, Clothing, Gezena
-  description: Gloves of the navy.
+  description: Blue gloves.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionGloves/Gezena/navalgloves.rsi
@@ -52,7 +52,7 @@
   id: ClothingHandsGlovesGezenaEngigloves
   name: engineer gloves
   suffix: CrookLv, Clothing, Gezena
-  description: Insulated gloves of engineers.
+  description: Insulated gloves.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionGloves/Gezena/engigloves.rsi
@@ -68,7 +68,7 @@
   id: ClothingHandsGlovesGezenaCaptaingloves
   name: captain gloves
   suffix: CrookLv, Clothing, Gezena
-  description: Fine gloves of a ship captain.
+  description: Fine gloves.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionGloves/Gezena/captaingloves.rsi
@@ -88,7 +88,7 @@
   id: ClothingHandsGlovesInteQNitrile
   name: nitrile gloves
   suffix: CrookLv, Clothing, Inteq
-  description: Green nitrile gloves of mercenary corpsmen.
+  description: Green nitrile gloves.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionGloves/InteQ/nitrile_inteq.rsi
@@ -104,7 +104,7 @@
   id: ClothingHandsGlovesSUNSInsulated
   name: insulated gloves
   suffix: CrookLv, Clothing, SUNS
-  description: Insulated gloves for academy workers.
+  description: Insulated gloves.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionGloves/SUNS/suns_insulated.rsi
@@ -120,7 +120,7 @@
   id: ClothingHandsGlovesSUNSLatexgloves
   name: latex gloves
   suffix: CrookLv, Clothing, SUNS
-  description: Latex gloves of academy doctors.
+  description: Latex gloves.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionGloves/SUNS/suns_latexgloves.rsi
@@ -135,7 +135,7 @@
   id: ClothingHandsGlovesSUNSLongglovesblack
   name: long black gloves
   suffix: CrookLv, Clothing, SUNS
-  description: Elegant long black gloves. Part of an academy kit.
+  description: Elegant long black gloves.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionGloves/SUNS/suns_longglovesblack.rsi
@@ -148,7 +148,7 @@
   id: ClothingHandsGlovesSUNSGlovesfingerless
   name: fingerless gloves
   suffix: CrookLv, Clothing, SUNS
-  description: Black fingerless gloves. Part of an academy kit.
+  description: Black fingerless gloves.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionGloves/SUNS/suns_glovesfingerless.rsi
@@ -158,9 +158,9 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesSUNSXogloves
-  name: executive officer gloves
+  name: officer gloves
   suffix: CrookLv, Clothing, SUNS
-  description: White gloves of an academy executive officer.
+  description: White officer gloves.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionGloves/SUNS/suns_xogloves.rsi
@@ -173,7 +173,7 @@
   id: ClothingHandsGlovesSUNSCaptaingloves
   name: captain gloves
   suffix: CrookLv, Clothing, SUNS
-  description: Black gloves with gold trim of an academy captain.
+  description: Black gloves with gold trim.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionGloves/SUNS/suns_captaingloves.rsi

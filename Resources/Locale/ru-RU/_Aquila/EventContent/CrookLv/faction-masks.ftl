@@ -1,6 +1,6 @@
 ## ЛВК
 ent-ClothingMaskCLIPGasMask = противогаз
-    .desc = Плотно сидящий противогаз, сделанный наспех в военное время.
+    .desc = Плотно сидящий противогаз, сделанный наспех.
     .suffix = CrookLv, Одежда, ЛВК
 
 ## Киберсан
@@ -12,7 +12,7 @@ ent-ClothingMaskCybersunGas = противогаз
 ent-ClothingMaskGezenaPGF = композитный респиратор
     .desc = Бронированный композитный респиратор с разъёмом для подачи воздуха.
     .suffix = CrookLv, Одежда, Гезена
-ent-ClothingMaskGezenaNavy = флотский респиратор
+ent-ClothingMaskGezenaNavy = респиратор
     .desc = Прорезиненный респиратор на жёстком пластиковом каркасе. На удивление удобный.
     .suffix = CrookLv, Одежда, Гезена
 

@@ -2,9 +2,9 @@
 - type: entity
   parent: ClothingShoesMilitaryBase
   id: ClothingShoesGezenaPgfnboots
-  name: navy boots
+  name: blue boots
   suffix: CrookLv, Clothing, Gezena
-  description: Sturdy boots of the navy.
+  description: Sturdy blue boots.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionShoes/Gezena/pgfnboots.rsi
@@ -14,9 +14,9 @@
 - type: entity
   parent: ClothingShoesMilitaryBase
   id: ClothingShoesGezenaPgfmcboots
-  name: marine boots
+  name: combat boots
   suffix: CrookLv, Clothing, Gezena
-  description: Combat boots of the marines.
+  description: Combat boots.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionShoes/Gezena/pgfmcboots.rsi
@@ -29,7 +29,7 @@
   id: ClothingShoesSUNSCaptainboots
   name: captain boots
   suffix: CrookLv, Clothing, SUNS
-  description: Tall boots of an academy captain.
+  description: Tall captain's boots.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionShoes/SUNS/suns_captainboots.rsi
@@ -41,7 +41,7 @@
   id: ClothingShoesSUNSLongboots
   name: long boots
   suffix: CrookLv, Clothing, SUNS
-  description: Tall black boots. Part of an academy kit.
+  description: Tall black boots.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionShoes/SUNS/suns_longboots.rsi
@@ -53,7 +53,7 @@
   id: ClothingShoesSUNSLaceups
   name: laceup shoes
   suffix: CrookLv, Clothing, SUNS
-  description: Polished black laceup shoes. Part of an academy kit.
+  description: Polished black laceup shoes.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionShoes/SUNS/suns_laceups.rsi
@@ -65,7 +65,7 @@
   id: ClothingShoesSUNSDoctorclogs
   name: doctor clogs
   suffix: CrookLv, Clothing, SUNS
-  description: White clogs of academy doctors.
+  description: White doctor's clogs.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionShoes/SUNS/suns_doctorclogs.rsi
@@ -77,7 +77,7 @@
   id: ClothingShoesSUNSJackboots
   name: jackboots
   suffix: CrookLv, Clothing, SUNS
-  description: Black jackboots of the campus peacekeepers.
+  description: Black jackboots.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionShoes/SUNS/suns_jackboots.rsi

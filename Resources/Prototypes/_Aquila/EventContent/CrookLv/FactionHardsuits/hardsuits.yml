@@ -4,7 +4,7 @@
   id: ClothingOuterHardsuitCLIPPatrol
   name: patrol hardsuit
   suffix: CrookLv, Clothing, LFC
-  description: A rugged hardsuit built for long frontier patrols, with reliable armor and decent mobility.
+  description: A rugged hardsuit built for long patrols, with reliable armor and decent mobility.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/Patrol.rsi
@@ -54,7 +54,7 @@
   id: ClothingOuterHardsuitCLIPEod
   name: EOD hardsuit
   suffix: CrookLv, Clothing, LFC
-  description: A bulky bomb disposal hardsuit used by frontier sappers. Shrugs off blasts, but slows its wearer to a crawl.
+  description: A bulky bomb disposal hardsuit. Shrugs off blasts, but slows its wearer to a crawl.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/Eod.rsi
@@ -104,7 +104,7 @@
   id: ClothingOuterHardsuitCLIPSpacesuit
   name: spacesuit
   suffix: CrookLv, Clothing, LFC
-  description: A lightweight vacuum suit issued to frontier crews. Keeps you alive in space and little else.
+  description: A lightweight vacuum suit. Keeps you alive in space and little else.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/Spacesuit.rsi
@@ -196,7 +196,7 @@
   id: ClothingOuterHardsuitCLIPIndustrial
   name: industrial hardsuit
   suffix: CrookLv, Clothing, LFC
-  description: A sturdy work hardsuit for colonial engineers and miners. Protects well from debris and radiation.
+  description: A sturdy work hardsuit for engineers and miners. Protects well from debris and radiation.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/Industrial.rsi
@@ -244,7 +244,7 @@
   id: ClothingOuterHardsuitCybersunStandard
   name: hardsuit
   suffix: CrookLv, Clothing, Cybersun
-  description: A sleek corporate security hardsuit. Balanced protection in a stylish package.
+  description: A sleek security hardsuit. Balanced protection in a stylish package.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Cybersun/Standard.rsi
@@ -294,7 +294,7 @@
   id: ClothingOuterHardsuitCybersunParamedic
   name: paramedic hardsuit
   suffix: CrookLv, Clothing, Cybersun
-  description: A light corporate hardsuit for field medics. Sealed against toxins and chemicals, built for running, not fighting.
+  description: A light hardsuit for field medics. Sealed against toxins and chemicals, built for running, not fighting.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Cybersun/Paramedic.rsi
@@ -341,7 +341,7 @@
   id: ClothingOuterHardsuitCybersunCollapsar
   name: heavy assault hardsuit
   suffix: CrookLv, Clothing, Cybersun
-  description: The pride of corporate engineering. An elite hardsuit that combines heavy protection with surprising agility.
+  description: An elite hardsuit that combines heavy protection with surprising agility.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Cybersun/Collapsar.rsi
@@ -391,7 +391,7 @@
   id: ClothingOuterHardsuitCybersunCollapsarMedic
   name: heavy assault medic hardsuit
   suffix: CrookLv, Clothing, Cybersun
-  description: A medical variant of a heavy assault hardsuit for elite combat medics. Excellent chemical sealing and solid armor. Part of the corporate kit.
+  description: A medical variant of a heavy assault hardsuit for elite combat medics. Excellent chemical sealing and solid armor.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Cybersun/CollapsarMedic.rsi
@@ -441,7 +441,7 @@
   id: ClothingOuterHardsuitCybersunCovert
   name: stealth hardsuit
   suffix: CrookLv, Clothing, Cybersun
-  description: A dark, low-profile corporate hardsuit for covert operations. Light armor, nearly unhindered movement.
+  description: A dark, low-profile hardsuit for covert operations. Light armor, nearly unhindered movement.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Cybersun/Covert.rsi
@@ -501,9 +501,9 @@
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
   id: ClothingOuterHardsuitGezenaNavy
-  name: navy spacesuit
+  name: blue spacesuit
   suffix: CrookLv, Clothing, Gezena
-  description: A vacuum suit worn by navy crews.
+  description: A vacuum suit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Gezena/Navy.rsi
@@ -546,9 +546,9 @@
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
   id: ClothingOuterHardsuitGezenaMarine
-  name: marine spacesuit
+  name: assault spacesuit
   suffix: CrookLv, Clothing, Gezena
-  description: An armored vacuum suit of the marines, made for ship-to-ship boarding.
+  description: An armored vacuum suit made for ship-to-ship boarding.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Gezena/Marine.rsi
@@ -596,7 +596,7 @@
   id: ClothingOuterHardsuitHardlinersStandard
   name: hardsuit
   suffix: CrookLv, Clothing, Blood Vanguard
-  description: A combat hardsuit of veterans who never accepted the end of the war.
+  description: A combat hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Hardliners/Standard.rsi
@@ -646,7 +646,7 @@
   id: ClothingOuterHardsuitHardlinersElite
   name: elite hardsuit
   suffix: CrookLv, Clothing, Blood Vanguard
-  description: An elite hardsuit reserved for veteran officers and soldiers.
+  description: An elite hardsuit reserved for officers.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Hardliners/Elite.rsi
@@ -696,7 +696,7 @@
   id: ClothingOuterHardsuitHardlinersStealth
   name: stealth hardsuit
   suffix: CrookLv, Clothing, Blood Vanguard
-  description: A low-profile veteran hardsuit for saboteurs and scouts.
+  description: A low-profile hardsuit for saboteurs and scouts.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Hardliners/Stealth.rsi
@@ -805,7 +805,7 @@
   id: ClothingOuterHardsuitInteQSpacesuit
   name: spacesuit
   suffix: CrookLv, Clothing, Inteq
-  description: A basic vacuum suit issued to mercenary contractors.
+  description: A basic vacuum suit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/Spacesuit.rsi
@@ -850,7 +850,7 @@
   id: ClothingOuterHardsuitInteQStandard
   name: hardsuit
   suffix: CrookLv, Clothing, Inteq
-  description: The workhorse hardsuit of mercenaries. Nothing fancy, everything you need.
+  description: A workhorse hardsuit. Nothing fancy, everything you need.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/Standard.rsi
@@ -900,7 +900,7 @@
   id: ClothingOuterHardsuitInteQPointman
   name: pointman hardsuit
   suffix: CrookLv, Clothing, Inteq
-  description: A reinforced hardsuit for mercenary squad leaders who go through the door first.
+  description: A reinforced hardsuit for squad leaders who go through the door first.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/Pointman.rsi
@@ -950,7 +950,7 @@
   id: ClothingOuterHardsuitInteQEod
   name: EOD hardsuit
   suffix: CrookLv, Clothing, Inteq
-  description: A heavy mercenary bomb disposal hardsuit. Built to survive the explosion it failed to prevent.
+  description: A heavy bomb disposal hardsuit. Built to survive the explosion it failed to prevent.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/Eod.rsi
@@ -1000,7 +1000,7 @@
   id: ClothingOuterHardsuitInteQBoulder
   name: Boulder hardsuit
   suffix: CrookLv, Clothing, Inteq
-  description: A mercenary industrial hardsuit for engineering and mining contracts.
+  description: An industrial hardsuit for engineering and mining contracts.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/Boulder.rsi
@@ -1047,7 +1047,7 @@
   id: ClothingOuterHardsuitInteQPilot
   name: pilot spacesuit
   suffix: CrookLv, Clothing, Inteq
-  description: A light vacuum suit for mercenary pilots, comfortable enough for long flights.
+  description: A light vacuum suit for pilots, comfortable enough for long flights.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/Pilot.rsi
@@ -1092,7 +1092,7 @@
   id: ClothingOuterHardsuitInteQRampart
   name: Rampart hardsuit
   suffix: CrookLv, Clothing, Inteq
-  description: A walking wall. The heaviest hardsuit in a mercenary arsenal, slow but almost impenetrable.
+  description: A walking wall. The heaviest kind of hardsuit, slow but almost impenetrable.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/Rampart.rsi
@@ -1142,7 +1142,7 @@
   id: ClothingOuterHardsuitInteQRanger
   name: Ranger hardsuit
   suffix: CrookLv, Clothing, Inteq
-  description: A light mercenary hardsuit for reconnaissance and long-range patrols.
+  description: A light hardsuit for reconnaissance and long-range patrols.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/Ranger.rsi
@@ -1190,7 +1190,7 @@
   id: ClothingOuterHardsuitNGRStandard
   name: hardsuit
   suffix: CrookLv, Clothing, Gorlex Republic
-  description: The standard combat hardsuit of the republican military.
+  description: A standard combat hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/NGR/Standard.rsi
@@ -1240,7 +1240,7 @@
   id: ClothingOuterHardsuitNGRElite
   name: elite hardsuit
   suffix: CrookLv, Clothing, Gorlex Republic
-  description: An elite republican hardsuit, decorated in the colors of its officer corps.
+  description: An elite hardsuit with decorated plating.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/NGR/Elite.rsi
@@ -1290,7 +1290,7 @@
   id: ClothingOuterHardsuitNGREod
   name: EOD hardsuit
   suffix: CrookLv, Clothing, Gorlex Republic
-  description: A heavy bomb disposal hardsuit of a frontier republic.
+  description: A heavy bomb disposal hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/NGR/Eod.rsi
@@ -1340,7 +1340,7 @@
   id: ClothingOuterHardsuitNGRMiner
   name: mining hardsuit
   suffix: CrookLv, Clothing, Gorlex Republic
-  description: A durable mining hardsuit used in the asteroid fields of a frontier republic.
+  description: A durable mining hardsuit used in asteroid fields.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/NGR/Miner.rsi
@@ -1387,7 +1387,7 @@
   id: ClothingOuterHardsuitNGROutrider
   name: outrider hardsuit
   suffix: CrookLv, Clothing, Gorlex Republic
-  description: A light hardsuit of republican outriders, fast scouts that range far ahead of the main force.
+  description: A light hardsuit for fast scouts that range far ahead of the main force.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/NGR/Outrider.rsi
@@ -1435,7 +1435,7 @@
   id: ClothingOuterHardsuitRamziStandard
   name: hardsuit
   suffix: CrookLv, Clothing, Rust Clique
-  description: A battered hardsuit of pirates, patched together from stolen military gear.
+  description: A battered hardsuit patched together from stolen gear.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Ramzi/Standard.rsi
@@ -1485,7 +1485,7 @@
   id: ClothingOuterHardsuitRamziElite
   name: elite hardsuit
   suffix: CrookLv, Clothing, Rust Clique
-  description: A well-kept hardsuit of a pirate captain. Clearly taken from someone important.
+  description: A well-kept hardsuit of a captain. Clearly taken from someone important.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Ramzi/Elite.rsi
@@ -1535,7 +1535,7 @@
   id: ClothingOuterHardsuitRamziRamsee
   name: raider hardsuit
   suffix: CrookLv, Clothing, Rust Clique
-  description: A stripped-down pirate hardsuit for fast raids. Less armor, more loot.
+  description: A stripped-down hardsuit for fast raids. Less armor, more loot.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Ramzi/Ramsee.rsi
@@ -1583,7 +1583,7 @@
   id: ClothingOuterHardsuitSolGovStandard
   name: hardsuit
   suffix: CrookLv, Clothing, UEG
-  description: A ceremonial yet fully functional hardsuit of a central government, worn by its officers and envoys.
+  description: A ceremonial yet fully functional hardsuit worn by officers and envoys.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SolGov/Standard.rsi
@@ -1634,7 +1634,7 @@
   id: ClothingOuterHardsuitSRMHunter
   name: hunter hardsuit
   suffix: CrookLv, Clothing, Hunters' Order
-  description: The armor of a guild hunter. Its plating is shaped to turn aside claws and blades.
+  description: A hunter's armor. Its plating is shaped to turn aside claws and blades.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SRM/Hunter.rsi
@@ -1682,9 +1682,9 @@
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
   id: ClothingOuterHardsuitSRMRouma
-  name: militia hardsuit
+  name: standard hunter hardsuit
   suffix: CrookLv, Clothing, Hunters' Order
-  description: A standard hardsuit of the hunters' guild, worn by its rank-and-file hunters.
+  description: A standard hunter's hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SRM/Rouma.rsi
@@ -1732,9 +1732,9 @@
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
   id: ClothingOuterHardsuitSRMMontagne
-  name: Montagne hardsuit
+  name: veteran hunter hardsuit
   suffix: CrookLv, Clothing, Hunters' Order
-  description: The armor of a Montagne, a veteran hunter who has earned it through countless hunts.
+  description: The armor of a veteran hunter who has earned it through countless hunts.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SRM/Montagne.rsi
@@ -1785,7 +1785,7 @@
   id: ClothingOuterHardsuitSUNSVacuum
   name: vacuum suit
   suffix: CrookLv, Clothing, SUNS
-  description: A light vacuum suit issued to students and staff of a science academy for fieldwork.
+  description: A light vacuum suit issued to students and staff for fieldwork.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SUNS/Vacuum.rsi
@@ -1877,7 +1877,7 @@
   id: ClothingOuterHardsuitSUNSCommand
   name: command hardsuit
   suffix: CrookLv, Clothing, SUNS
-  description: A refined hardsuit worn by faculty heads and expedition leaders.
+  description: A refined hardsuit for expedition leaders.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SUNS/Command.rsi
@@ -1925,9 +1925,9 @@
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseMajorContraband ]
   id: ClothingOuterHardsuitSUNSPeacekeeper
-  name: peacekeeper hardsuit
+  name: guard hardsuit
   suffix: CrookLv, Clothing, SUNS
-  description: A combat hardsuit of campus peacekeepers, who keep order on campus and beyond.
+  description: A combat hardsuit used for keeping order.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SUNS/Peacekeeper.rsi

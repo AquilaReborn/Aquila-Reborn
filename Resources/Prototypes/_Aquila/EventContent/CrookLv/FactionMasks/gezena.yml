@@ -13,7 +13,7 @@
 - type: entity
   parent: ClothingMaskGas
   id: ClothingMaskGezenaNavy
-  name: navy respirator
+  name: blue respirator
   suffix: CrookLv, Clothing, Gezena
   description: A rubberized respirator on a hard plastic frame. Surprisingly comfortable.
   components:

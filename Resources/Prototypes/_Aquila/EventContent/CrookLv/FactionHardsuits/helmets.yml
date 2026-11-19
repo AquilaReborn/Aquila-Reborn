@@ -4,7 +4,7 @@
   id: ClothingHeadHelmetHardsuitCLIPPatrol
   name: patrol hardsuit helmet
   suffix: CrookLv, Clothing, LFC
-  description: A sealed helmet of a frontier patrol hardsuit.
+  description: A sealed helmet of a patrol hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/PatrolHelmet.rsi
@@ -39,7 +39,7 @@
   id: ClothingHeadHelmetHardsuitCLIPEod
   name: EOD hardsuit helmet
   suffix: CrookLv, Clothing, LFC
-  description: A sealed helmet of a frontier EOD hardsuit.
+  description: A sealed helmet of an EOD hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/EodHelmet.rsi
@@ -74,7 +74,7 @@
   id: ClothingHeadHelmetHardsuitCLIPSpacesuit
   name: spacesuit helmet
   suffix: CrookLv, Clothing, LFC
-  description: A sealed helmet of a frontier spacesuit.
+  description: A sealed helmet of a spacesuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/SpacesuitHelmet.rsi
@@ -107,7 +107,7 @@
   id: ClothingHeadHelmetHardsuitCLIPArmoredSpacesuit
   name: armored spacesuit helmet
   suffix: CrookLv, Clothing, LFC
-  description: A sealed helmet of a frontier armored spacesuit.
+  description: A sealed helmet of an armored spacesuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/ArmoredSpacesuitHelmet.rsi
@@ -140,7 +140,7 @@
   id: ClothingHeadHelmetHardsuitCLIPIndustrial
   name: industrial hardsuit helmet
   suffix: CrookLv, Clothing, LFC
-  description: A sealed helmet of a frontier industrial hardsuit.
+  description: A sealed helmet of an industrial hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/CLIP/IndustrialHelmet.rsi
@@ -174,7 +174,7 @@
   id: ClothingHeadHelmetHardsuitCybersunStandard
   name: hardsuit helmet
   suffix: CrookLv, Clothing, Cybersun
-  description: A sealed helmet of a corporate security hardsuit.
+  description: A sealed helmet of a security hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Cybersun/StandardHelmet.rsi
@@ -209,7 +209,7 @@
   id: ClothingHeadHelmetHardsuitCybersunParamedic
   name: paramedic hardsuit helmet
   suffix: CrookLv, Clothing, Cybersun
-  description: A sealed helmet of a corporate paramedic hardsuit.
+  description: A sealed helmet of a paramedic hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Cybersun/ParamedicHelmet.rsi
@@ -312,7 +312,7 @@
   id: ClothingHeadHelmetHardsuitCybersunCovert
   name: stealth hardsuit helmet
   suffix: CrookLv, Clothing, Cybersun
-  description: A sealed helmet of a corporate stealth hardsuit.
+  description: A sealed helmet of a stealth hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Cybersun/CovertHelmet.rsi
@@ -344,9 +344,9 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitGezenaNavy
-  name: navy spacesuit helmet
+  name: blue spacesuit helmet
   suffix: CrookLv, Clothing, Gezena
-  description: A sealed helmet of a naval spacesuit.
+  description: A sealed helmet of a spacesuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Gezena/NavyHelmet.rsi
@@ -377,9 +377,9 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitGezenaMarine
-  name: marine spacesuit helmet
+  name: assault spacesuit helmet
   suffix: CrookLv, Clothing, Gezena
-  description: A sealed helmet of a marine spacesuit.
+  description: A sealed helmet of an armored spacesuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Gezena/MarineHelmet.rsi
@@ -413,7 +413,7 @@
   id: ClothingHeadHelmetHardsuitHardlinersStandard
   name: hardsuit helmet
   suffix: CrookLv, Clothing, Blood Vanguard
-  description: A sealed helmet of a veteran combat hardsuit.
+  description: A sealed helmet of a combat hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Hardliners/StandardHelmet.rsi
@@ -448,7 +448,7 @@
   id: ClothingHeadHelmetHardsuitHardlinersElite
   name: elite hardsuit helmet
   suffix: CrookLv, Clothing, Blood Vanguard
-  description: A sealed helmet of an elite veteran hardsuit.
+  description: A sealed helmet of an elite hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Hardliners/EliteHelmet.rsi
@@ -483,7 +483,7 @@
   id: ClothingHeadHelmetHardsuitHardlinersStealth
   name: stealth hardsuit helmet
   suffix: CrookLv, Clothing, Blood Vanguard
-  description: A sealed helmet of a stealth veteran hardsuit.
+  description: A sealed helmet of a stealth hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Hardliners/StealthHelmet.rsi
@@ -516,7 +516,7 @@
   id: ClothingHeadHelmetHardsuitHardlinersMiner
   name: mining hardsuit helmet
   suffix: CrookLv, Clothing, Blood Vanguard
-  description: A sealed helmet of a veteran mining hardsuit.
+  description: A sealed helmet of a mining hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Hardliners/MinerHelmet.rsi
@@ -550,7 +550,7 @@
   id: ClothingHeadHelmetHardsuitInteQSpacesuit
   name: spacesuit helmet
   suffix: CrookLv, Clothing, Inteq
-  description: A sealed helmet of a mercenary spacesuit.
+  description: A sealed helmet of a spacesuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/SpacesuitHelmet.rsi
@@ -583,7 +583,7 @@
   id: ClothingHeadHelmetHardsuitInteQStandard
   name: hardsuit helmet
   suffix: CrookLv, Clothing, Inteq
-  description: A sealed helmet of a mercenary hardsuit.
+  description: A sealed helmet of a hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/StandardHelmet.rsi
@@ -618,7 +618,7 @@
   id: ClothingHeadHelmetHardsuitInteQPointman
   name: pointman hardsuit helmet
   suffix: CrookLv, Clothing, Inteq
-  description: A sealed helmet of a mercenary pointman hardsuit.
+  description: A sealed helmet of a pointman hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/PointmanHelmet.rsi
@@ -653,7 +653,7 @@
   id: ClothingHeadHelmetHardsuitInteQEod
   name: EOD hardsuit helmet
   suffix: CrookLv, Clothing, Inteq
-  description: A sealed helmet of a mercenary EOD hardsuit.
+  description: A sealed helmet of an EOD hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/EodHelmet.rsi
@@ -688,7 +688,7 @@
   id: ClothingHeadHelmetHardsuitInteQBoulder
   name: Boulder hardsuit helmet
   suffix: CrookLv, Clothing, Inteq
-  description: A sealed helmet of a mercenary Boulder hardsuit.
+  description: A sealed helmet of a Boulder hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/BoulderHelmet.rsi
@@ -721,7 +721,7 @@
   id: ClothingHeadHelmetHardsuitInteQPilot
   name: pilot spacesuit helmet
   suffix: CrookLv, Clothing, Inteq
-  description: A sealed helmet of a mercenary pilot spacesuit.
+  description: A sealed helmet of a pilot spacesuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/PilotHelmet.rsi
@@ -754,7 +754,7 @@
   id: ClothingHeadHelmetHardsuitInteQRampart
   name: Rampart hardsuit helmet
   suffix: CrookLv, Clothing, Inteq
-  description: A sealed helmet of a mercenary Rampart hardsuit.
+  description: A sealed helmet of a Rampart hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/RampartHelmet.rsi
@@ -789,7 +789,7 @@
   id: ClothingHeadHelmetHardsuitInteQRanger
   name: Ranger hardsuit helmet
   suffix: CrookLv, Clothing, Inteq
-  description: A sealed helmet of a mercenary Ranger hardsuit.
+  description: A sealed helmet of a Ranger hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/InteQ/RangerHelmet.rsi
@@ -823,7 +823,7 @@
   id: ClothingHeadHelmetHardsuitNGRStandard
   name: hardsuit helmet
   suffix: CrookLv, Clothing, Gorlex Republic
-  description: A sealed helmet of a republican hardsuit.
+  description: A sealed helmet of a hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/NGR/StandardHelmet.rsi
@@ -858,7 +858,7 @@
   id: ClothingHeadHelmetHardsuitNGRElite
   name: elite hardsuit helmet
   suffix: CrookLv, Clothing, Gorlex Republic
-  description: A sealed helmet of an elite republican hardsuit.
+  description: A sealed helmet of an elite hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/NGR/EliteHelmet.rsi
@@ -893,7 +893,7 @@
   id: ClothingHeadHelmetHardsuitNGREod
   name: EOD hardsuit helmet
   suffix: CrookLv, Clothing, Gorlex Republic
-  description: A sealed helmet of a republican EOD hardsuit.
+  description: A sealed helmet of an EOD hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/NGR/EodHelmet.rsi
@@ -928,7 +928,7 @@
   id: ClothingHeadHelmetHardsuitNGRMiner
   name: mining hardsuit helmet
   suffix: CrookLv, Clothing, Gorlex Republic
-  description: A sealed helmet of a republican mining hardsuit.
+  description: A sealed helmet of a mining hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/NGR/MinerHelmet.rsi
@@ -961,7 +961,7 @@
   id: ClothingHeadHelmetHardsuitNGROutrider
   name: outrider hardsuit helmet
   suffix: CrookLv, Clothing, Gorlex Republic
-  description: A sealed helmet of a republican outrider hardsuit.
+  description: A sealed helmet of an outrider hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/NGR/OutriderHelmet.rsi
@@ -995,7 +995,7 @@
   id: ClothingHeadHelmetHardsuitRamziStandard
   name: hardsuit helmet
   suffix: CrookLv, Clothing, Rust Clique
-  description: A sealed helmet of a pirate hardsuit.
+  description: A sealed helmet of a hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Ramzi/StandardHelmet.rsi
@@ -1030,7 +1030,7 @@
   id: ClothingHeadHelmetHardsuitRamziElite
   name: elite hardsuit helmet
   suffix: CrookLv, Clothing, Rust Clique
-  description: A sealed helmet of an elite pirate hardsuit.
+  description: A sealed helmet of an elite hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Ramzi/EliteHelmet.rsi
@@ -1065,7 +1065,7 @@
   id: ClothingHeadHelmetHardsuitRamziRamsee
   name: raider hardsuit helmet
   suffix: CrookLv, Clothing, Rust Clique
-  description: A sealed helmet of a pirate raider hardsuit.
+  description: A sealed helmet of a raider hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/Ramzi/RamseeHelmet.rsi
@@ -1099,7 +1099,7 @@
   id: ClothingHeadHelmetHardsuitSolGovStandard
   name: hardsuit helmet
   suffix: CrookLv, Clothing, UEG
-  description: A sealed helmet of a government hardsuit.
+  description: A sealed helmet of a hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SolGov/StandardHelmet.rsi
@@ -1135,7 +1135,7 @@
   id: ClothingHeadHelmetHardsuitSRMHunter
   name: hunter hardsuit helmet
   suffix: CrookLv, Clothing, Hunters' Order
-  description: A sealed helmet of a guild hunter hardsuit.
+  description: A sealed helmet of a hunter hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SRM/HunterHelmet.rsi
@@ -1168,9 +1168,9 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSRMRouma
-  name: militia hardsuit helmet
+  name: standard hunter hardsuit helmet
   suffix: CrookLv, Clothing, Hunters' Order
-  description: A sealed helmet of a hunters' militia hardsuit.
+  description: A sealed helmet of a standard hunter hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SRM/RoumaHelmet.rsi
@@ -1203,9 +1203,9 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSRMMontagne
-  name: Montagne hardsuit helmet
+  name: veteran hunter hardsuit helmet
   suffix: CrookLv, Clothing, Hunters' Order
-  description: A sealed helmet of a guild veteran hardsuit.
+  description: A sealed helmet of a veteran hunter hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SRM/MontagneHelmet.rsi
@@ -1241,7 +1241,7 @@
   id: ClothingHeadHelmetHardsuitSUNSVacuum
   name: vacuum suit helmet
   suffix: CrookLv, Clothing, SUNS
-  description: A sealed helmet of an academy vacuum suit.
+  description: A sealed helmet of a vacuum suit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SUNS/VacuumHelmet.rsi
@@ -1274,7 +1274,7 @@
   id: ClothingHeadHelmetHardsuitSUNSMining
   name: mining hardsuit helmet
   suffix: CrookLv, Clothing, SUNS
-  description: A sealed helmet of an academy mining hardsuit.
+  description: A sealed helmet of a mining hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SUNS/MiningHelmet.rsi
@@ -1307,7 +1307,7 @@
   id: ClothingHeadHelmetHardsuitSUNSCommand
   name: command hardsuit helmet
   suffix: CrookLv, Clothing, SUNS
-  description: A sealed helmet of an academy command hardsuit.
+  description: A sealed helmet of a command hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SUNS/CommandHelmet.rsi
@@ -1340,9 +1340,9 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSUNSPeacekeeper
-  name: peacekeeper hardsuit helmet
+  name: guard hardsuit helmet
   suffix: CrookLv, Clothing, SUNS
-  description: A sealed helmet of a campus peacekeeper hardsuit.
+  description: A sealed helmet of a guard hardsuit.
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionHardsuits/SUNS/PeacekeeperHelmet.rsi

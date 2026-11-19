@@ -3,7 +3,7 @@
   id: ClothingHeadHardlinersHood
   name: winter hood
   suffix: CrookLv, Clothing, Blood Vanguard
-  description: A white winter hood in veteran colors.
+  description: A white winter hood.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -16,7 +16,7 @@
   id: ClothingHeadInteQHood
   name: winter hood
   suffix: CrookLv, Clothing, Inteq
-  description: A winter hood in mercenary colors.
+  description: A winter hood.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -29,7 +29,7 @@
   id: ClothingHeadInteQHoodAlt
   name: fur hood
   suffix: CrookLv, Clothing, Inteq
-  description: A hood with fur trim from a mercenary coat.
+  description: A hood with fur trim.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -42,7 +42,7 @@
   id: ClothingHeadNGRHood
   name: winter hood
   suffix: CrookLv, Clothing, Gorlex Republic
-  description: A beige winter hood in republican colors.
+  description: A beige winter hood.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -55,7 +55,7 @@
   id: ClothingHeadSolGovHood
   name: winter hood
   suffix: CrookLv, Clothing, UEG
-  description: A winter hood in government colors.
+  description: A winter hood.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -68,7 +68,7 @@
   id: ClothingHeadSUNSLabcoathood
   name: labcoat hood
   suffix: CrookLv, Clothing, SUNS
-  description: A hood that comes with an academy labcoat.
+  description: A hood that comes with a labcoat.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
