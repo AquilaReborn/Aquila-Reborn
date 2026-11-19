@@ -343,7 +343,10 @@ public sealed class LanguageLineEdit : HistoryLineEdit
         var menu = new Popup();
         menu.AddChild(panel);
         menu.OnPopupHide += () => OnMenuHidden(menu);
-        menu.OpenAtMouse();
+
+        var origin = GlobalPosition;
+        UserInterfaceManager.GetRootForMouse().ModalRoot.AddChild(menu);
+        menu.Open(UIBox2.FromDimensions(origin, Vector2.One), altPos: origin, altPosUp: origin);
 
         _menu = menu;
         _menuText = Text;
@@ -374,6 +377,8 @@ public sealed class LanguageLineEdit : HistoryLineEdit
     {
         if (_menu == menu)
             _menu = null;
+
+        menu.Orphan();
     }
 
     private StyleBox GetStyleBox()
