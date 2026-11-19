@@ -233,9 +233,10 @@ public sealed class HullSheetlet : Sheetlet<NanotrasenStylesheet>
         };
 
         var cache = IoCManager.Resolve<IResourceCache>();
-        var pixel = cache.GetFont($"{FontPath}/Freezeframe-Cond{style}.ttf", small ? 6 : 12);
-        var fallback = cache.NotoStack(bold ? "Bold" : "Regular", small ? 7 : 11);
-        return new StackedFont(pixel, fallback);
+        var pixel = cache.GetFont($"{FontPath}/Freezeframe-Cond{style}.ttf", small ? 6 : 12); // Aquila Change
+        var cyrillic = cache.GetFont(RunechatStyle.CyrillicFallbackFontPath, small ? 6 : 12); // Aquila Change
+        var fallback = cache.NotoStack(bold ? "Bold" : "Regular", small ? 7 : 11); // Aquila Change
+        return new StackedFont(pixel, cyrillic, fallback); // Aquila Change
     }
 
     private static StyleBoxFlat Flat(string background, string border, float thickness = 1, float padH = 0, float padV = 0)
