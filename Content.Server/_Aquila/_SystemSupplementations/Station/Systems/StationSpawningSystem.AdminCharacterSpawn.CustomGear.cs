@@ -19,6 +19,9 @@ public sealed partial class StationSpawningSystem
     /// <summary>
     /// Equips a custom loadout on a spawned body and rolls back every spawned item on failure.
     /// </summary>
+    /// <remarks>
+    /// Items that the game deletes right after spawning, for example unique items, are skipped instead of failing the loadout.
+    /// </remarks>
     /// <param name="uid">Body to equip.</param>
     /// <param name="gear">Custom loadout to equip.</param>
     /// <returns>True if the whole loadout was equipped.</returns>
@@ -31,7 +34,7 @@ public sealed partial class StationSpawningSystem
             equipped = TryEquipAdminCustomInventory(uid, gear, spawned)
                 && TryEquipAdminCustomHands(uid, gear, spawned)
                 && TryFillAdminCustomStorage(uid, gear, spawned)
-                && spawned.All(item => IsAdminCustomGearContained(uid, item));
+                && spawned.All(item => EntityManager.IsQueuedForDeletion(item) || IsAdminCustomGearContained(uid, item));
 
             return equipped;
         }
@@ -81,6 +84,12 @@ public sealed partial class StationSpawningSystem
                 }
 
                 var item = SpawnAdminCustomGearItem(uid, gear.Equipment[slot.Name], spawned);
+                if (EntityManager.IsQueuedForDeletion(item))
+                {
+                    pending.RemoveAt(index);
+                    continue;
+                }
+
                 if (!InventorySystem.TryEquip(uid, item, slot.Name, silent: true))
                     return false;
 
@@ -102,6 +111,9 @@ public sealed partial class StationSpawningSystem
                 return false;
 
             var item = SpawnAdminCustomGearItem(uid, prototype, spawned);
+            if (EntityManager.IsQueuedForDeletion(item))
+                continue;
+
             if (!_adminCustomGearHands.TryPickup(uid, item, hand, checkActionBlocker: false, animate: false)
                 || _adminCustomGearHands.GetHeldItem((uid, null), hand) != item)
             {
@@ -130,6 +142,9 @@ public sealed partial class StationSpawningSystem
             foreach (var prototype in contents)
             {
                 var item = SpawnAdminCustomGearItem(uid, prototype, spawned);
+                if (EntityManager.IsQueuedForDeletion(item))
+                    continue;
+
                 if (!_adminCustomGearStorage.CanInsert(storageUid.Value, item, out _, storage, ignoreStacks: true)
                     || !_adminCustomGearStorage.Insert(storageUid.Value, item, out _, storageComp: storage,
                         playSound: false, stackAutomatically: false))
