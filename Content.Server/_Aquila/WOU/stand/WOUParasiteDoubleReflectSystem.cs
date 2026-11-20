@@ -37,14 +37,14 @@ public sealed class WOUParasiteDoubleReflectSystem : EntitySystem
     {
         if (args.Handled) return;
         if (!TryComp<GuardianHostComponent>(uid, out var guardianHost) || guardianHost.HostedGuardian is not { } parasite) return;
-        
+
         if (StartDoubleReflect(parasite)) args.Handled = true;
     }
 
     private void OnDoubleReflectFromParasite(EntityUid uid, WOUParasiteModeComponent comp, WOUDoubleReflectActionEvent args)
     {
         if (args.Handled) return;
-        
+
         if (StartDoubleReflect(uid)) args.Handled = true;
     }
 
@@ -52,7 +52,7 @@ public sealed class WOUParasiteDoubleReflectSystem : EntitySystem
     {
         if (HasComp<WOUParasiteDoubleReflectComponent>(parasite)) return false;
         var reflectComp = AddComp<WOUParasiteDoubleReflectComponent>(parasite);
-        reflectComp.ExpiresAt = _timing.CurTime + TimeSpan.FromSeconds(5);
+        reflectComp.ExpiresAt = _timing.CurTime + reflectComp.Duration;
         return true;
     }
 
@@ -61,8 +61,8 @@ public sealed class WOUParasiteDoubleReflectSystem : EntitySystem
         if (args.DamageDelta == null || args.DamageDelta.GetTotal() <= 0) return;
         if (args.Origin is not { } origin || origin == uid || !Exists(origin)) return;
         if (HasComp<WOUParasiteDoubleReflectComponent>(origin)) return;
-        
-        var reflectDamage = args.DamageDelta * 2;
+
+        var reflectDamage = args.DamageDelta * comp.ReflectMultiplier;
         _damageable.TryChangeDamage(origin, reflectDamage, ignoreResistances: true, origin: uid);
     }
 }

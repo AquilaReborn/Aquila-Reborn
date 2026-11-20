@@ -33,17 +33,8 @@ public sealed class SwitchingHumanProfileSystem : EntitySystem
         }
 
         var coords = _transform.GetMapCoordinates(uid);
-        var gear = new Dictionary<string, string>
-        {
-            { "head", "ClothingHeadHatAquilaBowler" },
-            { "jumpsuit", "ClothingUniformJumpsuitAquilaBusiness" },
-            { "neck", "ClothingNeckScarfAquilaRed" },
-            { "gloves", "ClothingHandsGlovesColorWhite" },
-            { "shoes", "ClothingShoesColorWhite" },
-            { "id", "PassengerIDCardSatoru" }
-        };
 
-        foreach (var (slot, proto) in gear)
+        foreach (var (slot, proto) in comp.Gear)
         {
             var item = Spawn(proto, coords);
             _inventory.TryEquip(uid, item, slot, silent: true);

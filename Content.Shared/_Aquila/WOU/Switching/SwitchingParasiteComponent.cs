@@ -11,10 +11,11 @@ public sealed partial class SwitchingParasiteComponent : Component
     [DataField] public EntProtoId HumanProto = "MobHumanSatoruAkefu";
     [DataField] public EntProtoId SwitchActionProto = "ActionSwitch";
     [DataField] public EntProtoId ReturnActionProto = "ActionSwitchReturn";
-    
+    [DataField] public TimeSpan AutoReturnCooldown = TimeSpan.FromSeconds(2);
+    [DataField] public TimeSpan HealDelay = TimeSpan.FromSeconds(0.05);
+
     [ViewVariables] public EntityUid? SwitchActionEntity;
     [ViewVariables] public EntityUid? CurrentHuman;
     [ViewVariables] public bool Initialized;
-    
-    [ViewVariables] public TimeSpan NextAutoReturnAllowed = TimeSpan.Zero; 
+    [ViewVariables] public TimeSpan NextAutoReturnAllowed = TimeSpan.Zero;
 }

@@ -32,13 +32,12 @@ public sealed class SwitchingParasiteSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly WOUParasiteModeSystem _wouMode = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedFlashSystem _flash = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly WoundSystem _wounds = default!;
-    
+
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly PainSystem _pain = default!;
@@ -103,12 +102,12 @@ public sealed class SwitchingParasiteSystem : EntitySystem
             return;
         }
 
-        comp.NextAutoReturnAllowed = _timing.CurTime + TimeSpan.FromSeconds(2);
+        comp.NextAutoReturnAllowed = _timing.CurTime + comp.AutoReturnCooldown;
 
         if (TryComp<WOUParasiteModeComponent>(uid, out var switchModeComp))
         {
             _audio.PlayPvs(switchModeComp.SwitchSound, uid);
-            _flash.FlashArea(uid, null, switchModeComp.FlashRange, TimeSpan.FromSeconds(1));
+            _flash.FlashArea(uid, null, switchModeComp.FlashRange, switchModeComp.FlashDuration);
         }
 
         if (hostComp.GuardianContainer.Contains(uid))
@@ -155,7 +154,8 @@ public sealed class SwitchingParasiteSystem : EntitySystem
 
         _popup.PopupEntity(Loc.GetString("switching-parasite-switch-success"), human, human);
 
-        Timer.Spawn(TimeSpan.FromSeconds(0.05), () =>
+        var healDelay = comp.HealDelay;
+        Timer.Spawn(healDelay, () =>
         {
             HealEntityCompletely(human);
             HealEntityCompletely(uid);
@@ -206,7 +206,7 @@ public sealed class SwitchingParasiteSystem : EntitySystem
         if (TryComp<WOUParasiteModeComponent>(parasite, out var switchModeComp))
         {
             _audio.PlayPvs(switchModeComp.SwitchSound, parasite);
-            _flash.FlashArea(parasite, null, switchModeComp.FlashRange, TimeSpan.FromSeconds(1));
+            _flash.FlashArea(parasite, null, switchModeComp.FlashRange, switchModeComp.FlashDuration);
         }
 
         if (_containers.TryGetContainer(human, parasiteCompData.ParasiteContainerId, out var parasiteContainer))
@@ -234,7 +234,8 @@ public sealed class SwitchingParasiteSystem : EntitySystem
 
         _popup.PopupEntity(Loc.GetString("switching-parasite-return-success"), parasite, parasite);
 
-        Timer.Spawn(TimeSpan.FromSeconds(0.05), () =>
+        var healDelay = parasiteCompData.HealDelay;
+        Timer.Spawn(healDelay, () =>
         {
             HealEntityCompletely(parasite);
             HealEntityCompletely(human);

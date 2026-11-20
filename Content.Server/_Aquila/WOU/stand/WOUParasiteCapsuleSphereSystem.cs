@@ -40,9 +40,11 @@ public sealed class WOUParasiteCapsuleSphereSystem : EntitySystem
                 RemCompDeferred<WOUCapsuleSphereComponent>(uid);
                 continue;
             }
+
             EntityUid host = default;
-            if (TryComp<GuardianComponent>(uid, out var guardian) && guardian.Host is { } h) host = h;
-            
+            if (TryComp<GuardianComponent>(uid, out var guardian) && guardian.Host is { } h)
+                host = h;
+
             var entities = _lookup.GetEntitiesInRange(xform.Coordinates, sphere.Radius);
             foreach (var target in entities)
             {
@@ -50,9 +52,9 @@ public sealed class WOUParasiteCapsuleSphereSystem : EntitySystem
                 if (HasComp<SwitchingComponent>(target)) continue;
                 if (!HasComp<HumanoidAppearanceComponent>(target)) continue;
                 if (sphere.TriggeredEntities.Contains(target)) continue;
-                
+
                 sphere.TriggeredEntities.Add(target);
-                SpawnCapsule(target, uid, sphere.CapsuleProto);
+                SpawnCapsule(target, uid, sphere);
                 sphere.CapsulesDropped++;
                 if (sphere.CapsulesDropped >= sphere.MaxCapsules) break;
             }
@@ -63,14 +65,14 @@ public sealed class WOUParasiteCapsuleSphereSystem : EntitySystem
     {
         if (args.Handled) return;
         if (!TryComp<GuardianHostComponent>(uid, out var guardianHost) || guardianHost.HostedGuardian is not { } parasite) return;
-        
+
         if (StartCapsuleSphere(parasite)) args.Handled = true;
     }
 
     private void OnCapsuleFromParasite(EntityUid uid, WOUParasiteModeComponent comp, WOUCapsuleSphereActionEvent args)
     {
         if (args.Handled) return;
-        
+
         if (StartCapsuleSphere(uid)) args.Handled = true;
     }
 
@@ -78,36 +80,59 @@ public sealed class WOUParasiteCapsuleSphereSystem : EntitySystem
     {
         if (HasComp<WOUCapsuleSphereComponent>(parasite)) return false;
         var sphereComp = AddComp<WOUCapsuleSphereComponent>(parasite);
-        sphereComp.ExpiresAt = _timing.CurTime + TimeSpan.FromSeconds(4);
+        sphereComp.ExpiresAt = _timing.CurTime + sphereComp.Lifetime;
         return true;
     }
 
-    private void SpawnCapsule(EntityUid target, EntityUid parasite, string proto)
+    private void SpawnCapsule(EntityUid target, EntityUid parasite, WOUCapsuleSphereComponent sphere)
     {
-        var capsule = Spawn(proto, Transform(target).Coordinates);
-        
-        Timer.Spawn(TimeSpan.FromSeconds(1.5), () =>
+        var capsule = Spawn(sphere.CapsuleProto, Transform(target).Coordinates);
+
+        var triggerDelay = sphere.TriggerDelay;
+        var ratSpawnDelay = sphere.RatSpawnDelay;
+        var explosionType = sphere.ExplosionType;
+        var totalIntensity = sphere.TotalIntensity;
+        var slope = sphere.Slope;
+        var maxTileIntensity = sphere.MaxTileIntensity;
+        var tileBreakScale = sphere.TileBreakScale;
+        var maxTileBreak = sphere.MaxTileBreak;
+        var canCreateVacuum = sphere.CanCreateVacuum;
+        var ratsPerCapsule = sphere.RatsPerCapsule;
+        var ratProto = sphere.RatProto;
+        var ratLifetime = sphere.RatLifetime;
+
+        Timer.Spawn(triggerDelay, () =>
         {
             if (!Exists(capsule)) return;
-            
+
             var coords = Transform(capsule).Coordinates;
             var triggerEv = new TriggerEvent(capsule, null);
             RaiseLocalEvent(capsule, ref triggerEv);
-            _explosion.QueueExplosion(_transform.GetMapCoordinates(capsule), "Default", totalIntensity: 50f, slope: 1.5f, maxTileIntensity: 1f, cause: null, tileBreakScale: 0f, maxTileBreak: 0, canCreateVacuum: false);
+            _explosion.QueueExplosion(
+                _transform.GetMapCoordinates(capsule),
+                explosionType,
+                totalIntensity: totalIntensity,
+                slope: slope,
+                maxTileIntensity: maxTileIntensity,
+                cause: null,
+                tileBreakScale: tileBreakScale,
+                maxTileBreak: maxTileBreak,
+                canCreateVacuum: canCreateVacuum);
 
-            Timer.Spawn(TimeSpan.FromSeconds(1.0), () =>
+            Timer.Spawn(ratSpawnDelay, () =>
             {
                 if (!Exists(parasite)) return;
-                
+
                 EntityUid host = default;
-                if (TryComp<GuardianComponent>(parasite, out var guardian) && guardian.Host is { } h) host = h;
-                
-                for (var i = 0; i < 2; i++)
+                if (TryComp<GuardianComponent>(parasite, out var guardian) && guardian.Host is { } h)
+                    host = h;
+
+                for (var i = 0; i < ratsPerCapsule; i++)
                 {
-                    var rat = Spawn("WOUMobRatAggressive", coords);
+                    var rat = Spawn(ratProto, coords);
                     var despawn = EnsureComp<FadingTimedDespawnComponent>(rat);
-                    despawn.Lifetime = 10f;
-                    
+                    despawn.Lifetime = ratLifetime;
+
                     if (host != default && Exists(host)) _faction.IgnoreEntity(rat, host);
                     _faction.IgnoreEntity(rat, parasite);
                 }

@@ -4,9 +4,8 @@ using Content.Shared._Aquila.WOU.RemoteHoloParasite;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Robust.Shared.Containers;
-using Robust.Shared.Prototypes; 
 
-namespace Content.Server._Aquila.WOU; 
+namespace Content.Server._Aquila.WOU;
 
 public sealed class RemoteHoloParasiteSystem : EntitySystem
 {
@@ -113,11 +112,12 @@ public sealed class RemoteHoloParasiteSystem : EntitySystem
 
     private void PerformSwap(EntityUid host, EntityUid parasite)
     {
+        if (!TryComp<RemoteHoloParasiteComponent>(parasite, out var parasiteComp))
+            return;
+
         SwapMinds(host, parasite);
 
-        EntProtoId returnActionId = "ActionSoulSwapReturn";
-        if (TryComp<RemoteHoloParasiteComponent>(parasite, out var parasiteComp))
-            returnActionId = parasiteComp.ReturnAction;
+        var returnActionId = parasiteComp.ReturnAction;
 
         var hostSwap = EnsureComp<SoulSwappedComponent>(host);
         hostSwap.Partner = parasite;

@@ -1,56 +1,51 @@
-# Шляпа-котелок
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatAquilaBowler
-  name: шляпа-котелок
-  description: Стильный и немного старомодный котелок. Придаёт образу загадочности.
+  name: HatAquilaBowler
+  description: HatBowlerAquila
   components:
   - type: Sprite
     sprite: _Aquila/Clothing/Head/bowler_hat.rsi
   - type: Clothing
     sprite: _Aquila/Clothing/Head/bowler_hat.rsi
 
-# Красный шарф
 - type: entity
   parent: ClothingScarfBase
   id: ClothingNeckScarfAquilaRed
-  name: красный шарф
-  description: Тёплый красный шарф. Идеально подходит для прохладных коридоров станции.
+  name: ScarfAquilaRed
+  description: ScarfRedAquila
   components:
   - type: Sprite
     sprite: _Aquila/Clothing/Neck/red_scarf.rsi
   - type: Clothing
     sprite: _Aquila/Clothing/Neck/red_scarf.rsi
 
-# Деловой костюм
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitAquilaBusiness
-  name: деловой костюм
-  description: Строгий деловой костюм. Говорит о серьёзных намерениях своего владельца.
+  name: JumpsuitAquilaBusiness
+  description: JumpsuitBusinessAquila
   components:
   - type: Sprite
     sprite: _Aquila/Clothing/Uniforms/business_suit.rsi
   - type: Clothing
     sprite: _Aquila/Clothing/Uniforms/business_suit.rsi
 
-# Персонализированный КПК пассажира. Внутри — ID-карта Сатору (через ContainerFill).
 - type: entity
   parent: PassengerPDA
   id: PassengerPDASatoru
-  name: КПК пассажира
-  description: Персональный цифровой помощник. Принадлежит Сатору Акефу.
+  name: PDASatoru
+  description: SatoruPDA
   components:
   - type: ContainerFill
     containers:
       PDA-id: [ PassengerIDCardSatoru ]
 
-# Персонализированная ID-карта пассажира.
 - type: entity
   parent: PassengerIDCard
   id: PassengerIDCardSatoru
-  name: ID-карта Сатору Акефу
-  description: Карта, необходимая для доступа к различным областям станции. Принадлежит Сатору Акефу.
+  name: IDCardSatoru
+  description: SatoruIDCard
   components:
   - type: PresetIdCard
     job: Passenger

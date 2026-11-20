@@ -1,7 +1,7 @@
 - type: entity
   id: WOUActionBeeSphere
   name: A Minor Calamity
-  description: Любой кто приблизится - встретит отпор разъяренных пчел.
+  description: MiCalamity
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -14,7 +14,7 @@
 - type: entity
   id: WOUActionDoubleReflect
   name: A Moderate Calamity
-  description: Любой кто посмеет атаковать - случайно ударит по себе вдвое сильнее.
+  description: MoCalamity
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -27,7 +27,7 @@
 - type: entity
   id: WOUActionCapsuleSphere
   name: A Major Calamity
-  description: Со свистом что-то пролетело мимо. Это была капсула с крысами, которая упала на врага.
+  description: MaCalamity
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -40,7 +40,7 @@
 - type: entity
   id: WOUActionSlipSphere
   name: A Critical Calamity
-  description: Каждый кто приблизится вплотную запнется.
+  description: CrCalamity
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -95,7 +95,7 @@
 - type: entity
   id: ActionSwitch
   name: Disguise
-  description: Ваш стенд превратится в человека по имени Сатору Акефу - хороший врач в хорошем костюме (Не забудьте шляпу!).
+  description: WOUDisguise
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -108,7 +108,7 @@
 - type: entity
   id: ActionSwitchReturn
   name: Disclosure
-  description: Ваш стенд обретет истенный лик и возможность использовать свои способности.
+  description: WOUDisclosure
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

@@ -35,18 +35,20 @@ public sealed class WOUParasiteBeeSphereSystem : EntitySystem
                 RemCompDeferred<WOUBeeSphereComponent>(uid);
                 continue;
             }
+
             EntityUid host = default;
-            if (TryComp<GuardianComponent>(uid, out var guardian) && guardian.Host is { } h) host = h;
-            
+            if (TryComp<GuardianComponent>(uid, out var guardian) && guardian.Host is { } h)
+                host = h;
+
             var entities = _lookup.GetEntitiesInRange(xform.Coordinates, sphere.Radius);
             foreach (var target in entities)
             {
                 if (target == uid || target == host || !HasComp<MindContainerComponent>(target)) continue;
                 if (HasComp<SwitchingComponent>(target)) continue;
                 if (sphere.TriggeredEntities.Contains(target)) continue;
-                
+
                 sphere.TriggeredEntities.Add(target);
-                SpawnBee(target, host, uid, sphere.BeeProto);
+                SpawnBee(target, host, uid, sphere);
                 sphere.BeesSpawned++;
                 if (sphere.BeesSpawned >= sphere.MaxBees) break;
             }
@@ -57,14 +59,14 @@ public sealed class WOUParasiteBeeSphereSystem : EntitySystem
     {
         if (args.Handled) return;
         if (!TryComp<GuardianHostComponent>(uid, out var guardianHost) || guardianHost.HostedGuardian is not { } parasite) return;
-        
+
         if (StartBeeSphere(parasite)) args.Handled = true;
     }
 
     private void OnActionFromParasite(EntityUid uid, WOUParasiteModeComponent comp, WOUBeeSphereActionEvent args)
     {
         if (args.Handled) return;
-        
+
         if (StartBeeSphere(uid)) args.Handled = true;
     }
 
@@ -72,16 +74,16 @@ public sealed class WOUParasiteBeeSphereSystem : EntitySystem
     {
         if (HasComp<WOUBeeSphereComponent>(parasite)) return false;
         var sphereComp = AddComp<WOUBeeSphereComponent>(parasite);
-        sphereComp.ExpiresAt = _timing.CurTime + TimeSpan.FromSeconds(5);
+        sphereComp.ExpiresAt = _timing.CurTime + sphereComp.Lifetime;
         return true;
     }
 
-    private void SpawnBee(EntityUid target, EntityUid host, EntityUid parasite, string proto)
+    private void SpawnBee(EntityUid target, EntityUid host, EntityUid parasite, WOUBeeSphereComponent sphere)
     {
-        var bee = Spawn(proto, Transform(target).Coordinates);
+        var bee = Spawn(sphere.BeeProto, Transform(target).Coordinates);
         var despawn = EnsureComp<FadingTimedDespawnComponent>(bee);
-        despawn.Lifetime = 10f;
-        
+        despawn.Lifetime = sphere.BeeLifetime;
+
         if (host != default && Exists(host)) _faction.IgnoreEntity(bee, host);
         _faction.IgnoreEntity(bee, parasite);
     }

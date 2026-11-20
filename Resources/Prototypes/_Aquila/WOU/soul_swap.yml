@@ -1,7 +1,7 @@
 - type: entity
   id: ActionSoulSwap
-  name: Вселиться в паразита
-  description: Перенести своё сознание в тело паразита. Если у паразита есть разум, он займёт ваше тело.
+  name: SoulSwap
+  description: SoulSwapToParasit
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
@@ -13,8 +13,8 @@
 
 - type: entity
   id: ActionSoulSwapReturn
-  name: Вернуться в тело
-  description: Вернуть своё сознание в исходное тело, обменявшись местами с тем, кто сейчас им управляет.
+  name: SoulSwapReturn
+  description: SoulSwapReturnToHost
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
