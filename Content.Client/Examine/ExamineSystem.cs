@@ -170,6 +170,7 @@ namespace Content.Client.Examine
 
         public override void SendExamineTooltip(EntityUid player, EntityUid target, FormattedMessage message, bool getVerbs, bool centerAtCursor)
         {
+            ResetDetailsModeAquila(); // Aquila Change
             OpenTooltip(player, target, centerAtCursor);
             UpdateTooltipInfo(player, target, message, getVerbs: getVerbs);
         }
@@ -315,6 +316,7 @@ namespace Content.Client.Examine
             }
 
             AddVerbsToTooltip(totalVerbs);
+            ApplyProfileImageAquila(target); // Aquila Change
         }
 
         private void AddVerbsToTooltip(IEnumerable<Verb> verbs)
@@ -404,6 +406,7 @@ namespace Content.Client.Examine
 
         public void DoExamine(EntityUid entity, bool centeredOnCursor = true, EntityUid? userOverride = null)
         {
+            ResetDetailsModeAquila(); // Aquila Change
             var playerEnt = userOverride ?? _playerManager.LocalEntity;
             if (playerEnt == null)
                 return;

@@ -3,6 +3,8 @@ using Content.Server.Hands.Systems;
 using Content.Server.Materials;
 using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Popups;
+using Content.Shared._Aquila.Images.Helpers; // Aquila Change
+using Content.Shared._Aquila.Images.Types; // Aquila Change
 using Content.Shared._CorvaxGoob.CCCVars;
 using Content.Shared._CorvaxGoob.Photo;
 using Content.Shared.Materials;
@@ -28,8 +30,8 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
 
-    //96 KB
-    const int MAX_SIZE = 1024 * 96;
+    //96 KB // Aquila Change
+    // const int MAX_SIZE = 1024 * 96; // Aquila Change
 
     private bool _photoTimeRequiredEnabled = true;
     private float _photoTimeRequiredHours = 10;
@@ -74,7 +76,7 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
 
     private void OnTakeImageMessage(EntityUid uid, PhotoCameraComponent component, PhotoCameraTakeImageMessage message)
     {
-        if (message.Data.Length > MAX_SIZE)
+        if (message.Data.Length > ImageLimits.Photo.MaxBytes) // Aquila Change
             return;
 
         if (!CheckPngSignature(message.Data))
@@ -158,9 +160,7 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
 
     private static bool CheckPngSignature(ReadOnlySpan<byte> data)
     {
-        if (data.Length < 8) return false;
-        return data[0] == 0x89 && data[1] == 0x50 && data[2] == 0x4E && data[3] == 0x47 &&
-                data[4] == 0x0D && data[5] == 0x0A && data[6] == 0x1A && data[7] == 0x0A;
+        return PngHelper.HasPngSignature(data); // Aquila Change
     }
 
     // Photo Card

@@ -94,6 +94,21 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
                 <Button Name="RandomizeEverythingButton" HorizontalAlignment="Left" Margin="0 14 0 0"
                         Text="{Loc 'humanoid-profile-editor-randomize-everything-button'}" StyleClasses="HullPlate" />
+
+                <!-- Aquila Change start -->
+                <Label Text="{Loc 'character-profile-image-section'}" StyleClasses="HullSection" Margin="0 8 0 0" />
+                <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+                    <PanelContainer Name="ProfileImagePanel" StyleClasses="HullInset">
+                        <TextureRect Name="ProfileImagePreview" Stretch="KeepAspectCentered" />
+                    </PanelContainer>
+                    <BoxContainer Orientation="Vertical" SeparationOverride="6" VerticalAlignment="Top">
+                        <Button Name="ProfileImageImportButton" Text="{Loc 'character-profile-image-import'}" StyleClasses="HullPlate" />
+                        <Button Name="ProfileImageExportButton" Text="{Loc 'character-profile-image-export'}" StyleClasses="HullPlate" />
+                        <Button Name="ProfileImageDeleteButton" Text="{Loc 'character-profile-image-delete'}" StyleClasses="HullPlate" />
+                    </BoxContainer>
+                </BoxContainer>
+                <Label Name="ProfileImageHint" StyleClasses="HullFieldLabel" />
+                <!-- Aquila Change end -->
             </BoxContainer>
         </ScrollContainer>
 

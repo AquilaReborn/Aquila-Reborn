@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Goobstation.Common.Barks;
+using Content.Shared._Aquila.Images.Helpers;
 using Content.Shared.CCVar;
 using Content.Shared.Humanoid;
 using Robust.Shared.Configuration;
@@ -23,11 +24,24 @@ public sealed partial class HumanoidCharacterProfile
     public float Width { get; set; } = 1f;
 
     /// <summary>
+    /// PNG image attached to the character description, shown when the character is examined.
+    /// </summary>
+    public byte[]? ProfileImage { get; set; }
+
+    /// <summary>
     /// Возвращает копию профиля с новыми ООС-заметками.
     /// </summary>
     public HumanoidCharacterProfile WithOocNotes(string oocNotes)
     {
         return new(this) { OocNotes = oocNotes };
+    }
+
+    /// <summary>
+    /// Returns a copy of the profile with a new character description image.
+    /// </summary>
+    public HumanoidCharacterProfile WithProfileImage(byte[]? image)
+    {
+        return new(this) { ProfileImage = image is { Length: > 0 } ? image : null };
     }
 
     /// <summary>
@@ -54,6 +68,11 @@ public sealed partial class HumanoidCharacterProfile
             oocNotes = oocNotes[..maxOocNotesLength];
 
         return oocNotes;
+    }
+
+    private byte[]? GetValidProfileImage()
+    {
+        return PngHelper.TryValidateProfileImage(ProfileImage) ? ProfileImage : null;
     }
 
     private ProtoId<BarkPrototype> GetValidBarkVoice(IPrototypeManager prototypeManager)

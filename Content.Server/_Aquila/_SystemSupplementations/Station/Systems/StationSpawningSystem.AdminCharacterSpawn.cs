@@ -33,6 +33,7 @@ public sealed partial class StationSpawningSystem
             AddComp<DetailExaminableComponent>(uid).Content = profile.FlavorText;
 
         _oocNotes.SetNotes(uid, profile.OocNotes);
+        ApplyProfileImage(uid, profile.ProfileImage);
         return uid;
     }
 

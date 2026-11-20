@@ -254,6 +254,7 @@ namespace Content.Shared.Preferences
                 // other.BarkVoice) // Goob Station - Barks // CorvaxGoob-Revert : DB conflicts
         {
             OocNotes = other.OocNotes; // Aquila Change
+            ProfileImage = other.ProfileImage; // Aquila Change
             BarkVoice = other.BarkVoice; // Aquila Change
             Height = other.Height; // Aquila Change
             Width = other.Width; // Aquila Change
@@ -587,6 +588,7 @@ namespace Content.Shared.Preferences
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
             if (FlavorText != other.FlavorText) return false;
             if (OocNotes != other.OocNotes) return false; // Aquila Change
+            if (!ProfileImage.AsSpan().SequenceEqual(other.ProfileImage.AsSpan())) return false; // Aquila Change
             return Appearance.MemberwiseEquals(other.Appearance);
         }
 
@@ -679,6 +681,7 @@ namespace Content.Shared.Preferences
             }
 
             var oocNotes = GetValidOocNotes(configManager); // Aquila Change
+            var profileImage = GetValidProfileImage(); // Aquila Change
             var barkVoice = GetValidBarkVoice(prototypeManager); // Aquila Change
 
             // Aquila Change start
@@ -735,6 +738,7 @@ namespace Content.Shared.Preferences
             Name = name;
             FlavorText = flavortext;
             OocNotes = oocNotes; // Aquila Change
+            ProfileImage = profileImage; // Aquila Change
             BarkVoice = barkVoice; // Aquila Change
             Age = age;
             Height = height; // Goobstation: port EE height/width sliders // Aquila Change
@@ -871,6 +875,7 @@ namespace Content.Shared.Preferences
             hashCode.Add(Name);
             hashCode.Add(FlavorText);
             hashCode.Add(OocNotes); // Aquila Change
+            hashCode.AddBytes(ProfileImage ?? []); // Aquila Change
             hashCode.Add(Species);
             hashCode.Add(Height); // Goobstation: port EE height/width sliders // Aquila Change
             hashCode.Add(Width); // Goobstation: port EE height/width sliders // Aquila Change

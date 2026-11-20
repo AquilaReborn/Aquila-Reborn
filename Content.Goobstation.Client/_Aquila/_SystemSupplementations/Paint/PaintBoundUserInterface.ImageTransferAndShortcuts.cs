@@ -1,19 +1,18 @@
-using System.IO;
+using Content.Client._Aquila.Images.Systems;
 using Content.Goobstation.Shared.Paint;
-using Robust.Client.Graphics;
+using Content.Shared._Aquila.Images.Types;
 using Robust.Client.Input;
-using Robust.Client.UserInterface;
-using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 
 namespace Content.Goobstation.Client.Paint;
 
 public sealed partial class PaintBoundUserInterface
 {
-    [Dependency] private IFileDialogManager _fileDialog = default!;
+    private ImageTransferSystem _images = default!;
 
     private void InitializeAquila()
     {
+        _images = EntMan.System<ImageTransferSystem>();
         _input.FirstChanceOnKeyEvent += OnAquilaKeyEvent;
 
         if (_window == null)
@@ -82,57 +81,21 @@ public sealed partial class PaintBoundUserInterface
         if (GetImage() is not { } image)
             return;
 
-        var data = EncodeToPng(image);
-        var file = await _fileDialog.SaveFile(new FileDialogFilters(new FileDialogFilters.Group("png")));
-        if (file is not { } result)
-            return;
-
-        try
-        {
-            await result.fileStream.WriteAsync(data, 0, data.Length);
-        }
-        finally
-        {
-            await result.fileStream.DisposeAsync();
-        }
+        await _images.ExportPngAsync(EncodeToPng(image));
     }
 
     private async void OnImportPressed()
     {
-        var stream = await _fileDialog.OpenFile(new FileDialogFilters(new FileDialogFilters.Group("png")), FileAccess.Read);
-        if (stream == null)
+        if (await _images.ImportPngAsync(ImageLimits.Paint) is not { } data)
             return;
 
-        await using (stream)
-        {
-            if (stream.Length > PaintImportMessage.MaxImportBytes)
-                return;
-
-            using var memory = new MemoryStream();
-            await stream.CopyToAsync(memory);
-            SendMessage(new PaintImportMessage(memory.ToArray()));
-        }
+        SendMessage(new PaintImportMessage(data));
     }
 
-    private static byte[] EncodeToPng(PaintImage image)
+    private byte[] EncodeToPng(PaintImage image)
     {
         var buffer = new Rgba32[image.Width * image.Height];
         PaintTextures.Fill(image, buffer);
-
-        using var stream = new MemoryStream();
-        using (var png = new Image<Rgba32>(image.Width, image.Height))
-        {
-            for (var y = 0; y < image.Height; y++)
-            {
-                for (var x = 0; x < image.Width; x++)
-                {
-                    png[x, y] = buffer[y * image.Width + x];
-                }
-            }
-
-            png.SaveAsPng(stream);
-        }
-
-        return stream.ToArray();
+        return _images.EncodePng(buffer, image.Width, image.Height);
     }
 }

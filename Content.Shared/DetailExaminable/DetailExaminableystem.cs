@@ -7,7 +7,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.DetailExaminable;
 
-public sealed class DetailExaminableSystem : EntitySystem
+public sealed partial class DetailExaminableSystem : EntitySystem // Aquila Change
 {
     [Dependency] private readonly ExamineSystemShared _examine = default!;
 
@@ -34,6 +34,7 @@ public sealed class DetailExaminableSystem : EntitySystem
                 var markup = new FormattedMessage();
                 markup.AddMarkupPermissive(Loc.TryGetString(ent.Comp.Content, out var content) ? content : ent.Comp.Content); // Aquila Change
                 _examine.SendExamineTooltip(user, ent, markup, false, false);
+                RaiseDetailsExamineAquila(ent); // Aquila Change
             },
             Text = Loc.GetString("detail-examinable-verb-text"),
             Category = VerbCategory.Examine,

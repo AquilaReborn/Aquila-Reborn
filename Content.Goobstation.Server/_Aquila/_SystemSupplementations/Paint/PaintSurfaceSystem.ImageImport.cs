@@ -1,4 +1,5 @@
 using Content.Goobstation.Shared.Paint;
+using Content.Shared._Aquila.Images.Types;
 using SixLabors.ImageSharp;
 
 namespace Content.Goobstation.Server.Paint;
@@ -15,7 +16,7 @@ public sealed partial class PaintSurfaceSystem
     {
         if (ent.Comp.Finished
             || args.Data.Length == 0
-            || args.Data.Length > PaintImportMessage.MaxImportBytes)
+            || !ImageLimits.Paint.AllowsLength(args.Data.Length))
             return;
 
         PaintImage image;

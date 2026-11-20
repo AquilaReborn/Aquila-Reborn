@@ -494,6 +494,7 @@ namespace Content.Client.Lobby.UI
 
             RefreshFlavorText();
             RefreshOocNotes(); // Aquila Change
+            InitializeProfileImage(); // Aquila Change
 
             RefreshVoiceTab(); // CorvaxGoob-TTS
 
@@ -921,6 +922,7 @@ namespace Content.Client.Lobby.UI
             UpdateNameEdit();
             UpdateFlavorTextEdit();
             UpdateOocNotesEdit(); // Aquila Change
+            UpdateProfileImage(); // Aquila Change
             UpdateSexControls();
             UpdateGenderControls();
             UpdateSkinColor();

@@ -148,6 +148,7 @@ public sealed partial class StationSpawningSystem : SharedStationSpawningSystem 
             }
 
             _oocNotes.SetNotes(entity.Value, profile.OocNotes); // Aquila Change
+            ApplyProfileImage(entity.Value, profile.ProfileImage); // Aquila Change
         }
 
         if (loadout != null)

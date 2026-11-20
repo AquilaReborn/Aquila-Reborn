@@ -442,6 +442,7 @@ namespace Content.Server.Database
         [Column("char_name")] public string CharacterName { get; set; } = null!;
         public string FlavorText { get; set; } = null!;
         public string? OocNotes { get; set; } // Aquila Change
+        public byte[]? ProfileImage { get; set; } // Aquila Change
         public string? BarkVoice { get; set; } // Aquila Change
         public float Height { get; set; } = 1f; // Aquila Change
         public float Width { get; set; } = 1f; // Aquila Change

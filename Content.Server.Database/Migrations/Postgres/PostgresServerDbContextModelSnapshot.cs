@@ -1118,6 +1118,11 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("integer")
                         .HasColumnName("pref_unavailable");
 
+                    // Aquila Change
+                    b.Property<byte[]>("ProfileImage")
+                        .HasColumnType("bytea")
+                        .HasColumnName("profile_image");
+
                     b.Property<string>("Sex")
                         .IsRequired()
                         .HasColumnType("text")

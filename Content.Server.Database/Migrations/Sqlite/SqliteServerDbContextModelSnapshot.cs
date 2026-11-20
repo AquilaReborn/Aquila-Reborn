@@ -1055,6 +1055,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("INTEGER")
                         .HasColumnName("pref_unavailable");
 
+                    // Aquila Change
+                    b.Property<byte[]>("ProfileImage")
+                        .HasColumnType("BLOB")
+                        .HasColumnName("profile_image");
+
                     b.Property<string>("Sex")
                         .IsRequired()
                         .HasColumnType("TEXT")
