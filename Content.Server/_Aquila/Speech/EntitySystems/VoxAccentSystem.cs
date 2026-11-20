@@ -5,15 +5,16 @@ using Content.Shared.Speech;
 namespace Content.Server._Aquila.Speech.EntitySystems;
 
 /// <summary>
-/// Акцент воксов: заменяет русскую "к" на "кик", а заглавную "К" на "Кик".
-/// Латинскую k не трогает.
+/// Vox accent: replaces the Russian letter "к" with "кик" and the Russian letter "ч" with "чич",
+/// the uppercase "К" and "Ч" become "Кик" and "Чич". Latin letters are not touched.
 /// </summary>
 public sealed class VoxAccentSystem : EntitySystem
 {
     private static readonly Regex RegexK = new("[кК]", RegexOptions.Compiled);
+    private static readonly Regex RegexCh = new("[чЧ]", RegexOptions.Compiled);
 
     /// <summary>
-    /// Подписывает систему на сбор акцентов при разговоре.
+    /// Subscribes the system to accent collection during speech.
     /// </summary>
     public override void Initialize()
     {
@@ -26,5 +27,8 @@ public sealed class VoxAccentSystem : EntitySystem
     {
         args.Message = RegexK.Replace(args.Message, match =>
             match.Value == "К" ? component.UppercaseReplacement : component.LowercaseReplacement);
+
+        args.Message = RegexCh.Replace(args.Message, match =>
+            match.Value == "Ч" ? component.UppercaseChReplacement : component.LowercaseChReplacement);
     }
 }

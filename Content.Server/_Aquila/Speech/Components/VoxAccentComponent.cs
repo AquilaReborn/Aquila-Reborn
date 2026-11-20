@@ -3,20 +3,32 @@ using Content.Server._Aquila.Speech.EntitySystems;
 namespace Content.Server._Aquila.Speech.Components;
 
 /// <summary>
-/// Акцент воксов: каждая русская буква "к" в речи превращается в "кик".
+/// Vox accent: every Russian letter "к" in speech becomes "кик", and every "ч" becomes "чич".
 /// </summary>
 [RegisterComponent, Access(typeof(VoxAccentSystem))]
 public sealed partial class VoxAccentComponent : Component
 {
     /// <summary>
-    /// Замена для строчной русской буквы "к".
+    /// Replacement for the lowercase Russian letter "к".
     /// </summary>
     [DataField]
     public string LowercaseReplacement = "кик";
 
     /// <summary>
-    /// Замена для заглавной русской буквы "К".
+    /// Replacement for the uppercase Russian letter "К".
     /// </summary>
     [DataField]
     public string UppercaseReplacement = "Кик";
+
+    /// <summary>
+    /// Replacement for the lowercase Russian letter "ч".
+    /// </summary>
+    [DataField]
+    public string LowercaseChReplacement = "чич";
+
+    /// <summary>
+    /// Replacement for the uppercase Russian letter "Ч".
+    /// </summary>
+    [DataField]
+    public string UppercaseChReplacement = "Чич";
 }
