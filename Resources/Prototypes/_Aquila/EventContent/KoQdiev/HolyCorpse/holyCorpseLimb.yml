@@ -46,6 +46,7 @@
     - guardianProto: MobGuardianTheWorld
       components:
       - type: TimeStop
+      - type: TimeStopImmune
 
 - type: entity
   name: holy corpse right hand
@@ -59,8 +60,13 @@
     flashProto: HolyCorpseEffect
     implantDelay: 1.9
     sets:
-    - guardianProto: MobGuardianTuskOne
-      components: []
+    - guardianProto: MobGuardianStarPlatinum
+      components: 
+      - type: TimeStop
+        duration: 4
+        actionId: ActionAquilaTimeStopPt
+      - type: TimeStopImmune
+      - type: JumpAbility
 
 - type: entity
   name: holy corpse left hand
@@ -167,6 +173,16 @@
     - guardianProto: MobGuardianTheWorld
       components:
       - type: TimeStop
+      - type: TimeStopImmune
     - guardianProto: MobGuardianKingCrimson
       components:
       - type: ErasureTime
+    - guardianProto: WonderOfUm1
+      components: []
+    - guardianProto: MobGuardianStarPlatinum
+      components: 
+      - type: TimeStop
+        duration: 4
+        actionId: ActionAquilaTimeStopPt
+      - type: TimeStopImmune
+      - type: JumpAbility

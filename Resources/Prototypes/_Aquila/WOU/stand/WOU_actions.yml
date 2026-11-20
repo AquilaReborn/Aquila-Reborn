@@ -1,17 +1,4 @@
 - type: entity
-  id: WOUActionToggleForm
-  name: Переключить форму паразита
-  description: Меняет форму паразита между режимом 1 (Satoru Akefu) и режимом 2 (Wonder Of U).
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Action
-    icon: { sprite: _Aquila/Action/guardian.rsi, state: action_timestop }
-    itemIconStyle: BigItem
-    useDelay: 10
-  - type: InstantAction
-    event: !type:WOUToggleFormActionEvent
-
-- type: entity
   id: WOUActionBeeSphere
   name: A Minor Calamity
   description: Любой кто приблизится - встретит отпор разъяренных пчел.

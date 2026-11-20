@@ -1,12 +1,12 @@
 using Content.Server.Guardian;
 using Content.Shared.Actions;
-using Content.Shared.Aquila.WOU.RemoteHoloParasite;
+using Content.Shared._Aquila.WOU.RemoteHoloParasite;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Robust.Shared.Containers;
-using Robust.Shared.Prototypes; // <--- ИСПРАВЛЕНИЕ 1: Добавлено пространство имен для EntProtoId
+using Robust.Shared.Prototypes; 
 
-namespace Content.Server.Aquila.WOW; // Оставил ваш namespace, как в логе ошибок
+namespace Content.Server._Aquila.WOU; 
 
 public sealed class RemoteHoloParasiteSystem : EntitySystem
 {
@@ -35,7 +35,6 @@ public sealed class RemoteHoloParasiteSystem : EntitySystem
             if (marker.HostLinked)
                 continue;
 
-            // guardian.Host - это EntityUid?. Паттерн матчинг "is not { } host" безопасно извлекает из него обычный EntityUid.
             if (guardian.Host is not { } host || !Exists(host))
                 continue;
 
@@ -142,7 +141,6 @@ public sealed class RemoteHoloParasiteSystem : EntitySystem
 
     private void SwapMinds(EntityUid a, EntityUid b)
     {
-        // ИСПРАВЛЕНИЕ 2: Используем возвращаемый bool вместо .HasValue
         var hasMindA = _mind.TryGetMind(a, out var mindAId, out var mindAComp);
         var hasMindB = _mind.TryGetMind(b, out var mindBId, out var mindBComp);
 

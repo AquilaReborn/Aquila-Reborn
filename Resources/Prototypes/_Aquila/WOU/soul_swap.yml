@@ -5,7 +5,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon: { sprite: _Aquila\Mobs\Aliens\Guardians\guardianOrders.rsi, state: Action_soulswap1 }
+    icon: { sprite: _Aquila/Mobs/Aliens/Guardians/guardianOrders.rsi, state: Action_soulswap1 }
     itemIconStyle: BigItem
     useDelay: 1
   - type: InstantAction
@@ -18,7 +18,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
-    icon: { sprite: _Aquila\Mobs\Aliens\Guardians\guardianOrders.rsi, state: Action_soulswap2 }
+    icon: { sprite: _Aquila/Mobs/Aliens/Guardians/guardianOrders.rsi, state: Action_soulswap2 }
     itemIconStyle: BigItem
   - type: InstantAction
     event: !type:SoulSwapReturnActionEvent

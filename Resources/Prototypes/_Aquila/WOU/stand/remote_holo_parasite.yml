@@ -1,8 +1,8 @@
 - type: entity
-  name: Satoru Akefu
+  name: Wonder Of U
   id: WonderOfUm1
   parent: MobGuardianMeleeStaminaBase
-  description: An elderly man.
+  description: A dangerous Stand. Are you certain you can defeat it?
   save: false
   components:
   - type: RemoteHoloParasite
@@ -11,29 +11,19 @@
   - type: SwitchingParasite
   - type: Sprite
     drawdepth: Mobs
-    sprite: _Aquila\Mobs\Aliens\Guardians\WonderOfU.rsi
+    sprite: _Aquila/Mobs/Aliens/Guardians/WonderOfU.rsi
     layers:
-    - state: wou_mode1
+    - state: wou
       map: [ "enum.DamageStateVisualLayers.Base" ]
-    - state: wou_mode1_unshaded
+    - state: wou_unshaded
       map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
       shader: unshaded
     noRot: true
   - type: RandomSprite
     available: []
-  - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.WOUVisuals.State:
-        enum.DamageStateVisualLayers.Base:
-          ModeOne: { state: wou_mode1 }
-          ModeTwo: { state: wou_mode2 }
-        enum.DamageStateVisualLayers.BaseUnshaded:
-          ModeOne: { state: wou_mode1_unshaded }
-          ModeTwo: { state: wou_mode2_unshaded }
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.5
-    baseSprintSpeed: 4.5
+    baseWalkSpeed: 1.25
+    baseSprintSpeed: 2.25
   - type: MeleeWeapon
     hidden: false
     altDisarm: false
@@ -48,24 +38,7 @@
         Structural: 10
   - type: StaminaDamageOnHit
     damage: 8
-  - type: Hands
-    hands:
-      left: {}
-      right: {}
-  - type: FootstepModifier
-    footstepSoundCollection: !type:SoundCollectionSpecifier
-      collection: Footsteps
   - type: WOUParasiteMode
-
-- type: entity
-  name: Wonder Of U
-  id: WonderOfUm2
-  parent: WonderOfUm1
-  description: A dangerous Stand. Are you certain you can defeat it?
-  save: false
-  components:
-  - type: WOUParasiteMode
-    startInModeTwo: true
 
 - type: entity
   id: MobHumanSatoruAkefu
@@ -84,7 +57,7 @@
       height: 1.0213765
       barkVoice: Tenor
       tTSVoice: Candlebeard
-      oocNotes: ""
+      oocNotes: "Персонаж является врачом по образованию, спокойным и уверенным в своем превосходстве"
       appearance:
         skinColor: '#FFF2CCFF'
         markings:
@@ -105,6 +78,12 @@
         facialHair: FacialHairShaved
         facialHairColor: '#77572CFF'
         eyeColor: '#00B2C0FF'
+  - type: Barotrauma
+    damage:
+      types: {}
+  - type: Respirator
+    damage:
+      types: {}
   - type: PassiveDamage
     allowedStates:
     - Alive
