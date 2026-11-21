@@ -385,6 +385,40 @@
       - state: TheWorld-unshaded
         shader: unshaded
 
+# StarPlatinum
+- type: entity
+  name: Star Platinum
+  id: MobGuardianStarPlatinum
+  description: A majestic guardian capable of halting the flow of time!
+  parent: MobGuardianMeleeStaminaBase
+  components:
+  - type: GuardianAutoRetract
+  - type: TimeStopImmune
+  - type: StaminaDamageOnHit
+    damage: 10
+  - type: MeleeWeapon
+    hidden: false
+    altDisarm: false
+    animation: WeaponArcFist
+    attackRate: 3
+    autoAttack: true
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 0.25
+        Structural: 10
+  - type: Guardian
+    distanceAllowed: 2.5
+  - type: RandomSprite
+    available: []
+  - type: Sprite
+    sprite: _Aquila/Mobs/Aliens/Guardians/StarPlatinum.rsi
+    layers:
+      - state: StarPlatinum
+      - state: StarPlatinum-unshaded
+        shader: unshaded
+
 # D4C
 - type: entity
   name: D4C

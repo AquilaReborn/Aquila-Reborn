@@ -11,7 +11,7 @@
     event: !type:TimeStopActionEvent
 
 - type: entity
-  id: ActionAquilaTimeStopStarPlatinum
+  id: ActionAquilaTimeStopPt
   name: Time Stop
   description: Stop time for everyone except yourself!
   components:
