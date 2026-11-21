@@ -14,6 +14,11 @@
   - PKAUpgradeRange
   - PKAUpgradeFireRate
   - PKAUpgradeSpace
+  # Aquila Change start
+  - PickaxeUpgradeSpeed
+  - PickaxeUpgradeDamage
+  - PickaxeUpgradeRange
+  # Aquila Change end
   position: 1,0
   technologyPrerequisites:
   - SalvageWeapons

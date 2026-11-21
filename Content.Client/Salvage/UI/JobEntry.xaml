@@ -22,6 +22,16 @@
                             Text="{Loc 'bounty-console-label-button-text'}"
                             HorizontalExpand="False"
                             HorizontalAlignment="Center"/>
+                    <!-- Aquila Change: ClaimButton, StatusLabel -->
+                    <Button Name="ClaimButton"
+                            Text="{Loc 'bounty-console-claim-button-text'}"
+                            HorizontalExpand="False"
+                            HorizontalAlignment="Center"
+                            Margin="0 5 0 0"/>
+                    <RichTextLabel Name="StatusLabel"
+                                   StyleClasses="LabelSubText"
+                                   HorizontalAlignment="Center"
+                                   Margin="0 5 0 0"/>
                 </BoxContainer>
             </BoxContainer>
         </BoxContainer>

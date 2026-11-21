@@ -4,10 +4,11 @@ using Content.Shared.Procedural;
 
 namespace Content.Shared.Salvage.Magnet;
 
+#pragma warning disable CS0282 // Aquila Change
 /// <summary>
 /// Asteroid offered for the magnet.
 /// </summary>
-public record struct AsteroidOffering : ISalvageMagnetOffering
+public partial record struct AsteroidOffering : ISalvageMagnetOffering // Aquila Change
 {
     public string Id;
 
@@ -20,3 +21,4 @@ public record struct AsteroidOffering : ISalvageMagnetOffering
 
     uint ISalvageMagnetOffering.Cost => 0; // DeltaV
 }
+#pragma warning restore CS0282 // Aquila Change

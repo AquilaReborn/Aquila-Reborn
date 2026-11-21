@@ -1,0 +1,16 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseUpgradeableMiningTool
+  components:
+  - type: ItemUpgradeable
+  - type: ItemSlots
+    slots:
+      upgrade_slot:
+        name: weapon-upgrade-slot-name-special
+        swap: false
+        insertDelay: 1.2
+        ejectDelay: 0.9
+        whitelist:
+          tags:
+          - PickaxeUpgrade

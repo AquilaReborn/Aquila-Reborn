@@ -195,6 +195,7 @@ public sealed partial class SalvageSystem
         }
 
         data.Comp.EndTime = null;
+        data.Comp.ActiveDuration = null; // Aquila Change
         UpdateMagnetUIs(data);
     }
 
@@ -252,7 +253,7 @@ public sealed partial class SalvageSystem
             new SalvageMagnetBoundUserInterfaceState(dataComp.Offered)
             {
                 Cooldown = dataComp.OfferCooldown,
-                Duration = dataComp.ActiveTime,
+                Duration = GetMagnetActiveDuration(dataComp), // Aquila Change
                 EndTime = dataComp.EndTime,
                 NextOffer = dataComp.NextOffer,
                 ActiveSeed = dataComp.ActiveSeed,
@@ -274,7 +275,7 @@ public sealed partial class SalvageSystem
                 new SalvageMagnetBoundUserInterfaceState(data.Comp.Offered)
                 {
                     Cooldown = data.Comp.OfferCooldown,
-                    Duration = data.Comp.ActiveTime,
+                    Duration = GetMagnetActiveDuration(data.Comp), // Aquila Change
                     EndTime = data.Comp.EndTime,
                     NextOffer = data.Comp.NextOffer,
                     ActiveSeed = data.Comp.ActiveSeed,
@@ -296,7 +297,8 @@ public sealed partial class SalvageSystem
 
         // Set values while awaiting asteroid dungeon if relevant so we can't double-take offers.
         data.Comp.ActiveSeed = seed;
-        data.Comp.EndTime = _timing.CurTime + data.Comp.ActiveTime;
+        data.Comp.ActiveDuration = GetAsteroidEventDuration(offering); // Aquila Change
+        data.Comp.EndTime = _timing.CurTime + GetMagnetActiveDuration(data.Comp); // Aquila Change
         data.Comp.NextOffer = data.Comp.EndTime.Value;
         UpdateMagnetUIs(data);
 
@@ -414,7 +416,8 @@ public sealed partial class SalvageSystem
             }
         }
 
-        Report(magnet.Owner, MagnetChannel, "salvage-system-announcement-arrived", ("timeLeft", data.Comp.ActiveTime.TotalSeconds));
+        var timeLeft = GetMagnetActiveDuration(data.Comp); // Aquila Change
+        Report(magnet.Owner, MagnetChannel, "salvage-system-announcement-arrived", ("timeLeft", timeLeft.TotalSeconds)); // Aquila Change
         _mapSystem.DeleteMap(salvMapXform.MapID);
 
         data.Comp.Announced = false;

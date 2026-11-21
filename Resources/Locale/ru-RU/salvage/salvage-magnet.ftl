@@ -36,6 +36,9 @@ dungeon-config-proto-BlobAsteroid = Астероидный массив
 dungeon-config-proto-ClusterAsteroid = Астероидный кластер
 dungeon-config-proto-SpindlyAsteroid = Астероидная спираль
 dungeon-config-proto-SwissCheeseAsteroid = Фрагменты астероидов
+# Aquila Change
+salvage-magnet-asteroid-event = { $asteroid } ({ $event })
+asteroid-event-proto-MobNest = гнездо
 # Wrecks
 salvage-map-wreck = Обломок для утилизации
 salvage-map-wreck-desc-size = Размер:

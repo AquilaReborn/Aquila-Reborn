@@ -594,7 +594,7 @@
     - GrenadeTriggersStatic
     - SecurityWeaponsStaticGoob
     - SecurityAmmoStaticCorvaxGoob # Corvax-Goob-UncleStyopa
-    - SecurityArmorPlateStatic # Aquila # Aquila Change
+    - SecurityArmorPlateStatic # Aquila Change
     dynamicPacks:
     - SalvageSecurityBoards
     - SalvageSecurityWeapons

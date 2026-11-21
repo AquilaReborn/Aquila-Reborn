@@ -15,7 +15,7 @@ using Content.Shared.Throwing;
 namespace Content.Shared.Administration;
 
 // TODO deduplicate with BlockMovementComponent
-public sealed class AdminFrozenSystem : EntitySystem
+public sealed partial class AdminFrozenSystem : EntitySystem // Aquila Change
 {
     [Dependency] private readonly ActionBlockerSystem _blocker = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
@@ -27,7 +27,7 @@ public sealed class AdminFrozenSystem : EntitySystem
         SubscribeLocalEvent<AdminFrozenComponent, ThrowAttemptEvent>(OnAttempt);
         SubscribeLocalEvent<AdminFrozenComponent, InteractionAttemptEvent>(OnInteractAttempt);
         SubscribeLocalEvent<AdminFrozenComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<AdminFrozenComponent, ComponentShutdown>(UpdateCanMove);
+        SubscribeLocalEvent<AdminFrozenComponent, ComponentShutdown>(UpdateCanMoveShutdown); // Aquila Change
         SubscribeLocalEvent<AdminFrozenComponent, UpdateCanMoveEvent>(OnUpdateCanMove);
         SubscribeLocalEvent<AdminFrozenComponent, PullAttemptEvent>(OnPullAttempt);
         SubscribeLocalEvent<AdminFrozenComponent, AttackAttemptEvent>(OnAttempt);

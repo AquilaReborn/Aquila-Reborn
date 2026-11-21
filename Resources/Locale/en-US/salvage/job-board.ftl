@@ -45,3 +45,6 @@ bounty-description-salvage-ore-bananium = We have an ongoing project to decode t
 bounty-description-remains = We need you to get a sample of a few Hivelord cores. Be aware that Hivelords can replicate infinitely if the core is not destroyed. Take care not to get overwhelmed.
 bounty-description-plates = We need you to get a couple sheets of Goliath hide. These guys are pretty slow, but be careful about the tentacles: they'll grab you and pull you to the ground. You don't want to know what happens next.
 bounty-description-diamond = We need you to acquire a few diamonds for some advanced fabrication. These can either be found in the mining asteroid nearby or cut out of the basilisk creature. Whichever way you want to do it, get us some.
+
+# Aquila Change
+job-board-need-claim = Take the quota on the job board first.

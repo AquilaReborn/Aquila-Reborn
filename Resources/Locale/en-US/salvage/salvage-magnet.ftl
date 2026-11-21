@@ -39,6 +39,9 @@ dungeon-config-proto-BlobAsteroid = Asteroid clump
 dungeon-config-proto-ClusterAsteroid = Asteroid cluster
 dungeon-config-proto-SpindlyAsteroid = Asteroid spiral
 dungeon-config-proto-SwissCheeseAsteroid = Asteroid fragments
+# Aquila Change
+salvage-magnet-asteroid-event = { $asteroid } ({ $event })
+asteroid-event-proto-MobNest = nest
 
 # Wrecks
 salvage-map-wreck = Salvage wreck

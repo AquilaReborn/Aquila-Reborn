@@ -6,7 +6,7 @@ using Robust.Client.UserInterface;
 namespace Content.Client.Salvage.UI;
 
 [UsedImplicitly]
-public sealed class SalvageJobBoardBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
+public sealed partial class SalvageJobBoardBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey) // Aquila Change
 {
     [ViewVariables]
     private SalvageJobBoardMenu? _menu;
@@ -21,6 +21,8 @@ public sealed class SalvageJobBoardBoundUserInterface(EntityUid owner, Enum uiKe
         {
             SendMessage(new JobBoardPrintLabelMessage(id));
         };
+
+        AquilaBindClaim(_menu); // Aquila Change
     }
 
     protected override void UpdateState(BoundUserInterfaceState message)
@@ -30,6 +32,6 @@ public sealed class SalvageJobBoardBoundUserInterface(EntityUid owner, Enum uiKe
         if (message is not SalvageJobBoardConsoleState state)
             return;
 
-        _menu?.Update(state);
+        AquilaStoreState(state); // Aquila Change
     }
 }

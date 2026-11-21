@@ -123,9 +123,9 @@ public abstract partial class SharedTurnstileSystem : EntitySystem
         var rotateAngle = rot.ToWorldVec().ToAngle();
 
         var diff = Math.Abs(approachAngle - rotateAngle);
-        diff %= MathHelper.TwoPi;
+        diff %= MathF.PI * 2f; // Aquila Change
         if (diff > Math.PI)
-            diff = MathHelper.TwoPi - diff;
+            diff = MathF.PI * 2f - diff; // Aquila Change
 
         return diff < Math.PI / 4;
     }

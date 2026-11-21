@@ -1,0 +1,13 @@
+- type: asteroidEvent
+  id: Quiet
+  weight: 10
+
+- type: asteroidEvent
+  id: MobNest
+  weight: 1
+  duration: 8m
+  layers:
+  - !type:MobsDunGen
+    minCount: 2
+    maxCount: 4
+    contents: SalvageMagnetMobTable

@@ -45,6 +45,7 @@ vending-paid-purchased = Charged { $price } cr.
 bank-transaction-bonus = Bonus from { $party }
 bank-transaction-fine = Fine from { $party }
 bank-transaction-with-comment = { $reason } ({ $comment })
+bank-transaction-personal-contract = Personal contract premium
 bank-notification-charge = -{ $amount } { $amount ->
     [one] credit
    *[other] credits

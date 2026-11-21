@@ -3,6 +3,7 @@
   recipes:
   - ArmorPlateBallistic
   - ArmorPlateBlunt
+  - ArmorPlateSlash
 
 - type: latheRecipe
   parent: BaseToolRecipe
@@ -15,5 +16,12 @@
   parent: BaseToolRecipe
   id: ArmorPlateBlunt
   result: ArmorPlateBlunt
+  materials:
+    Steel: 500
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: ArmorPlateSlash
+  result: ArmorPlateSlash
   materials:
     Steel: 500

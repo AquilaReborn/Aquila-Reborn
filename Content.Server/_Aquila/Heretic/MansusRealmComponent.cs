@@ -1,5 +1,6 @@
 using Content.Shared.Maps;
 using Robust.Shared.Audio;
+using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Aquila.Heretic;
@@ -77,13 +78,13 @@ public sealed partial class MansusRealmComponent : Component
     /// Начальный интервал между одиночными руками.
     /// </summary>
     [DataField]
-    public float StartInterval = 1.5f;
+    public TimeSpan StartInterval = TimeSpan.FromSeconds(1.4);
 
     /// <summary>
     /// Конечный интервал между одиночными руками, плавно достигается к концу испытания.
     /// </summary>
     [DataField]
-    public float EndInterval = 0.55f;
+    public TimeSpan EndInterval = TimeSpan.FromSeconds(0.5);
 
     /// <summary>
     /// Множитель паузы перед следующим тяжёлым паттерном.
@@ -92,16 +93,16 @@ public sealed partial class MansusRealmComponent : Component
     public float HeavyIntervalMultiplier = 2.5f;
 
     /// <summary>
-    /// Через сколько секунд активной фазы открываются тяжёлые паттерны.
+    /// Через сколько времени активной фазы открываются тяжёлые паттерны.
     /// </summary>
     [DataField]
-    public float PatternUnlockTime = 8f;
+    public TimeSpan PatternUnlockTime = TimeSpan.FromSeconds(8);
 
     /// <summary>
-    /// Через сколько секунд активной фазы открывается паттерн стены.
+    /// Через сколько времени активной фазы открывается паттерн стены.
     /// </summary>
     [DataField]
-    public float WallUnlockTime = 20f;
+    public TimeSpan WallUnlockTime = TimeSpan.FromSeconds(20);
 
     /// <summary>
     /// Вес веера при выборе тяжёлого паттерна.
@@ -161,7 +162,7 @@ public sealed partial class MansusRealmComponent : Component
     /// Добавка к времени полёта рук при расчёте блокировки следующего паттерна.
     /// </summary>
     [DataField]
-    public float LockoutPadding = 0.3f;
+    public TimeSpan LockoutPadding = TimeSpan.FromSeconds(0.3);
 
     /// <summary>
     /// Количество рун по периметру платформы.
@@ -240,6 +241,12 @@ public sealed partial class MansusRealmComponent : Component
     /// </summary>
     [ViewVariables]
     public EntityUid? ReturnStation;
+
+    /// <summary>
+    /// Координаты места ритуала, вокруг которого жертве нужно восстановить видимость после возврата.
+    /// </summary>
+    [ViewVariables]
+    public EntityCoordinates? RitualCoords;
 
     /// <summary>
     /// Сущность звукового потока музыки испытания.

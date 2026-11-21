@@ -223,6 +223,7 @@
     maxRank:
       title: salvage-job-rank-title-MAX
       unlockedMarket: SalvageJobRewardMAX
+  - type: PersonalContract # Aquila Change
 
 - type: entity
   id: BaseStationSiliconLawCrewsimov

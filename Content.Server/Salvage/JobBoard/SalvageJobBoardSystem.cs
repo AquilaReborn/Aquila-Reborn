@@ -20,7 +20,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Salvage.JobBoard;
 
-public sealed class SalvageJobBoardSystem : EntitySystem
+public sealed partial class SalvageJobBoardSystem : EntitySystem // Aquila Change
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
@@ -46,6 +46,7 @@ public sealed class SalvageJobBoardSystem : EntitySystem
             subs =>
             {
                 subs.Event<JobBoardPrintLabelMessage>(OnPrintLabelMessage);
+                subs.Event<JobBoardClaimMessage>(OnClaimMessage); // Aquila Change
             });
     }
 
@@ -179,6 +180,8 @@ public sealed class SalvageJobBoardSystem : EntitySystem
                 _cargo.CreateAccountDistribution((ent,  stationBankAccount)));
         }
 
+        _contracts.TryPay(ent, job); // Aquila Change
+
         // We ranked up!
         if (oldRank != newRank)
         {
@@ -251,6 +254,7 @@ public sealed class SalvageJobBoardSystem : EntitySystem
             return;
 
         UpdateUi(ent, (station, jobData));
+        SendMineUiAquila(ent, (station, jobData), args.Actor); // Aquila Change
     }
 
     private void OnPrintLabelMessage(Entity<SalvageJobBoardConsoleComponent> ent, ref JobBoardPrintLabelMessage args)
@@ -267,6 +271,8 @@ public sealed class SalvageJobBoardSystem : EntitySystem
 
         if (!GetAvailableJobs((station, jobsData)).Contains(args.JobId))
             return;
+
+        if (!CanPrintLabelAquila(station, args.Actor, job)) return; // Aquila Change
 
         _audio.PlayPvs(ent.Comp.PrintSound, ent);
         var label = SpawnAtPosition(ent.Comp.LabelEntity, Transform(ent).Coordinates);
@@ -286,11 +292,14 @@ public sealed class SalvageJobBoardSystem : EntitySystem
 
     private void UpdateUi(Entity<SalvageJobBoardConsoleComponent> ent, Entity<SalvageJobsDataComponent> stationEnt)
     {
-        var state = new SalvageJobBoardConsoleState(
-            GetRank(stationEnt).Title,
-            GetRankProgression(stationEnt),
-            GetAvailableJobs(stationEnt));
-
-        _ui.SetUiState(ent.Owner, SalvageJobBoardUiKey.Key, state);
+        // Aquila Change start
+        // var state = new SalvageJobBoardConsoleState(
+        //     GetRank(stationEnt).Title,
+        //     GetRankProgression(stationEnt),
+        //     GetAvailableJobs(stationEnt));
+        //
+        // _ui.SetUiState(ent.Owner, SalvageJobBoardUiKey.Key, state);
+        UpdateUiAquila(ent, stationEnt); // Aquila Change
+        // Aquila Change end
     }
 }

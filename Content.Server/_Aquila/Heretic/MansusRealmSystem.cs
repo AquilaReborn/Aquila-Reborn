@@ -25,6 +25,7 @@ using Content.Shared.Parallax;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.StatusEffectNew;
+using Robust.Server.GameStates;
 using Robust.Server.Player;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Enums;
@@ -41,33 +42,13 @@ namespace Content.Server._Aquila.Heretic;
 
 public sealed class MansusRealmSystem : EntitySystem
 {
-    private enum MansusPattern : byte
-    {
-        Single,
-        Fan,
-        Pincer,
-        Wall,
-    }
-
-    private static readonly EntProtoId ForcedSleep = "StatusEffectForcedSleeping";
-    private static readonly LocId VictimSentMessage = "mansus-trial-victim-sent";
-    private static readonly LocId ReportPassedMessage = "mansus-trial-report-passed";
-    private static readonly LocId ReportFailedMessage = "mansus-trial-report-failed";
-    private static readonly LocId RealmMapName = "mansus-realm-map-name";
-    private static readonly LocId RealmArrival = "mansus-realm-arrival";
-    private static readonly LocId RealmFall = "mansus-realm-fall";
-    private static readonly LocId RealmLeaving = "mansus-realm-leaving";
-    private static readonly LocId RealmReturn = "mansus-realm-return";
-    private static readonly LocId ReturnMessageLoc = "influence-base-message";
-    private const int ReturnMessageSize = 22;
-    private const int RuneGlyphs = 12;
-
     [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly GhostSystem _ghost = default!;
     [Dependency] private readonly HeightAdjustSystem _heightAdjust = default!;
@@ -88,11 +69,29 @@ public sealed class MansusRealmSystem : EntitySystem
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly TileSystem _tileSystem = default!;
 
+    private static readonly EntProtoId ForcedSleep = "StatusEffectForcedSleeping";
+    private static readonly LocId VictimSentMessage = "mansus-trial-victim-sent";
+    private static readonly LocId ReportPassedMessage = "mansus-trial-report-passed";
+    private static readonly LocId ReportFailedMessage = "mansus-trial-report-failed";
+    private static readonly LocId RealmMapName = "mansus-realm-map-name";
+    private static readonly LocId RealmArrival = "mansus-realm-arrival";
+    private static readonly LocId RealmFall = "mansus-realm-fall";
+    private static readonly LocId RealmLeaving = "mansus-realm-leaving";
+    private static readonly LocId RealmReturn = "mansus-realm-return";
+    private static readonly LocId ReturnMessageLoc = "influence-base-message";
+    private const int ReturnMessageSize = 22;
+    private const int RuneGlyphs = 12;
+
+    private readonly HashSet<EntityUid> _pvsVisionBuffer = new();
+    private readonly HashSet<EntityUid> _pvsAnchorBuffer = new();
+    private readonly List<EntityUid> _pvsEntitiesBuffer = new();
+
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<MansusVictimComponent, MobStateChangedEvent>(OnVictimMobStateChanged);
+        SubscribeLocalEvent<MansusReturnVisionComponent, ExpandPvsEvent>(OnExpandPvs);
     }
 
     /// <summary>
@@ -104,6 +103,9 @@ public sealed class MansusRealmSystem : EntitySystem
     /// <returns><see langword="true"/>, если жертву удалось отправить.</returns>
     public bool TrySendToMansus(EntityUid victim, EntityUid? returnStation, EntityUid? heretic = null)
     {
+        if (HasComp<MansusVictimComponent>(victim) || TryGetOpenRealm(victim, out _))
+            return false;
+
         if (!_mind.TryGetMind(victim, out var mindId, out var mind)
             || mind.UserId is not { } userId
             || !_player.TryGetSessionById(userId, out var victimSession)
@@ -187,12 +189,14 @@ public sealed class MansusRealmSystem : EntitySystem
         victimComp.ArrivalTime = now;
         Dirty(copy, victimComp);
         EnsureComp<MansusTouchedComponent>(mindId);
+        var ritualCoords = Transform(victim).Coordinates;
         _mind.TransferTo(mindId, copy, mind: mind);
 
         realm.Victim = copy;
         realm.Mind = mindId;
         realm.Grid = grid;
         realm.ReturnStation = returnStation;
+        realm.RitualCoords = ritualCoords;
         realm.Heretic = heretic;
         realm.StartTime = now;
         realm.NextHand = now + realm.GracePeriod;
@@ -205,6 +209,22 @@ public sealed class MansusRealmSystem : EntitySystem
         var sentMessage = Loc.GetString(VictimSentMessage);
         _chat.ChatMessageToOne(ChatChannel.Server, sentMessage, sentMessage, default, false, victimSession.Channel, canCoalesce: false);
         return true;
+    }
+
+    private bool TryGetOpenRealm(EntityUid victim, out Entity<MansusRealmComponent> realm)
+    {
+        var query = EntityQueryEnumerator<MansusRealmComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (comp.Finished || comp.Victim != victim)
+                continue;
+
+            realm = (uid, comp);
+            return true;
+        }
+
+        realm = default;
+        return false;
     }
 
     public override void Update(float frameTime)
@@ -253,29 +273,73 @@ public sealed class MansusRealmSystem : EntitySystem
 
             var progress = Math.Clamp((float) (elapsed / realm.SurviveDuration), 0f, 1f);
             LightRunes(realm, (int) (progress * realm.RuneCount));
-            var interval = MathHelper.Lerp(realm.StartInterval, realm.EndInterval, progress);
-            var elapsedSeconds = (float) elapsed.TotalSeconds;
+            var intervalSeconds = MathHelper.Lerp((float) realm.StartInterval.TotalSeconds, (float) realm.EndInterval.TotalSeconds, progress);
 
             if (now >= realm.NextHand)
             {
                 SpawnPattern(realm, MansusPattern.Single);
-                realm.NextHand = now + TimeSpan.FromSeconds(interval);
+                realm.NextHand = now + TimeSpan.FromSeconds(intervalSeconds);
             }
 
-            if (elapsedSeconds >= realm.PatternUnlockTime && now >= realm.NextHeavy)
+            if (elapsed >= realm.PatternUnlockTime && now >= realm.NextHeavy)
             {
-                var heavy = PickHeavyPattern(realm, elapsedSeconds);
+                var heavy = PickHeavyPattern(realm, elapsed);
                 var (cost, lockout) = SpawnPattern(realm, heavy);
-                realm.NextHeavy = now + TimeSpan.FromSeconds(MathF.Max(interval * cost * realm.HeavyIntervalMultiplier, lockout));
+                var heavyDelay = TimeSpan.FromSeconds(intervalSeconds * cost * realm.HeavyIntervalMultiplier);
+                realm.NextHeavy = now + (heavyDelay > lockout ? heavyDelay : lockout);
 
-                var lockoutEnd = now + TimeSpan.FromSeconds(lockout);
+                var lockoutEnd = now + lockout;
                 if (heavy == MansusPattern.Wall && realm.NextHand < lockoutEnd)
                     realm.NextHand = lockoutEnd;
             }
         }
+
+        var visionQuery = EntityQueryEnumerator<MansusReturnVisionComponent, TransformComponent>();
+        while (visionQuery.MoveNext(out var visionUid, out var vision, out var xform))
+        {
+            if (now - vision.StartedAt >= vision.ExpireAfter)
+            {
+                RemCompDeferred<MansusReturnVisionComponent>(visionUid);
+                continue;
+            }
+
+            if (TerminatingOrDeleted(visionUid) || _mobState.IsDead(visionUid))
+            {
+                RemCompDeferred<MansusReturnVisionComponent>(visionUid);
+                continue;
+            }
+
+            if (vision.Anchor is not { } anchor)
+            {
+                RemCompDeferred<MansusReturnVisionComponent>(visionUid);
+                continue;
+            }
+
+            if (!Exists(anchor.EntityId))
+            {
+                RemCompDeferred<MansusReturnVisionComponent>(visionUid);
+                continue;
+            }
+
+            if (!xform.Coordinates.TryDistance(EntityManager, _transform, anchor, out var distance)
+                || distance > vision.Radius)
+            {
+                vision.InRangeSince = null;
+                continue;
+            }
+
+            if (vision.InRangeSince is not { } inRangeSince)
+            {
+                vision.InRangeSince = now;
+                continue;
+            }
+
+            if (now - inRangeSince >= vision.ClearDelay)
+                RemCompDeferred<MansusReturnVisionComponent>(visionUid);
+        }
     }
 
-    private MansusPattern PickHeavyPattern(MansusRealmComponent realm, float elapsed)
+    private MansusPattern PickHeavyPattern(MansusRealmComponent realm, TimeSpan elapsed)
     {
         var options = new List<(MansusPattern Pattern, float Weight)>
         {
@@ -298,10 +362,10 @@ public sealed class MansusRealmSystem : EntitySystem
         return options[^1].Pattern;
     }
 
-    private (float Cost, float Lockout) SpawnPattern(MansusRealmComponent realm, MansusPattern pattern)
+    private (float Cost, TimeSpan Lockout) SpawnPattern(MansusRealmComponent realm, MansusPattern pattern)
     {
         var speed = _random.NextFloat(realm.MinHandSpeed, realm.MaxHandSpeed);
-        var handLockout = (realm.SpawnRadius - realm.PlatformSize / 2f) / speed + realm.LockoutPadding;
+        var handLockout = TimeSpan.FromSeconds((realm.SpawnRadius - realm.PlatformSize / 2f) / speed) + realm.LockoutPadding;
         switch (pattern)
         {
             case MansusPattern.Fan:
@@ -346,7 +410,7 @@ public sealed class MansusRealmSystem : EntitySystem
             {
                 var start = RandomEdge(realm);
                 SpawnHand(realm, start, (RandomPlatformPoint(realm) - start).Normalized(), speed);
-                return (1f, 0f);
+                return (1f, TimeSpan.Zero);
             }
         }
     }
@@ -451,6 +515,30 @@ public sealed class MansusRealmSystem : EntitySystem
         Finish((mapUid, realm), false);
     }
 
+    private void OnExpandPvs(Entity<MansusReturnVisionComponent> ent, ref ExpandPvsEvent args)
+    {
+        var flags = LookupFlags.Dynamic | LookupFlags.Static | LookupFlags.Sundries;
+
+        _pvsVisionBuffer.Clear();
+        _lookup.GetEntitiesInRange(ent.Owner, ent.Comp.Radius, _pvsVisionBuffer, flags);
+
+        _pvsAnchorBuffer.Clear();
+        if (ent.Comp.Anchor is { } anchor && Exists(anchor.EntityId))
+            _lookup.GetEntitiesInRange(anchor, ent.Comp.Radius, _pvsAnchorBuffer, flags);
+
+        if (_pvsVisionBuffer.Count == 0 && _pvsAnchorBuffer.Count == 0)
+            return;
+
+        if (args.Entities == null)
+        {
+            _pvsEntitiesBuffer.Clear();
+            args.Entities = _pvsEntitiesBuffer;
+        }
+
+        args.Entities.AddRange(_pvsVisionBuffer);
+        args.Entities.AddRange(_pvsAnchorBuffer);
+    }
+
     private void Finish(Entity<MansusRealmComponent> realm, bool survived)
     {
         realm.Comp.Finished = true;
@@ -480,6 +568,11 @@ public sealed class MansusRealmSystem : EntitySystem
 
         _transform.SetCoordinates(victim, coords);
         _transform.AttachToGridOrMap(victim);
+
+        var vision = EnsureComp<MansusReturnVisionComponent>(victim);
+        vision.Anchor = realm.RitualCoords;
+        vision.StartedAt = _timing.CurTime;
+        vision.InRangeSince = null;
 
         SpawnAttachedTo(realm.ReturnEffect, coords);
         _audio.PlayPvs(realm.ReturnSound, coords);

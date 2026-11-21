@@ -1,0 +1,32 @@
+- type: latheRecipe
+  id: PickaxeUpgradeSpeed
+  result: PickaxeUpgradeSpeed
+  categories:
+  - Tools
+  completetime: 10
+  materials:
+    Steel: 1500
+    Silver: 500
+    Gold: 500
+
+- type: latheRecipe
+  id: PickaxeUpgradeDamage
+  result: PickaxeUpgradeDamage
+  categories:
+  - Tools
+  completetime: 10
+  materials:
+    Steel: 2500
+    Silver: 1000
+    Gold: 1000
+
+- type: latheRecipe
+  id: PickaxeUpgradeRange
+  result: PickaxeUpgradeRange
+  categories:
+  - Tools
+  completetime: 10
+  materials:
+    Steel: 1500
+    Silver: 500
+    Gold: 500

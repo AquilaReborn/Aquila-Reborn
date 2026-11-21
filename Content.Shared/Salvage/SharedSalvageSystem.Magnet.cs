@@ -74,12 +74,16 @@ public abstract partial class SharedSalvageSystem
                     layers[ore] = layerCount;
                 }
 
-                return new AsteroidOffering
+                var offering = new AsteroidOffering // Aquila Change
                 {
                     Id = configId,
                     DungeonConfig = config,
                     MarkerLayers = layers,
                 };
+
+                ApplyAsteroidEvent(ref offering, rand); // Aquila Change
+
+                return offering; // Aquila Change
             case DebrisOffering:
                 var id = rand.Pick(_debrisConfigs);
                 return new DebrisOffering

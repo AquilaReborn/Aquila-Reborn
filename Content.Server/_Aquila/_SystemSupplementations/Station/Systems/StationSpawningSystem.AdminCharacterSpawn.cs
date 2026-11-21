@@ -23,7 +23,7 @@ public sealed partial class StationSpawningSystem
         if (!_prototypeManager.TryIndex<SpeciesPrototype>(profile.Species, out var species))
             throw new ArgumentException($"Invalid species prototype was used: {profile.Species}");
 
-        var uid = Spawn(species.Prototype, coordinates);
+        var uid = SpawnAttachedTo(species.Prototype, coordinates);
         ApplyAdminPresetLayers(uid, preset);
 
         _humanoidSystem.LoadProfile(uid, profile);

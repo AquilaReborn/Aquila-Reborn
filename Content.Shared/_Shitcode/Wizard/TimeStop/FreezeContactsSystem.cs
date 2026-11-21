@@ -25,7 +25,7 @@ using Robust.Shared.Spawners;
 
 namespace Content.Shared._Goobstation.Wizard.TimeStop;
 
-public sealed class FreezeContactsSystem : EntitySystem
+public sealed partial class FreezeContactsSystem : EntitySystem // Aquila Change
 {
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
@@ -49,7 +49,7 @@ public sealed class FreezeContactsSystem : EntitySystem
         SubscribeLocalEvent<FrozenComponent, ThrowAttemptEvent>(OnAttempt);
         SubscribeLocalEvent<FrozenComponent, InteractionAttemptEvent>(OnInteractAttempt);
         SubscribeLocalEvent<FrozenComponent, ComponentStartup>(MoveUpdate);
-        SubscribeLocalEvent<FrozenComponent, ComponentShutdown>(MoveUpdate);
+        SubscribeLocalEvent<FrozenComponent, ComponentShutdown>(MoveUpdateShutdown); // Aquila Change
         SubscribeLocalEvent<FrozenComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<FrozenComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<FrozenComponent, UpdateCanMoveEvent>(OnUpdateCanMove);

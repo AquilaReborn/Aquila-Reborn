@@ -23,8 +23,8 @@ public sealed class MansusRealmOverlaySystem : EntitySystem
         _fadeOverlay = new MansusFadeOverlay();
         _overlay.AddOverlay(_armOverlay);
 
-        SubscribeLocalEvent<MansusVictimComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<MansusVictimComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<MansusVictimComponent, ComponentStartup>(OnComponentStartup);
+        SubscribeLocalEvent<MansusVictimComponent, ComponentShutdown>(OnComponentShutdown);
         SubscribeLocalEvent<MansusVictimComponent, LocalPlayerAttachedEvent>(OnPlayerAttached);
         SubscribeLocalEvent<MansusVictimComponent, LocalPlayerDetachedEvent>(OnPlayerDetached);
     }
@@ -38,32 +38,41 @@ public sealed class MansusRealmOverlaySystem : EntitySystem
         _overlay.RemoveOverlay(_fadeOverlay);
     }
 
-    private void OnStartup(Entity<MansusVictimComponent> ent, ref ComponentStartup args)
+    private void OnComponentStartup(Entity<MansusVictimComponent> ent, ref ComponentStartup args)
     {
         if (_player.LocalEntity != ent.Owner)
             return;
 
-        _overlay.AddOverlay(_realmOverlay);
-        _overlay.AddOverlay(_fadeOverlay);
+        SetActive(true);
     }
 
-    private void OnShutdown(Entity<MansusVictimComponent> ent, ref ComponentShutdown args)
+    private void OnComponentShutdown(Entity<MansusVictimComponent> ent, ref ComponentShutdown args)
     {
         if (_player.LocalEntity != ent.Owner)
             return;
 
-        _overlay.RemoveOverlay(_realmOverlay);
-        _overlay.RemoveOverlay(_fadeOverlay);
+        SetActive(false);
     }
 
     private void OnPlayerAttached(Entity<MansusVictimComponent> ent, ref LocalPlayerAttachedEvent args)
     {
-        _overlay.AddOverlay(_realmOverlay);
-        _overlay.AddOverlay(_fadeOverlay);
+        SetActive(true);
     }
 
     private void OnPlayerDetached(Entity<MansusVictimComponent> ent, ref LocalPlayerDetachedEvent args)
     {
+        SetActive(false);
+    }
+
+    private void SetActive(bool active)
+    {
+        if (active)
+        {
+            _overlay.AddOverlay(_realmOverlay);
+            _overlay.AddOverlay(_fadeOverlay);
+            return;
+        }
+
         _overlay.RemoveOverlay(_realmOverlay);
         _overlay.RemoveOverlay(_fadeOverlay);
     }

@@ -35,3 +35,8 @@
   - PKAUpgradeRange
   - PKAUpgradeFireRate
   - PKAUpgradeSpace
+  # Aquila Change start
+  - PickaxeUpgradeSpeed
+  - PickaxeUpgradeDamage
+  - PickaxeUpgradeRange
+  # Aquila Change end

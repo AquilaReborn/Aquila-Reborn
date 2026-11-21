@@ -23,3 +23,8 @@ bounty-console-tab-history-label = История
 bounty-console-history-empty-label = История запросов не найдена
 bounty-console-history-notice-completed-label = [color=limegreen]Выполнено[/color]
 bounty-console-history-notice-skipped-label = [color=red]Пропущено[/color] { $id }
+
+# Aquila Change
+bounty-console-claim-button-text = Взять квоту
+bounty-console-contract-taken-you = Взято вами
+bounty-console-contract-taken-other = Взято другим сотрудником

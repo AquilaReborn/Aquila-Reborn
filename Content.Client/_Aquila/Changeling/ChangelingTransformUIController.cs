@@ -71,7 +71,7 @@ public sealed class ChangelingTransformUIController : UIController
 
     private EntityUid CreatePreview(ChangelingTransformAppearance appearance)
     {
-        var preview = EntityManager.SpawnEntity(_prototypes.Index(appearance.Species).DollPrototype, MapCoordinates.Nullspace);
+        var preview = EntityManager.Spawn(_prototypes.Index(appearance.Species).DollPrototype, MapCoordinates.Nullspace);
         var humanoid = EntityManager.GetComponent<HumanoidAppearanceComponent>(preview);
         humanoid.Species = appearance.Species;
         humanoid.Sex = appearance.Sex;

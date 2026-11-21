@@ -11,7 +11,7 @@ using Robust.Client.UserInterface.Controls;
 
 namespace Content.Client.Salvage.UI;
 
-public sealed class SalvageMagnetBoundUserInterface : BoundUserInterface
+public sealed partial class SalvageMagnetBoundUserInterface : BoundUserInterface // Aquila Change
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IPlayerManager _player = default!; // DeltaV
@@ -86,7 +86,7 @@ public sealed class SalvageMagnetBoundUserInterface : BoundUserInterface
             switch (offer)
             {
                 case AsteroidOffering asteroid:
-                    option.Title = Loc.GetString($"dungeon-config-proto-{asteroid.Id}");
+                    option.Title = GetAsteroidOfferingTitle(asteroid); // Aquila Change
                     var layerKeys = asteroid.MarkerLayers.Keys.ToList();
                     layerKeys.Sort();
 

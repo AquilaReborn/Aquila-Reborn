@@ -86,3 +86,11 @@
     sprite: _Aquila/Clothing/Security/SecAgent/secagentcoat.rsi
   - type: Clothing
     sprite: _Aquila/Clothing/Security/SecAgent/secagentcoat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.9
+        Caustic: 0.95

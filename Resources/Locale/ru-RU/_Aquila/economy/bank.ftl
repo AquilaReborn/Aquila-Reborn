@@ -52,6 +52,7 @@ vending-paid-purchased = Списано { $price } кр.
 bank-transaction-bonus = Премия от { $party }
 bank-transaction-fine = Штраф от { $party }
 bank-transaction-with-comment = { $reason } ({ $comment })
+bank-transaction-personal-contract = Премия за личный контракт
 bank-notification-charge = -{ $amount } { $amount ->
     [one] кредит
     [few] кредита

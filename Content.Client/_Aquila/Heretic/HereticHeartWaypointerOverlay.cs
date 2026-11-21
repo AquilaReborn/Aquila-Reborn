@@ -63,7 +63,7 @@ public sealed class HereticHeartWaypointerOverlay : Overlay
         var t = maxRange > 0f ? Math.Clamp(distance / maxRange, 0f, 1f) : 1f;
         var index = Math.Clamp(MarkerStateCount - (int) MathF.Floor(t * MarkerStateCount), 1, MarkerStateCount);
         var color = Color.InterpolateBetween(Color.Lime, Color.Red, t);
-        var angle = direction.ToWorldAngle() + MathHelper.Pi;
+        var angle = direction.ToWorldAngle() + MathF.PI;
 
         var texture = GetTexture(index);
         var center = userPosition + direction * offset;

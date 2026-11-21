@@ -22,7 +22,8 @@
             Asphyxiation: -1
             Bloodloss: -1
         conditions:
-        - !type:ReagentThresholdCondition
+        - !type:ReagentCondition # Aquila Change
+          reagent: MinersSalve
           max: 21
         - !type:PressureThresholdCondition
           min: 20
@@ -53,7 +54,8 @@
             Poison: -1
             Radiation: -0.5
         conditions:
-        - !type:ReagentThresholdCondition
+        - !type:ReagentCondition # Aquila Change
+          reagent: Luxurium
           max: 21
         - !type:PressureThresholdCondition
           min: 20

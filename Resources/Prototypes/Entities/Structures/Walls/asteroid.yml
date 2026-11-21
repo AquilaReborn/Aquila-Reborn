@@ -258,6 +258,10 @@
       sprite: Structures/Walls/stone-ore.rsi
       map: [ "enum.MiningScannerVisualLayers.Overlay" ]
       visible: false # Lavaland Change
+  - type: RadiationSource # Aquila Change
+    intensity: 0.2 # Aquila Change
+    terminalDecayDistance: 3 # Aquila Change
+    terminalDecaySlope: 0.1 # Aquila Change
 
 - type: entity
   abstract: true

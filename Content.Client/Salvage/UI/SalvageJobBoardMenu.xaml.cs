@@ -21,7 +21,7 @@ public sealed partial class SalvageJobBoardMenu : FancyWindow
         IoCManager.InjectDependencies(this);
     }
 
-    public void Update(SalvageJobBoardConsoleState state)
+    public void Update(SalvageJobBoardConsoleState state, HashSet<string> mine) // Aquila Change
     {
         RankLabel.SetMarkup(Loc.GetString(state.Title));
         RankProgressBar.Value = state.Progression;
@@ -30,6 +30,7 @@ public sealed partial class SalvageJobBoardMenu : FancyWindow
         foreach (var job in state.AvailableJobs)
         {
             var entry = new JobEntry(_prototypeManager.Index(job), _entityManager);
+            AquilaBindClaim(entry, job, state, mine); // Aquila Change
             entry.OnLabelButtonPressed += () => OnLabelButtonPressed?.Invoke(job);
 
             CurrentJobContainer.AddChild(entry);

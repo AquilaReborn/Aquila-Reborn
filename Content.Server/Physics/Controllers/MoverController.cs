@@ -465,7 +465,7 @@ public sealed class MoverController : SharedMoverController
                     var vec = offsetRotation.RotateVec(strafe);
 
                     if (!_skills.HasSkill(pilotUid, Skills.ShuttleControl))
-                        vec = (vec + new Angle(_timer * MathHelper.Pi / Period).RotateVec(new(0, 1.2f))).Normalized() / 2;
+                        vec = (vec + new Angle(_timer * MathF.PI / Period).RotateVec(new(0, 1.2f))).Normalized() / 2; // Aquila Change
 
                     linearInput += vec;
                     // CorvaxGoob-Skills-End

@@ -84,7 +84,7 @@ namespace Content.Server.Solar.EntitySystems
         private void RandomizeSun()
         {
             // Initialize the sun to something random
-            TowardsSun = MathHelper.TwoPi * _robustRandom.NextDouble();
+            TowardsSun = Math.PI * 2 * _robustRandom.NextDouble(); // Aquila Change
             SunAngularVelocity = Angle.FromDegrees(0.1 + ((_robustRandom.NextDouble() - 0.5) * 0.05));
         }
 

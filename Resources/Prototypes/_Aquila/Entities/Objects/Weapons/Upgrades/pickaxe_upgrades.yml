@@ -1,0 +1,76 @@
+- type: entity
+  abstract: true
+  parent: [BaseItem, BaseSecurityCargoContraband]
+  id: BasePickaxeUpgrade
+  name: mining tool modkit
+  description: A modkit for a pickaxe or a mining drill.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Objects/Weapons/upgrade.rsi
+  - type: Item
+    size: Small
+  - type: ItemUpgrade
+  - type: StaticPrice
+    price: 750
+  - type: Tag
+    tags:
+    - PickaxeUpgrade
+
+- type: entity
+  parent: BasePickaxeUpgrade
+  id: PickaxeUpgradeSpeed
+  name: mining tool modkit (speed)
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay-1
+      color: "#bbf134"
+    - state: overlay-2
+      color: "#07901b"
+    - state: overlay-3
+      color: "#9bf134"
+  - type: ItemUpgrade
+    name: pickaxe-upgrade-speed-name
+  - type: WeaponUpgradeSpeed
+    attackRateMultiplier: 1.5
+
+- type: entity
+  parent: BasePickaxeUpgrade
+  id: PickaxeUpgradeDamage
+  name: mining tool modkit (damage)
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay-1
+      color: "#ec9b2d"
+    - state: overlay-2
+      color: "#a71010"
+    - state: overlay-3
+      color: "#eb4c13"
+  - type: ItemUpgrade
+    name: pickaxe-upgrade-damage-name
+  - type: WeaponUpgradeDamage
+    bonusDamage:
+      types:
+        Structural: 25
+
+- type: entity
+  parent: BasePickaxeUpgrade
+  id: PickaxeUpgradeRange
+  name: mining tool modkit (range)
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay-1
+      color: "#2decec"
+    - state: overlay-2
+      color: "#1012a7"
+    - state: overlay-3
+      color: "#1373eb"
+  - type: ItemUpgrade
+    name: pickaxe-upgrade-range-name
+  - type: WeaponUpgradeRange
+    rangeMultiplier: 1.4

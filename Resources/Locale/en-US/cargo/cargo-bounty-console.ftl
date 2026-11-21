@@ -26,3 +26,8 @@ bounty-console-tab-history-label = History
 bounty-console-history-empty-label = No bounty history found
 bounty-console-history-notice-completed-label = [color=limegreen]Completed[/color]
 bounty-console-history-notice-skipped-label = [color=red]Skipped[/color] by {$id}
+
+# Aquila Change
+bounty-console-claim-button-text = Take quota
+bounty-console-contract-taken-you = Taken by you
+bounty-console-contract-taken-other = Taken by another crew member
