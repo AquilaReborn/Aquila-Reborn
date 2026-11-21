@@ -8,7 +8,7 @@ public sealed partial class WOUBeeSphereComponent : Component
     [DataField] public TimeSpan Lifetime = TimeSpan.FromSeconds(5);
     [DataField] public float Radius = 4f;
     [DataField] public int MaxBees = 15;
-    [DataField] public string BeeProto = "WOUBeeLicoxideAggressive";
+    [DataField] public EntProtoId BeeProto = "WOUBeeLicoxideAggressive";
     [DataField] public float BeeLifetime = 10f;
 
     [ViewVariables] public TimeSpan ExpiresAt;

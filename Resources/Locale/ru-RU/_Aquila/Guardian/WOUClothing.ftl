@@ -1,15 +1,11 @@
 
-ent-HatAquilaBowler = шляпа-котелок
+ent-ClothingHeadHatAquilaBowler = шляпа-котелок
     .desc = Стильный и немного старомодный котелок. Придаёт образу загадочности.
-ent-ScarfAquilaRed = красный шарф
+ent-ClothingNeckScarfAquilaRed = красный шарф
     .desc = Тёплый красный шарф. Идеально подходит для прохладных коридоров станции.
-ent-JumpsuitAquilaBusiness = деловой костюм
+ent-ClothingUniformJumpsuitAquilaBusiness = деловой костюм
     .desc = Строгий деловой костюм. Говорит о серьёзных намерениях своего владельца.
-ent-PDASatoru = КПК пассажира
+ent-PassengerPDASatoru = КПК пассажира
     .desc = Персональный цифровой помощник. Принадлежит Сатору Акефу.
-ent-IDCardSatoru = ID-карта Сатору Акефу
+ent-PassengerIDCardSatoru = ID-карта Сатору Акефу
     .desc = Карта, необходимая для доступа к различным областям станции. Принадлежит Сатору Акефу.
-ent- = 
-    .desc = 
-ent- = 
-    .desc = 
