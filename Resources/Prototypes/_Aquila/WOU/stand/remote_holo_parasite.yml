@@ -1,0 +1,106 @@
+- type: entity
+  name: Wonder Of U
+  id: WonderOfUm1
+  parent: MobGuardianMeleeStaminaBase
+  description: A dangerous Stand. Are you certain you can defeat it?
+  save: false
+  components:
+  - type: RemoteHoloParasite
+  - type: Guardian
+    distanceAllowed: 250
+  - type: SwitchingParasite
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Aquila/Mobs/Aliens/Guardians/WonderOfU.rsi
+    layers:
+    - state: wou
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+    - state: wou_unshaded
+      map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      shader: unshaded
+    noRot: true
+  - type: RandomSprite
+    available: []
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.25
+    baseSprintSpeed: 2.25
+  - type: MeleeWeapon
+    hidden: false
+    altDisarm: false
+    animation: WeaponArcFist
+    attackRate: 1.8
+    autoAttack: true
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 0.25
+        Structural: 10
+  - type: StaminaDamageOnHit
+    damage: 8
+  - type: WOUParasiteMode
+
+- type: entity
+  id: MobHumanSatoruAkefu
+  parent: MobHuman
+  name: Сатору Акефу
+  components:
+  - type: SwitchingHumanProfile
+    profile:
+      name: Сатору Акефу
+      species: Human
+      sex: Male
+      gender: Male
+      age: 89
+      flavorText: "Высокий пожилой мужчина с бледной кожей, седыми волосами и глубокими морщинами у глаз. Его бирюзовый взгляд спокоен и непроницаем, словно он знает нечто, недоступное другим."
+      width: 1.0067092
+      height: 1.0213765
+      barkVoice: Tenor
+      tTSVoice: Candlebeard
+      oocNotes: "Персонаж является врачом по образованию, спокоен и уверен в своем превосходстве"
+      appearance:
+        skinColor: '#FFF2CCFF'
+        markings:
+        - markingColor:
+          - '#E6DCB9FF'
+          visible: true
+          markingId: HumanoidEyebags
+        - markingColor:
+          - '#E6DCB9FF'
+          visible: true
+          markingId: FaceCrowLeft
+        - markingColor:
+          - '#E6DCB9FF'
+          visible: true
+          markingId: FaceCrowRight
+        hair: HumanHairCombover
+        hairColor: '#B0B0B0FF'
+        facialHair: FacialHairShaved
+        facialHairColor: '#77572CFF'
+        eyeColor: '#00B2C0FF'
+  - type: Barotrauma
+    damage:
+      types: {}
+  - type: Respirator
+    damage:
+      types: {}
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    - Critical
+    - Dead
+    interval: 1
+    damage:
+      types:
+        Blunt: -0.5
+        Slash: -0.5
+        Piercing: -0.5
+        Heat: -0.5
+        Cold: -0.5
+        Shock: -0.5
+        Poison: -0.5
+        Radiation: -0.5
+        Asphyxiation: -2
+        Bloodloss: -2
+        Cellular: -0.5
+        Caustic: -0.5

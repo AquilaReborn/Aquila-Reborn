@@ -15,6 +15,12 @@
     },
     {
       "name": "guardianOrderFollow"
+    },
+    {
+      "name": "Action_soulswap1"
+    },
+    {
+      "name": "Action_soulswap2"
     }
     ]
 }

@@ -1,0 +1,61 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatAquilaBowler
+  name: HatAquilaBowler
+  description: HatBowlerAquila
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/Head/bowler_hat.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Head/bowler_hat.rsi
+
+- type: entity
+  parent: ClothingScarfBase
+  id: ClothingNeckScarfAquilaRed
+  name: ScarfAquilaRed
+  description: ScarfRedAquila
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/Neck/red_scarf.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Neck/red_scarf.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitAquilaBusiness
+  name: JumpsuitAquilaBusiness
+  description: JumpsuitBusinessAquila
+  components:
+  - type: Sprite
+    sprite: _Aquila/Clothing/Uniforms/business_suit.rsi
+  - type: Clothing
+    sprite: _Aquila/Clothing/Uniforms/business_suit.rsi
+
+- type: entity
+  parent: PassengerPDA
+  id: PassengerPDASatoru
+  name: PDASatoru
+  description: SatoruPDA
+  components:
+  - type: ContainerFill
+    containers:
+      PDA-id: [ PassengerIDCardSatoru ]
+
+- type: entity
+  parent: PassengerIDCard
+  id: PassengerIDCardSatoru
+  name: IDCardSatoru
+  description: SatoruIDCard
+  components:
+  - type: PresetIdCard
+    job: Passenger
+
+- type: startingGear
+  id: SatoruAkefuGear
+  equipment:
+    head: ClothingHeadHatAquilaBowler
+    jumpsuit: ClothingUniformJumpsuitAquilaBusiness
+    neck: ClothingNeckScarfAquilaRed
+    gloves: ClothingHandsGlovesColorWhite
+    shoes: ClothingShoesColorWhite
+    id: PassengerPDASatoru
