@@ -246,6 +246,58 @@
     - FoodBanana
 # obaldui
 
+# taburet29
+- type: loadout
+  id: PersonalLoadoutSatoruBowler
+  replace: true
+  effects:
+  - !type:PersonalLoadoutEffect
+    users:
+    - f944c8e2-f059-4833-9dbb-3ecca19da31d
+  equipment:
+    head: ClothingHeadHatAquilaBowler
+
+- type: loadout
+  id: PersonalLoadoutSatoruScarf
+  replace: true
+  effects:
+  - !type:PersonalLoadoutEffect
+    users:
+    - f944c8e2-f059-4833-9dbb-3ecca19da31d
+  equipment:
+    neck: ClothingNeckScarfAquilaRed
+
+- type: loadout
+  id: PersonalLoadoutSatoruSuit
+  replace: true
+  effects:
+  - !type:PersonalLoadoutEffect
+    users:
+    - f944c8e2-f059-4833-9dbb-3ecca19da31d
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitAquilaBusiness
+
+- type: loadout
+  id: PersonalLoadoutSatoruGloves
+  replace: true
+  effects:
+  - !type:PersonalLoadoutEffect
+    users:
+    - f944c8e2-f059-4833-9dbb-3ecca19da31d
+  equipment:
+    gloves: ClothingHandsGlovesColorWhite
+
+- type: loadout
+  id: PersonalLoadoutSatoruShoes
+  replace: true
+  effects:
+  - !type:PersonalLoadoutEffect
+    users:
+    - f944c8e2-f059-4833-9dbb-3ecca19da31d
+  equipment:
+    shoes: ClothingShoesColorWhite
+# taburet29
+
 # Ckey
 # something
 # Ckey
