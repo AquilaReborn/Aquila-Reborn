@@ -1,0 +1,54 @@
+using Content.Server._Aquila.Heretic.Systems;
+using Robust.Shared.Audio;
+
+namespace Content.Server._Aquila.Heretic.Components;
+
+/// <summary>
+/// Полное зрение еретика, которое держится некоторое время после появления сдвига реальности рядом с ним,
+/// и кулдаун на повторное срабатывание.
+/// </summary>
+[RegisterComponent, Access(typeof(HereticRealityShiftVisionSystem))]
+public sealed partial class RealityShiftVisionComponent : Component
+{
+    /// <summary>
+    /// Звук, который играет еретику при включении полного зрения.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier TriggerSound = new SoundPathSpecifier("/Audio/_Goobstation/Hallucinations/i_see_you1.ogg");
+
+    /// <summary>
+    /// Сколько полное зрение держится с момента срабатывания; повторный сдвиг продлевает его на столько же.
+    /// </summary>
+    [DataField]
+    public TimeSpan VisionDuration = TimeSpan.FromSeconds(7);
+
+    /// <summary>
+    /// Сколько после окончания зрения еретик не может получить его снова.
+    /// </summary>
+    [DataField]
+    public TimeSpan CooldownDuration = TimeSpan.FromMinutes(2);
+
+    /// <summary>
+    /// Идёт ли сейчас полное зрение.
+    /// </summary>
+    [ViewVariables]
+    public bool Active;
+
+    /// <summary>
+    /// Значение FOV на момент срабатывания, которое возвращается после окончания эффекта.
+    /// </summary>
+    [ViewVariables]
+    public bool OriginalDrawFov = true;
+
+    /// <summary>
+    /// Момент, до которого у еретика держится полное зрение.
+    /// </summary>
+    [ViewVariables]
+    public TimeSpan EndTime;
+
+    /// <summary>
+    /// Момент, до которого новое полное зрение не выдаётся, пока эффект не идёт.
+    /// </summary>
+    [ViewVariables]
+    public TimeSpan CooldownUntil;
+}
