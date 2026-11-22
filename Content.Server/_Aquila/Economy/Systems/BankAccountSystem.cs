@@ -367,6 +367,9 @@ public sealed class BankAccountSystem : EntitySystem
         if (account.Value.Comp.PinNotified || (account.Value.Comp.OwnerUid is { } known && known != owner))
             return;
 
+        if (account.Value.Comp.Pin == BankAccountComponent.NoPin)
+            return;
+
         account.Value.Comp.OwnerUid = owner;
         ShowPin(account.Value, idCard.Owner, session);
     }

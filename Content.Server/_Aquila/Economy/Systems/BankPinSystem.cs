@@ -17,15 +17,17 @@ public sealed class BankPinSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
+    /// <summary>
+    /// Сообщение о том, что ввод PIN счёта заблокирован после неудачных попыток.
+    /// </summary>
+    public static readonly LocId PinLockedMessage = "bank-pin-locked";
+
     private static readonly LocId PinDialogTitle = "bank-pin-dialog-title";
     private static readonly LocId PinDialogPrompt = "bank-pin-prompt";
     private static readonly LocId WrongPinMessage = "bank-pin-wrong";
-    private static readonly LocId LockedPinMessage = "bank-pin-locked";
 
     private const int FailedPinAlertThreshold = 3;
     private static readonly TimeSpan FailedPinWindow = TimeSpan.FromMinutes(5);
-    private static readonly TimeSpan FailedPinLockout = TimeSpan.FromSeconds(2);
-    private static readonly TimeSpan FailedPinSeriesLockout = TimeSpan.FromSeconds(30);
 
     /// <summary>
     /// Проверяет, заблокирован ли ввод PIN счёта после неудачных попыток.
@@ -105,7 +107,7 @@ public sealed class BankPinSystem : EntitySystem
             },
             () =>
             {
-                _popup.PopupEntity(Loc.GetString(LockedPinMessage), source, user);
+                _popup.PopupEntity(Loc.GetString(PinLockedMessage), source, user);
                 denyFeedback?.Invoke();
             });
     }
@@ -190,12 +192,12 @@ public sealed class BankPinSystem : EntitySystem
 
         if (account.FailedPinAttempts < FailedPinAlertThreshold)
         {
-            account.PinLockoutUntil = now + FailedPinLockout;
+            account.PinLockoutUntil = now + account.FailedPinLockout;
             return;
         }
 
         account.FailedPinAttempts = 0;
-        account.PinLockoutUntil = now + FailedPinSeriesLockout;
+        account.PinLockoutUntil = now + account.FailedPinSeriesLockout;
         var ev = new BankPinFailedEvent(owner);
         RaiseLocalEvent(ref ev);
     }

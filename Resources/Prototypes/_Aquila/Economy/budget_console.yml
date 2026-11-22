@@ -1,9 +1,9 @@
 - type: entity
   parent: BaseComputer
   id: BudgetConsole
-  name: ent-BudgetConsole
+  name: budget console
   suffix: Экономика
-  description: ent-BudgetConsole.desc
+  description: A terminal with the log of station budget transactions.
   components:
   - type: Sprite
     sprite: Structures/Machines/computers.rsi

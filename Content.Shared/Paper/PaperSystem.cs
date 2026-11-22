@@ -199,11 +199,7 @@ public sealed partial class PaperSystem : EntitySystem // Goob
         if (ev.Cancelled)
             return;
 
-        if (entity.Comp.EditingDisabled) // Aquila Change
-        {
-            _popupSystem.PopupClient(Loc.GetString("paper-tamper-proof-modified-message"), entity, args.Actor); // Aquila Change
-            return; // Aquila Change
-        } // Aquila Change
+        if (AquilaBlocksEditing(entity, args.Actor)) return; // Aquila Change
 
         if (args.Text.Length <= entity.Comp.ContentSize)
         {

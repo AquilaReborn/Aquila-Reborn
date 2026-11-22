@@ -232,13 +232,13 @@ public sealed partial class RadioSystem : EntitySystem
 
         while (canSend && radioQuery.MoveNext(out var receiver, out var radio, out var transform))
         {
-            if (!radio.ReceiveAllChannels)
+            if (!radio.ReceiveAllChannels && !(AquilaIsShowChannel(channel) && AquilaShowReceiver(receiver))) // Aquila Change
             {
                 if (!radio.Channels.Contains(channel.ID) || (TryComp<IntercomComponent>(receiver, out var intercom) &&
                                                              !intercom.SupportedChannels.Contains(channel.ID)))
                     continue;
             }
-            if (!HasComp<GhostComponent>(receiver) && GetFrequency(receiver, channel) != frequency) // Nuclear-14
+            if (!HasComp<GhostComponent>(receiver) && !AquilaIsShowChannel(channel) && GetFrequency(receiver, channel) != frequency) // Aquila Change | Nuclear-14
                 continue;
 
             if (!channel.LongRange && transform.MapID != sourceMapId && !radio.GlobalReceive

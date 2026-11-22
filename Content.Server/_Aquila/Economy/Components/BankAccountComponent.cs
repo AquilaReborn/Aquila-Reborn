@@ -102,6 +102,18 @@ public sealed partial class BankAccountComponent : Component
     public TimeSpan PinLockoutUntil;
 
     /// <summary>
+    /// На сколько блокируется ввод PIN счёта после одной неверной попытки.
+    /// </summary>
+    [DataField]
+    public TimeSpan FailedPinLockout = TimeSpan.FromSeconds(2);
+
+    /// <summary>
+    /// На сколько блокируется ввод PIN счёта после серии неверных попыток за короткое время.
+    /// </summary>
+    [DataField]
+    public TimeSpan FailedPinSeriesLockout = TimeSpan.FromSeconds(30);
+
+    /// <summary>
     /// Владелец счёта, которому показывают PIN. Заполняется при открытии счёта, если владельца уже можно найти.
     /// </summary>
     [ViewVariables]

@@ -1,9 +1,9 @@
 - type: entity
   parent: BaseItem
   id: PaymentTerminal
-  name: ent-PaymentTerminal
+  name: payment terminal
   suffix: Экономика
-  description: ent-PaymentTerminal.desc
+  description: Takes card payments on the spot and records the payment purpose in the transaction history.
   components:
   - type: Sprite
     sprite: _Aquila/Objects/Economy/payment_terminal.rsi
@@ -12,6 +12,7 @@
     - state: unshaded
       shader: unshaded
   - type: PaymentTerminal
+    printSound: /Audio/Machines/short_print_and_rip.ogg
   - type: ActivatableUI
     key: enum.PaymentTerminalUiKey.Key
     singleUser: true
@@ -23,9 +24,9 @@
 - type: entity
   parent: PaymentTerminal
   id: PaymentTerminalSecurity
-  name: ent-PaymentTerminalSecurity
+  name: fine terminal
   suffix: Экономика
-  description: ent-PaymentTerminalSecurity.desc
+  description: Issues Security fines and takes card payment into the department budget.
   components:
   - type: Sprite
     sprite: _Aquila/Objects/Economy/security_terminal.rsi

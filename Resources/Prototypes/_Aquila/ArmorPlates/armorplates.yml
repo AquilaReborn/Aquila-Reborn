@@ -10,8 +10,8 @@
 - type: entity
   parent: BaseItem
   id: ArmorPlateBallistic
-  name: ent-ArmorPlateBallistic
-  description: ent-ArmorPlateBallistic.desc
+  name: bulletproof armor plate
+  description: A heavy ceramic plate that absorbs the kinetic energy of bullets. Conveniently hangs on your jumpsuit.
   components:
   - type: ExaminableDamage
     messages: ArmorPlateMessages
@@ -45,8 +45,8 @@
 - type: entity
   parent: BaseItem
   id: ArmorPlateBlunt
-  name: ent-ArmorPlateBlunt
-  description: ent-ArmorPlateBlunt.desc
+  name: impact-resistant armor plate
+  description: A heavy ceramic plate that absorbs the kinetic energy of blunt strikes. Conveniently hangs on your jumpsuit.
   components:
   - type: ExaminableDamage
     messages: ArmorPlateMessages
@@ -80,8 +80,8 @@
 - type: entity
   parent: BaseItem
   id: ArmorPlateSlash
-  name: ent-ArmorPlateSlash
-  description: ent-ArmorPlateSlash.desc
+  name: slash-resistant armor plate
+  description: A heavy ceramic plate that absorbs the kinetic energy of slashing strikes. Conveniently hangs on your jumpsuit.
   components:
   - type: ExaminableDamage
     messages: ArmorPlateMessages

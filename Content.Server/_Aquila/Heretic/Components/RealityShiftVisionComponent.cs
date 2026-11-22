@@ -7,7 +7,7 @@ namespace Content.Server._Aquila.Heretic.Components;
 /// Полное зрение еретика, которое держится некоторое время после появления сдвига реальности рядом с ним,
 /// и кулдаун на повторное срабатывание.
 /// </summary>
-[RegisterComponent, Access(typeof(HereticRealityShiftVisionSystem))]
+[RegisterComponent, Access(typeof(HereticRealityShiftVisionSystem)), AutoGenerateComponentPause]
 public sealed partial class RealityShiftVisionComponent : Component
 {
     /// <summary>
@@ -35,7 +35,7 @@ public sealed partial class RealityShiftVisionComponent : Component
     public bool Active;
 
     /// <summary>
-    /// Значение FOV на момент срабатывания, которое возвращается после окончания эффекта.
+    /// Был ли FOV включён у еретика до срабатывания эффекта: это значение возвращается после его окончания.
     /// </summary>
     [ViewVariables]
     public bool OriginalDrawFov = true;
@@ -43,12 +43,12 @@ public sealed partial class RealityShiftVisionComponent : Component
     /// <summary>
     /// Момент, до которого у еретика держится полное зрение.
     /// </summary>
-    [ViewVariables]
+    [ViewVariables, AutoPausedField]
     public TimeSpan EndTime;
 
     /// <summary>
     /// Момент, до которого новое полное зрение не выдаётся, пока эффект не идёт.
     /// </summary>
-    [ViewVariables]
+    [ViewVariables, AutoPausedField]
     public TimeSpan CooldownUntil;
 }

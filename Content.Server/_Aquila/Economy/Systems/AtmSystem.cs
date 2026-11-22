@@ -41,7 +41,6 @@ public sealed class AtmSystem : EntitySystem
     private static readonly LocId InsufficientFundsMessage = "bank-transfer-insufficient";
     private static readonly LocId BankPinInvalidMessage = "bank-pin-invalid";
     private static readonly LocId BankPinWrongMessage = "bank-pin-wrong";
-    private static readonly LocId BankPinLockedMessage = "bank-pin-locked";
     private static readonly LocId BankPinNoneMessage = "bank-pin-none";
     private static readonly LocId BankPinChangedMessage = "bank-pin-changed";
     private static readonly LocId SecurityLevelInvalidMessage = "atm-security-level-invalid";
@@ -140,7 +139,7 @@ public sealed class AtmSystem : EntitySystem
 
         if (_bankPin.IsPinLocked(account.AsNullable()))
         {
-            Refuse(ent, args.Actor, Loc.GetString(BankPinLockedMessage));
+            Refuse(ent, args.Actor, Loc.GetString(BankPinSystem.PinLockedMessage));
             return;
         }
 

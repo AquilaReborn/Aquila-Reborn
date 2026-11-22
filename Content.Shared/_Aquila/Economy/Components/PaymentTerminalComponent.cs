@@ -97,8 +97,8 @@ public sealed partial class PaymentTerminalComponent : Component
     public int MaxAmount = 100000;
 
     /// <summary>
-    /// Звук, который играет при печати чека.
+    /// Звук, который играет при печати чека. Если не задан, чек печатается без звука.
     /// </summary>
     [DataField]
-    public SoundSpecifier PrintSound = new SoundPathSpecifier("/Audio/Machines/short_print_and_rip.ogg");
+    public SoundSpecifier? PrintSound;
 }

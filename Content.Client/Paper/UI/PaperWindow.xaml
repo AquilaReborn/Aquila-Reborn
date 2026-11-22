@@ -36,7 +36,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                     </BoxContainer>
                     <paper:StampCollection Name="StampDisplay" VerticalAlignment="Bottom" Margin="6"/>
                     <!-- Aquila Change -->
-                    <TextureRect Name="PaperStampImage" HorizontalAlignment="Right" VerticalAlignment="Bottom" HorizontalExpand="False" VerticalExpand="False" Margin="8" MouseFilter="Ignore" Stretch="KeepAspectCentered" SetSize="72 72" Visible="False"/>
+                    <TextureRect Name="PaperStampImage" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="8" MouseFilter="Ignore" Stretch="KeepAspectCentered" SetSize="72 72" Visible="False"/>
 
                 </PanelContainer>
             </ScrollContainer>

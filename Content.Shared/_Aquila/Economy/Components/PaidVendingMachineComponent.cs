@@ -3,12 +3,11 @@ using Content.Shared.Access;
 using Content.Shared.Cargo.Prototypes;
 using Content.Shared.Contraband;
 using Robust.Shared.Audio;
-using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Aquila.Economy.Components;
 
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedPaidVendingMachineSystem))]
+[RegisterComponent, Access(typeof(SharedPaidVendingMachineSystem))]
 public sealed partial class PaidVendingMachineComponent : Component
 {
     /// <summary>

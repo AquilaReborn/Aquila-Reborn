@@ -162,20 +162,7 @@ namespace Content.Client.Paper.UI
             FooterImage.Margin = new Thickness(visuals.FooterMargin.Left, visuals.FooterMargin.Top,
                     visuals.FooterMargin.Right, visuals.FooterMargin.Bottom);
 
-            // Aquila Change start
-            if (visuals.StampImagePath is { } stampImagePath)
-            {
-                PaperStampImage.Texture = _resCache.GetResource<TextureResource>(stampImagePath);
-                PaperStampImage.Visible = true;
-            }
-            else
-            {
-                PaperStampImage.Texture = null;
-                PaperStampImage.Visible = false;
-            }
-
-            PaperStampImage.ModulateSelfOverride = visuals.StampImageModulate;
-            // Aquila Change end
+            ApplyReceiptStamp(visuals); // Aquila Change
 
             PaperContent.ModulateSelfOverride = visuals.ContentImageModulate;
             WrittenTextLabel.ModulateSelfOverride = visuals.FontAccentColor;

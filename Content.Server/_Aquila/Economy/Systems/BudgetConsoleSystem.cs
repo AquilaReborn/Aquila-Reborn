@@ -28,6 +28,7 @@ public sealed class BudgetConsoleSystem : EntitySystem
 
     /// <summary>
     /// Обновляет открытые консоли станции, если с прошлого обновления прошло достаточно времени.
+    /// Если времени прошло мало, консоль запоминает, что её нужно обновить, и обновление не теряется.
     /// </summary>
     /// <param name="station">Станция, чей журнал бюджета изменился.</param>
     public void Refresh(EntityUid station)
@@ -36,13 +37,38 @@ public sealed class BudgetConsoleSystem : EntitySystem
         var query = EntityQueryEnumerator<BudgetConsoleComponent>();
         while (query.MoveNext(out var uid, out var console))
         {
-            if (now < console.NextUpdate
-                || _station.GetOwningStation(uid) != station
+            if (_station.GetOwningStation(uid) != station
                 || !_ui.IsUiOpen(uid, BudgetConsoleUiKey.Key))
                 continue;
 
+            if (now < console.NextUpdate)
+            {
+                console.UpdatePending = true;
+                continue;
+            }
+
             console.NextUpdate = now + UpdateInterval;
+            console.UpdatePending = false;
             UpdateUiState((uid, console));
+        }
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var now = _timing.CurTime;
+        var query = EntityQueryEnumerator<BudgetConsoleComponent>();
+        while (query.MoveNext(out var uid, out var console))
+        {
+            if (!console.UpdatePending || now < console.NextUpdate)
+                continue;
+
+            console.UpdatePending = false;
+            console.NextUpdate = now + UpdateInterval;
+
+            if (_ui.IsUiOpen(uid, BudgetConsoleUiKey.Key))
+                UpdateUiState((uid, console));
         }
     }
 

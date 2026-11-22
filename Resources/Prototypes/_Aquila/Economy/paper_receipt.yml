@@ -2,9 +2,9 @@
   parent: Paper
   id: PaperReceipt
   categories: [ HideSpawnMenu ]
-  name: ent-PaperReceipt
+  name: payment receipt
   suffix: Экономика
-  description: ent-PaperReceipt.desc
+  description: A receipt printed by a payment terminal with the last transaction.
   components:
   - type: Sprite
     sprite: Objects/Misc/bureaucracy.rsi

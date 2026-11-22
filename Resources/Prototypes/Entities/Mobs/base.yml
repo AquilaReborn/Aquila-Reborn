@@ -157,6 +157,7 @@
     soundHit:
       path: /Audio/Effects/hit_kick.ogg
   - type: Pullable
+    fixedRotation: true # Aquila Change
   - type: LightningTarget
     priority: 2
     lightningExplode: false

@@ -19,4 +19,11 @@ public sealed partial class BudgetConsoleComponent : Component
     /// </summary>
     [ViewVariables]
     public TimeSpan NextUpdate;
+
+    /// <summary>
+    /// Пришло ли событие, которое отбросили из-за троттлинга. Консоль обновляется, когда истечёт
+    /// <see cref="NextUpdate"/>, чтобы отброшенное изменение не потерялось.
+    /// </summary>
+    [ViewVariables]
+    public bool UpdatePending;
 }
