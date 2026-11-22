@@ -2,8 +2,9 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Server._Aquila.Economy.Components;
 using Content.Server.Administration.Logs;
 using Content.Server.Stack;
-using Content.Shared._Aquila.Economy;
+using Content.Shared._Aquila.Economy.BUI;
 using Content.Shared._Aquila.Economy.Systems;
+using Content.Shared._Aquila.Economy.Types;
 using Content.Shared.Access.Systems;
 using Content.Shared.Database;
 using Content.Shared.Hands.EntitySystems;
@@ -31,8 +32,20 @@ public sealed class AtmSystem : EntitySystem
     private static readonly LocId AtmFreeZoneMessage = "atm-free-zone";
     private static readonly LocId AtmOutOfRangeMessage = "shared-interaction-system-in-range-unobstructed-cannot-reach";
     private static readonly LocId AtmWithdrawUnavailableMessage = "atm-withdraw-unavailable";
+    private static readonly LocId AtmWithdrawLimitMessage = "atm-withdraw-limit";
+    private static readonly LocId AtmNoAccountMessage = "atm-no-account";
+    private static readonly LocId AtmDepositedMessage = "atm-deposited";
+    private static readonly LocId BankOfflineMessage = "bank-offline";
+    private static readonly LocId OpenAccountFailedMessage = "bank-open-account-failed";
+    private static readonly LocId OpenAccountSuccessMessage = "bank-open-account-success";
+    private static readonly LocId InsufficientFundsMessage = "bank-transfer-insufficient";
     private static readonly LocId BankPinInvalidMessage = "bank-pin-invalid";
     private static readonly LocId BankPinWrongMessage = "bank-pin-wrong";
+    private static readonly LocId BankPinLockedMessage = "bank-pin-locked";
+    private static readonly LocId BankPinNoneMessage = "bank-pin-none";
+    private static readonly LocId BankPinChangedMessage = "bank-pin-changed";
+    private static readonly LocId SecurityLevelInvalidMessage = "atm-security-level-invalid";
+    private static readonly LocId SecurityLevelSetMessage = "atm-security-level-set";
 
     public override void Initialize()
     {
@@ -59,18 +72,18 @@ public sealed class AtmSystem : EntitySystem
     {
         if (!_economyZone.IsEconomyEnabled())
         {
-            Refuse(ent, args.Actor, Loc.GetString("bank-offline"));
+            Refuse(ent, args.Actor, Loc.GetString(BankOfflineMessage));
             return;
         }
 
         if (!_idCard.TryFindIdCard(args.Actor, out var idCard) || !_bank.TryOpenAccount(idCard.Owner, Name(args.Actor), out var account))
         {
-            Refuse(ent, args.Actor, Loc.GetString("bank-open-account-failed"));
+            Refuse(ent, args.Actor, Loc.GetString(OpenAccountFailedMessage));
             return;
         }
 
         var number = account.Value.Comp.Number;
-        _popup.PopupEntity(Loc.GetString("bank-open-account-success", ("number", number.ToString())), ent, args.Actor);
+        _popup.PopupEntity(Loc.GetString(OpenAccountSuccessMessage, ("number", number.ToString())), ent, args.Actor);
         _adminLog.Add(LogType.Action, LogImpact.Low,
             $"{ToPrettyString(args.Actor):user} opened bank account {number} for {ToPrettyString(idCard):card} at {ToPrettyString(ent):atm}");
         UpdateUiState(ent, args.Actor);
@@ -102,7 +115,7 @@ public sealed class AtmSystem : EntitySystem
 
         if (!_bank.TryWithdraw(account.AsNullable(), amount, ent.Comp.WithdrawReason))
         {
-            Refuse(ent, user, Loc.GetString("bank-transfer-insufficient"));
+            Refuse(ent, user, Loc.GetString(InsufficientFundsMessage));
             UpdateUiState(ent, user);
             return;
         }
@@ -125,6 +138,12 @@ public sealed class AtmSystem : EntitySystem
         if (!TryGetActiveAccount(ent, args.Actor, out var account))
             return;
 
+        if (_bankPin.IsPinLocked(account.AsNullable()))
+        {
+            Refuse(ent, args.Actor, Loc.GetString(BankPinLockedMessage));
+            return;
+        }
+
         if (!_bank.TryChangePin(account.AsNullable(), args.OldPin, args.NewPin))
         {
             if (_bank.CheckPin(account.AsNullable(), args.OldPin))
@@ -138,7 +157,7 @@ public sealed class AtmSystem : EntitySystem
             return;
         }
 
-        _popup.PopupEntity(Loc.GetString("bank-pin-changed"), ent, args.Actor);
+        _popup.PopupEntity(Loc.GetString(BankPinChangedMessage), ent, args.Actor);
         UpdateUiState(ent, args.Actor);
     }
 
@@ -157,7 +176,7 @@ public sealed class AtmSystem : EntitySystem
 
         if (level > BankSecurityLevels.Open && account.Comp.Pin == BankAccountComponent.NoPin)
         {
-            Refuse(ent, user, Loc.GetString("bank-pin-none"));
+            Refuse(ent, user, Loc.GetString(BankPinNoneMessage));
             return;
         }
 
@@ -174,11 +193,11 @@ public sealed class AtmSystem : EntitySystem
 
         if (!_bank.TrySetSecurityLevel(account.AsNullable(), level, pin ?? BankAccountComponent.NoPin))
         {
-            Refuse(ent, user, Loc.GetString("atm-security-level-invalid"));
+            Refuse(ent, user, Loc.GetString(SecurityLevelInvalidMessage));
             return;
         }
 
-        _popup.PopupEntity(Loc.GetString("atm-security-level-set", ("level", Loc.GetString(BankSecurityLevels.GetName(level)))), ent, user);
+        _popup.PopupEntity(Loc.GetString(SecurityLevelSetMessage, ("level", Loc.GetString(BankSecurityLevels.GetName(level)))), ent, user);
         UpdateUiState(ent, user);
     }
 
@@ -196,7 +215,7 @@ public sealed class AtmSystem : EntitySystem
 
         if (!TryGetUserAccount(args.User, out var account))
         {
-            Refuse(ent, args.User, Loc.GetString("atm-no-account"));
+            Refuse(ent, args.User, Loc.GetString(AtmNoAccountMessage));
             return;
         }
 
@@ -205,7 +224,7 @@ public sealed class AtmSystem : EntitySystem
         QueueDel(args.Used);
 
         _audio.PlayPvs(ent.Comp.DepositSound, ent);
-        _popup.PopupEntity(Loc.GetString("atm-deposited", ("amount", amount)), ent, args.User);
+        _popup.PopupEntity(Loc.GetString(AtmDepositedMessage, ("amount", amount)), ent, args.User);
 
         var number = account.Value.Comp.Number;
         _adminLog.Add(LogType.Action, LogImpact.Low,
@@ -223,7 +242,7 @@ public sealed class AtmSystem : EntitySystem
 
         if (!TryGetUserAccount(user, out var found))
         {
-            Refuse(ent, user, Loc.GetString("atm-no-account"));
+            Refuse(ent, user, Loc.GetString(AtmNoAccountMessage));
             return false;
         }
 
@@ -239,14 +258,14 @@ public sealed class AtmSystem : EntitySystem
         if (!_bank.CanWithdrawCash(account.AsNullable(), amount, out var limit))
         {
             Refuse(ent, user, limit > 0
-                ? Loc.GetString("atm-withdraw-limit", ("limit", limit))
+                ? Loc.GetString(AtmWithdrawLimitMessage, ("limit", limit))
                 : Loc.GetString(AtmWithdrawUnavailableMessage));
             return false;
         }
 
         if (amount <= 0 || account.Comp.Balance < amount)
         {
-            Refuse(ent, user, Loc.GetString("bank-transfer-insufficient"));
+            Refuse(ent, user, Loc.GetString(InsufficientFundsMessage));
             UpdateUiState(ent, user);
             return false;
         }

@@ -64,6 +64,20 @@ public sealed partial class PaperVisualsComponent : Component
     [DataField]
     public ResPath? FooterImagePath;
 
+    // Aquila Change start
+    /// <summary>
+    /// Путь к картинке печати, которая рисуется в правом нижнем углу листа бумаги.
+    /// </summary>
+    [DataField("stampImagePath")]
+    public ResPath? StampImagePath;
+
+    /// <summary>
+    /// Цвет, которым тонируется картинка печати.
+    /// </summary>
+    [DataField("stampImageModulate")]
+    public Color StampImageModulate = Color.White;
+    // Aquila Change end
+
     /// <summary>
     /// Modulate the footer image by this color
     /// </summary>

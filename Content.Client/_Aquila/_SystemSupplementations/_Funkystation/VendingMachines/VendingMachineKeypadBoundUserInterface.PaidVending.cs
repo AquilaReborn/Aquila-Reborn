@@ -1,7 +1,7 @@
-using Content.Client._Aquila.Economy;
+using Content.Client._Aquila.Economy.Systems;
 using Content.Client._Funkystation.VendingMachines.UI;
-using Content.Shared._Aquila.Economy;
 using Content.Shared._Aquila.Economy.Components;
+using Content.Shared._Aquila.Economy.Events;
 using Content.Shared.VendingMachines;
 
 namespace Content.Client._Funkystation.VendingMachines;

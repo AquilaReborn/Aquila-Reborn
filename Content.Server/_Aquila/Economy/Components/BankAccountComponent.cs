@@ -1,6 +1,6 @@
 using Content.Server._Aquila.Economy.Systems;
-using Content.Shared._Aquila.Economy;
 using Content.Shared._Aquila.Economy.DataDefinitions;
+using Content.Shared._Aquila.Economy.Types;
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -94,6 +94,24 @@ public sealed partial class BankAccountComponent : Component
     /// </summary>
     [ViewVariables]
     public TimeSpan LastFailedPinTime;
+
+    /// <summary>
+    /// До какого времени ввод PIN счёта заблокирован после неудачной попытки.
+    /// </summary>
+    [ViewVariables]
+    public TimeSpan PinLockoutUntil;
+
+    /// <summary>
+    /// Владелец счёта, которому показывают PIN. Заполняется при открытии счёта, если владельца уже можно найти.
+    /// </summary>
+    [ViewVariables]
+    public EntityUid? OwnerUid;
+
+    /// <summary>
+    /// Показывался ли владельцу PIN счёта.
+    /// </summary>
+    [ViewVariables]
+    public bool PinNotified;
 
     /// <summary>
     /// Предел снятия наличных за одну операцию, 0 - без предела.

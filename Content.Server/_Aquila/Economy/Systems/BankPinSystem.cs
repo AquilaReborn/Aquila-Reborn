@@ -1,4 +1,5 @@
 using Content.Server._Aquila.Economy.Components;
+using Content.Server._Aquila.Economy.Events;
 using Content.Server.Administration;
 using Content.Shared.Popups;
 using Robust.Shared.Player;
@@ -19,9 +20,25 @@ public sealed class BankPinSystem : EntitySystem
     private static readonly LocId PinDialogTitle = "bank-pin-dialog-title";
     private static readonly LocId PinDialogPrompt = "bank-pin-prompt";
     private static readonly LocId WrongPinMessage = "bank-pin-wrong";
+    private static readonly LocId LockedPinMessage = "bank-pin-locked";
 
     private const int FailedPinAlertThreshold = 3;
     private static readonly TimeSpan FailedPinWindow = TimeSpan.FromMinutes(5);
+    private static readonly TimeSpan FailedPinLockout = TimeSpan.FromSeconds(2);
+    private static readonly TimeSpan FailedPinSeriesLockout = TimeSpan.FromSeconds(30);
+
+    /// <summary>
+    /// Проверяет, заблокирован ли ввод PIN счёта после неудачных попыток.
+    /// </summary>
+    /// <param name="account">Счёт, чей PIN проверяют. Может быть не разрешён.</param>
+    /// <returns>true, если ввод PIN счёта ещё заблокирован.</returns>
+    public bool IsPinLocked(Entity<BankAccountComponent?> account)
+    {
+        if (!Resolve(account, ref account.Comp, false))
+            return false;
+
+        return _timing.CurTime < account.Comp.PinLockoutUntil;
+    }
 
     /// <summary>
     /// Проверяет PIN счёта перед защищённой операцией. Если счёт защищён PIN на указанном уровне, а PIN ещё не введён,
@@ -42,7 +59,7 @@ public sealed class BankPinSystem : EntitySystem
         Action<int> retry,
         Action wrongPin)
     {
-        return TryVerifyPin(account.Owner, account.Comp, level, pin, user, retry, wrongPin);
+        return TryVerifyPin(account.Owner, account.Comp, level, pin, user, retry, wrongPin, wrongPin);
     }
 
     /// <summary>
@@ -85,6 +102,11 @@ public sealed class BankPinSystem : EntitySystem
             {
                 _popup.PopupEntity(Loc.GetString(WrongPinMessage), source, user);
                 denyFeedback?.Invoke();
+            },
+            () =>
+            {
+                _popup.PopupEntity(Loc.GetString(LockedPinMessage), source, user);
+                denyFeedback?.Invoke();
             });
     }
 
@@ -95,16 +117,24 @@ public sealed class BankPinSystem : EntitySystem
         int? pin,
         EntityUid user,
         Action<int> retry,
-        Action wrongPin)
+        Action wrongPin,
+        Action lockedPin)
     {
         if (account.SecurityLevel < level || account.Pin == BankAccountComponent.NoPin)
             return true;
+
+        if (_timing.CurTime < account.PinLockoutUntil)
+        {
+            lockedPin();
+            return false;
+        }
 
         if (pin is { } entered)
         {
             if (_bank.CheckPin(new Entity<BankAccountComponent?>(owner, account), entered))
             {
                 account.FailedPinAttempts = 0;
+                account.PinLockoutUntil = default;
                 return true;
             }
 
@@ -134,8 +164,8 @@ public sealed class BankPinSystem : EntitySystem
     }
 
     /// <summary>
-    /// Регистрирует неудачную попытку ввода PIN для счёта. Если попыток за короткое время стало слишком много,
-    /// поднимает <see cref="BankPinFailedEvent"/>.
+    /// Регистрирует неудачную попытку ввода PIN для счёта. Блокирует ввод PIN на короткое время, а если попыток
+    /// за короткое время стало слишком много, блокирует его надолго и поднимает <see cref="BankPinFailedEvent"/>.
     /// </summary>
     /// <param name="account">Счёт, для которого ввели неверный PIN. Может быть не разрешён.</param>
     public void NotifyFailedPin(Entity<BankAccountComponent?> account)
@@ -159,9 +189,13 @@ public sealed class BankPinSystem : EntitySystem
         account.FailedPinAttempts++;
 
         if (account.FailedPinAttempts < FailedPinAlertThreshold)
+        {
+            account.PinLockoutUntil = now + FailedPinLockout;
             return;
+        }
 
         account.FailedPinAttempts = 0;
+        account.PinLockoutUntil = now + FailedPinSeriesLockout;
         var ev = new BankPinFailedEvent(owner);
         RaiseLocalEvent(ref ev);
     }

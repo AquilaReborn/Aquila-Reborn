@@ -35,6 +35,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                         <TextureButton Name="FooterImage" HorizontalAlignment="Center" VerticalAlignment="Top" MouseFilter="Ignore"/>
                     </BoxContainer>
                     <paper:StampCollection Name="StampDisplay" VerticalAlignment="Bottom" Margin="6"/>
+                    <!-- Aquila Change -->
+                    <TextureRect Name="PaperStampImage" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="8" MouseFilter="Ignore" Stretch="KeepAspectCentered" MinSize="96 96" Visible="False"/>
 
                 </PanelContainer>
             </ScrollContainer>

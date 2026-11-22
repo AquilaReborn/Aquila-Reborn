@@ -1,11 +1,12 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server._Aquila.Economy.Components;
+using Content.Server._Aquila.Economy.Eui;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.EUI;
 using Content.Server.Station.Systems;
-using Content.Shared._Aquila.Economy;
+using Content.Shared._Aquila.Economy.BUI;
 using Content.Shared._Aquila.Economy.DataDefinitions;
 using Content.Shared._Aquila.Economy.Systems;
 using Content.Shared.Access.Systems;

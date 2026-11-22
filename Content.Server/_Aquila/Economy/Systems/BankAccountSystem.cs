@@ -1,17 +1,19 @@
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using Content.Server._Aquila.Economy.Components;
+using Content.Server._Aquila.Economy.Events;
 using Content.Server.GameTicking;
 using Content.Server.Station.Systems;
 using Content.Shared._Aquila.CCVars;
-using Content.Shared._Aquila.Economy;
 using Content.Shared._Aquila.Economy.DataDefinitions;
+using Content.Shared._Aquila.Economy.Events;
+using Content.Shared._Aquila.Economy.Types;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.Components;
 using Content.Shared.Examine;
 using Content.Shared.GameTicking;
+using Content.Shared.Mind.Components;
 using Content.Shared.Popups;
 using Content.Shared.Roles;
 using Robust.Shared.Configuration;
@@ -38,15 +40,14 @@ public sealed class BankAccountSystem : EntitySystem
     private const int MinPin = 1000;
     private const int MaxPinExclusive = 10000;
 
-    private readonly Dictionary<EntityUid, PendingAccount> _pending = new();
-
-    private readonly record struct PendingAccount(ProtoId<JobPrototype>? Job, string Name, TimeSpan Expiry);
-
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete);
+        SubscribeLocalEvent<PlayerAttachedEvent>(OnPlayerAttached);
+        SubscribeLocalEvent<PlayerDetachedEvent>(OnPlayerDetached);
+        SubscribeNetworkEvent<BankPinRequestEvent>(OnBankPinRequest);
         SubscribeLocalEvent<BankCardComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<IdCardComponent, ComponentStartup>(OnIdCardStartup);
     }
@@ -67,8 +68,7 @@ public sealed class BankAccountSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        if (_pending.Count > 0)
-            UpdatePendingAccounts();
+        UpdatePendingAccounts();
 
         var enabled = _cfg.GetCVar(AquilaCVars.Economy);
         var query = EntityQueryEnumerator<BankAccountComponent>();
@@ -126,7 +126,10 @@ public sealed class BankAccountSystem : EntitySystem
 
         if (!_idCard.TryFindIdCard(args.Mob, out var idCard) || !TryComp<BankCardComponent>(idCard, out var card))
         {
-            _pending[args.Mob] = new PendingAccount(job, args.Profile.Name, _timing.CurTime + TimeSpan.FromMinutes(10));
+            var pending = EnsureComp<PendingBankAccountComponent>(args.Mob);
+            pending.Job = job;
+            pending.Name = args.Profile.Name;
+            pending.Expiry = _timing.CurTime + TimeSpan.FromMinutes(10);
             return;
         }
 
@@ -137,11 +140,12 @@ public sealed class BankAccountSystem : EntitySystem
     private void UpdatePendingAccounts()
     {
         var now = _timing.CurTime;
-        foreach (var (mob, pending) in _pending.ToArray())
+        var query = EntityQueryEnumerator<PendingBankAccountComponent>();
+        while (query.MoveNext(out var mob, out var pending))
         {
             if (TerminatingOrDeleted(mob) || now >= pending.Expiry)
             {
-                _pending.Remove(mob);
+                RemComp<PendingBankAccountComponent>(mob);
                 continue;
             }
 
@@ -150,7 +154,7 @@ public sealed class BankAccountSystem : EntitySystem
 
             var job = pending.Job ?? idCard.Comp.JobPrototype;
             SetupAccount(idCard, card, job, pending.Name, null);
-            _pending.Remove(mob);
+            RemComp<PendingBankAccountComponent>(mob);
         }
     }
 
@@ -238,7 +242,8 @@ public sealed class BankAccountSystem : EntitySystem
     }
 
     /// <summary>
-    /// Проверяет PIN счёта. Если PIN не задан, подходит любое значение.
+    /// Проверяет PIN счёта. Если PIN не задан, подходит любое значение. Пока ввод PIN счёта заблокирован
+    /// после неудачных попыток, не подходит и верный PIN.
     /// </summary>
     /// <param name="account">Счёт, PIN которого проверяют.</param>
     /// <param name="pin">Проверяемый PIN. Значения 0 и меньше верными не считаются.</param>
@@ -251,12 +256,15 @@ public sealed class BankAccountSystem : EntitySystem
         if (account.Comp.Pin == BankAccountComponent.NoPin)
             return true;
 
+        if (_timing.CurTime < account.Comp.PinLockoutUntil)
+            return false;
+
         return pin > 0 && pin == account.Comp.Pin;
     }
 
     /// <summary>
     /// Меняет PIN счёта, если старый PIN верный, а новый состоит из четырёх цифр. После успешной смены счётчик
-    /// неудачных попыток ввода PIN сбрасывается.
+    /// неудачных попыток ввода PIN и блокировка ввода PIN сбрасываются.
     /// </summary>
     /// <param name="account">Счёт, PIN которого меняют.</param>
     /// <param name="oldPin">Текущий PIN счёта.</param>
@@ -272,6 +280,7 @@ public sealed class BankAccountSystem : EntitySystem
 
         account.Comp.Pin = newPin;
         account.Comp.FailedPinAttempts = 0;
+        account.Comp.PinLockoutUntil = default;
         return true;
     }
 
@@ -298,7 +307,7 @@ public sealed class BankAccountSystem : EntitySystem
 
     /// <summary>
     /// Сбрасывает PIN счёта и его уровень защиты до открытого, как будто PIN ещё не задан. Владелец после этого
-    /// задаёт новый PIN в банкомате без старого.
+    /// задаёт новый PIN в банкомате без старого. Блокировка ввода PIN при этом снимается.
     /// </summary>
     /// <param name="account">Счёт, чей PIN сбрасывают.</param>
     /// <returns>true, если PIN сброшен.</returns>
@@ -311,15 +320,61 @@ public sealed class BankAccountSystem : EntitySystem
         account.Comp.SecurityLevel = BankSecurityLevels.Open;
         account.Comp.FailedPinAttempts = 0;
         account.Comp.LastFailedPinTime = default;
+        account.Comp.PinLockoutUntil = default;
         return true;
     }
 
     private void NotifyPinGenerated(Entity<BankAccountComponent> account, EntityUid card)
     {
-        if (FindCardHolder(card) is not { } holder)
+        var owner = FindCardHolder(card);
+        account.Comp.OwnerUid = owner;
+
+        if (owner is not { } ownerUid
+            || !HasComp<BankPinReadyComponent>(ownerUid)
+            || !TryComp<ActorComponent>(ownerUid, out var actor))
             return;
 
-        _popup.PopupEntity(Loc.GetString(account.Comp.PinGeneratedMessage, ("pin", account.Comp.Pin)), card, holder, PopupType.Medium);
+        ShowPin(account, card, actor.PlayerSession);
+    }
+
+    private void OnBankPinRequest(BankPinRequestEvent args, EntitySessionEventArgs session)
+    {
+        if (session.SenderSession.AttachedEntity is not { } owner)
+            return;
+
+        EnsureComp<BankPinReadyComponent>(owner);
+        TryShowPin(owner, session.SenderSession);
+    }
+
+    private void OnPlayerAttached(PlayerAttachedEvent args)
+    {
+        if (!HasComp<BankPinReadyComponent>(args.Entity))
+            return;
+
+        TryShowPin(args.Entity, args.Player);
+    }
+
+    private void OnPlayerDetached(PlayerDetachedEvent args)
+    {
+        RemComp<BankPinReadyComponent>(args.Entity);
+    }
+
+    private void TryShowPin(EntityUid owner, ICommonSession session)
+    {
+        if (!_idCard.TryFindIdCard(owner, out var idCard) || !TryGetAccount(idCard.Owner, out var account))
+            return;
+
+        if (account.Value.Comp.PinNotified || (account.Value.Comp.OwnerUid is { } known && known != owner))
+            return;
+
+        account.Value.Comp.OwnerUid = owner;
+        ShowPin(account.Value, idCard.Owner, session);
+    }
+
+    private void ShowPin(Entity<BankAccountComponent> account, EntityUid anchor, ICommonSession session)
+    {
+        _popup.PopupEntity(Loc.GetString(account.Comp.PinGeneratedMessage, ("pin", account.Comp.Pin)), anchor, session, PopupType.Medium);
+        account.Comp.PinNotified = true;
     }
 
     private EntityUid? FindCardHolder(EntityUid card)
@@ -327,7 +382,7 @@ public sealed class BankAccountSystem : EntitySystem
         var current = Transform(card).ParentUid;
         while (current.IsValid())
         {
-            if (HasComp<ActorComponent>(current))
+            if (HasComp<MindContainerComponent>(current))
                 return current;
 
             current = Transform(current).ParentUid;

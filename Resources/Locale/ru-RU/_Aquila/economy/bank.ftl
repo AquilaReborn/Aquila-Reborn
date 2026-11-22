@@ -41,6 +41,7 @@ bank-card-examine-number = Номер банковского счёта: [color=
 
 bank-pin-generated = PIN вашего счёта: { $pin }. Не сообщайте его никому.
 bank-pin-wrong = PIN не подошёл.
+bank-pin-locked = PIN заблокирован, повторите позже.
 bank-pin-changed = PIN счёта изменён.
 bank-pin-invalid = PIN должен состоять из четырёх цифр.
 bank-pin-none = Сначала задайте PIN счёта.

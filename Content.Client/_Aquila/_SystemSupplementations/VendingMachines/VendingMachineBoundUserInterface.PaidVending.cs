@@ -1,4 +1,4 @@
-using Content.Client._Aquila.Economy;
+using Content.Client._Aquila.Economy.Systems;
 using Content.Shared.VendingMachines;
 using Robust.Shared.Prototypes;
 

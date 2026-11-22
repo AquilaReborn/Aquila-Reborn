@@ -27,6 +27,8 @@
   - type: FootstepModifier # Aquila Change
     footstepSoundCollection:
       collection: FootstepJackboots
+      params: # Aquila Change
+        volume: -8 # Aquila Change
 
 - type: entity
   parent: ClothingShoesBaseButcherable

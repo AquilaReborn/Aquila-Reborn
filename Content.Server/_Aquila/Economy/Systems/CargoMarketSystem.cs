@@ -1,8 +1,8 @@
 using System.Linq;
 using Content.Server.Cargo.Systems;
 using Content.Shared._Aquila.CCVars;
-using Content.Shared._Aquila.Economy;
 using Content.Shared._Aquila.Economy.Components;
+using Content.Shared._Aquila.Economy.Prototypes;
 using Content.Shared._Aquila.Economy.Systems;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;

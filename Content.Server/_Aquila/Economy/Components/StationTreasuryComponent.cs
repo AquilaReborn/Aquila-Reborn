@@ -1,3 +1,4 @@
+using Content.Server._Aquila.Economy.Systems;
 using Content.Shared.Cargo.Prototypes;
 using Robust.Shared.Prototypes;
 
@@ -6,7 +7,7 @@ namespace Content.Server._Aquila.Economy.Components;
 /// <summary>
 /// Настройки казны станции: откуда идут выплаты экипажу и с какой суммы сообщать о крупных операциях.
 /// </summary>
-[RegisterComponent, Access(Other = AccessPermissions.ReadExecute)]
+[RegisterComponent, Access(typeof(BankSecurityAlertSystem), Other = AccessPermissions.ReadExecute)]
 public sealed partial class StationTreasuryComponent : Component
 {
     /// <summary>
@@ -61,4 +62,10 @@ public sealed partial class StationTreasuryComponent : Component
     /// </summary>
     [DataField]
     public LocId SubsidyReason = "bank-transaction-subsidy";
+
+    /// <summary>
+    /// До какого времени казна не повторяет уведомление службе безопасности.
+    /// </summary>
+    [ViewVariables]
+    public TimeSpan NextAlertTime;
 }

@@ -38,6 +38,7 @@ bank-card-examine-number = Bank account number: [color=yellow]{ $number }[/color
 
 bank-pin-generated = Your account PIN: { $pin }. Do not tell it to anyone.
 bank-pin-wrong = Wrong account PIN.
+bank-pin-locked = PIN is locked, try again later.
 bank-pin-changed = Account PIN changed.
 bank-pin-invalid = The PIN must consist of four digits.
 bank-pin-none = Set an account PIN first.

@@ -1,9 +1,11 @@
 using Content.Server._Aquila.Economy.Components;
+using Content.Server._Aquila.Economy.Events;
 using Content.Server.Radio.EntitySystems;
 using Content.Server.Station.Systems;
 using Content.Shared.Radio;
 using Content.Shared.Station.Components;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Aquila.Economy.Systems;
 
@@ -14,10 +16,12 @@ public sealed class BankSecurityAlertSystem : EntitySystem
 {
     [Dependency] private readonly RadioSystem _radio = default!;
     [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     private static readonly ProtoId<RadioChannelPrototype> AlertChannel = "Security";
     private static readonly LocId AlertText = "bank-security-alert-transaction";
     private static readonly LocId PinFailedAlertText = "bank-security-alert-pin-failed";
+    private static readonly TimeSpan AlertCooldown = TimeSpan.FromSeconds(10);
 
     public override void Initialize()
     {
@@ -33,7 +37,7 @@ public sealed class BankSecurityAlertSystem : EntitySystem
             || !TryComp<BankAccountComponent>(args.Account, out var account))
             return;
 
-        if (GetAlertSource(account.Station) is not { } source)
+        if (GetAlertSource(account.Station) is not { } source || !TryUseAlertTime(account.Station))
             return;
 
         _radio.SendRadioMessage(source, Loc.GetString(PinFailedAlertText), AlertChannel, source);
@@ -60,11 +64,24 @@ public sealed class BankSecurityAlertSystem : EntitySystem
             && transaction.Reason == treasury.SubsidyReason)
             return;
 
-        if (GetAlertSource(account.Station) is not { } source)
+        if (GetAlertSource(account.Station) is not { } source || !TryUseAlertTime(account.Station))
             return;
 
         var reason = Loc.GetString(transaction.Reason, ("party", transaction.Party ?? string.Empty));
         _radio.SendRadioMessage(source, Loc.GetString(AlertText, ("amount", amount), ("reason", reason)), AlertChannel, source);
+    }
+
+    private bool TryUseAlertTime(EntityUid? station)
+    {
+        if (station is not { } stationUid || !TryComp<StationTreasuryComponent>(stationUid, out var treasury))
+            return true;
+
+        var now = _timing.CurTime;
+        if (now < treasury.NextAlertTime)
+            return false;
+
+        treasury.NextAlertTime = now + AlertCooldown;
+        return true;
     }
 
     private int GetThreshold(EntityUid? station)

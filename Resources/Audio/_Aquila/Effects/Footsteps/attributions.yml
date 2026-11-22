@@ -1,4 +1,9 @@
-- files: ["jackboot1.ogg", "jackboot2.ogg"]
+- files: ["jackboot1.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from Paradise SS13"
   source: "https://github.com/ParadiseSS13/Paradise/blob/72f3f618d8c94b76eeae80491e8580970fe09671/sound/effects/jackboot1.ogg"
+
+- files: ["jackboot2.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Paradise SS13"
+  source: "https://github.com/ParadiseSS13/Paradise/blob/72f3f618d8c94b76eeae80491e8580970fe09671/sound/effects/jackboot2.ogg"

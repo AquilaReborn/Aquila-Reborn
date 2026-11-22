@@ -6,8 +6,7 @@ namespace Content.Server._Aquila.Economy.DataDefinitions;
 /// <summary>
 /// Одна операция по счёту бюджета станции.
 /// </summary>
-[DataDefinition]
-public sealed partial class BudgetLogEntry
+public sealed class BudgetLogEntry
 {
     /// <summary>
     /// Когда произошла операция.

@@ -1,6 +1,6 @@
 using Content.Server._Aquila.Economy.Components;
 using Content.Server.Station.Systems;
-using Content.Shared._Aquila.Economy;
+using Content.Shared._Aquila.Economy.BUI;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Aquila.Economy.Systems;

@@ -1,4 +1,5 @@
 using Content.Shared._Aquila.Economy.Components;
+using Content.Shared._Aquila.Economy.Types;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._Aquila.Economy.Systems;

@@ -1,4 +1,5 @@
 using Content.Shared._Aquila.Economy.Systems;
+using Content.Shared._Aquila.Economy.Types;
 using Content.Shared.Cargo.Prototypes;
 using Robust.Shared.Prototypes;
 

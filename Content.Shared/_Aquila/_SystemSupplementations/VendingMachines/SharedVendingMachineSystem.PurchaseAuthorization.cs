@@ -1,4 +1,4 @@
-using Content.Shared._Aquila.Economy;
+using Content.Shared._Aquila.Economy.Events;
 
 namespace Content.Shared.VendingMachines;
 
