@@ -1,4 +1,3 @@
-using Content.Server._Aquila.Economy.Systems;
 using Robust.Shared.Audio;
 
 namespace Content.Server._Aquila.Economy.Components;
@@ -6,7 +5,7 @@ namespace Content.Server._Aquila.Economy.Components;
 /// <summary>
 /// Голочип с кредитами, которые можно вернуть на банковский счёт, приложив чип к ID-карте или КПК.
 /// </summary>
-[RegisterComponent, Access(typeof(HolochipSystem))]
+[RegisterComponent, Access(Other = AccessPermissions.ReadExecute)]
 public sealed partial class HolochipComponent : Component
 {
     /// <summary>

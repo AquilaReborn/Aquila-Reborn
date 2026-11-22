@@ -1,0 +1,9 @@
+using Robust.Shared.Serialization;
+
+namespace Content.Shared._Aquila.Economy;
+
+[Serializable, NetSerializable]
+public sealed class AtmSetSecurityLevelMessage(int level) : BoundUserInterfaceMessage
+{
+    public readonly int Level = level;
+}

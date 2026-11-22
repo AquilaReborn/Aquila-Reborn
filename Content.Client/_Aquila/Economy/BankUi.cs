@@ -19,6 +19,8 @@ public sealed partial class BankUi : UIFragment
         _fragment = new BankUiFragment();
         _fragment.OnTransfer += (number, amount) =>
             userInterface.SendMessage(new CartridgeUiMessage(new BankTransferMessageEvent(number, amount)));
+        _fragment.OnDepositBudget += amount =>
+            userInterface.SendMessage(new CartridgeUiMessage(new BankDepositBudgetMessageEvent(amount)));
         _fragment.OnBonus += (number, amount, comment) =>
             userInterface.SendMessage(new CartridgeUiMessage(new BankBonusMessageEvent(number, amount, comment)));
         _fragment.OnFine += (number, amount, comment) =>

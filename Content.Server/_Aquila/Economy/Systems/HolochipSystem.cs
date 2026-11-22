@@ -2,6 +2,7 @@ using Content.Server._Aquila.Economy.Components;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
 using Content.Server.Stack;
+using Content.Shared._Aquila.Economy;
 using Content.Shared._Aquila.Economy.Systems;
 using Content.Shared.Access.Systems;
 using Content.Shared.Database;
@@ -21,6 +22,7 @@ public sealed class HolochipSystem : EntitySystem
 {
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly BankAccountSystem _bank = default!;
+    [Dependency] private readonly BankPinSystem _bankPin = default!;
     [Dependency] private readonly EconomyZoneSystem _economyZone = default!;
     [Dependency] private readonly QuickDialogSystem _quickDialog = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -77,11 +79,8 @@ public sealed class HolochipSystem : EntitySystem
 
     private void Deposit(Entity<HolochipComponent> chip, Entity<BankCardComponent> card, EntityUid user)
     {
-        if (!_economyZone.IsEconomyActive(user))
-        {
-            _popup.PopupEntity(Loc.GetString(_economyZone.IsEconomyEnabled() ? "holochip-free-zone" : "bank-offline"), user, user);
+        if (!_economyZone.TryCheckActive(user, user))
             return;
-        }
 
         if (!_bank.TryGetAccount(card.AsNullable(), out var account))
         {
@@ -127,21 +126,34 @@ public sealed class HolochipSystem : EntitySystem
         });
     }
 
-    private void Withdraw(Entity<BankCardComponent> card, EntityUid user, int amount)
+    private void Withdraw(Entity<BankCardComponent> card, EntityUid user, int amount, int? pin = null)
     {
         if (TerminatingOrDeleted(card) || TerminatingOrDeleted(user) || !_interaction.InRangeUnobstructed(user, card.Owner))
             return;
 
-        if (!_economyZone.IsEconomyActive(user))
-        {
-            _popup.PopupEntity(Loc.GetString(_economyZone.IsEconomyEnabled() ? "holochip-free-zone" : "bank-offline"), user, user);
+        if (!_economyZone.TryCheckActive(user, user))
             return;
-        }
 
         if (!_bank.TryGetAccount(card.AsNullable(), out var account))
             return;
 
-        if (amount <= 0 || !_bank.TryWithdraw(account.Value.AsNullable(), amount, card.Comp.ChipWithdrawReason))
+        if (!_bank.CanWithdrawCash(account.Value.AsNullable(), amount, out var limit))
+        {
+            _popup.PopupEntity(Loc.GetString("atm-withdraw-limit", ("limit", limit)), user, user);
+            return;
+        }
+
+        if (amount <= 0 || account.Value.Comp.Balance < amount)
+        {
+            _popup.PopupEntity(Loc.GetString("bank-transfer-insufficient"), user, user);
+            return;
+        }
+
+        if (!_bankPin.TryVerifyPin(account.Value.AsNullable(), BankSecurityLevels.Full, pin, user, user,
+                entered => Withdraw(card, user, amount, entered)))
+            return;
+
+        if (!_bank.TryWithdraw(account.Value.AsNullable(), amount, card.Comp.ChipWithdrawReason))
         {
             _popup.PopupEntity(Loc.GetString("bank-transfer-insufficient"), user, user);
             return;

@@ -35,6 +35,8 @@
         - ArtifactFragment
         - Ore
   - type: Dumpable
+  - type: RadiationBlockingContainer # Aquila Change
+    resistance: 0.3 # Aquila Change
   # Lavaland Change start
   - type: OreBag
   - type: ItemToggle

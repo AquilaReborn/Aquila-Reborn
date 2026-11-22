@@ -1,4 +1,5 @@
 using Content.Server._Aquila.Economy.Systems;
+using Content.Shared._Aquila.Economy;
 using Content.Shared._Aquila.Economy.DataDefinitions;
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
@@ -6,7 +7,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server._Aquila.Economy.Components;
 
-[RegisterComponent, AutoGenerateComponentPause, Access(typeof(BankAccountSystem))]
+[RegisterComponent, AutoGenerateComponentPause, Access(typeof(BankAccountSystem), typeof(BankPinSystem))]
 public sealed partial class BankAccountComponent : Component
 {
     /// <summary>
@@ -34,6 +35,12 @@ public sealed partial class BankAccountComponent : Component
     public string OwnerName = string.Empty;
 
     /// <summary>
+    /// Станция, к которой привязан счёт. Заполняется при открытии счёта.
+    /// </summary>
+    [ViewVariables]
+    public EntityUid? Station;
+
+    /// <summary>
     /// Должность владельца, по которой начисляется зарплата.
     /// </summary>
     [DataField]
@@ -55,7 +62,44 @@ public sealed partial class BankAccountComponent : Component
     /// Сколько операций хранится в истории.
     /// </summary>
     [DataField]
-    public int MaxHistory = 30;
+    public int MaxHistory = 100;
+
+    /// <summary>
+    /// Уровень защиты счёта: 0 - только карта, 1 - PIN при покупках в автоматах и терминале,
+    /// 2 - карта и PIN в банкомате и КПК.
+    /// </summary>
+    [DataField]
+    public int SecurityLevel = BankSecurityLevels.Open;
+
+    /// <summary>
+    /// Значение поля <see cref="Pin"/>, означающее, что PIN на счёте не задан.
+    /// </summary>
+    public const int NoPin = 0;
+
+    /// <summary>
+    /// Четырёхзначный PIN счёта от 1000 до 9999. Значение <see cref="NoPin"/> означает, что PIN не задан,
+    /// тогда проверка PIN пропускает любую карту.
+    /// </summary>
+    [DataField]
+    public int Pin;
+
+    /// <summary>
+    /// Сколько раз подряд неверно вводили PIN счёта.
+    /// </summary>
+    [ViewVariables]
+    public int FailedPinAttempts;
+
+    /// <summary>
+    /// Когда последний раз неверно вводили PIN счёта.
+    /// </summary>
+    [ViewVariables]
+    public TimeSpan LastFailedPinTime;
+
+    /// <summary>
+    /// Предел снятия наличных за одну операцию, 0 - без предела.
+    /// </summary>
+    [DataField]
+    public int MaxCashWithdrawal = 500;
 
     /// <summary>
     /// Зарплаты по должностям.
@@ -124,6 +168,12 @@ public sealed partial class BankAccountComponent : Component
     public LocId TransferOutReason = "bank-transaction-transfer-out";
 
     /// <summary>
+    /// Описание пополнения бюджета отдела с личного счёта.
+    /// </summary>
+    [DataField]
+    public LocId BudgetDepositReason = "bank-transaction-budget-deposit";
+
+    /// <summary>
     /// От чьего имени администрация проводит операции по счёту.
     /// </summary>
     [DataField]
@@ -152,4 +202,10 @@ public sealed partial class BankAccountComponent : Component
     /// </summary>
     [DataField]
     public LocId AdjustReason = "bank-transaction-adjusted";
+
+    /// <summary>
+    /// Сообщение с PIN, которое владелец видит при открытии счёта.
+    /// </summary>
+    [DataField]
+    public LocId PinGeneratedMessage = "bank-pin-generated";
 }

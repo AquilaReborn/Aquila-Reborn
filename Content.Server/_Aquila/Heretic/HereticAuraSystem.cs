@@ -1,4 +1,3 @@
-using System.Linq;
 using Content.Shared._Aquila.Heretic;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Clothing;
@@ -17,6 +16,11 @@ public sealed partial class HereticAuraSystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventory = default!;
 
     private static readonly LocId AuraExamineMessage = "heretic-aura-examine";
+    private static readonly EntProtoId[] AuraHidingClothes =
+    [
+        "ClothingOuterArmorHeretic",
+        "ClothingOuterArmorCloakVoid",
+    ];
 
     public override void Initialize()
     {
@@ -31,7 +35,7 @@ public sealed partial class HereticAuraSystem : EntitySystem
     }
 
     /// <summary>
-    /// Tracks gained knowledge points and updates the aura on the heretic's current body.
+    /// Учитывает полученные очки знаний и обновляет ауру на текущем теле еретика.
     /// </summary>
     public void OnKnowledgeGained(Entity<HereticComponent> mind, float amount)
     {
@@ -112,14 +116,21 @@ public sealed partial class HereticAuraSystem : EntitySystem
         if (!_inventory.TryGetSlotEntity(body, "outerClothing", out var outer))
             return false;
 
-        var auraHidingClothes = new EntProtoId[]
-        {
-            "ClothingOuterArmorHeretic",
-            "ClothingOuterArmorCloakVoid",
-        };
+        if (MetaData(outer.Value).EntityPrototype is not { } proto)
+            return false;
 
-        var prototype = MetaData(outer.Value).EntityPrototype;
-        return prototype is { } proto
-            && auraHidingClothes.Any(id => id.Id == proto.ID || proto.Parents?.Contains(id.Id) == true);
+        foreach (var id in AuraHidingClothes)
+        {
+            if (id.Id == proto.ID)
+                return true;
+
+            foreach (var parent in proto.Parents ?? [])
+            {
+                if (parent == id.Id)
+                    return true;
+            }
+        }
+
+        return false;
     }
 }

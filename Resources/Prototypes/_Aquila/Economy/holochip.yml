@@ -8,6 +8,7 @@
   parent: BaseItem
   id: Holochip
   name: holochip
+  suffix: Экономика
   description: A hard-light chip that stores credits. Use it on an ID card or PDA to deposit them.
   components:
   - type: Holochip

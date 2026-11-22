@@ -1,11 +1,10 @@
-using Content.Server._Aquila.Economy.Systems;
 using Content.Shared.Stacks;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Aquila.Economy.Components;
 
-[RegisterComponent, Access(typeof(AtmSystem))]
+[RegisterComponent, Access(Other = AccessPermissions.ReadExecute)]
 public sealed partial class AtmComponent : Component
 {
     /// <summary>

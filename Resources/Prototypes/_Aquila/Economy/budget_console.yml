@@ -1,0 +1,23 @@
+- type: entity
+  parent: BaseComputer
+  id: BudgetConsole
+  name: ent-BudgetConsole
+  suffix: Экономика
+  description: ent-BudgetConsole.desc
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/computers.rsi
+  - type: BudgetConsole
+    maxEntries: 200
+  - type: ActivatableUI
+    key: enum.BudgetConsoleUiKey.Key
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.BudgetConsoleUiKey.Key:
+        type: BudgetConsoleBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: AccessReader
+    access: [["Command"]]
+  - type: ActivatableUIRequiresAccess

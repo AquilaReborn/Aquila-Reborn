@@ -128,8 +128,8 @@ public sealed partial class CloningSystem : SharedCloningSystem
 
     public override void CloneComponents(EntityUid original, EntityUid clone, CloningSettingsPrototype settings)
     {
-        var componentsToCopy = settings.Components;
-        var componentsToEvent = settings.EventComponents;
+        var componentsToCopy = new HashSet<string>(settings.Components); // Aquila Change
+        var componentsToEvent = new HashSet<string>(settings.EventComponents); // Aquila Change
 
         // don't make status effects permanent
         if (TryComp<StatusEffectsComponent>(original, out var statusComp))

@@ -11,6 +11,7 @@ namespace Content.Client._Aquila.Economy;
 public sealed partial class BankUiFragment : BoxContainer
 {
     public event Action<int, int>? OnTransfer;
+    public event Action<int>? OnDepositBudget;
     public event Action<int, int, string>? OnBonus;
     public event Action<int, int, string>? OnFine;
     public event Action<int, bool>? OnRequestReply;
@@ -23,6 +24,7 @@ public sealed partial class BankUiFragment : BoxContainer
 
         TransferButton.OnPressed += _ => Transfer();
         AmountInput.OnTextEntered += _ => Transfer();
+        DepositButton.OnPressed += _ => DepositBudget();
         BonusButton.OnPressed += _ => Manage(OnBonus);
         FineButton.OnPressed += _ => Manage(OnFine);
         OpenAccountButton.OnPressed += _ => OnOpenAccount?.Invoke();
@@ -119,6 +121,15 @@ public sealed partial class BankUiFragment : BoxContainer
         action?.Invoke(number, amount, ManageCommentInput.Text);
         ManageAmountInput.Clear();
         ManageCommentInput.Clear();
+    }
+
+    private void DepositBudget()
+    {
+        if (!int.TryParse(DepositAmountInput.Text, out var amount))
+            return;
+
+        OnDepositBudget?.Invoke(amount);
+        DepositAmountInput.Clear();
     }
 
     private static BoxContainer CreateRecordRow(BankManageRecordUiData record)

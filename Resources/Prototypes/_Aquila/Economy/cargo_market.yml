@@ -40,9 +40,9 @@
 - type: entity
   parent: CratePrivateSecure
   id: CratePersonalOrder
+  categories: [ HideSpawnMenu ]
   name: personal order crate
   description: A crate with a personal order. Only the buyer's ID card can open it.
-  categories: [ HideSpawnMenu ]
   components:
   - type: AccessReader
     access: [["CentralCommand"]]

@@ -183,24 +183,7 @@ public abstract partial class SharedHumanoidAppearanceSystem : EntitySystem //go
         if (!Resolve(source, ref sourceHumanoid, false) || !Resolve(target, ref targetHumanoid, false))
             return;
 
-        targetHumanoid.Species = sourceHumanoid.Species;
-        targetHumanoid.SkinColor = sourceHumanoid.SkinColor;
-        targetHumanoid.EyeColor = sourceHumanoid.EyeColor;
-        targetHumanoid.Age = sourceHumanoid.Age;
-        targetHumanoid.Height = sourceHumanoid.Height; // Goobstation: port EE height/width sliders
-        targetHumanoid.Width = sourceHumanoid.Width; // Goobstation: port EE height/width sliders
-        SetSex(target, sourceHumanoid.Sex, false, targetHumanoid);
-        targetHumanoid.CustomBaseLayers = new(sourceHumanoid.CustomBaseLayers);
-        targetHumanoid.MarkingSet = new(sourceHumanoid.MarkingSet);
-
-        targetHumanoid.Gender = sourceHumanoid.Gender;
-
-        if (TryComp<GrammarComponent>(target, out var grammar))
-            _grammarSystem.SetGender((target, grammar), sourceHumanoid.Gender);
-
-        _identity.QueueIdentityUpdate(target);
-        Dirty(target, targetHumanoid);
-        RaiseMarkingsChanged(target); // Goob
+        ApplyAppearance(target, sourceHumanoid); // Aquila Change
     }
 
     /// <summary>

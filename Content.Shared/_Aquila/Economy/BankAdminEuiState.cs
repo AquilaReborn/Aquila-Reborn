@@ -63,12 +63,18 @@ public sealed class BankAdminSetBalanceMessage(int number, int balance, string c
 }
 
 [Serializable, NetSerializable]
-public sealed class BankAdminRevertMessage(int number, int index, int amount, string comment) : EuiMessageBase
+public sealed class BankAdminRevertMessage(int number, TimeSpan time, int amount, string comment) : EuiMessageBase
 {
     public readonly int Number = number;
-    public readonly int Index = index;
+    public readonly TimeSpan Time = time;
     public readonly int Amount = amount;
     public readonly string Comment = comment;
+}
+
+[Serializable, NetSerializable]
+public sealed class BankAdminResetPinMessage(int number) : EuiMessageBase
+{
+    public readonly int Number = number;
 }
 
 [Serializable, NetSerializable]

@@ -19,6 +19,12 @@ public sealed partial class PersonalContractComponent : Component
     public Dictionary<ProtoId<CargoBountyPrototype>, PersonalContractData> Contracts = new();
 
     /// <summary>
+    /// Сколько работ один счёт может держать одновременно. Просроченные работы слот не занимают.
+    /// </summary>
+    [DataField]
+    public int MaxActiveContracts = 2;
+
+    /// <summary>
     /// Сколько времени работа остаётся закреплённой за счётом, прежде чем её сможет взять кто угодно.
     /// </summary>
     [DataField]

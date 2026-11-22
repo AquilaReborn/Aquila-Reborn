@@ -11,6 +11,7 @@ using Content.Shared._Aquila.Economy.Systems;
 using Content.Shared.Access.Systems;
 using Content.Shared.Administration;
 using Content.Shared.Database;
+using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -27,9 +28,11 @@ public sealed class BankAdminSystem : EntitySystem
     [Dependency] private readonly BankCartridgeSystem _bankCartridge = default!;
     [Dependency] private readonly EconomyZoneSystem _economyZone = default!;
     [Dependency] private readonly SharedIdCardSystem _idCard = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly StationSystem _station = default!;
 
     private static readonly LocId CentralCommandParty = "bank-party-central-command";
+    private static readonly LocId PinResetMessage = "bank-admin-reset-pin-done";
 
     public override void Initialize()
     {
@@ -172,18 +175,28 @@ public sealed class BankAdminSystem : EntitySystem
     }
 
     /// <summary>
-    /// Отменяет операцию из истории счёта обратной операцией от ЦК.
+    /// Отменяет операцию из истории счёта обратной операцией от ЦК. Операция ищется по времени и сумме,
+    /// чтобы запоздавшее сообщение не отменило чужую запись.
     /// </summary>
-    public void Revert(ICommonSession admin, int number, int index, int amount, string comment)
+    public void Revert(ICommonSession admin, int number, TimeSpan time, int amount, string comment)
     {
         if (!TryGetOperation(admin, number, comment, out var account, out var text))
             return;
 
         var history = account.Value.Comp.History;
-        if (index < 0 || index >= history.Count || history[index].Amount != amount)
+        BankTransaction? transaction = null;
+        for (var i = history.Count - 1; i >= 0; i--)
+        {
+            if (history[i].Time != time || history[i].Amount != amount)
+                continue;
+
+            transaction = history[i];
+            break;
+        }
+
+        if (transaction == null)
             return;
 
-        var transaction = history[index];
         if (transaction.Amount > 0)
             _bank.Charge(account.Value.AsNullable(), transaction.Amount, account.Value.Comp.RevertReason, GetParty(account.Value), text);
         else
@@ -215,6 +228,21 @@ public sealed class BankAdminSystem : EntitySystem
 
         if (_bankCartridge.TryRevokeFine(station, id, Loc.GetString(CentralCommandParty), _station.GetLargestGrid(station), out _))
             _adminLog.Add(LogType.Action, LogImpact.High, $"{admin.Name} revoked fine {id} as Central Command");
+    }
+
+    /// <summary>
+    /// Сбрасывает PIN счёта и его уровень защиты, чтобы владелец мог задать новый PIN без старого.
+    /// </summary>
+    public void ResetPin(ICommonSession admin, int number)
+    {
+        if (!CanManage(admin) || !_bank.TryFindAccount(number, out var account) || !_bank.TryResetPin(account.Value.AsNullable()))
+            return;
+
+        _adminLog.Add(LogType.Action, LogImpact.Medium,
+            $"{admin.Name} reset the PIN of account {number} ({account.Value.Comp.OwnerName})");
+
+        if (admin.AttachedEntity is { } adminEntity)
+            _popup.PopupEntity(Loc.GetString(PinResetMessage), adminEntity, adminEntity);
     }
 
     private EntityUid? GetManagedStation()

@@ -17,7 +17,8 @@ public sealed class BankAdminEui : BaseEui
         _window.OnBonus += (number, amount, comment) => SendMessage(new BankAdminBonusMessage(number, amount, comment));
         _window.OnFine += (number, amount, comment) => SendMessage(new BankAdminFineMessage(number, amount, comment));
         _window.OnSetBalance += (number, balance, comment) => SendMessage(new BankAdminSetBalanceMessage(number, balance, comment));
-        _window.OnRevert += (number, index, amount, comment) => SendMessage(new BankAdminRevertMessage(number, index, amount, comment));
+        _window.OnRevert += (number, time, amount, comment) => SendMessage(new BankAdminRevertMessage(number, time, amount, comment));
+        _window.OnResetPin += number => SendMessage(new BankAdminResetPinMessage(number));
         _window.OnRequestReply += (id, approve) => SendMessage(new BankAdminRequestReplyMessage(id, approve));
         _window.OnRevokeFine += id => SendMessage(new BankAdminRevokeFineMessage(id));
     }

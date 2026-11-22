@@ -55,7 +55,10 @@ public sealed class BankAdminEui : BaseEui
                 bank.SetBalance(Player, balance.Number, balance.Balance, balance.Comment);
                 break;
             case BankAdminRevertMessage revert:
-                bank.Revert(Player, revert.Number, revert.Index, revert.Amount, revert.Comment);
+                bank.Revert(Player, revert.Number, revert.Time, revert.Amount, revert.Comment);
+                break;
+            case BankAdminResetPinMessage resetPin:
+                bank.ResetPin(Player, resetPin.Number);
                 break;
             case BankAdminRequestReplyMessage reply:
                 bank.ResolveRequest(Player, reply.Id, reply.Approve);

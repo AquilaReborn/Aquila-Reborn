@@ -18,16 +18,19 @@
   # traits
   - BlackAndWhiteOverlay
   - Clumsy
+  - Deaf # Aquila Change
   - ImpairedMobility
   # - LegsParalyzed (you get healed)
   - BlackAndWhiteOverlay # Goobstation?
   - LightweightDrunk
+  - MovementImpaired # Aquila Change
   - Muted # Goobstation?
   - Narcolepsy
   - Pacified
   - Paracusia
   - PermanentBlindness
   - Snoring
+  - SocialAnxiety # Aquila Change
   - Unrevivable
   # job specific
   - BibleUser
@@ -43,11 +46,14 @@
   - BackwardsAccent
   - BarkAccent
   - BleatingAccent
+  - BoganAccent # Aquila Change
+  - CheeseAccent # Aquila Change
   - DamagedSiliconAccent # Goobstation?
   - FrenchAccent
   - FrontalLisp # Goobstation?
   - GermanAccent
   - LizardAccent
+  - MedievalAccent # Aquila Change
   - MobsterAccent
   - MonkeyAccent
   - MothAccent

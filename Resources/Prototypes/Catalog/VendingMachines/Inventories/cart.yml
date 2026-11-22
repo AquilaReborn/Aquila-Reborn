@@ -19,6 +19,7 @@
     EncryptionKeyScience: 2
     EncryptionKeySecurity: 1
     EncryptionKeyService: 3
+    PaymentTerminal: 2 # Aquila Change
   contrabandInventory:
     BalloonNT: 2
     LuxuryPen: 1

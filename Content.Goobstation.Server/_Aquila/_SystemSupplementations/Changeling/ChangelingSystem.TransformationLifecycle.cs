@@ -24,7 +24,7 @@ public sealed partial class ChangelingSystem
 
     private void ApplyTransformAppearance(EntityUid uid, HumanoidAppearanceComponent appearance)
     {
-        _humanoid.CloneAppearance(appearance.Owner, uid, appearance);
+        _humanoid.CloneAppearance(uid, appearance);
     }
 
     private void CloseTransformationInterfaces(EntityUid uid)

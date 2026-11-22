@@ -16,7 +16,8 @@ public sealed partial class BankAdminWindow : FancyWindow
     public event Action<int, int, string>? OnBonus;
     public event Action<int, int, string>? OnFine;
     public event Action<int, int, string>? OnSetBalance;
-    public event Action<int, int, int, string>? OnRevert;
+    public event Action<int, TimeSpan, int, string>? OnRevert;
+    public event Action<int>? OnResetPin;
     public event Action<int, bool>? OnRequestReply;
     public event Action<int>? OnRevokeFine;
 
@@ -37,6 +38,7 @@ public sealed partial class BankAdminWindow : FancyWindow
         BonusButton.OnPressed += _ => SendAmount(OnBonus);
         FineButton.OnPressed += _ => SendAmount(OnFine);
         SetBalanceButton.OnPressed += _ => SendAmount(OnSetBalance);
+        ResetPinButton.OnPressed += _ => SendResetPin();
     }
 
     /// <summary>
@@ -111,11 +113,11 @@ public sealed partial class BankAdminWindow : FancyWindow
 
         for (var i = history.Count - 1; i >= 0; i--)
         {
-            HistoryList.AddChild(CreateTransactionRow(account.Number, i, history[i]));
+            HistoryList.AddChild(CreateTransactionRow(account.Number, history[i]));
         }
     }
 
-    private BoxContainer CreateTransactionRow(int number, int index, BankTransaction transaction)
+    private BoxContainer CreateTransactionRow(int number, BankTransaction transaction)
     {
         var reason = Loc.GetString(transaction.Reason, ("party", transaction.Party ?? string.Empty));
         if (transaction.Comment != null)
@@ -152,7 +154,7 @@ public sealed partial class BankAdminWindow : FancyWindow
             Text = Loc.GetString("bank-admin-revert"),
             StyleClasses = { "OpenLeft" },
         };
-        revert.OnPressed += _ => OnRevert?.Invoke(number, index, transaction.Amount, CommentInput.Text);
+        revert.OnPressed += _ => OnRevert?.Invoke(number, transaction.Time, transaction.Amount, CommentInput.Text);
         row.AddChild(revert);
         return row;
     }
@@ -224,6 +226,14 @@ public sealed partial class BankAdminWindow : FancyWindow
 
         action?.Invoke(number, amount, CommentInput.Text);
         AmountInput.Clear();
+    }
+
+    private void SendResetPin()
+    {
+        if (_state?.Selected is not { } number)
+            return;
+
+        OnResetPin?.Invoke(number);
     }
 
     private void UpdateButtons()

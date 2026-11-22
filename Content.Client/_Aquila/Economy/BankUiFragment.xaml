@@ -63,6 +63,11 @@
                                 <Button Name="BonusButton" Text="{Loc 'bank-ui-manage-bonus'}" HorizontalExpand="True" StyleClasses="GreenPDAPalette"/>
                                 <Button Name="FineButton" Text="{Loc 'bank-ui-manage-fine'}" HorizontalExpand="True" StyleClasses="GreenPDAPalette"/>
                             </BoxContainer>
+                            <PanelContainer StyleClasses="PdaSeparator" SetHeight="1" Margin="0 4"/>
+                            <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+                                <LineEdit Name="DepositAmountInput" HorizontalExpand="True" PlaceHolder="{Loc 'bank-ui-manage-deposit-amount'}"/>
+                                <Button Name="DepositButton" Text="{Loc 'bank-ui-manage-deposit-button'}" StyleClasses="GreenPDAPalette" MinWidth="90"/>
+                            </BoxContainer>
                             <BoxContainer Name="RequestsContainer" Orientation="Vertical" SeparationOverride="6" Visible="False">
                                 <PanelContainer StyleClasses="PdaSeparator" SetHeight="1" Margin="0 4"/>
                                 <Label Text="{Loc 'bank-ui-manage-requests'}" StyleClasses="LabelSubText"/>
@@ -79,7 +84,14 @@
 
                 <Label Text="{Loc 'bank-ui-section-history'}" StyleClasses="PdaSectionHeader" Margin="4 12 0 4"/>
                 <PanelContainer StyleClasses="PdaCard">
-                    <BoxContainer Name="HistoryContainer" Orientation="Vertical" HorizontalExpand="True" Margin="0 4"/>
+                    <ScrollContainer HScrollEnabled="False"
+                                     VerticalExpand="False"
+                                     MaxHeight="260"
+                                     ReserveScrollbarSpace="True"
+                                     ReturnMeasure="True"
+                                     StyleClasses="PdaScroll">
+                        <BoxContainer Name="HistoryContainer" Orientation="Vertical" HorizontalExpand="True" Margin="0 4"/>
+                    </ScrollContainer>
                 </PanelContainer>
             </BoxContainer>
         </BoxContainer>

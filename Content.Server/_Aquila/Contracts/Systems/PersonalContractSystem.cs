@@ -6,6 +6,7 @@ using Content.Shared._Aquila.CCVars;
 using Content.Shared.Access.Systems;
 using Content.Shared.Bed.Cryostorage;
 using Content.Shared.Body.Events;
+using Content.Shared.Cargo.Components;
 using Content.Shared.Cargo.Prototypes;
 using Content.Shared.Popups;
 using Robust.Shared.Configuration;
@@ -32,8 +33,10 @@ public sealed class PersonalContractSystem : EntitySystem
     private static readonly LocId AlreadyTakenPopup = "personal-contract-already-taken";
     private static readonly LocId TakenPopup = "personal-contract-taken";
     private static readonly LocId PaidPopup = "personal-contract-paid";
+    private static readonly LocId NoTreasuryPopup = "personal-contract-no-treasury";
     private static readonly LocId NoAccountPopup = "personal-contract-no-account";
     private static readonly LocId NoEmployerPopup = "personal-contract-no-employer";
+    private static readonly LocId LimitPopup = "personal-contract-limit";
 
     public override void Initialize()
     {
@@ -115,15 +118,19 @@ public sealed class PersonalContractSystem : EntitySystem
         if (!TryGetUserAccount(user, out accountNumber))
             return Deny(NoAccountPopup, user, quiet);
 
-        if (!TryComp<PersonalContractComponent>(employer, out var contracts)
-            || !contracts.Contracts.TryGetValue(workId, out var contract))
+        if (!TryComp<PersonalContractComponent>(employer, out var contracts))
             return true;
 
-        if (IsExpired(contracts, contract))
-            return true;
+        if (contracts.Contracts.TryGetValue(workId, out var contract) && !IsExpired(contracts, contract))
+        {
+            if (contract.Account != accountNumber)
+                return Deny(AlreadyTakenPopup, user, quiet);
 
-        if (contract.Account != accountNumber)
-            return Deny(AlreadyTakenPopup, user, quiet);
+            return true;
+        }
+
+        if (CountActiveContracts(contracts, accountNumber) >= contracts.MaxActiveContracts)
+            return Deny(LimitPopup, user, quiet, ("max", contracts.MaxActiveContracts));
 
         return true;
     }
@@ -180,22 +187,7 @@ public sealed class PersonalContractSystem : EntitySystem
     /// <param name="taken">Набор идентификаторов работ, который пополняется.</param>
     public void WriteTakenJobs(EntityUid employer, IReadOnlyCollection<ProtoId<CargoBountyPrototype>> jobs, HashSet<string> taken)
     {
-        if (!_cfg.GetCVar(AquilaCVars.Economy))
-            return;
-
-        if (!TryComp<PersonalContractComponent>(employer, out var contracts))
-            return;
-
-        foreach (var job in jobs)
-        {
-            if (!contracts.Contracts.TryGetValue(job, out var contract))
-                continue;
-
-            if (IsExpired(contracts, contract))
-                continue;
-
-            taken.Add(job.Id);
-        }
+        WriteJobs(employer, jobs, taken, null);
     }
 
     /// <summary>
@@ -208,10 +200,19 @@ public sealed class PersonalContractSystem : EntitySystem
     /// <param name="mine">Набор идентификаторов работ, который пополняется.</param>
     public void WriteMineJobs(EntityUid employer, EntityUid? user, IReadOnlyCollection<ProtoId<CargoBountyPrototype>> jobs, HashSet<string> mine)
     {
-        if (!_cfg.GetCVar(AquilaCVars.Economy))
+        if (user is not { } viewer || !TryGetUserAccount(viewer, out var accountNumber))
             return;
 
-        if (user is not { } viewer || !TryGetUserAccount(viewer, out var accountNumber))
+        WriteJobs(employer, jobs, mine, accountNumber);
+    }
+
+    private void WriteJobs(
+        EntityUid employer,
+        IReadOnlyCollection<ProtoId<CargoBountyPrototype>> jobs,
+        HashSet<string> result,
+        int? accountNumber)
+    {
+        if (!_cfg.GetCVar(AquilaCVars.Economy))
             return;
 
         if (!TryComp<PersonalContractComponent>(employer, out var contracts))
@@ -219,16 +220,12 @@ public sealed class PersonalContractSystem : EntitySystem
 
         foreach (var job in jobs)
         {
-            if (!contracts.Contracts.TryGetValue(job, out var contract))
+            if (!contracts.Contracts.TryGetValue(job, out var contract)
+                || IsExpired(contracts, contract)
+                || (accountNumber is { } number && contract.Account != number))
                 continue;
 
-            if (IsExpired(contracts, contract))
-                continue;
-
-            if (contract.Account != accountNumber)
-                continue;
-
-            mine.Add(job.Id);
+            result.Add(job.Id);
         }
     }
 
@@ -252,9 +249,11 @@ public sealed class PersonalContractSystem : EntitySystem
     }
 
     /// <summary>
-    /// Выплачивает личную премию за сданную работу на счёт, который её взял. Просроченный контракт
-    /// не оплачивается и остаётся в списке до нового взятия работы. Награду того, кто выдал работу,
-    /// это не затрагивает.
+    /// Выплачивает личную премию за сданную работу на счёт, который её взял, из казны станции.
+    /// Если казна на станции не настроена, премия начисляется напрямую. Просроченный контракт
+    /// не оплачивается и остаётся в списке до нового взятия работы. Контракт удаляется только после
+    /// полной выплаты: если казна не может заплатить, он остаётся и сдать работу можно позже.
+    /// Награду того, кто выдал работу, это не затрагивает.
     /// </summary>
     /// <param name="employer">Тот, кто выдаёт работу и хранит контракты.</param>
     /// <param name="workId">Идентификатор сданной работы.</param>
@@ -271,8 +270,32 @@ public sealed class PersonalContractSystem : EntitySystem
         if (!CanPay(contracts, contract, out var account))
             return false;
 
+        if (!DoPay(employer, account, contract))
+            return false;
+
         contracts.Contracts.Remove(workId);
-        DoPay(account, contract);
+        return true;
+    }
+
+    private bool DoPay(EntityUid employer, Entity<BankAccountComponent> account, PersonalContractData contract)
+    {
+        if (!TryComp<StationTreasuryComponent>(employer, out var treasury)
+            || !HasComp<StationBankAccountComponent>(employer))
+        {
+            _bank.Deposit(account.AsNullable(), contract.Premium, PremiumReason);
+            PopupAccountHolder(contract.Account, Loc.GetString(PaidPopup, ("amount", contract.Premium)));
+            return true;
+        }
+
+        if (!_bank.CanPayFromTreasury(employer, contract.Premium, treasury.CoverQuotaWithSubsidy)
+            || !_bank.TryPayFromTreasury(employer, contract.Premium, PremiumReason, treasury.CoverQuotaWithSubsidy, null, out var paid, account.AsNullable()))
+        {
+            PopupAccountHolder(contract.Account, Loc.GetString(NoTreasuryPopup));
+            return false;
+        }
+
+        _bank.Deposit(account.AsNullable(), paid, PremiumReason);
+        PopupAccountHolder(contract.Account, Loc.GetString(PaidPopup, ("amount", contract.Premium)));
         return true;
     }
 
@@ -293,15 +316,21 @@ public sealed class PersonalContractSystem : EntitySystem
         return true;
     }
 
-    private void DoPay(Entity<BankAccountComponent> account, PersonalContractData contract)
-    {
-        _bank.Deposit(account.AsNullable(), contract.Premium, PremiumReason);
-        PopupAccountHolder(contract.Account, Loc.GetString(PaidPopup, ("amount", contract.Premium)));
-    }
-
     private bool IsExpired(PersonalContractComponent contracts, PersonalContractData contract)
     {
         return _timing.CurTime - contract.ClaimedAt >= contracts.ClaimDuration;
+    }
+
+    private int CountActiveContracts(PersonalContractComponent contracts, int accountNumber)
+    {
+        var count = 0;
+        foreach (var contract in contracts.Contracts.Values)
+        {
+            if (contract.Account == accountNumber && !IsExpired(contracts, contract))
+                count++;
+        }
+
+        return count;
     }
 
     private static int GetPremium(PersonalContractComponent contracts, int reward)
@@ -327,10 +356,10 @@ public sealed class PersonalContractSystem : EntitySystem
         return true;
     }
 
-    private bool Deny(LocId message, EntityUid user, bool quiet)
+    private bool Deny(LocId message, EntityUid user, bool quiet, params (string, object)[] args)
     {
         if (!quiet)
-            _popup.PopupEntity(Loc.GetString(message), user, user);
+            _popup.PopupEntity(Loc.GetString(message, args), user, user);
 
         return false;
     }

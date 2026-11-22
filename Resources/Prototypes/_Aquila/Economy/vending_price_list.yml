@@ -1,5 +1,5 @@
-# Цены товаров в торгоматах. Цена базового прототипа действует на всех его наследников без своей цены.
-# Ориентир: рядовой получает 50 кредитов за 10 минут.
+# Цены товаров в торговых автоматах. Цена базового прототипа действует на всех его потомков, у которых нет своей цены.
+# Для справки: обычный член экипажа получает 50 кредитов за 10 минут.
 
 - type: vendingPriceList
   id: Clothing
@@ -51,7 +51,7 @@
     ClothingHandsGlovesSyntheticBase: 50
     ClothingHandsGlovesColorYellowBase: 100
     ClothingHandsGlovesCaptain: 200
-    # Глаза
+    # Очки
     ClothingEyesBase: 55
     ShowSecurityIcons: 60
     ShowMedicalIcons: 60
@@ -116,7 +116,7 @@
     UtensilBasePlastic: 5
     BaseKnife: 75
     BaseHandheldGrinder: 50
-    # Курево
+    # Курительное
     CigPackBase: 35
     BaseCigar: 20
     BaseSmokable: 8
@@ -158,11 +158,12 @@
     BaseMagazineBoxRifle: 75
     BaseMagazineBoxLightRifle: 75
     BaseMagazineBoxCaselessRifle: 75
+    PaymentTerminalSecurity: 250
 
 - type: vendingPriceList
   id: Misc
   prices:
-    # Инструменты и техника
+    # Инструменты и снаряжение
     BaseCrowbar: 25
     ToolboxBase: 50
     BasePowerCell: 35
@@ -172,6 +173,7 @@
     EncryptionKey: 35
     BasePDA: 150
     IDCardStandard: 50
+    PaymentTerminal: 250
     # Канцелярия
     Pen: 8
     BasePaper: 5
@@ -227,7 +229,7 @@
     JetInjector: 35
     Dropper: 8
     BoxMouthSwab: 12
-    # Охрана
+    # Служба безопасности
     Handcuffs: 25
     Zipties: 8
     Flash: 60
@@ -264,7 +266,7 @@
     DrinkIceBucket: 25
     DrinkTeapot: 40
     Pitcher: 25
-    # Курево
+    # Курительное
     CigarCase: 70
     GroundTobacco: 25
     PackPaperRollingFilters: 25
@@ -300,7 +302,7 @@
     ClothingHandsGlovesColorYellowBudget: 35
     SlipocalypseClusterSoap: 150
     WeaponLauncherTaiwanPond: 100
-    # Без общей базы
+    # Без общей основы
     FoodSnackChocolate: 25
     FoodSnackLunacakeWrapped: 25
     FoodSnackMochicakeWrapped: 25

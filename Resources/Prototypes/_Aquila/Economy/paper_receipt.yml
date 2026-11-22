@@ -1,0 +1,26 @@
+- type: entity
+  parent: Paper
+  id: PaperReceipt
+  categories: [ HideSpawnMenu ]
+  name: ent-PaperReceipt
+  suffix: Экономика
+  description: ent-PaperReceipt.desc
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: paper_receipt_horizontal
+    - state: paper_receipt_horizontal_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/_Aquila/Interface/Paper/paper_background_receipt.svg.96dpi.png"
+    headerImagePath: "/Textures/_Aquila/Interface/Paper/paper_heading_receipt.svg.96dpi.png"
+    headerMargin: 0.0, 4.0, 0.0, 0.0
+    backgroundImageTile: true
+    backgroundPatchMargin: 6.0, 0.0, 6.0, 0.0
+    contentMargin: 12.0, 0.0, 6.0, 0.0
+    maxWritableArea: 368.0, 256.0

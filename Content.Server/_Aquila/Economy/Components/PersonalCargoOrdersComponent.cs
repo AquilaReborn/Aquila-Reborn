@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._Aquila.Economy.Components;
 
-[RegisterComponent, Access(typeof(PersonalCargoOrderSystem))]
+[RegisterComponent, Access(typeof(PersonalCargoOrderSystem), Other = AccessPermissions.ReadExecute)]
 public sealed partial class PersonalCargoOrdersComponent : Component
 {
     /// <summary>

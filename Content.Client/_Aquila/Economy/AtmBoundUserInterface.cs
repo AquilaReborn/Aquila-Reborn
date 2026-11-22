@@ -15,6 +15,8 @@ public sealed class AtmBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUs
         _window.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName;
         _window.OnWithdraw += amount => SendMessage(new AtmWithdrawMessage(amount));
         _window.OnOpenAccount += () => SendMessage(new AtmOpenAccountMessage());
+        _window.OnChangePin += (oldPin, newPin) => SendMessage(new AtmChangePinMessage(oldPin, newPin));
+        _window.OnSetSecurityLevel += level => SendMessage(new AtmSetSecurityLevelMessage(level));
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)

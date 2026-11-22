@@ -1,0 +1,36 @@
+- type: entity
+  parent: BaseItem
+  id: PaymentTerminal
+  name: ent-PaymentTerminal
+  suffix: Экономика
+  description: ent-PaymentTerminal.desc
+  components:
+  - type: Sprite
+    sprite: _Aquila/Objects/Economy/payment_terminal.rsi
+    layers:
+    - state: base
+    - state: unshaded
+      shader: unshaded
+  - type: PaymentTerminal
+  - type: ActivatableUI
+    key: enum.PaymentTerminalUiKey.Key
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.PaymentTerminalUiKey.Key:
+        type: PaymentTerminalBoundUserInterface
+
+- type: entity
+  parent: PaymentTerminal
+  id: PaymentTerminalSecurity
+  name: ent-PaymentTerminalSecurity
+  suffix: Экономика
+  description: ent-PaymentTerminalSecurity.desc
+  components:
+  - type: Sprite
+    sprite: _Aquila/Objects/Economy/security_terminal.rsi
+  - type: PaymentTerminal
+    fineOnly: true
+  - type: AccessReader
+    access: [["Security"]]
+  - type: ActivatableUIRequiresAccess

@@ -38,6 +38,7 @@ public sealed class BankCartridgeSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly BankAccountSystem _bank = default!;
+    [Dependency] private readonly BankPinSystem _bankPin = default!;
     [Dependency] private readonly CargoSystem _cargo = default!;
     [Dependency] private readonly CartridgeLoaderSystem _cartridgeLoader = default!;
     [Dependency] private readonly EconomyZoneSystem _economyZone = default!;
@@ -48,7 +49,13 @@ public sealed class BankCartridgeSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedIdCardSystem _idCard = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly StationBudgetLogSystem _budgetLog = default!;
     [Dependency] private readonly StationSystem _station = default!;
+
+    private static readonly TimeSpan ApproverJobCacheDuration = TimeSpan.FromSeconds(5);
+
+    private static readonly LocId BudgetDepositReason = "bank-budget-log-budget-deposit";
+    private static readonly LocId UnknownBudget = "bank-ui-manage-unknown-budget";
 
     public override void Initialize()
     {
@@ -69,9 +76,9 @@ public sealed class BankCartridgeSystem : EntitySystem
     private void OnCartridgeMessage(Entity<BankCartridgeComponent> ent, ref CartridgeMessageEvent args)
     {
         var loader = GetEntity(args.LoaderUid);
-        if (!_economyZone.IsEconomyEnabled())
+        if (!_economyZone.TryCheckActive(args.Actor, loader))
         {
-            Refuse(ent, Loc.GetString("bank-offline"), loader, args.Actor);
+            PlaySound(ent, ent.Comp.DenySound, args.Actor, loader);
             UpdateUiState(ent, loader);
             return;
         }
@@ -86,6 +93,9 @@ public sealed class BankCartridgeSystem : EntitySystem
                 Transfer(ent, loader, args.Actor, transfer);
                 UpdateUiState(ent, loader);
                 return;
+            case BankDepositBudgetMessageEvent deposit:
+                Deposit(ent, loader, args.Actor, deposit);
+                break;
             case BankBonusMessageEvent bonus:
                 Bonus(ent, loader, args.Actor, bonus);
                 break;
@@ -169,7 +179,7 @@ public sealed class BankCartridgeSystem : EntitySystem
             $"{ToPrettyString(user):user} opened bank account {number} for {ToPrettyString(id):card}");
     }
 
-    private void Transfer(Entity<BankCartridgeComponent> ent, EntityUid loader, EntityUid user, BankTransferMessageEvent transfer)
+    private void Transfer(Entity<BankCartridgeComponent> ent, EntityUid loader, EntityUid user, BankTransferMessageEvent transfer, int? pin = null)
     {
         if (!TryGetLoaderAccount(loader, out _, out var from))
         {
@@ -189,6 +199,18 @@ public sealed class BankCartridgeSystem : EntitySystem
             return;
         }
 
+        if (!_bankPin.TryVerifyPin(from.Value.AsNullable(), BankSecurityLevels.Full, pin, user, loader,
+            value =>
+            {
+                if (!CanContinue(ent.Owner, loader, user))
+                    return;
+
+                Transfer(ent, loader, user, transfer, value);
+                UpdateUiState(ent, loader);
+            },
+            () => PlaySound(ent, ent.Comp.DenySound, user, loader)))
+            return;
+
         if (!_bank.TryTransfer(from.Value.AsNullable(), to.Value.AsNullable(), transfer.Amount))
         {
             Refuse(ent, Loc.GetString("bank-transfer-insufficient"), loader, user);
@@ -200,12 +222,25 @@ public sealed class BankCartridgeSystem : EntitySystem
             $"{ToPrettyString(user):user} transferred {transfer.Amount} credits from account {from.Value.Comp.Number} to account {to.Value.Comp.Number}");
     }
 
-    private void Bonus(Entity<BankCartridgeComponent> ent, EntityUid loader, EntityUid user, BankBonusMessageEvent bonus)
+    private void Bonus(Entity<BankCartridgeComponent> ent, EntityUid loader, EntityUid user, BankBonusMessageEvent bonus, int? pin = null)
     {
         if (!TryGetManageContext(ent, loader, user, bonus.Number, bonus.Amount, bonus.Comment, out var context))
             return;
 
         var (issuer, target, authority, station, management, comment) = context.Value;
+
+        if (!_bankPin.TryVerifyPin(issuer.AsNullable(), BankSecurityLevels.Full, pin, user, loader,
+            value =>
+            {
+                if (!CanContinue(ent.Owner, loader, user))
+                    return;
+
+                Bonus(ent, loader, user, bonus, value);
+                UpdateAllUiStates();
+            },
+            () => PlaySound(ent, ent.Comp.DenySound, user, loader)))
+            return;
+
         var record = CreateRecord(false, issuer, target, authority.Budget, bonus.Amount, comment);
 
         if (station.Comp.Accounts.GetValueOrDefault(authority.Budget) < bonus.Amount)
@@ -225,12 +260,25 @@ public sealed class BankCartridgeSystem : EntitySystem
         Succeed(ent, Loc.GetString("bank-manage-bonus-success", ("amount", bonus.Amount), ("name", target.Comp.OwnerName)), loader, user);
     }
 
-    private void Fine(Entity<BankCartridgeComponent> ent, EntityUid loader, EntityUid user, BankFineMessageEvent fine)
+    private void Fine(Entity<BankCartridgeComponent> ent, EntityUid loader, EntityUid user, BankFineMessageEvent fine, int? pin = null)
     {
         if (!TryGetManageContext(ent, loader, user, fine.Number, fine.Amount, fine.Comment, out var context))
             return;
 
         var (issuer, target, authority, station, management, comment) = context.Value;
+
+        if (!_bankPin.TryVerifyPin(issuer.AsNullable(), BankSecurityLevels.Full, pin, user, loader,
+            value =>
+            {
+                if (!CanContinue(ent.Owner, loader, user))
+                    return;
+
+                Fine(ent, loader, user, fine, value);
+                UpdateAllUiStates();
+            },
+            () => PlaySound(ent, ent.Comp.DenySound, user, loader)))
+            return;
+
         var record = CreateRecord(true, issuer, target, authority.Budget, fine.Amount, comment);
 
         if (!authority.UnlimitedFine && fine.Amount > authority.MaxFine && !IsApprover(ent.Comp, loader))
@@ -244,9 +292,63 @@ public sealed class BankCartridgeSystem : EntitySystem
         Succeed(ent, Loc.GetString("bank-manage-fine-success", ("amount", fine.Amount), ("name", target.Comp.OwnerName)), loader, user);
     }
 
+    private void Deposit(Entity<BankCartridgeComponent> ent, EntityUid loader, EntityUid user, BankDepositBudgetMessageEvent deposit, int? pin = null)
+    {
+        if (!TryGetManager(ent, loader, user, _ => true, out var issuer, out var authority, out var station))
+            return;
+
+        if (deposit.Amount <= 0)
+        {
+            Refuse(ent, Loc.GetString("bank-transfer-invalid-amount"), loader, user);
+            return;
+        }
+
+        if (issuer.Value.Comp.Balance < deposit.Amount)
+        {
+            Refuse(ent, Loc.GetString("bank-transfer-insufficient"), loader, user);
+            return;
+        }
+
+        if (!TryComp<StationBankAccountComponent>(station, out var stationBank)
+            || !_cargo.TryGetAccount((station, stationBank), authority.Budget, out _))
+        {
+            Refuse(ent, Loc.GetString("bank-manage-no-budget"), loader, user);
+            return;
+        }
+
+        if (!_bankPin.TryVerifyPin(issuer.Value.AsNullable(), BankSecurityLevels.Full, pin, user, loader,
+            value =>
+            {
+                if (!CanContinue(ent.Owner, loader, user))
+                    return;
+
+                Deposit(ent, loader, user, deposit, value);
+                UpdateAllUiStates();
+            },
+            () => PlaySound(ent, ent.Comp.DenySound, user, loader)))
+            return;
+
+        var budgetName = Loc.GetString(_proto.Index(authority.Budget).Name);
+        if (!_bank.TryWithdraw(issuer.Value.AsNullable(), deposit.Amount, issuer.Value.Comp.BudgetDepositReason, budgetName))
+        {
+            Refuse(ent, Loc.GetString("bank-transfer-insufficient"), loader, user);
+            return;
+        }
+
+        _cargo.UpdateBankAccount((station, stationBank), deposit.Amount, authority.Budget);
+        _budgetLog.LogTransaction(station, authority.Budget, deposit.Amount, BudgetDepositReason, issuer.Value.Comp.OwnerName);
+
+        Announce(loader, GetBudgetChannel(authority.Budget), Loc.GetString("bank-radio-budget-deposit",
+            ("amount", deposit.Amount),
+            ("issuer", issuer.Value.Comp.OwnerName)));
+        _adminLog.Add(LogType.Action, LogImpact.Medium,
+            $"{ToPrettyString(user):user} deposited {deposit.Amount} credits from account {issuer.Value.Comp.Number} into the {authority.Budget} budget");
+        Succeed(ent, Loc.GetString("bank-manage-deposit-success", ("amount", deposit.Amount)), loader, user);
+    }
+
     private void Reply(Entity<BankCartridgeComponent> ent, EntityUid loader, EntityUid user, BankRequestReplyMessageEvent reply)
     {
-        if (!TryGetManager(ent, loader, user, _ => true, out var manager, out var station))
+        if (!TryGetManager(ent, loader, user, _ => true, out var manager, out _, out var station))
             return;
 
         if (!IsApprover(ent.Comp, loader))
@@ -266,7 +368,7 @@ public sealed class BankCartridgeSystem : EntitySystem
 
     private void Revoke(Entity<BankCartridgeComponent> ent, EntityUid loader, EntityUid user, BankFineRevokeMessageEvent revoke)
     {
-        if (!TryGetManager(ent, loader, user, authority => authority.RevokeFines, out var manager, out var station))
+        if (!TryGetManager(ent, loader, user, authority => authority.RevokeFines, out var manager, out _, out var station))
             return;
 
         var revoked = TryRevokeFine(station, revoke.Id, manager.Value.Comp.OwnerName, loader, out var message);
@@ -337,6 +439,12 @@ public sealed class BankCartridgeSystem : EntitySystem
         if (record == null)
             return false;
 
+        if (!TryComp<BankAccountComponent>(record.Target, out var target) || TerminatingOrDeleted(record.Target))
+        {
+            message = "bank-manage-revoke-no-account";
+            return false;
+        }
+
         if (stationBank.Accounts.GetValueOrDefault(record.Budget) < record.Amount)
         {
             message = "bank-manage-no-budget";
@@ -345,8 +453,8 @@ public sealed class BankCartridgeSystem : EntitySystem
 
         station.Comp.Fines.Remove(record);
         _cargo.UpdateBankAccount((station.Owner, stationBank), -record.Amount, record.Budget);
-        if (TryComp<BankAccountComponent>(record.Target, out var target))
-            _bank.Deposit((record.Target, target), record.Amount, station.Comp.FineRevokedReason, managerName, record.Comment);
+        _budgetLog.LogTransaction(station.Owner, record.Budget, -record.Amount, station.Comp.FineRevokedReason, managerName, record.Comment);
+        _bank.Deposit((record.Target, target), record.Amount, station.Comp.FineRevokedReason, managerName, record.Comment);
 
         Announce(source, GetBudgetChannel(record.Budget), Loc.GetString("bank-radio-fine-revoked",
             ("amount", record.Amount),
@@ -383,6 +491,7 @@ public sealed class BankCartridgeSystem : EntitySystem
     private void PayBonus(Entity<StationBankManagementComponent> management, Entity<StationBankAccountComponent> station, EntityUid? source, BankManageRecord record, string? manager)
     {
         _cargo.UpdateBankAccount(station.AsNullable(), -record.Amount, record.Budget);
+        _budgetLog.LogTransaction(station.Owner, record.Budget, -record.Amount, management.Comp.BonusReason, record.IssuerName, record.Comment);
         _bank.Deposit(record.Target, record.Amount, management.Comp.BonusReason, record.IssuerName, record.Comment);
 
         Announce(source, GetBudgetChannel(record.Budget), Loc.GetString(manager == null ? "bank-radio-bonus" : "bank-radio-bonus-approved",
@@ -399,6 +508,7 @@ public sealed class BankCartridgeSystem : EntitySystem
     {
         _bank.Charge(record.Target, record.Amount, management.Comp.FineReason, record.IssuerName, record.Comment);
         _cargo.UpdateBankAccount(station.AsNullable(), record.Amount, record.Budget);
+        _budgetLog.LogTransaction(station.Owner, record.Budget, record.Amount, management.Comp.FineReason, record.IssuerName, record.Comment);
 
         if (record.Id == 0)
             record.Id = management.Comp.NextId++;
@@ -438,6 +548,11 @@ public sealed class BankCartridgeSystem : EntitySystem
 
         ent.Comp.LastSoundTime = _timing.CurTime;
         _audio.PlayEntity(sound, recipient, source);
+    }
+
+    private bool CanContinue(EntityUid program, EntityUid loader, EntityUid user)
+    {
+        return !TerminatingOrDeleted(program) && !TerminatingOrDeleted(loader) && !TerminatingOrDeleted(user);
     }
 
     private void Succeed(Entity<BankCartridgeComponent> ent, string message, EntityUid loader, EntityUid user)
@@ -569,13 +684,15 @@ public sealed class BankCartridgeSystem : EntitySystem
         EntityUid user,
         Func<BankAuthority, bool> permission,
         [NotNullWhen(true)] out Entity<BankAccountComponent>? manager,
+        [NotNullWhen(true)] out BankAuthority? authority,
         out EntityUid station)
     {
+        authority = null;
         station = default;
 
         if (!TryGetLoaderAccount(loader, out var card, out manager)
-            || GetAuthority(ent.Comp, card.Value) is not { } authority
-            || !permission(authority))
+            || GetAuthority(ent.Comp, card.Value) is not { } foundAuthority
+            || !permission(foundAuthority))
         {
             Refuse(ent, Loc.GetString("bank-manage-denied"), loader, user);
             return false;
@@ -588,6 +705,7 @@ public sealed class BankCartridgeSystem : EntitySystem
             return false;
         }
 
+        authority = foundAuthority;
         station = stationUid;
         return true;
     }
@@ -671,6 +789,10 @@ public sealed class BankCartridgeSystem : EntitySystem
 
     private ProtoId<JobPrototype>? GetApproverJob(BankCartridgeComponent comp)
     {
+        var curTime = _timing.CurTime;
+        if (comp.ApproverJobCacheTime is { } cachedAt && cachedAt + ApproverJobCacheDuration > curTime)
+            return comp.CachedApproverJob;
+
         var present = new HashSet<ProtoId<JobPrototype>>();
         var query = EntityQueryEnumerator<ActorComponent, MobStateComponent>();
         while (query.MoveNext(out var uid, out _, out var mobState))
@@ -683,18 +805,24 @@ public sealed class BankCartridgeSystem : EntitySystem
             present.Add(job);
         }
 
+        ProtoId<JobPrototype>? approver = null;
         foreach (var job in comp.Approvers)
         {
-            if (present.Contains(job))
-                return job;
+            if (!present.Contains(job))
+                continue;
+
+            approver = job;
+            break;
         }
 
-        return null;
+        comp.CachedApproverJob = approver;
+        comp.ApproverJobCacheTime = curTime;
+        return approver;
     }
 
     private BankManageRecordUiData GetUiData(BankManageRecord record)
     {
-        var budget = _proto.Resolve(record.Budget, out var budgetProto) ? Loc.GetString(budgetProto.Name) : record.Budget.Id;
+        var budget = _proto.Resolve(record.Budget, out var budgetProto) ? Loc.GetString(budgetProto.Name) : Loc.GetString(UnknownBudget);
         return new BankManageRecordUiData(record.Id,
             record.Fine,
             record.IssuerName,

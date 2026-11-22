@@ -1,0 +1,23 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc 'payment-terminal-window-title'}"
+                      SetSize="440 380"
+                      MinSize="340 300">
+  <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="6">
+    <Label Name="AccountLabel" StyleClasses="LabelHeading" ClipText="True"/>
+    <Label Name="FineOnlyLabel" StyleClasses="LabelSubText" ClipText="True" Visible="False"/>
+    <Label Name="InvoiceLabel" StyleClasses="LabelSubText" ClipText="True"/>
+    <PanelContainer StyleClasses="LowDivider"/>
+    <BoxContainer Name="OwnerForm" Orientation="Vertical" SeparationOverride="4" Visible="False">
+      <Button Name="LinkCardButton" Text="{Loc 'payment-terminal-window-link-card'}" Visible="False"/>
+      <LineEdit Name="AmountInput" PlaceHolder="{Loc 'payment-terminal-window-amount'}"/>
+      <LineEdit Name="PurposeInput" PlaceHolder="{Loc 'payment-terminal-window-purpose'}"/>
+      <Label Name="ErrorLabel" StyleClasses="LabelSubText" Visible="False"/>
+      <BoxContainer Orientation="Horizontal" SeparationOverride="4">
+        <Button Name="SetInvoiceButton" Text="{Loc 'payment-terminal-window-set'}" HorizontalExpand="True" StyleClasses="OpenRight"/>
+        <Button Name="ClearInvoiceButton" Text="{Loc 'payment-terminal-window-clear'}" HorizontalExpand="True" StyleClasses="OpenLeft"/>
+      </BoxContainer>
+      <Button Name="PrintReceiptButton" Text="{Loc 'payment-terminal-window-print-receipt'}"/>
+    </BoxContainer>
+  </BoxContainer>
+</controls:FancyWindow>

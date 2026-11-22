@@ -1,0 +1,19 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc 'budget-console-title'}"
+                      SetSize="720 480"
+                      MinSize="620 400">
+  <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="6">
+    <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+      <Label Text="{Loc 'budget-console-time'}" MinWidth="64" StyleClasses="LabelKeyText"/>
+      <Label Text="{Loc 'budget-console-account'}" MinWidth="52" StyleClasses="LabelKeyText"/>
+      <Label Text="{Loc 'budget-console-amount'}" MinWidth="84" HorizontalAlignment="Right" StyleClasses="LabelKeyText"/>
+      <Label Text="{Loc 'budget-console-reason'}" HorizontalExpand="True" StyleClasses="LabelKeyText"/>
+      <Label Text="{Loc 'budget-console-balance'}" MinWidth="88" HorizontalAlignment="Right" StyleClasses="LabelKeyText"/>
+    </BoxContainer>
+    <PanelContainer StyleClasses="LowDivider"/>
+    <ScrollContainer VerticalExpand="True" HScrollEnabled="False" ReserveScrollbarSpace="True">
+      <BoxContainer Name="EntriesContainer" Orientation="Vertical" SeparationOverride="6"/>
+    </ScrollContainer>
+  </BoxContainer>
+</controls:FancyWindow>

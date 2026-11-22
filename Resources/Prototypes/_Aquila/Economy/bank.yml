@@ -1,9 +1,11 @@
 - type: entity
   id: BankAccount
-  name: bank account
   categories: [ HideSpawnMenu ]
+  name: bank account
   components:
   - type: BankAccount
+    maxHistory: 100
+    maxCashWithdrawal: 500
     startingPaychecks: 3
     defaultSalary: 20
     salaries:
@@ -59,6 +61,7 @@
   parent: BasePDACartridge
   id: BankCartridge
   name: bank cartridge
+  suffix: Экономика
   description: A program for managing a personal bank account.
   components:
   - type: Sprite

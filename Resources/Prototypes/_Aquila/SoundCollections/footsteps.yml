@@ -1,0 +1,5 @@
+- type: soundCollection
+  id: FootstepJackboots
+  files:
+  - /Audio/_Aquila/Effects/Footsteps/jackboot1.ogg
+  - /Audio/_Aquila/Effects/Footsteps/jackboot2.ogg

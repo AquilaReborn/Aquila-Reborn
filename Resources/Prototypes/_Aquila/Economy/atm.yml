@@ -2,6 +2,7 @@
   parent: [ BaseWallmountMachine, StructureHealthMachineWeak ]
   id: Atm
   name: ATM
+  suffix: Экономика
   description: Withdraws credits from your bank account as cash and accepts cash deposits.
   components:
   - type: Sprite

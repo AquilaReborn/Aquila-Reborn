@@ -27,7 +27,10 @@ public sealed class PersonalCargoOrderSystem : EntitySystem
     [Dependency] private readonly BankAccountSystem _bank = default!;
     [Dependency] private readonly CargoSystem _cargo = default!;
     [Dependency] private readonly SharedIdCardSystem _idCard = default!;
+    [Dependency] private readonly StationBudgetLogSystem _budgetLog = default!;
     [Dependency] private readonly StationSystem _station = default!;
+
+    private static readonly LocId HandlingReason = "bank-budget-log-cargo-handling";
 
     /// <summary>
     /// Возвращает номер личного счёта, с которого покупатель может оплатить заказ на станции, или null, если личные заказы ему недоступны.
@@ -76,7 +79,9 @@ public sealed class PersonalCargoOrderSystem : EntitySystem
             return;
 
         _bank.Charge(account.Value.AsNullable(), cost, station.Comp.PaymentReason, order.ProductName);
-        _cargo.UpdateBankAccount(station.Owner, (int) (cost * station.Comp.HandlingShare), station.Comp.HandlingAccount);
+        var handling = (int) (cost * station.Comp.HandlingShare);
+        _cargo.UpdateBankAccount(station.Owner, handling, station.Comp.HandlingAccount);
+        _budgetLog.LogTransaction(station.Owner, station.Comp.HandlingAccount, handling, HandlingReason, account.Value.Comp.OwnerName);
 
         _adminLog.Add(LogType.Action, LogImpact.Low,
             $"Account {number} ({account.Value.Comp.OwnerName}) paid {cost} credits for personal cargo order {order.OrderId} ({order.ProductId})");

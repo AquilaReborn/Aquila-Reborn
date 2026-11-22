@@ -3,7 +3,6 @@ using Content.Server._Aquila.Economy.Systems;
 using Content.Shared.Roles;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server._Aquila.Economy.Components;
 
@@ -49,7 +48,7 @@ public sealed partial class BankCartridgeComponent : Component
     /// <summary>
     /// Когда программа в последний раз проигрывала звук. За один тик звучит только один звук.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    [ViewVariables, AutoPausedField]
     public TimeSpan LastSoundTime;
 
     /// <summary>
@@ -57,4 +56,15 @@ public sealed partial class BankCartridgeComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier? DenySound = new SoundPathSpecifier("/Audio/_Aquila/Economy/terminal_prompt_deny.ogg", AudioParams.Default.WithVolume(-7f));
+
+    /// <summary>
+    /// Должность подтверждающего, найденная последним поиском. Null, если подходящих на смене нет.
+    /// </summary>
+    public ProtoId<JobPrototype>? CachedApproverJob;
+
+    /// <summary>
+    /// Когда должность подтверждающего искали последний раз. Null, если ещё не искали.
+    /// </summary>
+    [ViewVariables, AutoPausedField]
+    public TimeSpan? ApproverJobCacheTime;
 }

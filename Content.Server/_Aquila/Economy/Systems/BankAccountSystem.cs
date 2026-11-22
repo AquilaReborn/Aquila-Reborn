@@ -4,13 +4,18 @@ using Content.Server._Aquila.Economy.Components;
 using Content.Server.GameTicking;
 using Content.Server.Station.Systems;
 using Content.Shared._Aquila.CCVars;
+using Content.Shared._Aquila.Economy;
 using Content.Shared._Aquila.Economy.DataDefinitions;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
+using Content.Shared.Cargo;
+using Content.Shared.Cargo.Components;
 using Content.Shared.Examine;
 using Content.Shared.GameTicking;
+using Content.Shared.Popups;
 using Content.Shared.Roles;
 using Robust.Shared.Configuration;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -23,8 +28,15 @@ public sealed class BankAccountSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
+    [Dependency] private readonly SharedCargoSystem _cargo = default!;
+    [Dependency] private readonly StationBudgetLogSystem _budgetLog = default!;
     [Dependency] private readonly SharedIdCardSystem _idCard = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly StationJobsSystem _stationJobs = default!;
+    [Dependency] private readonly StationSystem _station = default!;
+
+    private const int MinPin = 1000;
+    private const int MaxPinExclusive = 10000;
 
     private readonly Dictionary<EntityUid, PendingAccount> _pending = new();
 
@@ -67,8 +79,33 @@ public sealed class BankAccountSystem : EntitySystem
 
             account.NextPayday += account.PaydayInterval;
             if (enabled)
-                Deposit((uid, account), account.Salary, account.SalaryReason);
+                PaySalary((uid, account));
         }
+    }
+
+    private void PaySalary(Entity<BankAccountComponent> account)
+    {
+        var salary = account.Comp.Salary;
+        if (salary <= 0)
+            return;
+
+        if (account.Comp.Station is { } station
+            && TryComp<StationTreasuryComponent>(station, out var treasury)
+            && treasury.PaySalaryFromTreasury)
+        {
+            if (!TryPayFromTreasury(station, salary, account.Comp.SalaryReason, treasury.CoverSalaryWithSubsidy, null, out var paid, account.AsNullable())
+                && paid == 0)
+            {
+                Log.Warning($"Failed to pay salary of {salary} credits to account {account.Comp.Number} from the treasury of {ToPrettyString(station)}, paying by emission");
+                Deposit(account.AsNullable(), salary, account.Comp.SalaryReason);
+                return;
+            }
+
+            Deposit(account.AsNullable(), paid, account.Comp.SalaryReason);
+            return;
+        }
+
+        Deposit(account.AsNullable(), salary, account.Comp.SalaryReason);
     }
 
     private void OnPlayerSpawnComplete(PlayerSpawnCompleteEvent args)
@@ -94,7 +131,7 @@ public sealed class BankAccountSystem : EntitySystem
         }
 
         job ??= idCard.Comp.JobPrototype;
-        SetupAccount(idCard, card, job, args.Profile.Name);
+        SetupAccount(idCard, card, job, args.Profile.Name, args.Station.IsValid() ? args.Station : null);
     }
 
     private void UpdatePendingAccounts()
@@ -112,24 +149,41 @@ public sealed class BankAccountSystem : EntitySystem
                 continue;
 
             var job = pending.Job ?? idCard.Comp.JobPrototype;
-            SetupAccount(idCard, card, job, pending.Name);
+            SetupAccount(idCard, card, job, pending.Name, null);
             _pending.Remove(mob);
         }
     }
 
-    private void SetupAccount(Entity<IdCardComponent> idCard, BankCardComponent card, ProtoId<JobPrototype>? job, string name)
+    private void SetupAccount(Entity<IdCardComponent> idCard, BankCardComponent card, ProtoId<JobPrototype>? job, string name, EntityUid? station)
     {
+        station ??= _station.GetOwningStation(idCard.Owner);
+
         if (card.Account is { } existingUid && TryComp<BankAccountComponent>(existingUid, out var existing))
         {
             existing.Job = job;
             existing.Salary = ResolveSalary(existing, job);
+            existing.Station ??= station;
             return;
         }
 
-        var account = CreateAccount((idCard.Owner, card), name, job);
+        var account = CreateAccount((idCard.Owner, card), name, job, station);
         account.Comp.Salary = ResolveSalary(account.Comp, job);
 
-        Deposit(account.AsNullable(), account.Comp.Salary * account.Comp.StartingPaychecks, account.Comp.StartingReason);
+        var starting = account.Comp.Salary * account.Comp.StartingPaychecks;
+        var paid = starting;
+        if (station is { } stationUid
+            && TryComp<StationTreasuryComponent>(stationUid, out var treasury)
+            && treasury.PayStartingFromTreasury)
+        {
+            if (!TryPayFromTreasury(stationUid, starting, account.Comp.StartingReason, treasury.CoverStartingWithSubsidy, null, out paid, account.AsNullable())
+                && paid == 0)
+            {
+                Log.Warning($"Failed to pay starting payment of {starting} credits to account {account.Comp.Number} from the treasury of {ToPrettyString(stationUid)}, paying by emission");
+                paid = starting;
+            }
+        }
+
+        Deposit(account.AsNullable(), paid, account.Comp.StartingReason);
     }
 
     private static int ResolveSalary(BankAccountComponent account, ProtoId<JobPrototype>? job)
@@ -161,12 +215,12 @@ public sealed class BankAccountSystem : EntitySystem
         var card = EnsureComp<BankCardComponent>(idCard);
         var id = Comp<IdCardComponent>(idCard);
         var ownerName = string.IsNullOrWhiteSpace(id.FullName) ? fallbackName : id.FullName;
-        var created = CreateAccount((idCard, card), ownerName, id.JobPrototype);
+        var created = CreateAccount((idCard, card), ownerName, id.JobPrototype, _station.GetOwningStation(idCard));
         account = created;
         return true;
     }
 
-    private Entity<BankAccountComponent> CreateAccount(Entity<BankCardComponent> card, string ownerName, ProtoId<JobPrototype>? job)
+    private Entity<BankAccountComponent> CreateAccount(Entity<BankCardComponent> card, string ownerName, ProtoId<JobPrototype>? job, EntityUid? station)
     {
         var uid = Spawn(card.Comp.AccountPrototype);
         var account = Comp<BankAccountComponent>(uid);
@@ -174,9 +228,112 @@ public sealed class BankAccountSystem : EntitySystem
         account.Number = GenerateNumber(account);
         account.OwnerName = ownerName;
         account.Job = job;
+        account.Station = station;
         account.NextPayday = _timing.CurTime + account.PaydayInterval;
+        account.Pin = _random.Next(MinPin, MaxPinExclusive);
         card.Comp.Account = uid;
+
+        NotifyPinGenerated((uid, account), card.Owner);
         return (uid, account);
+    }
+
+    /// <summary>
+    /// Проверяет PIN счёта. Если PIN не задан, подходит любое значение.
+    /// </summary>
+    /// <param name="account">Счёт, PIN которого проверяют.</param>
+    /// <param name="pin">Проверяемый PIN. Значения 0 и меньше верными не считаются.</param>
+    /// <returns>true, если PIN верный или на счёте он ещё не задан.</returns>
+    public bool CheckPin(Entity<BankAccountComponent?> account, int pin)
+    {
+        if (!Resolve(account, ref account.Comp, false))
+            return false;
+
+        if (account.Comp.Pin == BankAccountComponent.NoPin)
+            return true;
+
+        return pin > 0 && pin == account.Comp.Pin;
+    }
+
+    /// <summary>
+    /// Меняет PIN счёта, если старый PIN верный, а новый состоит из четырёх цифр. После успешной смены счётчик
+    /// неудачных попыток ввода PIN сбрасывается.
+    /// </summary>
+    /// <param name="account">Счёт, PIN которого меняют.</param>
+    /// <param name="oldPin">Текущий PIN счёта.</param>
+    /// <param name="newPin">Новый PIN от 1000 до 9999.</param>
+    /// <returns>true, если PIN изменён.</returns>
+    public bool TryChangePin(Entity<BankAccountComponent?> account, int oldPin, int newPin)
+    {
+        if (!Resolve(account, ref account.Comp, false)
+            || !CheckPin(account, oldPin)
+            || newPin < MinPin
+            || newPin >= MaxPinExclusive)
+            return false;
+
+        account.Comp.Pin = newPin;
+        account.Comp.FailedPinAttempts = 0;
+        return true;
+    }
+
+    /// <summary>
+    /// Устанавливает уровень защиты счёта, если PIN верный. Счёт без PIN не может получить уровень выше открытого:
+    /// иначе проверка PIN перестала бы что-либо защищать.
+    /// </summary>
+    /// <param name="account">Счёт, уровень защиты которого меняют.</param>
+    /// <param name="level">Уровень защиты из <see cref="BankSecurityLevels"/>.</param>
+    /// <param name="pin">Текущий PIN счёта.</param>
+    /// <returns>true, если уровень защиты изменён.</returns>
+    public bool TrySetSecurityLevel(Entity<BankAccountComponent?> account, int level, int pin)
+    {
+        if (!Resolve(account, ref account.Comp, false)
+            || level < BankSecurityLevels.Open
+            || level > BankSecurityLevels.Full
+            || (account.Comp.Pin == BankAccountComponent.NoPin && level > BankSecurityLevels.Open)
+            || !CheckPin(account, pin))
+            return false;
+
+        account.Comp.SecurityLevel = level;
+        return true;
+    }
+
+    /// <summary>
+    /// Сбрасывает PIN счёта и его уровень защиты до открытого, как будто PIN ещё не задан. Владелец после этого
+    /// задаёт новый PIN в банкомате без старого.
+    /// </summary>
+    /// <param name="account">Счёт, чей PIN сбрасывают.</param>
+    /// <returns>true, если PIN сброшен.</returns>
+    public bool TryResetPin(Entity<BankAccountComponent?> account)
+    {
+        if (!Resolve(account, ref account.Comp, false))
+            return false;
+
+        account.Comp.Pin = BankAccountComponent.NoPin;
+        account.Comp.SecurityLevel = BankSecurityLevels.Open;
+        account.Comp.FailedPinAttempts = 0;
+        account.Comp.LastFailedPinTime = default;
+        return true;
+    }
+
+    private void NotifyPinGenerated(Entity<BankAccountComponent> account, EntityUid card)
+    {
+        if (FindCardHolder(card) is not { } holder)
+            return;
+
+        _popup.PopupEntity(Loc.GetString(account.Comp.PinGeneratedMessage, ("pin", account.Comp.Pin)), card, holder, PopupType.Medium);
+    }
+
+    private EntityUid? FindCardHolder(EntityUid card)
+    {
+        var current = Transform(card).ParentUid;
+        while (current.IsValid())
+        {
+            if (HasComp<ActorComponent>(current))
+                return current;
+
+            current = Transform(current).ParentUid;
+        }
+
+        return null;
     }
 
     private void OnExamined(Entity<BankCardComponent> ent, ref ExaminedEvent args)
@@ -261,16 +418,106 @@ public sealed class BankAccountSystem : EntitySystem
     }
 
     /// <summary>
+    /// Платит сумму из казны станции и сообщает, сколько вызывающему нужно зачислить на счёт получателя.
+    /// Если в казне не хватает, она отдаёт всё, что есть, а недостачу при разрешённой субсидии сразу
+    /// зачисляет на счёт получателя с причиной субсидии.
+    /// </summary>
+    /// <param name="station">Станция, из казны которой идёт выплата.</param>
+    /// <param name="amount">Сумма выплаты.</param>
+    /// <param name="reason">Описание списания из казны в журнале бюджета станции.</param>
+    /// <param name="allowSubsidy">Покрывать ли нехватку казны субсидией ЦК.</param>
+    /// <param name="party">Сторона операции для истории субсидии, по умолчанию ЦК.</param>
+    /// <param name="paid">Сколько денег вызывающему нужно зачислить на счёт получателя.</param>
+    /// <param name="account">Счёт получателя для зачисления субсидии. Без него субсидия не выдаётся.</param>
+    /// <returns>true, если выплачено хоть что-то.</returns>
+    public bool TryPayFromTreasury(
+        EntityUid? station,
+        int amount,
+        LocId reason,
+        bool allowSubsidy,
+        string? party,
+        out int paid,
+        Entity<BankAccountComponent?> account = default)
+    {
+        paid = 0;
+        if (amount <= 0
+            || station is not { } stationUid
+            || !TryComp<StationBankAccountComponent>(stationUid, out var bank)
+            || !TryComp<StationTreasuryComponent>(stationUid, out var treasury))
+            return false;
+
+        var balance = Math.Max(0, _cargo.GetBalanceFromAccount((stationUid, bank), treasury.PayrollAccount));
+        var fromTreasury = Math.Min(amount, balance);
+        if (fromTreasury > 0 && !_cargo.TryAdjustBankAccount((stationUid, bank), treasury.PayrollAccount, -fromTreasury))
+            return false;
+
+        if (fromTreasury > 0)
+            _budgetLog.LogTransaction(stationUid, treasury.PayrollAccount, -fromTreasury, reason, account.Comp?.OwnerName);
+
+        paid = fromTreasury;
+        if (fromTreasury >= amount)
+            return true;
+
+        if (!allowSubsidy || account.Comp is not { } payee)
+            return paid > 0;
+
+        Deposit((account.Owner, payee), amount - fromTreasury, treasury.SubsidyReason,
+            party ?? Loc.GetString(payee.CentralCommandParty));
+        return true;
+    }
+
+    /// <summary>
+    /// Проверяет, пройдёт ли выплата из казны станции полностью, не трогая деньги.
+    /// </summary>
+    /// <param name="station">Станция, из казны которой идёт выплата.</param>
+    /// <param name="amount">Сумма выплаты.</param>
+    /// <param name="allowSubsidy">Считать ли нехватку покрытой субсидией ЦК.</param>
+    /// <returns>true, если в казне хватает денег или нехватку покрывает субсидия.</returns>
+    public bool CanPayFromTreasury(EntityUid? station, int amount, bool allowSubsidy)
+    {
+        if (amount <= 0
+            || station is not { } stationUid
+            || !TryComp<StationBankAccountComponent>(stationUid, out var bank)
+            || !TryComp<StationTreasuryComponent>(stationUid, out var treasury))
+            return false;
+
+        var available = Math.Max(0, _cargo.GetBalanceFromAccount((stationUid, bank), treasury.PayrollAccount));
+        return available >= amount || allowSubsidy;
+    }
+
+    /// <summary>
     /// Списывает деньги со счёта, если на нём хватает средств.
     /// </summary>
-    public bool TryWithdraw(Entity<BankAccountComponent?> account, int amount, LocId reason, string? party = null)
+    /// <param name="account">Счёт, с которого списывают деньги.</param>
+    /// <param name="amount">Сумма списания.</param>
+    /// <param name="reason">Описание операции в истории.</param>
+    /// <param name="party">Имя второй стороны операции, если она есть.</param>
+    /// <param name="comment">Пояснение к операции, например назначение платежа.</param>
+    public bool TryWithdraw(Entity<BankAccountComponent?> account, int amount, LocId reason, string? party = null, string? comment = null)
     {
         if (!Resolve(account, ref account.Comp) || amount <= 0 || account.Comp.Balance < amount)
             return false;
 
         account.Comp.Balance -= amount;
-        AddTransaction((account, account.Comp), -amount, reason, party);
+        AddTransaction((account, account.Comp), -amount, reason, party, comment);
         return true;
+    }
+
+    /// <summary>
+    /// Проверяет, укладывается ли снятие наличных в предел счёта на одну операцию. Общий для всех способов снятия.
+    /// </summary>
+    /// <param name="account">Счёт, с которого снимают наличные.</param>
+    /// <param name="amount">Сумма снятия.</param>
+    /// <param name="limit">Предел снятия на счёте, 0 - без предела.</param>
+    /// <returns>true, если снимать столько можно.</returns>
+    public bool CanWithdrawCash(Entity<BankAccountComponent?> account, int amount, out int limit)
+    {
+        limit = 0;
+        if (!Resolve(account, ref account.Comp))
+            return false;
+
+        limit = account.Comp.MaxCashWithdrawal;
+        return limit <= 0 || amount <= limit;
     }
 
     /// <summary>
@@ -300,15 +547,21 @@ public sealed class BankAccountSystem : EntitySystem
     /// <summary>
     /// Переводит деньги с одного счёта на другой, если на счёте отправителя хватает средств.
     /// </summary>
-    public bool TryTransfer(Entity<BankAccountComponent?> from, Entity<BankAccountComponent?> to, int amount)
+    /// <param name="from">Счёт отправителя.</param>
+    /// <param name="to">Счёт получателя.</param>
+    /// <param name="amount">Сумма перевода.</param>
+    /// <param name="outReason">Описание списания в истории отправителя, по умолчанию обычный перевод.</param>
+    /// <param name="inReason">Описание зачисления в истории получателя, по умолчанию обычный перевод.</param>
+    /// <param name="comment">Пояснение к операции, например назначение платежа.</param>
+    public bool TryTransfer(Entity<BankAccountComponent?> from, Entity<BankAccountComponent?> to, int amount, LocId? outReason = null, LocId? inReason = null, string? comment = null)
     {
         if (!Resolve(from, ref from.Comp)
             || !Resolve(to, ref to.Comp)
             || from.Owner == to.Owner
-            || !TryWithdraw(from, amount, from.Comp.TransferOutReason, to.Comp.OwnerName))
+            || !TryWithdraw(from, amount, outReason ?? from.Comp.TransferOutReason, to.Comp.OwnerName, comment))
             return false;
 
-        Deposit(to, amount, to.Comp.TransferInReason, from.Comp.OwnerName);
+        Deposit(to, amount, inReason ?? to.Comp.TransferInReason, from.Comp.OwnerName, comment);
         return true;
     }
 
@@ -334,6 +587,8 @@ public sealed class BankAccountSystem : EntitySystem
             if (card.Account == account.Owner)
                 RaiseLocalEvent(uid, ref ev);
         }
+
+        RaiseLocalEvent(ref ev);
     }
 
     private int GenerateNumber(BankAccountComponent account)

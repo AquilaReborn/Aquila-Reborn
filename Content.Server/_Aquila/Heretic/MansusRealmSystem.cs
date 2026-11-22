@@ -3,6 +3,7 @@ using System.Numerics;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Managers;
+using Content.Server.Cloning;
 using Content.Server.GameTicking;
 using Content.Server.Ghost;
 using Content.Server.Pinpointer;
@@ -12,6 +13,7 @@ using Content.Shared._EinsteinEngines.HeightAdjust;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Chat;
+using Content.Shared.Cloning;
 using Content.Shared.Ghost;
 using Content.Shared.Gravity;
 using Content.Shared.Humanoid;
@@ -25,6 +27,7 @@ using Content.Shared.Parallax;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.StatusEffectNew;
+using Content.Shared.Store.Components;
 using Robust.Server.GameStates;
 using Robust.Server.Player;
 using Robust.Shared.Audio.Systems;
@@ -48,6 +51,7 @@ public sealed class MansusRealmSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
+    [Dependency] private readonly CloningSystem _cloning = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly GhostSystem _ghost = default!;
@@ -69,6 +73,7 @@ public sealed class MansusRealmSystem : EntitySystem
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly TileSystem _tileSystem = default!;
 
+    private static readonly ProtoId<CloningSettingsPrototype> BaseCloneSettings = "BaseClone";
     private static readonly EntProtoId ForcedSleep = "StatusEffectForcedSleeping";
     private static readonly LocId VictimSentMessage = "mansus-trial-victim-sent";
     private static readonly LocId ReportPassedMessage = "mansus-trial-report-passed";
@@ -172,17 +177,23 @@ public sealed class MansusRealmSystem : EntitySystem
 
         var copy = SpawnAttachedTo(species.Prototype, new EntityCoordinates(grid, Vector2.Zero));
         _humanoid.CloneAppearance(victim, copy, humanoid);
+        _cloning.CloneComponents(victim, copy, BaseCloneSettings);
+        RemComp<StoreComponent>(copy);
+
         _heightAdjust.SetScale(copy, new Vector2(humanoid.Width, humanoid.Height));
         _meta.SetEntityName(copy, Name(victim));
         foreach (var slot in realm.CarriedSlots)
         {
-            if (!_inventory.TryGetSlotEntity(victim, slot, out var item)
-                || Prototype(item.Value) is not { } itemProto)
-                continue;
+            if (_inventory.TryUnequip(victim, slot, out var worn, silent: true, force: true))
+            {
+                if (!_inventory.TryEquip(copy, worn.Value, slot, silent: true, force: true))
+                    SpawnEquippedCopy(copy, worn.Value, slot);
 
-            var clone = SpawnAttachedTo(itemProto.ID, Transform(copy).Coordinates);
-            if (!_inventory.TryEquip(copy, clone, slot, silent: true, force: true))
-                QueueDel(clone);
+                continue;
+            }
+
+            if (_inventory.TryGetSlotEntity(victim, slot, out var item))
+                SpawnEquippedCopy(copy, item.Value, slot);
         }
 
         var victimComp = EnsureComp<MansusVictimComponent>(copy);
@@ -225,6 +236,16 @@ public sealed class MansusRealmSystem : EntitySystem
 
         realm = default;
         return false;
+    }
+
+    private void SpawnEquippedCopy(EntityUid target, EntityUid item, string slot)
+    {
+        if (Prototype(item) is not { } proto)
+            return;
+
+        var copy = SpawnAttachedTo(proto.ID, Transform(target).Coordinates);
+        if (!_inventory.TryEquip(target, copy, slot, silent: true, force: true))
+            QueueDel(copy);
     }
 
     public override void Update(float frameTime)
@@ -394,7 +415,9 @@ public sealed class MansusRealmSystem : EntitySystem
                 var side = new Vector2(-direction.Y, direction.X);
                 var reach = realm.PlatformSize * 0.75f;
                 var count = (int) (reach * 2f / realm.WallSpacing) + 1;
-                var gapStart = _random.Next(count / 4, count * 3 / 4 - realm.WallGap);
+                var gapMin = count / 4;
+                var gapMax = Math.Max(gapMin + 1, count * 3 / 4 - realm.WallGap);
+                var gapStart = _random.Next(gapMin, gapMax);
                 for (var i = 0; i < count; i++)
                 {
                     if (i >= gapStart && i < gapStart + realm.WallGap)

@@ -86,7 +86,7 @@ public sealed class WOUParasiteCapsuleSphereSystem : EntitySystem
 
     private void SpawnCapsule(EntityUid target, EntityUid parasite, WOUCapsuleSphereComponent sphere)
     {
-        var capsule = Spawn(sphere.CapsuleProto, Transform(target).Coordinates);
+        var capsule = SpawnAttachedTo(sphere.CapsuleProto, Transform(target).Coordinates);
 
         var triggerDelay = sphere.TriggerDelay;
         var ratSpawnDelay = sphere.RatSpawnDelay;
@@ -129,7 +129,7 @@ public sealed class WOUParasiteCapsuleSphereSystem : EntitySystem
 
                 for (var i = 0; i < ratsPerCapsule; i++)
                 {
-                    var rat = Spawn(ratProto, coords);
+                    var rat = SpawnAttachedTo(ratProto, coords);
                     var despawn = EnsureComp<FadingTimedDespawnComponent>(rat);
                     despawn.Lifetime = ratLifetime;
 

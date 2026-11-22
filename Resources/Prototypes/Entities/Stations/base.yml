@@ -11,6 +11,9 @@
   abstract: true
   components:
     - type: StationBankAccount
+    - type: StationTreasury # Aquila Change
+    - type: StationBudgetLog # Aquila Change
+      maxEntries: 500 # Aquila Change
     - type: StationCargoOrderDatabase
       orders:
         Cargo: [ ]

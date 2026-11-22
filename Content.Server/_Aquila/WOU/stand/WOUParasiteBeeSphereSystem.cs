@@ -80,7 +80,7 @@ public sealed class WOUParasiteBeeSphereSystem : EntitySystem
 
     private void SpawnBee(EntityUid target, EntityUid host, EntityUid parasite, WOUBeeSphereComponent sphere)
     {
-        var bee = Spawn(sphere.BeeProto, Transform(target).Coordinates);
+        var bee = SpawnAttachedTo(sphere.BeeProto, Transform(target).Coordinates);
         var despawn = EnsureComp<FadingTimedDespawnComponent>(bee);
         despawn.Lifetime = sphere.BeeLifetime;
 

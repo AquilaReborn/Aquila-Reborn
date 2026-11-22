@@ -8,8 +8,16 @@ namespace Content.Client._Aquila.Economy;
 [GenerateTypedNameReferences]
 public sealed partial class AtmWindow : FancyWindow
 {
+    private static readonly LocId OfflineText = "bank-offline";
+    private static readonly LocId NoAccountText = "atm-ui-no-account";
+    private static readonly LocId NumberText = "bank-ui-number";
+    private static readonly LocId BalanceText = "bank-ui-balance";
+    private static readonly LocId SecurityText = "atm-ui-security";
+
     public event Action<int>? OnWithdraw;
     public event Action? OnOpenAccount;
+    public event Action<int, int>? OnChangePin;
+    public event Action<int>? OnSetSecurityLevel;
 
     public AtmWindow()
     {
@@ -18,23 +26,29 @@ public sealed partial class AtmWindow : FancyWindow
         WithdrawButton.OnPressed += _ => Withdraw();
         AmountInput.OnTextEntered += _ => Withdraw();
         OpenAccountButton.OnPressed += _ => OnOpenAccount?.Invoke();
+        ChangePinButton.OnPressed += _ => ChangePin();
+        NewPinInput.OnTextEntered += _ => ChangePin();
+        SecurityLevel0Button.OnPressed += _ => OnSetSecurityLevel?.Invoke(BankSecurityLevels.Open);
+        SecurityLevel1Button.OnPressed += _ => OnSetSecurityLevel?.Invoke(BankSecurityLevels.Purchase);
+        SecurityLevel2Button.OnPressed += _ => OnSetSecurityLevel?.Invoke(BankSecurityLevels.Full);
     }
 
     /// <summary>
-    /// Обновляет данные счёта и баланс.
+    /// Обновляет данные счёта, баланс и текущий уровень защиты.
     /// </summary>
     public void UpdateState(AtmUiState state)
     {
         NoAccountLabel.Visible = state.Number == null;
         OpenAccountButton.Visible = state.CanOpen;
-        NoAccountLabel.Text = Loc.GetString(state.Offline ? "bank-offline" : "atm-ui-no-account");
+        NoAccountLabel.Text = Loc.GetString(state.Offline ? OfflineText : NoAccountText);
         AccountContainer.Visible = state.Number != null;
         if (state.Number == null)
             return;
 
         OwnerLabel.Text = state.OwnerName;
-        NumberLabel.Text = Loc.GetString("bank-ui-number", ("number", state.Number.Value.ToString()));
-        BalanceLabel.Text = Loc.GetString("bank-ui-balance", ("balance", state.Balance));
+        NumberLabel.Text = Loc.GetString(NumberText, ("number", state.Number.Value.ToString()));
+        BalanceLabel.Text = Loc.GetString(BalanceText, ("balance", state.Balance));
+        SecurityLabel.Text = Loc.GetString(SecurityText, ("level", Loc.GetString(BankSecurityLevels.GetName(state.SecurityLevel))));
     }
 
     private void Withdraw()
@@ -44,5 +58,14 @@ public sealed partial class AtmWindow : FancyWindow
 
         OnWithdraw?.Invoke(amount);
         AmountInput.Clear();
+    }
+
+    private void ChangePin()
+    {
+        int.TryParse(OldPinInput.Text, out var oldPin);
+        int.TryParse(NewPinInput.Text, out var newPin);
+        OnChangePin?.Invoke(oldPin, newPin);
+        OldPinInput.Clear();
+        NewPinInput.Clear();
     }
 }

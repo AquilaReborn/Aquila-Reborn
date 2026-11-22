@@ -27,6 +27,9 @@
                         <Button Name="FineButton" Text="{Loc 'bank-admin-fine'}" HorizontalExpand="True" StyleClasses="OpenBoth"/>
                         <Button Name="SetBalanceButton" Text="{Loc 'bank-admin-set-balance'}" HorizontalExpand="True" StyleClasses="OpenLeft"/>
                     </BoxContainer>
+                    <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+                        <Button Name="ResetPinButton" Text="{Loc 'bank-admin-reset-pin'}"/>
+                    </BoxContainer>
                     <Label Text="{Loc 'bank-admin-revert-hint'}" StyleClasses="LabelSubText"/>
                     <PanelContainer StyleClasses="LowDivider"/>
                     <ScrollContainer VerticalExpand="True" HScrollEnabled="False">

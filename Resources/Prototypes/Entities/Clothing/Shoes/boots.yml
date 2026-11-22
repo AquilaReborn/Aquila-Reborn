@@ -24,6 +24,9 @@
     sprite: _Aquila/Clothing/Security/Refresh/Shoes/Boots/jackboots.rsi # Aquila Change
   - type: ClothingSlowOnDamageModifier
     modifier: 0.5
+  - type: FootstepModifier # Aquila Change
+    footstepSoundCollection:
+      collection: FootstepJackboots
 
 - type: entity
   parent: ClothingShoesBaseButcherable

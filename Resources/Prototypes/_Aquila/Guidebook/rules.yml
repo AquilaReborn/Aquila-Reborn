@@ -3,4 +3,4 @@
   name: guide-entry-rules
   priority: 0
   ruleEntry: true
-  text: "/ServerInfo/_Aquila/Guidebook/ServerRules/AquilaRuleset.xml" # Aquila Change
+  text: "/ServerInfo/_Aquila/Guidebook/ServerRules/AquilaRuleset.xml"

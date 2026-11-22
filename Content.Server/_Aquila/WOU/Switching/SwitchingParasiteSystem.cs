@@ -59,12 +59,12 @@ public sealed class SwitchingParasiteSystem : EntitySystem
         var query = EntityQueryEnumerator<SwitchingParasiteComponent, GuardianComponent>();
         while (query.MoveNext(out var parasite, out var comp, out var guardian))
         {
-            if (comp.Initialized) continue;
+            if (comp.SwitchInitialized) continue;
             if (guardian.Host is not { } host || !Exists(host)) continue;
             if (!HasComp<GuardianHostComponent>(host)) continue;
 
             _actions.AddAction(parasite, ref comp.SwitchActionEntity, comp.SwitchActionProto);
-            comp.Initialized = true;
+            comp.SwitchInitialized = true;
         }
     }
 
