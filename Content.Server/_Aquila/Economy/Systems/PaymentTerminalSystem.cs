@@ -13,6 +13,7 @@ using Content.Shared.Database;
 using Content.Shared.Interaction;
 using Content.Shared.Paper;
 using Content.Shared.Popups;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
@@ -26,6 +27,7 @@ public sealed class PaymentTerminalSystem : EntitySystem
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly AccessReaderSystem _accessReader = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly BankAccountSystem _bank = default!;
     [Dependency] private readonly BankPinSystem _bankPin = default!;
     [Dependency] private readonly EconomyZoneSystem _economyZone = default!;
@@ -184,6 +186,8 @@ public sealed class PaymentTerminalSystem : EntitySystem
             ("purpose", receipt.Purpose),
             ("payer", receipt.PayerName),
             ("time", timeText)));
+
+        _audio.PlayPvs(ent.Comp.PrintSound, ent.Owner);
     }
 
     private void LinkCard(Entity<PaymentTerminalComponent> ent, EntityUid user)

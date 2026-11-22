@@ -1,6 +1,7 @@
 using Content.Shared._Aquila.Economy.Systems;
 using Content.Shared._Aquila.Economy.Types;
 using Content.Shared.Cargo.Prototypes;
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Aquila.Economy.Components;
@@ -94,4 +95,10 @@ public sealed partial class PaymentTerminalComponent : Component
     /// </summary>
     [DataField]
     public int MaxAmount = 100000;
+
+    /// <summary>
+    /// Звук, который играет при печати чека.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier PrintSound = new SoundPathSpecifier("/Audio/Machines/short_print_and_rip.ogg");
 }
