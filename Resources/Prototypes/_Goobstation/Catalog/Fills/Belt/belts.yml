@@ -169,13 +169,25 @@
   table: !type:AllSelector
     children:
     - id: Stunbaton
-    - id: HoloprojectorSecurity
-    - id: GrenadeFlashBang
-    - id: GrenadeFlashBang
+    # - id: HoloprojectorSecurity # Aquila Change
+    # - id: GrenadeFlashBang # Aquila Change
+    # - id: GrenadeFlashBang # Aquila Change
     - id: WeaponDisabler
     - id: Zipties
     - id: Zipties
     - id: Zipties
+
+# Aquila Change start
+- type: entityTable
+  id: BeltAssaultERTEntityTable
+  table: !type:AllSelector
+    children:
+    - !type:NestedSelector
+      tableId: BeltAssaultBSOEntityTable
+    - id: HoloprojectorSecurity
+    - id: GrenadeFlashBang
+    - id: GrenadeFlashBang
+# Aquila Change end
 
 - type: entity
   id: ClothingBeltMilitaryWebbingFilled
@@ -197,7 +209,7 @@
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:NestedSelector
-        tableId: BeltAssaultBSOEntityTable # ERT is meant to use this table anyhow, no need to make a new one
+        tableId: BeltAssaultERTEntityTable # Aquila Change
 
 - type: entity
   parent: ChemBag

@@ -61,7 +61,7 @@
       color: "#678AD9"
     - type: ItemTogglePointLight
     - type: Blocking
-      passiveBlockFraction: 0.65
+      passiveBlockFraction: 0.45 # Aquila Change
       passiveBlockModifier:
         coefficients:
           Blunt: 3
@@ -70,15 +70,15 @@
           Heat: 3
       activeBlockModifier:
         coefficients:
-          Blunt: 2
-          Slash: 2
-          Piercing: 2
-          Heat: 2
+          Blunt: 1.5 # Aquila Change
+          Slash: 1.5 # Aquila Change
+          Piercing: 1.5 # Aquila Change
+          Heat: 1.5 # Aquila Change
         flatReductions:
-          Heat: 3
-          Blunt: 3
-          Slash: 3
-          Piercing: 3
+          Heat: 2 # Aquila Change
+          Blunt: 2 # Aquila Change
+          Slash: 2 # Aquila Change
+          Piercing: 2 # Aquila Change
     - type: Appearance
     - type: Damageable
       damageContainer: Shield
