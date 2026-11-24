@@ -127,7 +127,7 @@
     - SyndicateFriendshipSet
     - SyndicateCarpSet
     - SyndicateSusSet
-#    - SyndicateBuilderSet - Requires Rework pending Miner Removal
+    - SyndicateBuilderSet # Aquila Change
     setsToSelect: 3
     spawnedStoragePrototype: CrateSyndicate
     spawnedStorageContainer: entity_storage
