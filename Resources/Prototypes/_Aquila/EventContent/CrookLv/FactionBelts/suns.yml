@@ -71,6 +71,7 @@
   components:
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionBelts/SUNS/suns_cane_sheath.rsi
+    state: icon
   - type: Item
     size: Large
   - type: ItemSlots
