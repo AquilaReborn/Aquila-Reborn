@@ -151,6 +151,10 @@
     state: catfish
   - type: Item
     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+  - type: Butcherable # Aquila Change
+    spawned: # Aquila Change
+    - id: FoodFishFilletCatfish # Aquila Change
+      amount: 2 # Aquila Change
 
 - type: entity
   id: FishTropicalClown
@@ -293,3 +297,37 @@
     state: ian
   - type: Item
     sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+
+# Aquila Change start
+- type: entity
+  parent: BaseFish
+  id: FishSalmon
+  name: salmon fish
+  description: A silvery fish with pink flesh. Smells like the sea and dinner.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Objects/Specific/Fishing/fish_extra.rsi
+    state: salmon
+  - type: Item
+    sprite: _Aquila/Objects/Specific/Fishing/fish_extra.rsi
+  - type: Butcherable
+    spawned:
+    - id: FoodFishFilletSalmon
+      amount: 2
+
+- type: entity
+  parent: BaseFish
+  id: FishCarp
+  name: carp fish
+  description: A classic freshwater carp. Not to be confused with the space kind.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Objects/Specific/Fishing/fish_extra.rsi
+    state: carp
+  - type: Item
+    sprite: _Aquila/Objects/Specific/Fishing/fish_extra.rsi
+  - type: Butcherable
+    spawned:
+    - id: FoodFishFilletCarp
+      amount: 2
+# Aquila Change end

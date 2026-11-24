@@ -1,0 +1,17 @@
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: KitchenDeepFryerMachineCircuitboard
+  name: deep fryer machine board
+  description: A machine printed circuit board for a deep fryer.
+  components:
+  - type: Sprite
+    state: service
+  - type: MachineBoard
+    prototype: KitchenDeepFryer
+    stackRequirements:
+      Manipulator: 1
+      Glass: 2
+      Cable: 2
+  - type: Tag
+    tags:
+    - DroneUsable

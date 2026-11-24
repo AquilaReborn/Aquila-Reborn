@@ -58,6 +58,8 @@
     - id: FishSilver
     - id: FishTropicalSun
     - id: FishTropical
+    - id: FishSalmon # Aquila Change
+    - id: FishCarp # Aquila Change
 
 # Items from Water
 - type: entityTable

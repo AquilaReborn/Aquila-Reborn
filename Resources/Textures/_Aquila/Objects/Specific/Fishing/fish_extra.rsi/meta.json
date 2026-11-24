@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "license": "AGPL-3.0",
+  "copyright": "Taken from Shiptest at https://github.com/shiptest-ss13/Shiptest/commit/a7b3ca294cf418c26096d2d0af9a0486a3ffd7d6, icons/obj/aquarium.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "salmon"
+    },
+    {
+      "name": "carp"
+    }
+  ]
+}

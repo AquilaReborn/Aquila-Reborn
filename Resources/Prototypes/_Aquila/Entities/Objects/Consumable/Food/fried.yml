@@ -1,0 +1,22 @@
+- type: entity
+  parent: FoodBase
+  id: FoodFriedBanana
+  name: fried banana
+  description: A banana that went through the deep fryer. Sweet outside, soft inside.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Objects/Consumables/Food/fried.rsi
+    state: friedbanana
+  - type: FlavorProfile
+    flavors:
+      - banana
+      - oily
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 8
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: Vitamin
+          Quantity: 2

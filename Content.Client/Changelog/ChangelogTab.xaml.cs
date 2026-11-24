@@ -138,7 +138,7 @@ public sealed partial class ChangelogTab : Control
                 foreach (var change in groupedEntry.SelectMany(c => c.Changes))
                 {
                     var text = new RichTextLabel();
-                    text.SetMessage(FormattedMessage.FromUnformatted(change.GetLocalizedMessage())); // Aquila Change
+                    text.SetMessage(FormattedMessage.FromUnformatted(_changelog.GetLocalizedMessage(change))); // Aquila Change
                     ChangelogBody.AddChild(new BoxContainer
                     {
                         Orientation = LayoutOrientation.Horizontal,

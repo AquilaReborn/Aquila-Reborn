@@ -284,10 +284,11 @@ public sealed partial class HereticRitualSystem : EntitySystem
         args.PushMarkup(Loc.GetString("heretic-ritualrune-examine", ("rit", name)));
     }
 
-    public void RitualSuccess(EntityUid ent, EntityUid user)
+    public void RitualSuccess(EntityUid ent, EntityUid user, bool showPopup = true) // Aquila Change
     {
-        _audio.PlayPvs(RitualSuccessSound, ent, AudioParams.Default.WithVolume(-3f));
-        _popup.PopupEntity(Loc.GetString("heretic-ritual-success"), ent, user);
+        _audio.PlayPvs(RitualSuccessSound, Transform(ent).Coordinates, AudioParams.Default.WithVolume(-3f)); // Aquila Change
+        if (showPopup) // Aquila Change
+            _popup.PopupEntity(Loc.GetString("heretic-ritual-success"), ent, user);
         Spawn("HereticRuneRitualAnimation", Transform(ent).Coordinates);
     }
 }

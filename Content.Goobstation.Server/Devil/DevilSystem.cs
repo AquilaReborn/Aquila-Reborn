@@ -36,6 +36,7 @@ using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared.Actions;
 using Content.Shared.Administration.Systems;
 using Content.Shared.CombatMode;
+using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
@@ -105,7 +106,8 @@ public sealed partial class DevilSystem : EntitySystem
     private void OnStartup(Entity<DevilComponent> devil, ref MapInitEvent args)
     {
         // Remove human components.
-        RemComp<CombatModeComponent>(devil);
+        // RemComp<CombatModeComponent>(devil); // Aquila Change
+        EnsureComp<PacifiedComponent>(devil); // Aquila Change
         RemComp<HungerComponent>(devil);
         RemComp<ThirstComponent>(devil);
         RemComp<TemperatureComponent>(devil);

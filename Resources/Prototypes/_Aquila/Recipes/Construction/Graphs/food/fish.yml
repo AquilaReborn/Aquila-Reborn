@@ -1,0 +1,14 @@
+- type: constructionGraph
+  id: FishSteakSalmon
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: salmon steak
+      completed:
+      - !type:PlaySound
+        sound: /Audio/Effects/sizzle.ogg
+      steps:
+      - minTemperature: 335
+  - node: salmon steak
+    entity: FoodFishSteakSalmon

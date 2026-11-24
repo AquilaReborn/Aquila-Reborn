@@ -35,6 +35,10 @@ autocook-step-mix = Замес: { $name }
 autocook-step-slice = Нарезка: { $name }
 autocook-group-dough = Тесто
 autocook-step-process = Обработка: { $name }
+autocook-ingredient-need = { $name }: нужно { $amount }
+autocook-ingredient-have = { $name }: есть { $have } из { $need }
+autocook-stock-reagent = { $name }: { $amount }
+autocook-stock-entity = { $name }: { $amount } шт.
 
 ent-AutoCookerBarMachineCircuitboard = плата автобармена
     .desc = Печатная плата для автобармена.

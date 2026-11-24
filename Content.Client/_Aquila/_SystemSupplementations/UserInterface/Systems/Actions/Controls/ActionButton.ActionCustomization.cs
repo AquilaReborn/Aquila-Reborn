@@ -10,11 +10,11 @@ namespace Content.Client.UserInterface.Systems.Actions.Controls;
 
 public sealed partial class ActionButton
 {
+    [Dependency] private readonly IGameTiming _timing = default!;
+
     private const string WhiteTextColor = "whiteText";
     private static readonly Color CooldownModulate = Palettes.Red.Base;
     private static readonly TimeSpan TenthsThreshold = TimeSpan.FromSeconds(2.9);
-
-    [Dependency] private readonly IGameTiming _timing = default!;
 
     private ActionCustomizationUIController? _customization;
     private int? _shownCooldownTenths;

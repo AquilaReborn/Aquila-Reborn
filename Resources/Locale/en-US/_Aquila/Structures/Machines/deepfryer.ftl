@@ -1,0 +1,13 @@
+ent-KitchenDeepFryer = deep fryer
+    .desc = Fries anything you drop in and never asks questions.
+ent-KitchenDeepFryerMachineCircuitboard = deep fryer machine board
+    .desc = A machine printed circuit board for a deep fryer.
+deep-fryer-popup-no-power = It has no power!
+deep-fryer-popup-busy = It is already frying!
+deep-fryer-popup-empty = It is empty.
+deep-fryer-popup-full = The basket is full.
+deep-fryer-popup-not-item = That will not fit in the fryer!
+deep-fryer-popup-too-big = { CAPITALIZE($item) } does not fit in the basket!
+deep-fryer-popup-fried = { CAPITALIZE($item) } is being fried!
+deep-fryer-popup-nothing-to-fry = There is nothing to fry in it.
+deep-fryer-popup-unloaded = Done, take it!

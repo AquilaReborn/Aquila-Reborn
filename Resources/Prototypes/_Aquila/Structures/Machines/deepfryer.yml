@@ -1,0 +1,46 @@
+- type: entity
+  parent: [ BaseMachinePowered, SmallConstructibleMachine ]
+  id: KitchenDeepFryer
+  name: deep fryer
+  suffix: Кухня
+  description: Fries anything you drop in and never asks questions.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Structures/Machines/kitchen_fryer.rsi
+    drawdepth: SmallObjects
+    snapCardinals: true
+    layers:
+    - state: fryer_off
+      map: ["enum.DeepFryerVisualLayers.Base"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.DeepFryerVisuals.IsFrying:
+        enum.DeepFryerVisualLayers.Base:
+          True: { state: fryer_on }
+          False: { state: fryer_off }
+  - type: DeepFryer
+    recipes: [DeepFryPotato, DeepFryCarrot, DeepFryOnion, DeepFryChickenCutlet, DeepFryBanana, DeepFryChickenNuggets, DeepFryXenoCutlet, DeepFryFishFingers, DeepFryCarpFingers, DeepFrySalmonSteak, DeepFryBacon, DeepFryEgg, DeepFryPotatoSlice, DeepFryRedOnion, DeepFryDonut, DeepFryVox, DeepFryMeatball, DeepFryPatty]
+  - type: ApcPowerReceiver
+    powerLoad: 400
+  - type: Machine
+    board: KitchenDeepFryerMachineCircuitboard
+  - type: ContainerContainer
+    containers:
+      fryer_storage: !type:Container
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - fryer_storage
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.16,0.3,0.16"
+        density: 190
+        mask:
+        - TabletopMachineMask
+        layer:
+        - TabletopMachineLayer

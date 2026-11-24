@@ -1,6 +1,7 @@
 using Content.Server._Aquila.Heretic.Components;
 using Content.Server._Aquila.Heretic.Events;
 using Content.Server.Heretic.Components;
+using Content.Shared._Aquila.Heretic.Events;
 using Content.Shared.Heretic;
 using Content.Shared.Mind;
 using Robust.Shared.Audio.Systems;
@@ -82,7 +83,6 @@ public sealed partial class HereticRealityShiftVisionSystem : EntitySystem
         }
         else if (vision.Active)
         {
-            vision.EndTime = now + vision.VisionDuration;
             return;
         }
         else if (vision.CooldownUntil > now)
@@ -95,5 +95,6 @@ public sealed partial class HereticRealityShiftVisionSystem : EntitySystem
         vision.EndTime = now + vision.VisionDuration;
         _eye.SetDrawFov(player, false, eye);
         _audio.PlayPvs(vision.TriggerSound, player);
+        RaiseNetworkEvent(new RealityShiftVisionStartedEvent { Duration = vision.VisionDuration }, player);
     }
 }

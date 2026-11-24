@@ -1,0 +1,52 @@
+- type: entity
+  parent: [ BaseMachinePowered, SmallConstructibleMachine ]
+  id: KitchenMeatGrinder
+  name: meat grinder
+  suffix: Кухня
+  description: Grinds corpses into meat. It keeps the organs to itself.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Structures/Machines/meat_grinder.rsi
+    drawdepth: SmallObjects
+    snapCardinals: true
+    layers:
+    - state: grinder
+      map: ["enum.MeatGrinderVisualLayers.Base"]
+    - state: grinder_bloody
+      map: ["enum.MeatGrinderVisualLayers.Blood"]
+      visible: false
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.MeatGrinderVisuals.IsWorking:
+        enum.MeatGrinderVisualLayers.Base:
+          True: { state: grinder_on }
+          False: { state: grinder }
+      enum.MeatGrinderVisuals.IsBloody:
+        enum.MeatGrinderVisualLayers.Blood:
+          True: { visible: true }
+          False: { visible: false }
+  - type: MeatGrinder
+  - type: ApcPowerReceiver
+    powerLoad: 400
+  - type: Machine
+    board: KitchenMeatGrinderMachineCircuitboard
+  - type: ContainerContainer
+    containers:
+      grinder_body: !type:Container
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - grinder_body
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.16,0.3,0.16"
+        density: 190
+        mask:
+        - TabletopMachineMask
+        layer:
+        - TabletopMachineLayer

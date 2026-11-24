@@ -11,25 +11,25 @@ public sealed partial class RoomReverbStateComponent : Component
     /// <summary>
     /// Сущность эффекта реверберации.
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public EntityUid? Effect;
 
     /// <summary>
     /// Вспомогательный слот, к которому подключаются звуки.
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public EntityUid? Auxiliary;
 
     /// <summary>
     /// Когда в следующий раз оценить помещение вокруг слушателя.
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public TimeSpan NextAnalyze;
 
     /// <summary>
     /// Когда в следующий раз обновить эффект и подключить новые звуки.
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public TimeSpan NextApply;
 
     [ViewVariables]

@@ -2531,3 +2531,45 @@
     Fiber: 10
   solids:
     FoodCakePlain: 1
+
+# Aquila Change start
+- type: microwaveMealRecipe
+  id: RecipeFishAndChips
+  name: recipe-fish-and-chips
+  result: FoodMealFishAndChips
+  time: 15
+  group: Savory
+  solids:
+    FoodMeatFish: 1
+    FoodPotato: 1
+
+- type: microwaveMealRecipe
+  id: RecipeFishAndChipsCatfish
+  name: recipe-fish-and-chips
+  result: FoodMealFishAndChips
+  time: 15
+  group: Savory
+  solids:
+    FoodFishFilletCatfish: 1
+    FoodPotato: 1
+
+- type: microwaveMealRecipe
+  id: RecipeFishFingers
+  name: recipe-fish-fingers
+  result: FoodMealFishFingers
+  time: 10
+  group: Savory
+  solids:
+    FoodMeatFish: 1
+    FoodBreadPlainSlice: 1
+
+- type: microwaveMealRecipe
+  id: RecipeFishFingersCarp
+  name: recipe-fish-fingers
+  result: FoodMealFishFingers
+  time: 10
+  group: Savory
+  solids:
+    FoodFishFilletCarp: 1
+    FoodBreadPlainSlice: 1
+# Aquila Change end

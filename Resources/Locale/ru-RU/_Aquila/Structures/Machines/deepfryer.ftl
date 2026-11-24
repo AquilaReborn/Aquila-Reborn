@@ -1,0 +1,13 @@
+ent-KitchenDeepFryer = фритюрница
+    .desc = Да, детка, обжарь это полностью.
+ent-KitchenDeepFryerMachineCircuitboard = плата фритюрницы
+    .desc = Печатная плата для сборки фритюрницы.
+deep-fryer-popup-no-power = Питания нет.
+deep-fryer-popup-busy = Она уже жарит.
+deep-fryer-popup-empty = Она пустая.
+deep-fryer-popup-full = Корзина заполнена.
+deep-fryer-popup-not-item = Это не поместится во фритюрницу!
+deep-fryer-popup-too-big = { CAPITALIZE($item) } не помещается в корзину!
+deep-fryer-popup-fried = { CAPITALIZE($item) } обжаривается!
+deep-fryer-popup-nothing-to-fry = В ней нечего жарить.
+deep-fryer-popup-unloaded = Готово.

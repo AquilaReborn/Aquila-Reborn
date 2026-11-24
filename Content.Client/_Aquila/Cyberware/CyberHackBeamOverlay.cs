@@ -10,11 +10,11 @@ namespace Content.Client._Aquila.Cyberware;
 /// </summary>
 public sealed class CyberHackBeamOverlay : Overlay
 {
-    private static readonly ProtoId<ShaderPrototype> Shader = "CyberHackBeam";
-    private const float MinLength = 0.05f;
-
     [Dependency] private readonly IEntityManager _entMan = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+
+    private static readonly ProtoId<ShaderPrototype> Shader = "CyberHackBeam";
+    private const float MinLength = 0.05f;
 
     private readonly SharedTransformSystem _transform;
     private readonly ShaderInstance _shader;

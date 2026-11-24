@@ -10,11 +10,11 @@ namespace Content.Client._Aquila.Cyberware;
 /// </summary>
 public sealed class CyberpsychosisGlitchOverlay : Overlay
 {
-    private static readonly ProtoId<ShaderPrototype> Shader = "CyberpsychosisGlitch";
-
     [Dependency] private readonly IEntityManager _entMan = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+
+    private static readonly ProtoId<ShaderPrototype> Shader = "CyberpsychosisGlitch";
 
     private readonly ShaderInstance _shader;
 

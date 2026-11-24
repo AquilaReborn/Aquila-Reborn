@@ -1,0 +1,89 @@
+- type: deepFryRecipe
+  id: DeepFryPotato
+  source: FoodPotato
+  result: FoodMealFries
+
+- type: deepFryRecipe
+  id: DeepFryCarrot
+  source: FoodCarrot
+  result: FoodMealFriesCarrot
+
+- type: deepFryRecipe
+  id: DeepFryOnion
+  source: FoodOnionSlice
+  result: FoodOnionRings
+
+- type: deepFryRecipe
+  id: DeepFryChickenCutlet
+  source: FoodMeatChickenCutlet
+  result: FoodMeatChickenCutletCooked
+
+- type: deepFryRecipe
+  id: DeepFryBanana
+  source: FoodBanana
+  result: FoodFriedBanana
+
+- type: deepFryRecipe
+  id: DeepFryChickenNuggets
+  source: FoodMeatChicken
+  result: FoodBakedNugget
+
+- type: deepFryRecipe
+  id: DeepFryXenoCutlet
+  source: FoodMeatXenoCutlet
+  result: FoodMeatXenoCutletCooked
+
+- type: deepFryRecipe
+  id: DeepFryFishFingers
+  source: FoodMeatFish
+  result: FoodMealFishFingers
+
+- type: deepFryRecipe
+  id: DeepFryCarpFingers
+  source: FoodFishFilletCarp
+  result: FoodMealFishFingers
+
+- type: deepFryRecipe
+  id: DeepFrySalmonSteak
+  source: FoodFishFilletSalmon
+  result: FoodFishSteakSalmon
+
+- type: deepFryRecipe
+  id: DeepFryBacon
+  source: FoodMeatBacon
+  result: FoodMeatBaconCooked
+
+- type: deepFryRecipe
+  id: DeepFryEgg
+  source: FoodEgg
+  result: FoodMealFriedegg
+
+- type: deepFryRecipe
+  id: DeepFryPotatoSlice
+  source: FoodPotatoSlice
+  result: FoodMealFries
+
+- type: deepFryRecipe
+  id: DeepFryRedOnion
+  source: FoodOnionRedSlice
+  result: FoodOnionRings
+
+- type: deepFryRecipe
+  id: DeepFryDonut
+  source: FoodDoughRope
+  result: FoodDonutPlain
+
+- type: deepFryRecipe
+  id: DeepFryVox
+  source: FoodMeatVox
+  result: FoodMeatVoxFried
+
+- type: deepFryRecipe
+  id: DeepFryMeatball
+  source: FoodMeatMeatball
+  result: FoodMeatMeatballCooked
+
+- type: deepFryRecipe
+  id: DeepFryPatty
+  source: FoodMeatPatty
+  result: FoodMeatPattyCooked

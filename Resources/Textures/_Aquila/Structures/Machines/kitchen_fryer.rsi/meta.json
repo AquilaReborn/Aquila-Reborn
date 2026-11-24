@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "license": "AGPL-3.0",
+  "copyright": "Taken from Paradise Station at https://github.com/ParadiseSS13/Paradise/commit/b9c9ec7ceb99d74091598f2d362dda87c3777225, icons/obj/cooking_machines.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "fryer_off"
+    },
+    {
+      "name": "fryer_on",
+      "delays": [
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    }
+  ]
+}

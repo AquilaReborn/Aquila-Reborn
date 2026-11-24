@@ -1,0 +1,11 @@
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
+  id: KitchenDeepFryerMachineCircuitboard
+  icon: { sprite: _Aquila/Structures/Machines/kitchen_fryer.rsi, state: fryer_off }
+  result: KitchenDeepFryerMachineCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
+  id: KitchenMeatGrinderMachineCircuitboard
+  icon: { sprite: _Aquila/Structures/Machines/meat_grinder.rsi, state: grinder }
+  result: KitchenMeatGrinderMachineCircuitboard

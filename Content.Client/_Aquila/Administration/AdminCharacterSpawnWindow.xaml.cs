@@ -252,7 +252,7 @@ public sealed partial class AdminCharacterSpawnWindow : FancyWindow
                 .Distinct()
                 .Select(item => _prototypes.TryIndex(item, out var prototype) ? prototype.Name : null)
                 .OfType<string>();
-            var tooltip = string.Join(Environment.NewLine, new[] { name, gear.Id }.Concat(contents));
+            var tooltip = string.Join(Environment.NewLine, new[] { name }.Concat(contents));
             AddGear(IsFavorite(gear) ? $"☆ {name}" : name, gear, tooltip);
         }
 

@@ -6,9 +6,9 @@ namespace Content.Client._Aquila.ScreenNoise;
 
 public sealed class ScreenNoise : Control
 {
-    private static readonly ProtoId<ShaderPrototype> Shader = "ScreenNoise";
-
     [Dependency] private readonly IPrototypeManager _prototype = default!;
+
+    private static readonly ProtoId<ShaderPrototype> Shader = "ScreenNoise";
 
     private readonly ShaderInstance _shader;
 

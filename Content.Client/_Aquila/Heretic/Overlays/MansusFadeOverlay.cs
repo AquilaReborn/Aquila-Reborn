@@ -1,11 +1,15 @@
+using Content.Client._Aquila.Heretic.Helpers;
 using Content.Shared._Aquila.Heretic;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Timing;
 
-namespace Content.Client._Aquila.Heretic;
+namespace Content.Client._Aquila.Heretic.Overlays;
 
+/// <summary>
+/// Чёрная пелена, которая скрывает перенос жертвы на испытание Мансуса и её возвращение обратно.
+/// </summary>
 public sealed class MansusFadeOverlay : Overlay
 {
     [Dependency] private readonly IEntityManager _entity = default!;
@@ -26,9 +30,9 @@ public sealed class MansusFadeOverlay : Overlay
             return;
 
         var now = _timing.CurTime;
-        var fadeIn = 1f - Ease((float) ((now - victim.ArrivalTime) / victim.FadeInDuration));
+        var fadeIn = 1f - MansusFadeHelper.Ease(MansusFadeHelper.Progress(now, victim.ArrivalTime, victim.FadeInDuration));
         var fadeOut = victim.LeaveTime is { } leave
-            ? Ease((float) ((now - leave) / victim.FadeOutDuration))
+            ? MansusFadeHelper.Ease(MansusFadeHelper.Progress(now, leave, victim.FadeOutDuration))
             : 0f;
 
         var alpha = MathF.Max(fadeIn, fadeOut);
@@ -36,11 +40,5 @@ public sealed class MansusFadeOverlay : Overlay
             return;
 
         args.ScreenHandle.DrawRect(args.ViewportBounds, Color.Black.WithAlpha(alpha));
-    }
-
-    private static float Ease(float t)
-    {
-        t = Math.Clamp(t, 0f, 1f);
-        return t * t * (3f - 2f * t);
     }
 }

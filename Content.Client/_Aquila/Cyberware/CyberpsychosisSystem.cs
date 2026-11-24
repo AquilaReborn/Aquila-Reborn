@@ -23,10 +23,6 @@ namespace Content.Client._Aquila.Cyberware;
 /// </summary>
 public sealed class CyberpsychosisSystem : SharedCyberpsychosisSystem
 {
-    private static readonly TimeSpan DisguiseUpdateInterval = TimeSpan.FromSeconds(0.5);
-    private static readonly ProtoId<ShaderPrototype> HiddenShader = "CyberpsychosisHidden";
-    private const string HiddenPostShaderId = "cyberpsychosis-hidden";
-
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly IEyeManager _eye = default!;
@@ -38,6 +34,10 @@ public sealed class CyberpsychosisSystem : SharedCyberpsychosisSystem
     [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+
+    private static readonly TimeSpan DisguiseUpdateInterval = TimeSpan.FromSeconds(0.5);
+    private static readonly ProtoId<ShaderPrototype> HiddenShader = "CyberpsychosisHidden";
+    private const string HiddenPostShaderId = "cyberpsychosis-hidden";
 
     private CyberpsychosisGlitchOverlay _glitchOverlay = default!;
     private ShaderInstance _hiddenShader = default!;

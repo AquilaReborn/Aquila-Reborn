@@ -1,0 +1,183 @@
+- type: entity
+  parent: FoodMeatRawBase
+  id: FoodFishFilletSalmon
+  name: salmon fillet
+  description: A fresh cut of salmon, still smelling of the sea.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - fishy
+  - type: Sprite
+    sprite: _Aquila/Objects/Consumables/Food/seafood.rsi
+    state: salmonfillet
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 2
+  - type: Construction
+    graph: FishSteakSalmon
+    node: start
+    defaultTarget: salmon steak
+  - type: Item
+    sprite: Objects/Consumable/Food/meat.rsi
+    storedOffset: -1,1
+    inhandVisuals:
+      left:
+      - state: generic-pink-inhand-left
+      right:
+      - state: generic-pink-inhand-right
+
+- type: entity
+  parent: FoodMeatRawBase
+  id: FoodFishFilletCarp
+  name: carp fillet
+  description: A clean white carp fillet. Better cooked than raw.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - fishy
+  - type: Sprite
+    sprite: _Aquila/Objects/Consumables/Food/seafood.rsi
+    state: carpfillet
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 2
+  - type: Item
+    sprite: Objects/Consumable/Food/meat.rsi
+    storedOffset: -1,1
+    inhandVisuals:
+      left:
+      - state: generic-pink-inhand-left
+      right:
+      - state: generic-pink-inhand-right
+
+- type: entity
+  parent: FoodMeatRawBase
+  id: FoodFishFilletCatfish
+  name: catfish fillet
+  description: A meaty catfish fillet. Despite the name, not a cat.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - fishy
+  - type: Sprite
+    sprite: _Aquila/Objects/Consumables/Food/seafood.rsi
+    state: catfishfillet
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 2
+  - type: Item
+    sprite: Objects/Consumable/Food/meat.rsi
+    storedOffset: -1,1
+    inhandVisuals:
+      left:
+      - state: generic-pink-inhand-left
+      right:
+      - state: generic-pink-inhand-right
+
+- type: entity
+  parent: FoodMeatBase
+  id: FoodFishSteakSalmon
+  name: salmon steak
+  description: A seared salmon steak. Smells of grill and sea.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - fishy
+  - type: Tag
+    tags:
+    - Cooked
+    - Meat
+  - type: Sprite
+    sprite: _Aquila/Objects/Consumables/Food/seafood.rsi
+    state: salmonsteak
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Protein
+          Quantity: 5
+  - type: Construction
+    graph: FishSteakSalmon
+    node: salmon steak
+  - type: Item
+    sprite: Objects/Consumable/Food/meat.rsi
+    storedOffset: -1,1
+    inhandVisuals:
+      left:
+      - state: plain-cooked-inhand-left
+      right:
+      - state: plain-cooked-inhand-right
+
+- type: entity
+  parent: FoodMealBase
+  id: FoodMealFishAndChips
+  name: fish and chips
+  description: Crispy fish with a side of fries. Wrap it in paper and go.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - fishy
+      - potatoes
+      - batter
+  - type: Sprite
+    sprite: _Aquila/Objects/Consumables/Food/seafood.rsi
+    state: fishandchips
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 15
+        - ReagentId: Protein
+          Quantity: 5
+  - type: Tag
+    tags:
+    - Meat
+
+- type: entity
+  parent: FoodMealBase
+  id: FoodMealFishFingers
+  name: fish fingers
+  description: Breaded fish sticks. A childhood classic on any station.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - fishy
+      - batter
+  - type: Sprite
+    sprite: _Aquila/Objects/Consumables/Food/seafood.rsi
+    state: fishfingers
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 12
+        - ReagentId: Protein
+          Quantity: 4
+  - type: Tag
+    tags:
+    - Meat

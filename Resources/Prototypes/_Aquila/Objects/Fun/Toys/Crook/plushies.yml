@@ -458,7 +458,7 @@
     sprite: _Aquila/Objects/Fun/Toys/Crook/Plushie/crookielim.rsi
     state: icon
   - type: Item
-    size: Normal
+    size: Small
   - type: UseDelay
     delay: 5.0
   - type: StaminaDamageOnHit

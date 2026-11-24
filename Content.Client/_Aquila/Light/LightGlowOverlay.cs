@@ -13,15 +13,15 @@ namespace Content.Client._Aquila.Light;
 /// </summary>
 public sealed class LightGlowOverlay : Overlay
 {
+    [Dependency] private readonly IEntityManager _entity = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
+
     private static readonly ProtoId<ShaderPrototype> Shader = "AquilaLightGlow";
 
     /// <summary>
     /// Запас вокруг экрана, чтобы свечение ламп за краем не обрезалось.
     /// </summary>
     private const float Margin = 5f;
-
-    [Dependency] private readonly IEntityManager _entity = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
 
     private readonly SharedTransformSystem _transform;
     private readonly SpriteSystem _sprite;

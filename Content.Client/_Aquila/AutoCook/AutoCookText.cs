@@ -21,18 +21,24 @@ public sealed class AutoCookText(IPrototypeManager proto)
         var name = ingredient.Reagent ? ReagentName(ingredient.Id) : EntityName(ingredient.Id);
 
         if (ingredient.Have is not { } have)
-            return $"{name} — {FormatAmount(ingredient.Need)}";
+            return Loc.GetString("autocook-ingredient-need", ("name", name), ("amount", FormatAmount(ingredient.Need)));
 
         return ingredient.Reagent
-            ? $"{name} — {FormatAmount(have)}/{FormatAmount(ingredient.Need)}"
-            : $"{name} — {have.Int()}/{ingredient.Need.Int()}";
+            ? Loc.GetString("autocook-ingredient-have",
+                ("name", name),
+                ("have", FormatAmount(have)),
+                ("need", FormatAmount(ingredient.Need)))
+            : Loc.GetString("autocook-ingredient-have",
+                ("name", name),
+                ("have", have.Int()),
+                ("need", ingredient.Need.Int()));
     }
 
     public string StockText(AutoCookStockEntry entry)
     {
         return entry.Reagent
-            ? $"{ReagentName(entry.Id)} — {FormatAmount(entry.Amount)}"
-            : $"{EntityName(entry.Id)} — ×{entry.Amount.Int()}";
+            ? Loc.GetString("autocook-stock-reagent", ("name", ReagentName(entry.Id)), ("amount", FormatAmount(entry.Amount)))
+            : Loc.GetString("autocook-stock-entity", ("name", EntityName(entry.Id)), ("amount", entry.Amount.Int()));
     }
 
     public string StepText(AutoCookStepData step)

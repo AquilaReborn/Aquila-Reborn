@@ -14,9 +14,9 @@ namespace Content.Client._Aquila.Options;
 [GenerateTypedNameReferences]
 public sealed partial class AquilaTab : Control
 {
-    private static readonly Vector2 ActionBindButtonSize = new(200, 0);
-
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+
+    private static readonly Vector2 ActionBindButtonSize = new(200, 0);
 
     private readonly List<Action> _deferredActions = new();
 

@@ -8,12 +8,16 @@ namespace Content.Client._Aquila.Psychosis;
 [UsedImplicitly]
 public sealed class SplitPersonalitySwapEui : BaseEui
 {
+    [Dependency] private readonly IClyde _clyde = default!;
+
     private readonly SplitPersonalitySwapWindow _window;
 
     private bool _answered;
 
     public SplitPersonalitySwapEui()
     {
+        IoCManager.InjectDependencies(this);
+
         _window = new SplitPersonalitySwapWindow();
 
         _window.AcceptButton.OnPressed += _ => Answer(true);
@@ -23,7 +27,7 @@ public sealed class SplitPersonalitySwapEui : BaseEui
 
     public override void Opened()
     {
-        IoCManager.Resolve<IClyde>().RequestWindowAttention();
+        _clyde.RequestWindowAttention();
         _window.OpenCentered();
     }
 

@@ -18,11 +18,11 @@ namespace Content.Client._Aquila.EventContent.Atlas739;
 /// </summary>
 public sealed class SotCurseVisualsSystem : EntitySystem
 {
-    private const string PostShaderId = "sot-curse";
-    private static readonly ProtoId<ShaderPrototype> ShaderProto = "SotCurse";
-
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
+
+    private const string PostShaderId = "sot-curse";
+    private static readonly ProtoId<ShaderPrototype> ShaderProto = "SotCurse";
 
     private readonly Dictionary<EntityUid, ShaderInstance> _shaders = new();
 
@@ -42,7 +42,6 @@ public sealed class SotCurseVisualsSystem : EntitySystem
 
     private void OnState(Entity<SotCurseComponent> ent, ref AfterAutoHandleStateEvent args)
     {
-        // Цвет могли поменять на лету (VV, повторное наложение): обновляем параметр шейдера.
         Apply(ent);
     }
 
@@ -69,7 +68,6 @@ public sealed class SotCurseVisualsSystem : EntitySystem
 
             _sprite.SetPostShader((ent.Owner, sprite), new SpriteComponent.PostShaderArgs(PostShaderId, shader)
             {
-                // Контуры взаимодействия рисуются поверх проклятия, а не под ним.
                 Before = ContentPostShaderIds.BeforeOutlines,
             });
         }

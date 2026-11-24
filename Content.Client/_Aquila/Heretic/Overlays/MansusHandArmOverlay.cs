@@ -6,19 +6,27 @@ using Robust.Shared.Enums;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
-namespace Content.Client._Aquila.Heretic;
+namespace Content.Client._Aquila.Heretic.Overlays;
 
+/// <summary>
+/// Щупальца-руки, которые тянутся к жертве испытания Мансуса.
+/// </summary>
 public sealed class MansusHandArmOverlay : Overlay
 {
-    private static readonly ResPath ArmRsi = new("/Textures/_Aquila/Heretic/mansus_hand.rsi");
-    private const float TrailLength = 3.5f;
-
     [Dependency] private readonly IEntityManager _entity = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+
+    private static readonly ResPath ArmRsi = new("/Textures/_Aquila/Heretic/mansus_hand.rsi");
+    private const float TrailLength = 3.5f;
 
     private readonly SpriteSystem _sprite;
     private readonly SharedTransformSystem _transform;
     private readonly Dictionary<string, SpriteSpecifier.Rsi> _armSprites = new();
+
+    /// <summary>
+    /// Прозрачность эффекта от 0 до 1: общий параметр, которым система плавно включает и гасит щупальца.
+    /// </summary>
+    public float Intensity = 1f;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowEntities;
 
@@ -31,6 +39,9 @@ public sealed class MansusHandArmOverlay : Overlay
 
     protected override void Draw(in OverlayDrawArgs args)
     {
+        if (Intensity <= 0f)
+            return;
+
         var handle = args.WorldHandle;
         var query = _entity.EntityQueryEnumerator<MansusHandComponent, TransformComponent>();
         while (query.MoveNext(out _, out var hand, out var xform))
@@ -58,7 +69,7 @@ public sealed class MansusHandArmOverlay : Overlay
             {
                 var center = end - direction * step;
                 var box = Box2.CenteredAround(center, Vector2.One);
-                var alpha = 1f - step / TrailLength;
+                var alpha = (1f - step / TrailLength) * Intensity;
                 handle.DrawTextureRect(texture, new Box2Rotated(box, rotation, center), Color.White.WithAlpha(alpha));
             }
         }

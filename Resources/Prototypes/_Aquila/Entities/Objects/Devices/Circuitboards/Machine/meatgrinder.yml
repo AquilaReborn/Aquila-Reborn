@@ -1,0 +1,17 @@
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: KitchenMeatGrinderMachineCircuitboard
+  name: meat grinder machine board
+  description: A machine printed circuit board for a meat grinder.
+  components:
+  - type: Sprite
+    state: service
+  - type: MachineBoard
+    prototype: KitchenMeatGrinder
+    stackRequirements:
+      Manipulator: 1
+      Steel: 2
+      Cable: 2
+  - type: Tag
+    tags:
+    - DroneUsable

@@ -5,6 +5,8 @@ namespace Content.Client.RoundEnd;
 
 public sealed partial class RoundEndSummaryWindow
 {
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+
     private static readonly (decimal Threshold, LocId Loc)[] DeathSeverities =
     {
         (1000, "round-end-summary-window-death-severity-catastrophic"),
@@ -28,8 +30,6 @@ public sealed partial class RoundEndSummaryWindow
     };
 
     private static readonly LocId DeathTypeDefault = "round-end-summary-window-death-type-mysterious";
-
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     private static string GetDeathSeverity(decimal totalDamage)
     {

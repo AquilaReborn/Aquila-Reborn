@@ -7,23 +7,23 @@ using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Client._Aquila.Heretic;
+namespace Content.Client._Aquila.Heretic.Overlays;
 
 /// <summary>
 /// Рисует стрелку живого сердца, которая висит рядом с еретиком и указывает на жертву.
 /// </summary>
 public sealed class HereticHeartWaypointerOverlay : Overlay
 {
+    [Dependency] private readonly IEntityManager _entity = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+
     private static readonly ProtoId<ShaderPrototype> UnshadedShader = "unshaded";
     private static readonly ResPath MarkerRsi = new("/Textures/_Aquila/Markers/Waypointers/waypointer.rsi");
 
     private const int MarkerStateCount = 5;
     private const float MarkerSize = 2.5f;
     private const float MinDirectionLengthSquared = 0.01f;
-
-    [Dependency] private readonly IEntityManager _entity = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
 
     private readonly SharedHereticHeartWaypointerSystem _waypointer;
     private readonly SpriteSystem _sprite;

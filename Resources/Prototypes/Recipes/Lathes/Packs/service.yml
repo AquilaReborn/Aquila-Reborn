@@ -36,6 +36,8 @@
   - BiogeneratorMachineCircuitboard
   - UniformPrinterMachineCircuitboard
   - MicrowaveMachineCircuitboard
+  - KitchenDeepFryerMachineCircuitboard # Aquila Change
+  - KitchenMeatGrinderMachineCircuitboard # Aquila Change
   - ReagentGrinderMachineCircuitboard
   - ElectricGrillMachineCircuitboard
   - BoozeDispenserMachineCircuitboard

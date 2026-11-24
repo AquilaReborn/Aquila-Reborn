@@ -17,7 +17,7 @@ public sealed partial class RealityShiftVisionComponent : Component
     public SoundSpecifier TriggerSound = new SoundPathSpecifier("/Audio/_Goobstation/Hallucinations/i_see_you1.ogg");
 
     /// <summary>
-    /// Сколько полное зрение держится с момента срабатывания; повторный сдвиг продлевает его на столько же.
+    /// Сколько полное зрение держится с момента срабатывания: новый сдвиг рядом за время зрения его не продлевает.
     /// </summary>
     [DataField]
     public TimeSpan VisionDuration = TimeSpan.FromSeconds(7);

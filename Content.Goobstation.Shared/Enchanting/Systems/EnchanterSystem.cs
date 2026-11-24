@@ -63,6 +63,9 @@ public sealed partial class EnchanterSystem : EntitySystem
         if (!args.CanReach || args.Target is not {} item)
             return;
 
+        if (IsEnchantingTableTarget(item)) // Aquila Change
+            return;
+
         // do nothing if used without an altar
         if (_enchanting.FindTable(item) == null)
             return;

@@ -1,0 +1,14 @@
+ent-FoodFishFilletSalmon = salmon fillet
+    .desc = A fresh cut of salmon, still smelling of the sea.
+ent-FoodFishFilletCarp = carp fillet
+    .desc = A clean white carp fillet. Better cooked than raw.
+ent-FoodFishFilletCatfish = catfish fillet
+    .desc = A meaty catfish fillet. Despite the name, not a cat.
+ent-FoodFishSteakSalmon = salmon steak
+    .desc = A seared salmon steak. Smells of grill and sea.
+ent-FoodMealFishAndChips = fish and chips
+    .desc = Crispy fish with a side of fries. Wrap it in paper and go.
+ent-FoodMealFishFingers = fish fingers
+    .desc = Breaded fish sticks. A childhood classic on any station.
+recipe-fish-and-chips = fish and chips recipe
+recipe-fish-fingers = fish fingers recipe

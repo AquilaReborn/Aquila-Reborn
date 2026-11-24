@@ -147,6 +147,40 @@
         hotsauce_slot: !type:ContainerSlot {}
         bbqsauce_slot: !type:ContainerSlot {}
         ketchup_slot: !type:ContainerSlot {}
+    # Aquila Change start
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.3
+          density: 125
+          layer:
+          - MobLayer
+          mask:
+          - MobMask
+        itemcollide:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.3,-0.3,0.3,0.3"
+          layer:
+          - HighImpassable
+          hard: false
+    - type: ApcPowerReceiver
+      powerLoad: 0
+    - type: ExtensionCableReceiver
+    - type: EntityHeater
+      settingSound:
+        path: /Audio/Weapons/click.ogg
+        params:
+          volume: -6
+    - type: ItemPlacer
+      maxEntities: 4
+      whitelist:
+        components:
+        - Temperature
+    - type: PlaceableSurface
+    # Aquila Change end
 
 - type: entity
   name: cold food cart

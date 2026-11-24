@@ -1,0 +1,14 @@
+ent-FoodFishFilletSalmon = филе лосося
+    .desc = Свежий кусок лосося. Всё ещё пахнет морем.
+ent-FoodFishFilletCarp = филе карпа
+    .desc = Чистое белое филе карпа. Лучше приготовить, чем есть сырым.
+ent-FoodFishFilletCatfish = филе сома
+    .desc = Мясистое филе сома. Вопреки названию, это не кот.
+ent-FoodFishSteakSalmon = стейк из лосося
+    .desc = Румяный стейк из лосося. Пахнет грилем и морем.
+ent-FoodMealFishAndChips = рыба с картошкой
+    .desc = Хрустящая рыба с картофелем фри. Заверните в бумагу и несите.
+ent-FoodMealFishFingers = рыбные палочки
+    .desc = Панированные рыбные палочки. Вкус детства на любой станции.
+recipe-fish-and-chips = рецепт рыбы с картошкой
+recipe-fish-fingers = рецепт рыбных палочек

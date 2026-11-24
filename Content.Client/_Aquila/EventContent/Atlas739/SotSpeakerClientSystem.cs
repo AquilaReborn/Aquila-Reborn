@@ -68,7 +68,6 @@ public sealed class SotSpeakerClientSystem : EntitySystem
 
         _nextCheck = _timing.CurTime + CheckInterval;
 
-        // Грид, на котором стоит игрок. Если игрока нет или он не на гриде, музыки нет.
         EntityUid? localGrid = _player.LocalEntity is { } local ? Transform(local).GridUid : null;
 
         var query = EntityQueryEnumerator<SotSpeakerComponent, TransformComponent>();
@@ -84,7 +83,6 @@ public sealed class SotSpeakerClientSystem : EntitySystem
                 continue;
             }
 
-            // Уже играет (или доиграл) именно этот запуск трека.
             if (_entries.TryGetValue(uid, out var entry)
                 && entry.StartTime == comp.StartTime
                 && (entry.Stream == null || Exists(entry.Stream)))
@@ -95,7 +93,6 @@ public sealed class SotSpeakerClientSystem : EntitySystem
             Start(uid, comp);
         }
 
-        // Колонки, исчезнувшие без события завершения.
         _toRemove.Clear();
         foreach (var uid in _entries.Keys)
         {
@@ -114,7 +111,6 @@ public sealed class SotSpeakerClientSystem : EntitySystem
         if (comp.Sound is not SoundPathSpecifier path)
             return;
 
-        // Путь в прототипе должен быть от корня ресурсов: /Audio/... (первый слэш обязателен).
         if (!path.Path.ToString().StartsWith('/'))
         {
             Log.Error($"Колонка SoT: путь к треку должен начинаться с / (например, /Audio/...), сейчас: {path.Path}");
@@ -137,7 +133,6 @@ public sealed class SotSpeakerClientSystem : EntitySystem
             }
             else if (elapsed.TotalSeconds >= length)
             {
-                // Трек уже закончился: запоминаем, чтобы не запускать заново.
                 _entries[uid] = new Entry { StartTime = comp.StartTime, Stream = null };
                 return;
             }

@@ -11,11 +11,11 @@ namespace Content.Client._Aquila.Engram;
 /// </summary>
 public sealed class EngramVisualsSystem : EntitySystem
 {
-    private const string PostShaderId = "engram-hologram";
-    private static readonly ProtoId<ShaderPrototype> Shader = "EngramHologram";
-
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
+
+    private const string PostShaderId = "engram-hologram";
+    private static readonly ProtoId<ShaderPrototype> Shader = "EngramHologram";
 
     public override void Initialize()
     {

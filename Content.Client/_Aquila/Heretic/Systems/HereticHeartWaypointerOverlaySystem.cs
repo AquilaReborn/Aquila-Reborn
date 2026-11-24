@@ -1,6 +1,7 @@
+using Content.Client._Aquila.Heretic.Overlays;
 using Robust.Client.Graphics;
 
-namespace Content.Client._Aquila.Heretic;
+namespace Content.Client._Aquila.Heretic.Systems;
 
 /// <summary>
 /// Подключает оверлей стрелки живого сердца.

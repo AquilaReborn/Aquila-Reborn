@@ -53,7 +53,6 @@ public sealed partial class SotHourglassWindow : FancyWindow
         var sideKey = state.Side == SotSide.Athena ? "sot-side-athena" : "sot-side-reapers";
         ShipLabel.Text = Loc.GetString("sot-hourglass-ship", ("side", Loc.GetString(sideKey)), ("id", state.ShipId));
 
-        // За что голосуют в этой фазе: за готовность или за отмену.
         var isReadyVote = state.Phase == SotHourglassPhase.Idle;
         var isCancelVote = state.Phase is SotHourglassPhase.Countdown or SotHourglassPhase.Waiting;
         var canVote = isReadyVote || isCancelVote;
@@ -104,7 +103,6 @@ public sealed partial class SotHourglassWindow : FancyWindow
     {
         base.FrameUpdate(args);
 
-        // Обратный отсчёт обновляется на клиенте сам, сервер шлёт только время вылета.
         if (_state is not { Phase: SotHourglassPhase.Countdown } state)
             return;
 

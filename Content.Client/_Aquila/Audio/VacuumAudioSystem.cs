@@ -15,9 +15,6 @@ namespace Content.Client._Aquila.Audio;
 
 public sealed class VacuumAudioSystem : EntitySystem
 {
-    private static readonly ProtoId<VacuumAudioPrototype> SettingsId = "Default";
-    private const float MinOcclusionDistance = 0.1f;
-
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
@@ -26,6 +23,9 @@ public sealed class VacuumAudioSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
+
+    private static readonly ProtoId<VacuumAudioPrototype> SettingsId = "Default";
+    private const float MinOcclusionDistance = 0.1f;
 
     public override void Initialize()
     {

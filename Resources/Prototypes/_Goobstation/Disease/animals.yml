@@ -4,6 +4,7 @@
   suffix: Plague
   components:
   - type: GhostRole
+    prob: 1 # Aquila Change: keep the rare free-agent takeover guaranteed
     makeSentient: true
     allowSpeech: true
     allowMovement: true

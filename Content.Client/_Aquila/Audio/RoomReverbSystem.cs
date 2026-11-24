@@ -19,9 +19,6 @@ namespace Content.Client._Aquila.Audio;
 
 public sealed class RoomReverbSystem : EntitySystem
 {
-    private static readonly ProtoId<RoomReverbPrototype> SettingsId = "Default";
-    private static readonly Vector2i[] Directions = { new(1, 0), new(-1, 0), new(0, 1), new(0, -1) };
-
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IEyeManager _eye = default!;
@@ -32,6 +29,9 @@ public sealed class RoomReverbSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly VacuumAudioSystem _vacuum = default!;
+
+    private static readonly ProtoId<RoomReverbPrototype> SettingsId = "Default";
+    private static readonly Vector2i[] Directions = { new(1, 0), new(-1, 0), new(0, 1), new(0, -1) };
 
     public override void Initialize()
     {
