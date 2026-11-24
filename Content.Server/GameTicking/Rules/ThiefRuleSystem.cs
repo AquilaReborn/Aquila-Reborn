@@ -8,7 +8,7 @@ using Content.Shared.Roles.Components;
 
 namespace Content.Server.GameTicking.Rules;
 
-public sealed class ThiefRuleSystem : GameRuleSystem<ThiefRuleComponent>
+public sealed partial class ThiefRuleSystem : GameRuleSystem<ThiefRuleComponent> // Aquila Change
 {
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
 
@@ -19,6 +19,7 @@ public sealed class ThiefRuleSystem : GameRuleSystem<ThiefRuleComponent>
         SubscribeLocalEvent<ThiefRuleComponent, AfterAntagEntitySelectedEvent>(AfterAntagSelected);
 
         SubscribeLocalEvent<ThiefRoleComponent, GetBriefingEvent>(OnGetBriefing);
+        AquilaInitializeRoleCleanup(); // Aquila Change
     }
 
     // Greeting upon thief activation

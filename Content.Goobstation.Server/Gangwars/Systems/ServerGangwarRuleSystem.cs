@@ -40,6 +40,7 @@ public sealed partial class ServerGangwarRuleSystem : GameRuleSystem<GangwarRule
         base.Initialize();
 
         SubscribeLocalEvent<GangTipOffEvent>(OnTipOff);
+        AquilaInitializeRoleCleanup(); // Aquila Change
     }
 
     public override void Update(float frameTime)

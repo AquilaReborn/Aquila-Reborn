@@ -22,6 +22,7 @@ public sealed partial class SlasherSystem : EntitySystem
 
         SubscribeLocalEvent<SlasherComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SlasherComponent, RejuvenateEvent>(OnRejuvenate);
+        AquilaInitializeRoleCleanup(); // Aquila Change
     }
 
     private void OnMapInit(Entity<SlasherComponent> ent, ref MapInitEvent args) =>

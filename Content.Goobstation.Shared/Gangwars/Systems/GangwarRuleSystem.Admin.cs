@@ -205,7 +205,10 @@ public sealed partial class GangwarRuleSystem
         return true;
     }
 
-    private void RemoveGangObjectives(EntityUid mindId, MindComponent mind)
+    /// <summary>
+    /// Убирает цели, которые выдавались участнику банды, когда с него снимают роль банды.
+    /// </summary>
+    public void RemoveGangObjectives(EntityUid mindId, MindComponent mind) // Aquila Change
     {
         for (var i = mind.Objectives.Count - 1; i >= 0; i--)
         {

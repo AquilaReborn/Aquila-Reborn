@@ -157,6 +157,11 @@
     sprite: Clothing/Shoes/Specific/swat.rsi
   - type: Clothing
     sprite: Clothing/Shoes/Specific/swat.rsi
+  - type: FootstepModifier # Aquila Change
+    footstepSoundCollection: # Aquila Change
+      collection: FootstepJackboots # Aquila Change
+      params: # Aquila Change
+        volume: -8 # Aquila Change
 
 - type: entity
   parent: ClothingShoesBaseButcherable

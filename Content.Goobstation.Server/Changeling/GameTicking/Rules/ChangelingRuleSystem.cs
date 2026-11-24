@@ -47,6 +47,7 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
 
         SubscribeLocalEvent<ChangelingRuleComponent, AfterAntagEntitySelectedEvent>(OnSelectAntag);
         SubscribeLocalEvent<ChangelingRuleComponent, ObjectivesTextPrependEvent>(OnTextPrepend);
+        AquilaInitializeRoleCleanup(); // Aquila Change
     }
 
     private void OnSelectAntag(EntityUid uid, ChangelingRuleComponent comp, ref AfterAntagEntitySelectedEvent args)

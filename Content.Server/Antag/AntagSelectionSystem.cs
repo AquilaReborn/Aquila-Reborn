@@ -515,6 +515,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         }
 
         // The following is where we apply components, equipment, and other changes to our antagonist entity.
+        AquilaRememberFactions(player, def); // Aquila Change
         EntityManager.AddComponents(player, def.Components);
 
         // Equip the entity's RoleLoadout and LoadoutGroup

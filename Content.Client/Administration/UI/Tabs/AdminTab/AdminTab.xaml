@@ -21,6 +21,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
             <cc:CommandButton Command="faxui" Text="{Loc admin-player-actions-window-admin-fax}"/>
             <cc:CommandButton Command="timetransferpanel" Text="{Loc admin-player-actions-window-time-transfer}"/>
             <cc:CommandButton Command="achatwindow" Text="{Loc admin-player-actions-window-admin-chat}"/>
+            <!-- Aquila Change -->
+            <cc:CommandButton Command="antagmenu" Text="{Loc admin-antags-tab-open}"/>
         </GridContainer>
     </BoxContainer>
 </Control>

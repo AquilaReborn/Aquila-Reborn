@@ -38,7 +38,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server._Goobstation.Wizard.Systems;
 
-public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
+public sealed partial class WizardRuleSystem : GameRuleSystem<WizardRuleComponent> // Aquila Change
 {
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
@@ -76,6 +76,7 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
 
         SubscribeLocalEvent<DimensionShiftEvent>(OnDimensionShift);
         SubscribeLocalEvent<NpcFactionMemberComponent, GrantFactionsEvent>(OnGrantFactions);
+        AquilaInitializeRoleCleanup(); // Aquila Change
     }
 
     private void OnGrantFactions(Entity<NpcFactionMemberComponent> ent, ref GrantFactionsEvent args)
@@ -184,6 +185,9 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
 
     private void OnRemove(EntityUid uid, Component component, ComponentRemove args)
     {
+        if (!AquilaHasWizardRole(uid)) // Aquila Change
+            return;
+
         CheckRoundShouldEnd();
     }
 

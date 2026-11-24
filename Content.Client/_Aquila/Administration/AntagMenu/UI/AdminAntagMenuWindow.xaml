@@ -1,0 +1,57 @@
+<ui:FancyWindow xmlns="https://spacestation14.io"
+                xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
+                xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+                Title="{Loc 'admin-antag-menu-title'}"
+                SetSize="1020 700" MinSize="840 500">
+    <BoxContainer Orientation="Horizontal" Margin="8" SeparationOverride="10">
+        <BoxContainer Orientation="Vertical" MinWidth="300" SeparationOverride="6">
+            <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+                <CheckBox Name="ShowAllCheckBox" Text="{Loc 'admin-antag-menu-show-all'}" HorizontalExpand="True" />
+                <Button Name="RefreshButton" Text="{Loc 'admin-antag-menu-refresh'}" />
+            </BoxContainer>
+            <Label Name="CountLabel" StyleClasses="LabelSubText" />
+            <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+                <BoxContainer Name="AntagsList" Orientation="Vertical" SeparationOverride="4" />
+            </ScrollContainer>
+            <Label Name="NoAntagsLabel" Text="{Loc 'admin-antag-menu-empty'}" StyleClasses="LabelSubText" Visible="False" />
+        </BoxContainer>
+        <cc:VSeparator VerticalExpand="True" />
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" SeparationOverride="6">
+            <Label Name="NoSelectionLabel" Text="{Loc 'admin-antag-menu-no-selection'}" StyleClasses="LabelSubText" />
+            <BoxContainer Name="DetailsContainer" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True"
+                          SeparationOverride="6" Visible="False">
+                <Label Name="NameLabel" StyleClasses="LabelHeading" ClipText="True" />
+                <Label Name="UsernameLabel" StyleClasses="LabelSubText" ClipText="True" />
+                <Label Name="RolesLabel" ClipText="True" />
+                <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+                    <Label Text="{Loc 'admin-antag-menu-grant-role'}" MinWidth="110" VerticalAlignment="Center" />
+                    <OptionButton Name="GrantRoleOption" HorizontalExpand="True" RectClipContent="True" />
+                    <Button Name="GrantRoleButton" Text="{Loc 'admin-antag-menu-grant'}" />
+                </BoxContainer>
+                <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+                    <Label Text="{Loc 'admin-antag-menu-remove-role'}" MinWidth="110" VerticalAlignment="Center" />
+                    <OptionButton Name="RemoveRoleOption" HorizontalExpand="True" RectClipContent="True" />
+                    <Button Name="RemoveRoleButton" Text="{Loc 'admin-antag-menu-remove'}" />
+                </BoxContainer>
+                <PanelContainer StyleClasses="LowDivider" />
+                <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+                    <Label Text="{Loc 'admin-antag-menu-objectives'}" StyleClasses="LabelHeading" HorizontalExpand="True"
+                           VerticalAlignment="Center" />
+                    <Button Name="RemoveAllObjectivesButton" Text="{Loc 'admin-antag-menu-remove-all-objectives'}" />
+                </BoxContainer>
+                <Label Name="NoObjectivesLabel" Text="{Loc 'admin-antag-menu-no-objectives'}" StyleClasses="LabelSubText"
+                       Visible="False" />
+                <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+                    <BoxContainer Name="ObjectivesList" Orientation="Vertical" SeparationOverride="4" />
+                </ScrollContainer>
+                <PanelContainer StyleClasses="LowDivider" />
+                <Label Text="{Loc 'admin-antag-menu-add-objective'}" StyleClasses="LabelSubText" />
+                <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+                    <OptionButton Name="AddObjectiveOption" HorizontalExpand="True" RectClipContent="True" />
+                    <Button Name="AddObjectiveButton" Text="{Loc 'admin-antag-menu-add'}" />
+                </BoxContainer>
+                <Label Name="StatusLabel" StyleClasses="LabelSubText" ClipText="True" Visible="False" />
+            </BoxContainer>
+        </BoxContainer>
+    </BoxContainer>
+</ui:FancyWindow>

@@ -75,6 +75,7 @@ public sealed partial class BlobObserverSystem : SharedBlobObserverSystem
         SubscribeLocalEvent<BlobObserverComponent, BlobChemSwapPrototypeSelectedMessage>(OnChemSelected);
 
         SubscribeLocalEvent<BlobObserverComponent, ComponentStartup>(OnStartup);
+        AquilaInitializeRoleCleanup(); // Aquila Change
 
 
         _logger = _logMan.GetSawmill("blob.core");

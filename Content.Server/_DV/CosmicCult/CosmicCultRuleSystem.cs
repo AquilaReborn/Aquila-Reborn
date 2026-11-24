@@ -141,6 +141,7 @@ public sealed partial class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRule
         SubscribeLocalEvent<CosmicGodComponent, ComponentInit>(OnGodSpawn);
         SubscribeLocalEvent<CosmicCultComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<CosmicCultComponent, CuffedStateChangeEvent>(OnCuffStateChanged);
+        AquilaInitializeRoleCleanup(); // Aquila Change
 
         Subs.CVar(_config,
             DCCVars.CosmicCultT2RevealDelaySeconds,
@@ -918,14 +919,7 @@ public sealed partial class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRule
 
         // CorvaxGoob-Fix start
         //_mind.ClearObjectives(mindId, mindComp);
-        for (var i = mindComp.Objectives.Count - 1; i >= 0; i--)
-        {
-            var objective = mindComp.Objectives[i];
-            if (HasComp<CosmicVictoryConditionComponent>(objective)
-                || HasComp<CosmicTierConditionComponent>(objective)
-                || HasComp<CosmicEntropyConditionComponent>(objective))
-                _mind.TryRemoveObjective(mindId, mindComp, i);
-        }
+        AquilaRemoveCosmicObjectives(mindId, mindComp); // Aquila Change
          // CorvaxGoob-Fix end
         _role.MindRemoveRole<CosmicCultRoleComponent>(mindId);
         _role.MindRemoveRole<RoleBriefingComponent>(mindId);

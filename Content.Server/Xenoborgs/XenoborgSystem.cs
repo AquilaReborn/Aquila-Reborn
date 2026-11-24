@@ -31,6 +31,7 @@ public sealed partial class XenoborgSystem : EntitySystem
 
         SubscribeLocalEvent<XenoborgComponent, MindAddedMessage>(OnXenoborgMindAdded);
         SubscribeLocalEvent<XenoborgComponent, MindRemovedMessage>(OnXenoborgMindRemoved);
+        AquilaInitializeRoleCleanup(); // Aquila Change
     }
 
     private void OnXenoborgDestroyed(EntityUid uid, XenoborgComponent component, DestructionEventArgs args)

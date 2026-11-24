@@ -30,6 +30,7 @@ public sealed partial class DevilRuleSystem : GameRuleSystem<DevilRuleComponent>
         SubscribeLocalEvent<DevilRuleComponent, AfterAntagEntitySelectedEvent>(OnSelectAntag);
         SubscribeLocalEvent<DevilRuleComponent, ObjectivesTextPrependEvent>(OnTextPrepend);
         SubscribeLocalEvent<DevilRoleComponent, GetBriefingEvent>(OnGetBrief);
+        AquilaInitializeRoleCleanup(); // Aquila Change
     }
 
     private void OnSelectAntag(EntityUid uid, DevilRuleComponent comp, ref AfterAntagEntitySelectedEvent args)
