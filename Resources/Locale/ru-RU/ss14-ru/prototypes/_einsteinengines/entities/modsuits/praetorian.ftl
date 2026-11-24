@@ -1,5 +1,8 @@
 ent-ClothingModsuitPraetorian = контроллер модульного скафандра "Преторианец"
     .desc = Основной контроллер скафандра "Преторианец".
+# Aquila Change
+ent-ClothingModsuitPraetorianFilled = { ent-ClothingModsuitPraetorian }
+    .suffix = Заполненный
 ent-ClothingModsuitGauntletsPraetorian = перчатки скафандра "Преторианец"
     .desc = Пара перчаток, изготовленных для скафандра "Преторианец".
 ent-ClothingModsuitHelmetPraetorian = шлем скафандра "Преторианец"

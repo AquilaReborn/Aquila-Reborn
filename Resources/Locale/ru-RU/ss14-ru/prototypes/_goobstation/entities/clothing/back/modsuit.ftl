@@ -42,3 +42,7 @@ ent-ClothingModsuitCaptainPowerCell = { ent-ClothingModsuitCaptain }
     .desc = { ent-ClothingModsuitCaptain.desc }
 ent-ClothingModsuitBrigMed = блок управления травматологического скафандра MOD СБ
     .desc = Надёжный блок управления модульным скафандром для лечения товарищей в космосе.
+# Aquila Change
+ent-ClothingModsuitBrigMedPowerCell = { ent-ClothingModsuitBrigMed }
+    .suffix = батарея высокой ёмкости
+    .desc = { ent-ClothingModsuitBrigMed.desc }
