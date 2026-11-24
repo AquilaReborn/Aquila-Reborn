@@ -1,0 +1,35 @@
+- type: entity
+  parent: BaseFactionBeltCombatWebbing
+  id: ClothingBeltCLIPWebbing
+  name: chest rig
+  suffix: CrookLv, Clothing, LFC
+  description: A rig of large pouches in deep blue. The bulk makes it only slightly uncomfortable to wear.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/CLIP/clip_chest_rig.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/CLIP/clip_chest_rig.rsi
+
+- type: entity
+  parent: BaseFactionBeltCombatWebbing
+  id: ClothingBeltCLIPBeltRig
+  name: belt rig
+  suffix: CrookLv, Clothing, LFC
+  description: A belt of large pouches in deep blue, worn with the suspenders down.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/CLIP/clip_belt_rig.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/CLIP/clip_belt_rig.rsi
+
+- type: entity
+  parent: BaseFactionBeltMedicalWebbing
+  id: ClothingBeltCLIPMedicalWebbing
+  name: medical webbing
+  suffix: CrookLv, Clothing, LFC
+  description: A variation on the standard pouch rig, colored white and built to hold medical supplies.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/CLIP/clip_medical_webbing.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/CLIP/clip_medical_webbing.rsi

@@ -1,0 +1,55 @@
+- type: entity
+  parent: BaseFactionBeltCombatWebbing
+  id: ClothingBeltFrontiersmenBandolier
+  name: leather bandolier
+  suffix: CrookLv, Clothing, Frontiersmen
+  description: A rudimentary leather bandolier, slung diagonally from the shoulder to the waist.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/Frontiersmen/frontiersmen_bandolier.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/Frontiersmen/frontiersmen_bandolier.rsi
+
+- type: entity
+  parent: BaseFactionBeltMedicalWebbing
+  id: ClothingBeltFrontiersmenMedicalBandolier
+  name: leather medical bandolier
+  suffix: CrookLv, Clothing, Frontiersmen
+  description: A rudimentary leather bandolier painted white, usually worn by a medic.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/Frontiersmen/frontiersmen_medical_bandolier.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/Frontiersmen/frontiersmen_medical_bandolier.rsi
+
+- type: entity
+  parent: [ ClothingBeltBase, ClothingSlotBase ]
+  id: ClothingBeltFrontiersmenKukriSheath
+  name: kukri sheath
+  suffix: CrookLv, Clothing, Frontiersmen
+  description: A piece of solid, treated leather. Don't pull the kukri out unless you're itching for a fight.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/Frontiersmen/kukri_sheath.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/Frontiersmen/kukri_sheath.rsi
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Kukri
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - FrontiersmenKukri
+  - type: ItemMapper
+    mapLayers:
+      filled:
+        whitelist:
+          tags:
+          - FrontiersmenKukri
+  - type: Appearance

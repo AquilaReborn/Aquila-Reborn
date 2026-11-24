@@ -1,0 +1,23 @@
+- type: entity
+  parent: BaseFactionBeltCombatWebbing
+  id: ClothingBeltRamziWebbing
+  name: webbing
+  suffix: CrookLv, Clothing, Rust Clique
+  description: A set of tactical webbing, patched in a few places but still serviceable.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/Ramzi/ramzi_webbing.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/Ramzi/ramzi_webbing.rsi
+
+- type: entity
+  parent: BaseFactionBeltCombatWebbing
+  id: ClothingBeltRamziHarness
+  name: drop pouch harness
+  suffix: CrookLv, Clothing, Rust Clique
+  description: A quick-access drop pouch harness for grabbing a magazine on the move.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/Ramzi/ramzi_harness.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/Ramzi/ramzi_harness.rsi

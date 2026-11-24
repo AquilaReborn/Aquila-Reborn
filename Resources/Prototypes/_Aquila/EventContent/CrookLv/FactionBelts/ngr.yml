@@ -1,0 +1,35 @@
+- type: entity
+  parent: BaseFactionBeltCombatWebbing
+  id: ClothingBeltNGRWebbing
+  name: webbing
+  suffix: CrookLv, Clothing, Gorlex Republic
+  description: A set of tactical webbing with pouches for magazines, grenades and tools.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/NGR/ngr_webbing.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/NGR/ngr_webbing.rsi
+
+- type: entity
+  parent: BaseFactionBeltCombatWebbing
+  id: ClothingBeltNGRDropPouch
+  name: drop pouch harness
+  suffix: CrookLv, Clothing, Gorlex Republic
+  description: A harness with a bunch of pouches attached to it.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/NGR/ngr_drop_pouch.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/NGR/ngr_drop_pouch.rsi
+
+- type: entity
+  parent: BaseFactionBeltIndustrialWebbing
+  id: ClothingBeltNGRIndustrialWebbing
+  name: industrial webbing
+  suffix: CrookLv, Clothing, Gorlex Republic
+  description: Industrial webbing built to hold mining equipment.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/NGR/ngr_industrial_webbing.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/NGR/ngr_industrial_webbing.rsi

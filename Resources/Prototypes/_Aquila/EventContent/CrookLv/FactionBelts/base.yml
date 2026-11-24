@@ -1,0 +1,86 @@
+# Shared storage profiles for Shiptest faction webbing.
+
+- type: entity
+  abstract: true
+  parent: ClothingBeltStorageBase
+  id: BaseFactionBeltCombatWebbing
+  components:
+  - type: Storage
+    maxItemSize: Normal
+    whitelist:
+      tags:
+      - Sidearm
+      - SecBeltEquip
+      - MagazinePistol
+      - MagazineMagnum
+      - CombatKnife
+      - HandGrenade
+      - EnergyMagAmmo
+      - Radio
+      components:
+      - BallisticAmmoProvider
+      - CartridgeAmmo
+      - Gun
+      - Handcuff
+      - Flash
+      - FlashOnTrigger
+      - SmokeOnTrigger
+      - Stunbaton
+
+- type: entity
+  abstract: true
+  parent: ClothingBeltStorageBase
+  id: BaseFactionBeltMedicalWebbing
+  components:
+  - type: Storage
+    maxItemSize: Normal
+    whitelist:
+      tags:
+      - Wrench
+      - Bottle
+      - Spray
+      - Brutepack
+      - Bloodpack
+      - Gauze
+      - Ointment
+      - Tourniquet
+      - PillCanister
+      - SurgeryTool
+      - Dropper
+      - DiscreteHealthAnalyzer
+      - Radio
+      components:
+      - Injector
+      - Pill
+      - HandLabeler
+      - Defibrillator
+
+- type: entity
+  abstract: true
+  parent: ClothingBeltStorageBase
+  id: BaseFactionBeltIndustrialWebbing
+  components:
+  - type: Storage
+    maxItemSize: Normal
+    whitelist:
+      tags:
+      - Powerdrill
+      - Wirecutter
+      - Crowbar
+      - Screwdriver
+      - Flashlight
+      - Wrench
+      - GeigerCounter
+      - Flare
+      - CableCoil
+      - Multitool
+      - AppraisalTool
+      - GPS
+      - WeldingMask
+      - RemoteSignaller
+      - UtilityKnife
+      - Radio
+      components:
+      - HandLabeler
+      - Welder
+      - PowerCell

@@ -1,0 +1,31 @@
+- type: entity
+  parent: [ ClothingBeltBase, ClothingSlotBase ]
+  id: ClothingBeltSolGovSheath
+  name: sabre sheath
+  suffix: CrookLv, Clothing, UEG
+  description: An ornate sheath designed to hold an officer's blade.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/SolGov/solgov_sheath.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/SolGov/solgov_sheath.rsi
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Sabre
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - SolGovSabre
+  - type: ItemMapper
+    mapLayers:
+      filled:
+        whitelist:
+          tags:
+          - SolGovSabre
+  - type: Appearance

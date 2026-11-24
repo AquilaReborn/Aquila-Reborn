@@ -1,0 +1,23 @@
+- type: entity
+  parent: BaseFactionBeltCombatWebbing
+  id: ClothingBeltInteQWebbing
+  name: webbing
+  suffix: CrookLv, Clothing, Inteq
+  description: A set of tactical webbing in muted colors, with pouches for magazines and tools.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/Inteq/inteq_webbing.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/Inteq/inteq_webbing.rsi
+
+- type: entity
+  parent: BaseFactionBeltCombatWebbing
+  id: ClothingBeltInteQDropPouch
+  name: drop pouch harness
+  suffix: CrookLv, Clothing, Inteq
+  description: A harness with a bunch of pouches attached to it, in muted colors.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/Inteq/inteq_drop_pouch.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/Inteq/inteq_drop_pouch.rsi

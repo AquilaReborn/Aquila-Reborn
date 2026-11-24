@@ -1,0 +1,93 @@
+- type: entity
+  parent: [ ClothingBeltBase, ClothingSlotBase ]
+  id: ClothingBeltSUNSSheath
+  name: sabre sheath
+  suffix: CrookLv, Clothing, SUNS
+  description: A leather sheath designed to hold a blade.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/SUNS/suns_sheath.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/SUNS/suns_sheath.rsi
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Sabre
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - SUNSSabre
+  - type: ItemMapper
+    mapLayers:
+      filled:
+        whitelist:
+          tags:
+          - SUNSSabre
+  - type: Appearance
+
+- type: entity
+  parent: [ ClothingBeltBase, ClothingSlotBase ]
+  id: ClothingBeltSUNSCaptainSheath
+  name: captain's sabre sheath
+  suffix: CrookLv, Clothing, SUNS
+  description: An elegant and impressively made leather sheath designed to hold a captain's blade.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/SUNS/suns_captain_sheath.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/SUNS/suns_captain_sheath.rsi
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Sabre
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - SUNSCaptainSabre
+  - type: ItemMapper
+    mapLayers:
+      filled:
+        whitelist:
+          tags:
+          - SUNSCaptainSabre
+  - type: Appearance
+
+- type: entity
+  parent: [ BaseItem, ClothingSlotBase ]
+  id: SUNSCaneSheath
+  name: cane sheath
+  suffix: CrookLv, Clothing, SUNS
+  description: A walking cane modified to hold a thin stick sabre. It does not fit on belts, contrary to popular belief.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/SUNS/suns_cane_sheath.rsi
+  - type: Item
+    size: Large
+  - type: ItemSlots
+    slots:
+      item:
+        name: Sabre
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - SUNSStickSabre
+  - type: ItemMapper
+    mapLayers:
+      filled:
+        whitelist:
+          tags:
+          - SUNSStickSabre
+  - type: Appearance

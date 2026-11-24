@@ -1,0 +1,23 @@
+- type: entity
+  parent: BaseFactionBeltCombatWebbing
+  id: ClothingBeltHardlinersWebbing
+  name: webbing
+  suffix: CrookLv, Clothing, Blood Vanguard
+  description: A set of tactical webbing with reinforced pouches.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/Hardliners/hardliners_webbing.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/Hardliners/hardliners_webbing.rsi
+
+- type: entity
+  parent: BaseFactionBeltCombatWebbing
+  id: ClothingBeltHardlinersDropPouch
+  name: drop pouch harness
+  suffix: CrookLv, Clothing, Blood Vanguard
+  description: A harness with a bunch of pouches attached to it.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/Hardliners/hardliners_drop_pouch.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/Hardliners/hardliners_drop_pouch.rsi

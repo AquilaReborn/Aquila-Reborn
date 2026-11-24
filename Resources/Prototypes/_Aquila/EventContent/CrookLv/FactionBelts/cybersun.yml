@@ -1,0 +1,23 @@
+- type: entity
+  parent: BaseFactionBeltCombatWebbing
+  id: ClothingBeltCybersunWebbing
+  name: webbing
+  suffix: CrookLv, Clothing, Cybersun
+  description: Tactical webbing woven from a metafabric lattice. Lightweight and durable.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/Cybersun/cybersun_webbing.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/Cybersun/cybersun_webbing.rsi
+
+- type: entity
+  parent: BaseFactionBeltMedicalWebbing
+  id: ClothingBeltCybersunMedicalWebbing
+  name: medical webbing
+  suffix: CrookLv, Clothing, Cybersun
+  description: Tactical webbing in medical white, woven from a metafabric lattice and stocked for field surgery.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/Cybersun/cybersun_medical_webbing.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/Cybersun/cybersun_medical_webbing.rsi

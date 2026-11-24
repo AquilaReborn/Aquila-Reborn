@@ -1,0 +1,55 @@
+- type: entity
+  parent: BaseFactionBeltCombatWebbing
+  id: ClothingBeltGezenaWebbing
+  name: marine webbing
+  suffix: CrookLv, Clothing, Gezena
+  description: A lightweight harness covered in pouches with a slightly larger than average rear pack. Built for ammunition.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/Gezena/gezena_marine_webbing.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/Gezena/gezena_marine_webbing.rsi
+
+- type: entity
+  parent: BaseFactionBeltMedicalWebbing
+  id: ClothingBeltGezenaMedicalWebbing
+  name: medic webbing
+  suffix: CrookLv, Clothing, Gezena
+  description: A lightweight harness covered in pouches with a slightly larger than average rear pack. Built for medical supplies.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/Gezena/gezena_medic_webbing.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/Gezena/gezena_medic_webbing.rsi
+
+- type: entity
+  parent: [ ClothingBeltBase, ClothingSlotBase ]
+  id: ClothingBeltGezenaScabbard
+  name: cutlass scabbard
+  suffix: CrookLv, Clothing, Gezena
+  description: A mass produced thermoplastic-leather scabbard made to hold a boarding cutlass.
+  components:
+  - type: Sprite
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/Gezena/pgf_scabbard.rsi
+  - type: Clothing
+    sprite: _Aquila/EventContent/CrookLv/FactionBelts/Gezena/pgf_scabbard.rsi
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        name: Cutlass
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - PGFCutlass
+  - type: ItemMapper
+    mapLayers:
+      filled:
+        whitelist:
+          tags:
+          - PGFCutlass
+  - type: Appearance

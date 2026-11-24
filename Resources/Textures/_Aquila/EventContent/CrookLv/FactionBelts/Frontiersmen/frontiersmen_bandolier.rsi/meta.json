@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Shiptest at https://github.com/shiptest-ss13/Shiptest/blob/991ef14b2eaa24b6aad231861793a3aa485dc20e/icons/obj/clothing/faction/frontiersmen/belt.dmi and https://github.com/shiptest-ss13/Shiptest/blob/991ef14b2eaa24b6aad231861793a3aa485dc20e/icons/mob/clothing/faction/frontiersmen/belt.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-BELT",
+      "directions": 4
+    }
+  ]
+}

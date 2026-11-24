@@ -1,0 +1,19 @@
+# Tags for Shiptest faction blades, used by the matching sheaths.
+
+- type: Tag
+  id: SolGovSabre
+
+- type: Tag
+  id: SUNSSabre
+
+- type: Tag
+  id: SUNSCaptainSabre
+
+- type: Tag
+  id: SUNSStickSabre
+
+- type: Tag
+  id: PGFCutlass
+
+- type: Tag
+  id: FrontiersmenKukri
