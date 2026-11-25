@@ -92,6 +92,10 @@
   - type: ToggleHideLayersClothing # Aquila Change
     slots: HEAD # Aquila Change
     groups:
+    # Aquila Change start
+    - layers: [ HeadTop, HeadSide ]
+      action: ActionToggleHideLayersHelmet
+    # Aquila Change end
     - layers: [ Hair ] # Aquila Change
       action: ActionToggleHideLayersHair # Aquila Change
 
