@@ -38,7 +38,20 @@ public sealed class AdminAntagMenuSystem : EntitySystem
             return false;
         }
 
-        return _antag.TryForceMakeAntag(session, antag);
+        if (!_antag.TryForceMakeAntag(session, antag))
+            return false;
+
+        return HasAntagRole(mind.Comp, antag.Id);
+    }
+
+    /// <summary>
+    /// Оставляет только тех антагонистов, для которых есть подходящее определение выдачи хотя бы в одном прототипе правила.
+    /// </summary>
+    /// <param name="candidates">Прототипы антагонистов-кандидатов.</param>
+    /// <returns>Прототипы, которые действительно можно выдать.</returns>
+    public HashSet<ProtoId<AntagPrototype>> FilterGrantableAntags(IReadOnlySet<ProtoId<AntagPrototype>> candidates)
+    {
+        return _antag.FilterGrantableAntags(candidates);
     }
 
     /// <summary>

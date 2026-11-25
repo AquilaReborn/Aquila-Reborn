@@ -24,6 +24,38 @@ public sealed partial class AntagSelectionSystem
         return TryForceMakeAntagFromRulePrototype(session, antag);
     }
 
+    /// <summary>
+    /// Оставляет только тех антагонистов, для которых хотя бы в одном прототипе правила есть подходящее определение.
+    /// </summary>
+    /// <param name="candidates">Антагонисты, среди которых идёт поиск.</param>
+    /// <returns>Антагонисты, которых можно выдать через правило.</returns>
+    public HashSet<ProtoId<AntagPrototype>> FilterGrantableAntags(IReadOnlySet<ProtoId<AntagPrototype>> candidates)
+    {
+        var grantable = new HashSet<ProtoId<AntagPrototype>>();
+        if (candidates.Count == 0)
+            return grantable;
+
+        foreach (var prototype in ProtoMan.EnumeratePrototypes<EntityPrototype>())
+        {
+            if (!prototype.TryComp<AntagSelectionComponent>(out var selection, Factory))
+                continue;
+
+            foreach (var antag in candidates)
+            {
+                if (grantable.Contains(antag))
+                    continue;
+
+                if (TryFindAntagDefinition(selection, antag, out _))
+                    grantable.Add(antag);
+            }
+
+            if (grantable.Count == candidates.Count)
+                break;
+        }
+
+        return grantable;
+    }
+
     private bool TryForceMakeAntagFromActiveRule(ICommonSession session, ProtoId<AntagPrototype> antag)
     {
         var query = EntityQueryEnumerator<AntagSelectionComponent>();
@@ -32,11 +64,13 @@ public sealed partial class AntagSelectionSystem
             if (!HasComp<ActiveGameRuleComponent>(rule))
                 continue;
 
-            if (!TryFindAntagDefinition(selection, antag, out var definition))
+            if (!TryFindExactAntagDefinition(selection, antag, out var definition)
+                && !TryFindAntagDefinition(selection, antag, out definition))
+            {
                 continue;
+            }
 
-            MakeAntag((rule, selection), session, definition, ignoreSpawner: true);
-            return true;
+            return TryMakeAntag((rule, selection), session, definition, ignoreSpawner: true, checkPref: false);
         }
 
         return false;
@@ -44,6 +78,23 @@ public sealed partial class AntagSelectionSystem
 
     private bool TryForceMakeAntagFromRulePrototype(ICommonSession session, ProtoId<AntagPrototype> antag)
     {
+        var exactFound = false;
+        foreach (var prototype in ProtoMan.EnumeratePrototypes<EntityPrototype>())
+        {
+            if (!prototype.TryComp<AntagSelectionComponent>(out var selection, Factory)
+                || !TryFindExactAntagDefinition(selection, antag, out _))
+            {
+                continue;
+            }
+
+            exactFound = true;
+            if (TryStartRuleAndMakeAntag(prototype.ID, session, antag, exactMatch: true))
+                return true;
+        }
+
+        if (exactFound)
+            return false;
+
         foreach (var prototype in ProtoMan.EnumeratePrototypes<EntityPrototype>())
         {
             if (!prototype.TryComp<AntagSelectionComponent>(out var selection, Factory)
@@ -52,21 +103,65 @@ public sealed partial class AntagSelectionSystem
                 continue;
             }
 
-            var rule = GameTicker.AddGameRule(prototype.ID);
-            if (!TryComp<AntagSelectionComponent>(rule, out var ruleSelection)
-                || !TryFindAntagDefinition(ruleSelection, antag, out var definition))
-            {
-                QueueDel(rule);
-                return false;
-            }
+            if (TryStartRuleAndMakeAntag(prototype.ID, session, antag, exactMatch: false))
+                return true;
+        }
 
-            ruleSelection.AssignmentComplete = true;
-            RemComp<LoadMapRuleComponent>(rule);
-            GameTicker.StartGameRule(rule);
-            MakeAntag((rule, ruleSelection), session, definition, ignoreSpawner: true);
+        return false;
+    }
+
+    private bool TryStartRuleAndMakeAntag(
+        string rulePrototype,
+        ICommonSession session,
+        ProtoId<AntagPrototype> antag,
+        bool exactMatch)
+    {
+        var rule = GameTicker.AddGameRule(rulePrototype);
+        if (!TryComp<AntagSelectionComponent>(rule, out var selection))
+        {
+            QueueDel(rule);
+            return false;
+        }
+
+        AntagSelectionDefinition definition;
+        var found = exactMatch
+            ? TryFindExactAntagDefinition(selection, antag, out definition)
+            : TryFindAntagDefinition(selection, antag, out definition);
+
+        if (!found)
+        {
+            QueueDel(rule);
+            return false;
+        }
+
+        selection.AssignmentComplete = true;
+        RemComp<LoadMapRuleComponent>(rule);
+        GameTicker.StartGameRule(rule);
+
+        if (!TryMakeAntag((rule, selection), session, definition, ignoreSpawner: true, checkPref: false))
+        {
+            QueueDel(rule);
+            return false;
+        }
+
+        return true;
+    }
+
+    private bool TryFindExactAntagDefinition(
+        AntagSelectionComponent selection,
+        ProtoId<AntagPrototype> antag,
+        out AntagSelectionDefinition definition)
+    {
+        foreach (var candidate in selection.Definitions)
+        {
+            if (!HasAntagMindRole(candidate, antag))
+                continue;
+
+            definition = candidate;
             return true;
         }
 
+        definition = default;
         return false;
     }
 
@@ -93,6 +188,11 @@ public sealed partial class AntagSelectionSystem
         if (definition.PrefRoles.Contains(antag) || definition.FallbackRoles.Contains(antag))
             return true;
 
+        return HasAntagMindRole(definition, antag);
+    }
+
+    private bool HasAntagMindRole(AntagSelectionDefinition definition, ProtoId<AntagPrototype> antag)
+    {
         if (definition.MindRoles == null)
             return false;
 

@@ -193,7 +193,7 @@ public sealed class AdminAntagMenuEui : BaseEui
 
     private List<string> GetGrantableAntags()
     {
-        var antags = new HashSet<string>();
+        var antags = new HashSet<ProtoId<AntagPrototype>>();
 
         foreach (var prototype in _prototypes.EnumeratePrototypes<EntityPrototype>())
         {
@@ -204,10 +204,10 @@ public sealed class AdminAntagMenuEui : BaseEui
                 continue;
             }
 
-            antags.Add(antag.Id);
+            antags.Add(antag);
         }
 
-        var antagList = antags.ToList();
+        var antagList = _menu.FilterGrantableAntags(antags).Select(antag => antag.Id).ToList();
         antagList.Sort(StringComparer.Ordinal);
         return antagList;
     }

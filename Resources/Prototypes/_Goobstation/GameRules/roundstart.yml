@@ -44,6 +44,7 @@
       blacklist:
         components:
         - CommandStaff
+        - Silicon # Aquila Change
       lateJoinAdditional: true
       mindRoles:
       - MindRoleChangeling
