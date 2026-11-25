@@ -20,7 +20,7 @@
     sprite: _Goobstation/Objects/Weapons/Guns/Pistols/mk58.rsi
     state: icon
   content:
-  - WeaponPistolMk58Empty
+  - WeaponPistolMk58Rubber
   - MagazinePistolRubber
   - MagazinePistolRubber
 
