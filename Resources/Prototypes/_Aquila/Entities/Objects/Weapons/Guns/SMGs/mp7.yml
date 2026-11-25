@@ -15,7 +15,7 @@
   - type: Item
     sprite: _Aquila/Objects/Weapons/Guns/SMGs/mp7_inhand.rsi
   - type: Clothing
-    slots: []
+    slots: NONE
   - type: ItemSlots
     slots:
       gun_magazine:
