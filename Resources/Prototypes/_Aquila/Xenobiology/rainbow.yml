@@ -41,7 +41,7 @@
       - !type:NestedEffect
         proto: XenobioExtractReaction
       - !type:SpawnEntity
-        entity: XenobioRareExtractSpawner
+        entity: XenobioRareExtractDelayedSpawner
         number: 3
     - reagents: [ Plasma ]
       methods: [ Touch, Injection ]
@@ -179,3 +179,19 @@
     lifetime: 3
   - type: SpawnOnDespawn
     prototype: XenobioSlimeAnySpawner
+
+- type: entity
+  parent: MarkerBase
+  id: XenobioRareExtractDelayedSpawner
+  name: delayed random rare slime extract spawner
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Goobstation/Xenobiology/Specific/Xenobiology/extract.rsi
+      state: core
+  - type: TimedDespawn
+    lifetime: 3
+  - type: SpawnOnDespawn
+    prototype: XenobioRareExtractSpawner
