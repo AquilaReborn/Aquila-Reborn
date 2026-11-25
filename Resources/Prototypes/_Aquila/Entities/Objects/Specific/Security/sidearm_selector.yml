@@ -1,0 +1,35 @@
+- type: entity
+  parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
+  id: SecuritySidearmUndetermined
+  name: security sidearm selector
+  description: A small remote utilizing bluespace technology to drop in a sidearm of your choosing.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
+    state: standard
+  - type: SetSelector
+    possibleSets:
+    - SecuritySidearmPistolSet
+    - SecuritySidearmDisablerSet
+
+- type: selectableSet
+  id: SecuritySidearmPistolSet
+  name: selectable-set-security-sidearm-pistol-name
+  description: selectable-set-security-sidearm-pistol-desc
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Pistols/mk58.rsi
+    state: icon
+  content:
+  - WeaponPistolMk58Empty
+  - MagazinePistolRubber
+  - MagazinePistolRubber
+
+- type: selectableSet
+  id: SecuritySidearmDisablerSet
+  name: selectable-set-security-sidearm-disabler-name
+  description: selectable-set-security-sidearm-disabler-desc
+  sprite:
+    sprite: Objects/Weapons/Guns/Battery/disabler.rsi
+    state: base
+  content:
+  - WeaponDisabler

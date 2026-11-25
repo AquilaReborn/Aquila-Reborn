@@ -1,0 +1,17 @@
+- type: loadout
+  id: SecurityMP7Rubber
+  dummyEntity: WeaponSubMachineGunMP7Rubber
+  storage:
+    back:
+    - WeaponSubMachineGunMP7Rubber
+    - MagazineMP7Rubber
+    - MagazineMP7Rubber
+  groupBy: "Main weapon"
+
+- type: loadoutGroup
+  id: SecurityWeapons
+  name: loadout-group-security-weapons
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - SecurityMP7Rubber

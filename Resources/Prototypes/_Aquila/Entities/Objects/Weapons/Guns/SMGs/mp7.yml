@@ -1,0 +1,63 @@
+- type: entity
+  parent: [ BaseWeaponSubMachineGun, BaseSecurityContraband ]
+  id: WeaponSubMachineGunMP7
+  name: MP7
+  description: A compact personal defense weapon built for close quarters.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Objects/Weapons/Guns/SMGs/mp7.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+      visible: false
+  - type: Item
+    sprite: _Aquila/Objects/Weapons/Guns/SMGs/mp7_inhand.rsi
+  - type: Clothing
+    slots: []
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        startingItem: MagazineMP7
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineMP7
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgePistol
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+
+- type: entity
+  parent: WeaponSubMachineGunMP7
+  id: WeaponSubMachineGunMP7Rubber
+  suffix: Rubber
+  components:
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        startingItem: MagazineMP7Rubber
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineMP7
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgePistol

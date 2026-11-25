@@ -136,13 +136,16 @@
     ears: ClothingHeadsetBrigmedic # EE parity like i was told to do
     belt: ClothingBeltWebbingBrigmedicAquila # Aquila Change
     #pocket1: WeaponPistolMk58 # EE parity | Goob - moved to loadouts
-    pocket2: WeaponDisabler # Goob
+    # pocket2: WeaponDisabler # Goob # Aquila Change
   storage:
     back:
     - Flash
-    - MagazinePistol # CorvaxGoob-RubberAmmo
-    - MagazinePistol # CorvaxGoob-RubberAmmo
-    - MagazinePistolRubber # CorvaxGoob-RubberAmmo
+    # Aquila Change start
+    # - MagazinePistol # CorvaxGoob-RubberAmmo
+    # - MagazinePistol # CorvaxGoob-RubberAmmo
+    # - MagazinePistolRubber # CorvaxGoob-RubberAmmo
+    # Aquila Change end
+    - SecuritySidearmUndetermined # Aquila Change
 #   - ClothingMaskBreathMedicalSecurity # CorvaxGoob-loadouts: replaced on a BrigmedicMask loadout
 
 # Aghost

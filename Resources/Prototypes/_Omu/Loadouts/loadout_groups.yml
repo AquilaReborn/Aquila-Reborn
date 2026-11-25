@@ -3,8 +3,8 @@
 - type: loadoutGroup
   id: TrinketsSecurity
   name: loadout-group-trinkets-job
-  minLimit: 1
+  minLimit: 0 # Aquila Change
   maxLimit: 1
   loadouts:
-  - SecurityOfficerMk58
+  # - SecurityOfficerMk58 # Aquila Change
   - WeaponPistolMk58Gold

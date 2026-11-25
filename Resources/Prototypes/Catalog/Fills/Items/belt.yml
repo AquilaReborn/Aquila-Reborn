@@ -62,7 +62,7 @@
       amount: 2
     - id: HoloprojectorSecurity
     - id: RadioHandheldSecurity
-    - id: WeaponDisabler # Goobstation
+    # - id: WeaponDisabler # Goobstation # Aquila Change
 
 - type: entity
   id: ClothingBeltSecurityFilled

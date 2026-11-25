@@ -25,3 +25,18 @@
   result: ArmorPlateSlash
   materials:
     Steel: 500
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineMP7
+  result: MagazineMP7
+  materials:
+    Steel: 400
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineMP7Rubber
+  result: MagazineMP7Rubber
+  materials:
+    Steel: 400
+    Plastic: 200

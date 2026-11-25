@@ -68,7 +68,7 @@
   - Cargo
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, BluespaceLifelineImplant ] # Aquila Change
+    implants: [ MindShieldImplant ] # Aquila Change
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
@@ -89,6 +89,7 @@
     - Flash
 #   - ClothingBSOMaskGasSwat # CorvaxGoob-loadouts: replaced on a BSOMask loadout
     - CombatKnife
+    - BluespaceLifelineImplanter # Aquila Change
 
 - type: chameleonOutfit
   id: BlueshieldOfficerChameleonOutfit

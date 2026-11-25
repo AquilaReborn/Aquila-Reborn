@@ -542,6 +542,7 @@
   - HeadofSecurityJumpsuit
   - SecurityBackpack
   - SecurityMelee # Goobstation
+  - SecurityWeapons # Aquila Change
   - TrinketsSecurity # Omu Edit
   - SecurityBelt
   - HeadofSecurityOuterClothing
@@ -566,6 +567,7 @@
   - WardenJumpsuit
   - WardenBackpack # CorvaxGoobChanges: SecurityBackpack > WardenBackpack
   - SecurityMelee # Goobstation
+  - SecurityWeapons # Aquila Change
   - TrinketsSecurity # Omu Edit
   - SecurityNeck
   - SecurityBelt

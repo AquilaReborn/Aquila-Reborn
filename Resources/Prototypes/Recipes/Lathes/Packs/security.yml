@@ -63,6 +63,8 @@
   - MagazinePistolSubMachineGunEmpty
   - MagazinePistolSubMachineGunTopMounted
   - MagazinePistolSubMachineGunTopMountedEmpty
+  - MagazineMP7 # Aquila Change
+  - MagazineMP7Rubber # Aquila Change
   - MagazineRifle
   - MagazineRifleEmpty
   - SpeedLoaderMagnum

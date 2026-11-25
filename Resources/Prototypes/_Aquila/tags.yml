@@ -1,2 +1,5 @@
 - type: Tag
   id: PickaxeUpgrade
+
+- type: Tag
+  id: MagazineMP7

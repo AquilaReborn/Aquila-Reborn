@@ -74,9 +74,12 @@
   storage:
     back:
     - Flash
-    - MagazinePistol
-    - MagazinePistol # CorvaxGoob-RubberAmmo
-    - MagazinePistolRubber # CorvaxGoob-RubberAmmo
+    # Aquila Change start
+    # - MagazinePistol
+    # - MagazinePistol # CorvaxGoob-RubberAmmo
+    # - MagazinePistolRubber # CorvaxGoob-RubberAmmo
+    # Aquila Change end
+    - SecuritySidearmUndetermined # Aquila Change
 
 - type: chameleonOutfit
   id: HeadOfSecurityChameleonOutfit
