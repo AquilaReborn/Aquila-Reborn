@@ -1,0 +1,26 @@
+- type: entity
+  parent: RedLightLaser
+  id: CybersunRedLightLaser
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 14
+
+- type: entity
+  parent: RedLaser
+  id: CybersunRedLaser
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 28
+
+- type: entity
+  parent: RedHeavyLaser
+  id: CybersunRedHeavyLaser
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 42

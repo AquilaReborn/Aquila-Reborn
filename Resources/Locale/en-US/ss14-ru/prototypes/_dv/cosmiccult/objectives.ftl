@@ -2,13 +2,17 @@ ent-BaseCosmicCultObjective = { ent-BaseObjective }
     .desc = { ent-BaseObjective.desc }
 ent-BaseCosmicColossusObjective = { ent-BaseObjective }
     .desc = { ent-BaseObjective.desc }
-ent-CosmicConversionObjective = { ent-BaseCosmicCultObjective }
+# Aquila Change
+ent-CosmicConversionObjective = Convert the crew
     .desc = { ent-BaseCosmicCultObjective.desc }
-ent-CosmicEntropyObjective = { ent-BaseCosmicCultObjective }
+# Aquila Change
+ent-CosmicEntropyObjective = Accelerate entropy
     .desc = { ent-BaseCosmicCultObjective.desc }
-ent-CosmicMonumentObjective = { ent-BaseCosmicCultObjective }
+# Aquila Change
+ent-CosmicMonumentObjective = Empower the monument
     .desc = { ent-BaseCosmicCultObjective.desc }
-ent-CosmicFinalityObjective = { ent-BaseCosmicCultObjective }
+# Aquila Change
+ent-CosmicFinalityObjective = Usher in the end
     .desc = { ent-BaseCosmicCultObjective.desc }
 ent-ColossusSurviveObjective = PERSIST
     .desc = Persist until the end of all things.

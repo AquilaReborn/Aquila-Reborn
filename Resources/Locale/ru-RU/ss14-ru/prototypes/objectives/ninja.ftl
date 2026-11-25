@@ -1,10 +1,13 @@
 ent-BaseNinjaObjective = { ent-BaseObjective }
     .desc = { ent-BaseObjective.desc }
-ent-DoorjackObjective = { ent-BaseNinjaObjective }
+# Aquila Change
+ent-DoorjackObjective = Взломать шлюзы
     .desc = { ent-BaseNinjaObjective.desc }
-ent-StealResearchObjective = { ent-BaseNinjaObjective }
+# Aquila Change
+ent-StealResearchObjective = Украсть технологии
     .desc = Ваши перчатки могут быть использованы для взлома сервера НИО и кражи его технологий. Если наука буксует, то придётся поработать вам.
-ent-SpiderChargeObjective = { ent-BaseNinjaObjective }
+# Aquila Change
+ent-SpiderChargeObjective = Заложить паучью бомбу
     .desc = Эта бомба может быть взорвана в определённом месте. Обратите внимание, что бомба не сработает в другом месте!
 ent-NinjaSurviveObjective = Выжить
     .desc = Вы не будете хорошим ниндзя, если умрёте, не так ли?

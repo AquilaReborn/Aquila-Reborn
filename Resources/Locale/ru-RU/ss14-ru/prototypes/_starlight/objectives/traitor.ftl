@@ -1,6 +1,8 @@
 ent-BaseTeachALessonObjective = { ent-BaseTargetObjective }
     .desc = { ent-BaseTargetObjective.desc }
-ent-TeachRandomPersonObjective = { ent-BaseTraitorObjective }
+# Aquila Change
+ent-TeachRandomPersonObjective = Проучить случайного человека
     .desc = Убедитесь, что этот человек умрёт хотя бы раз за смену. Он знает что натворил.
-ent-TeachRandomHeadObjective = { ent-BaseTraitorObjective }
+# Aquila Change
+ent-TeachRandomHeadObjective = Проучить случайного главу
     .desc = Убедитесь, что этот руководитель умрёт хотя бы раз за смену. Он знает, что натворил.

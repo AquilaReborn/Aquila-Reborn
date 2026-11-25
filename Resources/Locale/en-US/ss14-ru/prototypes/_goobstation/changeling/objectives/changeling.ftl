@@ -4,51 +4,70 @@ ent-BaseChangelingSyndicateObjective = { ent-BaseObjective }
     .desc = { ent-BaseObjective.desc }
 ent-ChangelingSurviveObjective = Survive
     .desc = We must survive no matter what.
-ent-ChangelingAbsorbObjective = { ent-BaseChangelingObjective }
+# Aquila Change
+ent-ChangelingAbsorbObjective = Absorb humanoids
     .desc = { ent-BaseChangelingObjective.desc }
-ent-ChangelingAbsorbOtherObjective = { ent-BaseChangelingObjective }
+# Aquila Change
+ent-ChangelingAbsorbOtherObjective = Absorb changelings
     .desc = { ent-BaseChangelingObjective.desc }
-ent-ChangelingStealDNAObjective = { ent-BaseChangelingObjective }
+# Aquila Change
+ent-ChangelingStealDNAObjective = Steal DNA
     .desc = { ent-BaseChangelingObjective.desc }
-ent-EscapeIdentityObjective = { ent-BaseChangelingObjective }
+# Aquila Change
+ent-EscapeIdentityObjective = Escape under another identity
     .desc = We need to escape on the evacuation shuttle. Undercover.
 ent-ChangelingStealObjective = { ent-BaseChangelingSyndicateObjective }
     .desc = { ent-BaseChangelingSyndicateObjective.desc }
-ent-LingKillRandomHeadObjective = { ent-BaseChangelingSyndicateObjective }
+# Aquila Change
+ent-LingKillRandomHeadObjective = Kill a random head
     .desc = Our worshippers requested we eliminate this high value target.
 ent-LingCMOStealObjective = { ent-ChangelingStealObjective }
     .desc = { ent-ChangelingStealObjective.desc }
-ent-LingCMOHyposprayStealObjective = { ent-LingCMOStealObjective }
+# Aquila Change
+ent-LingCMOHyposprayStealObjective = Steal the hypospray
     .desc = { ent-LingCMOStealObjective.desc }
-ent-LingCMORapidSyringeGunStealObjective = { ent-LingCMOStealObjective }
+# Aquila Change
+ent-LingCMORapidSyringeGunStealObjective = Steal the rapid syringe gun
     .desc = { ent-LingCMOStealObjective.desc }
 ent-LingRDStealObjective = { ent-ChangelingStealObjective }
     .desc = { ent-ChangelingStealObjective.desc }
-ent-LingRDHardsuitStealObjective = { ent-LingRDStealObjective }
+# Aquila Change
+ent-LingRDHardsuitStealObjective = Steal the experimental research hardsuit
     .desc = { ent-LingRDStealObjective.desc }
-ent-LingHandTeleporterStealObjective = { ent-LingRDStealObjective }
+# Aquila Change
+ent-LingHandTeleporterStealObjective = Steal the hand teleporter
     .desc = { ent-LingRDStealObjective.desc }
-ent-LingEnergyShotgunStealObjective = { ent-ChangelingStealObjective }
+# Aquila Change
+ent-LingEnergyShotgunStealObjective = Steal the energy shotgun
     .desc = { ent-ChangelingStealObjective.desc }
 ent-LingCEStealObjective = { ent-ChangelingStealObjective }
     .desc = { ent-ChangelingStealObjective.desc }
-ent-LingMagbootsStealObjective = { ent-LingCEStealObjective }
+# Aquila Change
+ent-LingMagbootsStealObjective = Steal the advanced magboots
     .desc = { ent-LingCEStealObjective.desc }
-ent-LingClipboardStealObjective = { ent-ChangelingStealObjective }
+# Aquila Change
+ent-LingClipboardStealObjective = Steal the requisition digi-board
     .desc = { ent-ChangelingStealObjective.desc }
-ent-LingKnuckleDustersStealObjective = { ent-ChangelingStealObjective }
+# Aquila Change
+ent-LingKnuckleDustersStealObjective = Steal the golden knuckledusters
     .desc = { ent-ChangelingStealObjective.desc }
-ent-LingCorgiMeatStealObjective = { ent-ChangelingStealObjective }
+# Aquila Change
+ent-LingCorgiMeatStealObjective = Steal the corgi meat
     .desc = { ent-ChangelingStealObjective.desc }
 ent-LingCaptainObjective = { ent-ChangelingStealObjective }
     .desc = { ent-ChangelingStealObjective.desc }
-ent-LingCaptainIDStealObjective = { ent-LingCaptainObjective }
+# Aquila Change
+ent-LingCaptainIDStealObjective = Steal the captain's ID card
     .desc = { ent-LingCaptainObjective.desc }
-ent-LingCaptainJetpackStealObjective = { ent-LingCaptainObjective }
+# Aquila Change
+ent-LingCaptainJetpackStealObjective = Steal the captain's jetpack
     .desc = { ent-LingCaptainObjective.desc }
-ent-LingCaptainGunStealObjective = { ent-LingCaptainObjective }
+# Aquila Change
+ent-LingCaptainGunStealObjective = Steal the captain's gun
     .desc = { ent-LingCaptainObjective.desc }
-ent-LingNukeDiskStealObjective = { ent-LingCaptainObjective }
+# Aquila Change
+ent-LingNukeDiskStealObjective = Steal the nuclear authentication disk
     .desc = { ent-LingCaptainObjective.desc }
-ent-LingStealSupermatterSliverObjective = { ent-ChangelingStealObjective }
+# Aquila Change
+ent-LingStealSupermatterSliverObjective = Steal the supermatter sliver
     .desc = { ent-ChangelingStealObjective.desc }

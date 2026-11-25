@@ -1,4 +1,5 @@
-ent-GrayTideKillEveryoneObjective = { ent-BaseObjective }
+# Aquila Change
+ent-GrayTideKillEveryoneObjective = Убить всех остальных
     .desc = { ent-BaseObjective.desc }
 ent-TunnelClownProtectMaintenanceObjective = Защищайте технические тоннели.
     .desc = Техи этой станции были вашим домом столько, сколько вы себя помните. Раньше вы в страхе прятались в шкафчиках, но настала пора это изменить. Эти станционные крысы в последний раз вторглишь в ваши владения. Убейте каждого, кто вступит к вам на порог.

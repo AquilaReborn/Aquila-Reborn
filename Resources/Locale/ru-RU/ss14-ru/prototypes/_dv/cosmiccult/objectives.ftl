@@ -1,10 +1,13 @@
 ent-BaseCosmicCultObjective = { ent-BaseObjective }
     .desc = { ent-BaseObjective.desc }
-ent-CosmicEntropyObjective = { ent-BaseCosmicCultObjective }
+# Aquila Change
+ent-CosmicEntropyObjective = Ускорить энтропию
     .desc = { ent-BaseCosmicCultObjective.desc }
-ent-CosmicMonumentObjective = { ent-BaseCosmicCultObjective }
+# Aquila Change
+ent-CosmicMonumentObjective = Укрепить монумент
     .desc = { ent-BaseCosmicCultObjective.desc }
-ent-CosmicFinalityObjective = { ent-BaseCosmicCultObjective }
+# Aquila Change
+ent-CosmicFinalityObjective = Начать конец
     .desc = { ent-BaseCosmicCultObjective.desc }
 ent-BaseRogueAscendedObjective = { ent-BaseObjective }
     .desc = { ent-BaseObjective.desc }
@@ -14,5 +17,6 @@ ent-RogueAscendedSurviveObjective = Выжить
     .desc = Дожить до конца всего сущего.
 ent-BaseCosmicColossusObjective = { ent-BaseObjective }
     .desc = { ent-BaseObjective.desc }
-ent-CosmicConversionObjective = { ent-BaseCosmicCultObjective }
+# Aquila Change
+ent-CosmicConversionObjective = Обратить экипаж
     .desc = { ent-BaseCosmicCultObjective.desc }

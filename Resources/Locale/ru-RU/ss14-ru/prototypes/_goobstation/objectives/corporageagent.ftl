@@ -8,55 +8,77 @@ ent-CorporateEscapeShuttleObjective = { ent-EscapeShuttleObjective }
     .desc = { ent-EscapeShuttleObjective.desc }
 ent-CorporateHijackShuttleObjective = { ent-HijackShuttleObjective }
     .desc = { ent-HijackShuttleObjective.desc }
-ent-CorporateKillRandomPersonObjective = { ent-BaseCorporateObjective }
+# Aquila Change
+ent-CorporateKillRandomPersonObjective = Убить случайного человека
     .desc = Их подозревают в предательстве. Сделайте это, как посчитаете нужным. Только убедитесь, что цель не покинет станцию.
-ent-CorporateKillRandomHeadObjective = { ent-BaseCorporateObjective }
+# Aquila Change
+ent-CorporateKillRandomHeadObjective = Убить случайного главу
     .desc = Они слишком часто выступали против нас. Заставьте их исчезнуть. Удачи, агент.
-ent-RandomCorporateAliveObjective = { ent-BaseCorporateSocialObjective }
+# Aquila Change
+ent-RandomCorporateAliveObjective = Сохранить жизнь другому агенту
     .desc = Они представляют для нас интерес. Убедитесь, что они выживут.
-ent-RandomCorporateProgressObjective = { ent-BaseCorporateSocialObjective }
+# Aquila Change
+ent-RandomCorporateProgressObjective = Помочь другому агенту с целями
     .desc = Мы заключили выгодное соглашение с их работодателем. Помогите им с работой, и вы получите приятный бонус.
 ent-CorporateBaseCMOStealObjective = { ent-BaseCorporateStealObjective }
     .desc = { ent-BaseCorporateStealObjective.desc }
-ent-CorporateCMOHyposprayStealObjective = { ent-CorporateBaseCMOStealObjective }
+# Aquila Change
+ent-CorporateCMOHyposprayStealObjective = Украсть гипоспрей
     .desc = { ent-CorporateBaseCMOStealObjective.desc }
 ent-CorporateBaseRDStealObjective = { ent-BaseCorporateStealObjective }
     .desc = { ent-BaseCorporateStealObjective.desc }
-ent-CorporateRDHardsuitStealObjective = { ent-CorporateBaseRDStealObjective }
+# Aquila Change
+ent-CorporateRDHardsuitStealObjective = Украсть экспериментальный исследовательский скафандр
     .desc = { ent-CorporateBaseRDStealObjective.desc }
-ent-CorporateHandTeleporterStealObjective = { ent-CorporateBaseRDStealObjective }
+# Aquila Change
+ent-CorporateHandTeleporterStealObjective = Украсть ручной телепортер
     .desc = { ent-CorporateBaseRDStealObjective.desc }
-ent-CorporateEnergyShotgunStealObjective = { ent-BaseCorporateStealObjective }
+# Aquila Change
+ent-CorporateEnergyShotgunStealObjective = Украсть энергетический дробовик
     .desc = { ent-BaseCorporateStealObjective.desc }
 ent-CorporateBaseCEStealObjective = { ent-BaseCorporateStealObjective }
     .desc = { ent-BaseCorporateStealObjective.desc }
-ent-CorporateMagbootsStealObjective = { ent-CorporateBaseCEStealObjective }
+# Aquila Change
+ent-CorporateMagbootsStealObjective = Украсть продвинутые магнитные сапоги
     .desc = { ent-CorporateBaseCEStealObjective.desc }
-ent-CorporateClipboardStealObjective = { ent-BaseCorporateStealObjective }
+# Aquila Change
+ent-CorporateClipboardStealObjective = Украсть цифровой планшет заявок
     .desc = { ent-BaseCorporateStealObjective.desc }
-ent-CorporateKnuckleDustersStealObjective = { ent-BaseCorporateStealObjective }
+# Aquila Change
+ent-CorporateKnuckleDustersStealObjective = Украсть золотой кастет
     .desc = { ent-BaseCorporateStealObjective.desc }
-ent-CorporateCorgiMeatStealObjective = { ent-BaseCorporateStealObjective }
+# Aquila Change
+ent-CorporateCorgiMeatStealObjective = Украсть мясо корги
     .desc = { ent-BaseCorporateStealObjective.desc }
 ent-CorporateBaseCaptainObjective = { ent-BaseCorporateStealObjective }
     .desc = { ent-BaseCorporateStealObjective.desc }
-ent-CorporateCaptainIDStealObjective = { ent-CorporateBaseCaptainObjective }
+# Aquila Change
+ent-CorporateCaptainIDStealObjective = Украсть ID-карту капитана
     .desc = { ent-CorporateBaseCaptainObjective.desc }
-ent-CorporateCaptainJetpackStealObjective = { ent-CorporateBaseCaptainObjective }
+# Aquila Change
+ent-CorporateCaptainJetpackStealObjective = Украсть джетпак капитана
     .desc = { ent-CorporateBaseCaptainObjective.desc }
-ent-CorporateCaptainGunStealObjective = { ent-CorporateBaseCaptainObjective }
+# Aquila Change
+ent-CorporateCaptainGunStealObjective = Украсть пистолет капитана
     .desc = { ent-CorporateBaseCaptainObjective.desc }
-ent-CorporateNukeDiskStealObjective = { ent-CorporateBaseCaptainObjective }
+# Aquila Change
+ent-CorporateNukeDiskStealObjective = Украсть диск ядерной аутентификации
     .desc = { ent-CorporateBaseCaptainObjective.desc }
-ent-CorporatePermaKillRandomTraitorObjective = { ent-BaseCorporateObjective }
+# Aquila Change
+ent-CorporatePermaKillRandomTraitorObjective = Убить случайного предателя
     .desc = Сделайте это, как посчитаете нужным, главное — чтобы они больше не дышали.
-ent-CorporatePermaKillRandomPersonObjective = { ent-BaseCorporateObjective }
+# Aquila Change
+ent-CorporatePermaKillRandomPersonObjective = Убить случайного человека
     .desc = Сделайте это, как посчитаете нужным, главное — чтобы они больше не дышали.
-ent-CorporateStealSupermatterSliverObjective = { ent-BaseCorporateStealObjective }
+# Aquila Change
+ent-CorporateStealSupermatterSliverObjective = Украсть слиток суперматерии
     .desc = { ent-BaseCorporateStealObjective.desc }
-ent-CorporateLawbringerStealObjective = { ent-BaseCorporateStealObjective }
+# Aquila Change
+ent-CorporateLawbringerStealObjective = Украсть револьвер Законник
     .desc = { ent-BaseCorporateStealObjective.desc }
-ent-CorporateCMORapidSyringeGunStealObjective = { ent-CorporateBaseCMOStealObjective }
+# Aquila Change
+ent-CorporateCMORapidSyringeGunStealObjective = Украсть скорострельный шприцемёт
     .desc = { ent-CorporateBaseCMOStealObjective.desc }
-ent-CorporateGeminiProjectorStealObjective = { ent-CorporateBaseRDStealObjective }
+# Aquila Change
+ent-CorporateGeminiProjectorStealObjective = Украсть голопроектор Gemini
     .desc = { ent-CorporateBaseRDStealObjective.desc }

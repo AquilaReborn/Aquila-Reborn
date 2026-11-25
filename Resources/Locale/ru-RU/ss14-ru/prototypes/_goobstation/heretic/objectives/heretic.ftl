@@ -1,8 +1,11 @@
 ent-BaseHereticObjective = { ent-BaseObjective }
     .desc = { ent-BaseObjective.desc }
-ent-HereticKnowledgeObjective = { ent-BaseHereticObjective }
+# Aquila Change
+ent-HereticKnowledgeObjective = Собрать знания
     .desc = { ent-BaseHereticObjective.desc }
-ent-HereticSacrificeObjective = { ent-BaseHereticObjective }
+# Aquila Change
+ent-HereticSacrificeObjective = Принести жертву
     .desc = { ent-BaseHereticObjective.desc }
-ent-HereticSacrificeHeadObjective = { ent-BaseHereticObjective }
+# Aquila Change
+ent-HereticSacrificeHeadObjective = Принести в жертву главу
     .desc = { ent-BaseHereticObjective.desc }

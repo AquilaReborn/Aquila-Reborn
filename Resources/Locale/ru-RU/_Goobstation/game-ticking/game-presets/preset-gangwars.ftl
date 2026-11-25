@@ -146,6 +146,11 @@ gang-objective-first-place-description = Сделайте так, чтобы к 
 gang-objective-earn-points-title = Заработайте { $count } очков банды
 gang-objective-earn-points-description = Помогите своей банде накопить очки.
 
+# Aquila Change
+ent-GangLeaderRecruitObjective = Завербовать членов банды
+# Aquila Change
+ent-GangEarnPointsObjective = Заработать очки банды
+
 gang-store-listing-tipoff-name = Наводка
 gang-store-listing-tipoff-desc = Заказать досрочный сброс сумки с добром. Случайному гражданскому придёт наводка о месте сброса через NanoChat.
 

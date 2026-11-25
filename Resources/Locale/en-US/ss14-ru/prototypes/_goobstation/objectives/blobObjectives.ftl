@@ -1,4 +1,5 @@
 ent-BaseBlobObjective = { ent-BaseObjective }
     .desc = { ent-BaseObjective.desc }
-ent-BlobCaptureObjective = { ent-BaseBlobObjective }
+# Aquila Change
+ent-BlobCaptureObjective = Capture the station
     .desc = { ent-BaseBlobObjective.desc }

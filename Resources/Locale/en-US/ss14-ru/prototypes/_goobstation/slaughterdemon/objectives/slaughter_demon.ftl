@@ -1,26 +1,39 @@
-ent-SlaughterBaseObjective = { ent-BaseObjective }
+# Aquila Change
+ent-SlaughterBaseObjective = Butcher
     .desc = { ent-BaseObjective.desc }
-ent-SlaughterFluffBaseObjective = { ent-BaseObjective }
+# Aquila Change
+ent-SlaughterFluffBaseObjective = Butcher
     .desc = { ent-BaseObjective.desc }
-ent-SlaughterKillTheWizardObjective = { ent-SlaughterBaseObjective }
+# Aquila Change
+ent-SlaughterKillTheWizardObjective = Kill the wizard
     .desc = { ent-SlaughterBaseObjective.desc }
-ent-SlaughterKillEveryoneObjective = { ent-SlaughterBaseObjective }
+# Aquila Change
+ent-SlaughterKillEveryoneObjective = Kill everyone
     .desc = { ent-SlaughterBaseObjective.desc }
-ent-SlaughterHugAndTickleObjective = { ent-SlaughterKillEveryoneObjective }
+# Aquila Change
+ent-SlaughterHugAndTickleObjective = Hug them all
     .desc = { ent-SlaughterKillEveryoneObjective.desc }
-ent-SlaughterDevourObjective = { ent-SlaughterBaseObjective }
+# Aquila Change
+ent-SlaughterDevourObjective = Devour flesh
     .desc = { ent-SlaughterBaseObjective.desc }
-ent-AnnihilateAllJanitorsObjectiveFluff = { ent-SlaughterFluffBaseObjective }
+# Aquila Change
+ent-AnnihilateAllJanitorsObjectiveFluff = Annihilate all janitors
     .desc = Wipe out all Janitors and their synthetic kin, no broom shall stand.
-ent-SpareCrewObjectiveFluff = { ent-SlaughterFluffBaseObjective }
+# Aquila Change
+ent-SpareCrewObjectiveFluff = Spare some of the crew
     .desc = Let some survive… only to suffer longer.
-ent-HuntTheBraveObjectiveFluff = { ent-SlaughterFluffBaseObjective }
+# Aquila Change
+ent-HuntTheBraveObjectiveFluff = Hunt the brave
     .desc = Find and punish those foolish enough to face you.
-ent-HuntTheCowardsObjectiveFluff = { ent-SlaughterFluffBaseObjective }
+# Aquila Change
+ent-HuntTheCowardsObjectiveFluff = Hunt the cowards
     .desc = Track down the ones who run, fear only prolongs their agony.
-ent-ShowCrewPowerObjectiveFluff = { ent-SlaughterFluffBaseObjective }
+# Aquila Change
+ent-ShowCrewPowerObjectiveFluff = Show the crew your power
     .desc = Let them witness your awful might firsthand.
-ent-DriveInsaneObjectiveFluff = { ent-SlaughterFluffBaseObjective }
+# Aquila Change
+ent-DriveInsaneObjectiveFluff = Drive insane
     .desc = Whisper they break, madness is your gift.
-ent-SpreadBloodObjectiveFluff = { ent-SlaughterFluffBaseObjective }
+# Aquila Change
+ent-SpreadBloodObjectiveFluff = Spread blood
     .desc = Paint it in red, let no clean tile remain.

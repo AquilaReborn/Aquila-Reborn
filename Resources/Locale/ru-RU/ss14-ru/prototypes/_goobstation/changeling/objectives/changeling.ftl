@@ -4,51 +4,70 @@ ent-BaseChangelingSyndicateObjective = { ent-BaseObjective }
     .desc = { ent-BaseObjective.desc }
 ent-ChangelingSurviveObjective = Выжить
     .desc = Я должен выжить любой ценой.
-ent-ChangelingAbsorbObjective = { ent-BaseChangelingObjective }
+# Aquila Change
+ent-ChangelingAbsorbObjective = Поглотить гуманоидов
     .desc = { ent-BaseChangelingObjective.desc }
-ent-ChangelingAbsorbOtherObjective = { ent-BaseChangelingObjective }
+# Aquila Change
+ent-ChangelingAbsorbOtherObjective = Поглотить генокрадов
     .desc = { ent-BaseChangelingObjective.desc }
-ent-ChangelingStealDNAObjective = { ent-BaseChangelingObjective }
+# Aquila Change
+ent-ChangelingStealDNAObjective = Украсть ДНК
     .desc = { ent-BaseChangelingObjective.desc }
-ent-EscapeIdentityObjective = { ent-BaseChangelingObjective }
+# Aquila Change
+ent-EscapeIdentityObjective = Сбежать под чужой личностью
     .desc = Мне нужно сбежать на эвакуационном челноке. Под прикрытием.
 ent-ChangelingStealObjective = { ent-BaseChangelingSyndicateObjective }
     .desc = { ent-BaseChangelingSyndicateObjective.desc }
-ent-LingKillRandomHeadObjective = { ent-BaseChangelingSyndicateObjective }
+# Aquila Change
+ent-LingKillRandomHeadObjective = Убить случайного главу
     .desc = Our worshippers requested we eliminate this high value target.
 ent-LingCMOStealObjective = { ent-ChangelingStealObjective }
     .desc = { ent-ChangelingStealObjective.desc }
-ent-LingCMOHyposprayStealObjective = { ent-LingCMOStealObjective }
+# Aquila Change
+ent-LingCMOHyposprayStealObjective = Украсть гипоспрей
     .desc = { ent-LingCMOStealObjective.desc }
-ent-LingCMORapidSyringeGunStealObjective = { ent-LingCMOStealObjective }
+# Aquila Change
+ent-LingCMORapidSyringeGunStealObjective = Украсть скорострельный шприцемёт
     .desc = { ent-LingCMOStealObjective.desc }
 ent-LingRDStealObjective = { ent-ChangelingStealObjective }
     .desc = { ent-ChangelingStealObjective.desc }
-ent-LingRDHardsuitStealObjective = { ent-LingRDStealObjective }
+# Aquila Change
+ent-LingRDHardsuitStealObjective = Украсть экспериментальный исследовательский скафандр
     .desc = { ent-LingRDStealObjective.desc }
-ent-LingHandTeleporterStealObjective = { ent-LingRDStealObjective }
+# Aquila Change
+ent-LingHandTeleporterStealObjective = Украсть ручной телепортер
     .desc = { ent-LingRDStealObjective.desc }
-ent-LingEnergyShotgunStealObjective = { ent-ChangelingStealObjective }
+# Aquila Change
+ent-LingEnergyShotgunStealObjective = Украсть энергетический дробовик
     .desc = { ent-ChangelingStealObjective.desc }
 ent-LingCEStealObjective = { ent-ChangelingStealObjective }
     .desc = { ent-ChangelingStealObjective.desc }
-ent-LingMagbootsStealObjective = { ent-LingCEStealObjective }
+# Aquila Change
+ent-LingMagbootsStealObjective = Украсть продвинутые магнитные сапоги
     .desc = { ent-LingCEStealObjective.desc }
-ent-LingClipboardStealObjective = { ent-ChangelingStealObjective }
+# Aquila Change
+ent-LingClipboardStealObjective = Украсть цифровой планшет заявок
     .desc = { ent-ChangelingStealObjective.desc }
-ent-LingKnuckleDustersStealObjective = { ent-ChangelingStealObjective }
+# Aquila Change
+ent-LingKnuckleDustersStealObjective = Украсть золотой кастет
     .desc = { ent-ChangelingStealObjective.desc }
-ent-LingCorgiMeatStealObjective = { ent-ChangelingStealObjective }
+# Aquila Change
+ent-LingCorgiMeatStealObjective = Украсть мясо корги
     .desc = { ent-ChangelingStealObjective.desc }
 ent-LingCaptainObjective = { ent-ChangelingStealObjective }
     .desc = { ent-ChangelingStealObjective.desc }
-ent-LingCaptainIDStealObjective = { ent-LingCaptainObjective }
+# Aquila Change
+ent-LingCaptainIDStealObjective = Украсть ID-карту капитана
     .desc = { ent-LingCaptainObjective.desc }
-ent-LingCaptainJetpackStealObjective = { ent-LingCaptainObjective }
+# Aquila Change
+ent-LingCaptainJetpackStealObjective = Украсть джетпак капитана
     .desc = { ent-LingCaptainObjective.desc }
-ent-LingCaptainGunStealObjective = { ent-LingCaptainObjective }
+# Aquila Change
+ent-LingCaptainGunStealObjective = Украсть пистолет капитана
     .desc = { ent-LingCaptainObjective.desc }
-ent-LingNukeDiskStealObjective = { ent-LingCaptainObjective }
+# Aquila Change
+ent-LingNukeDiskStealObjective = Украсть диск ядерной аутентификации
     .desc = { ent-LingCaptainObjective.desc }
-ent-LingStealSupermatterSliverObjective = { ent-ChangelingStealObjective }
+# Aquila Change
+ent-LingStealSupermatterSliverObjective = Украсть слиток суперматерии
     .desc = { ent-ChangelingStealObjective.desc }

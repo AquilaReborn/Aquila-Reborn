@@ -50,10 +50,7 @@ public sealed class BankSecurityAlertSystem : EntitySystem
             return;
 
         var transaction = args.Transaction;
-        if (transaction.Amount >= 0)
-            return;
-
-        var amount = -transaction.Amount;
+        var amount = Math.Abs(transaction.Amount);
         if (amount < GetThreshold(account.Station))
             return;
 

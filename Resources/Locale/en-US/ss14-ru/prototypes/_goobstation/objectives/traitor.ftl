@@ -1,18 +1,27 @@
-ent-PermaKillRandomTraitorObjective = { ent-BaseTraitorObjective }
+# Aquila Change
+ent-PermaKillRandomTraitorObjective = Kill a random traitor
     .desc = Do it however you like, as long as they're not breathing anymore.
-ent-PermaKillRandomPersonObjective = { ent-BaseTraitorObjective }
+# Aquila Change
+ent-PermaKillRandomPersonObjective = Kill a random person
     .desc = Do it however you like, as long as they're not breathing anymore.
-ent-RandomTraitorTargetAliveObjective = { ent-BaseTraitorSocialObjective }
+# Aquila Change
+ent-RandomTraitorTargetAliveObjective = Keep the target alive
     .desc = Rival agents intend to assassinate this target. Identify yourself at your own risk.
-ent-StealSupermatterSliverObjective = { ent-BaseTraitorStealObjective }
+# Aquila Change
+ent-StealSupermatterSliverObjective = Steal the supermatter sliver
     .desc = { ent-BaseTraitorStealObjective.desc }
-ent-LawbringerStealObjective = { ent-BaseTraitorStealObjective }
+# Aquila Change
+ent-LawbringerStealObjective = Steal the Lawbringer revolver
     .desc = { ent-BaseTraitorStealObjective.desc }
-ent-JusticeStealObjective = { ent-BaseTraitorStealObjective }
+# Aquila Change
+ent-JusticeStealObjective = Steal DT-2 Justice
     .desc = { ent-BaseTraitorStealObjective.desc }
-ent-CMORapidSyringeGunStealObjective = { ent-BaseCMOStealObjective }
+# Aquila Change
+ent-CMORapidSyringeGunStealObjective = Steal the rapid syringe gun
     .desc = { ent-BaseCMOStealObjective.desc }
-ent-ExecutiveBriefcaseStealObjective = { ent-BaseTraitorStealObjective }
+# Aquila Change
+ent-ExecutiveBriefcaseStealObjective = Steal the executive briefcase
     .desc = { ent-BaseTraitorStealObjective.desc }
-ent-GeminiProjectorStealObjective = { ent-BaseRDStealObjective }
+# Aquila Change
+ent-GeminiProjectorStealObjective = Steal the Gemini holo-projector
     .desc = { ent-BaseRDStealObjective.desc }

@@ -1,6 +1,8 @@
 ent-BaseDevilObjective = { ent-BaseObjective }
     .desc = { ent-BaseObjective.desc }
-ent-DevilContractObjective = { ent-BaseDevilObjective }
+# Aquila Change
+ent-DevilContractObjective = Собрать души
     .desc = { ent-BaseDevilObjective.desc }
-ent-DevilWeightObjective = { ent-BaseDevilObjective }
+# Aquila Change
+ent-DevilWeightObjective = Заключить выгодные сделки
     .desc = { ent-BaseDevilObjective.desc }

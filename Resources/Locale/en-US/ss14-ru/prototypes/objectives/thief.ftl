@@ -8,93 +8,137 @@ ent-BaseThiefStealStructureObjective = { ent-BaseThiefObjective }
     .desc = { ent-BaseThiefObjective.desc }
 ent-BaseThiefStealAnimalObjective = { ent-BaseThiefObjective }
     .desc = { ent-BaseThiefObjective.desc }
-ent-HeadCloakStealCollectionObjective = { ent-BaseThiefStealCollectionObjective }
+# Aquila Change
+ent-HeadCloakStealCollectionObjective = Steal the heads' cloaks
     .desc = { ent-BaseThiefStealCollectionObjective.desc }
-ent-HeadBedsheetStealCollectionObjective = { ent-BaseThiefStealCollectionObjective }
+# Aquila Change
+ent-HeadBedsheetStealCollectionObjective = Steal the heads' bedsheets
     .desc = { ent-BaseThiefStealCollectionObjective.desc }
-ent-StampStealCollectionObjective = { ent-BaseThiefStealCollectionObjective }
+# Aquila Change
+ent-StampStealCollectionObjective = Steal stamps
     .desc = { ent-BaseThiefStealCollectionObjective.desc }
-ent-DoorRemoteStealCollectionObjective = { ent-BaseThiefStealCollectionObjective }
+# Aquila Change
+ent-DoorRemoteStealCollectionObjective = Steal door remotes
     .desc = { ent-BaseThiefStealCollectionObjective.desc }
-ent-TechnologyDiskStealCollectionObjective = { ent-BaseThiefStealCollectionObjective }
+# Aquila Change
+ent-TechnologyDiskStealCollectionObjective = Steal technology disks
     .desc = { ent-BaseThiefStealCollectionObjective.desc }
-ent-MailStealCollectionObjective = { ent-BaseThiefStealCollectionObjective }
+# Aquila Change
+ent-MailStealCollectionObjective = Steal mail
     .desc = { ent-BaseThiefStealCollectionObjective.desc }
-ent-IDCardsStealCollectionObjective = { ent-BaseThiefStealCollectionObjective }
+# Aquila Change
+ent-IDCardsStealCollectionObjective = Steal ID cards
     .desc = { ent-BaseThiefStealCollectionObjective.desc }
-ent-OfficerHandgunsStealCollectionObjective = { ent-BaseThiefStealCollectionObjective }
+# Aquila Change
+ent-OfficerHandgunsStealCollectionObjective = Steal security handguns
     .desc = { ent-BaseThiefStealCollectionObjective.desc }
-ent-LAMPStealCollectionObjective = { ent-BaseThiefStealCollectionObjective }
+# Aquila Change
+ent-LAMPStealCollectionObjective = Steal lamps
     .desc = { ent-BaseThiefStealCollectionObjective.desc }
-ent-BatteryStealCollectionObjective = { ent-BaseThiefStealCollectionObjective }
+# Aquila Change
+ent-BatteryStealCollectionObjective = Steal power cells
     .desc = { ent-BaseThiefStealCollectionObjective.desc }
-ent-ForensicScannerStealObjective = { ent-BaseThiefStealObjective }
+# Aquila Change
+ent-ForensicScannerStealObjective = Steal the forensic scanner
     .desc = { ent-BaseThiefStealObjective.desc }
-ent-FlippoEngravedLighterStealObjective = { ent-BaseThiefStealObjective }
+# Aquila Change
+ent-FlippoEngravedLighterStealObjective = Steal the engraved Flippo lighter
     .desc = { ent-BaseThiefStealObjective.desc }
-ent-ClothingHeadHatWardenStealObjective = { ent-BaseThiefStealObjective }
+# Aquila Change
+ent-ClothingHeadHatWardenStealObjective = Steal the warden's cap
     .desc = { ent-BaseThiefStealObjective.desc }
-ent-WantedListCartridgeStealObjective = { ent-BaseThiefStealObjective }
+# Aquila Change
+ent-WantedListCartridgeStealObjective = Steal the WatchDog cartridge
     .desc = { ent-BaseThiefStealObjective.desc }
-ent-ClothingOuterHardsuitVoidParamedStealObjective = { ent-BaseThiefStealObjective }
+# Aquila Change
+ent-ClothingOuterHardsuitVoidParamedStealObjective = Steal the paramedic voidsuit
     .desc = { ent-BaseThiefStealObjective.desc }
-ent-MedicalTechFabCircuitboardStealObjective = { ent-BaseThiefStealObjective }
+# Aquila Change
+ent-MedicalTechFabCircuitboardStealObjective = Steal the medical TechFab board
     .desc = { ent-BaseThiefStealObjective.desc }
-ent-ClothingHeadsetAltMedicalStealObjective = { ent-BaseThiefStealObjective }
+# Aquila Change
+ent-ClothingHeadsetAltMedicalStealObjective = Steal the CMO's headset
     .desc = { ent-BaseThiefStealObjective.desc }
-ent-FireAxeStealObjective = { ent-BaseThiefStealObjective }
+# Aquila Change
+ent-FireAxeStealObjective = Steal the fireaxe
     .desc = { ent-BaseThiefStealObjective.desc }
-ent-AmePartFlatpackStealObjective = { ent-BaseThiefStealObjective }
+# Aquila Change
+ent-AmePartFlatpackStealObjective = Steal the AME flatpack
     .desc = { ent-BaseThiefStealObjective.desc }
-ent-ChiefEngineerToolbeltStealObjective = { ent-BaseThiefStealObjective }
+# Aquila Change
+ent-ChiefEngineerToolbeltStealObjective = Steal the chief engineer's toolbelt
     .desc = { ent-BaseThiefStealObjective.desc }
-ent-CargoShuttleCircuitboardStealObjective = { ent-BaseThiefStealObjective }
+# Aquila Change
+ent-CargoShuttleCircuitboardStealObjective = Steal the cargo shuttle console board
     .desc = { ent-BaseThiefStealObjective.desc }
-ent-ClothingEyesHudBeerStealObjective = { ent-BaseThiefStealObjective }
+# Aquila Change
+ent-ClothingEyesHudBeerStealObjective = Steal the beer goggles
     .desc = { ent-BaseThiefStealObjective.desc }
-ent-BibleStealObjective = { ent-BaseThiefStealObjective }
+# Aquila Change
+ent-BibleStealObjective = Steal the bible
     .desc = { ent-BaseThiefStealObjective.desc }
-ent-ClothingNeckGoldmedalStealObjective = { ent-BaseThiefStealObjective }
+# Aquila Change
+ent-ClothingNeckGoldmedalStealObjective = Steal the gold medal
     .desc = { ent-BaseThiefStealObjective.desc }
-ent-ClothingNeckClownmedalStealObjective = { ent-BaseThiefStealObjective }
+# Aquila Change
+ent-ClothingNeckClownmedalStealObjective = Steal the clown medal
     .desc = { ent-BaseThiefStealObjective.desc }
-ent-CaptainSwordStealObjective = { ent-BaseThiefStealObjective }
+# Aquila Change
+ent-CaptainSwordStealObjective = Steal the captain's sabre
     .desc = { ent-BaseThiefStealObjective.desc }
-ent-NuclearBombStealObjective = { ent-BaseThiefStealStructureObjective }
+# Aquila Change
+ent-NuclearBombStealObjective = Steal the nuclear fission explosive
     .desc = { ent-BaseThiefStealStructureObjective.desc }
-ent-FaxMachineCaptainStealObjective = { ent-BaseThiefStealStructureObjective }
+# Aquila Change
+ent-FaxMachineCaptainStealObjective = Steal the captain's fax machine
     .desc = { ent-BaseThiefStealStructureObjective.desc }
-ent-ChemDispenserStealObjective = { ent-BaseThiefStealStructureObjective }
+# Aquila Change
+ent-ChemDispenserStealObjective = Steal the chemical dispenser
     .desc = { ent-BaseThiefStealStructureObjective.desc }
-ent-XenoArtifactStealObjective = { ent-BaseThiefStealStructureObjective }
+# Aquila Change
+ent-XenoArtifactStealObjective = Steal the alien artifact
     .desc = { ent-BaseThiefStealStructureObjective.desc }
-ent-FreezerHeaterStealObjective = { ent-BaseThiefStealStructureObjective }
+# Aquila Change
+ent-FreezerHeaterStealObjective = Steal the freezer or heater
     .desc = { ent-BaseThiefStealStructureObjective.desc }
-ent-TegStealObjective = { ent-BaseThiefStealStructureObjective }
+# Aquila Change
+ent-TegStealObjective = Steal the TEG generator part
     .desc = { ent-BaseThiefStealStructureObjective.desc }
-ent-BoozeDispenserStealObjective = { ent-BaseThiefStealStructureObjective }
+# Aquila Change
+ent-BoozeDispenserStealObjective = Steal the booze dispenser
     .desc = { ent-BaseThiefStealStructureObjective.desc }
-ent-AltarNanotrasenStealObjective = { ent-BaseThiefStealStructureObjective }
+# Aquila Change
+ent-AltarNanotrasenStealObjective = Steal the NanoTrasen altar
     .desc = { ent-BaseThiefStealStructureObjective.desc }
-ent-PlantRDStealObjective = { ent-BaseThiefStealStructureObjective }
+# Aquila Change
+ent-PlantRDStealObjective = Steal the RD's potted plant
     .desc = { ent-BaseThiefStealStructureObjective.desc }
-ent-ToiletGoldenStealObjective = { ent-BaseThiefStealStructureObjective }
+# Aquila Change
+ent-ToiletGoldenStealObjective = Steal the golden toilet
     .desc = { ent-BaseThiefStealStructureObjective.desc }
-ent-IanStealObjective = { ent-BaseThiefStealAnimalObjective }
+# Aquila Change
+ent-IanStealObjective = Steal Ian
     .desc = { ent-BaseThiefStealAnimalObjective.desc }
-ent-BingusStealObjective = { ent-BaseThiefStealAnimalObjective }
+# Aquila Change
+ent-BingusStealObjective = Steal the CMO's cat
     .desc = { ent-BaseThiefStealAnimalObjective.desc }
-ent-McGriffStealObjective = { ent-BaseThiefStealAnimalObjective }
+# Aquila Change
+ent-McGriffStealObjective = Steal McGriff
     .desc = { ent-BaseThiefStealAnimalObjective.desc }
-ent-WalterStealObjective = { ent-BaseThiefStealAnimalObjective }
+# Aquila Change
+ent-WalterStealObjective = Steal Walter
     .desc = { ent-BaseThiefStealAnimalObjective.desc }
-ent-MortyStealObjective = { ent-BaseThiefStealAnimalObjective }
+# Aquila Change
+ent-MortyStealObjective = Steal Morty
     .desc = { ent-BaseThiefStealAnimalObjective.desc }
-ent-RenaultStealObjective = { ent-BaseThiefStealAnimalObjective }
+# Aquila Change
+ent-RenaultStealObjective = Steal Renault
     .desc = { ent-BaseThiefStealAnimalObjective.desc }
-ent-ShivaStealObjective = { ent-BaseThiefStealAnimalObjective }
+# Aquila Change
+ent-ShivaStealObjective = Steal Shiva
     .desc = { ent-BaseThiefStealAnimalObjective.desc }
-ent-TropicoStealObjective = { ent-BaseThiefStealAnimalObjective }
+# Aquila Change
+ent-TropicoStealObjective = Steal Tropico
     .desc = { ent-BaseThiefStealAnimalObjective.desc }
 ent-EscapeThiefShuttleObjective = Escape to CentComm alive and unrestrained via the escape shuttle.
     .desc = You don't want your illegal activities to be discovered by anyone, do you?

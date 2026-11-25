@@ -92,7 +92,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
   - type: BatteryAmmoProvider
-    proto: RedLightLaser
+    proto: CybersunRedLightLaser
     fireCost: 62.5
   - type: Appearance
   - type: Item
@@ -112,7 +112,7 @@
   - type: Gun
     fireRate: 2
   - type: BatteryAmmoProvider
-    proto: RedLaser
+    proto: CybersunRedLaser
     fireCost: 62.5
   - type: Item
     sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Cybersun/catalyzer.rsi
@@ -129,9 +129,9 @@
   - type: Sprite
     sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Cybersun/vector.rsi
   - type: Gun
-    fireRate: 0.75
+    fireRate: 0.55
   - type: BatteryAmmoProvider
-    proto: RedHeavyLaser
+    proto: CybersunRedHeavyLaser
     fireCost: 200
   - type: Item
     sprite: _Aquila/EventContent/CrookLv/FactionWeapons/Cybersun/vector.rsi

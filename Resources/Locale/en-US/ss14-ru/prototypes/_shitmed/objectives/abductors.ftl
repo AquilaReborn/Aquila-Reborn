@@ -1,6 +1,7 @@
 ent-BaseAbductorObjective = { ent-BaseObjective }
     .desc = { ent-BaseObjective.desc }
-ent-AbductObjective = { ent-BaseAbductorObjective }
+# Aquila Change
+ent-AbductObjective = Abduct people
     .desc = { ent-BaseAbductorObjective.desc }
 ent-BaseAbductorVictimObjective = { ent-BaseObjective }
     .desc = { ent-BaseObjective.desc }

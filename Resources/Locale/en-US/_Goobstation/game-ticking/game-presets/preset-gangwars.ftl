@@ -145,6 +145,11 @@ gang-objective-first-place-description = Ensure your gang is in first place by t
 gang-objective-earn-points-title = Earn {$count} gang points
 gang-objective-earn-points-description = Help your gang accumulate points.
 
+# Aquila Change
+ent-GangLeaderRecruitObjective = Recruit gang members
+# Aquila Change
+ent-GangEarnPointsObjective = Earn gang points
+
 gang-store-listing-tipoff-name = Tip Off
 gang-store-listing-tipoff-desc = Schedule an early duffel bag drop packed with goodies. A random civilian will be tipped off about the drop location via NanoChat.
 

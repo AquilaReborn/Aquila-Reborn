@@ -1,4 +1,5 @@
-ent-GrayTideKillEveryoneObjective = { ent-BaseObjective }
+# Aquila Change
+ent-GrayTideKillEveryoneObjective = Kill everyone else
     .desc = { ent-BaseObjective.desc }
 ent-TunnelClownProtectMaintenanceObjective = Protect maintenance.
     .desc = This stations maintenance has been your home for as long as you can remember, hiding from the crew in lockers is all that you've known, until now. Thoses station goers have invaded your home for the last time, kill anyone who dares to distrupt your home.
