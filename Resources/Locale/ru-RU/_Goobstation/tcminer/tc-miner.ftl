@@ -1,4 +1,2 @@
 telecrystal-miner-announcement = В ходе криптографического анализа на станции были обнаружены незаконные телекристальные майнеры. Экипажу станции приказывается немедленно уничтожить контрабандные объекты.
-telecrystal-miner-announcement2 = Телекристальные майнеры были обнаружены около { $location }.
-# Aquila Change
-tc-miner-slot-name = Телекристалл
+telecrystal-miner-announcement2 = Телекристальные майнеры были обнаружены вблизи { $location }.
