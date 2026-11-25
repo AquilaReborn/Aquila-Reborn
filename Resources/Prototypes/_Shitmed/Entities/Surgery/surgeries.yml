@@ -632,8 +632,10 @@
   - type: SurgeryOrganCondition
     organ:
     - type: Heart
-  - type: SurgeryIdentifiedCondition # Aquila Change
-    organSlot: heart # Aquila Change
+  # Aquila Change start
+  # - type: SurgeryIdentifiedCondition
+  #   organSlot: heart
+  # Aquila Change end
 
 - type: entity
   parent: BaseSurgeryInsertOrgan

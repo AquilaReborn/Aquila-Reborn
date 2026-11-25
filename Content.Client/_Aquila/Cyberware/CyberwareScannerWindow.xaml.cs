@@ -21,7 +21,6 @@ public sealed partial class CyberwareScannerWindow : FancyWindow
     private static readonly LocId RiskValue = "cyberware-scanner-ui-risk-value";
     private static readonly LocId Adapting = "cyberware-scanner-adapting";
     private static readonly LocId NoImplants = "cyberware-scanner-ui-no-implants";
-    private static readonly LocId Concealed = "cyberware-scanner-concealed";
     private static readonly LocId Stage = "cyberware-scanner-ui-stage";
     private static readonly LocId Cure = "cyberware-scanner-ui-cure";
 
@@ -109,9 +108,6 @@ public sealed partial class CyberwareScannerWindow : FancyWindow
                 StyleClasses = { StyleClass.LabelSubText },
             });
         }
-
-        ConcealedLabel.Visible = state.Concealed > 0;
-        ConcealedLabel.Text = Loc.GetString(Concealed, ("count", state.Concealed));
     }
 
     private void UpdatePsychosis(CyberwareScannerUiState state)

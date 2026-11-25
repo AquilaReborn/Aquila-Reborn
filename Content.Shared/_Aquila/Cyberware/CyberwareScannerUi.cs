@@ -65,11 +65,6 @@ public sealed class CyberwareScannerUiState : BoundUserInterfaceState
     public readonly List<string> Implants;
 
     /// <summary>
-    /// Сколько подкожных имплантов опознать не удалось.
-    /// </summary>
-    public readonly int Concealed;
-
-    /// <summary>
     /// Название стадии киберпсихоза, если он есть.
     /// </summary>
     public readonly LocId? PsychosisStage;
@@ -90,7 +85,6 @@ public sealed class CyberwareScannerUiState : BoundUserInterfaceState
         LocId level,
         bool adapting,
         List<string> implants,
-        int concealed,
         LocId? psychosisStage,
         float? cureProgress)
     {
@@ -104,7 +98,6 @@ public sealed class CyberwareScannerUiState : BoundUserInterfaceState
         Level = level;
         Adapting = adapting;
         Implants = implants;
-        Concealed = concealed;
         PsychosisStage = psychosisStage;
         CureProgress = cureProgress;
     }

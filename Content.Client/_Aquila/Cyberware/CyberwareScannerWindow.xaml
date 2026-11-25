@@ -81,8 +81,6 @@
                     <BoxContainer Orientation="Vertical" Margin="10 8" SeparationOverride="4">
                         <BoxContainer Name="ImplantList" Orientation="Vertical"
                             SeparationOverride="2" />
-                        <Label Name="ConcealedLabel" StyleClasses="status-bad" ClipText="True"
-                            Visible="False" />
                     </BoxContainer>
                 </PanelContainer>
 
