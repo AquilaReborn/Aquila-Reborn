@@ -75,6 +75,7 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
     {
         base.Update(frameTime);
 
+        if (!_net.IsServer) return; // Aquila Change
         var curTime = _timing.CurTime;
         var query = EntityQueryEnumerator<BloodstreamComponent>();
         while (query.MoveNext(out var uid, out var bloodstream))
@@ -257,6 +258,7 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
 
     private void OnDamageChanged(Entity<BloodstreamComponent> ent, ref DamageChangedEvent args)
     {
+        if (!_net.IsServer) return; // Aquila Change
         // The incoming state from the server raises a DamageChangedEvent as well.
         // But the changes to the bloodstream have also been dirtied,
         // so we prevent applying them twice.
@@ -543,6 +545,7 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
     /// </summary>
     public bool TryBleedOut(Entity<BloodstreamComponent?> ent, FixedPoint2 amount)
     {
+        if (!_net.IsServer) return false; // Aquila Change
         if (!Resolve(ent, ref ent.Comp, logMissing: false)
             || !SolutionContainer.ResolveSolution(ent.Owner, ent.Comp.BloodSolutionName, ref ent.Comp.BloodSolution)
             || amount <= 0)

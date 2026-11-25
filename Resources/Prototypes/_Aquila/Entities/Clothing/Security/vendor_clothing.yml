@@ -19,6 +19,9 @@
     sprite: _Aquila/Clothing/Security/HuntSecurity/hunter.rsi
   - type: Clothing
     sprite: _Aquila/Clothing/Security/HuntSecurity/hunter.rsi
+  - type: FingerprintMask
+  - type: Fiber
+    fiberMaterial: fibers-synthetic
 
 - type: entity
   parent: [ClothingScarfBase, BaseSecurityContraband]
