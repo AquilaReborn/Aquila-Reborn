@@ -63,6 +63,13 @@
     sprite: _Aquila/Clothing/Security/Refresh/Shoes/Boots/combatboots.rsi # Aquila Change
   - type: Clothing
     sprite: _Aquila/Clothing/Security/Refresh/Shoes/Boots/combatboots.rsi # Aquila Change
+  # Aquila Change start
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepJackboots
+      params:
+        volume: -8
+  # Aquila Change end
 
 - type: entity
   parent: ClothingShoesBaseButcherable #Goobstation
