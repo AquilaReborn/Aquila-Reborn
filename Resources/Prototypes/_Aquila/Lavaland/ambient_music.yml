@@ -1,0 +1,34 @@
+- type: ambientMusic
+  id: Lavaland
+  sound:
+    params:
+      volume: -12
+    collection: AmbienceLavalandCrookLv
+  fadeIn: true
+  interruptable: true
+  rules: OnLavaland
+  priority: 3
+
+- type: soundCollection
+  id: AmbienceLavalandCrookLv
+  files:
+    - /Audio/_Aquila/EventContent/CrookLv/break.ogg
+    - /Audio/_Aquila/EventContent/CrookLv/debris_exploration_remastered.ogg
+    - /Audio/_Aquila/EventContent/CrookLv/entree.ogg
+    - /Audio/_Aquila/EventContent/CrookLv/inbound.ogg
+    - /Audio/_Aquila/EventContent/CrookLv/mastery.ogg
+    - /Audio/_Aquila/EventContent/CrookLv/soldier.ogg
+    - /Audio/_Aquila/EventContent/CrookLv/threat_and_prey.ogg
+    - /Audio/_Aquila/EventContent/CrookLv/trial.ogg
+
+- type: rules
+  id: OnLavaland
+  rules:
+    - !type:OnMapGridRule
+    - !type:NearbyTilesPercentRule
+      percent: 0.5
+      tiles:
+        - FloorBasaltLavaland
+        - FloorPlanetAsh
+        - FloorPlanetGrassLight
+      range: 5
