@@ -41,7 +41,6 @@ public sealed class SplitPersonalitySystem : EntitySystem
     private static readonly EntProtoId SwapAction = "ActionSplitPersonalitySwap";
     private static readonly ProtoId<CollectiveMindPrototype> InnerVoice = "SplitPersonalityInnerVoice";
     private static readonly TimeSpan CheckInterval = TimeSpan.FromSeconds(1);
-    private static readonly TimeSpan ClaimTime = TimeSpan.FromMinutes(5);
 
     [Dependency] private readonly CollectiveMindUpdateSystem _collectiveMind = default!;
     [Dependency] private readonly EuiManager _eui = default!;
@@ -82,12 +81,6 @@ public sealed class SplitPersonalitySystem : EntitySystem
 
             comp.NextCheck = now + CheckInterval;
 
-            if (comp.AlterMind == null && now > comp.ClaimDeadline)
-            {
-                RemCompDeferred<SplitPersonalityComponent>(uid);
-                continue;
-            }
-
             _medicine.Check(uid, out var suppressed, out var curing);
             if (suppressed)
                 ReturnControl(uid, comp);
@@ -115,7 +108,6 @@ public sealed class SplitPersonalitySystem : EntitySystem
 
         var comp = AddComp<SplitPersonalityComponent>(host);
         comp.OriginalMind = mind;
-        comp.ClaimDeadline = _timing.CurTime + ClaimTime;
         comp.NextCheck = _timing.CurTime + CheckInterval;
         comp.Passenger = SpawnPassenger(host, AlterPrototype);
 

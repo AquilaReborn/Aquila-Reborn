@@ -12,7 +12,7 @@ using Robust.Shared.Random;
 
 namespace Content.Shared.Abilities.Goliath;
 
-public sealed class GoliathTentacleSystem : EntitySystem
+public sealed partial class GoliathTentacleSystem : EntitySystem // Aquila Change
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly INetManager _net = default!;
@@ -62,6 +62,9 @@ public sealed class GoliathTentacleSystem : EntitySystem
             {
                 continue;
             }
+
+            if (!CanSpawnTentacle(args.Performer, pos)) // Aquila Change
+                continue;
 
             if (_net.IsServer)
                 Spawn(args.EntityId, pos);

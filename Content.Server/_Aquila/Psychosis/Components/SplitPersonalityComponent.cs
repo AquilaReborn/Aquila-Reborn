@@ -55,12 +55,6 @@ public sealed partial class SplitPersonalityComponent : Component
     public float CureTime = 60f;
 
     /// <summary>
-    /// До какого момента роль второй личности должен занять призрак, иначе раздвоение проходит само.
-    /// </summary>
-    [DataField, AutoPausedField]
-    public TimeSpan ClaimDeadline;
-
-    /// <summary>
     /// Когда в следующий раз проверять лекарства в крови.
     /// </summary>
     [DataField, AutoPausedField]

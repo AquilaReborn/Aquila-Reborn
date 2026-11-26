@@ -1,0 +1,26 @@
+- type: constructionGraph
+  id: StairsGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: Stairs
+      completed:
+      - !type:SnapToGrid { }
+      steps:
+      - material: Steel
+        amount: 3
+        doAfter: 2
+
+  - node: Stairs
+    entity: Stairs
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 3
+      - !type:DeleteEntity { }
+      steps:
+      - tool: Prying
+        doAfter: 2

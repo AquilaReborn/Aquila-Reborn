@@ -1,0 +1,11 @@
+- type: construction
+  id: Stairs
+  graph: StairsGraph
+  startNode: start
+  targetNode: Stairs
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked

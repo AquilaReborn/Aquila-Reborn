@@ -23,6 +23,11 @@
   - type: Sprite
     sprite: Structures/stairs.rsi
     state: stairs_steel
+  # Aquila Change start
+  - type: Construction
+    graph: StairsGraph
+    node: Stairs
+  # Aquila Change end
   - type: Damageable
     damageModifierSet: SteelMod # Aquila Change
   - type: Destructible
