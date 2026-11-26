@@ -40,6 +40,15 @@
       - potatoes
   - type: Sprite
     state: loadedbakedpotato
+  # Aquila Change start
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 52
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 40
+  # Aquila Change end
 # Tastes like potato.
 
 - type: entity
@@ -56,6 +65,15 @@
       - salty
   - type: Sprite
     state: fries
+  # Aquila Change start
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 52
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 40
+  # Aquila Change end
 # Tastes like fries, salt.
 
 - type: entity
@@ -73,6 +91,15 @@
       - cheesy
   - type: Sprite
     state: fries-cheesy
+  # Aquila Change start
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 52
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 40
+  # Aquila Change end
 # Tastes like fries, cheese.
 
 - type: entity
@@ -95,10 +122,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 26
+        maxVol: 52 # Aquila Change
         reagents:
         - ReagentId: JuiceCarrot
-          Quantity: 20
+          Quantity: 40 # Aquila Change
 # Tastes like carrots, salt.
 
 - type: entity
@@ -120,14 +147,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 11
+        maxVol: 22 # Aquila Change
         reagents:
         - ReagentId: Nutriment
-          Quantity: 4
+          Quantity: 8 # Aquila Change
         - ReagentId: Vitamin
-          Quantity: 1
+          Quantity: 2 # Aquila Change
         - ReagentId: TableSalt
-          Quantity: 1
+          Quantity: 2 # Aquila Change
 # Tastes like nachos.
 
 - type: entity
@@ -150,14 +177,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 30 # Aquila Change
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 12 # Aquila Change
         - ReagentId: Vitamin
-          Quantity: 3
+          Quantity: 6 # Aquila Change
         - ReagentId: TableSalt
-          Quantity: 1
+          Quantity: 2 # Aquila Change
 # Tastes like nachos, cheese.
 
 - type: entity
@@ -181,14 +208,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25
+        maxVol: 50 # Aquila Change
         reagents:
         - ReagentId: Nutriment
-          Quantity: 8
+          Quantity: 16 # Aquila Change
         - ReagentId: CapsaicinOil
-          Quantity: 7
+          Quantity: 14 # Aquila Change
         - ReagentId: Vitamin
-          Quantity: 5
+          Quantity: 10 # Aquila Change
 # Tastes like nachos, hot pepper.
 
 - type: entity
@@ -276,12 +303,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 30 # Aquila Change
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 12 # Aquila Change
         - ReagentId: CarpoToxin
-          Quantity: 3
+          Quantity: 6 # Aquila Change
   - type: Tag
     tags:
     - CubanCarp
@@ -397,14 +424,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25
+        maxVol: 50 # Aquila Change
         reagents:
         - ReagentId: Nutriment
-          Quantity: 3
+          Quantity: 6 # Aquila Change
         - ReagentId: Protein
-          Quantity: 10
+          Quantity: 20 # Aquila Change
         - ReagentId: BbqSauce
-          Quantity: 10
+          Quantity: 20 # Aquila Change
   - type: Tag
     tags:
     - Meat
@@ -553,14 +580,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25
+        maxVol: 50 # Aquila Change
         reagents:
         - ReagentId: Nutriment
-          Quantity: 9
+          Quantity: 18 # Aquila Change
         - ReagentId: Water
-          Quantity: 10
+          Quantity: 20 # Aquila Change
         - ReagentId: Blackpepper
-          Quantity: 3
+          Quantity: 6 # Aquila Change
 # Tastes awesome.
 
 - type: entity
@@ -576,6 +603,15 @@
         - cheesy
     - type: Sprite
       state: queso
+    # Aquila Change start
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 52
+          reagents:
+          - ReagentId: Nutriment
+            Quantity: 40
+    # Aquila Change end
 # Its queso! Everyone loves queso... Right?.
 
 - type: entity
@@ -592,12 +628,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25
+        maxVol: 50 # Aquila Change
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 12 # Aquila Change
         - ReagentId: CarpoToxin
-          Quantity: 15
+          Quantity: 30 # Aquila Change
   - type: Tag
     tags:
     - Meat
@@ -619,12 +655,12 @@
     - type: SolutionContainerManager
       solutions:
         food:
-          maxVol: 15
+          maxVol: 30 # Aquila Change
           reagents:
           - ReagentId: Nutriment
-            Quantity: 8
+            Quantity: 16 # Aquila Change
           - ReagentId: CapsaicinOil
-            Quantity: 6
+            Quantity: 12 # Aquila Change
     - type: Tag
       tags:
       - Meat
@@ -647,18 +683,18 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 65
+        maxVol: 130 # Aquila Change
         reagents:
         - ReagentId: Nutriment
-          Quantity: 30
+          Quantity: 60 # Aquila Change
         - ReagentId: Vitamin
-          Quantity: 15
+          Quantity: 30 # Aquila Change
         - ReagentId: Water
-          Quantity: 5
+          Quantity: 10 # Aquila Change
         - ReagentId: Bicaridine
-          Quantity: 5
+          Quantity: 10 # Aquila Change
         - ReagentId: Kelotane
-          Quantity: 5
+          Quantity: 10 # Aquila Change
   - type: Tag
     tags:
     - Fruit
@@ -683,9 +719,9 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 10
+        maxVol: 20 # Aquila Change
         reagents:
         - ReagentId: Nutriment
-          Quantity: 4
+          Quantity: 8 # Aquila Change
         - ReagentId: Vitamin
-          Quantity: 4
+          Quantity: 8 # Aquila Change

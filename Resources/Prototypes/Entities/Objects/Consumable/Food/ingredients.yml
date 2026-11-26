@@ -764,12 +764,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 100
+        maxVol: 200 # Aquila Change
         reagents:
         - ReagentId: Butter
-          Quantity: 10
+          Quantity: 20 # Aquila Change
         - ReagentId: THC
-          Quantity: 82
+          Quantity: 164 # Aquila Change
   - type: Extractable
     grindableSolutionName: food
 

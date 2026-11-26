@@ -19,10 +19,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 7
+        maxVol: 14 # Aquila Change
         reagents:
         - ReagentId: Nutriment
-          Quantity: 5
+          Quantity: 10 # Aquila Change
 
 - type: entity
   parent: FoodBagelBase
@@ -44,12 +44,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 12
+        maxVol: 24 # Aquila Change
         reagents:
         - ReagentId: Bicaridine
-          Quantity: 5
+          Quantity: 10 # Aquila Change
         - ReagentId: Nutriment
-          Quantity: 5
+          Quantity: 10 # Aquila Change
 
 - type: entity
   parent: FoodBagelBase
@@ -71,9 +71,9 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 12
+        maxVol: 24 # Aquila Change
         reagents:
         - ReagentId: Nutriment
-          Quantity: 2.5
+          Quantity: 5 # Aquila Change
         - ReagentId: Fiber
-          Quantity: 2.5
+          Quantity: 5 # Aquila Change

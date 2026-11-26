@@ -95,6 +95,17 @@
       - state: plain-inhand-right
       - state: alpha-filling-inhand-right
         color: blue
+  # Aquila Change start
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 60
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 40
+        - ReagentId: Vitamin
+          Quantity: 10
+  # Aquila Change end
 
 - type: entity
   name: blueberry slice
@@ -138,12 +149,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 55
+        maxVol: 110 # Aquila Change
         reagents:
         - ReagentId: Nutriment
-          Quantity: 20
+          Quantity: 40 # Aquila Change
         - ReagentId: Vitamin
-          Quantity: 5
+          Quantity: 10 # Aquila Change
   - type: Item
     heldPrefix: plain
 
@@ -182,14 +193,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 30
+        maxVol: 60 # Aquila Change
         reagents:
         - ReagentId: JuiceCarrot
-          Quantity: 15
+          Quantity: 30 # Aquila Change
         - ReagentId: Sugar
-          Quantity: 5
+          Quantity: 10 # Aquila Change
         - ReagentId: Vitamin
-          Quantity: 5
+          Quantity: 10 # Aquila Change
   - type: Tag
     tags:
     - Cake
@@ -272,6 +283,17 @@
         color: "#ff5b7a"
       - state: alpha-filling-inhand-right
         color: "#ff5b7a"
+  # Aquila Change start
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 60
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 40
+        - ReagentId: Vitamin
+          Quantity: 10
+  # Aquila Change end
 
 - type: entity
   name: slice of brain cake
@@ -320,6 +342,17 @@
       - state: plain-inhand-right
       - state: alpha-filling-inhand-right
         color: "#ffffff"
+  # Aquila Change start
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 60
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 40
+        - ReagentId: Vitamin
+          Quantity: 10
+  # Aquila Change end
 
 - type: entity
   name: slice of cheese cake
@@ -368,6 +401,17 @@
       - state: plain-inhand-right
       - state: alpha-filling-inhand-right
         color: "#ff9900"
+  # Aquila Change start
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 60
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 40
+        - ReagentId: Vitamin
+          Quantity: 10
+  # Aquila Change end
 
 - type: entity
   name: slice of orange cake
@@ -423,6 +467,17 @@
       - state: plain-inhand-right
       - state: alpha-filling-inhand-right
         color: "#00ff00"
+  # Aquila Change start
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 60
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 40
+        - ReagentId: Vitamin
+          Quantity: 10
+  # Aquila Change end
 
 - type: entity
   name: slice of lime cake
@@ -478,6 +533,17 @@
       - state: plain-inhand-right
       - state: alpha-filling-inhand-right
         color: "#ffff00"
+  # Aquila Change start
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 60
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 40
+        - ReagentId: Vitamin
+          Quantity: 10
+  # Aquila Change end
 
 - type: entity
   name: slice of lemon cake
@@ -523,14 +589,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 30
+        maxVol: 60 # Aquila Change
         reagents:
         - ReagentId: Nutriment
-          Quantity: 15
+          Quantity: 30 # Aquila Change
         - ReagentId: Vitamin
-          Quantity: 5
+          Quantity: 10 # Aquila Change
         - ReagentId: Milk
-          Quantity: 5
+          Quantity: 10 # Aquila Change
   - type: Tag
     tags:
     - Cake
@@ -594,14 +660,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 35
+        maxVol: 70 # Aquila Change
         reagents:
         - ReagentId: Nutriment
-          Quantity: 20
+          Quantity: 40 # Aquila Change
         - ReagentId: Theobromine
-          Quantity: 5
+          Quantity: 10 # Aquila Change
         - ReagentId: Vitamin
-          Quantity: 5
+          Quantity: 10 # Aquila Change
   - type: Item
     inhandVisuals:
       left:
@@ -668,6 +734,17 @@
       - state: plain-inhand-right
       - state: alpha-filling-inhand-right
         color: "#ff4300"
+  # Aquila Change start
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 60
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 40
+        - ReagentId: Vitamin
+          Quantity: 10
+  # Aquila Change end
 
 - type: entity
   name: slice of apple cake
@@ -724,6 +801,17 @@
         color: "#00ffff"
       - state: alpha-filling-inhand-right
         color: "#00ffff"
+  # Aquila Change start
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 60
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 40
+        - ReagentId: Vitamin
+          Quantity: 10
+  # Aquila Change end
 
 - type: entity
   name: slice of slime cake
@@ -765,12 +853,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 50
+        maxVol: 100 # Aquila Change
         reagents:
         - ReagentId: Nutriment
-          Quantity: 32
+          Quantity: 64 # Aquila Change
         - ReagentId: Vitamin
-          Quantity: 11
+          Quantity: 22 # Aquila Change
   - type: Tag
     tags:
     - Cake
@@ -877,6 +965,17 @@
     slice: FoodCakeBirthdaySlice
   - type: Item
     heldPrefix: birthday
+  # Aquila Change start
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 60
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 40
+        - ReagentId: Vitamin
+          Quantity: 10
+  # Aquila Change end
 
 - type: entity
   name: slice of birthday cake
@@ -956,14 +1055,14 @@
   - type: SolutionContainerManager #TODO Sprinkles
     solutions:
       food:
-        maxVol: 45
+        maxVol: 90 # Aquila Change
         reagents:
         - ReagentId: Nutriment
-          Quantity: 20
+          Quantity: 40 # Aquila Change
         - ReagentId: Vitamin
-          Quantity: 5
+          Quantity: 10 # Aquila Change
         - ReagentId: Sugar
-          Quantity: 15
+          Quantity: 30 # Aquila Change
   - type: Item
     heldPrefix: clown
 
@@ -1053,12 +1152,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 30
+        maxVol: 60 # Aquila Change
         reagents:
         - ReagentId: Nutriment
-          Quantity: 20
+          Quantity: 40 # Aquila Change
         - ReagentId: Vitamin
-          Quantity: 5
+          Quantity: 10 # Aquila Change
   - type: Sprite
     noRot: true
     drawdepth: Mobs
@@ -1142,12 +1241,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 48
+        maxVol: 96 # Aquila Change
         reagents:
         - ReagentId: Nutriment
-          Quantity: 80
+          Quantity: 160 # Aquila Change
         - ReagentId: Sugar
-          Quantity: 30
+          Quantity: 60 # Aquila Change
   - type: Edible
     transferAmount: 12
   - type: Item
@@ -1208,14 +1307,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 55
+        maxVol: 110 # Aquila Change
         reagents:
         - ReagentId: Nutriment
-          Quantity: 30
+          Quantity: 60 # Aquila Change
         - ReagentId: Vitamin
-          Quantity: 5
+          Quantity: 10 # Aquila Change
         - ReagentId: Fiber
-          Quantity: 10
+          Quantity: 20 # Aquila Change
   - type: Item
     heldPrefix: cotton
 
@@ -1264,14 +1363,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 55
+        maxVol: 110 # Aquila Change
         reagents:
         - ReagentId: Nutriment
-          Quantity: 40
+          Quantity: 80 # Aquila Change
         - ReagentId: Vitamin
-          Quantity: 10
+          Quantity: 20 # Aquila Change
         - ReagentId: Milk
-          Quantity: 10
+          Quantity: 20 # Aquila Change
   - type: SliceableFood
     slice: FoodCakeBerryDelightSlice
   - type: Tag

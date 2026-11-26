@@ -1581,14 +1581,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 30 # Aquila Change
         reagents:
         - ReagentId: Nutriment
-          Quantity: 3
+          Quantity: 6 # Aquila Change
         - ReagentId: Protein
-          Quantity: 3
+          Quantity: 6 # Aquila Change
         - ReagentId: Water
-          Quantity: 4 # makes saline if you add salt!
+          Quantity: 8 # makes saline if you add salt! # Aquila Change
   - type: FoodSequenceElement
     entries:
       Burger: MeatSnail

@@ -16,10 +16,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25
+        maxVol: 50 # Aquila Change
         reagents:
         - ReagentId: Nutriment
-          Quantity: 20
+          Quantity: 40 # Aquila Change
 
 # Noodles
 
@@ -79,12 +79,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25
+        maxVol: 50 # Aquila Change
         reagents:
         - ReagentId: Nutriment
-          Quantity: 12
+          Quantity: 24 # Aquila Change
         - ReagentId: Vitamin
-          Quantity: 8
+          Quantity: 16 # Aquila Change
 # Tastes like pasta, bad humor.
 
 - type: entity
@@ -104,12 +104,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 30 # Aquila Change
         reagents:
         - ReagentId: Nutriment
-          Quantity: 8
+          Quantity: 16 # Aquila Change
         - ReagentId: Vitamin
-          Quantity: 4
+          Quantity: 8 # Aquila Change
   - type: Tag
     tags:
     - Meat
@@ -157,12 +157,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 30 # Aquila Change
         reagents:
         - ReagentId: Nutriment
-          Quantity: 7
+          Quantity: 14 # Aquila Change
         - ReagentId: Vitamin
-          Quantity: 6
+          Quantity: 12 # Aquila Change
 # Tastes like pasta, tomato.
 
 - type: entity
@@ -182,10 +182,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 30 # Aquila Change
         reagents:
         - ReagentId: Nutriment
-          Quantity: 8
+          Quantity: 16 # Aquila Change
         - ReagentId: Vitamin
-          Quantity: 1
+          Quantity: 2 # Aquila Change
 # Tastes like pasta, butter.

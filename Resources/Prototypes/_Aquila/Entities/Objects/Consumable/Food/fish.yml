@@ -146,12 +146,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 30
+        maxVol: 60
         reagents:
         - ReagentId: Nutriment
-          Quantity: 15
+          Quantity: 30
         - ReagentId: Protein
-          Quantity: 5
+          Quantity: 10
   - type: Tag
     tags:
     - Meat
@@ -172,12 +172,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25
+        maxVol: 50
         reagents:
         - ReagentId: Nutriment
-          Quantity: 12
+          Quantity: 24
         - ReagentId: Protein
-          Quantity: 4
+          Quantity: 8
   - type: Tag
     tags:
     - Meat

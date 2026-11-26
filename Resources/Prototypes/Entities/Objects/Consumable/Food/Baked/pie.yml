@@ -82,6 +82,17 @@
     tags:
     - Fruit
     - Pie
+  # Aquila Change start
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 22
+        - ReagentId: Vitamin
+          Quantity: 10
+  # Aquila Change end
 
 - type: entity
   name: slice of apple pie
@@ -120,6 +131,17 @@
     - state: baklava
   - type: SliceableFood
     slice: FoodPieBaklavaSlice
+  # Aquila Change start
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 22
+        - ReagentId: Vitamin
+          Quantity: 10
+  # Aquila Change end
 
 - type: entity
   name: slice of baklava
@@ -177,6 +199,17 @@
     slice: FoodPieBananaCreamSlice
   - type: ThrowableBlocked # Goobstation
     behavior: Destroy
+  # Aquila Change start
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 22
+        - ReagentId: Vitamin
+          Quantity: 10
+  # Aquila Change end
 
 - type: entity
   name: slice of banana cream pie
@@ -219,6 +252,17 @@
     tags:
     - Fruit
     - Pie
+  # Aquila Change start
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 22
+        - ReagentId: Vitamin
+          Quantity: 10
+  # Aquila Change end
 
 - type: entity
   name: slice of berry clafoutis
@@ -260,6 +304,17 @@
     tags:
     - Fruit
     - Pie
+  # Aquila Change start
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 22
+        - ReagentId: Vitamin
+          Quantity: 10
+  # Aquila Change end
 
 - type: entity
   name: slice of cherry pie
@@ -300,6 +355,17 @@
     tags:
     - Meat
     - Pie
+  # Aquila Change start
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 22
+        - ReagentId: Vitamin
+          Quantity: 10
+  # Aquila Change end
 
 - type: entity
   name: slice of meat pie
@@ -340,6 +406,17 @@
   - type: Tag
     tags:
     - Pie
+  # Aquila Change start
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 22
+        - ReagentId: Vitamin
+          Quantity: 10
+  # Aquila Change end
 
 - type: entity
   name: slice of pumpkin pie
@@ -377,6 +454,17 @@
     tags:
     - Meat
     - Pie
+  # Aquila Change start
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 22
+        - ReagentId: Vitamin
+          Quantity: 10
+  # Aquila Change end
 
 - type: entity
   name: slice of xeno pie
@@ -414,6 +502,17 @@
     - state: frosty
   - type: SliceableFood
     slice: FoodPieFrostySlice
+  # Aquila Change start
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 22
+        - ReagentId: Vitamin
+          Quantity: 10
+  # Aquila Change end
 
 - type: entity
   name: slice of frosty pie
@@ -445,6 +544,17 @@
     heldPrefix: mime
   - type: SliceableFood
     slice: FoodTartMimeSlice
+  # Aquila Change start
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 22
+        - ReagentId: Vitamin
+          Quantity: 10
+  # Aquila Change end
 
 - type: entity
   name: slice of mime tart
@@ -477,14 +587,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 17
+        maxVol: 34 # Aquila Change
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 12 # Aquila Change
         - ReagentId: Amatoxin
-          Quantity: 3
+          Quantity: 6 # Aquila Change
         - ReagentId: Vitamin
-          Quantity: 4
+          Quantity: 8 # Aquila Change
 # Tastes like pie, mushrooms.
 
 - type: entity
@@ -517,6 +627,17 @@
     tags:
     - Fruit
     - Pie
+  # Aquila Change start
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 22
+        - ReagentId: Vitamin
+          Quantity: 10
+  # Aquila Change end
 # Tastes like tart, grape.
 
 - type: entity
@@ -534,6 +655,17 @@
     tags:
     - Fruit
     - Pie
+  # Aquila Change start
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 22
+        - ReagentId: Vitamin
+          Quantity: 10
+  # Aquila Change end
 # Tastes like tart, apple, expensive metal.
 
 - type: entity
@@ -550,10 +682,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 26
+        maxVol: 52 # Aquila Change
         reagents:
         - ReagentId: Nutriment
-          Quantity: 15
+          Quantity: 30 # Aquila Change
         - ReagentId: Theobromine
-          Quantity: 2
+          Quantity: 4 # Aquila Change
 # Tastes like tart, dark chocolate.

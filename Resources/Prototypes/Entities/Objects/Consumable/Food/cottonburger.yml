@@ -15,12 +15,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 10
+        maxVol: 20 # Aquila Change
         reagents:
         - ReagentId: Nutriment
-          Quantity: 3.33
+          Quantity: 6.5 # Aquila Change
         - ReagentId: Fiber
-          Quantity: 3.33
+          Quantity: 6.5 # Aquila Change
   - type: Butcherable
     butcherDelay: 1
     spawned:

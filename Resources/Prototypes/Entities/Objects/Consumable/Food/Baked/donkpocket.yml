@@ -56,12 +56,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 10
+        maxVol: 20 # Aquila Change
         reagents:
         - ReagentId: Nutriment
-          Quantity: 5 # Goobstation - junk food less useful
+          Quantity: 10 # Goobstation - junk food less useful # Aquila Change
         - ReagentId: Omnizine
-          Quantity: 2
+          Quantity: 4 # Aquila Change
 
 - type: entity
   name: dank-pocket

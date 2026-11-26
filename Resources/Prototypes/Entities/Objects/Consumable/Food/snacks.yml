@@ -233,6 +233,17 @@
   - type: Edible
     trash:
     - FoodPacketPopcornTrash
+  # Aquila Change start
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 60
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: JunkFood
+          Quantity: 10
+  # Aquila Change end
 
 - type: entity
   name: 4no raisins

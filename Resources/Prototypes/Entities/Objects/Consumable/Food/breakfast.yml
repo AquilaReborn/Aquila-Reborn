@@ -15,12 +15,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 60
+        maxVol: 120 # Aquila Change
         reagents:
         - ReagentId: Nutriment
-          Quantity: 40
+          Quantity: 80 # Aquila Change
         - ReagentId: Vitamin
-          Quantity: 10
+          Quantity: 20 # Aquila Change
 
 # Breakfasts
 
