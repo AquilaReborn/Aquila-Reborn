@@ -1,4 +1,4 @@
-﻿Name: Aquila
+Name: Aquila
 Order: -2
 Entries:
 - author: CrookLv
@@ -898,3 +898,15 @@ Entries:
       message: Из тела удалён орган задницы.
   id: 124
   time: '2026-11-27T09:30:00.0000000+00:00'
+- author: CrookLv
+  changes:
+    - type: Tweak
+      message: Мыши появляются ещё реже и больше не размножаются.
+  id: 125
+  time: '2026-11-27T15:30:00.0000000+00:00'
+- author: CrookLv
+  changes:
+    - type: Tweak
+      message: Чумная мышь стала редким событием и появляется только при онлайне от 10 человек.
+  id: 126
+  time: '2026-11-27T15:50:00.0000000+00:00'

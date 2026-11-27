@@ -218,8 +218,10 @@
     - MobMouse2
     rareChance: 0.06
     offset: 0
-    rarePrototypes:
-    - MobMousePlague
+    # Aquila Change start: plague mouse spawns from its own station event
+    # rarePrototypes:
+    # - MobMousePlague
+    # Aquila Change end
 
 - type: entity
   parent: MarkerBase

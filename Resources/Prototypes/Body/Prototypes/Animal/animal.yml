@@ -47,7 +47,7 @@
         stomach: OrganMouseStomach
         liver: OrganAnimalLiver
         kidneys: OrganAnimalKidneys
-        egg_sack: OrganMouseEggSack # Trauma
+#        egg_sack: OrganMouseEggSack # Trauma # Aquila Change: mice can no longer breed
     legs:
       part: LegsAnimal
       connections:

@@ -15,6 +15,7 @@
     children:
     - id: KingRatMigration
     - id: SnailMigration
+    - id: PlagueMouseMigration # Aquila Change
 
 # events
 
@@ -27,7 +28,7 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     earliestStart: 15
-    weight: 3 # Aquila Change
+    weight: 1 # Aquila Change
     duration: 30 # DeltaV: was 50, used as a delay now
     chaos: # Goobstation
       Infestation: 40
@@ -175,3 +176,30 @@
       # Goobstation
       - id: MobSnailInstantDeath
         weight: 0.0004
+
+# Aquila Change start: plague mouse migration, gated by minimum players
+- type: entity
+  parent: BaseStationEventShortDelay
+  id: PlagueMouseMigration
+  components:
+  - type: StationEvent
+    earliestStart: 35
+    weight: 1
+    duration: 30
+    minimumPlayers: 10
+    maxOccurrences: 1
+    chaos: # Goobstation
+      Infestation: 10
+      Mess: 5
+      Hostile: 1
+    eventType: HostilesSpawn # Goobstation
+  - type: GameRule
+    chaosScore: 25
+  - type: VentCrittersRule
+    min: 1
+    max: 1
+    playerRatio: 200
+    table: !type:GroupSelector
+      children:
+      - id: MobMousePlague
+# Aquila Change end
