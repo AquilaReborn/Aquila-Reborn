@@ -1,0 +1,14 @@
+ent-HereticBladeMoon = lunar blade
+    .desc = A blade of pale iron, reflecting the truth of the earth: all join the troupe one day. A troupe bringing joy, carving smiles on their faces whether they want one or not.
+    .suffix = Moon
+ent-ClothingOuterArmorHereticMoon = resplendant regalia
+    .desc = The confounding nature of this opulent garb turns and twists the sight. The viewer must come to a chilling revelation: what they see is as true as any other face.
+    .suffix = Moon
+ent-ClothingHeadHatHoodHereticMoon = resplendant hood
+    .desc = A hood woven from the pale light of the moon. It hums with a thousand distant laughs.
+    .suffix = Moon
+ent-ClothingNeckMoonAmulet = moonlight amulet
+    .desc = A piece of the mind, the soul and the moon. Gazing into it makes your head spin and hear whispers of laughter and joy.
+    .suffix = MagicItem
+ent-ProjectileMoonParade = lunar parade
+    .desc = { "" }

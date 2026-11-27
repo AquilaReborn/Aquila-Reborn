@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Goobstation.Shared._Aquila.Illusion; // Aquila Change
 using Content.Goobstation.Shared.Illusion;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
@@ -38,7 +39,7 @@ using Robust.Shared.Spawners;
 
 namespace Content.Goobstation.Server.Illusion;
 
-public sealed partial class IllusionSystem : EntitySystem
+public sealed partial class IllusionSystem : SharedIllusionSystem // Aquila Change: SharedIllusionSystem
 {
     [Dependency] private IRobustRandom _random = default!;
 
@@ -76,6 +77,9 @@ public sealed partial class IllusionSystem : EntitySystem
 
         SubscribeLocalEvent<IllusionComponent, MobStateChangedEvent>(OnStateChanged);
         SubscribeLocalEvent<IllusionComponent, TimedDespawnEvent>(OnDespawn);
+
+        SubscribeLocalEvent<SpawnIllusionEvent>(OnSpawnIllusion); // Aquila Change
+        InitializeAquila(); // Aquila Change
     }
 
     private void OnDespawn(Entity<IllusionComponent> ent, ref TimedDespawnEvent args)
@@ -89,6 +93,7 @@ public sealed partial class IllusionSystem : EntitySystem
             return;
 
         DeathPopup(ent);
+        ExplodeIllusion(ent, args.Origin); // Aquila Change
         QueueDel(ent);
     }
 
@@ -101,24 +106,26 @@ public sealed partial class IllusionSystem : EntitySystem
 
     private void OnHit(Entity<IllusionOnMeleeHitComponent> ent, ref MeleeHitEvent args)
     {
+        if (!CanSpawnIndependentIllusion(args.User)) return; // Aquila Change
         if (!args.IsHit || !ShouldSpawnIllusion(ent, args.User, args.HitEntities))
             return;
 
         SpawnIllusion(args.User, ent.Comp.Lifetime, ent.Comp.HealthMultiplier, args.HitEntities, ent.Comp.Components);
     }
 
-    private void SpawnIllusion(EntityUid user,
+    private EntityUid? SpawnIllusionCore(EntityUid user, // Aquila Change
         float lifetime,
         float healthMultiplier,
         IReadOnlyList<EntityUid> targets,
-        ComponentRegistry components)
+        ComponentRegistry components, out EntityUid? clone) // Aquila Change
     {
+        clone = null; // Aquila Change
         if (lifetime <= 0f || healthMultiplier <= 0f)
-            return;
+            return null; // Aquila Change
 
         var xform = Transform(user);
-        if (!_cloning.TryCloning(user, _xform.GetMapCoordinates(xform), Settings, out var clone))
-            return;
+        if (!_cloning.TryCloning(user, _xform.GetMapCoordinates(xform), Settings, out clone)) // Aquila Change
+            return null; // Aquila Change
 
         if (TryComp(user, out DamageableComponent? damageable) &&
             TryComp(user, out MobThresholdsComponent? thresholds) &&
@@ -130,7 +137,7 @@ public sealed partial class IllusionSystem : EntitySystem
             if (totalHp <= 0)
             {
                 QueueDel(clone.Value);
-                return;
+                return null; // Aquila Change
             }
 
             _threshold.SetMobStateThreshold(clone.Value, totalHp.Value * healthMultiplier, MobState.Critical);
@@ -183,6 +190,8 @@ public sealed partial class IllusionSystem : EntitySystem
         _htn.Replan(htn);
 
         EntityManager.AddComponents(clone.Value, components);
+
+        return clone.Value; // Aquila Change
     }
 
     private bool ShouldSpawnIllusion(Entity<IllusionOnMeleeHitComponent> ent,

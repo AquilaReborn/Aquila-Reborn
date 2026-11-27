@@ -493,8 +493,7 @@ public sealed partial class HereticSystem : SharedHereticSystem
         }
 
         var pathLoc = ent.Comp.CurrentPath.ToLower();
-        var ascendSound =
-            new SoundPathSpecifier($"/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/ascend_{pathLoc}.ogg");
+        var ascendSound = GetAscensionSound(pathLoc); // Aquila Change
         _chat.DispatchGlobalAnnouncement(Loc.GetString($"heretic-ascension-{pathLoc}"),
             Name(uid),
             true,

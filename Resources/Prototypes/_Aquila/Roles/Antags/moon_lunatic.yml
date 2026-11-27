@@ -1,0 +1,7 @@
+- type: antag
+  id: MoonLunatic
+  name: roles-antag-moon-lunatic-name
+  antagonist: true
+  setPreference: false
+  objective: roles-antag-moon-lunatic-description
+  guides: [ Heretics ]

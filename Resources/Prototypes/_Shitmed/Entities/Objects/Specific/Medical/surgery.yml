@@ -259,7 +259,7 @@
     state: bonegel
     states:
       bonegel: !type:ItemSwitchState
-        verb: bone gel
+        verb: bonegel # Aquila Change
         sprite:
           sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-bone-gel.rsi
           state: e-bone-gel
@@ -273,7 +273,7 @@
             volume: -5
 
       bonesetter: !type:ItemSwitchState
-        verb: bone setter
+        verb: bonesetter # Aquila Change
         sprite:
           sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-bone-gel.rsi
           state: e-bone-gel-on

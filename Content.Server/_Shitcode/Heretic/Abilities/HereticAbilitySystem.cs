@@ -128,6 +128,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         SubscribeLocalEvent<HereticMansusLinkDoAfter>(OnMansusLinkDoafter);
 
         SubscribeLock();
+        InitializeAquila(); // Aquila Change
     }
 
     public override void InvokeTouchSpell<T>(Entity<T> ent, EntityUid user)

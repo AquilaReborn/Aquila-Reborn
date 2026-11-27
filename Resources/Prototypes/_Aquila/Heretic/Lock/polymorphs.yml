@@ -1,0 +1,85 @@
+# Aquila Change: Path of Lock polymorphs
+
+- type: entity
+  parent: BaseMobJaunt
+  id: MobHereticLockRefuge
+  categories: [ HideSpawnMenu ]
+  name: caretaker's haze
+  suffix: Lock
+  components:
+  - type: Visibility
+    layer: 1
+  - type: Sprite
+    sprite: Effects/spookysmoke.rsi
+    state: spookysmoke
+    scale: 0.5, 0.5
+  - type: Stealth
+    enabled: true
+    lastVisibility: 0.55
+    minVisibility: 0.55
+    maxVisibility: 0.55
+    enabledOnDeath: false
+    enabledOnCrit: false
+    revealOnAttack: false
+    revealOnDamage: false
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 6
+    baseSprintSpeed: 6
+
+- type: polymorph
+  id: HereticLockRefuge
+  configuration:
+    entity: MobHereticLockRefuge
+    forced: true
+    inventory: None
+    transferName: true
+    transferDamage: true
+    revertOnDeath: true
+    duration: 10
+    showPopup: false
+    attachToGridOrMap: true
+
+- type: polymorph
+  id: HereticLockAscendedStalker
+  configuration:
+    entity: MobHereticLockAscendedStalker
+    transferDamage: false
+    revertOnCrit: true
+    revertOnDeath: true
+    skipRevertConfirmation: true
+    delay: 0
+    polymorphSound: /Audio/Effects/demon_consume.ogg
+
+- type: polymorph
+  id: HereticLockAscendedProphet
+  configuration:
+    entity: MobHereticLockAscendedProphet
+    transferDamage: false
+    revertOnCrit: true
+    revertOnDeath: true
+    skipRevertConfirmation: true
+    delay: 0
+    polymorphSound: /Audio/Effects/demon_consume.ogg
+
+- type: polymorph
+  id: HereticLockAscendedRustWalker
+  configuration:
+    entity: MobHereticLockAscendedRustWalker
+    transferDamage: false
+    revertOnCrit: true
+    revertOnDeath: true
+    skipRevertConfirmation: true
+    delay: 0
+    polymorphSound: /Audio/Effects/demon_consume.ogg
+
+- type: polymorph
+  id: HereticLockAscendedAshSpirit
+  configuration:
+    entity: MobHereticLockAscendedAshSpirit
+    transferDamage: false
+    revertOnCrit: true
+    revertOnDeath: true
+    skipRevertConfirmation: true
+    delay: 0
+    polymorphSound: /Audio/Effects/demon_consume.ogg
+

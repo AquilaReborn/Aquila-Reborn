@@ -16,11 +16,6 @@
     capacity: 45
   - type: Item
     size: Small
-    inhandVisuals:
-      left:
-      - state: base
-      right:
-      - state: base
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
@@ -56,11 +51,6 @@
     capacity: 45
   - type: Item
     size: Small
-    inhandVisuals:
-      left:
-      - state: base
-      right:
-      - state: base
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container

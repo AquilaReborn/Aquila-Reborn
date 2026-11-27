@@ -1,0 +1,6 @@
+- type: soundCollection
+  id: MoonAmuletLaugh
+  files:
+  - /Audio/_Aquila/Heretic/Moon/amulet_laugh_1.ogg
+  - /Audio/_Aquila/Heretic/Moon/amulet_laugh_2.ogg
+  - /Audio/_Aquila/Heretic/Moon/amulet_laugh_3.ogg

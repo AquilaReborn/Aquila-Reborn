@@ -33,8 +33,10 @@ public sealed partial class FartComponent : Component
     [DataField]
     public float SuperFartMolesMultiplier = 2f;
 
-    [DataField]
-    public EntProtoId ButtPrototype = "Butt";
+    // Aquila Change start: Butt organ removed from the build
+    // [DataField]
+    // public EntProtoId ButtPrototype = "Butt";
+    // Aquila Change end
 
     [DataField]
     public float ButtThrowDistance = 2f;

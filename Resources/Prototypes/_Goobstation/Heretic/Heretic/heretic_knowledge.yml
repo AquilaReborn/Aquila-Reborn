@@ -526,6 +526,78 @@
   actionPrototypes:
   - ActionResetStarGazerConsciousness
 
+## moon path
+
+- type: hereticKnowledge # Aquila Change
+  id: MoonlightTroupe
+  path: Moon
+  stage: 1
+  ritualPrototypes:
+  - BladeMoon
+
+- type: hereticKnowledge # Aquila Change
+  id: GraspOfMoon
+  path: Moon
+  stage: 2
+  event: !type:EventHereticMoonPassive
+    addedComponents:
+    - type: MoonPassive
+
+- type: hereticKnowledge # Aquila Change
+  id: MindGate
+  path: Moon
+  stage: 3
+  actionPrototypes:
+  - ActionHereticMindGate
+
+- type: hereticKnowledge # Aquila Change
+  id: MarkOfMoon
+  path: Moon
+  stage: 4
+
+- type: hereticKnowledge # Aquila Change
+  id: LunarParade
+  path: Moon
+  stage: 5
+  actionPrototypes:
+  - ActionHereticLunarParade
+
+- type: hereticKnowledge # Aquila Change
+  id: MoonlightAmuletKnowledge
+  path: Moon
+  sideKnowledge: true
+  stage: 6
+  ritualPrototypes:
+  - MoonlightAmulet
+
+- type: hereticKnowledge # Aquila Change
+  id: MoonlightBlade
+  path: Moon
+  stage: 7
+
+- type: hereticKnowledge # Aquila Change
+  id: RingleadersRise
+  path: Moon
+  sideKnowledge: true
+  stage: 8
+  actionPrototypes:
+  - ActionHereticRingleadersRise
+
+- type: hereticKnowledge # Aquila Change
+  id: AscensionMoon
+  path: Moon
+  stage: 9
+  ritualPrototypes:
+  - AscensionMoon
+
+- type: hereticKnowledge # Aquila Change
+  id: TheLastAct
+  path: Moon
+  stage: 10
+  event: !type:HereticAscensionMoonEvent
+    addedComponents:
+    - type: MoonAscension
+
 ### side paths
 #- type: hereticKnowledge
 #  id: RitualOfKnowledge

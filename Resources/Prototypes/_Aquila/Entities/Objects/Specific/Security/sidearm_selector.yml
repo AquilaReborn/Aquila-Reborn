@@ -11,6 +11,7 @@
     possibleSets:
     - SecuritySidearmPistolSet
     - SecuritySidearmDisablerSet
+    - SecuritySidearmTerminusSet
 
 - type: selectableSet
   id: SecuritySidearmPistolSet
@@ -33,3 +34,13 @@
     state: base
   content:
   - WeaponDisabler
+
+- type: selectableSet
+  id: SecuritySidearmTerminusSet
+  name: selectable-set-security-sidearm-terminus-name
+  description: selectable-set-security-sidearm-terminus-desc
+  sprite:
+    sprite: _EinsteinEngines/Objects/Weapons/Melee/terminus.rsi
+    state: icon
+  content:
+  - Terminus

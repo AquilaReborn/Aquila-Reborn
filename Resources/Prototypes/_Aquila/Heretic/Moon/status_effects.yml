@@ -1,0 +1,68 @@
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectMoonMindGate
+  name: mind gate
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: Muted
+    - type: Deaf
+    - type: TemporaryBlindness
+  - type: Paracusia
+    minTimeBetweenIncidents: 2
+    maxTimeBetweenIncidents: 5
+    maxSoundDistance: 6
+    sounds:
+      collection: MoonAmuletLaugh
+  - type: SeeingRainbowsStatusEffect
+  - type: DrunkStatusEffect
+  - type: VisualHallucinationsStatusEffect
+    images:
+    - sprite: /Textures/Mobs/Ghosts/ghost_human.rsi
+      state: icon
+    - sprite: /Textures/_Aquila/Heretic/Moon/Effects/effects_moon.rsi
+      state: moon_insanity_overlay
+  - type: ForcedEmoteStatusEffect
+    emote: Laugh
+    interval: 3
+
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectMoonInsanity
+  name: lunar madness
+  components:
+  - type: SeeingRainbowsStatusEffect
+  - type: DrunkStatusEffect
+  - type: VisualHallucinationsStatusEffect
+    images:
+    - sprite: /Textures/_Aquila/Heretic/Moon/Effects/effects_moon.rsi
+      state: moon_insanity_overlay
+  - type: Paracusia
+    minTimeBetweenIncidents: 6
+    maxTimeBetweenIncidents: 12
+    maxSoundDistance: 7
+    sounds:
+      collection: MoonAmuletLaugh
+  - type: ForcedEmoteStatusEffect
+    emote: Laugh
+    interval: 8
+
+- type: entity
+  parent: StatusEffectMoonInsanity
+  id: StatusEffectMoonLunatic
+  components:
+  - type: Paracusia
+    minTimeBetweenIncidents: 4
+    maxTimeBetweenIncidents: 9
+    maxSoundDistance: 7
+    sounds:
+      collection: MoonAmuletLaugh
+
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectMoonGraspHide
+  name: moonlit anonymity
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: IdentityBlocker

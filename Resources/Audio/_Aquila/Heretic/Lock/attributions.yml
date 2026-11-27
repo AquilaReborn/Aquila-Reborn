@@ -1,0 +1,4 @@
+- files: ["ascend_lock.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station (ascend_knock.ogg), renamed for the Lock path"
+  source: "https://github.com/tgstation/tgstation/blob/master/sound/music/antag/heretic/ascend_knock.ogg"

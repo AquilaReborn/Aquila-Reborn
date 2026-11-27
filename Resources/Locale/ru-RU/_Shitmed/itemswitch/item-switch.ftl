@@ -65,3 +65,35 @@ itemswitch-component-state-tweezers = пинцет
 
 # CorvaxGoob-shitcode-localization-end
 
+# Aquila Change start
+itemswitch-component-state-both = оба
+itemswitch-component-state-all = всё
+itemswitch-component-state-cloak = плащ
+itemswitch-component-state-mantle = накидка
+itemswitch-component-state-wings = крылья
+itemswitch-component-state-cloakblack = чёрный плащ
+itemswitch-component-state-cloakwhite = белый плащ
+itemswitch-component-state-altcloak = альтернативный плащ
+itemswitch-component-state-auraless = без ауры
+itemswitch-component-state-aura = аура
+itemswitch-component-state-buckled = застёгнуто
+itemswitch-component-state-punishment = наказание
+itemswitch-component-state-beating = порка
+itemswitch-component-state-cloak-mantle = плащ и накидка
+itemswitch-component-state-cloak-wings = плащ и крылья
+itemswitch-component-state-mantle-wings = накидка и крылья
+itemswitch-component-state-cloakblack-mantle = чёрный плащ и накидка
+itemswitch-component-state-cloakwhite-mantle = белый плащ и накидка
+itemswitch-component-state-cloak-jewelry = плащ с украшениями
+itemswitch-component-state-cloak-sash = плащ с кушаком
+itemswitch-component-state-altcloak-mantle = альтернативный плащ и накидка
+itemswitch-component-state-cloakmantle = плащ и накидка
+itemswitch-component-state-cloakwings = плащ и крылья
+itemswitch-component-state-mantlewings = накидка и крылья
+itemswitch-component-state-cloakblackmantle = чёрный плащ и накидка
+itemswitch-component-state-cloakwhitemantle = белый плащ и накидка
+itemswitch-component-state-cloakJewelry = плащ с украшениями
+itemswitch-component-state-cloakSash = плащ с кушаком
+itemswitch-component-state-cloakSashL = плащ с кушаком слева
+itemswitch-component-state-altcloakmantle = альтернативный плащ и накидка
+# Aquila Change end

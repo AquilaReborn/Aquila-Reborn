@@ -10,7 +10,7 @@
   - type: HereticRitualRune
   - type: Sprite
     drawdepth: WallMountedItems
-    sprite: _Goobstation/Heretic/ritual_rune.rsi
+    sprite: _Aquila/Heretic/ritual_rune.rsi # Aquila Change
     layers:
     - state: overlay # Required so that you don't miss the rune when clicking on it
       color: "#FFFFFF01"
@@ -45,7 +45,7 @@
         acts: ["Destruction"]
       - !type:PlaySoundBehavior
         sound:
-          path: /Audio/_Goobstation/Heretic/runebreak.ogg
+          path: /Audio/Magic/disintegrate.ogg # Aquila Change
   - type: EnchantingTable # Goobstation
 
 - type: entity
@@ -58,7 +58,7 @@
   components:
   - type: Sprite
     drawdepth: WallMountedItems
-    sprite: _Goobstation/Heretic/ritual_rune.rsi
+    sprite: _Aquila/Heretic/ritual_rune.rsi # Aquila Change
     state: icon_drawanim
 
 - type: entity
@@ -69,7 +69,7 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
-    sprite: _Goobstation/Heretic/ritual_rune.rsi
+    sprite: _Aquila/Heretic/ritual_rune.rsi # Aquila Change
     state: icon_drawanim_cicatrix
 
 - type: entity
@@ -84,5 +84,5 @@
     lifetime: 1
   - type: Sprite
     drawdepth: WallMountedItems
-    sprite: _Goobstation/Heretic/ritual_rune.rsi
+    sprite: _Aquila/Heretic/ritual_rune.rsi # Aquila Change
     state: icon_ritualanim

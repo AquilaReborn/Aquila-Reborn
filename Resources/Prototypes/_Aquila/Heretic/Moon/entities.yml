@@ -1,0 +1,212 @@
+- type: entity
+  parent: HereticBladeBase
+  id: HereticBladeMoon
+  name: lunar blade
+  suffix: Moon
+  description: "A blade of pale iron, reflecting the truth of the earth: all join the troupe one day. A troupe bringing joy, carving smiles on their faces whether they want one or not."
+  components:
+  - type: HereticBlade
+    path: Moon
+  - type: Sprite
+    sprite: _Aquila/Heretic/Moon/Blades/blade_moon.rsi
+    state: icon
+  - type: Item
+    sprite: _Aquila/Heretic/Moon/Blades/blade_moon-inhand.rsi
+
+- type: entity
+  parent: ClothingOuterArmorHeretic
+  id: ClothingOuterArmorHereticMoon
+  name: resplendant regalia
+  suffix: Moon
+  description: "The confounding nature of this opulent garb turns and twists the sight. The viewer must come to a chilling revelation: what they see is as true as any other face."
+  components:
+  - type: Sprite
+    sprite: _Aquila/Heretic/Moon/Clothing/OuterClothing/moon_armor.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Aquila/Heretic/Moon/Clothing/OuterClothing/moon_armor.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodHereticMoon
+  - type: HereticClothing
+  - type: MoonRegalia
+
+- type: entity
+  parent: ClothingHeadHatHoodHeretic
+  id: ClothingHeadHatHoodHereticMoon
+  name: resplendant hood
+  suffix: Moon
+  description: A hood woven from the pale light of the moon. It hums with a thousand distant laughs.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Heretic/Moon/Clothing/Head/moon_hood.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Aquila/Heretic/Moon/Clothing/Head/moon_hood.rsi
+  - type: HereticClothing
+
+- type: entity
+  parent: [ ClothingNeckBase, BaseMagicalContraband ]
+  id: ClothingNeckMoonAmulet
+  name: moonlight amulet
+  suffix: MagicItem
+  description: A piece of the mind, the soul and the moon. Gazing into it makes your head spin and hear whispers of laughter and joy.
+  components:
+  - type: UnholyItem
+  - type: HereticMagicItem
+  - type: Sprite
+    sprite: _Aquila/Heretic/Moon/Clothing/Neck/moon_amulet.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Aquila/Heretic/Moon/Clothing/Neck/moon_amulet.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Holy: 1.25
+  - type: ThermalVision
+    thermalShader: null
+    isEquipment: true
+    isActive: true
+    color: white
+    drawOverlay: false
+    lightRadius: 0
+    toggleAction: null
+  - type: MoonAmulet
+
+- type: entity
+  parent: BaseBullet
+  id: ProjectileMoonParade
+  categories: [ HideSpawnMenu ]
+  name: lunar parade
+  components:
+  - type: Sprite
+    sprite: _Aquila/Heretic/Moon/Effects/lunar_parade.rsi
+    layers:
+    - state: lunar_parade
+      shader: unshaded
+  - type: Physics
+    bodyType: Dynamic
+    linearDamping: 0
+    angularDamping: 0
+  - type: Reflective
+    reflective: None
+  - type: Projectile
+    impactEffect: null
+    penetrate: true
+    deleteOnCollide: false
+    damage:
+      types:
+        Heat: 0
+    soundHit:
+      path: /Audio/_Aquila/Heretic/Moon/moon_parade_short.ogg
+    forceSound: true
+  - type: TimedDespawn
+    lifetime: 15
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.4
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: MoonParadeProjectile
+  - type: TileFrictionModifier
+    modifier: 0
+
+- type: entity
+  id: EffectMoonParadeImpact
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Aquila/Heretic/Moon/Effects/effects_moon.rsi
+    drawdepth: Effects
+    layers:
+    - state: ring_leader_effect
+      shader: unshaded
+  - type: TimedDespawn
+    lifetime: 1.5
+  - type: RandomRotation
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  id: EffectMoonRingleader
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Aquila/Heretic/Moon/Effects/effects_moon.rsi
+    layers:
+    - state: ring_leader_effect
+      shader: unshaded
+  - type: TimedDespawn
+    lifetime: 1.5
+  - type: RandomRotation
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  id: EffectMoonInsanity
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Aquila/Heretic/Moon/Effects/effects_moon.rsi
+    layers:
+    - state: moon_insanity_overlay
+      shader: unshaded
+  - type: TimedDespawn
+    lifetime: 1
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  id: EffectMoonAscensionInsanity
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Aquila/Heretic/Moon/Effects/effects_moon.rsi
+    drawdepth: Effects
+    noRot: true
+    layers:
+    - state: moon_insanity_overlay
+      shader: unshaded
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  id: EffectMoonAscensionAura
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Aquila/Heretic/Moon/Effects/effects_moon.rsi
+    drawdepth: Effects
+    noRot: true
+    color: "#FFFFFF80"
+    scale: 1.5, 1.5
+    layers:
+    - state: ring_leader_effect
+      shader: unshaded
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  id: EffectMoonAmuletPulse
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Aquila/Heretic/Moon/Effects/effects_moon.rsi
+    layers:
+    - state: moon_insanity_overlay
+      shader: unshaded
+  - type: TimedDespawn
+    lifetime: 0.8
+  - type: Tag
+    tags:
+      - HideContextMenu

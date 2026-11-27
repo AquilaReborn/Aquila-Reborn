@@ -10,7 +10,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Client.Traits;
 
-public sealed class ParacusiaSystem : SharedParacusiaSystem
+public sealed partial class ParacusiaSystem : SharedParacusiaSystem // Aquila Change
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
@@ -22,6 +22,7 @@ public sealed class ParacusiaSystem : SharedParacusiaSystem
         base.Initialize();
         SubscribeLocalEvent<ParacusiaComponent, ComponentStartup>(OnComponentStartup);
         SubscribeLocalEvent<ParacusiaComponent, LocalPlayerDetachedEvent>(OnPlayerDetach);
+        InitializeStatusSources(); // Aquila Change
     }
 
     public override void Update(float frameTime)
@@ -35,6 +36,7 @@ public sealed class ParacusiaSystem : SharedParacusiaSystem
             return;
 
         PlayParacusiaSounds(localPlayer);
+        PlayStatusParacusiaSounds(localPlayer); // Aquila Change
     }
 
     private void OnComponentStartup(EntityUid uid, ParacusiaComponent component, ComponentStartup args)
@@ -47,7 +49,7 @@ public sealed class ParacusiaSystem : SharedParacusiaSystem
         component.Stream = _audio.Stop(component.Stream);
     }
 
-    private void PlayParacusiaSounds(EntityUid uid)
+    private void PlayParacusiaSounds(EntityUid uid, EntityUid? listener = null) // Aquila Change
     {
         if (!TryComp<ParacusiaComponent>(uid, out var paracusia))
             return;
@@ -67,10 +69,11 @@ public sealed class ParacusiaSystem : SharedParacusiaSystem
                 _random.NextFloat(-paracusia.MaxSoundDistance, paracusia.MaxSoundDistance)
             );
 
-        var newCoords = Transform(uid).Coordinates.Offset(randomOffset);
+        var newCoords = Transform(listener ?? uid).Coordinates.Offset(randomOffset); // Aquila Change
 
         // Play the sound
-        paracusia.Stream = _audio.PlayStatic(paracusia.Sounds, uid, newCoords)?.Entity;
+        paracusia.Stream = _audio.Stop(paracusia.Stream); // Aquila Change
+        paracusia.Stream = _audio.PlayStatic(paracusia.Sounds, listener ?? uid, newCoords)?.Entity; // Aquila Change
     }
 
 }

@@ -1,0 +1,127 @@
+# Aquila Change: Path of Lock ascended forms
+
+- type: entity
+  parent: MobGhoulStalker
+  id: MobHereticLockAscendedStalker
+  categories: [ HideSpawnMenu ]
+  name: ascended flesh stalker
+  description: An abomination cobbled together from varied remains. Its appearance changes slightly every time you blink.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Heretic/Lock/Mobs/ascended_stalker.rsi
+    state: icon
+    scale: 1.5, 1.5
+  - type: Ghoul
+    totalHealth: 225
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 30
+        Piercing: 20
+        Structural: 60
+
+- type: entity
+  parent: MobGhoulProphet
+  id: MobHereticLockAscendedProphet
+  categories: [ HideSpawnMenu ]
+  name: ascended raw prophet
+  description: An abomination stitched together from a few severed arms and one swollen, orphaned eye.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Heretic/Lock/Mobs/ascended_raw_prophet.rsi
+    layers:
+    - map: [ "movement" ]
+      state: icon
+    scale: 1.5, 1.5
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: icon-move
+    noMovementLayers:
+      movement:
+        state: icon
+  - type: Ghoul
+    totalHealth: 100
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 24
+        Piercing: 16
+        Structural: 60
+  - type: ThermalVision
+    thermalShader: null
+    isActive: true
+    color: white
+    drawOverlay: false
+    lightRadius: 0
+    toggleAction: null
+
+- type: entity
+  parent: MobGhoulRustWalker
+  id: MobHereticLockAscendedRustWalker
+  categories: [ HideSpawnMenu ]
+  name: ascended rust walker
+  description: A grinding, clanking construct which leaches life from its surroundings with every armoured step.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Heretic/Lock/Mobs/ascended_rust_walker.rsi
+    layers:
+    - map: [ "movement" ]
+      state: icon
+    scale: 1.5, 1.5
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: icon-move
+    noMovementLayers:
+      movement:
+        state: icon
+  - type: Ghoul
+    totalHealth: 150
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 40
+        Ion: 20
+        Structural: 80
+  - type: ThermalVision
+    thermalShader: null
+    isActive: true
+    color: white
+    drawOverlay: false
+    lightRadius: 0
+    toggleAction: null
+
+- type: entity
+  parent: BaseMobGhoul
+  id: MobHereticLockAscendedAshSpirit
+  categories: [ HideSpawnMenu ]
+  name: ascended ash spirit
+  description: A manifestation of ash, trailing a perpetual cloud of short-lived cinders.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Heretic/Lock/Mobs/ascended_ash_spirit.rsi
+    state: icon
+    scale: 1.5, 1.5
+  - type: Ghoul
+    totalHealth: 115
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 30
+        Piercing: 20
+        Structural: 60
+  - type: ActionGrant
+    actions:
+    - ActionHereticJaunt
+    - ActionHereticVolcanoBlast
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 6
+    baseSprintSpeed: 6
+  - type: ThermalVision
+    thermalShader: null
+    isActive: true
+    color: white
+    drawOverlay: false
+    lightRadius: 0
+    toggleAction: null

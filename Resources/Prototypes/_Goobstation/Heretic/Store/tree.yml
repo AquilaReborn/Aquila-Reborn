@@ -24,6 +24,13 @@
   - text: store-heretic-path-side
     position: 0,1.35
     color: "#8a8aa0"
+  # Aquila Change
+  - text: store-heretic-path-lock
+    position: 5.25,-0.65
+    color: "#b48ae6"
+  - text: store-heretic-path-moon
+    position: 6.75,-0.65
+    color: "#8facb0"
   nodes:
     # ash
     HereticAshPath1:
@@ -187,6 +194,64 @@
     HereticCosmosPath9:
       position: 3.75,8
       parents: [ HereticCosmosPath8 ]
+    # Aquila Change start
+    # lock
+    KnowledgePathStartLock:
+      position: 5.25,0
+    HereticLockPath2:
+      position: 5.25,1
+      parents: [ KnowledgePathStartLock ]
+    HereticLockPath3:
+      position: 5.25,2
+      parents: [ HereticLockPath2 ]
+    HereticLockPath4:
+      position: 5.25,3
+      parents: [ HereticLockPath3 ]
+    HereticLockPath6:
+      position: 5.25,4
+      parents: [ HereticLockPath4 ]
+    HereticLockPath7:
+      position: 5.25,5
+      parents: [ HereticLockPath6 ]
+    HereticLockPath8:
+      position: 5.25,6
+      parents: [ HereticLockPath7 ]
+    HereticLockPath9:
+      position: 5.25,7
+      parents: [ HereticLockPath8 ]
+    HereticLockPath10:
+      position: 5.25,8
+      parents: [ HereticLockPath9 ]
+    # Aquila Change end
+    # Aquila Change start
+    # moon
+    HereticMoonPath1:
+      position: 6.75,0
+    HereticMoonPath2:
+      position: 6.75,1
+      parents: [ HereticMoonPath1 ]
+    HereticMoonPath3:
+      position: 6.75,2
+      parents: [ HereticMoonPath2 ]
+    HereticMoonPath4:
+      position: 6.75,3
+      parents: [ HereticMoonPath3 ]
+    HereticMoonPath5:
+      position: 6.75,4
+      parents: [ HereticMoonPath4 ]
+    HereticMoonPath6:
+      position: 6.75,5
+      parents: [ HereticMoonPath5 ]
+    HereticMoonPath7:
+      position: 6.75,6
+      parents: [ HereticMoonPath6 ]
+    HereticMoonPath8:
+      position: 6.75,7
+      parents: [ HereticMoonPath7 ]
+    HereticMoonPath9:
+      position: 6.75,8
+      parents: [ HereticMoonPath8 ]
+    # Aquila Change end
     # side knowledge
     HereticSidePath3Armor:
       position: -3,2

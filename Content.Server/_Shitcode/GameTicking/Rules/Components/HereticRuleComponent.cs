@@ -23,12 +23,13 @@ public sealed partial class HereticRuleComponent : Component
     public readonly List<ProtoId<StoreCategoryPrototype>> StoreCategories = new()
     {
         "HereticPathAsh",
-        //"HereticPathLock",
+        "HereticPathLock", // Aquila Change
         "HereticPathFlesh",
         "HereticPathBlade",
         "HereticPathVoid",
         "HereticPathRust",
         "HereticPathCosmos",
+        "HereticPathMoon", // Aquila Change
         "HereticPathSide",
     };
 }

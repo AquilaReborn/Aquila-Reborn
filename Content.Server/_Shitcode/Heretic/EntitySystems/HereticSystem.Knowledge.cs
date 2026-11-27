@@ -52,7 +52,7 @@ public sealed partial class HereticSystem
         {
             foreach (var ritual in data.RitualPrototypes)
             {
-                ent.Comp.KnownRituals.Add(_ritual.GetRitual(ritual));
+                AddKnownRitual(ent.Comp, ritual); // Aquila Change
             }
         }
 

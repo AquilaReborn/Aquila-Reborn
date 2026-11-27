@@ -1,0 +1,78 @@
+- type: entity
+  parent: BaseAction
+  id: ActionHereticMindGate
+  categories: [ HideSpawnMenu ]
+  name: Mind Gate
+  description: Tear open the mind of a heathen. Mutes, deafens, blinds, confuses them and floods their mind with hallucinations and brain damage. The victim laughs, and maddening laughter bursts around them. You suffer brain damage as well.
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 20
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Aquila/Heretic/Moon/abilities_moon.rsi
+      state: mind_gate
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Aquila/Heretic/Moon/mind_gate.ogg
+  - type: TargetAction
+    checkCanAccess: false
+    range: 6
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - MobState
+    canTargetSelf: false
+    event: !type:EventHereticMindGate
+  - type: HereticAction
+    requireMagicItem: false
+  - type: SpeakOnAction
+    sentence: heretic-speech-moon-mind-gate
+
+- type: entity
+  parent: BaseAction
+  id: ActionHereticLunarParade
+  categories: [ HideSpawnMenu ]
+  name: Lunar Parade
+  description: Send the parade forth. Anyone pierced by it is forced to join the troupe and suffers hallucinations.
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 30
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Aquila/Heretic/Moon/abilities_moon.rsi
+      state: moon_parade
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Aquila/Heretic/Moon/moon_parade.ogg
+  - type: TargetAction
+    checkCanAccess: false
+    range: 12
+  - type: WorldTargetAction
+    event: !type:EventHereticLunarParade
+  - type: HereticAction
+    requireMagicItem: true
+  - type: SpeakOnAction
+    sentence: heretic-speech-moon-parade
+
+- type: entity
+  parent: BaseAction
+  id: ActionHereticRingleadersRise
+  categories: [ HideSpawnMenu ]
+  name: Ringleaders Rise
+  description: Rise with the troupe. Illusory copies of you rise with you and attack everyone nearby.
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 60
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Aquila/Heretic/Moon/abilities_moon.rsi
+      state: moon_ringleader
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Aquila/Heretic/Moon/party_horn.ogg
+  - type: InstantAction
+    event: !type:EventHereticRingleadersRise
+  - type: HereticAction
+    requireMagicItem: true
+  - type: SpeakOnAction
+    sentence: heretic-speech-moon-ringleader

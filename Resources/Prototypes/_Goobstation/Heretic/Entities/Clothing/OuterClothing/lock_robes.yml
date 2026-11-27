@@ -1,0 +1,26 @@
+# Aquila Change: Path of Lock robe and hood
+
+- type: entity
+  parent: ClothingOuterArmorHeretic
+  id: ClothingOuterArmorHereticLock
+  suffix: Lock
+  components:
+  - type: Sprite
+    sprite: _Aquila/Heretic/Lock/Clothing/OuterClothing/lock_armor.rsi # Aquila Change: Lock robe sprite
+    state: icon
+  - type: Clothing
+    sprite: _Aquila/Heretic/Lock/Clothing/OuterClothing/lock_armor.rsi # Aquila Change: Lock robe sprite
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodHereticLock
+
+- type: entity
+  parent: ClothingHeadHatHoodHeretic
+  id: ClothingHeadHatHoodHereticLock
+  suffix: Lock
+  components:
+  - type: Sprite
+    sprite: _Aquila/Heretic/Lock/Clothing/Head/lock_hood.rsi # Aquila Change: Lock hood sprite
+    state: icon
+  - type: Clothing
+    sprite: _Aquila/Heretic/Lock/Clothing/Head/lock_hood.rsi # Aquila Change: Lock hood sprite

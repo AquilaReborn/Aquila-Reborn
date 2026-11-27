@@ -38,7 +38,7 @@ using Content.Shared.Damage.Components;
 
 namespace Content.Shared._Shitcode.Heretic.Systems;
 
-public abstract class SharedHereticBladeSystem : EntitySystem
+public abstract partial class SharedHereticBladeSystem : EntitySystem // Aquila Change
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
@@ -53,7 +53,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly SharedVoidCurseSystem _voidCurse = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedHereticSystem _heretic = default!;
+    [Dependency] protected readonly SharedHereticSystem _heretic = default!; // Aquila Change: protected for Lock blade supplement
 
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
@@ -68,6 +68,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
         SubscribeLocalEvent<HereticBladeComponent, GetLightAttackRangeEvent>(OnGetRange);
         SubscribeLocalEvent<HereticBladeComponent, LightAttackSpecialInteractionEvent>(OnSpecial);
         SubscribeLocalEvent<HereticBladeComponent, AfterInteractEvent>(OnAfterInteract);
+        InitializeMoonBladeChannel(); // Aquila Change
     }
 
     private void OnGetRange(Entity<HereticBladeComponent> ent, ref GetLightAttackRangeEvent args)
@@ -189,7 +190,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
         return true;
     }
 
-    public void ApplySpecialEffect(EntityUid performer, EntityUid target, MeleeHitEvent args)
+    public void ApplySpecialEffect(EntityUid performer, EntityUid target, MeleeHitEvent args, HereticBladeComponent? blade = null) // Aquila Change: blade
     {
         var path = HasComp<HereticBladeUserBonusDamageComponent>(performer) ? "Flesh" : null;
         if (_heretic.TryGetHereticComponent(performer, out var hereticComp, out _))
@@ -214,6 +215,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
                 break;
 
             case "Lock":
+                ApplyLockBladeEffect(target, performer, blade); // Aquila Change
                 break;
 
             case "Void":
@@ -229,6 +231,12 @@ public abstract class SharedHereticBladeSystem : EntitySystem
                     RaiseLocalEvent(target, ref ev);
                 }
                 break;
+
+            // Aquila Change start
+            case "Moon":
+                ApplyMoonBladeEffect(target, blade);
+                break;
+            // Aquila Change end
 
             default:
                 return;
@@ -278,6 +286,8 @@ public abstract class SharedHereticBladeSystem : EntitySystem
 
         _heretic.TryGetHereticComponent(args.User, out var hereticComp, out _);
 
+        ApplyMoonBladeChannel(args.User, args.HitEntities, ent); // Aquila Change
+
         if (TryComp(args.User, out HereticBladeUserBonusDamageComponent? bonus) &&
             (bonus.Path == null || bonus.Path == ent.Comp.Path))
         {
@@ -286,7 +296,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
             {
                 foreach (var hit in args.HitEntities)
                 {
-                    ApplySpecialEffect(args.User, hit, args);
+                    ApplySpecialEffect(args.User, hit, args, ent.Comp); // Aquila Change: blade
                 }
             }
         }
@@ -357,7 +367,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
                 _combatMark.ApplyMarkEffect(hit, mark, ent.Comp.Path, args.User, hereticComp);
 
             if (hereticComp.PathStage >= 7)
-                ApplySpecialEffect(args.User, hit, args);
+                ApplySpecialEffect(args.User, hit, args, ent.Comp); // Aquila Change: blade
         }
 
         // blade path exclusive.
@@ -378,6 +388,8 @@ public abstract class SharedHereticBladeSystem : EntitySystem
     protected virtual void ApplyAshBladeEffect(EntityUid target) { }
 
     protected virtual void ApplyFleshBladeEffect(EntityUid target) { }
+
+    protected virtual void ApplyLockBladeEffect(EntityUid target, EntityUid performer, HereticBladeComponent? blade) { } // Aquila Change
 
     protected virtual void RandomTeleport(EntityUid user, EntityUid blade, RandomTeleportComponent comp) { }
 }

@@ -1,0 +1,201 @@
+# Aquila Change
+
+- type: listing
+  id: HereticMoonPath1
+  name: knowledge-path-moon-s1-name
+  description: knowledge-path-moon-s1-desc
+  icon: { sprite: _Aquila/Heretic/Moon/Blades/blade_moon.rsi, state: icon }
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - MoonlightTroupe
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathMoon
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 0
+    # add every path here because you shouldn't be able to buy more starter knowledge
+    blacklist:
+    - Ash
+    - Blade
+    - Flesh
+    - Lock
+    - Void
+    - Rust
+    - Cosmos
+    - Moon
+
+- type: listing
+  id: HereticMoonPath2
+  name: knowledge-path-moon-s2-name
+  description: knowledge-path-moon-s2-desc
+  icon: { sprite: _Aquila/Heretic/Moon/abilities_moon.rsi, state: grasp_moon }
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - GraspOfMoon
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathMoon
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 1
+    whitelist:
+    - Moon
+
+- type: listing
+  id: HereticMoonPath3
+  name: knowledge-path-moon-s3-name
+  description: knowledge-path-moon-s3-desc
+  icon: { sprite: _Aquila/Heretic/Moon/abilities_moon.rsi, state: mind_gate }
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - MindGate
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathMoon
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 2
+    whitelist:
+    - Moon
+
+- type: listing
+  id: HereticMoonPath4
+  name: knowledge-path-moon-s4-name
+  description: knowledge-path-moon-s4-desc
+  icon: { sprite: _Aquila/Heretic/Moon/Effects/effects_moon.rsi, state: emark_moon }
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - MarkOfMoon
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathMoon
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 3
+    whitelist:
+    - Moon
+
+- type: listing
+  id: HereticMoonPath5
+  name: knowledge-path-moon-s5-name
+  description: knowledge-path-moon-s5-desc
+  icon: { sprite: _Aquila/Heretic/Moon/abilities_moon.rsi, state: moon_parade }
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - LunarParade
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathMoon
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 4
+    whitelist:
+    - Moon
+
+# side
+- type: listing
+  id: HereticMoonPath6
+  name: knowledge-path-moon-s6-name
+  description: knowledge-path-moon-s6-desc
+  icon: { sprite: _Aquila/Heretic/Moon/Clothing/Neck/moon_amulet.rsi, state: icon }
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - MoonlightAmuletKnowledge
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathMoon
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 5
+    whitelist:
+    - Moon
+
+- type: listing
+  id: HereticMoonPath7
+  name: knowledge-path-moon-s7-name
+  description: knowledge-path-moon-s7-desc
+  icon: { sprite: _Aquila/Heretic/Moon/abilities_moon.rsi, state: blade_upgrade_moon }
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - MoonlightBlade
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathMoon
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 6
+    whitelist:
+    - Moon
+
+# side
+- type: listing
+  id: HereticMoonPath8
+  name: knowledge-path-moon-s8-name
+  description: knowledge-path-moon-s8-desc
+  icon: { sprite: _Aquila/Heretic/Moon/abilities_moon.rsi, state: moon_ringleader }
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - RingleadersRise
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathMoon
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 7
+    whitelist:
+    - Moon
+
+- type: listing
+  id: HereticMoonPath9
+  name: knowledge-path-moon-s9-name
+  description: knowledge-path-moon-s9-desc
+  icon: { sprite: _Aquila/Heretic/Moon/abilities_moon.rsi, state: moon_smile }
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - AscensionMoon
+  cost:
+    KnowledgePoint: 3
+  categories:
+  - HereticPathMoon
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    requiresCanAscend: true
+    stage: 8
+    whitelist:
+    - Moon

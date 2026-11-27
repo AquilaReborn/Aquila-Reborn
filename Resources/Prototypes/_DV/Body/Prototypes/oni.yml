@@ -29,7 +29,7 @@
         stomach: OrganOniStomach
         liver: OrganOniLiver
         kidneys: OrganHumanKidneys
-        butt: Butt # Goob
+#        butt: Butt # Goob # Aquila Change: Butt organ removed
     right arm:
       part: RightArmOni
       connections:

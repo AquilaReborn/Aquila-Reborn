@@ -35,7 +35,7 @@ public sealed partial class HereticAbilitySystem
 
         _ui.CloseUi(ent.Owner, key);
 
-        if (!HasComp<GhoulComponent>(user))
+        if (!CanShapeshift(user)) // Aquila Change
             return;
 
         if (!TryComp(ent, out ActionComponent? action) || !_actions.ValidAction((ent, action)))
@@ -57,7 +57,8 @@ public sealed partial class HereticAbilitySystem
 
         // This shouldn't break because ghoul comp should be copied on polymorph (it copies max health),
         // change this behavior if this ability is ever given to heretic
-        if (TryComp(user, out DamageableComponent? userDamage) &&
+        if (CanTransferPolymorphDamage(args.ProtoId) && // Aquila Change
+            TryComp(user, out DamageableComponent? userDamage) &&
             TryComp(polymorphed.Value, out DamageableComponent? polymorphedDamage))
             _dmg.SetDamage((polymorphed.Value, polymorphedDamage), userDamage.Damage);
 

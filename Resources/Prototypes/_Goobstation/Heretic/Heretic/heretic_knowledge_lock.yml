@@ -1,0 +1,69 @@
+# Aquila Change: full Path of Lock knowledge set
+
+### lock path
+- type: hereticKnowledge
+  id: StewardsSecret
+  path: Lock
+  stage: 1
+  ritualPrototypes:
+  - BladeLock
+
+- type: hereticKnowledge
+  id: GraspOfLock
+  path: Lock
+  stage: 2
+
+- type: hereticKnowledge
+  id: KeyKeepersBurden
+  path: Lock
+  stage: 3
+  ritualPrototypes:
+  - KeyKeepersBurden
+
+- type: hereticKnowledge
+  id: MarkOfLock
+  path: Lock
+  stage: 4
+
+- type: hereticKnowledge
+  id: ConciergesRite
+  path: Lock
+  stage: 5
+  ritualPrototypes:
+  - ConciergesRite
+
+- type: hereticKnowledge
+  id: BurglarsFinesse
+  path: Lock
+  stage: 6
+  actionPrototypes:
+  - ActionHereticBurglarsFinesse
+
+- type: hereticKnowledge
+  id: OpeningBlade
+  path: Lock
+  stage: 7
+
+- type: hereticKnowledge
+  id: CaretakersLastRefuge
+  path: Lock
+  stage: 8
+  actionPrototypes:
+  - ActionHereticCaretakersRefuge
+
+- type: hereticKnowledge
+  id: AscensionLockRite
+  path: Lock
+  stage: 9
+  ritualPrototypes:
+  - AscensionLock
+
+- type: hereticKnowledge
+  id: UnlockTheLabyrinth
+  path: Lock
+  stage: 10
+  event: !type:HereticAscensionLockEvent
+    addedComponents:
+    - type: ActionGrant
+      actions:
+      - ActionHereticLockAscendedShapeshift

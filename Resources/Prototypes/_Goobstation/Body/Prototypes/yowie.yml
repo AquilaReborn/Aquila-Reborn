@@ -29,7 +29,7 @@
         stomach: OrganYowieStomach
         liver: OrganYowieLiver
         kidneys: OrganHumanKidneys
-        butt: Butt
+#        butt: Butt # Aquila Change: Butt organ removed
     right arm:
       part: RightArmYowie
       connections:

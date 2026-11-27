@@ -40,3 +40,8 @@
   id: HereticPathSide
   name: store-heretic-path-side
   priority: 999 # lowest possible
+
+- type: storeCategory # Aquila Change
+  id: HereticPathMoon
+  name: store-heretic-path-moon
+  priority: 0

@@ -1,0 +1,77 @@
+# Aquila Change: Path of Lock structures
+
+- type: entity
+  parent: BasePortal
+  id: HereticLockPortal
+  categories: [ HideSpawnMenu ]
+  name: crack in reality
+  description: A crack in space, impossibly deep and painful to the eyes. Definitely not safe.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Heretic/Lock/lock_portal.rsi
+    layers:
+    - state: icon
+  - type: PointLight
+    color: "#00ff00"
+    radius: 3
+    energy: 1
+  - type: Portal
+    canTeleportToOtherMaps: false
+
+- type: entity
+  id: HereticLabyrinthBarrier
+  categories: [ HideSpawnMenu ]
+  name: labyrinth pages
+  description: A field of papers flying in the air, repulsing heathens with impossible force.
+  components:
+  - type: Transform
+    anchored: true
+  - type: InteractionOutline
+  - type: Clickable
+  - type: Physics
+    bodyType: Static
+  - type: Sprite
+    sprite: _Aquila/Heretic/Lock/labyrinth_barrier.rsi
+    state: icon
+  - type: Fixtures
+    fixtures:
+      barrier:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        hard: false
+        layer:
+        - MidImpassable
+        - BulletImpassable
+        mask:
+        - FullTileMask
+  - type: LabyrinthBarrier
+  - type: TimedDespawn
+    lifetime: 8
+
+- type: entity
+  id: HereticLockRift
+  categories: [ HideSpawnMenu ]
+  name: tear in reality
+  description: It stares back. There is no reason to remain. Run.
+  components:
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    sprite: _Aquila/Heretic/Lock/lock_rift.rsi
+    state: icon
+    noRot: true
+    color: "#7b2fbe"
+  - type: PointLight
+    color: "#7b2fbe"
+    radius: 6
+    energy: 3
+  - type: TimedSpawner
+    prototypes:
+    - MobGhoulStalker
+    - MobGhoulProphet
+    - MobGhoulFireShark
+    - MobGhoulRustWalker
+    intervalSeconds: 30
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1

@@ -17,6 +17,10 @@ public sealed partial class RitualRustAscendBehavior : RitualSacrificeBehavior {
 
 public sealed partial class RitualCosmosAscendBehavior : RitualSacrificeBehavior { }
 
+// Aquila Change start
+public sealed partial class RitualMoonAscendBehavior : RitualSacrificeBehavior { } // Aquila Change
+// Aquila Change end
+
 [Virtual] public partial class RitualSacrificeBehavior : RitualCustomBehavior
 {
     public override bool Execute(RitualData args, out string? outstr)

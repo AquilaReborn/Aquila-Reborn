@@ -1,0 +1,59 @@
+# Aquila Change: full Path of Lock rituals
+
+### lock path
+- type: hereticRitual
+  id: BladeLock
+  locName: knowledge-path-lock-s1-name
+  locDesc: knowledge-path-lock-s1-desc
+  icon:
+    sprite: _Goobstation/Heretic/Blades/blade_lock.rsi
+    state: icon
+  requiredTags:
+    Knife: 1
+    Crowbar: 1
+  output:
+    HereticBladeLock: 1
+  limit: 2
+
+- type: hereticRitual
+  id: KeyKeepersBurden
+  locName: knowledge-path-lock-s3-name
+  locDesc: knowledge-path-lock-s3-desc
+  icon:
+    sprite: Objects/Misc/id_cards.rsi
+    state: default
+  requiredTags:
+    WhitelistChameleonIdCard: 1
+    PartBase: 1
+    ClothMade: 1
+  output:
+    EldritchCardHeretic: 1
+
+- type: hereticRitual
+  id: ConciergesRite
+  locName: knowledge-path-lock-s5-name
+  locDesc: knowledge-path-lock-s5-desc
+  icon:
+    sprite: _Goobstation/Heretic/book.rsi
+    state: icon
+  requiredTags:
+    Crayon: 1
+    Wooden: 1
+    Multitool: 1
+  output:
+    LabyrinthHandbookHeretic: 1
+
+- type: hereticRitual
+  id: AscensionLock
+  locName: knowledge-path-lock-s9-name
+  locDesc: knowledge-path-lock-s9-desc
+  icon:
+    sprite: _Goobstation/Heretic/abilities_heretic.rsi
+    state: labyrinth
+  customBehaviors:
+  - !type:RitualCanAscend
+  - !type:RitualLockAscendBehavior
+    min: 3
+    max: 3
+  outputKnowledge: UnlockTheLabyrinth
+  outputEvent: !type:EventHereticAscension

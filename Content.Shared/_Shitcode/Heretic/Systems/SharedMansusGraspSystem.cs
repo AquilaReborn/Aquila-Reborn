@@ -35,7 +35,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Shitcode.Heretic.Systems;
 
-public abstract class SharedMansusGraspSystem : EntitySystem
+public abstract partial class SharedMansusGraspSystem : EntitySystem // Aquila Change
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IComponentFactory _compFactory = default!;
@@ -153,9 +153,9 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                         _door.SetBoltsDown((target, doorBolt), false);
 
                     _door.StartOpening(target, door);
-                    _audio.PlayPredicted(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/hereticknock.ogg"),
-                        target,
-                        performer);
+                    if (_net.IsServer) // Aquila Change
+                        _audio.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/hereticknock.ogg"),
+                            target); // Aquila Change
                     break;
                 }
 
@@ -232,6 +232,12 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                         _starMark.SpawnCosmicField(Transform(performer).Coordinates, heretic.PathStage);
                     break;
                 }
+            // Aquila Change start
+            case "Moon":
+                ApplyMoonGrasp(performer, heretic, target);
+                break;
+            // Aquila Change end
+
             default:
                 return true;
         }

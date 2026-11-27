@@ -1,0 +1,17 @@
+- type: entity
+  parent: BaseGameRule
+  id: MoonLunaticRule
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: MoonLunaticRule
+  - type: AntagSelection
+    selectionTime: PostPlayerSpawn
+    agentName: moon-lunatic-roundend-name
+    definitions:
+    - min: 0
+      max: 0
+      playerRatio: 1
+      multiAntagSetting: All
+      allowNonHumans: true
+      mindRoles:
+      - MindRoleMoonLunatic

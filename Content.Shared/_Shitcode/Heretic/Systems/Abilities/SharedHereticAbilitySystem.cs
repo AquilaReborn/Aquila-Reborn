@@ -122,6 +122,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
         SubscribeVoid();
         SubscribeFlesh();
         SubscribeSide();
+        SubscribeMoon(); // Aquila Change
 
         SubscribeLocalEvent<HereticActionComponent, BeforeCastSpellEvent>(OnBeforeCast);
     }

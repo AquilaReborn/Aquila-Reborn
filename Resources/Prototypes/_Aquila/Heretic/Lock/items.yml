@@ -1,0 +1,38 @@
+# Aquila Change: Path of Lock items
+
+- type: entity
+  parent: [ BaseItem, BaseMagicalContraband ]
+  id: EldritchCardHeretic
+  name: eldritch card
+  suffix: Lock
+  description: A plastic rectangle cursed with the power of keys. It remembers every door it has opened.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Heretic/Lock/eldritch_card.rsi
+    state: icon
+  - type: Access
+  - type: IdCard
+    nameLocId: heretic-lock-card-name
+  - type: Tag
+    tags:
+    - WhitelistChameleonIdCard
+  - type: EldritchCard
+
+- type: entity
+  parent: [ BaseItem, BaseMagicalContraband ]
+  id: LabyrinthHandbookHeretic
+  name: labyrinth handbook
+  suffix: Lock
+  description: A handbook of the Locked Labyrinth's laws, penned on an unknown substance. Its pages strain against the binding, eager to lash out.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Heretic/Lock/labyrinth_handbook.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: ActionGrant
+    actions:
+    - ActionHereticLabyrinthBarrier
+  - type: ItemActionGrant
+    actions:
+    - ActionHereticLabyrinthBarrier

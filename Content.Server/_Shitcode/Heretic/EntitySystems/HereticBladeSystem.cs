@@ -10,7 +10,7 @@ using Content.Goobstation.Shared.Teleportation.Components;
 
 namespace Content.Server.Heretic.EntitySystems;
 
-public sealed class HereticBladeSystem : SharedHereticBladeSystem
+public sealed partial class HereticBladeSystem : SharedHereticBladeSystem // Aquila Change: partial
 {
     [Dependency] private readonly FlammableSystem _flammable = default!;
     [Dependency] private readonly BloodstreamSystem _blood = default!;

@@ -1,0 +1,11 @@
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleMoonLunatic
+  name: Moon Lunatic Role
+  components:
+  - type: MindRole
+    antagPrototype: MoonLunatic
+    exclusiveAntag: false
+    roleType: Familiar
+    subtype: role-subtype-moon-lunatic
+  - type: MoonLunaticRole

@@ -1,0 +1,97 @@
+# Aquila Change: Path of Lock actions
+
+- type: entity
+  parent: BaseAction
+  id: ActionHereticBurglarsFinesse
+  categories: [ HideSpawnMenu ]
+  name: Burglar's Finesse
+  description: Pull a random item out of the target's backpack straight into your hand.
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 40
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: bulglar_finesse
+  - type: TargetAction
+    checkCanAccess: false
+    range: 6
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - MobState
+    canTargetSelf: false
+    event: !type:EventHereticBulglarFinesse
+  - type: HereticAction
+    requireMagicItem: true
+
+- type: entity
+  parent: BaseAction
+  id: ActionHereticCaretakersRefuge
+  categories: [ HideSpawnMenu ]
+  name: Caretaker's Last Refuge
+  description: Slip out of your body as a translucent haze. You cannot act while inside, and other minds nearby prevent the escape.
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 60
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: last_refuge
+  - type: InstantAction
+    event: !type:EventHereticLastRefugee
+  - type: HereticAction
+    requireMagicItem: true
+
+- type: entity
+  parent: BaseAction
+  id: ActionHereticLabyrinthBarrier
+  categories: [ HideSpawnMenu ]
+  name: Labyrinth Barrier
+  description: Materialize a barrier of pages. Only stewards and servants of the Labyrinth can walk through it.
+  components:
+  - type: LimitedCharges
+    maxCharges: 5
+  - type: AutoRecharge
+    rechargeDuration: 15
+  - type: Action
+    checkCanInteract: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: labyrinth
+  - type: TargetAction
+    checkCanAccess: false
+    range: 6
+  - type: WorldTargetAction
+    event: !type:EventHereticLabyrinthBarrier
+  - type: HereticAction
+    requireMagicItem: false
+
+- type: entity
+  parent: BaseAction
+  id: ActionHereticLockAscendedShapeshift
+  categories: [ HideSpawnMenu ]
+  name: Ascended Shapechange
+  description: Take on the form of an eldritch creature of the Labyrinth, gaining its abilities. If your form dies, you do not.
+  components:
+  - type: Action
+    useDelay: 20
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: shapeshift
+  - type: InstantAction
+    event: !type:EventHereticShapeshift
+  - type: ShapeshiftAction
+    polymorphs:
+    - HereticLockAscendedStalker
+    - HereticLockAscendedProphet
+    - HereticLockAscendedRustWalker
+    - HereticLockAscendedAshSpirit
+  - type: UserInterface
+    interfaces:
+      enum.HereticShapeshiftUiKey.Key:
+        type: HereticShapeshiftBoundUserInterface

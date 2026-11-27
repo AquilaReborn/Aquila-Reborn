@@ -26,7 +26,7 @@ using Content.Shared.Stunnable;
 
 namespace Content.Server.Heretic.EntitySystems;
 
-public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
+public sealed partial class HereticCombatMarkSystem : SharedHereticCombatMarkSystem // Aquila Change
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedDoorSystem _door = default!;
@@ -131,6 +131,12 @@ public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
 
                 _stun.TryUpdateParalyzeDuration(target, cosmicMark.ParalyzeTime);
                 break;
+
+            // Aquila Change start
+            case "Moon":
+                ApplyMoonMarkEffect(target, mark);
+                break;
+            // Aquila Change end
 
             default:
                 return false;

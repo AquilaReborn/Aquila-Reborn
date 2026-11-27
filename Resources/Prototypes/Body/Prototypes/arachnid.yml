@@ -34,7 +34,7 @@
         stomach: OrganArachnidStomach
         liver: OrganArachnidLiver
         kidneys: OrganArachnidKidneys
-        butt: Butt # Goob
+#        butt: Butt # Goob # Aquila Change: Butt organ removed
     right arm:
       part: RightArmArachnid
       connections:

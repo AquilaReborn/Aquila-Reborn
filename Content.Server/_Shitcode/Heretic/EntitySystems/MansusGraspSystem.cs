@@ -30,7 +30,7 @@ using Robust.Shared.Map;
 
 namespace Content.Server.Heretic.EntitySystems;
 
-public sealed class MansusGraspSystem : SharedMansusGraspSystem
+public sealed partial class MansusGraspSystem : SharedMansusGraspSystem // Aquila Change
 {
     [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;

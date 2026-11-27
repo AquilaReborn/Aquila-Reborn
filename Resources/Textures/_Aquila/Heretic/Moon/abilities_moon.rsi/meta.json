@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from TG station (moon path), ported by Aquila",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "mind_gate"
+    },
+    {
+      "name": "moon_parade"
+    },
+    {
+      "name": "moon_ringleader",
+      "delays": [
+        [0.15, 0.15, 0.15, 0.1, 0.1]
+      ]
+    },
+    {
+      "name": "moon_smile"
+    },
+    {
+      "name": "blade_upgrade_moon"
+    },
+    {
+      "name": "grasp_moon"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+- files: ["ascend_moon.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station"
+  source: "https://github.com/tgstation/tgstation/tree/master/sound/music/antag/heretic"
+
+- files: ["moon_parade.ogg", "moon_parade_short.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station"
+  source: "https://github.com/tgstation/tgstation/tree/master/sound/effects"
+
+- files: ["mind_gate.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station (curse.ogg)"
+  source: "https://github.com/tgstation/tgstation/tree/master/sound/effects/magic"
+
+- files: ["amulet_laugh_1.ogg", "amulet_laugh_2.ogg", "amulet_laugh_3.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station"
+  source: "https://github.com/tgstation/tgstation/tree/master/sound/items/sitcom_laugh"
+
+- files: ["party_horn.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station"
+  source: "https://github.com/tgstation/tgstation/tree/master/sound/items"
