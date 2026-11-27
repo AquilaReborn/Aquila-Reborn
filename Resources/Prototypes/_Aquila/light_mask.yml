@@ -3,5 +3,5 @@
   maskPath: /Textures/_Aquila/Effects/LightMasks/pda_cone.png
   lightCones:
   - direction: 0
-    innerWidth: 30
-    outerWidth: 60
+    innerWidth: 39
+    outerWidth: 78

@@ -71,7 +71,7 @@
   - type: UnpoweredFlashlight
   - type: PointLight
     enabled: false
-    radius: 2.7 # Aquila Change
+    radius: 3.2 # Aquila Change
     falloff: 3
     softness: 5
     autoRot: true
