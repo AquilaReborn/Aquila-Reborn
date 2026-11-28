@@ -26,7 +26,7 @@ public sealed class DebrainedSystem : EntitySystem
         SubscribeLocalEvent<DebrainedComponent, ComponentInit>(OnComponentInit);
         SubscribeLocalEvent<DebrainedComponent, ComponentRemove>(OnComponentRemove);
         SubscribeLocalEvent<DebrainedComponent, SpeakAttemptEvent>(OnSpeakAttempt);
-        SubscribeLocalEvent<DebrainedComponent, StandAttemptEvent>(OnStandAttempt);
+        // SubscribeLocalEvent<DebrainedComponent, StandAttemptEvent>(OnStandAttempt); // Aquila Change
     }
 
     private void OnComponentInit(EntityUid uid, DebrainedComponent _, ComponentInit args)
@@ -56,8 +56,10 @@ public sealed class DebrainedSystem : EntitySystem
         args.Cancel();
     }
 
-    private void OnStandAttempt(EntityUid uid, DebrainedComponent _, StandAttemptEvent args)
-    {
-        args.Cancel();
-    }
+    // Aquila Change start
+    // private void OnStandAttempt(EntityUid uid, DebrainedComponent _, StandAttemptEvent args)
+    // {
+    //     args.Cancel();
+    // }
+    // Aquila Change end
 }

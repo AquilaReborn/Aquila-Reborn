@@ -39,7 +39,7 @@ public sealed partial class MoonParadeProjectileComponent : Component
     /// Длительность зеркального раскола экрана жертвы.
     /// </summary>
     [DataField]
-    public TimeSpan FractureDuration = TimeSpan.FromSeconds(4);
+    public TimeSpan FractureDuration = TimeSpan.FromSeconds(8);
 
     /// <summary>
     /// Прототип визуального эффекта на жертве.

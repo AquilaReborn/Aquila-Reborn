@@ -19,4 +19,16 @@ public sealed partial class MoonParadeFractureStatusEffectComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan FadeOut = TimeSpan.FromSeconds(0.3);
+
+    /// <summary>
+    /// Длительность короткой вспышки на экране в момент попадания парада.
+    /// </summary>
+    [DataField]
+    public TimeSpan FlashDuration = TimeSpan.FromSeconds(0.2);
+
+    /// <summary>
+    /// Насколько ярко вспыхивает экран в момент попадания, от нуля до единицы.
+    /// </summary>
+    [DataField]
+    public float FlashStrength = 0.6f;
 }

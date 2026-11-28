@@ -24,6 +24,9 @@ public sealed class MoonParadeFractureOverlay : Overlay
     private readonly ShaderInstance _shader;
     private readonly SharedContainerSystem _containers;
     private float _intensity;
+    private float _flash;
+    private TimeSpan _flashStart;
+    private TimeSpan? _lastEndTime;
 
     /// <summary>
     /// Эффект применяется к мировой сцене до отрисовки интерфейса.
@@ -49,13 +52,19 @@ public sealed class MoonParadeFractureOverlay : Overlay
     protected override bool BeforeDraw(in OverlayDrawArgs args)
     {
         _intensity = 0f;
+        _flash = 0f;
         if (_player.LocalEntity is not { } target ||
             !_entities.TryGetComponent<EyeComponent>(target, out var eye) || args.Viewport.Eye != eye.Eye ||
             !_containers.TryGetContainer(target,
                 StatusEffectContainerComponent.ContainerId, out var container))
+        {
+            _flashStart = default;
+            _lastEndTime = null;
             return false;
+        }
 
         var now = _timing.CurTime;
+        var active = false;
         foreach (var uid in container.ContainedEntities)
         {
             if (!_entities.TryGetComponent<MoonParadeFractureStatusEffectComponent>(uid, out var effect) ||
@@ -64,27 +73,51 @@ public sealed class MoonParadeFractureOverlay : Overlay
                 now < status.StartEffectTime || status.EndEffectTime is { } end && now >= end)
                 continue;
 
+            active = true;
             var fadeIn = effect.FadeIn <= TimeSpan.Zero ? 1f :
                 (float) Math.Clamp((now - visuals.StartedAt).TotalSeconds / effect.FadeIn.TotalSeconds, 0, 1);
             var fadeOut = status.EndEffectTime is not { } finish || effect.FadeOut <= TimeSpan.Zero ? 1f :
                 (float) Math.Clamp((finish - now).TotalSeconds / effect.FadeOut.TotalSeconds, 0, 1);
             _intensity = Math.Max(_intensity, Math.Min(fadeIn, fadeOut));
+
+            if (_lastEndTime != status.EndEffectTime)
+            {
+                _lastEndTime = status.EndEffectTime;
+                _flashStart = now;
+            }
+
+            var flashDuration = effect.FlashDuration <= TimeSpan.Zero ? TimeSpan.FromSeconds(0.05) : effect.FlashDuration;
+            var flashElapsed = Math.Clamp((float) ((now - _flashStart).TotalSeconds / flashDuration.TotalSeconds), 0f, 1f);
+            var flashStrength = Math.Clamp(effect.FlashStrength, 0f, 1f);
+            _flash = Math.Max(_flash, flashStrength * (1f - flashElapsed));
         }
 
-        return _intensity > 0f;
+        if (!active)
+        {
+            _flashStart = default;
+            _lastEndTime = null;
+            _flash = 0f;
+            return false;
+        }
+
+        return _intensity > 0f || _flash > 0f;
     }
 
     protected override void Draw(in OverlayDrawArgs args)
     {
-        if (ScreenTexture == null)
-            return;
-
         var handle = args.WorldHandle;
-        _shader.SetParameter("SCREEN_TEXTURE", ScreenTexture);
-        _shader.SetParameter("intensity", _intensity);
-        handle.UseShader(_shader);
-        handle.DrawRect(args.WorldBounds, Color.White);
+        if (ScreenTexture != null)
+        {
+            _shader.SetParameter("SCREEN_TEXTURE", ScreenTexture);
+            _shader.SetParameter("intensity", _intensity);
+            handle.UseShader(_shader);
+            handle.DrawRect(args.WorldBounds, Color.White);
+        }
+
         handle.UseShader(null);
+
+        if (_flash > 0f)
+            handle.DrawRect(args.WorldBounds, new Color(1f, 1f, 1f, _flash));
     }
 
     protected override void DisposeBehavior()

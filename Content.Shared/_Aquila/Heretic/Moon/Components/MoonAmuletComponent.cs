@@ -1,6 +1,5 @@
 using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared._Aquila.Heretic.Moon.Systems;
-using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
@@ -25,6 +24,18 @@ public sealed partial class MoonAmuletComponent : Component
     /// </summary>
     [DataField]
     public float ConversionThreshold = 20f;
+
+    /// <summary>
+    /// Сколько раз этот амулет может обратить жертву за всё время.
+    /// </summary>
+    [DataField]
+    public int MaxConversions = 2;
+
+    /// <summary>
+    /// Сколько раз этот амулет уже обратил жертву.
+    /// </summary>
+    [ViewVariables]
+    public int Conversions;
 
     /// <summary>
     /// Амулет, который получает обращённый лунатик.
@@ -68,16 +79,16 @@ public sealed partial class MoonAmuletComponent : Component
     public TimeSpan StunDuration = TimeSpan.FromSeconds(2);
 
     /// <summary>
-    /// Звук приветствия, который слышит только обращённый лунатик.
-    /// </summary>
-    [DataField]
-    public SoundSpecifier LaughSound = new SoundCollectionSpecifier("MoonAmuletLaugh");
-
-    /// <summary>
     /// Интервал между применениями амулета.
     /// </summary>
     [DataField]
     public TimeSpan UseDelay = TimeSpan.FromSeconds(4);
+
+    /// <summary>
+    /// Сколько длится обращение цели со щитом разума.
+    /// </summary>
+    [DataField]
+    public TimeSpan MindShieldConversionTime = TimeSpan.FromSeconds(2);
 
     /// <summary>
     /// Время, до которого амулет нельзя применить снова.

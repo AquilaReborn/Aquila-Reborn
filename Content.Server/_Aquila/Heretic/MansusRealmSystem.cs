@@ -602,6 +602,15 @@ public sealed class MansusRealmSystem : EntitySystem
 
         _status.TryAddStatusEffectDuration(victim, ForcedSleep, realm.SleepDuration);
 
+        SendReturnMessage(victim);
+    }
+
+    /// <summary>
+    /// Отправляет жертве в чат сообщение о возвращении из Мансуса.
+    /// </summary>
+    /// <param name="victim">Кому отправляем сообщение.</param>
+    public void SendReturnMessage(EntityUid victim)
+    {
         if (!_player.TryGetSessionByEntity(victim, out var session))
             return;
 

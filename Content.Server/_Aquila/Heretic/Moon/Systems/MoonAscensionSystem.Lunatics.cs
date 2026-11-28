@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Goobstation.Common.Religion;
 using Content.Server._Aquila.Antags.RoleCleanup.Events;
 using Content.Server._Aquila.Antags.RoleCleanup.Systems;
 using Content.Server._Aquila.Heretic.Moon.Components;
@@ -9,7 +10,6 @@ using Content.Server.Traits.Assorted;
 using Content.Shared._Aquila.Heretic.Moon.Components;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
 using Content.Shared.Mind;
 using Content.Shared.Mindshield.Components;
@@ -22,7 +22,6 @@ using Robust.Server.Player;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Audio;
 using Robust.Shared.Enums;
 
 namespace Content.Server._Aquila.Heretic.Moon.Systems;
@@ -77,7 +76,7 @@ public sealed partial class MoonAscensionSystem
             candidates.RemoveAt(pick);
 
             if (!TryConvertLunatic((target, null), heretic, aura.Comp.LunaticSanityThreshold,
-                    aura.Comp.Effect, aura.Comp.LunaticAmulet, aura.Comp.LunaticSound))
+                    aura.Comp.Effect, aura.Comp.LunaticAmulet))
                 continue;
 
             if (_status.TryGetStatusEffect(target, LunaticInsanityStatus, out var status))
@@ -116,7 +115,7 @@ public sealed partial class MoonAscensionSystem
             }
 
             if (!TryConvertLunatic((body, null), aura.Owner, aura.Comp.LunaticSanityThreshold,
-                    aura.Comp.Effect, aura.Comp.LunaticAmulet, aura.Comp.LunaticSound))
+                    aura.Comp.Effect, aura.Comp.LunaticAmulet))
                 continue;
 
             if (_status.TryGetStatusEffect(body, LunaticInsanityStatus, out var status))
@@ -136,7 +135,7 @@ public sealed partial class MoonAscensionSystem
             candidates.RemoveAt(pick);
 
             if (!TryConvertLunatic((target, null), aura.Owner, 0f,
-                    aura.Comp.Effect, aura.Comp.LunaticAmulet, aura.Comp.LunaticSound))
+                    aura.Comp.Effect, aura.Comp.LunaticAmulet))
                 continue;
 
             if (_status.TryGetStatusEffect(target, LunaticInsanityStatus, out var status))
@@ -150,19 +149,19 @@ public sealed partial class MoonAscensionSystem
     /// Обращает живого игрока по общим правилам ауры и амулета.
     /// </summary>
     public bool TryConvertLunatic(Entity<MobStateComponent?> ent, EntityUid user, float threshold,
-        EntProtoId effect, EntProtoId amulet, SoundSpecifier? sound)
+        EntProtoId effect, EntProtoId amulet, bool ignoreMindShield = false)
     {
         if (!Resolve(ent.Owner, ref ent.Comp, logMissing: false))
             return false;
 
-        if (!CanConvertLunatic((ent.Owner, ent.Comp), threshold, out var session))
+        if (!CanConvertLunatic((ent.Owner, ent.Comp), threshold, out var session, ignoreMindShield: ignoreMindShield))
             return false;
 
-        return DoConvertLunatic(user, ent.Owner, session, effect, amulet, sound);
+        return DoConvertLunatic(user, ent.Owner, session, effect, amulet);
     }
 
     private bool CanConvertLunatic(Entity<MobStateComponent?> ent, float threshold,
-        [NotNullWhen(true)] out ICommonSession? session, bool quiet = false)
+        [NotNullWhen(true)] out ICommonSession? session, bool quiet = false, bool ignoreMindShield = false)
     {
         if (!Resolve(ent.Owner, ref ent.Comp, logMissing: false))
         {
@@ -177,7 +176,12 @@ public sealed partial class MoonAscensionSystem
             || _heretic.IsHereticOrGhoul(target)
             || HasComp<HereticMinionComponent>(target)
             || HasComp<MoonLunaticComponent>(target)
-            || HasComp<MindShieldComponent>(target))
+            || (!ignoreMindShield && HasComp<MindShieldComponent>(target)))
+            return false;
+
+        var denyEvent = new BeforeCastTouchSpellEvent(target, doEffects: false);
+        RaiseLocalEvent(target, denyEvent, true);
+        if (denyEvent.Cancelled)
             return false;
 
         if (!_sanity.IsInsane(target, threshold))
@@ -198,10 +202,10 @@ public sealed partial class MoonAscensionSystem
     }
 
     private bool DoConvertLunatic(EntityUid heretic, EntityUid target, ICommonSession session,
-        EntProtoId effect, EntProtoId amuletPrototype, SoundSpecifier? sound)
+        EntProtoId effect, EntProtoId amuletPrototype)
     {
         var rule = _antag.ForceGetGameRuleEnt<MoonLunaticRuleComponent>(LunaticRule.Id);
-        if (rule.Comp.Definitions.Count == 0)
+        if (rule.Comp.Definitions.Count == 0 || !TryComp<MoonLunaticRuleComponent>(rule.Owner, out var lunaticRule))
             return false;
 
         if (!_antag.TryMakeAntag(rule, session, rule.Comp.Definitions[^1], ignoreSpawner: true, checkPref: false))
@@ -225,9 +229,9 @@ public sealed partial class MoonAscensionSystem
             _hands.TryPickupAnyHand(target, amulet, checkActionBlocker: false);
 
         _antag.SendBriefing(session,
-            Loc.GetString(LunaticWelcomeMessage, ("ent", Identity.Entity(heretic, EntityManager))),
+            Loc.GetString(LunaticWelcomeMessage, ("ent", heretic)),
             Color.MediumPurple,
-            sound);
+            lunaticRule.BriefingSound);
 
         return true;
     }
@@ -263,6 +267,6 @@ public sealed partial class MoonAscensionSystem
             return;
         }
 
-        args.Append(Loc.GetString(LunaticBriefingMessage, ("ent", Identity.Entity(master, EntityManager))));
+        args.Append(Loc.GetString(LunaticBriefingMessage, ("ent", master)));
     }
 }

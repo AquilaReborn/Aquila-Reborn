@@ -70,6 +70,8 @@ heretic-ritual-fail-sacrifice-moon = At least three corpses must have more than 
 
 moon-regalia-head-explode = {$ent}'s head splatters with a sickening crunch!
 moon-amulet-conversion-failed = The amulet does not respond.
+moon-amulet-not-mad = The victim has not lost their mind yet.
+moon-amulet-limit = The moon has already claimed two.
 
 heretic-speech-moon-mind-gate = OP'N Y'R M'ND!
 heretic-speech-moon-parade = L'N'R P'R'D!

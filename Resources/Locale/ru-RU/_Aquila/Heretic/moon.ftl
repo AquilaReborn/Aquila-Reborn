@@ -71,6 +71,8 @@ heretic-ritual-fail-sacrifice-moon = Мозг хотя бы трёх трупо�
 
 moon-regalia-head-explode = Голова {$ent} с хрустом разлетается на куски!
 moon-amulet-conversion-failed = Амулет не откликается.
+moon-amulet-not-mad = Жертва ещё не сошла с ума.
+moon-amulet-limit = Луна уже забрала двоих.
 
 heretic-speech-moon-mind-gate = Р'ЗУМ 'ТКР'ЙС'!
 heretic-speech-moon-parade = П'Р'Д 'Д'Т!
