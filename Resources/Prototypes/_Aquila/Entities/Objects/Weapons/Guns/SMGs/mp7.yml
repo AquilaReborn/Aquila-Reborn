@@ -16,7 +16,7 @@
     sprite: _Aquila/Objects/Weapons/Guns/SMGs/mp7_inhand.rsi
     storedSprite:
       sprite: _Aquila/Objects/Weapons/Guns/SMGs/mp7.rsi
-      state: wielded-icon
+      state: icon
   - type: Wieldable
     unwieldOnUse: false
     wieldedInhandPrefix: null
@@ -25,7 +25,11 @@
     maxAngle: -12
   - type: LaserPointer
   - type: Clothing
-    slots: NONE
+    sprite: null
+    slots:
+    - Belt
+    - Back
+    - SuitStorage
   - type: ItemSlots
     slots:
       gun_magazine:

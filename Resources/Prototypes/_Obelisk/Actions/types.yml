@@ -9,7 +9,7 @@
   components:
   - type: Action
     checkCanInteract: false
-    useDelay: 5
+    useDelay: 10 # Aquila Change
     itemIconStyle: BigAction
     icon: { sprite: _Obelisk/Actions/hydrakin_cooldown.rsi, state: hydra_cooldown }
   - type: InstantAction

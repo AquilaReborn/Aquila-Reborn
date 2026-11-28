@@ -62,7 +62,7 @@
     thermalRegulationTemperatureThreshold: 30
     processWhileCrit: false
   - type: PassiveHeatGeneration
-    watts: 3900
+    watts: 0 # Aquila Change
     mobStateModifier:
       Alive: 1
       Critical: 0.75
