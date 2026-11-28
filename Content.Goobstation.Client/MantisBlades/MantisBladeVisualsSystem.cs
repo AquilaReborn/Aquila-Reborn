@@ -75,7 +75,7 @@ public sealed partial class MantisBladeVisualsSystem : EntitySystem
         if (ent.Comp.IsExtended)
             foreach (var blade in ent.Comp.Blades)
             {
-                if (!TryComp<BodyPartComponent>(Transform(blade).ParentUid, out var part))
+                if (!TryGetBladePart(blade, out var part)) // Aquila Change
                     continue;
 
                 if (part.Symmetry == BodyPartSymmetry.Left)

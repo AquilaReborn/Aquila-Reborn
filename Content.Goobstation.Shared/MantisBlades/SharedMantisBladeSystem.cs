@@ -106,7 +106,7 @@ public sealed partial class SharedMantisBladeSystem : EntitySystem
                 continue;
 
             hasArm = true;
-            if (arm.Id != disabling && !HasComp<EmpDisabledComponent>(arm.Id) && bladeArm.Blade is { } blade)
+            if (arm.Id != disabling && !HasComp<EmpDisabledComponent>(arm.Id) && TryGetValidBlade(bladeArm.Blade, out var blade)) // Aquila Change
                 blades.Add(blade);
         }
 
