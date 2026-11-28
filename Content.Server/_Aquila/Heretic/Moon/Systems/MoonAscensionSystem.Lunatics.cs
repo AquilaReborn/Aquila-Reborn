@@ -18,11 +18,12 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Roles;
-using Content.Shared.Traits.Assorted;
 using Robust.Server.Player;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Audio;
+using Robust.Shared.Enums;
 
 namespace Content.Server._Aquila.Heretic.Moon.Systems;
 
@@ -57,11 +58,11 @@ public sealed partial class MoonAscensionSystem
         if (now < aura.Comp.NextConversion)
             return;
 
-        var candidates = new List<(EntityUid Target, ICommonSession Session)>();
+        var candidates = new List<EntityUid>();
         foreach (var target in targets)
         {
-            if (CanConvertLunatic(target.Owner, target.Comp, aura.Comp, out var session))
-                candidates.Add((target.Owner, session));
+            if (CanConvertLunatic((target.Owner, target.Comp), aura.Comp.LunaticSanityThreshold, out _))
+                candidates.Add(target.Owner);
         }
 
         if (candidates.Count == 0)
@@ -72,11 +73,15 @@ public sealed partial class MoonAscensionSystem
         while (converted < aura.Comp.LunaticsPerConversion && candidates.Count > 0)
         {
             var pick = _random.Next(candidates.Count);
-            var (target, session) = candidates[pick];
+            var target = candidates[pick];
             candidates.RemoveAt(pick);
 
-            if (!DoConvertLunatic(aura, heretic, target, session))
+            if (!TryConvertLunatic((target, null), heretic, aura.Comp.LunaticSanityThreshold,
+                    aura.Comp.Effect, aura.Comp.LunaticAmulet, aura.Comp.LunaticSound))
                 continue;
+
+            if (_status.TryGetStatusEffect(target, LunaticInsanityStatus, out var status))
+                ApplyLunaticLaughter(status.Value, aura.Comp);
 
             converted++;
         }
@@ -84,27 +89,105 @@ public sealed partial class MoonAscensionSystem
         aura.Comp.NextConversion = now + aura.Comp.ConversionInterval;
     }
 
-    private bool CanConvertLunatic(EntityUid target,
-        MobStateComponent state,
-        MoonAscensionComponent aura,
-        [NotNullWhen(true)] out ICommonSession? session)
+    private void ConvertAscensionLunatics(Entity<MoonAscensionComponent> aura)
     {
-        session = null;
+        var eligible = new List<EntityUid>();
+        foreach (var session in _player.Sessions)
+        {
+            if (session.AttachedEntity is not { } body)
+                continue;
 
-        if (!_mobState.IsAlive(target, state)
+            if (!HasComp<MobStateComponent>(body))
+                continue;
+
+            if (!CanConvertLunatic((body, null), 0f, out _))
+                continue;
+
+            eligible.Add(body);
+        }
+
+        var candidates = new List<EntityUid>(eligible.Count);
+        foreach (var body in eligible)
+        {
+            if (!_sanity.IsInsane(body, aura.Comp.LunaticSanityThreshold))
+            {
+                candidates.Add(body);
+                continue;
+            }
+
+            if (!TryConvertLunatic((body, null), aura.Owner, aura.Comp.LunaticSanityThreshold,
+                    aura.Comp.Effect, aura.Comp.LunaticAmulet, aura.Comp.LunaticSound))
+                continue;
+
+            if (_status.TryGetStatusEffect(body, LunaticInsanityStatus, out var status))
+                ApplyLunaticLaughter(status.Value, aura.Comp);
+        }
+
+        if (candidates.Count == 0)
+            return;
+
+        var quota = (int) MathF.Ceiling(eligible.Count * Math.Clamp(aura.Comp.AscensionConvertedFraction, 0f, 1f));
+        var converted = 0;
+
+        while (converted < quota && candidates.Count > 0)
+        {
+            var pick = _random.Next(candidates.Count);
+            var target = candidates[pick];
+            candidates.RemoveAt(pick);
+
+            if (!TryConvertLunatic((target, null), aura.Owner, 0f,
+                    aura.Comp.Effect, aura.Comp.LunaticAmulet, aura.Comp.LunaticSound))
+                continue;
+
+            if (_status.TryGetStatusEffect(target, LunaticInsanityStatus, out var status))
+                ApplyLunaticLaughter(status.Value, aura.Comp);
+
+            converted++;
+        }
+    }
+
+    /// <summary>
+    /// Обращает живого игрока по общим правилам ауры и амулета.
+    /// </summary>
+    public bool TryConvertLunatic(Entity<MobStateComponent?> ent, EntityUid user, float threshold,
+        EntProtoId effect, EntProtoId amulet, SoundSpecifier? sound)
+    {
+        if (!Resolve(ent.Owner, ref ent.Comp, logMissing: false))
+            return false;
+
+        if (!CanConvertLunatic((ent.Owner, ent.Comp), threshold, out var session))
+            return false;
+
+        return DoConvertLunatic(user, ent.Owner, session, effect, amulet, sound);
+    }
+
+    private bool CanConvertLunatic(Entity<MobStateComponent?> ent, float threshold,
+        [NotNullWhen(true)] out ICommonSession? session, bool quiet = false)
+    {
+        if (!Resolve(ent.Owner, ref ent.Comp, logMissing: false))
+        {
+            session = null;
+            return false;
+        }
+
+        session = null;
+        var target = ent.Owner;
+
+        if (TerminatingOrDeleted(target) || EntityManager.IsQueuedForDeletion(target) || !_mobState.IsAlive(target, ent.Comp)
             || _heretic.IsHereticOrGhoul(target)
             || HasComp<HereticMinionComponent>(target)
             || HasComp<MoonLunaticComponent>(target)
             || HasComp<MindShieldComponent>(target))
             return false;
 
-        if (!_sanity.IsInsane(target, aura.LunaticSanityThreshold))
+        if (!_sanity.IsInsane(target, threshold))
             return false;
 
-        if (!_mind.TryGetMind(target, out var mindId, out var mind) || mind.UserId is not { } userId)
+        if (!_mind.TryGetMind(target, out var mindId, out var mind) || mind.UserId is not { } userId ||
+            mind.CurrentEntity != target || mind.OwnedEntity != target)
             return false;
 
-        if (!_player.TryGetSessionById(userId, out var found))
+        if (!_player.TryGetSessionById(userId, out var found) || found.AttachedEntity != target || found.Status != SessionStatus.InGame)
             return false;
 
         if (_role.MindIsAntagonist(mindId))
@@ -114,7 +197,8 @@ public sealed partial class MoonAscensionSystem
         return true;
     }
 
-    private bool DoConvertLunatic(Entity<MoonAscensionComponent> aura, EntityUid heretic, EntityUid target, ICommonSession session)
+    private bool DoConvertLunatic(EntityUid heretic, EntityUid target, ICommonSession session,
+        EntProtoId effect, EntProtoId amuletPrototype, SoundSpecifier? sound)
     {
         var rule = _antag.ForceGetGameRuleEnt<MoonLunaticRuleComponent>(LunaticRule.Id);
         if (rule.Comp.Definitions.Count == 0)
@@ -131,32 +215,31 @@ public sealed partial class MoonAscensionSystem
         _ghoul.SetBoundHeretic((target, (HereticMinionComponent?) null), heretic);
 
         _status.TryAddStatusEffect(target, LunaticInsanityStatus, out _);
-        ApplyLunaticLaughter(target, aura.Comp);
+        SpawnAtPosition(effect, Transform(target).Coordinates);
 
-        SpawnAtPosition(aura.Comp.Effect, Transform(target).Coordinates);
+        if (_inventory.TryGetSlotEntity(target, NeckSlot, out _))
+            _inventory.TryUnequip(target, NeckSlot, silent: true, force: true);
 
-        var amulet = SpawnNextToOrDrop(aura.Comp.LunaticAmulet, target);
+        var amulet = SpawnNextToOrDrop(amuletPrototype, target);
         if (!_inventory.TryEquip(target, amulet, NeckSlot, silent: true))
             _hands.TryPickupAnyHand(target, amulet, checkActionBlocker: false);
 
         _antag.SendBriefing(session,
             Loc.GetString(LunaticWelcomeMessage, ("ent", Identity.Entity(heretic, EntityManager))),
             Color.MediumPurple,
-            aura.Comp.LunaticSound);
+            sound);
 
         return true;
     }
 
-    private void ApplyLunaticLaughter(EntityUid target, MoonAscensionComponent aura)
+    private void ApplyLunaticLaughter(EntityUid status, MoonAscensionComponent aura)
     {
         if (aura.LunaticSound is not { } sound)
             return;
 
-        EnsureComp<ParacusiaComponent>(target);
-
-        _paracusia.SetSounds(target, sound);
-        _paracusia.SetTime(target, aura.LunaticLaughterMinInterval, aura.LunaticLaughterMaxInterval);
-        _paracusia.SetDistance(target, aura.LunaticLaughterDistance);
+        _paracusia.SetSounds(status, sound);
+        _paracusia.SetTime(status, aura.LunaticLaughterMinInterval, aura.LunaticLaughterMaxInterval);
+        _paracusia.SetDistance(status, aura.LunaticLaughterDistance);
     }
 
     private void OnAntagRoleCleanup(AntagRoleCleanupEvent args)

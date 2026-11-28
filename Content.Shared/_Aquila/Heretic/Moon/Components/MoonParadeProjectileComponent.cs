@@ -9,6 +9,8 @@ namespace Content.Shared._Aquila.Heretic.Moon.Components;
 [RegisterComponent, Access(Other = AccessPermissions.ReadExecute)]
 public sealed partial class MoonParadeProjectileComponent : Component
 {
+    private static readonly EntProtoId DefaultFractureStatus = "StatusEffectMoonParadeFracture";
+
     /// <summary>
     /// Урон мозгу, который получает каждая жертва.
     /// </summary>
@@ -26,6 +28,18 @@ public sealed partial class MoonParadeProjectileComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan ConfusionDuration = TimeSpan.FromSeconds(8);
+
+    /// <summary>
+    /// Статус зеркального раскола экрана при попадании.
+    /// </summary>
+    [DataField]
+    public EntProtoId FractureStatus = DefaultFractureStatus;
+
+    /// <summary>
+    /// Длительность зеркального раскола экрана жертвы.
+    /// </summary>
+    [DataField]
+    public TimeSpan FractureDuration = TimeSpan.FromSeconds(4);
 
     /// <summary>
     /// Прототип визуального эффекта на жертве.

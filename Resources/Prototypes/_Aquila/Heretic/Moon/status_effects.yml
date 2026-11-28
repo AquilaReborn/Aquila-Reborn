@@ -18,8 +18,6 @@
   - type: DrunkStatusEffect
   - type: VisualHallucinationsStatusEffect
     images:
-    - sprite: /Textures/Mobs/Ghosts/ghost_human.rsi
-      state: icon
     - sprite: /Textures/_Aquila/Heretic/Moon/Effects/effects_moon.rsi
       state: moon_insanity_overlay
   - type: ForcedEmoteStatusEffect

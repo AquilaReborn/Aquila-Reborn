@@ -68,7 +68,6 @@ public abstract partial class SharedHereticBladeSystem : EntitySystem // Aquila 
         SubscribeLocalEvent<HereticBladeComponent, GetLightAttackRangeEvent>(OnGetRange);
         SubscribeLocalEvent<HereticBladeComponent, LightAttackSpecialInteractionEvent>(OnSpecial);
         SubscribeLocalEvent<HereticBladeComponent, AfterInteractEvent>(OnAfterInteract);
-        InitializeMoonBladeChannel(); // Aquila Change
     }
 
     private void OnGetRange(Entity<HereticBladeComponent> ent, ref GetLightAttackRangeEvent args)
@@ -285,8 +284,6 @@ public abstract partial class SharedHereticBladeSystem : EntitySystem // Aquila 
             return;
 
         _heretic.TryGetHereticComponent(args.User, out var hereticComp, out _);
-
-        ApplyMoonBladeChannel(args.User, args.HitEntities, ent); // Aquila Change
 
         if (TryComp(args.User, out HereticBladeUserBonusDamageComponent? bonus) &&
             (bonus.Path == null || bonus.Path == ent.Comp.Path))

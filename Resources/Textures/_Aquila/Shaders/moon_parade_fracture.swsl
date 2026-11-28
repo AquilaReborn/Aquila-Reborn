@@ -1,0 +1,99 @@
+light_mode unshaded;
+
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp float intensity;
+
+highp vec2 seamSegment(highp float y, highp vec2 a, highp vec2 b) {
+    highp float slope = (b.x - a.x) / (b.y - a.y);
+    return vec2(a.x + (y - a.y) * slope, slope);
+}
+
+highp vec2 fractureSeam(highp float y) {
+    if (y < 0.12)
+        return seamSegment(y, vec2(0.006, 0.0), vec2(-0.024, 0.12));
+    if (y < 0.19)
+        return seamSegment(y, vec2(-0.024, 0.12), vec2(0.028, 0.19));
+    if (y < 0.245)
+        return seamSegment(y, vec2(0.028, 0.19), vec2(-0.013, 0.245));
+    if (y < 0.43)
+        return seamSegment(y, vec2(-0.013, 0.245), vec2(0.017, 0.43));
+    if (y < 0.505)
+        return seamSegment(y, vec2(0.017, 0.43), vec2(-0.031, 0.505));
+    if (y < 0.55)
+        return seamSegment(y, vec2(-0.031, 0.505), vec2(0.023, 0.55));
+    if (y < 0.71)
+        return seamSegment(y, vec2(0.023, 0.55), vec2(-0.009, 0.71));
+    if (y < 0.865)
+        return seamSegment(y, vec2(-0.009, 0.71), vec2(0.035, 0.865));
+    if (y < 0.905)
+        return seamSegment(y, vec2(0.035, 0.865), vec2(-0.014, 0.905));
+    return seamSegment(y, vec2(-0.014, 0.905), vec2(0.008, 1.0));
+}
+
+highp vec2 seamSegmentX(highp float x, highp vec2 a, highp vec2 b) {
+    highp float slope = (b.y - a.y) / (b.x - a.x);
+    return vec2(a.y + (x - a.x) * slope, slope);
+}
+
+highp vec2 fractureSeamX(highp float x) {
+    if (x < 0.115)
+        return seamSegmentX(x, vec2(0.0, -0.004), vec2(0.115, 0.019));
+    if (x < 0.205)
+        return seamSegmentX(x, vec2(0.115, 0.019), vec2(0.205, -0.016));
+    if (x < 0.29)
+        return seamSegmentX(x, vec2(0.205, -0.016), vec2(0.29, 0.026));
+    if (x < 0.44)
+        return seamSegmentX(x, vec2(0.29, 0.026), vec2(0.44, -0.011));
+    if (x < 0.525)
+        return seamSegmentX(x, vec2(0.44, -0.011), vec2(0.525, 0.031));
+    if (x < 0.61)
+        return seamSegmentX(x, vec2(0.525, 0.031), vec2(0.61, -0.022));
+    if (x < 0.735)
+        return seamSegmentX(x, vec2(0.61, -0.022), vec2(0.735, 0.012));
+    if (x < 0.85)
+        return seamSegmentX(x, vec2(0.735, 0.012), vec2(0.85, -0.027));
+    if (x < 0.915)
+        return seamSegmentX(x, vec2(0.85, -0.027), vec2(0.915, 0.018));
+    return seamSegmentX(x, vec2(0.915, 0.018), vec2(1.0, -0.006));
+}
+
+highp vec2 mirrorQuadrants(highp vec2 uv) {
+    return vec2(1.0 - abs(uv.x * 2.0 - 1.0), 1.0 - abs(uv.y * 2.0 - 1.0));
+}
+
+void fragment() {
+    highp vec2 pixel = SCREEN_PIXEL_SIZE;
+    highp vec2 uv = clamp(FRAGCOORD.xy * pixel, pixel * 0.5, vec2(1.0) - pixel * 0.5);
+    highp vec4 original = zTextureSpec(SCREEN_TEXTURE, uv);
+    highp float strength = clamp(intensity, 0.0, 1.0);
+
+    if (strength <= 0.0) {
+        COLOR = original;
+    } else {
+        highp float aspect = pixel.y / pixel.x;
+        highp vec2 centered = (uv - vec2(0.5)) * vec2(aspect, 1.0);
+        highp vec2 seam = fractureSeam(uv.y);
+        highp vec2 seamAcross = fractureSeamX(uv.x);
+        highp float taper = 1.0 - smoothstep(0.075, 0.18, abs(centered.x));
+        highp float taperAcross = 1.0 - smoothstep(0.075, 0.18, abs(centered.y));
+        highp vec2 correctedUv = vec2(uv.x - seam.x * taper / aspect,
+            uv.y - seamAcross.x * taperAcross);
+        highp vec2 sampleUv = mirrorQuadrants(correctedUv);
+        sampleUv = clamp(sampleUv, pixel * 0.5, vec2(1.0) - pixel * 0.5);
+        highp vec4 fractured = zTextureSpec(SCREEN_TEXTURE, sampleUv);
+
+        highp float signedDistance = (centered.x - seam.x) / sqrt(1.0 + seam.y * seam.y);
+        highp float signedDistanceAcross = (centered.y - seamAcross.x) / sqrt(1.0 + seamAcross.y * seamAcross.y);
+        highp float crack = max(1.0 - smoothstep(pixel.y * 0.7, pixel.y * 2.0, abs(signedDistance)),
+            1.0 - smoothstep(pixel.y * 0.7, pixel.y * 2.0, abs(signedDistanceAcross)));
+        highp float rim = max(1.0 - smoothstep(pixel.y * 0.35, pixel.y * 1.1,
+                abs(signedDistance - pixel.y * 2.3)),
+            1.0 - smoothstep(pixel.y * 0.35, pixel.y * 1.1,
+                abs(signedDistanceAcross - pixel.y * 2.3)));
+        fractured.rgb = mix(fractured.rgb, vec3(0.012, 0.015, 0.022) * fractured.a, crack * 0.9);
+        fractured.rgb += vec3(0.26, 0.31, 0.38) * rim * (1.0 - crack) * fractured.a;
+
+        highp float blend = strength * strength * (3.0 - 2.0 * strength);
+        COLOR = mix(original, fractured, blend);
+    }
+}

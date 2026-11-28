@@ -72,6 +72,12 @@ public sealed partial class MoonAscensionComponent : Component
     public float LunaticSanityThreshold = 20f;
 
     /// <summary>
+    /// Какая доля экипажа обращается в лунатиков при вознесении, помимо уже обезумевших.
+    /// </summary>
+    [DataField]
+    public float AscensionConvertedFraction = 0.2f;
+
+    /// <summary>
     /// Как часто аура обращает экипаж в лунатиков.
     /// </summary>
     [DataField]
@@ -81,7 +87,7 @@ public sealed partial class MoonAscensionComponent : Component
     /// Прототип лунного амулета, который получает обращённый.
     /// </summary>
     [DataField]
-    public EntProtoId LunaticAmulet = "ClothingNeckMoonAmulet";
+    public EntProtoId LunaticAmulet = "ClothingNeckMoonAmuletBound";
 
     /// <summary>
     /// Звук, который слышит обращённый.

@@ -16,7 +16,7 @@ namespace Content.Server._Aquila.Heretic.Moon.Systems;
 
 /// <summary>
 /// Обслуживает пассивную силу пути Луны: восстанавливает мозг, снимает эффекты сна,
-/// ускоряет восстановление при надетом амулете и не даёт получить травму мозга.
+/// не даёт получить травму мозга.
 /// </summary>
 public sealed class MoonPassiveSystem : SharedMoonPassiveSystem
 {
@@ -79,9 +79,6 @@ public sealed class MoonPassiveSystem : SharedMoonPassiveSystem
             var heal = passive.HealAmount;
             if (now < passive.CombatEndTime)
                 heal = FixedPoint2.New(heal.Float() * passive.CombatHealMultiplier);
-
-            if (TryComp<MoonAmuletWearerComponent>(uid, out var amuletWearer))
-                heal = FixedPoint2.New(heal.Float() * amuletWearer.BrainHealMultiplier);
 
             _sanity.HealBrainDamage(uid, heal);
             _sanity.RemoveBrainTraumas(uid);

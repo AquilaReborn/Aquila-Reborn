@@ -1,0 +1,7 @@
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectMoonParadeFracture
+  components:
+  - type: MoonParadeFractureStatusEffect
+    fadeIn: 0.09
+    fadeOut: 0.3

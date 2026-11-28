@@ -5,7 +5,11 @@ using Content.Server.Roles;
 using Content.Shared._Aquila.Heretic.Moon.Components;
 using Content.Shared._Aquila.Heretic.Moon.Systems;
 using Content.Shared._Shitcode.Heretic.Systems;
+using Content.Shared.Buckle.Components;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Rotation;
+using Robust.Server.GameObjects;
+using Robust.Shared.Maths;
 using StatusEffectsSystem = Content.Shared.StatusEffectNew.StatusEffectsSystem;
 using Robust.Shared.Timing;
 
@@ -17,6 +21,7 @@ namespace Content.Server._Aquila.Heretic.Moon.Systems;
 /// </summary>
 public sealed partial class MoonAscensionSystem : SharedMoonAscensionSystem
 {
+    [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedHereticSystem _heretic = default!;
@@ -77,6 +82,8 @@ public sealed partial class MoonAscensionSystem : SharedMoonAscensionSystem
         _transform.SetLocalPosition(visual, Vector2.Zero);
         _transform.SetNoLocalRotation(visual, true);
         ent.Comp.AuraVisualEntity = visual;
+
+        ConvertAscensionLunatics(ent);
     }
 
     private void OnAuraShutdown(Entity<MoonAscensionComponent> ent, ref ComponentShutdown args)
@@ -100,6 +107,7 @@ public sealed partial class MoonAscensionSystem : SharedMoonAscensionSystem
             return;
 
         var visual = SpawnAtPosition(aura.InsanityOverlay, Transform(target).Coordinates);
+        SyncInsanityOverlayRotation(target, visual);
         affected.Overlay = visual;
     }
 
@@ -109,7 +117,10 @@ public sealed partial class MoonAscensionSystem : SharedMoonAscensionSystem
         while (query.MoveNext(out var uid, out var affected))
         {
             if (affected.Overlay is { } auraOverlay && !TerminatingOrDeleted(auraOverlay))
+            {
                 _transform.SetCoordinates(auraOverlay, Transform(uid).Coordinates);
+                SyncInsanityOverlayRotation(uid, auraOverlay);
+            }
 
             if (now < affected.EndTime)
                 continue;
@@ -120,5 +131,20 @@ public sealed partial class MoonAscensionSystem : SharedMoonAscensionSystem
             affected.Overlay = null;
             RemCompDeferred<MoonInsanityAuraComponent>(uid);
         }
+    }
+
+    private void SyncInsanityOverlayRotation(EntityUid target, EntityUid overlay)
+    {
+        if (!TryComp<RotationVisualsComponent>(target, out var rotationVisuals))
+            return;
+
+        var horizontal = _appearance.TryGetData<RotationState>(target, RotationVisuals.RotationState, out var state)
+                         && state == RotationState.Horizontal;
+
+        if (_appearance.TryGetData<bool>(target, BuckleVisuals.Buckled, out var buckled) && buckled)
+            horizontal = true;
+
+        Angle angle = horizontal ? rotationVisuals.HorizontalRotation : rotationVisuals.VerticalRotation;
+        _transform.SetLocalRotation(overlay, angle);
     }
 }

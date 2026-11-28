@@ -39,9 +39,8 @@ knowledge-path-moon-s6-desc =
     At the head of the parade he stood, the moon condensed into one mass, a reflection of the soul.
     
     Allows you to transmute two sheets of glass, a heart and a piece of cloth into the Moonlight Amulet.
-    Used on a person, the amulet damages their sanity, and drives an insane enough victim into a rampage.
-    Worn by you, it grants thermal vision and speeds up brain regeneration.
-    While the amulet is worn, your Lunar Blade deals no physical damage, tearing at the mind of its target instead.
+    Hold the amulet in your hand and use it on a maddened crew member to turn them into an allied lunatic.
+    Heretics of the Path of Moon can convert them even before ascension.
 knowledge-path-moon-s7-name = Moonlight Blade
 knowledge-path-moon-s7-desc =
     His wit was sharp as a blade...
@@ -70,6 +69,7 @@ heretic-ascension-moon =
 heretic-ritual-fail-sacrifice-moon = At least three corpses must have more than half of their brain damaged!
 
 moon-regalia-head-explode = {$ent}'s head splatters with a sickening crunch!
+moon-amulet-conversion-failed = The amulet does not respond.
 
 heretic-speech-moon-mind-gate = OP'N Y'R M'ND!
 heretic-speech-moon-parade = L'N'R P'R'D!

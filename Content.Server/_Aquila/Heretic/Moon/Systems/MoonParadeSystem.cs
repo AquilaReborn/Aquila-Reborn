@@ -19,29 +19,54 @@ public sealed class MoonParadeSystem : EntitySystem
 
     private static readonly EntProtoId ConfusionStatus = "StatusEffectWoozy";
 
+    /// <summary>
+    /// Подключает попадания и сквозное движение Лунного парада.
+    /// </summary>
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<MoonParadeProjectileComponent, ProjectileHitEvent>(OnHit);
-        SubscribeLocalEvent<MoonParadeProjectileComponent, AfterProjectileHitEvent>(OnAfterHit);
+        SubscribeLocalEvent<MoonParadeProjectileComponent, ProjectileHitEvent>(OnProjectileHit);
+        SubscribeLocalEvent<MoonParadeProjectileComponent, AfterProjectileHitEvent>(OnAfterProjectileHit);
     }
 
-    private void OnHit(Entity<MoonParadeProjectileComponent> ent, ref ProjectileHitEvent args)
+    private void OnProjectileHit(Entity<MoonParadeProjectileComponent> ent, ref ProjectileHitEvent args)
     {
-        var target = args.Target;
+        TryApplyParadeHit((ent.Owner, ent.Comp), args.Target, args.Shooter);
+    }
 
-        if (args.Shooter == target || !HasComp<MobStateComponent>(target) || _heretic.IsHereticOrGhoul(target))
-            return;
+    /// <summary>
+    /// Накладывает эффекты Лунного парада на допустимую жертву попадания.
+    /// </summary>
+    public bool TryApplyParadeHit(Entity<MoonParadeProjectileComponent?> ent, EntityUid target, EntityUid? user)
+    {
+        if (!Resolve(ent.Owner, ref ent.Comp))
+            return false;
 
+        if (!CanApplyParadeHit(target, user))
+            return false;
+
+        DoApplyParadeHit((ent.Owner, ent.Comp), target);
+        return true;
+    }
+
+    private bool CanApplyParadeHit(EntityUid target, EntityUid? user, bool quiet = false)
+    {
+        return user != target && !TerminatingOrDeleted(target) && HasComp<MobStateComponent>(target) &&
+            !_heretic.IsHereticOrGhoul(target);
+    }
+
+    private void DoApplyParadeHit(Entity<MoonParadeProjectileComponent> ent, EntityUid target)
+    {
         _sanity.ApplyBrainDamage(target, ent.Comp.BrainDamage);
         SpawnAtPosition(ent.Comp.Effect, Transform(target).Coordinates);
 
         _status.TryAddStatusEffectDuration(target, MoonSanitySystem.InsanityStatus, ent.Comp.HallucinationDuration);
         _status.TryAddStatusEffectDuration(target, ConfusionStatus, ent.Comp.ConfusionDuration);
+        _status.TryUpdateStatusEffectDuration(target, ent.Comp.FractureStatus, ent.Comp.FractureDuration);
     }
 
-    private void OnAfterHit(Entity<MoonParadeProjectileComponent> ent, ref AfterProjectileHitEvent args)
+    private void OnAfterProjectileHit(Entity<MoonParadeProjectileComponent> ent, ref AfterProjectileHitEvent args)
     {
         if (!HasComp<MobStateComponent>(args.Target) || !TryComp<ProjectileComponent>(ent, out var projectile))
             return;

@@ -1,134 +1,84 @@
-using Content.Server._Aquila.Heretic.Moon.Components;
-using Content.Server.Heretic.EntitySystems;
 using Content.Shared._Aquila.Heretic.Moon.Components;
 using Content.Shared._Aquila.Heretic.Moon.Systems;
 using Content.Shared._Shitcode.Heretic.Systems;
-using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Heretic.Components;
 using Content.Shared.Interaction;
-using Content.Shared.Inventory.Events;
-using Content.Shared.Mobs.Components;
-using Content.Shared.StatusEffect;
-using StatusEffectsSystem = Content.Shared.StatusEffectNew.StatusEffectsSystem;
-using Content.Shared.Stunnable;
-using Robust.Shared.Audio.Systems;
+using Content.Shared.Popups;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Aquila.Heretic.Moon.Systems;
 
 /// <summary>
-/// Лунный амулет: бьёт по рассудку цели, вгоняет безумцев в буйство и проводит урон через лунный клинок носителя.
+/// Лунный амулет обращает достаточно обезумевшего члена экипажа в союзника еретика пути Луны.
 /// </summary>
 public sealed class MoonAmuletSystem : SharedMoonAmuletSystem
 {
-    [Dependency] private readonly HereticBladeSystem _blades = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly MoonSanitySystem _sanity = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedHereticSystem _heretic = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly MoonAscensionSystem _ascension = default!;
 
+    private static readonly LocId ConversionFailedMessage = "moon-amulet-conversion-failed";
+
+    /// <summary>
+    /// Подключает применение удерживаемого амулета к цели.
+    /// </summary>
     public override void Initialize()
     {
         base.Initialize();
-
         SubscribeLocalEvent<MoonAmuletComponent, AfterInteractEvent>(OnAfterInteract);
-        SubscribeLocalEvent<MoonAmuletComponent, GotEquippedEvent>(OnEquipped);
-        SubscribeLocalEvent<MoonAmuletComponent, GotUnequippedEvent>(OnUnequipped);
-        SubscribeLocalEvent<MoonAmuletComponent, ComponentShutdown>(OnShutdown);
-    }
-
-    private void OnEquipped(Entity<MoonAmuletComponent> ent, ref GotEquippedEvent args)
-    {
-        if (!_heretic.IsHereticOrGhoul(args.Equipee) && !HasComp<MoonLunaticComponent>(args.Equipee))
-            return;
-
-        ent.Comp.Wearer = args.Equipee;
-
-        var wearer = EnsureComp<MoonAmuletWearerComponent>(args.Equipee);
-        wearer.BrainHealMultiplier = ent.Comp.BrainHealMultiplier;
-        wearer.ChannelBrainMultiplier = ent.Comp.ChannelBrainMultiplier;
-        wearer.ChannelInsanityDuration = ent.Comp.ChannelInsanityDuration;
-        wearer.ChannelEffect = ent.Comp.Effect;
-
-        if (!TryComp<HandsComponent>(args.Equipee, out var hands))
-            return;
-
-        foreach (var held in _hands.EnumerateHeld((args.Equipee, hands)))
-        {
-            if (TryComp<HereticBladeComponent>(held, out var blade))
-                _blades.ChannelMoonBlade(held, wearer, blade);
-        }
-    }
-
-    private void OnUnequipped(Entity<MoonAmuletComponent> ent, ref GotUnequippedEvent args)
-    {
-        ent.Comp.Wearer = null;
-        RemoveWearer(args.Equipee);
-    }
-
-    private void OnShutdown(Entity<MoonAmuletComponent> ent, ref ComponentShutdown args)
-    {
-        if (ent.Comp.Wearer is not { } wearer || TerminatingOrDeleted(wearer))
-            return;
-
-        RemoveWearer(wearer);
-    }
-
-    private void RemoveWearer(EntityUid wearer)
-    {
-        if (TerminatingOrDeleted(wearer))
-            return;
-
-        if (TryComp<HandsComponent>(wearer, out var hands))
-        {
-            foreach (var held in _hands.EnumerateHeld((wearer, hands)))
-            {
-                if (TryComp<HereticBladeComponent>(held, out var blade))
-                    _blades.RestoreMoonChannel(held, blade);
-            }
-        }
-
-        RemComp<MoonAmuletWearerComponent>(wearer);
     }
 
     private void OnAfterInteract(Entity<MoonAmuletComponent> ent, ref AfterInteractEvent args)
     {
-        if (args.Handled || args.Target is not { } target || target == args.User || !args.CanReach)
+        if (args.Handled || args.Target is not { } target || !args.CanReach)
             return;
 
-        if (!HasComp<MobStateComponent>(target) || !HasComp<StatusEffectsComponent>(target))
-            return;
+        args.Handled = TryConvertWithAmulet((ent.Owner, ent.Comp), args.User, target);
+    }
 
-        if (_heretic.IsHereticOrGhoul(target))
-            return;
+    /// <summary>
+    /// Обращает подходящую цель амулетом и расходует кулдаун только после успешной выдачи роли.
+    /// </summary>
+    public bool TryConvertWithAmulet(Entity<MoonAmuletComponent?> ent, EntityUid user, EntityUid target, bool quiet = false)
+    {
+        if (!Resolve(ent.Owner, ref ent.Comp))
+            return false;
 
-        if (_timing.CurTime < ent.Comp.NextUse)
-            return;
+        if (!CanConvertWithAmulet((ent.Owner, ent.Comp), user, target, quiet))
+            return false;
+
+        if (DoConvertWithAmulet((ent.Owner, ent.Comp), user, target))
+            return true;
+
+        if (!quiet)
+            _popup.PopupEntity(Loc.GetString(ConversionFailedMessage), ent.Owner, user);
+        return false;
+    }
+
+    private bool CanConvertWithAmulet(Entity<MoonAmuletComponent> ent, EntityUid user, EntityUid target, bool quiet = false)
+    {
+        if (user != target && !TerminatingOrDeleted(ent.Owner) && !EntityManager.IsQueuedForDeletion(ent.Owner) &&
+            !TerminatingOrDeleted(user) && !TerminatingOrDeleted(target) &&
+            _timing.CurTime >= ent.Comp.NextUse && _hands.IsHolding(user, ent.Owner) &&
+            _interaction.InRangeUnobstructed(user, target) &&
+            _heretic.TryGetHereticComponent(user, out var heretic, out _) && heretic.CurrentPath == ent.Comp.RequiredPath)
+            return true;
+
+        if (!quiet)
+            _popup.PopupEntity(Loc.GetString(ConversionFailedMessage), ent.Owner, user);
+        return false;
+    }
+
+    private bool DoConvertWithAmulet(Entity<MoonAmuletComponent> ent, EntityUid user, EntityUid target)
+    {
+        if (!_ascension.TryConvertLunatic((target, null), user, ent.Comp.ConversionThreshold,
+                ent.Comp.Effect, ent.Comp.LunaticAmulet, ent.Comp.LaughSound))
+            return false;
 
         ent.Comp.NextUse = _timing.CurTime + ent.Comp.UseDelay;
-        args.Handled = true;
-
-        _audio.PlayPvs(ent.Comp.LaughSound, args.User);
-        SpawnAtPosition(ent.Comp.Effect, Transform(target).Coordinates);
-
-        _sanity.ApplyBrainDamage(target, ent.Comp.Damage);
-
-        if (!_sanity.IsInsane(target, ent.Comp.InsaneThreshold))
-        {
-            _status.TryAddStatusEffectDuration(target,
-                MoonSanitySystem.InsanityStatus,
-                ent.Comp.HallucinationDuration);
-            return;
-        }
-
-        _sanity.ApplyBrainDamage(target, ent.Comp.InsaneDamage);
-        _stun.KnockdownOrStun(target, ent.Comp.StunDuration, true);
-        _status.TryAddStatusEffectDuration(target,
-            MoonSanitySystem.InsanityStatus,
-            ent.Comp.HallucinationDuration);
+        return true;
     }
 }

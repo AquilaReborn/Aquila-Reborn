@@ -53,7 +53,6 @@
   description: A piece of the mind, the soul and the moon. Gazing into it makes your head spin and hear whispers of laughter and joy.
   components:
   - type: UnholyItem
-  - type: HereticMagicItem
   - type: Sprite
     sprite: _Aquila/Heretic/Moon/Clothing/Neck/moon_amulet.rsi
     state: icon
@@ -63,15 +62,26 @@
     modifiers:
       coefficients:
         Holy: 1.25
-  - type: ThermalVision
-    thermalShader: null
-    isEquipment: true
-    isActive: true
-    color: white
-    drawOverlay: false
-    lightRadius: 0
-    toggleAction: null
   - type: MoonAmulet
+
+- type: entity
+  parent: [ ClothingNeckBase, BaseMagicalContraband ]
+  id: ClothingNeckMoonAmuletBound
+  name: bound moonlight amulet
+  suffix: Moon
+  description: A moonlit amulet fused into its wearer. It cannot be taken off, and its faint laughter never fades.
+  components:
+  - type: UnholyItem
+  - type: Sprite
+    sprite: _Aquila/Heretic/Moon/Clothing/Neck/moon_amulet.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Aquila/Heretic/Moon/Clothing/Neck/moon_amulet.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Holy: 1.25
+  - type: Unremoveable
 
 - type: entity
   parent: BaseBullet
@@ -155,6 +165,7 @@
   components:
   - type: Sprite
     sprite: _Aquila/Heretic/Moon/Effects/effects_moon.rsi
+    drawdepth: OverMobs
     layers:
     - state: moon_insanity_overlay
       shader: unshaded
@@ -171,7 +182,6 @@
   - type: Sprite
     sprite: _Aquila/Heretic/Moon/Effects/effects_moon.rsi
     drawdepth: Effects
-    noRot: true
     layers:
     - state: moon_insanity_overlay
       shader: unshaded
