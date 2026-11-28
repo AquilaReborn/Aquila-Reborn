@@ -16,7 +16,7 @@ public sealed partial class HydrakinHeatRegulationComponent : Component
     /// Мощность нагрева, когда надет предмет верхней одежды или среда горячее порога, в ваттах.
     /// </summary>
     [DataField]
-    public float HeatedWatts = 3900f;
+    public float HeatedWatts = 1950f;
 
     /// <summary>
     /// Температура среды, выше которой гидракин считается в горячей среде, в кельвинах.
