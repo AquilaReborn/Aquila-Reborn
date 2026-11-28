@@ -1,0 +1,65 @@
+# Aquila Change: heretic side path, Armored Greaves
+
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingShoesGreavesOfTheProphet
+  name: greaves of the prophet
+  description: Plates of silver and hardened leather, warm with the certainty of a sermon never spoken aloud.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Heretic/Clothing/Shoes/greaves_of_the_prophet.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Aquila/Heretic/Clothing/Shoes/greaves_of_the_prophet.rsi
+  - type: NoSlip
+  - type: UnholyItem
+  - type: Tag
+    tags:
+    - HereticItem
+    - Recyclable
+    - WhitelistChameleon
+
+- type: hereticRitual
+  id: RitualGreavesOfTheProphet
+  locName: heretic-ritual-greaves
+  locDesc: heretic-ritual-greaves-desc
+  icon:
+    sprite: _Aquila/Heretic/Clothing/Shoes/greaves_of_the_prophet.rsi
+    state: icon
+  customBehaviors:
+  - !type:RitualClothingSlotRequirementBehavior
+    slot: FEET
+    count: 1
+    failMessage: heretic-ritual-fail-shoes
+  - !type:RitualStackTypeRequirementBehavior
+    stackType: Silver
+    count: 2
+    failMessage: heretic-ritual-fail-silver
+  output:
+    ClothingShoesGreavesOfTheProphet: 1
+
+- type: hereticKnowledge
+  id: GreavesOfTheProphetKnowledge
+  sideKnowledge: true
+  stage: 6
+  ritualPrototypes:
+  - RitualGreavesOfTheProphet
+
+- type: listing
+  id: HereticSidePath6GreavesOfTheProphet
+  name: knowledge-path-side-s6-greaves-name
+  description: knowledge-path-side-s6-greaves-desc
+  icon: { sprite: _Aquila/Heretic/Clothing/Shoes/greaves_of_the_prophet.rsi, state: icon }
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - GreavesOfTheProphetKnowledge
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 5

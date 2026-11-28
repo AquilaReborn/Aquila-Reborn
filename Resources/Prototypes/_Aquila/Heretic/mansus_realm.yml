@@ -17,6 +17,7 @@
       types:
         Slash: 20
         Blunt: 15
+      armorPenetration: 1
   - type: MansusHand
     armState: arm_left
   - type: PointLight

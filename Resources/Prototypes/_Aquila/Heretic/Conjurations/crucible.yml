@@ -1,0 +1,123 @@
+# Aquila Change: heretic side path, Mawed Crucible
+
+- type: entity
+  parent: BaseStructureDynamic
+  id: MawedCrucible
+  name: mawed crucible
+  description: A yawning pit of bone and flesh that hungrily chews on whatever is fed to it.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/items.rsi
+    layers:
+    - state: crucible
+      map: [ "base" ]
+  - type: Icon
+    sprite: _Goobstation/Heretic/items.rsi
+    state: crucible
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.CrucibleVisuals.State:
+        base:
+          crucible: { state: crucible }
+          crucible_empty: { state: crucible_empty }
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 100
+        canReact: false
+  - type: MawedCrucible
+
+- type: entity
+  parent: [ BaseItem, BaseMagicalContraband ]
+  id: MawedCrucibleBrewSoul
+  name: brew of the crucible soul
+  description: A murky brew with someone else's face floating in it. For forty seconds walls will not exist for you, and then the crucible will call you back.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/items.rsi
+    state: crucible_soul
+  - type: Icon
+    sprite: _Goobstation/Heretic/items.rsi
+    state: crucible_soul
+  - type: Item
+    size: Small
+  - type: CrucibleBrew
+    statusEffect: StatusEffectCrucibleSoul
+    duration: 40
+    blockedByStatus: StatusEffectCrucibleSoulCooldown
+
+- type: entity
+  parent: [ BaseItem, BaseMagicalContraband ]
+  id: MawedCrucibleBrewDusk
+  name: brew of dusk and dawn
+  description: A brew the color of a sky that never decides whether it is evening or morning. For ninety seconds nothing can hide from your eyes.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/items.rsi
+    state: clarity
+  - type: Icon
+    sprite: _Goobstation/Heretic/items.rsi
+    state: clarity
+  - type: Item
+    size: Small
+  - type: CrucibleBrew
+    statusEffect: StatusEffectDuskAndDawn
+    duration: 90
+
+- type: entity
+  parent: [ BaseItem, BaseMagicalContraband ]
+  id: MawedCrucibleBrewWounded
+  name: brew of the wounded soldier
+  description: A bitter brew that tastes of iron and bandages. For a minute your wounds close on their own and pain no longer slows your steps.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/items.rsi
+    state: marshal
+  - type: Icon
+    sprite: _Goobstation/Heretic/items.rsi
+    state: marshal
+  - type: Item
+    size: Small
+  - type: CrucibleBrew
+    statusEffect: StatusEffectWoundedSoldier
+    duration: 60
+
+- type: hereticRitual
+  id: RitualMawedCrucible
+  locName: heretic-ritual-crucible
+  locDesc: heretic-ritual-crucible-desc
+  icon:
+    sprite: _Goobstation/Heretic/items.rsi
+    state: crucible
+  requiredTags:
+    WaterTank: 1
+    Table: 1
+  output:
+    MawedCrucible: 1
+
+- type: hereticKnowledge
+  id: MawedCrucibleKnowledge
+  sideKnowledge: true
+  stage: 3
+  ritualPrototypes:
+  - RitualMawedCrucible
+
+- type: listing
+  id: HereticSidePath3MawedCrucible
+  name: knowledge-path-side-s3-crucible-name
+  description: knowledge-path-side-s3-crucible-desc
+  icon: { sprite: _Goobstation/Heretic/items.rsi, state: crucible }
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - MawedCrucibleKnowledge
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 2

@@ -7,6 +7,7 @@ using Content.Server.Body.Systems;
 using Content.Server.Heretic.Components;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Bed.Sleep; // Aquila Change
 using Robust.Shared.Prototypes;
 using Content.Shared.Humanoid;
 using Content.Server.Revolutionary.Components;
@@ -93,8 +94,12 @@ namespace Content.Server.Heretic.Ritual;
                 && !_heretic.TryGetHereticComponent(look, out _, out _)) // or other heretics
                 continue;
 
-            if (mobstate.CurrentState != Shared.Mobs.MobState.Alive)
-                uids.Add(look);
+            // Aquila Change start
+            if (mobstate.CurrentState == Shared.Mobs.MobState.Alive && !args.EntityManager.HasComponent<SleepingComponent>(look))
+                continue;
+            // Aquila Change end
+
+            uids.Add(look);
         }
 
         if (uids.Count < Min)

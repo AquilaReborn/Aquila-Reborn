@@ -263,11 +263,17 @@
       position: 1.5,2
     HereticSidePath3Shark:
       position: 3,2
+    HereticSidePath3MawedCrucible: # Aquila Change
+      position: 4.5,2
     HereticSidePath6RustWalker:
       position: -1.5,5
     HereticSidePath6CarvingKnife:
       position: 0,5
     HereticSidePath6IceSpear:
       position: 1.5,5
+    HereticSidePath6GreavesOfTheProphet: # Aquila Change
+      position: -3,5
+    HereticSidePath6EtherOfTheNewborn: # Aquila Change
+      position: 3,5
     HereticSidePath8Cleave:
       position: 0,7

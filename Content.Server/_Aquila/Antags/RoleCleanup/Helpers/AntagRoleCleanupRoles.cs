@@ -24,11 +24,6 @@ public static class AntagRoleCleanupRoles
     public static readonly ProtoId<AntagPrototype> NukeopsCommander = "NukeopsCommander";
 
     /// <summary>
-    /// Роль одиночного ядерного оперативника.
-    /// </summary>
-    public static readonly ProtoId<AntagPrototype> Loneops = "Loneops";
-
-    /// <summary>
     /// Все роли, при которых у тела остаётся аплинк ядерных оперативников.
     /// </summary>
     public static readonly ProtoId<AntagPrototype>[] AllNukeops =
@@ -36,6 +31,5 @@ public static class AntagRoleCleanupRoles
         Nukeops,
         NukeopsMedic,
         NukeopsCommander,
-        Loneops,
     ];
 }

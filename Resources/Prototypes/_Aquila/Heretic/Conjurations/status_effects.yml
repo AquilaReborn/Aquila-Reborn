@@ -1,0 +1,36 @@
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectCrucibleSoul
+  name: crucible soul
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: CrucibleSoul
+
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectDuskAndDawn
+  name: dusk and dawn
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: ThermalVision
+      isActive: true
+      drawOverlay: false
+      lightRadius: 0
+      toggleAction: null
+
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectWoundedSoldier
+  name: wounded soldier
+  components:
+  - type: GrantComponentsStatusEffect
+    components:
+    - type: WoundedSoldier
+    - type: IgnoreSlowOnDamage
+
+- type: entity
+  parent: MobStatusEffectDebuff
+  id: StatusEffectCrucibleSoulCooldown
+  name: crucible soul cooldown

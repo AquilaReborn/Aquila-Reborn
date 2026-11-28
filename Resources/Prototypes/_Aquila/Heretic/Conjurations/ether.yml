@@ -1,0 +1,62 @@
+# Aquila Change: heretic side path, Ether of the Newborn
+
+- type: entity
+  parent: [ BaseItem, BaseMagicalContraband ]
+  id: EtherOfTheNewborn
+  name: ether of the newborn
+  description: A flask of something that was never born and never died, humming softly against your palm.
+  components:
+  - type: Sprite
+    sprite: _Aquila/Heretic/Conjurations/ether.rsi
+    state: poison_flask
+  - type: Icon
+    sprite: _Aquila/Heretic/Conjurations/ether.rsi
+    state: poison_flask
+  - type: Item
+    size: Small
+  - type: UnholyItem
+  - type: Tag
+    tags:
+    - HereticItem
+  - type: EtherOfTheNewborn
+
+- type: hereticRitual
+  id: RitualEtherOfTheNewborn
+  locName: heretic-ritual-ether
+  locDesc: heretic-ritual-ether-desc
+  icon:
+    sprite: _Aquila/Heretic/Conjurations/ether.rsi
+    state: poison_flask
+  customBehaviors:
+  - !type:RitualReagentPuddleBehavior
+    reagent: Vomit
+  requiredTags:
+    GlassShard: 1
+  output:
+    EtherOfTheNewborn: 1
+
+- type: hereticKnowledge
+  id: EtherOfTheNewbornKnowledge
+  sideKnowledge: true
+  stage: 6
+  ritualPrototypes:
+  - RitualEtherOfTheNewborn
+
+- type: listing
+  id: HereticSidePath6EtherOfTheNewborn
+  name: knowledge-path-side-s6-ether-name
+  description: knowledge-path-side-s6-ether-desc
+  icon: { sprite: _Aquila/Heretic/Conjurations/ether.rsi, state: poison_flask }
+  raiseProductEventOnMind: true
+  productEvent: !type:EventHereticAddKnowledge
+    knowledge:
+    - EtherOfTheNewbornKnowledge
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 5
