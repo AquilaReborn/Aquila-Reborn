@@ -6,6 +6,7 @@ using Content.Shared.Heretic;
 using Content.Shared.Mind;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Collections;
+using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Aquila.Heretic.Systems;
@@ -94,7 +95,8 @@ public sealed partial class HereticRealityShiftVisionSystem : EntitySystem
         vision.Active = true;
         vision.EndTime = now + vision.VisionDuration;
         _eye.SetDrawFov(player, false, eye);
-        _audio.PlayPvs(vision.TriggerSound, player);
+        if (TryComp<ActorComponent>(player, out var actor))
+            _audio.PlayGlobal(vision.TriggerSound, Filter.SinglePlayer(actor.PlayerSession), true);
         RaiseNetworkEvent(new RealityShiftVisionStartedEvent { Duration = vision.VisionDuration }, player);
     }
 }
